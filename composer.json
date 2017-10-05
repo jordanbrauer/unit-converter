@@ -9,5 +9,7 @@
             "email": "jbrauer.inc@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "^2.9",
 }
