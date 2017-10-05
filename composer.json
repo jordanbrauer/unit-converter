@@ -1,0 +1,13 @@
+{
+    "name": "jordanbrauer/unit-converter",
+    "description": "Convert standard units from one to another with this easy to use, lightweight package",
+    "type": "component",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jordanbrauer",
+            "email": "jbrauer.inc@gmail.com"
+        }
+    ],
+    "require": {}
+}
