@@ -1,20 +1,23 @@
 {
-    "name": "jordanbrauer/unit-converter",
-    "version": "0.0.1",
-    "description": "Convert standard units from one to another with this easy to use, lightweight package",
-    "type": "component",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "jordanbrauer",
-            "email": "jbrauer.inc@gmail.com"
-        }
-    ],
-    "require": {},
-    "require-dev": {
-        "phpdocumentor/phpdocumentor": "^2.9",
-        "phpunit/phpunit": "^6.3"
+  "name": "jordanbrauer/unit-converter",
+  "description": "Convert standard units from one to another with this easy to use, lightweight package",
+  "version": "0.0.1",
+  "type": "component",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "jordanbrauer",
+      "email": "jbrauer.inc@gmail.com"
     }
+  ],
+  "scripts": {
+    "test": "phpunit --configuration='./phpunit.xml' --test-suffix='.spec.php' --color=always ./dev/tests/"
+  },
+  "require": {},
+  "require-dev": {
+    "phpdocumentor/phpdocumentor": "^2.9",
+    "phpunit/phpunit": "^6.3"
+  },
   "autoload": {
     "psr-4": {
       "UnitConverter\\": "src/UnitConverter/"
