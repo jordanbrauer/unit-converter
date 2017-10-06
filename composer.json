@@ -15,4 +15,14 @@
         "phpdocumentor/phpdocumentor": "^2.9",
         "phpunit/phpunit": "^6.3"
     }
+  "autoload": {
+    "psr-4": {
+      "UnitConverter\\": "src/UnitConverter/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "UnitConverter\\Tests\\Unit\\": "dev/tests/unit/UnitConverter/"
+    }
+  }
 }
