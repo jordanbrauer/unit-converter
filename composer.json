@@ -12,4 +12,6 @@
     "require": {},
     "require-dev": {
         "phpdocumentor/phpdocumentor": "^2.9",
+        "phpunit/phpunit": "^6.3"
+    }
 }
