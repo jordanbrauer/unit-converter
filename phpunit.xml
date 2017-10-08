@@ -14,7 +14,7 @@
          >
     <testsuites>
       <testsuite name="general">
-        <directory suffix=".spec.php">dev/tests/</directory>
+        <directory suffix=".spec.php">tests/</directory>
       </testsuite>
     </testsuites>
 
