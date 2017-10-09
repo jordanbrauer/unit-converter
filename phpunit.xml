@@ -12,15 +12,21 @@
          verbose="true"
          colors="true"
          >
+    <filter>
+      <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">src/</directory>
+      </whitelist>
+    </filter>
+
     <testsuites>
-      <testsuite name="general">
-        <directory suffix=".spec.php">dev/tests/</directory>
+      <testsuite name="fullspec">
+        <directory suffix=".spec.php">tests/</directory>
       </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src/</directory>
-        </whitelist>
-    </filter>
+    <testsuites>
+      <testsuite name="unit">
+        <directory suffix=".spec.php">tests/unit/</directory>
+      </testsuite>
+    </testsuites>
 </phpunit>

@@ -11,12 +11,13 @@
     }
   ],
   "scripts": {
-    "test": "phpunit --configuration='./phpunit.xml' --test-suffix='.spec.php' --color=always ./dev/tests/"
+    "test": "phpunit --configuration='./phpunit.xml' --test-suffix='.spec.php' --color=always ./tests/"
   },
   "require": {},
   "require-dev": {
     "phpdocumentor/phpdocumentor": "^2.9",
-    "phpunit/phpunit": "^6.3"
+    "phpunit/phpunit": "^6.3",
+    "symfony/var-dumper": "^3.3"
   },
   "autoload": {
     "psr-4": {
@@ -25,7 +26,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "UnitConverter\\Tests\\Unit\\": "dev/tests/unit/UnitConverter/"
+      "UnitConverter\\Tests\\Unit\\": "tests/unit/UnitConverter/"
     }
   }
 }
