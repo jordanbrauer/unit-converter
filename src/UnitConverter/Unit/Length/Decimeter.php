@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Decimeter extends LengthUnit
 {
-  protected $name = "decimeter";
+  protected function configure () : void
+  {
+    $this
+      ->setName("decimeter")
 
-  protected $symbol = "dm";
+      ->setSymbol("dm")
 
-  protected $units = 0.1;
+      ->setUnits(0.1)
+      ;
+  }
 }

@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Hand extends LengthUnit
 {
-  protected $name = "hand";
+  protected function configure () : void
+  {
+    $this
+      ->setName("hand")
 
-  protected $symbol = "h";
+      ->setSymbol("h")
 
-  protected $units = 0.1016;
+      ->setUnits(0.1016)
+      ;
+  }
 }

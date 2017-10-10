@@ -161,11 +161,16 @@ class UnitRegistrySpec extends TestCase
     $this->assertFalse($this->registry->isUnitRegistered("mm"));
 
     $this->registry->registerUnit(new class extends AbstractUnit {
-      protected $name = "saiyanPower";
-      protected $symbol = "sP";
-      protected $unitOf = "energy";
-      protected $base = self::class;
-      protected $units = 9001;
+      protected function configure () : void
+      {
+        $this
+          ->setName("saiyanPower")
+          ->setSymbol("sP")
+          ->setUnitOf("energy")
+          ->setBase(self::class)
+          ->setUnits(9001)
+          ;
+      }
     });
     $this->registry->registerUnits([new Meter, new Milimeter]);
 
@@ -181,12 +186,17 @@ class UnitRegistrySpec extends TestCase
   public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsOutOfBoundsException ()
   {
     $this->expectException("UnitConverter\\Exception\\UnknownMeasurementTypeException");
-    $this->registry->registerUnit(new class extends AbstractUnit {
-      protected $name = "testtt";
-      protected $symbol = "Tst";
-      protected $unitOf = "NO EXIST LOL";
-      protected $base = self::class;
-      protected $units = 1;
+      $this->registry->registerUnit(new class extends AbstractUnit {
+      protected function configure () : void
+      {
+        $this
+          ->setName("testtt")
+          ->setSymbol("Tst")
+          ->setUnitOf("NO EXIST LOL")
+          ->setBase(self::class)
+          ->setUnits(1)
+          ;
+      }
     });
   }
 

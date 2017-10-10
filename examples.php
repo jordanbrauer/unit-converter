@@ -30,11 +30,16 @@ $converter = new UnitConverter($registry);
 # ========================
 
 $registry->registerUnit(new class extends AbstractUnit {
-  protected $name = "testtt";
-  protected $symbol = "Tst";
-  protected $unitOf = Measure::VOLUME;
-  protected $base = self::class;
-  protected $units = 1;
+  protected function configure () : void
+  {
+    $this
+      ->setName("testtt")
+      ->setSymbol("Tst")
+      ->setUnitOf(Measure::VOLUME)
+      ->setBase(self::class)
+      ->setUnits(1)
+      ;
+  }
 });
 
 # Converting Units

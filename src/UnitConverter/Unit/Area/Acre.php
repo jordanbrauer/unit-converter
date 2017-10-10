@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Acre extends AreaUnit
 {
-  protected $name = "acre";
+  protected function configure () : void
+  {
+    $this
+      ->setName("acre")
 
-  protected $symbol = "ac";
+      ->setSymbol("ac")
 
-  protected $units = 4046.86;
+      ->setUnits(4046.86)
+      ;
+  }
 }
