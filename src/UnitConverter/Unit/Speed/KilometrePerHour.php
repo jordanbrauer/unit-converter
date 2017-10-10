@@ -18,17 +18,17 @@ use UnitConverter\Measure;
 use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
 
 /**
- * Kilometer per hour unit data class.
+ * Kilometre per hour unit data class.
  *
  * @version 1.0.0
  * @since 1.0.0
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class KilometerPerHour extends SpeedUnit
+class KilometrePerHour extends SpeedUnit
 {
-  protected $name = "kilometer per hour";
+  protected $name = "kilometre per hour";
 
   protected $symbol = "kph";
 
-  protected $units = 0.44704;
+  protected $units = 0.277778;
 }
