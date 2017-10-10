@@ -43,6 +43,7 @@ interface UnitRegistryInterface
   /**
    * Fetch a unit from the unit registry for use elsewhere.
    *
+   * @throws UnknownUnitOfMeasureException An out of bounds exception will be thrown if loading an unregistered unit is attempted.
    * @param string $symbol The symbol notation of the unit being loaded.
    * @return null|UnitInterface
    */
@@ -68,6 +69,10 @@ interface UnitRegistryInterface
    * Register a single measurement to the unit registry by passing a
    * string as the argument
    *
+   * @NOTE In order to prevent unwanted overwritting of measurement
+   * types (especially those with many registered units) - you must
+   * unregister the measurement first with ::unregisterMeasurement().
+   *
    * @param string $measurement
    * @return void
    */
@@ -87,7 +92,7 @@ interface UnitRegistryInterface
    * instance of a UnitInterface as it's argument
    *
    * @param UnitInterface $unit
-   * @throws ErrorException This will be thrown when an attempted unit registration is made on an unexisting measurement.
+   * @throws UnknownMeasurementTypeException This will be thrown when an attempted unit registration is made on an unexisting measurement.
    * @return void
    */
   public function registerUnit (UnitInterface $unit) : void;
@@ -108,7 +113,7 @@ interface UnitRegistryInterface
    * units belonging to the measurement that is being unregistered.
    *
    * @param string $symbol
-   * @throws ErrorException An error exception will be thrown if you attempt to unregister a non-existing measurement type.
+   * @throws UnknownMeasurementTypeException An error exception will be thrown if you attempt to unregister a non-existing measurement type.
    * @return void
    */
   public function unregisterMeasurement (string $symbol) : void;
@@ -125,7 +130,7 @@ interface UnitRegistryInterface
    * Unegister a single unit from the unit registry
    *
    * @param string $symbol
-   * @throws ErrorException An error exception will be thrown if you attempt to unregister a non-existing unit of measure.
+   * @throws UnknownUnitOfMeasureException An error exception will be thrown if you attempt to unregister a non-existing unit of measure.
    * @return void
    */
   public function unregisterUnit (string $symbol) : void;

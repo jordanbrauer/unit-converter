@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter;
 
+use UnitConverter\Exception\MissingUnitRegistryException;
 use UnitConverter\Measure;
 use UnitConverter\Unit\UnitInterface;
 use UnitConverter\Registry\UnitRegistryInterface;
@@ -77,13 +78,13 @@ class UnitConverter implements UnitConverterInterface
    *
    * @internal
    * @uses UnitConverter\UnitRegistry::loadUnit
-   * @throws ErrorException An error exceptino will be thrown if no registry exits
+   * @throws MissingUnitRegistryException An out of bounds exception will be thrown if an attempt is made to access a non-existent registry.
    * @return UnitInterface
    */
   protected function loadUnit(string $symbol) : UnitInterface
   {
     if ($this->registryExists() === false)
-      throw new \ErrorException("No unit registry was found to load units from.");
+      throw new MissingUnitRegistryException("No unit registry was found to load units from.");
 
     return $this->registry->loadUnit($symbol);
   }

@@ -45,6 +45,17 @@ class UnitConverterSpec extends TestCase
 
   /**
    * @test
+   * @coversNothing
+   */
+  public function assertConversionAttemptsWithoutARegistryThrowsOutOfBoundsException ()
+  {
+    $this->expectException("UnitConverter\\Exception\\MissingUnitRegistryException");
+    $converter = new UnitConverter;
+    $converter->convert(1)->from("in")->to("cm");
+  }
+
+  /**
+   * @test
    * @covers ::convert
    * @covers ::from
    * @covers ::to
@@ -61,5 +72,19 @@ class UnitConverterSpec extends TestCase
 
     $this->assertEquals($expected, $actual);
     $this->assertInternalType("float", $actual);
+  }
+
+  /**
+   * @test
+   * @coversNothing
+   */
+  public function assertConversionThrowsErrorExceptionAtUnknownUnits ()
+  {
+    $this->expectException("UnitConverter\\Exception\\UnknownUnitOfMeasureException");
+    $this->converter
+      ->convert(1)
+      ->from("yd") # any unregistered unit
+      ->to("in")
+      ;
   }
 }

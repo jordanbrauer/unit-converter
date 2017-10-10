@@ -78,6 +78,16 @@ class UnitRegistrySpec extends TestCase
 
   /**
    * @test
+   * @coversNothing
+   */
+  public function assertOutOfBoundsExceptionIsThrownForUnregisteredUnits ()
+  {
+    $this->expectException("UnitConverter\\Exception\\UnknownUnitOfMeasureException");
+    $this->registry->loadUnit("yd");
+  }
+
+  /**
+   * @test
    * @covers ::listMeasurements
    */
   public function assertListMeasurementsMethodReturnsArray ()
@@ -166,6 +176,22 @@ class UnitRegistrySpec extends TestCase
 
   /**
    * @test
+   * @coversNothing
+   */
+  public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsOutOfBoundsException ()
+  {
+    $this->expectException("UnitConverter\\Exception\\UnknownMeasurementTypeException");
+    $this->registry->registerUnit(new class extends AbstractUnit {
+      protected $name = "testtt";
+      protected $symbol = "Tst";
+      protected $unitOf = "NO EXIST LOL";
+      protected $base = self::class;
+      protected $units = 1;
+    });
+  }
+
+  /**
+   * @test
    * @covers ::unregisterMeasurement
    * @covers ::unregisterMeasurements
    * @uses ::isMeasurementRegistered
@@ -186,6 +212,16 @@ class UnitRegistrySpec extends TestCase
 
   /**
    * @test
+   * @coversNothing
+   */
+  public function assertUnregisteringUnknownMeasurementsThrowsOutOfBoundsException ()
+  {
+    $this->expectException("UnitConverter\\Exception\\UnknownMeasurementTypeException");
+    $this->registry->unregisterMeasurement("NOT REAL");
+  }
+
+  /**
+   * @test
    * @covers ::unregisterUnit
    * @covers ::unregisterUnits
    * @uses ::isUnitRegistered
@@ -200,5 +236,15 @@ class UnitRegistrySpec extends TestCase
 
     $this->assertFalse($this->registry->isUnitRegistered("cm"));
     $this->assertFalse($this->registry->isUnitRegistered("in"));
+  }
+
+  /**
+   * @test
+   * @coversNothing
+   */
+  public function assertUnregisteringUnknownUnitsThrowsOutOfBoundsException ()
+  {
+    $this->expectException("UnitConverter\\Exception\\UnknownUnitOfMeasureException");
+    $this->registry->unregisterUnit("nOtREal");
   }
 }
