@@ -18,9 +18,8 @@ use UnitConverter\Measure;
 use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
 
 /**
- * Area unit base data class. Any new area units should
- * extend this class and implement their name, symbol and units;
- * overriding the $unitOf and $base properties only if necessary.
+ * Square meter data class. All area units will use this
+ * class as the $base property.
  *
  * @version 1.0.0
  * @since 1.0.0
