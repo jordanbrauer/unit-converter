@@ -34,7 +34,7 @@ class Measure
 
   const SPEED = "speed";
 
-  const ROTATION = "rotation";
+  const PLANE_ANGLE = "plane_angle";
 
   const TEMPERATURE = "temperature";
 
