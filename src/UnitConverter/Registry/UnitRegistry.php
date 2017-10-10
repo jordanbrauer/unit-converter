@@ -50,7 +50,7 @@ class UnitRegistry implements UnitRegistryInterface
       Measure::VOLUME => array(),
       Measure::WEIGHT => array(),
       Measure::SPEED => array(),
-      Measure::ROTATION => array(),
+      Measure::PLANE_ANGLE => array(),
       Measure::TEMPERATURE => array(),
       Measure::PRESSURE => array(),
       Measure::TIME => array(),
