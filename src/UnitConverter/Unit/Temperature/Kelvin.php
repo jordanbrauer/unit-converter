@@ -26,7 +26,7 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Kelvin extends TemperatureUnit
 {
-  protected function configure ()
+  protected function configure () : void
   {
     $this
       ->setName("kelvin")
