@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class SquareFoot extends AreaUnit
 {
-  protected $name = "square foot";
+  protected function configure () : void
+  {
+    $this
+      ->setName("square foot")
 
-  protected $symbol = "ft2";
+      ->setSymbol("ft2")
 
-  protected $units = 0.092903;
+      ->setUnits(0.092903)
+      ;
+  }
 }

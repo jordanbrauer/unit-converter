@@ -70,7 +70,7 @@ interface UnitInterface
    *
    * @return UnitInterface
    */
-  public function setBase (UnitInterface $base) : UnitInterface;
+  public function setBase ($base) : UnitInterface;
 
   /**
    * Returns the unit class that this unit is based off of.
@@ -89,7 +89,8 @@ interface UnitInterface
   /**
    * Returns the amount of base units required to make up 1 of the unit.
    *
+   * @param mixed $value Unused. Supposed to help determine conversion if using calculate.
    * @return float
    */
-  public function getUnits () : float;
+  public function getUnits ($value = null) : float;
 }

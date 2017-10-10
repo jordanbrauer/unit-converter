@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Meter extends LengthUnit
 {
-  protected $name = "meter";
+  protected function configure () : void
+  {
+    $this
+      ->setName("meter")
 
-  protected $symbol = "m";
+      ->setSymbol("m")
 
-  protected $units = 1;
+      ->setUnits(1)
+      ;
+  }
 }
