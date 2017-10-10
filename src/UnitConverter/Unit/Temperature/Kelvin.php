@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Kelvin extends TemperatureUnit
 {
-  protected $name = "kelvin";
+  protected function configure ()
+  {
+    $this
+      ->setName("kelvin")
 
-  protected $symbol = "k";
+      ->setSymbol("k")
 
-  protected $units = 1;
+      ->setUnits(1)
+      ;
+  }
 }
