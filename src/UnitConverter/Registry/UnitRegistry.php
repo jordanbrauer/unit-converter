@@ -14,6 +14,10 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Registry;
 
+use UnitConverter\Exception\{
+  UnknownUnitOfMeasureException,
+  UnknownMeasurementTypeException
+};
 use UnitConverter\Measure;
 use UnitConverter\Unit\UnitInterface;
 
@@ -74,12 +78,13 @@ class UnitRegistry implements UnitRegistryInterface
 
   public function loadUnit (string $symbol) : ?UnitInterface
   {
+    if ($this->isUnitRegistered($symbol) === false)
+      throw new UnknownUnitOfMeasureException("Trying to access unregistered unit of '{$symbol}'");
+
     foreach ($this->store as $measurement => $units) {
       if (array_key_exists($symbol, $units))
         return $this->store[$measurement][$symbol];
     }
-
-    return null;
   }
 
   public function listMeasurements () : array
@@ -120,7 +125,7 @@ class UnitRegistry implements UnitRegistryInterface
   public function registerUnit (UnitInterface $unit) : void
   {
     if (!$this->isMeasurementRegistered($unit->getUnitOf()))
-      throw new \ErrorException("Trying to register unit {$unit->getName()} to an unregisted measurement of {$unit->getUnitOf()}");
+      throw new UnknownMeasurementTypeException("Trying to register unit '{$unit->getName()}' to an unregisted measurement of '{$unit->getUnitOf()}'");
 
     $this->store[$unit->getUnitOf()][$unit->getSymbol()] = $unit;
   }
@@ -135,7 +140,7 @@ class UnitRegistry implements UnitRegistryInterface
   public function unregisterMeasurement (string $measurement) : void
   {
     if (!$this->isMeasurementRegistered($measurement))
-      throw new \ErrorException("Trying to unregister a nonexistent measurement type {$measurement}");
+      throw new UnknownMeasurementTypeException("Trying to unregister a nonexistent measurement type {$measurement}");
 
     unset($this->store[$measurement]);
   }
@@ -150,7 +155,7 @@ class UnitRegistry implements UnitRegistryInterface
   public function unregisterUnit (string $symbol) : void
   {
     if ($this->isUnitRegistered($symbol) === false)
-      throw new \ErrorException("Trying to unregister a nonexistent unit {$symbol}");
+      throw new UnknownUnitOfMeasureException("Trying to unregister a nonexistent unit {$symbol}");
 
     $unit = $this->loadUnit($symbol);
     unset($this->store[$unit->getUnitOf()][$symbol]);
