@@ -26,9 +26,15 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Micrometer extends LengthUnit
 {
-  protected $name = "micrometer";
+  protected function configure () : void
+  {
+    $this
+      ->setName("micrometer")
 
-  protected $symbol = "µm";
-  
-  protected $units = 0.000001; # 1.0E-6
+      ->setSymbol("µm")
+
+      # 1.0E-6
+      ->setUnits(0.000001)
+      ;
+  }
 }

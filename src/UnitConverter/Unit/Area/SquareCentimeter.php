@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class SquareCentimeter extends AreaUnit
 {
-  protected $name = "square centimeter";
+  protected function configure () : void
+  {
+    $this
+      ->setName("square centimeter")
 
-  protected $symbol = "cm2";
+      ->setSymbol("cm2")
 
-  protected $units = 0.0001;
+      ->setUnits(0.0001)
+      ;
+  }
 }

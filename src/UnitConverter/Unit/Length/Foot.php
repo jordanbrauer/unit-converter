@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Foot extends LengthUnit
 {
-  protected $name = "foot";
+  protected function configure () : void
+  {
+    $this
+      ->setName("foot")
 
-  protected $symbol = "ft";
+      ->setSymbol("ft")
 
-  protected $units = 0.3048;
+      ->setUnits(0.3048)
+      ;
+  }
 }

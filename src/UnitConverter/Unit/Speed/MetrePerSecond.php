@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class MetrePerSecond extends SpeedUnit
 {
-  protected $name = "metre per second";
+  protected function configure () : void
+  {
+    $this
+      ->setName("metre per second")
 
-  protected $symbol = "mps";
+      ->setSymbol("mps")
 
-  protected $units = 1;
+      ->setUnits(1)
+      ;
+  }
 }
