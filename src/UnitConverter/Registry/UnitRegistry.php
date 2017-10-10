@@ -94,24 +94,24 @@ class UnitRegistry implements UnitRegistryInterface
 
   public function listUnits (string $measurement = null) : array
   {
-    if (!$measurement) {
-      $registeredUnits = array();
-
-      foreach ($this->store as $measurements) {
-        foreach ($measurements as $unit) {
-          array_push($registeredUnits, $unit->getSymbol());
-        }
-      }
-
-      return $registeredUnits;
+    if ($measurement) {
+      return array_keys($this->store[$measurement]);
     }
 
-    return array_keys($this->store[$measurement]);
+    $registeredUnits = array();
+
+    foreach ($this->store as $measurements) {
+      foreach ($measurements as $unit) {
+        array_push($registeredUnits, $unit->getSymbol());
+      }
+    }
+
+    return $registeredUnits;
   }
 
   public function registerMeasurement (string $measurement) : void
   {
-    if (!$this->isMeasurementRegistered($measurement))
+    if ($this->isMeasurementRegistered($measurement) === false)
       $this->store[$measurement] = $measurement;
   }
 
