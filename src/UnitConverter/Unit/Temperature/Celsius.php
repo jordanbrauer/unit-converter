@@ -33,7 +33,13 @@ class Celsius extends TemperatureUnit
 
       ->setSymbol("c")
 
-      ->setUnits(-272.15)
+      // ->setUnits(-272.15)
       ;
+  }
+
+  protected function calculate ($value) : ?float
+  {
+    # °F = (°C × (9 ÷ 5)) + 32
+    return ($value * (9 / 5)) + 32;
   }
 }
