@@ -46,3 +46,5 @@ $converter
   ->from("in")
   ->to("cm")
   ;
+
+dump($conversion);
