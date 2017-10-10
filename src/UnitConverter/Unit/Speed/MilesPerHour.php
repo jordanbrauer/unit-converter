@@ -30,5 +30,5 @@ class MilesPerHour extends SpeedUnit
 
   protected $symbol = "mph";
 
-  protected $units = 0.277778;
+  protected $units = 0.44704;
 }
