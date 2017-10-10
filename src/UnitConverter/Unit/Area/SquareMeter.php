@@ -25,7 +25,7 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  * @since 1.0.0
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-abstract class SquareMeter extends AreaUnit
+class SquareMeter extends AreaUnit
 {
   protected $name = "square meter";
 

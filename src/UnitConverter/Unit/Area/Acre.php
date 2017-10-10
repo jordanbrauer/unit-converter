@@ -24,7 +24,7 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  * @since 1.0.0
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-abstract class Acre extends AreaUnit
+class Acre extends AreaUnit
 {
   protected $name = "acre";
 
