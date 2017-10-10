@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Celsius extends TemperatureUnit
 {
-  protected $name = "celsius";
+  protected function configure ()
+  {
+    $this
+      ->setName("celsius")
 
-  protected $symbol = "c";
+      ->setSymbol("c")
 
-  protected $units = -272.15;
+      ->setUnits(-272.15)
+      ;
+  }
 }
