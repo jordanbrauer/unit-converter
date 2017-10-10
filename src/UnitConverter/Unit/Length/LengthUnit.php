@@ -26,7 +26,7 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  * @since 1.0.0
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class LengthUnit extends AbstractUnit
+abstract class LengthUnit extends AbstractUnit
 {
   protected $unitOf = Measure::LENGTH;
 
