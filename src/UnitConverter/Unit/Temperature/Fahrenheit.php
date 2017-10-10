@@ -32,9 +32,14 @@ class Fahrenheit extends TemperatureUnit
       ->setName("fahrenheit")
 
       ->setSymbol("f")
+
+      // ->setUnits(-457.87)
       ;
   }
 
-    ->setUnits(-457.87)
-    ;
+  protected function calculate ($value) : ?float
+  {
+    # °C = (°F - 32) × (5 ÷ 9)
+    return ($value - 32) * (5 / 9);
+  }
 }
