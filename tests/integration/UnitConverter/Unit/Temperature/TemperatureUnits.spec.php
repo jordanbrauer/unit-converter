@@ -12,7 +12,7 @@
 
 declare(strict_types = 1);
 
-namespace UnitConverter\Tests\Integration\Unit;
+namespace UnitConverter\Tests\Integration\Unit\Temperature;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
