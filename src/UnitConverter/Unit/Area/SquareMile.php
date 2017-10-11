@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class SquareMile extends AreaUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("square mile")
+  protected $name = "square mile";
 
-      ->setSymbol("mi2")
+  protected $symbol = "mi2";
 
-      ->setUnits(2589988.11)
-      ;
-  }
+  protected $units = 2589988.11;
 }

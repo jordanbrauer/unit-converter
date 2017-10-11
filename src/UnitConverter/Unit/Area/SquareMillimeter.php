@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class SquareMillimeter extends AreaUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("square millimeter")
+  protected $name = "square millimeter";
 
-      ->setSymbol("mm2")
+  protected $symbol = "mm2";
 
-      ->setUnits(0.000001)
-      ;
-  }
+  protected $units = 0.000001;
 }

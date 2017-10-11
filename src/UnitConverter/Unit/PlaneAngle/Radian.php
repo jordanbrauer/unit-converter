@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Radian extends PlaneAngleUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("radian")
+  protected $name = "radian";
 
-      ->setSymbol("rad")
+  protected $symbol = "rad";
 
-      ->setUnits(57.2958)
-      ;
-  }
+  protected $units = 57.2958;
 }

@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Yard extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("yard")
+  protected $name = "yard";
 
-      ->setSymbol("yd")
+  protected $symbol = "yd";
 
-      ->setUnits(0.9144)
-      ;
-  }
+  protected $units = 0.9144;
 }

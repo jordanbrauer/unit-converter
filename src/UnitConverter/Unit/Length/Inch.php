@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Inch extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("inch")
+  protected $name = "inch";
 
-      ->setSymbol("in")
+  protected $symbol = "in";
 
-      ->setUnits(0.0254)
-      ;
-  }
+  protected $units = 0.0254;
 }

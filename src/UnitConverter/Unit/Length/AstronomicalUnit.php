@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class AstronomicalUnit extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("astronomical unit")
+  protected $name = "astronomical unit";
 
-      ->setSymbol("au")
+  protected $symbol = "au";
 
-      ->setUnits(149597870700)
-      ;
-  }
+  protected $units = 149597870700;
 }

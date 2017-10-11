@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Kilometer extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("kilometer")
+  protected $name = "kilometer";
 
-      ->setSymbol("km")
+  protected $symbol = "km";
 
-      ->setUnits(1000)
-      ;
-  }
+  protected $units = 1000;
 }

@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class SquareKilometer extends AreaUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("square kilometer")
+  protected $name = "square kilometer";
 
-      ->setSymbol("km2")
+  protected $symbol = "km2";
 
-      ->setUnits(1000000)
-      ;
-  }
+  protected $units = 1000000;
 }
