@@ -18,11 +18,11 @@ use UnitConverter\Measure;
 use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
 
 /**
- * Bar unit data class.
+ * Millibar unit data class.
  *
  * @version 1.0.0
  * @since 1.0.0
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @author Teun Willems
  */
 class Millibar extends PressureUnit
 {
@@ -33,7 +33,7 @@ class Millibar extends PressureUnit
 
             ->setSymbol("bar")
 
-            ->setUnits(100)
+            ->setUnits(100000000)
         ;
     }
 }
