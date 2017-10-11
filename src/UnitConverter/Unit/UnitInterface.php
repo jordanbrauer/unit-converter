@@ -89,8 +89,14 @@ interface UnitInterface
   /**
    * Returns the amount of base units required to make up 1 of the unit.
    *
-   * @param mixed $value Unused. Supposed to help determine conversion if using calculate.
    * @return float
    */
-  public function getUnits ($value = null) : float;
+  public function getUnits () : float;
+
+  /**
+   * Returns the units base unit units'.
+   *
+   * @return float
+   */
+  public function getBaseUnits () : float;
 }
