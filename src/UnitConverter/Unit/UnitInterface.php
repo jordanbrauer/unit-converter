@@ -70,7 +70,7 @@ interface UnitInterface
    *
    * @return UnitInterface
    */
-  public function setBase (UnitInterface $base) : UnitInterface;
+  public function setBase ($base) : UnitInterface;
 
   /**
    * Returns the unit class that this unit is based off of.
@@ -92,4 +92,11 @@ interface UnitInterface
    * @return float
    */
   public function getUnits () : float;
+
+  /**
+   * Returns the units base unit units'.
+   *
+   * @return float
+   */
+  public function getBaseUnits () : float;
 }

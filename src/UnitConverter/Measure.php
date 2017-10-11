@@ -30,7 +30,7 @@ class Measure
 
   const VOLUME = "volume";
 
-  const WEIGHT = "weight";
+  const MASS = "mass";
 
   const SPEED = "speed";
 

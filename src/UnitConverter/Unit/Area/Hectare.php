@@ -26,9 +26,14 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Hectare extends AreaUnit
 {
-  protected $name = "hectare";
+  protected function configure () : void
+  {
+    $this
+      ->setName("hectare")
 
-  protected $symbol = "ha";
+      ->setSymbol("ha")
 
-  protected $units = 10000;
+      ->setUnits(10000)
+      ;
+  }
 }

@@ -26,9 +26,15 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Picometer extends LengthUnit
 {
-  protected $name = "picometer";
+  protected function configure () : void
+  {
+    $this
+      ->setName("picometer")
 
-  protected $symbol = "pm";
+      ->setSymbol("pm")
 
-  protected $units = 0.000000000001; # 1.0E-12
+      # 1.0E-12
+      ->setUnits(0.000000000001)
+      ;
+  }
 }
