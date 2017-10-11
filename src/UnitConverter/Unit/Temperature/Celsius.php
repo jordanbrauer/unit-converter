@@ -44,9 +44,17 @@ class Celsius extends TemperatureUnit
       case 'f': # °F = (°C × (9 ÷ 5)) + 32
         return ($val * (9 / 5)) + 32;
         break;
-      default: # °K = °C + 273.15
+
+      case 'k': # °K = °C + 273.15
         return ($val + 273.15);
         break;
+
+      case 'c': # °C = °C
+        return $val;
+        break;
+        
+      default:
+        throw new \Exception("Unknown conversion formula for {$to->getSymbol()}");
     }
   }
 }

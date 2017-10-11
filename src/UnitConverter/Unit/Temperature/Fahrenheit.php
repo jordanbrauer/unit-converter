@@ -45,9 +45,16 @@ class Fahrenheit extends TemperatureUnit
         return ($val - 32) * (5 / 9);
         break;
 
-      default: # °K = (°F + 459.67) × (5 ÷ 9)
+      case 'k': # °K = (°F + 459.67) × (5 ÷ 9)
         return (($val + 459.67) * 5 / 9);
         break;
+
+      case 'f': # °F = °F
+        return $val;
+        break;
+
+      default:
+        throw new \Exception("Unknown conversion formula for {$to->getSymbol()}");
     }
   }
 }
