@@ -26,15 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Nanometer extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("nanometer")
+  protected $name = "nanometer";
 
-      ->setSymbol("nm")
+  protected $symbol = "nm";
 
-      # 1.0E-9
-      ->setUnits(0.000000001)
-      ;  
-  }
+  protected $units = 0.000000001; # 1.0E-9
 }

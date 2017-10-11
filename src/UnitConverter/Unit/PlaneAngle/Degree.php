@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Degree extends PlaneAngleUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("degree")
+  protected $name = "degree";
 
-      ->setSymbol("deg")
+  protected $symbol = "deg";
 
-      ->setUnits(1)
-      ;
-  }
+  protected $units = 1;
 }

@@ -52,25 +52,15 @@ abstract class AbstractUnit implements UnitInterface
 
   public function __construct ()
   {
-    $this->configure();
-  }
-
-  /**
-   * Configure the current unit of measure.
-   *
-   * @return void
-   */
-  protected function configure () : void
-  {
+    $this->units = $this->calculate() ?? $this->units;
   }
 
   /**
    * Calculate the amount of required base units to make up 1 unit.
    *
-   * @param mixed $value Unused. Supposed to help determine conversion if using calculate.
    * @return null|float
    */
-  protected function calculate ($value) : ?float
+  protected function calculate () : ?float
   {
     return null;
   }
@@ -108,7 +98,7 @@ abstract class AbstractUnit implements UnitInterface
     return $this->unitOf;
   }
 
-  public function setBase ($base) : UnitInterface
+  public function setBase (UnitInterface $base) : UnitInterface
   {
     $this->base = $base;
     return $this;
@@ -125,8 +115,8 @@ abstract class AbstractUnit implements UnitInterface
     return $this;
   }
 
-  public function getUnits ($value = null) : float
+  public function getUnits () : float
   {
-    return $this->calculate($value) ?? $this->units;
+    return $this->units;
   }
 }

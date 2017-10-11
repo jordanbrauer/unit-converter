@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class MilesPerHour extends SpeedUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("miles per hour")
+  protected $name = "miles per hour";
 
-      ->setSymbol("mph")
+  protected $symbol = "mph";
 
-      ->setUnits(0.44704)
-      ;
-  }
+  protected $units = 0.44704;
 }

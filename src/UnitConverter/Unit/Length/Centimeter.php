@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Centimeter extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("centimeter")
+  protected $name = "centimeter";
 
-      ->setSymbol("cm")
+  protected $symbol = "cm";
 
-      ->setUnits(0.01)
-      ;
-  }
+  protected $units = 0.01;
 }

@@ -26,17 +26,11 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Parsec extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("parsec")
+  protected $name = "parsec";
 
-      ->setSymbol("pc")
+  protected $symbol = "pc";
 
-      # Metric (SI) Units = 3.0857×1016 m
-      # – OR – ~31 petametres
-      # 3.08567758149E+16
-      ->setUnits(30856775814913672.789139379577965)
-      ;
-  }
+  # Metric (SI) Units = 3.0857×1016 m
+  # – OR – ~31 petametres
+  protected $units = 30856775814913672.789139379577965; # 3.08567758149E+16
 }

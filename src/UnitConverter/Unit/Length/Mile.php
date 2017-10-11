@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Mile extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("mile")
+  protected $name = "mile";
 
-      ->setSymbol("mi")
+  protected $symbol = "mi";
 
-      ->setUnits(1609.344)
-      ;
-  }
+  protected $units = 1609.344;
 }

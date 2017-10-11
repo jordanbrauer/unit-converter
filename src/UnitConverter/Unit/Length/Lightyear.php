@@ -26,16 +26,11 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Lightyear extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("lightyear")
+  protected $name = "lightyear";
 
-      ->setSymbol("ly")
+  protected $symbol = "ly";
 
-      # Metric (SI) Units = 9.4607 × 1015 m
-      # – OR – 9.4607 Pm
-      ->setUnits(9460730472580800)
-      ;
-  }
+  # Metric (SI) Units = 9.4607 × 1015 m
+  # – OR – 9.4607 Pm
+  protected $units = 9460730472580800;
 }

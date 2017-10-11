@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Milimeter extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("milimeter")
+  protected $name = "milimeter";
 
-      ->setSymbol("mm")
+  protected $symbol = "mm";
 
-      ->setUnits(0.001)
-      ;
-  }
+  protected $units = 0.001;
 }

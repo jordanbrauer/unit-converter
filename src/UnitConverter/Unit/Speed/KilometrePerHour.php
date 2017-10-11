@@ -26,14 +26,9 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class KilometrePerHour extends SpeedUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("kilometre per hour")
+  protected $name = "kilometre per hour";
 
-      ->setSymbol("kph")
+  protected $symbol = "kph";
 
-      ->setUnits(0.277778)
-      ;
-  }
+  protected $units = 0.277778;
 }
