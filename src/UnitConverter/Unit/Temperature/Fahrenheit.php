@@ -26,14 +26,10 @@ use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
  */
 class Fahrenheit extends TemperatureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("fahrenheit")
+  $this
+    ->setName("fahrenheit")
 
-      ->setSymbol("f")
-      ;
-  }
+    ->setSymbol("f")
 
     ->setUnits(-457.87)
     ;
