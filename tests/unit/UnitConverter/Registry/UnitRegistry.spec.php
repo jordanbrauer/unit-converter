@@ -209,14 +209,14 @@ class UnitRegistrySpec extends TestCase
   public function assertUnregisterMeasurementMethodsRemoveItemsFromUnitRegistry ()
   {
     $this->assertTrue($this->registry->isMeasurementRegistered("length"));
-    $this->assertTrue($this->registry->isMeasurementRegistered("weight"));
+    $this->assertTrue($this->registry->isMeasurementRegistered("mass"));
     $this->assertTrue($this->registry->isMeasurementRegistered("volume"));
 
     $this->registry->unregisterMeasurement("length");
-    $this->registry->unregisterMeasurements(array("weight", "volume"));
+    $this->registry->unregisterMeasurements(array("mass", "volume"));
 
     $this->assertFalse($this->registry->isMeasurementRegistered("length"));
-    $this->assertFalse($this->registry->isMeasurementRegistered("weight"));
+    $this->assertFalse($this->registry->isMeasurementRegistered("mass"));
     $this->assertFalse($this->registry->isMeasurementRegistered("volume"));
   }
 
