@@ -92,9 +92,6 @@ class UnitConverter implements UnitConverterInterface
   /**
    * Calculate the conversion from one unit to another.
    *
-   * @FIXME Gross use of a check for a null calculate() method ... 😑 Gotta
-   * figure out a better way to use the calulate method.
-   *
    * @internal
    * @param float $value The initial value being converted.
    * @param UnitInterface $from The unit of measure being converted **from**.
@@ -103,12 +100,6 @@ class UnitConverter implements UnitConverterInterface
    */
   protected function calculate (float $value, UnitInterface $from, UnitInterface $to): float
   {
-    $selfConversion = $from->convert($value, $to);
-
-    if ($selfConversion)
-      return $selfConversion;
-
-    # If the unit does not implement the calculate() method, convert it manually.
     return ($value * $from->getUnits()) / $to->getUnits();
   }
 
@@ -134,7 +125,6 @@ class UnitConverter implements UnitConverterInterface
   public function to (string $unit)
   {
     $this->to = $this->loadUnit($unit);
-
     return $this->calculate($this->convert, $this->from, $this->to);
   }
 }
