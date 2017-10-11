@@ -18,7 +18,7 @@ use UnitConverter\Measure;
 use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
 
 /**
- * Pascal unit data class.
+ * Kilopascal unit data class.
  *
  * @version 1.0.0
  * @since 1.0.0
