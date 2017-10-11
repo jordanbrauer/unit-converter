@@ -11,9 +11,7 @@
     }
   ],
   "scripts": {
-    "test": "phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
-    "unit": "phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
-    "integration": "phpunit --configuration=./phpunit.xml --testsuite=integration --color=always"
+    "test": "phpunit --configuration='./phpunit.xml' --test-suffix='.spec.php' --color=always ./tests/"
   },
   "require": {},
   "require-dev": {
@@ -28,7 +26,6 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "UnitConverter\\Tests\\Integration\\": "tests/integration/UnitConverter/",
       "UnitConverter\\Tests\\Unit\\": "tests/unit/UnitConverter/"
     }
   }
