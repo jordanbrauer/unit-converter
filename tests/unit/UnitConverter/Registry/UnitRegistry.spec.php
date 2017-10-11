@@ -97,7 +97,7 @@ class UnitRegistrySpec extends TestCase
       "length",
       "area",
       "volume",
-      "weight",
+      "mass",
       "speed",
       "plane_angle",
       "temperature",
