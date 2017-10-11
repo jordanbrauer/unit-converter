@@ -32,22 +32,14 @@ class Fahrenheit extends TemperatureUnit
       ->setName("fahrenheit")
 
       ->setSymbol("f")
+
+      // ->setUnits(-457.87)
       ;
   }
 
-  protected function calculate (float $value, UnitInterface $to) : ?float
+  protected function calculate ($value) : ?float
   {
-    $val = $value ?? $this->getBase()->getUnits();
-
-    # 0 °K = 255.372 °F
-    switch ($to->getSymbol()) {
-      case 'c': # °C = (°F - 32) × (5 ÷ 9)
-        return ($val - 32) * (5 / 9);
-        break;
-
-      default: # °K = (°F + 459.67) × (5 ÷ 9)
-        return (($val + 459.67) * 5 / 9);
-        break;
-    }
+    # °C = (°F - 32) × (5 ÷ 9)
+    return ($value - 32) * (5 / 9);
   }
 }
