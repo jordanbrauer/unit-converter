@@ -31,7 +31,7 @@ class WattHour extends EnergyUnit
     $this
       ->setName("watt hour")
 
-      ->setSymbol("whr")
+      ->setSymbol("Wh")
 
       ->setUnits(3600.0054468)
       ;

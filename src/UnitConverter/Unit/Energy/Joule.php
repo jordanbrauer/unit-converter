@@ -31,7 +31,7 @@ class Joule extends EnergyUnit
     $this
       ->setName("joule")
 
-      ->setSymbol("j")
+      ->setSymbol("J")
 
       ->setUnits(1)
       ;
