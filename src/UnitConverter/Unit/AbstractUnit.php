@@ -67,25 +67,12 @@ abstract class AbstractUnit implements UnitInterface
   /**
    * Calculate the amount of required base units to make up 1 unit.
    *
-   * @param float $value
-   * @param UnitInterface $to
+   * @param mixed $value Unused. Supposed to help determine conversion if using calculate.
    * @return null|float
    */
-  protected function calculate (float $value, UnitInterface $to) : ?float
+  protected function calculate ($value) : ?float
   {
     return null;
-  }
-
-  /**
-   * Exposes access to the ::calculate() method.
-   *
-   * @param float $value
-   * @param UnitInterface $to
-   * @return null|float
-   */
-  public function convert (float $value, UnitInterface $to)
-  {
-    return $this->calculate($value, $to);
   }
 
   public function setName (string $name) : UnitInterface
@@ -138,13 +125,8 @@ abstract class AbstractUnit implements UnitInterface
     return $this;
   }
 
-  public function getUnits () : float
+  public function getUnits ($value = null) : float
   {
-    return $this->units;
-  }
-
-  public function getBaseUnits () : float
-  {
-    return $this->getBase()->getUnits();
+    return $this->calculate($value) ?? $this->units;
   }
 }
