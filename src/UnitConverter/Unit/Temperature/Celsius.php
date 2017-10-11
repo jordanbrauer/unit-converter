@@ -32,21 +32,14 @@ class Celsius extends TemperatureUnit
       ->setName("celsius")
 
       ->setSymbol("c")
+
+      // ->setUnits(-272.15)
       ;
   }
 
-  protected function calculate (float $value, UnitInterface $to) : ?float
+  protected function calculate ($value) : ?float
   {
-    $val = $value ?? $this->getBasetUnits();
-
-    # 0 °K = 273.15 °C
-    switch ($to->getSymbol()) {
-      case 'f': # °F = (°C × (9 ÷ 5)) + 32
-        return ($val * (9 / 5)) + 32;
-        break;
-      default: # °K = °C + 273.15
-        return ($val + 273.15);
-        break;
-    }
+    # °F = (°C × (9 ÷ 5)) + 32
+    return ($value * (9 / 5)) + 32;
   }
 }
