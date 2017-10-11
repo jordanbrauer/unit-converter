@@ -25,7 +25,7 @@ use UnitConverter\Unit\Volume\{
 };
 
 /**
- * Test the default volume units for conversion accuracy.
+ * Test the default temperature units for conversion accuracy.
  *
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
