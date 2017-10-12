@@ -26,7 +26,7 @@ class Millibar extends PressureUnit
     protected function configure () : void
     {
         $this
-            ->setName("bar")
+            ->setName("millibar")
 
             ->setSymbol("mbar")
 
