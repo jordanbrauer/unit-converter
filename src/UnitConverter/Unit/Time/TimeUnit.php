@@ -15,9 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Time;
 
 use UnitConverter\Measure;
-use UnitConverter\Unit\{
-    AbstractUnit, Volume\Second
-};
+use UnitConverter\Unit\AbstractUnit;
 
 /**
  * Time base class, new time classes should be extending this class

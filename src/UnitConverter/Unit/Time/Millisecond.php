@@ -12,11 +12,7 @@
 
 declare(strict_types = 1);
 
-namespace UnitConverter\Unit\Volume;
-
-use UnitConverter\Unit\{
-    Time\TimeUnit
-};
+namespace UnitConverter\Unit\Time;
 
 /**
  * Millisecond unit data class.
@@ -34,7 +30,7 @@ class Millisecond extends TimeUnit
 
             ->setSymbol("ms")
 
-            ->setUnits(.001)
+            ->setUnits(0.001)
         ;
     }
 }

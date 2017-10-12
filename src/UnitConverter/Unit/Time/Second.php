@@ -12,14 +12,10 @@
 
 declare(strict_types = 1);
 
-namespace UnitConverter\Unit\Volume;
-
-use UnitConverter\Unit\{
-    Time\TimeUnit
-};
+namespace UnitConverter\Unit\Time;
 
 /**
- * Gallon unit data class.
+ * Second unit data class.
  *
  * @version 1.0.0
  * @since 1.0.0

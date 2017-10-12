@@ -12,11 +12,7 @@
 
 declare(strict_types = 1);
 
-namespace UnitConverter\Unit\Volume;
-
-use UnitConverter\Unit\{
-    Time\TimeUnit
-};
+namespace UnitConverter\Unit\Time;
 
 /**
  * Minute unit data class.
