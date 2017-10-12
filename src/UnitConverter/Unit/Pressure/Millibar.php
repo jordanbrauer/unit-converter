@@ -14,9 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Pressure;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
-
 /**
  * Millibar unit data class.
  *
@@ -31,9 +28,9 @@ class Millibar extends PressureUnit
         $this
             ->setName("bar")
 
-            ->setSymbol("bar")
+            ->setSymbol("mbar")
 
-            ->setUnits(100000000)
+            ->setUnits(1)
         ;
     }
 }
