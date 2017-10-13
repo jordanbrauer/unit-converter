@@ -1,11 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <phpdoc>
+  <title>Unit Converter API</title>
   <parser>
+    <encoding>utf-8</encoding>
     <target>./dev/docs</target>
   </parser>
   <transformer>
     <target>./dev/docs</target>
   </transformer>
+  <transformations>
+    <template name="responsive" />
+  </transformations>
   <files>
     <directory>./src</directory>
   </files>
