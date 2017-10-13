@@ -8,7 +8,7 @@
 #
 # $ chmod u+x ./dev/docs.sh
 
-DIRECTORY=./dev/docs
+DIRECTORY=./docs
 
 if [ -d $DIRECTORY ];
 then

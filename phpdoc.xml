@@ -3,10 +3,10 @@
   <title>Unit Converter API</title>
   <parser>
     <encoding>utf-8</encoding>
-    <target>./dev/docs</target>
+    <target>./docs</target>
   </parser>
   <transformer>
-    <target>./dev/docs</target>
+    <target>./docs</target>
   </transformer>
   <transformations>
     <template name="responsive" />
