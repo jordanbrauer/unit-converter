@@ -30,7 +30,7 @@ class Stone extends MassUnit
 
             ->setSymbol("st")
 
-            ->setUnits(0.157473044)
+            ->setUnits(6.35029)
         ;
     }
 }
