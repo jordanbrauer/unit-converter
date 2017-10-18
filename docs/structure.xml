@@ -1,0 +1,1955 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="Unit Converter API" version="2.8.5">
+  <partials/>
+  <file path="Exception/MissingUnitRegistryException.php" generated-path="Exception.MissingUnitRegistryException.html" hash="cbe65d199213840a592ded4a6992c446" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="OutOfBoundsException">\OutOfBoundsException</namespace-alias>
+    <class final="false" abstract="false" namespace="UnitConverter\Exception" line="19" package="Default">
+      <extends>\OutOfBoundsException</extends>
+      <name>MissingUnitRegistryException</name>
+      <full_name>\UnitConverter\Exception\MissingUnitRegistryException</full_name>
+      <docblock line="19">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="19" description="Default"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="19" code="PPC:ERR-50005">No summary for class \UnitConverter\Exception\MissingUnitRegistryException</error>
+    </parse_markers>
+    <source>eJxtkE9PAjEQxe/9FHNUoiBePIhKIBgxIkbxZmJKO7s72G2bdsqfGL+73VXUg6cmM+/9+t4Mrnzlheh1OgI6sKgoQkEGIb9eBgZXAFcIKxe0tMsgE4ZessTHytk1BsYADzcPWaveZIndDGk4Q+X8LlBZMZye9M/gtrXDqPXDYPUF6pJVw7KWZLrK1Zet0ZBCGxFm08U369qFNkKRjIFfrrQa9mKyhQu1ZHL2CLxBmWdrwk3ru5uOJ/dPkwbVNuNKMmxkBE2RAy0To4YNcZU3uXV0KSjMH+m2TU8IjcrIgAeNWvEr7zxGuID+4bkQVtYYc3mE53yU8f4mL5OtQt/kyZqU08wTz4uRS1bHv6sMjhFmFCPZsiE8Ytmk2v2IALeM2fUvQbyLD/EJ96mahg==</source>
+  </file>
+  <file path="Exception/UnknownMeasurementTypeException.php" generated-path="Exception.UnknownMeasurementTypeException.html" hash="bba166a87fc9f500c2e51333c09ec4db" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="OutOfBoundsException">\OutOfBoundsException</namespace-alias>
+    <class final="false" abstract="false" namespace="UnitConverter\Exception" line="19" package="Default">
+      <extends>\OutOfBoundsException</extends>
+      <name>UnknownMeasurementTypeException</name>
+      <full_name>\UnitConverter\Exception\UnknownMeasurementTypeException</full_name>
+      <docblock line="19">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="19" description="Default"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="19" code="PPC:ERR-50005">No summary for class \UnitConverter\Exception\UnknownMeasurementTypeException</error>
+    </parse_markers>
+    <source>eJxtkEFPAjEQhe/9FXNUoiBePIhKIBgxIibizcSUdpYt7LZNO2Uhxv/ubBX14KlJ571v3pvBjS+9EL1OR0AHFqWJUJgKgV8vA4ErgEqEtQta2mWQCUMvWUOnytktBsIAT3dPrFUbucIuQ1rOUDm/D2ZVEpyf9S/gPtthlP0wWH+Busaq4aqWpuoqV19nY2UU2ogwmy6+Wbcu5AhFqir45Uqr4SA2tnChlmScPQFfoeS/rcEm+x6m48nj86RF5WZUSoJGRtAmUjDLRKihMVTyhFtHl4JCXqRzm54QGlUlAx61akVvtPcY4Qr6x5dCWFlj5PIIL3yU8eEmr5OdQt/mYU3iNPNE82LkktXx74jBMbJ1Y11jZ5w7BazR0oJ3/OgAd4Rs/Bci3sWH+ATRsZvL</source>
+  </file>
+  <file path="Exception/UnknownUnitOfMeasureException.php" generated-path="Exception.UnknownUnitOfMeasureException.html" hash="cdfce213f8cd6aa7488322679d55fb45" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="OutOfBoundsException">\OutOfBoundsException</namespace-alias>
+    <class final="false" abstract="false" namespace="UnitConverter\Exception" line="19" package="Default">
+      <extends>\OutOfBoundsException</extends>
+      <name>UnknownUnitOfMeasureException</name>
+      <full_name>\UnitConverter\Exception\UnknownUnitOfMeasureException</full_name>
+      <docblock line="19">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="19" description="Default"/>
+      </docblock>
+    </class>
+    <parse_markers>
+      <error line="19" code="PPC:ERR-50005">No summary for class \UnitConverter\Exception\UnknownUnitOfMeasureException</error>
+    </parse_markers>
+    <source>eJxtkEFPAjEQhe/9FXNUoiBePIhKIBgxIibizcSUdpYt7LZNO2Uhxv/ubBX14KnJzHtf35vBjS+9EL1OR0AHFqWJUJgKgV8vA4ErgEqEtQta2mWQCUMvWUOnytktBsIAT3dPrFUbucIuQ1rOUDm/D2ZVEpyf9S/gPtthlP0wWH+Busaq4aqWpuoqV19nY2UU2ogwmy6+Wbcu5AhFqir45Uqr4SA2tnChlmScPQFfoeTZ1mCTfQ/T8eTxedKicjMqJUEjI2gTKZhlItTQGCp5w62jS0Ehf6Rzm54QGlUlAx61akVvtPcY4Qr6x5dCWFlj5PIIL3yU8eEmr5OdQt/mYU3iNPNE82LkktXx74rBMbJ1Y11jW8K8mHH6FPBHBbgjZNu/CPEuPsQnjieayg==</source>
+  </file>
+  <file path="Measure.php" generated-path="Measure.html" hash="dc5345e770730abce5f16d012445f1ac" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter" line="25" package="Default">
+      <extends/>
+      <name>Measure</name>
+      <full_name>\UnitConverter\Measure</full_name>
+      <docblock line="25">
+        <description>A static class containing constants that define the available
+default types of measurement.</description>
+        <long-description></long-description>
+        <tag name="version" line="25" description="1.0.0"/>
+        <tag name="since" line="25" description="1.0.0"/>
+        <tag name="author" line="25" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="25" description="Default"/>
+      </docblock>
+      <constant namespace="UnitConverter" line="27" package="Default">
+        <name>LENGTH</name>
+        <full_name>\UnitConverter\Measure::LENGTH</full_name>
+        <value>"length"</value>
+        <docblock line="27">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="29" package="Default">
+        <name>AREA</name>
+        <full_name>\UnitConverter\Measure::AREA</full_name>
+        <value>"area"</value>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="31" package="Default">
+        <name>VOLUME</name>
+        <full_name>\UnitConverter\Measure::VOLUME</full_name>
+        <value>"volume"</value>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="33" package="Default">
+        <name>MASS</name>
+        <full_name>\UnitConverter\Measure::MASS</full_name>
+        <value>"mass"</value>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="35" package="Default">
+        <name>SPEED</name>
+        <full_name>\UnitConverter\Measure::SPEED</full_name>
+        <value>"speed"</value>
+        <docblock line="35">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="37" package="Default">
+        <name>PLANE_ANGLE</name>
+        <full_name>\UnitConverter\Measure::PLANE_ANGLE</full_name>
+        <value>"plane_angle"</value>
+        <docblock line="37">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="39" package="Default">
+        <name>TEMPERATURE</name>
+        <full_name>\UnitConverter\Measure::TEMPERATURE</full_name>
+        <value>"temperature"</value>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="41" package="Default">
+        <name>PRESSURE</name>
+        <full_name>\UnitConverter\Measure::PRESSURE</full_name>
+        <value>"pressure"</value>
+        <docblock line="41">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="43" package="Default">
+        <name>TIME</name>
+        <full_name>\UnitConverter\Measure::TIME</full_name>
+        <value>"time"</value>
+        <docblock line="43">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+      <constant namespace="UnitConverter" line="45" package="Default">
+        <name>ENERGY</name>
+        <full_name>\UnitConverter\Measure::ENERGY</full_name>
+        <value>"energy"</value>
+        <docblock line="45">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </constant>
+    </class>
+    <source>eJyNUU1z0zAQvetX7PQEGZoPLhxaSk0RaZgkZGyHGU4Zxd7YKrLskdbJZDr8d9ZyUxJOnCTt23373tPtp6ZshBgNBgIGkJbaw04bBD4b5QjqHVCJ8FS7XNmtUy26UWs1XWe13aMjdLB6XHFv9ksVOGSSjuc+q5uj00VJ8H48+QDfwjh8DvNw+9QTDbXN7otKaTPM6uouDBqdofUIi1n6wvW1dkHCrjUG/vIqm8OpWdtd7SpFurbvoDGouLbXeAhz89mDXCayowrOqFQEB+Uh156c3raEORw0lYywa1+3LkNelAc3IyFyzIxy+KbrzmhDxwY9fITJ2xshrKrQs3mENYfycMrk5jXRCDyxsAyYw3umtaS01bborgxZ8r2iHHfaYlCs9hyJ2hrsCLiuWkPQr+XvqNhe67BCS69x81bP5mEyHA/HoeI5Wzx7q5ZKDvJ/P2Iker2Lfpl4FtALhrlcTtNH9n9l0BZUXrHXExbFMuoQTkud1398n68XskP2tWkrPMcWUZJ0SMXrzuvJSsovHeAbxPwcWc2jpdxEy+k8UDZGWdwoW5gL3lQuVjKO0nUcugirBp0iNnPBFcskeWlpHHr/D57Oet2kL1XLpYynPzsELbriyNhv8QefQwkk</source>
+  </file>
+  <file path="Registry/UnitRegistry.php" generated-path="Registry.UnitRegistry.html" hash="5af9645bf159fba77c848abfedd79326" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJy9V1FP4zgQfs+vmFshkSIosC8n0S27vb0cywm6VVtWOrGoclO3DaROZTt0K9T/vmPHSZw2SeFOey+g2DOeb+b7Zux++LicLx3n9OjIgSMYzgMB0yCkgP+XhEuIpiDnFB4jPiFszElM+WnMAnniR+yZckk59L700NZ/IjPaxEPUOZ/8aLnmwWwu4f3Z+e/wt3aHP7Q/fHhMDmoGzP80W5AgbPrR4lI7hoFPmaBwez00Z/0VcQ1hGoch5OcSNoHUOGDTiC+IDCJ2DMuQElx7DuhK+91cf/a6A08dpTOTcyJhRQRMAiF5MI4lncAqkHPcwaxFFHOfYqCJzubUcSbUDwmnrrL25Uiul1RAG84bLcdhZEEFJk/hDovyOa3J9z6dqdPXaBKL7U3vh0+XCuz3Fwdw74lFK6ZMvk5vEXvMaWZxnBuYrQVlcogQMhNn0yqJYazLttSX/nPN8HOK4FuWACgoeiGnl5tUIBo/Ul82E5EkH0omGGCiXGUEQkacamY4xWLRZ0WNkIT5WDGjpELgTC8YS2AucN48a57pFYHioNY3ieUclfBaJZ06SJoQOlxKBgQLFIcqYHE9g+MoPnQlQIMiHAjnZA0HSWYdkKvoZBLgEQotCc02FkuSgAVsBuQZQZCx0pnWCWa9UFRQruIm4qPEn6c+qiYBt9xU9XM3rkoEKh2AJY8k1hzVauC0k/CuEqKFuxePsTFUAEwu9tEUe4f5SiswNc2kOU6ZTUKYpLHryaLI0v0DZh4xWpI54iyYGl0IpYYxNREoR8zxEsNnmPCMpgmIUok5A0HDaZ5qkkIGezTKPME1lCSFymrQQDdFH8CB6uOTy2KN9A6AaYuLixuvezX8Au3L1P9426LT9zp1+9++3tzdenUWt53BoG5/0PO8P+sMejedrjfqdK9uauMMvdue1+8M7/q1Zr2+NxjssRle16fkdb3+1T87FokCAYIpuH4UM+km9DTgEs4a5hDDS6oJpRuR2rXQZuOUMB8Ia+71cznpaYz9drDItxtwAeMoCjMlGGlpqKMnuh7RH+iPQS2n44Je6oDkI6OIQKwX4yjcCY6tphvdLegR7x07uqpkWqoXUydVxF3ISZTj1DotapYkNgdt6cWNYyc/JaGglVmFEZmovMqy+Vjo7CwvBc+ktF0TN/Nut9tJ5BSnnPNoBQzv5Nr7zn035GuFA+cH8fHawPuF2VNEYcWhc/hiQm0O36Xi+58Lbke5t0M83Bvfh5SPquJjIEvdAlxVdo2kUsLCfZ1c1dm6w0o7Bcciw+fUbjhNbqGl0iLVAykWoFEQ4kHO311xZr+FOIuv3N7e1w6Kq9wQDNxlLObuNgzD7MnljMqB5gsvkZbx3JR00vYBlbVP7SxuK+fVcxRMylurdO5tkbPTZtWcYNXt77eAF9mdW+RjC30NLaWK2roPrIDFLPd0kX2fgFt8jRg9lJT5t311zrSRDCrURuUoq3qZ28MsRZlMMBxf2fld/AnhNjaHeuSxfNxNwG7YZObtgLLGX5H6HcuH+125a1Go1b1qMKPEfnrV8J88zXb7seQFkBjv4zi/A/5VT+0l2z7gP9GcAwUCDN/M6jJRWG0u1S8DeLGDbjIWY/w9K/eN1tfXSPzKzi2N+KbezU+oeoRUz8df+fSopFF3b/b2yHtPr7fTwqSvqgxUq5Lbsj41r4fXUF3sy8Sxjl9jUd2bxaNLunPj/AS9Uvsc</source>
+  </file>
+  <file path="Registry/UnitRegistryInterface.php" generated-path="Registry.UnitRegistryInterface.html" hash="815a28a44337822320b32c0004cb620e" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJzNV19v2zYQf9enOAQFZgeJnexlQNqt2boUy7A2RZo8bcNASyeLjURqJGXX2Pbde0fKluRIjpPmYS9OLJHH+/3h3fnV6zIro2h6eBjBIdxk0kIqcwT6WwrjQKfgMoRP2iRCzYyo0EwrJd1xrNUCjUMDH375QGvjOzHHCQXhOOexLldGzjMH356cfge/+u3wk98Prz6FQBOp4vN5IWQ+iXXxg9+YyxiVRXh3eVPHequNTyGt8hyauEIlsF4sVapNIZzU6gjKHAU9W0hc+n2/Xb65eP/xgkN5ZC4TDpbCQiKtM3JWOUxgKV1Gbwi11ZWJkQ5KPJppFCUY58LgiFfH7i+3KtHC93A6fhlFShRoCTzCLZHyZs3JH9c45+grWlLZ7Zf8zX9cKvqa0u6XLQUYTv0Y0ho7Mw4N46aOHrBYpw1lxGssh2BmQpIkXkFkVAYLVG4jDkWxRBWcTk4mJ/6JJSWw9V1ULqOj95VtGjUpM641+g2+6J8IwCMECv8z0uNCKkKagmin6PNm7wWEaEgapxsKNsApOaUZEUAd9JzsKgpgkdQcXrSDMqcs1NrM4Z1/NUNeHWcY32FyBDiZT+AgRzV32UGIPqXPspqR1ciBKmaPUYLvmvDXTaqjntPHcAYzrXOSeJgCW2IsUzrCo2xkexYq7KqY6dyzUP9L6/1lWRPiA/ZQcQQHcbGTh0btLgHhoH7sb9HFGYH2p6ZGFz2g2Ph8cTC3uMwodgefy4xeWrLandJLxTlcpbUiF59jLH1yPxK8ypM505VKLODm1VJSKZlxKaA4iiXItUg4cXJ7pVqM+6xIBOEcFiVVisnXU8xnNYEMusooUFTd/u3UhEHWeT+v7GP79XZZafF+HU4SoBUeJ5LMyVVA5CCMEStONK6MIcvmK7BVWWrDlXH7dtqOEnX2PsJwwsRm68JYGHGqfs9zZOgL3wSuvLYiz0Mi1JKs5asVOMK/K4pDF0iEGtMtjTDq3PwxLwzQQiyt6ER/zlrPcGMxVNr96tBOfm598L4CQq2GzTFIWfAqI6WdOXYF6ysYs5Xnxts9BKlPpZ7Iq4WZV5t8a1Dvr24u4JLcbBI6i8KWBhd8QqWWQrEKmrrK0kjnOFKX3RAjtKQReuZYJjpM0xX3rbcQagVb986O4RhWuoKisnWM5m62CnmAmkpjXQh2dtasa/luNH6EThtrL7RMBpXrOWWwCXCgAe08+qJ9Qx4Urjbm5mK0qQgJ2F16BvBhdztR+3XgSd+emA+g3zjXo90XuVTWCZ5aNDfQTtlj4NJ9Y3cg765/waf19pYWthvyb9Nd/KS81UeoUSnuIJtm0UEh6pZJaieUtQq9Bj/TO8bVHdQeLUJoCD2w9rFeqGwPM9/YrSGMZmNr0d7jvOeudbL7/c+Q31McVxfL2mp1reiDeat2lsf+4aOTORe+M6p8C33HHPifCAVS5UqC+iK3ul2WqLCtSxXnOMNcq7nfqe+VLD+9S1uPBe2548Fp7nFmpVEIjaGRatcIxJW2di4n28ZE04w67nNqq/vtp2BvYe4bZHZp2fJsv4JD7LHnwhGPcV1vzo396oB7G3DH2Psk1YfH32fUfOt3ydMkHxpa/5dad2vMPZH/i74AfZfERw==</source>
+  </file>
+  <file path="Unit/AbstractUnit.php" generated-path="Unit.AbstractUnit.html" hash="939de5e1e243d288331094eb63a0c280" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJy1Vk1v2zgQvetXzCFAlcCVk70skNZNN0GKZtF2C7RFLwUCmhpZbCVSy4+kQdv/vkNSlGXHqpPDXhyLGr735s2H8/ysq7ssmx8dZXAEH2thoBINAv3tmLagKrA1wlelSyaXmjnUcyeFfcqVvEFtUcP71+8pln9jKywIxOO85Kq702JVW/jj+ORP+Dtch/NwH55/jUCFkPzlqmWiKbhqX4SLjeAoDcLbq4891iulg4TKNQ2scZksIQULWSndMiuUnEHXIKOzG4G34d6bq4vLdx8uPVTIzNbMwi0zUApjtVg6iyXcClvTG8raKKc5ElEZsplnWYm8YRpzH83ttb3r0MACTg6fZZlkLRpKHuETmXKRPPnin55t2kogxnhfvaillxhPSDowSs276u1uSb7T2KK0MQJNAZ9rlMA1Uo5y5SEZSLydc2esarevzgC/WyR/Kk0v7UBekBCEc8oFWiFF61qPpPFfJyJfFOMMVRJ8VIkVxclV0Ndp1VFyguSkKlOyhjyHk+K4OA4nhkqKo2fmbE2QD63/PGNLspnxPnX4q3/0foJoqbZRp3++kuR0Rd5nPzKAYDUEVUyDrxXpPvD1CVl7i8yT2ET+sAjBc/qkvCxy3wQhmqo2BWbu2qVqxnD9iVQ2NB/kWKyKGdXBz8UC2sOdNPHWb4g8+jXV87Nv1dAx9BGKHCtMQWfwBuXK1jOw2FJdmHU2VN7ynZz+9j/VDs4NJ+EgNOYow/Dsv+9E9W93YFaNIuGB0wQw1ionQ4sOeIYaGEsCsQpa9o0OOziZZgpXAlXnljT3VEnJg+fX17SKyDlHTZMfUoDvBoADb9rTF/SuEisaipzGFeDXhtiL9DLMJHda+6HbmqYop89Oo3Vawo0S5Q6Vg6aBlRTBaQr/cV8Aa7hrmI0C1i71M1mO7ZrwqRdGy5q1yfgb1jjceLFVZas285E0Fj/D5d9mNajNx0Sz++g+6bOEF+sxYrpfiMvvnaI9B4xzNCFV78fp6cBINtJQ1ar8n5Pe6q3+R25/vttppu4b9KerPnjIf5vOoH3nF1Y+Xl/ey811t9XiYcct0vbaFjFJtkpkniASTmSRgKc0f4hbMN/ck3t198tzsV6Ij9GeSPeqX4NP6f8UduNaf9yVe/XHMK8/LdfH6E+ke/Wvwaf0n/slkYdlvFd0WCiLtLkfIziyTBOkqaJ/u0Zc+3w3w2yFLfcg003y3DzechNT2LmbxhT7nHggVh+dH4av4VL6IfqV/QfSBaDm</source>
+  </file>
+  <file path="Unit/Area/Acre.php" generated-path="Unit.Area.Acre.html" hash="b0cd52068edec5c7687931b522ea63a0" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevWKE+JBFckgrRqqGUFFE1VUFI0DekamPv5Uzv7JO9Thqh/PeuzUcR6kOf7PXMzuyOjz/1Ta/UeDRSMIKbxkaobUsgZ4+BwdfADcGdDwbdMmCiME7O8oH2bk2BKcDV1yvh6l+4okpEss6p9v022FXD8HYyfQffSjt8Lv1wfPcgVFmnT1cd2rbSvjspja3V5CLBxeLmUeuLD2WEOrUt/NVFZ+CJbF3tQ4dsvduHviWUt7WlTen7vjg7v7w+z1JlM26QYYMRjI0c7DIxGdhYbgSRraNPQZMYmbLNWClDusVAg8zW/JO3PUX4CNPhTCmHHUVZnuCHhHL2lMltrm7ngVA4Kb5GL2TCFGj2D6g03sN8KW6oOZf7hbJwAtfZaTd7/q+5DgQGGUFGjPE5fhGLEgZMq0k1KS9RsqYXNSZuJNj//ZixKgYPhvSbyRkpZL88mrpXAH3wTDpnWSen81dIhq62K1kUBkP4AGtvjRAzGeBNDrvcAA5OIvGlJDnYQ9HfG6qXwPW2W/o2Q6+AbB0Hh5PDo+r90fARmcm5Uzv1B55n56s=</source>
+  </file>
+  <file path="Unit/Area/AreaUnit.php" generated-path="Unit.Area.AreaUnit.html" hash="464b86c50f9eac8139823dc5a0aabd1a" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUk1v00AQve+vmEMPEAUn4YKUNFBTBRFEoKLlVgmN1+N4y3rX7EdTq+p/Z3ZxCkUcOFnrefPmvTdz+qZveyFmk4mACVy1ykOjNAF/e3QBbAOhJbixrkZTOYzkZtGo8EJac0sukIOL9xeMld9xTwWTJJ4zafvBqX0b4OV88Qo+5HZ4m/vh9OYXUaGMPNt3qHQhbfc6N2olyXiC3fZq5HpnXZbQRK3hNy+aGo5gZRrrOgzKmin0mpD/3So65L6P2/PNp8tNosrOQosBDuihVj44VcVANRxUaLnCrr2NThIPqrObmRA1SY2OniW0DN/C0JOHNSyer4Qw2JFn8wRfOZTzYybX6XVdOkLGRP93dccKo6PVP0q58R7KiqehDOk5zZCt4XKTJj2sHveVJkBaB1TJc40BgcV6X0BpBjAcAR4hbK21Udepj+4CcX7ZcMbnOFXH2XVkQspNOUjmpuCHrrI6AzLNKhFYlutUrcw+Z3ySKp+bDDrJUnpne3akOCpr9ACqYTWSvEc3PF4Jk3jeGSyKeTHPfzyfBP3xxhha3v//3s9M4BjcaCsFlNIbHfsnwYp7AUloIJlu4GhiDeN+lsvyy6bktJ+gsr01XP6IHO2OeCvLZR62Eg/iJ7RGHYM=</source>
+  </file>
+  <file path="Unit/Area/Hectare.php" generated-path="Unit.Area.Hectare.html" hash="1e24aed817e406a21116aa81b8520965" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRqiHJIJNwqVSQykUgQgqCAl6Q6om9mzWdNde2eOECOXfOzaQItRD9+K135v3Zt4cfeubXqnxaKRgBPeNjVDblkDOHgODr4EbgkcfDLpFwERhnJzlA+3digJTgNvLW+Hq37ikSkSyzon2/SbYZcNwOJl+hqtSDt9LPRw9vghV1umTZYe2rbTvjkthazW5SHA9v3/VuvChtFCntoW/uugMvJGtq33okK13+9C3hPK2srQudT/mZ+c3d+dZqkzGDTKsMYKxkYNdJCYDa8uNIDJ19CloEiNTphkrZUi3GGiQ2Zp/8aanCF9hOpwp5bCjKMMT/JRQzt4yeci3h9NAKJwUP6LX0mEKNPsHVAqf4XQhbqg5X/cLZe4ErrPTdrbb1yVpltbAICNIlzHuNiB6UfKAaTWpJuUlStz07o6JG8n2f3czVsVg50lPTM5EyFPmBtWzAuiDZ8El0To5nRciSbraLmVcGAzhC6y8NULMZIBPOfLyB3BwHIlvJM/BXvNisTdU77G7TbfwraD4AcjucTCdyDd8fZ/JuVVb9Qfbkur6</source>
+  </file>
+  <file path="Unit/Area/SquareCentimeter.php" generated-path="Unit.Area.SquareCentimeter.html" hash="38feb57e99f086d773a326f8d1a40d71" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjKIeNhFsNlwqNUChEVVTFYQUekNCjj2bNd21t/Y4aYTy3xm74UNRDz35Y968N+/N6ee+6YUYj0YCRnDXmAC1aRH47KUncDVQg/DovJZ26WVEP47W0LFydo2e0MPtt1vGql9yhSWTJJ4L5fqtN6uG4KSafITvuR2+5H44ffxLVBqrLladNG2pXHeeG1uj0AaE6/ndnuur83mEOrYtvPFKq+EFbGztfCfJOHsEfYuS/9YGN7nvx3x2dbO4SlTZGTWSYCMDaBPIm2Uk1LAx1HCFXQcXvUIW0tnNWAiNqpUei4RW9EDbHgOcwWQ4FcLKDgObR/jJocxeMrlPr/tLj5IxMRxWr3nC6HH6j1JufILLJatJRel5lCFzy+U6Ke2mr/ta/I48GXAKZDpMy9CSJPC8IbzugpkDJwOTsiqr/BM4eHz3lpEaTvl/tzQWWWCvPnsTxz+EVgdIxtPM4kkA9N4RqhRyHa1KO+JwbW1WnAAUQ/gEa2c0AxMY4EPaQr4BHJ8HpBuOuBiEQ6eDoXiPWmy7pWuLgepODippkFCw1aqaDPeFKZ87sRPPoz/3MA==</source>
+  </file>
+  <file path="Unit/Area/SquareFoot.php" generated-path="Unit.Area.SquareFoot.html" hash="9f6bf4c63f16821d8ed5d97436e6720d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUdtOGzEQffdXjKI+bCLYXPpQ0VAuRaAGAUIKfUOqHO84a9i1t/Y4IUL5947dcBHqQ598OWfOzDlzeNzVnRDDwUDAAO5qE0CbBoHPTnoCp4FqhAfnK2kXXkb0w2gN7StnV+gJPdz+uGWuepRLLFkk6Zwo1228WdYEk9H4C1zmcvie6+Hw4a9Qaaw6WbbSNKVy7VEubIxCGxCuZ3c7rQvn8wg6Ng286UpbwQvZWO18K8k4uwddg5L/VgbXue5qdnZ+Mz9PUtkZ1ZJgLQNUJpA3i0hYwdpQzQi7Di56hdyoym6GQlSoGumxSGxFv2jTYYBvMO5PhbCyxcDmEX5yKGcvmdyn1/2pR8mcGD6i1zxh9Dj9B5QLn+F0wd2kovTcy5SZZVinTtvp677mvyNPBto5gkqSBJ40hNctsGbgTGBcjspR/gkcOb57y0g15/u/+xmK3GDX9yK1xSdCWwVIZtOc4lkAdN4RqhSsjlalvXCgVpslu4aiD19h5UzFxEQG+JSSzzeA/aOAdMOxFr3w5q7XF+/x+aZduKboaZp8QNIIoWB7B5OD0ef+DpryuRVb8Qe+FPBI</source>
+  </file>
+  <file path="Unit/Area/SquareKilometer.php" generated-path="Unit.Area.SquareKilometer.html" hash="f824c531856a866916270bb27c8577bc" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRlEPmwg2CRekhlIooiJQEFLoDalyvLNZE6+9tcdJI5R/79gNKYp66F689rx5b96bs89d0wkxHAwEDOCp0QFqbRD47KQncDVQg/DifCXt3MuIfhitpmPl7Ao9oYfHm0fGqqVcYMkkiedCuW7j9aIhOBmNT+E2t8OX3A9nL3+ISm3VxaKV2pTKtee50WiFNiDcT592XF+dzyPU0Rj4yyttBW9gbWvnW0na2SPoDEp+W2lc575v06vrh9l1osrOqJEEaxmg0oG8nkfCCtaaGq6w6+CiV8hCVXYzFKJCZaTHIqEV/aBNhwE+wbg/EcLKFgObR/jOoVy9ZfKcbs+XHiVjYjis3vOE0ePkH6Xc+AqXc1aTitL1KEOmlst1UtpO9vua/Yw8GSy1cS2mXVSSJPC4IexXwcSBg4FxOSpH+SVw7vjuLiM1HPL/LmkossBO/G6vjb8IbRUg2U4Ti1cB0HlHqFLEdbQqbYijtbVesH8o+vARVk5XDExggA9pB/kP4Pg8ID1wwEUvHPjs9cV70GzTzp0pesv25KCS5gjFeJS//q4y4XMrtuI3fNj2Pg==</source>
+  </file>
+  <file path="Unit/Area/SquareMeter.php" generated-path="Unit.Area.SquareMeter.html" hash="a28c63ecc8836c8385f74c82cccf9d00" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUUtv2zAMvutXEEEPTtA6SS8Dlq5rVnRYhqUokO5WYJAlOlZnS54eyYIi/32k0nZBscN8MSh+JL/Hxce+6YUYj0YCRnDfmAC1aRHo30sfwdUQG4RH57W0lZcJ/ThZE8+Usxv0ET3cfbkjrPop11jSEt5zpVy/82bdRDifTN/B1zwOn/I8XDweFpXGqqt1J01bKtdd5sHWKLQBYbm4f9712flMoU5tC3/3SqvhBWxs7Xwno3H2FPoWJb1tDG7z3LfF9c3t6oZXZWWxkRG2MoA2IXpTpYgatiY21CHVwSWvkA7prGYshEbVSo8Fo1X8EXc9BvgA0+FMCCs7DCQe4TuZcv3iyQNXD3OPkjApvO0uiWHyOPtHKw8+wbyia1JFLk8zZGGpXfOl/ew1r9WvRMygQ85ByyiBqIZQwpy8oo4EziqQPKr5GEvkwQwDMoEdOqnYsN67njjsXjMkRoEchWk5KSf5JVBgeFTLFBtK53/THYvD2QPrZSaNvyNaHYC9YpniSQBTiag4lzpZxbFSHrY2azINiiG8h40zmoAMBjg5qMrf2WXAeEupFINwZM5gKI4Bq11XubYYdOdvGkwhFNPh89uM/nuxF38APE8EqA==</source>
+  </file>
+  <file path="Unit/Area/SquareMile.php" generated-path="Unit.Area.SquareMile.html" hash="a0ba5f6cc4268994a5e33335c075a7fa" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUctu2zAQvPMrFkYPspHIloGiTp1ngxR1UQcBnN4CBDS1sphKpEou7RqB/71L1nkg6CEnPmZ2dmf2+KyrOyGGg4GAAdzW2kOlGwQ+O+kIbAVUIzxYV0qzdDKgGwaj6VBZs0ZH6ODm2w1z1S+5wpxFos65st3W6VVNMB4Vn+B7KocvqR6OH/4J5dqo81UrdZMr256mwkYrNB5hPrvda321Lo1QhaaBF11pSngia1NZ10rS1hxA16Dkv7XGTar7Mbu8ul5cRankjGpJsJEeSu3J6WUgLGGjqWaEXXsbnEJuVCY3QyFKVI10mEW2onvadujhBIr+VAgjW/RsHuEnh3L5lMldfN1dOJTMCf4tOucJg8Ppf6BU+AgXS+4mFcXnQaLMDMNV7LSbPu9r8TvwZNBGX6UkCTyp989bYE3PmUCRj/JR+vEcOb56y0A15/ve/QxFarDvO49t8Q+hKT1Es3FO8SgAOmcJVQy2CkbFvXCgptIrdg1ZHz7D2uqSiZEM8CEmn24Ah6ce6ZpjzXr+xV2vL17ji227tE3Wa/X4DRJH8Nn44+ToaDLJi6K/B6d87sRO/AV91PCN</source>
+  </file>
+  <file path="Unit/Area/SquareMillimeter.php" generated-path="Unit.Area.SquareMillimeter.html" hash="e50ea3173710949b820448434fd4e83d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjKIeNhFsEi6VCFA+RNVUDUIKvSEhxzubNXjtrT1OGqH8d8YmfCjqoXvx2vPmvXlvTr51TSfEcDAQMIC7RgeotUHgs5OewNVADcKj85W0Cy8j+mG0mg6Vsyv0hB5uf9wyVj3JJZZMknjOles2Xi8bgqPR+Cv8zO1wmfvh5PGVqNRWnS9bqU2pXHuWG41WaAPCbHq34/rufB6hjsbAB6+0FbyBta2dbyVpZw+gMyj5baVxnft+Ta+ub+bXiSo7o0YSrGWASgfyehEJK1hrarjCroOLXiELVdnNUIgKlZEei4RW9ECbDgOcwrg/EcLKFgObR/jNoVy9ZXKfbvcXHiVjYtivznjC6HHyj1JufIaLBatJRel6kCFTy+U6KW0n7/ua/4k8GbTaGN1iWkYlSQLPG8L7Lpg5cDIwLkflKL8EDh4/3WWkhlP+3y0NRRbYqc8+xPEvoa0CJONpZvEsADrvCFUKuY5WpR1xuLbWS04Aij4cw8rpioEJDPAlbSH/ARyeBaQbjrjohX2nvb74jJpv2oUzRa9tj/YqaZBQsNX0jfu70oTPrdiKF56P96Y=</source>
+  </file>
+  <file path="Unit/Energy/Calorie.php" generated-path="Unit.Energy.Calorie.html" hash="b73d3e6612ccfc242bb930eeea7eb189" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1rGzEQfNevWEIfbJOc7RJoqdM0rXGpSxMCSd8CRZb27pTqpENa2THB/70rOXFD6EOf9DGzM7uzZ5/6thdiPBoJGMFtayLUxiLw2ctA4GugFuHeBy3dKsiEYZycoRPl3RoDYYDrb9fMVb9lgxWLZJ0L5fttME1L8HYyfQffSzl8KfVwdr8XqoxTF00nja2U785LoTUKXUS4XN4+aX31obRQJ2vhr650Gp7JxtU+dJKMd8fQW5T8tza4KXU/lvPF1c0iS5XJqJUEGxlBm0jBrBKhho2hlhGeOvoUFLKRLtOMhdCorAw4yGxFv2jbY4SPMB3OhHCyw8jDI/zkUObPmdzl193CYWi2zErxNX7JPaaAs39ApfQRPq/YTyrKz+NCWTqG6+y1mx02NpfWB4OQdwJakgRuNsbDIlg0ciwwrSbVpPxETh1fvGWiliP+3xWNRTE4GOMDodMR9sPmPsWjAOiDJ1Q52jo5lTfDkbraNDw1DIbwAdbeaCZmMsCbnH25AZycR6QrDnZwpPYmR0PxErvZditvC/oKyfZxcDp9fzp8+p7xuRM78Qd1Cu8M</source>
+  </file>
+  <file path="Unit/Energy/EnergyUnit.php" generated-path="Unit.Energy.EnergyUnit.html" hash="ac3b8518f881c6884b05a10f3782772d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUsFu1DAQvfsr5tADrLbZXS5ITRdaqgCLaKlKOSBVQo4zSVwcO7KdbqOq/854Nlso4sApcubNm/fezPHbvu2FWMxmAmZw3eoAtTYI9O2lj+BqiC3CrfOVtKWXA/rFYHU8VM7eoY/o4fLjJWHVT9lgRiSJ50S5fvS6aSO8Wq5ewyduh3fcD8e3O6JMW3XSdFKbTLnuDTcardAGhPPN9cT13nmWUA/GwG9eaSvYg7Wtne9k1M7OoTco6d+dxi33fd6cFRdfi0TFzmIrI2xlgEqH6HU5RKxgq2NLFXId3OAV0qCK3SyEqFAZ6fFFQqv4I449BljD6mUuhJUdBjKP8I1COdtncpNeN4VF34yEGsLf9XPSOHjM/1Hi1gc4LWmeVDE95wzZWCrXadZj/rSx3Qwok+VKRgmkNYQMTu0IlhLAXT2tjLy1bjBVasP7iBQgO+YOzlN3FF6HNqbgtIfkbg5h7EpnGMA0eSJwpNbrStuGQz5IlS81gw5YTO9dT4Y0ZeWsGUHXpEdhCNKPT2dCJIGWBqtsmS35T6CbwD/ecogtHcD/HtBCyCm3ydYunxTf5Dk8S1Y8CEhSI6p0Bnsba5gWdHRUXBRXH75T4M9wbHFNsgZDGB6Vi0fxC7KnHak=</source>
+  </file>
+  <file path="Unit/Energy/FootPound.php" generated-path="Unit.Energy.FootPound.html" hash="784a98e3b45c6bcbc5feffad80269c57" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSbhAq1aiilRUFNBSgScEOqvN7ZXVOvvbLHSSOU/87YfDRCPXDyx3vz3syb42992wsxHo0EjOCm1QFqbRD47KUncDVQi3DvfCVt6WVEP45W04FydoWe0MPy55K56o9ssGCRpHOqXL/xumkJDifTT/Arl8OPXA/H909ChbbqtOmkNoVy3UkuNFqhDQiXi5tnrXPncwt1NAb+6UpbwQtZ29r5TpJ2dh96g5L/VhrXue5icTa/up4nqTwZtZJgLQNUOpDXZSSsYK2pZYSnDi56hWxU5WnGQlSojPQ4SGxFv2nTY4CvMB3OhLCyw8DDI9xyKGcvmdyl193com82zIrhLX7JPUaPs/9AufQBvpfsJxWl536mLCzDdfLazl43du4cLV3kMNJWoJIkgdsN4XUVLBs4GJgWk2KSfwLnjjtvGanlkN+7pLHIBjvW+JfQVgGeBk69igcB0HtHqFK8dbQqbYdjtbVueHIYDOELrJyumJjIAB9S/vkGcHASkK443MFezTbQJ5+9odiFrzdd6QwTyJRvoNRCGEyLj0dHnw+Hz8iMz63YikeFrPL2</source>
+  </file>
+  <file path="Unit/Energy/Joule.php" generated-path="Unit.Energy.Joule.html" hash="2e17bc45846157a3b480fdc6cf4c1b25" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1P4zAQvftXjBCHtoK03QvSls9FXW0RRUjADQm59iRxN7Eje9xuhfrfGZvCIsSBU+KZN+/Ne3N81tWdEMPBQMAA7msToDQNAn876QlcCVQjLJ3X0i68jOiH0Ro6VM6u0BN6uP1zy1j1V1ZYMEniOVeu23hT1QQ/RuMjuMrj8CvPw/HylagwVp1XrTRNoVx7mgcbo9AGhPnsfsf12/m8QhmbBv7zSqvhDWxs6XwryTh7AF2Dkmsrg+s8dz27nN7cTRNVdka1JFjLANoE8mYRCTWsDdXcYdfBRa+QhXR2MxRCo2qkx15CK3qiTYcBTmDcnwhhZYuBzSM8cCiXb5k8ptfj1KKvNoyK4XN/zjtGj5MvWnn0GS4WrCcVpedBhswst8uktZ28X+zKRfaULgJakgReNYT3MzBl4FBgXIyKUa4Ezhw/vGWkmgP+7oGGIgvsZPEfodUBXo2mHcWzAOi8I1Qp1jJala7CcdrSVOwYen34CStnNAMTGGA/5Z7/AA5PA9INh9rbWyaJvb742LnbtAvXcO9TPUmH3ri/q034uxVb8QLQr+tm</source>
+  </file>
+  <file path="Unit/Energy/WattHour.php" generated-path="Unit.Energy.WattHour.html" hash="30441fe67b2e785af66f2041d9a34cdb" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1vEzEQfPevGFU8JFF7SaAUREopVEENolWlFvFSCTm+vZzLxT7ZewlRlf/O2v1UxQNP/pjZmd3Zw09t3So1HAwUBriqbURlG4KcrQ4MX4Frwo0PpXbzoDsKw85Z3jPerSgwBVycXgjX/NYLKkQk6Rwb326CXdSM16PxO3zL5fiS63F4cydUWGeOF0ttm8L45VEubKwhFwlns6t7ra8+5BaqrmnwpKtdiQeydZUPS83Wu120DWn5W1la57rvs5Pp+eU0SeXJuNaMtY4obeRg5x1TibXlWhCZOvouGBKjMk8zVKok0+hAvcQ2/Is3LUV8xLg/UcrpJUUZnvBDQjl5yOQ6va6njsJiI6wuvsTPpMcu0OQfUC69xee5+GnD6bmbKTMncJW8tpPHjf3UzKfSMtJSUGrWkG5jfNyEqEbJBeNiVIzyT5TY6dlbd1xLxv+7o6HKBk/O9IfJlRF346ZO1a0C2uCZTAq36pxJu5FQXWUXMjd6fXzAyttSiIkMvErp5xuwdxSJzyXa3s5aXFCLzU5fPUcvN8u5bwSvXyKpgdh7czCS+UZv9/cP3vfv4YmcW7VVfwFBxPJ7</source>
+  </file>
+  <file path="Unit/Length/AstronomicalUnit.php" generated-path="Unit.Length.AstronomicalUnit.html" hash="036649e4b68fea9d818773b556895062" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUk1PGzEQvftXjFAPSQSbTdUq0FAKRVSkAoQEvSFVjnd219Rrr+xx0gjlv3dsviLaQ0/emXnz3sybPfzSt70Q49FIwAhuWx2g1gaB3156AlcDtQj3zlfSLryM6MfRatpTzi7RE3q4Pr9mrPolGyyYJPEcK9evvW5agvflZArfczt8zf1weP9IVGirjptOalMo1x3lRqMV2oBwOb994vrmfB6hjsbAK6+0FTyDta2d7yRpZ3ehNyg5t9S4yn0X89Ozq5uzRJU3o1YSrGSASgfyehEJK1hparnCWwcXvUIWqvI2YyEqVEZ6HCS0op+07jHAZ5gMZ0JY2WHg5RF+sCmnz57cpejuAm1DLaNieFu/5Bmjx9k/Srn1AU4WrCcVpXA3Q+aWy3XS2sxeLnbCKGddp5U0CQSVJAk8cAgvx2DiwNbApCiLMmcCO49bsYzUss3/e6axyAJ/i+NvQlsFeNw8pcSDAOi9I1TJ5zpalc7E/tpaN2wBDIbwCZZOVwxMYIB36RD5C2DvKCBdscuDHbmlBukf3BmKbdTNuls4w7j4ppDmCIPJh4OPB9P9aTkty+FTecbvRmzEH1In+hE=</source>
+  </file>
+  <file path="Unit/Length/Centimeter.php" generated-path="Unit.Length.Centimeter.html" hash="9b54b3cad75b2023547b9697419fb91a" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOIzEMvecrLMShrWDa7gWJAstSsdquKEICbkirNPHMBGaSUeK0VKj/jhOgVIjDnhLbz89+zyc/u7oTYjgYCBjAXW0ClKZB4LeTnsCVQDXCo/Na2oWXEf0wWkOHytklekIPN39uGKueZIUFkySec+W6tTdVTfBjND6Cv7kdLnI/nDy+ERXGqvOqlaYplGvPcmNjFNqAMJ/dvXP9dj6vUMamgU9eaTV8gI0tnW8lGWcPoGtQcm5pcJX7rmbTy+vby0SVlVEtCVYygDaBvFlEQg0rQzVXWHVw0SvkQTqrGQqhUTXSYy+hFf2jdYcBTmHcnwhhZYuBxSPcsynTD08eUvRwhbaimlExfK3PecfocfJNKbe+wK8Fz5OKUniQITPL5TLN2ky2F5uiJdNiuoOWJIFXDWF7BqYMbAqMi1ExypnAnuNOLCPVbPD/Hmgo8oDdsfhMaHWAN7VpUfEiADrvCFXytoxWpdOwp7Y0FcuGXh+OYemMZmACA+wn8/MP4PAsIF2zs709tZ2z1xe75dt1u3ANA9ovhbRA6LG8cf89PeF3IzbiFa908J0=</source>
+  </file>
+  <file path="Unit/Length/Decimeter.php" generated-path="Unit.Length.Decimeter.html" hash="13906b19a82e25669492e6f542353382" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUctOIzEQvPsrWohDEsEk4YJEgGUXWG1QQEiwN6SVY/fMGGbskd1OiFD+nbYhbIQ4cPKjqqu6q49/dHUnxHAwEDCA+9oEKE2DwGcnPYErgWqER+e1tHMvI/phtIb2lbML9IQebv/cMlc9yQoLFkk6Z8p1K2+qmuBgND6Eq1wOv3I9HD++CRXGqrOqlaYplGtPc2FjFNqAcD29f9f67XxuoYxNA/91pdWwIRtbOt9KMs7uQdeg5L+FwWWum03PL2/uLpNUnoxqSbCUAbQJ5M08EmpYGqoZ4amDi14hG+k8zVAIjaqRHnuJregfrToMcALj/kQIK1sMPDzCXw7lfJPJQ3o9zNBWVDMrhs/4NfcYPU6+gHLpC/ycs59UlJ57mTK1DJfJaz352NgFKtNiWoOWJIE7DeFjC6wYOBMYF6NilH8CR45bbxmp5ny/u5+hyAZbrvhMaHWAt1lTm+JFAHTeEaqUbBmtSovhRG1pKh4aen04goUzmomJDLCbos83gP3TgHTDufZ29MZmpy+20btVO3cN4+0nIPmH3qgY999/J3yuxVq8An+i7vQ=</source>
+  </file>
+  <file path="Unit/Length/Foot.php" generated-path="Unit.Length.Foot.html" hash="7c8e705346706b4084fa525a36046145" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjBCHJILNhlYCEUopCNRUgJCgN6TKsWd3TXftlT1OiFD+O2OHL6EeevLHe/PezJuj733TCzEejQSM4K4xASrTIvDZS0/gKqAG4cF5Le3cy4h+HK2hXeXsAj2hh5ufN8xVf2WNBYsknRPl+pU3dUOwV0724Vcuh9NcD0cPG6HCWHVSd9K0hXLdcS5sjUIbEK5mdy9aF87nFqrYtvCuK62GV7KxlfOdJOPsDvQtSv5bGFzmusvZ2fn17XmSypNRIwmWMoA2gbyZR0INS0MNIzx1cNErZCOdpxkLoVG10uMgsRX9oVWPAb7BZDgVwsoOAw+P8JtDOXvN5D697i/R1tQwK4bP+BX3GD1O/wHl0if4MWc/qSg9dzJlZhmuktd6+raxC+cItCQJ3GQIbwtgscBxwKQoizL/BE4bP7xlpIaj/d/VjEU22BjiI6HVATYTpubEkwDovSNUKc8qWpXWwTnaytQ8KgyGcAgLZzQTExlgOwWebwC7xwHpmtMcbFXssDUUH4HbVTd3LUOfgWQdBmXxpfx6MHwBpnyuxVo8A0Ih6a0=</source>
+  </file>
+  <file path="Unit/Length/Hand.php" generated-path="Unit.Length.Hand.html" hash="1419fca96c81957e97cd9fb546825052" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSb3R6KRCiFIipSAUICbkiVY8/uGnbtlT1OGqH8d8YOX0I99OSP9+a9mTeHP4Z2EGI6mQiYwG1rAtSmQ+BzkJ7A1UAtwoPzWtqFlxH9NFpDe8rZJXpCD9fn18xVj7LBgkWSzrFyw9qbpiX4Wlb78DuXw89cD4cPW6HCWHXc9NJ0hXL9US7sjEIbEC7nty9av5zPLdSx6+BdV1oNr2Rja+d7ScbZXRg6lPy3NLjKdRfz07Orm7MklSejVhKsZABtAnmziIQaVoZaRnjq4KJXyEY6TzMVQqPqpMdRYiv6Q+sBA3yHajwTwsoeAw+PcMehnL5mcp9e9xdoG2qZFcNn/JJ7jB5n/4By6ROcLNhPKkrP3UyZW4br5LWZvW3sPOWgJUngJkN4WwCLBY4DqqIsyvwTOG388JaRWo72f1czFdlga4h/Ca0OsJ0wNSeeBMDgHaFKedbRqrQOztHWpuFRYTSGA1g6o5mYyABfUuD5BrB3FJCuOM3RTssOO2PxEbhZ9wvXMfTpPzmHUVlUZfVt/ALM+NyIjXgGEyPo3Q==</source>
+  </file>
+  <file path="Unit/Length/Inch.php" generated-path="Unit.Length.Inch.html" hash="6e7f2ab259fe0d0cd01cc5622c999830" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjBCHJIJNglpVaiilRVRNBQgJuCEhx55dm+7aK3ucNEL57x07fAlx4OSP9+a9mTeH33vTCzEejQSM4NrYCLVtEfjsZSDwNZBBuPdBS7cIMmEYJ2dpX3m3xEAY4PL3JXPVX9lgxSJZ51j5fh1sYwgOJtMv8KeUw89SD4f3W6HKOnXcdNK2lfLdUSlsrUIXEc7n149av3woLdSpbeFFVzoNT2Trah86Sda7PehblPy3tLgqdWfzk9OLq9MsVSYjIwlWMoK2kYJdJEINK0uGEZ46+hQUspEu04yF0KhaGXCQ2YruaN1jhG8wHc6EcLLDyMMj3HAoJ0+Z3ObX7Rm6hgyzUnyLn3OPKeDsHaiUPsCPBftJRfm5Vyhzx3CdvTaz543NnTKgJUngJmN8XgCLRY4DptWkmpSfyGnjq7dMZDjaj65mLIrB1hD/ETodYTthbk48CIA+eEKV86yTU3kdnKOrbcOjwmAIX2HprWZiJgPs5sDLDWD/KCJdcJqDHbY2O0PxGrhadwvfZugNkK3jgEc6+Pxp+AjM+NyIjfgPFPHpZA==</source>
+  </file>
+  <file path="Unit/Length/Kilometer.php" generated-path="Unit.Length.Kilometer.html" hash="f9d36cf100a55f1b2bd37e7200649564" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSbTS+VGkppEVXTAkKC3pAqx57dNXjtlT1OGqH8d8aG0Aj10JM/3pv3Zt4cfx66QYjpZCJgAredidAYi8DnIAOBb4A6hHsftHTLIBOGaXKGjpR3KwyEAa6/XzNXPcgWKxbJOqfKD5tg2o7gfT37AD9KOXwt9XB8/yxUGadO214aWynfn5RCaxS6iHC5uH3R+uZDaaFJ1sJfXek07MjGNT70kox3hzBYlPy3MrgudReLs/Orm/MsVSajThKsZQRtIgWzTIQa1oY6Rnjq6FNQyEa6TDMVQqOyMuAosxX9ps2AET7BbDwXwskeIw+P8ItDOdtlcpdfdxfoWuqYleJb/JJ7TAHn/4BK6SN8WbKfVJSfh4WycAw32Ws7f93YT2N9j3kNWpIE7jTG1y2wYuRMYFbVVV1+IkeOe2+ZqON8/3c/U1EM9lzxD6HTEZ5nzW2KRwEwBE+ocrJNciovhhN1jWl5aBiN4SOsvNFMzGSAdzn6cgM4OolIV5zr6OBhZ3MwFvvozaZfest4/wbI/nE0q+t6/PI953MrtuIJp+7vew==</source>
+  </file>
+  <file path="Unit/Length/LengthUnit.php" generated-path="Unit.Length.LengthUnit.html" hash="1711b8aba300169ad73fe29e23461db3" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUsFu2zAMvesreOhhC1In2WVA3G7timzNkHYFmt0KDLJM2+pkyZDoZkbRfx+lOO067LCTIfO9R75Hnnzsmk6I2WQiYALbRgeotEHgbyc9gauAGoR750tpCy979LPeajpWzj6gJ/Rwc3nDWPVT1pixSNQ5U64bvK4bgnfzxXv4mujwKfHh5H4vlGmrzupWapMp135IRKMV2oBwtd6OWp+dTyNUvTHwoittCQewtpXzrSTt7BQ6g5L/PWjcJd5mfbG6vl1FqeSMGkmwkwFKHcjroicsYaep4Qq7Dq73CrlRmdzMhChRGenxTUQr+kFDhwFOYfE2F8LKFgObR/jOoVwcMrmLr7sN2poaRvXh7/oVz9h7zP9RStRHOC+4n1QUn9MEWVsuV7HXU/68sX0PiCuBIvouJUnggUPI4NwOYDkG8wJig43rTRm5+IuQU0y2EyOFqltOsEVLMT3tIVqcQhjawpkESDJ5FHA8steltnVK+ihWvlUJdJSG6bzr2JXmwJw1A+iK51EYgvTD862wSODNwSKbZ/P0J/Bh4B9v2VPDV/C/VzQTcgxvtLUPKWY4eg6v4hWPAuKohCrewsHGKYxbWi43q+sv20tO/RUuWYwo3stymVrl4kn8Bm0vH18=</source>
+  </file>
+  <file path="Unit/Length/Lightyear.php" generated-path="Unit.Length.Lightyear.html" hash="6674db47b922b17b63f59e84b22f1582" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUdtu00AQfd+vGBUenKh1nNKSlpRSqIpIlZSIlLdKaLMe21vsXWt3nWBVkfoPPPBB/AlfwuySpBHigae9nDPnzJw5e1MXNWO9bpdBF24LaSGTJQKdNTcOdAauQLjXJuVqbniDptco6Q6EVgs0Dg1MP0yJK77yHGMS8ToXQtetkXnh4DDpD+A6lMO7UA9n93+EYqnERV5xWcZCV+ehsJQClUWYjG7XWu+1CS1kTVnCky5XKWzIUmXaVNxJrfahLpHT30LiMtSNR5dXN7MrLxUmcwV3sOQWUmmdkfPGYQpL6QpCaGqrGyOQjNIwTY+xFEXJDUaeLdwX19Zo4TX0O0PGFK/Q0vAInymUy00md/51N0aVu4JYjf0bn1CPjcHhP6BQ+gBv5+THhfPP/UAZKYIz77Uabjc29mG0yA2k3HGgTq3dboEULWUC/TiJk/BjKXLcefPGFZTv/+6nx4LBjit+c6hS+gmz+jbZAwOojXYofLJZo4RfDCWqMpnT0BB14BUstEyJ6MkAz3304QZwcG7R3VCu0V65sdnrsF101lZzXRLePgHPYIJ+QRDNRp2Ql1/SaXz0MhnAzx/QT/rHUG3Jvx6/w8dP4VhzptWuRRCITj3yIjkaHB6fJCdJ0llThnSu2Ir9BltnBW0=</source>
+  </file>
+  <file path="Unit/Length/Meter.php" generated-path="Unit.Length.Meter.html" hash="a65d9d8139d69623c0d0cee88711c4f1" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOIzEMvecrLLSHtoJpuxckCiwsAtEVRUiwNySUSTwzYWeSUeK0VKj/jhMKixAHTontZ/v5vcNffdMLMR6NBIzgrjEBKtMi8NtLT+AqoAbh0XktbellRD+O1tCecnaJntDDzeUNY9U/WWPBQ9KcE+X6tTd1Q/BzMt2HP7kdfud+OHx8HVQYq07qTpq2UK47zo2tUWgDwmJ+t5114XymUMW2hf9zpdXwBja2cr6TZJzdhb5FybmlwVXuu5qfnV/fnqdR+TJqJMFKBtAmkDdlJNSwMtRwha8OLnqFvEjna8ZCaFSt9DhIaEUPtO4xwBFMhzMhrOww8PEIf1mUszdN7lN0f4W2poZRMXyuL5hj9Dj7opRbn+G05H1SUQp3M2RuuVylXZvZu2MLTBZoSRKYZQgFnLJMyaGQvHulAEwfSlZFc65K+dz27hZvDqwdTItJMcmZwNbgh1hGatiH7/o4FpnMlh0+EVodtmTSKeJZAPTeEaqkfhWtSuax6rYyNQsDgyEcwNIZzcAEBviR7Mk/gL3jgHTN2g92urRiZyg+Vm7XXelarn3Kp9VhMB1uczN+N2IjXgCe1viI</source>
+  </file>
+  <file path="Unit/Length/Micrometer.php" generated-path="Unit.Length.Micrometer.html" hash="740600a42bf0466af092b73f649abc0c" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRqGHTUQ2SQ9FaiilRamaiiAk6A2pcryzu6a79soeJ0Qon8UP8GWMDYSo4tC9eO335s28N8dfu7oTYjQYCBjAda09lLpB4LOTjsCWQDXCrXWFNEsnA7pRMJqGypoVOkIHlz8vmav+ygpzFok6p8p2G6ermuDjeHIEv1I5fE/1cHz7LJRro06rVuomV7Y9SYWNVmg8wmJ+/aL1w7o0QhmaBt50pSnglaxNaV0rSVtzCF2Dkt9WGtep7nx+Nru4mkWp5IxqSbCWHgrtyellICxgralmhF17G5xCblQkNyMhClSNdJhFtqI/tOnQwxeY9KdCGNmiZ/MIvzmUs9dMbuLt5hxNRTWzgv8XX/CMweH0HSiV3sO3JfeTiuL1MFHmhuEy9tpOdxtbaOVsi3EPhSQJPKr3uzWwpOdQYJKP83F68Zw57t1loJoD/t8FjURqsN8W7whN4eHZbRxU3AuAzllCFbMtg1FxNZypKXXFtiHrw2dYWV0wMZIBPsTw0x/A8MQjXXCyWa/d9en1xT58tWmXtsl6jw/tG3IQjc2Gn/aJcSCfsd34Tfov0JTPrdiKJ8JQ9Mo=</source>
+  </file>
+  <file path="Unit/Length/Mile.php" generated-path="Unit.Length.Mile.html" hash="41c1ae728d9f48d79fe32fdecfd61b3f" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevWKE+JBFckoJAbSiFIlBTkQgJ+oZUOfbeneHOPtnrpBHKf+/aIRShPvTJHzM7szt7+rWrOyGGg4GAAdzXJkBpGgQ+O+kJXAlUIzw6r6VdeBnRD6M1dKCcXaIn9HD7/Za56klWWLBI0jlXrlt7U9UEH0fjE/iRy+FbrofTx61QYaw6r1ppmkK59iwXNkahDQiz6f2L1rXzuYUyNg381ZVWw45sbOl8K8k4uw9dg5L/lgZXue5menk1v7tKUnkyqiXBSgbQJpA3i0ioYWWoZoSnDi56hWyk8zRDITSqRnrsJbaiX7TuMMAXGPcnQljZYuDhEX5yKJe7TB7S6+EGbUU1s2J4j8+4x+hx8g8olz7DxYL9pKL03M+UqWW4TF6byevGZmkkLUkCNxnC6wJYLHAcMC5GxSj/BE4b37xlpJqj/d/VDEU22Brib0KrA2wnTM2JZwHQeUeoUp5ltCqtg3O0pal4VOj14TMsndFMTGSADynwfAM4OAtIc06zt9eyw15fvAXu1u3CNQl6ByTr0Bsfjz4Vh0dH/RdowudGbMQf9MXp4g==</source>
+  </file>
+  <file path="Unit/Length/Milimeter.php" generated-path="Unit.Length.Milimeter.html" hash="43145e5e81998e16416badb0e7b33fb5" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSbpJdKhFIKomoqgpCgN6TKsWd3DV57ZY+TRij/nbEhEKEeevLHe/Nm3puTb33bCzEejQSM4K41EWpjEfjsZSDwNVCL8OCDlm4ZZMIwTs7QkfJuhYEwwM3PG+aqR9lgxSJZ50z5fhNM0xJ8nky/wK9SDuelHk4eXoQq49RZ00ljK+W701JojUIXERbzu1etHz6UEepkLbzrSqdhRzau9qGTZLw7hN6i5L+VwXWpu5pfXF7fXmap4oxaSbCWEbSJFMwyEWpYG2oZYdfRp6CQG+niZiyERmVlwEFmK/pDmx4jfIXpcCaEkx1GNo/wm0O52GVyn1/3V+gaapmV4kd8wTOmgLN/QKX0Cb4vuZ9UlJ+HhTJ3DNe513b2trGFsabDvAYtSQJPGuPbFlgxciYwrSbVpPxEjhz33jJRy/n+737GojTY64p/CZ2O8OI1jymeBEAfPKHKydbJqbwYTtTVpmHTMBjCMay80UzMZIBPOfpyAzg6jUjXnOvgoNu1ORiKffR20y29Zbz7AOT+ccDmJtPh6/+Mz63YimeP5O+f</source>
+  </file>
+  <file path="Unit/Length/Nanometer.php" generated-path="Unit.Length.Nanometer.html" hash="b2652a4eae0cf6525afa4a451ca8595c" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRrSHJCKbpJeqDVAoStVUECFBb0jIsWd3Dbv2yh4nRCj/3rFJIKp66F7W9nvzZt6bk29d3QkxGgwEDOCuNgFK0yDwv5OewJVANcKj81rapZcR/ShaQ0Pl7Ao9oYebnzfMVU+ywoJFks65ct3Gm6om+DSefIZfuRy+53o4eXwVKoxV51UrTVMo157lwsYotAHhen630/rhfB6hjE0D77rSatiTjS2dbyUZZ4+ha1Dy28rgOtddzS9ni9tZksrOqJYEaxlAm0DeLCOhhrWhmhF2HVz0CrmRzm5GQmhUjfTYS2xFD7TpMMApTPpTIaxsMbB5hN8cyuU+k/t0u79CW1HNrBj+xq95xuhx+g8ol77AxZL7SUXpepwpc8twmXptp28bW0jrWkxr0JIk8KQhvG2BFQNnApNiXIzzS+DI8eAuI9Wc7//uZyRyg4Ou+ExodYBXr2lM8SIAOu8IVUq2jFalxXCitjQVm4ZeH77CyhnNxEQG+JiizyeA4VlAWnCuvSO7b3PUF4fo7aZduobx9h34kFzNhl8OeWmc0GOvu2/S36FTAD5txVb8ASL580o=</source>
+  </file>
+  <file path="Unit/Length/Parsec.php" generated-path="Unit.Length.Parsec.html" hash="82ca94912a013e87ec2739ec8762cccd" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUdtuEzEQffdXjAoPSWg32YZkE1JKaRVEUFMqUt4qIcc7m3XZtVe2NyGqgvgHHvgg/oQvYew2IUI88OTLOXPOzJmTV1VeMdZutRi04CaXFjJZINBZceNAZ+ByhDttUq7mhtdo2rWS7khotUTj0MD122viis98gRGJeJ0zoau1kYvcwXEnTuBdKIfzUA8ndw9CkVTibFFyWURCl6ehsJAClUWYTm4etd5oE1rI6qKAP7pcpbAlS5VpU3IntTqEqkBOf0uJq1B3ObkYX83GXipM5nLuYMUtpNI6I+e1wxRW0uWE0NRW10YgGaVhmjZjKYqCG2x4tnCf3LpCCy8hbo4YU7xES8MjfKRQLraZ3PrX7SWqhcuJVdu/8Sn1WBsc/QMKpffwek5+XDj/PAyUiSI4816b0W5j19xYFJByx4HatHa3ApKzFAjEUSfqhB9LeePem9cup3D/dzltFgy2lvjFoUotPEzpG2T3DKAy2qHwmWa1En4llKXK5ILGhUYTXsBSy5SIngzw1IcebgBHpxbdFSXaOKiCx0GT7UOzdTnXBYF7wBOYot8LNGaTZojJ76YbdQa95OePuBP3odxRf337Du8/hONrN4YKHZk5g3bHCIX9JOkN4ufD8bO4v+8f1BvdPUbc7SfHUTKgy7CbDHtJMuz3mo81Izo3bMN+A5FEDJA=</source>
+  </file>
+  <file path="Unit/Length/Picometer.php" generated-path="Unit.Length.Picometer.html" hash="d2e7185bdae56e923f4087e68e0cced3" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRrSHJCKbLJdKDaW0KFVTAYoEvSFVjj27a7prr+xx0gjl3xkbQqKqh+7Fa783b+a9Of/cN70Qk9FIwAjuGxOgMi0Cn730BK4CahAendfSrryM6CfRGhorZ9foCT0svy+Zq37LGgsWSTqXyvVbb+qG4GxafoAfuRy+5no4f3wRKoxVl3UnTVso113kwtYotAHhZnH/qvXN+TxCFdsWDrrSatiTja2c7yQZZ0+hb1Hy29rgJtddL67mt3fzJJWdUSMJNjKANoG8WUVCDRtDDSPsOrjoFXIjnd1MhNCoWulxkNiKftG2xwCfoBzOhLCyw8DmEX5yKFf7TB7S7eEabU0Ns2L4G7/hGaPH2T+gXPoEX1bcTypK19NMWViGq9RrN3vb2NJwdJjWoCVJ4ElDeNsCKwbOBMpiWkzzS+DI8eguIzWc7//uZyJyg6Ou+IfQ6gAvXtOY4kkA9N4RqpRsFa1Ki+FEbWVqNg2DIXyEtTOaiYkM8D5Fn/8AxhcB6ZZzHZz0+zYnQ3GM3m27lWsZ7w7Au+RqPi7PjolpnjBgs4evHL4SZnzuxE48Awk488M=</source>
+  </file>
+  <file path="Unit/Length/Yard.php" generated-path="Unit.Length.Yard.html" hash="7af3adad4678567392bd4d225b6a113f" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1LYzEQfc+vGMSHtuhtK8Ky1m9xsYuKoD4sCJImc++N3ptckklrkf73naR+IfuwT/k4Z86ZObN/1NWdEMPBQMAA7moToDQNAp+d9ASuBKoRnpzX0s68jOiH0RraVs7O0RN6uLm4Ya56lhUWLJJ0jpXrlt5UNcHOaPwDfudyOM31sP+0FiqMVcdVK01TKNce5sLGKLQB4Wp696b1y/ncQhmbBj51pdXwTja2dL6VZJzdgq5ByX9zg4tcdzk9O7++PU9SeTKqJcFCBtAmkDezSKhhYahmhKcOLnqFbKTzNEMhNKpGeuwltqJHWnYY4ADG/YkQVrYYeHiEew7l7D2Th/R6uERbUc2sGL7jV9xj9Dj5B5RLX+Fkxn5SUXpuZcrUMlwmr9XkY2N/pNegJUngJkP4WACLBY4DxsWoGOWfwGnjl7eMVHO0/7uaocgGa0N8IbQ6wHrC1Jx4FQCdd4Qq5VlGq9I6OEdbmopHhV4f9mDujGZiIgNspsDzDWD7MCBdc5q9jSU7bPTFV+B22c5cw9B3IFmH3qj4Od7d7b8BEz5XYiX+AjM/6Zs=</source>
+  </file>
+  <file path="Unit/Mass/Gram.php" generated-path="Unit.Mass.Gram.html" hash="c140f982ef68bdbea736e172135e8ae8" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1vEzEQvftXjCoOSdRuEi5IpJRCVSCoqSq13CqhiT2767Jrr+xxQlTlvzN2P6gqDpzsmXnzZt6b449DOyg1nUwUTOCmtRFq2xHIO2Bg8DVwS3Dng0G3DpgoTJOzfKS921BgCnD17Uqw+hc2VAlJ5jnVftgF27QMb2fzd/C9tMPn0g/Hdw9ElXX6tOnRdpX2/Ulp7KwmFwlWy5tHri8+lBXq1HXwlxedgSewdbUPPbL17hCGjlByG0vb0nexPDu/vD7PVEUZt8iwxQjGRg52nZgMbC23UhHV0aegSQaZomaqlCHdYaBRRmv+ybuBInyA+XihlMOeoogn+CGmnD15cpuj2xXGKJgUX1dXsmEKtPhHqTTew6e1TEPNOTwskKWTcp0n7RfP9/oasAeDjCArxvhsv5BFMQPm1ayalUwUr+lFjIlbMfZ/DzNVZcDDQPrN5EyErC+vpu4VwBA8k85e1snpfArx0NW2EaEwGsN72HhrBJjBAG+y2eUHcHQSiS/FydFBI/wHY/WycL3r176T0qt8nhxHomc2Hz/mF/Lu1V79AS3n5y0=</source>
+  </file>
+  <file path="Unit/Mass/Kilogram.php" generated-path="Unit.Mass.Kilogram.html" hash="ae7967e3d1507ced46f3958ce0b83822" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSbpJdKhPJRRNW0DUICbkiVY8/uGrz2yh4njVD+e8cmfAhx6Mkf7817M2+OTvq2F2I8GgkYwU1rItTGIvDZy0Dga6AW4d4HLd0yyIRhnJyhA+XdCgNhgKsfV8xVD7LBikWyzqny/SaYpiX4PJl+gZ+lHL6Veji6fxKqjFOnTSeNrZTvjkuhNQpdRFjMb3Za330oLdTJWnjVlU7DM9m42odOkvFuH3qLkv9WBtel7vf8/OLy+iJLlcmolQRrGUGbSMEsE6GGtaGWEZ46+hQUspEu04yF0KisDDjIbEV/aNNjhK8wHc6EcLLDyMMj3HIo58+Z3OXX3ULGyJwU36ML7jAFnH0AlcJHOFuym1SUn/uFMncM19lpO3vZ1y9jfRNkB1qSBG4zxpcVsGDkQGBaTapJ+YmcN755y0Qth/u/yxmLYvBqin8JnY6Q58wtikcB0AdPqHKmdXIqr4SzdLVpeGAYDOEQVt5oJmYywKccerkBHBxHpEtOdLD3sPPYG4q34PWmW3rLcPMOyPZxMB3u/mZ8bsVW/AOOfuvn</source>
+  </file>
+  <file path="Unit/Mass/MassUnit.php" generated-path="Unit.Mass.MassUnit.html" hash="cf10d5f820ea1c83ee615f0f392e1fc6" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUsFuEzEQvfsr5tADROkm4YKUNNBQFREgUCnlVglNvLNZF6+9sr0Nq6r/znjYtBRx4LTyzps3772Zs7dt3So1GY0UjOC6NhEqYwn422JI4CtINcGtDyW6XcCOwqRzJp1q7+4oJApw9eGKsfoH7qlgksxzrn3bB7OvE7yazl7DR2mHd9IPZ7e/iQrj9Pm+QWML7Zs30miNJhcJNuvrgeu9DyKh6qyFJ150JRzBxlU+NJiMd2NoLSH/uzN0kL7P64vLL9vLTCXOUo0JDhihNDEFs+sSlXAwqeYKu46+C5p4UCluJkqVpC0GepHROn1PfUsRljB7uVDKYUORzRN841Aujpnc5NfNBmNkTBf/rm5YYRdo8Y+SNN7DasfTUKf8HAtk7bhc5UkPi8d95QmQ1wG77LnEhMBiYyxg5XpwHEFzhLC12ne2zH30MxHnJ4YFL3GahrNryKWcmwmQzY0h9s3OWwEIzSITeJYbTGncXjI+yZWvlYBOREobfMuODEflne3BVKxGU4wY+scrYZLIO4NZMS2m8ifySdAfb+xSzfv/3/uZKByCG2zlgHJ6g+P4LFh1ryALTaTzDRxNLGHYz3y+WW23nPYzlNhbwidj/T5gM5/LpIV6UL8A7Qoc0g==</source>
+  </file>
+  <file path="Unit/Mass/MetricTonne.php" generated-path="Unit.Mass.MetricTonne.html" hash="fb338f109689461c7a7f2e4dca44e3df" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjCIOmwg2m14qEaC0iKqpGoREuCFVjj2bNd21V/Y4IUL574zNN+LQkz0zb96beXP0rW96IcajkYARLBoToDYtAr+99ASuBmoQbp3X0i69jOjH0Ro6UM6u0RN6uPx1yVj1T66wZJLEc6pcv/Vm1RB8qSZf4Xduhx+5H45uH4lKY9XpqpOmLZXrTnJjaxTagDCfLZ64fjqfR6hj28Irr7QansHG1s53koyz+9C3KDm3NrjJfX9mZ+cXV+eJKm9GjSTYyADaBPJmGQk1bAw1XOGtg4teIQvpvM1YCI2qlR6LhFb0l7Y9BjiGyXAqhJUdBl4e4ZpNOXv25CZFN3MZAmNi+Fid84TR4/STUm68h+9LVpOKUrifITPL5Top7aYv95pjmmnhrEXQkiTwpCG8XIE5A3sCk7Iqq5wJbDm+iWWkhv393/uMRRZ4p4t3hFZzjgtpUHEvAHrvCFVyto5WpcOwo7Y2K14biiEcwtoZzcAEBthL1ucfwMFJQLpgX4tBl2WAks5gKN4Crrbd0rXFgD7k0wShmFRVNXxKT/ndiZ14AGl+7+8=</source>
+  </file>
+  <file path="Unit/Mass/Milligram.php" generated-path="Unit.Mass.Milligram.html" hash="e6ff7b0968a6ec8a3786dcee881003e9" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSbpJdKhFI+RNVUDUICbkiVY8/umnrtlT1OGqH8d8aGQIR66F68M2/mvZk3J9/6thdiPBoJGMFdayLUxiLw28tA4GugFuHRBy3dMsiEYZycoSPl3QoDYYCbHzdcq/7IBismyTxnyvebYJqW4PNk+gV+lna4KP1w8vhCVBmnzppOGlsp352WRmsUuoiwmN+9cn33oYxQJ2vhnVc6Dbti42ofOknGu0PoLUrOrQyuS9+v+eXV9e1VpiqbUSsJ1jKCNpGCWSZCDWtDLSO8dfQpKGQhXbYZC6FRWRlwkKsV/aZNjxG+wnQ4E8LJDiMvj3DPplzuPHnI0cNCxsg1KX5EFzxhCjj7B1Qan+B8yWpSUQ4PS8ncMVxnpe3s7V4LY61pguxAS5LAc8b4dgNmjOwITKtJNSmZyIbjXiwTtezu/15nLIrAnir+JXSaM5zOQ4onAdAHT6iyq3VyKh+F3XS1aXhlGAzhGFbeaC7MxQCfsu3lD+DoNCJds6eDg24ncjAU++jtplt6y3jzAcj6ccCr5W86fIVm/G7FVjwDGSjubw==</source>
+  </file>
+  <file path="Unit/Mass/Newton.php" generated-path="Unit.Mass.Newton.html" hash="2ad74d0c3255e37a75c5950d0339103b" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRlEPmwg2GypC2gClRVRN1URI0BsScryzWdNde2WPk0Yo/96xIRShHnqyZ+bNezNvTj91dSfEcDAQMIDbWnuodIPAbycdga2AaoQH60pplk4GdMNgNB0qa9boCB1cf7tmrPolV5gzSeS5ULbbOr2qCY6K0Ql8T+3wJfXD6cMTUa6Nuli1Uje5su15amy0QuMR5rPbZ66v1qURqtA08JdXmhL2YG0q61pJ2poD6BqUnFtr3KS+H7PLq8XNVaRKm1EtCTbSQ6k9Ob0MhCVsNNVc4a29DU4hC5Vpm6EQJapGOswiWtE9bTv0cAaj/lQII1v0vDzCTzblcu/JXYzu5tJ7xgT/tjrnCYPD6T9KqfERPi9ZTSqK4UGCzAyXq6i0m77ca4EbsgZKSRJ4SO9fDsB0nu2AUV7kRcp4dhtfxTJQzdb+72mGIgnsJfE3oSk9xB3jeOJRAHTOEqroZxWMiudgH02lV7wsZH34CGurSwZGMMC7aHj6ARyee6QFu5n1TFLo9cXr0s22Xdom6y3e5KO2zz7kk2I8Pi6Ko8n4/WRy3H+GTPndiZ34A5FB7Ek=</source>
+  </file>
+  <file path="Unit/Mass/Ounce.php" generated-path="Unit.Mass.Ounce.html" hash="841758ac05ce8b2d0a7700de25e59a9a" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevWKE+JBFcEqCiEEr5EIhUDUWCviEhx97LGe7sk71OmqL8965NgArx0Kc7e2ZndsaH39qqFaLf6wnowW1lApSmRuBvKz2BK4EqhAfntbRTLyP6frSGtpSzc/SEHq4vr5mrHuUMCxZJOsfKtUtvZhXB9mC4B9/zOJzmeTh8eBYqjFXHs0aaulCuOcqDtVFoA8JkfLvWunA+r1DGuoY3XWk1vJCNLZ1vJBlnN6GtUfLd3OAiz/0Yn51f3ZwnqZyMKkmwkAG0CeTNNBJqWBiqGOHUwUWvkI10TtMXQqOqpcdOYiu6p2WLAb7CsDsSwsoGA4dH+MWlnL10cpdOdxMZAnNieI9OeMPocfQBlAef4GTKblJROm5mytgyXCan1ej1vX5GyxdakgTeMYTX/lktcBswLAbFIN8Ek6hvZxmp4mb/92X6IhusHfE3odUBUsK0nHgSAK13hCq1WTIpPQa3aEsz46jQ6cIBzJ3RTExkgE+p7vwHsHUUkK64y86GSwYbXfEvcrNspq5m7M87IHmHDkfa/rKzu/+5u8ZG/F2JlfgL3w7p5g==</source>
+  </file>
+  <file path="Unit/Mass/Pound.php" generated-path="Unit.Mass.Pound.html" hash="0da39539d93fb5346202661844a8c324" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevWEV9uERwSWhR1YZSWkRFKoIiQd+QKp+9lzO9s0/2OmmE8t+7NoEi1Ic++WNmZ3ZnTz73TS/EeDQSMILbxgSoTYvAZy89gauBGoR757W0lZcR/ThaQ4fK2TV6Qg/LyyVz1S+5wpJFks6Zcv3Wm1VDcDSZvofvuRy+5no4uX8UKo1VZ6tOmrZUrjvNha1RaAPCYn671/rmfG6hjm0Lf3Wl1fBENrZ2vpNknD2AvkXJf2uDm1x3NT+/uL65SFJ5MmokwUYG0CaQN1Uk1LAx1DDCUwcXvUI20nmasRAaVSs9Fomt6CdtewzwCabDmRBWdhh4eIQfHMr5UyZ36XW3kCEwJ4bX6II7jB5n/4By4QN8qdhNKkrPg0yZW4br5LSbPe9r6SLHoCVJ4B5DeM6f1QKnAdNyUk7yT+Cw8cVbRmo42f/dzFhkg70j/ia0OkCaMDUnHgRA7x2hSmnW0aq0DE7R1mbFo0IxhI+wdkYzMZEB3qS48w3g8DQgXXOWxaBPBoOheIncbLvKtcWgrV4ByTsUk/Ld8dvjD0fDPTTjcyd24g8ISum8</source>
+  </file>
+  <file path="Unit/PlaneAngle/Degree.php" generated-path="Unit.PlaneAngle.Degree.html" hash="e4a2bdf9e2bcdbb2f5a781b43a0a2624" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSbpJdKDeWzIFIVFAm4IVWOPbtr6rVX9jhphPLfO3YJILj05I/35r2ZN4fHfdsLMR6NBIzgrjURamMR+OxlIPA1UIvw6IOWbhlkwjBOztCB8m6FgTDA4mrBXPVbNlixSNY5Ub7fBNO0BJ8n0y/wo5TDWamHw8d/QpVx6qTppLGV8t1RKbRGoYsI1/O7Z61LH0oLdbIWXnWl07AjG1f70Eky3u1Db1Hy38rgutT9nJ9f3NxeZKkyGbWSYC0jaBMpmGUi1LA21DLCU0efgkI20mWasRAalZUBB5mt6BdteozwDabDmRBOdhh5eIR7DuV8l8lDfj0srHR46hqLzEzxPeea+0yBsY9QKX+C0yV7SkX5uV8oc8dwnf22s5etfccmIEJeC2hJErjfGF92wZqRk4FpNakm5Sdy8PjmLRO1nPL/bmksisHOF/8QOh3hddzcqXgSAH3whCoHXCen8n44WFebhueGwRC+wsobzcRMBviUN1BuAAdHEemG4x3s6eKzNxRvodtNt/S2gO+Q7B4H0+Hz34zPrdiKv3gp7+0=</source>
+  </file>
+  <file path="Unit/PlaneAngle/PlaneAngleUnit.php" generated-path="Unit.PlaneAngle.PlaneAngleUnit.html" hash="3c3f8068f0cd22524597ba3510adf6a5" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUk1v00AQve+vmEMPEAUn4YLUNNBQAgSlIRLlVqlar8f2lvWutbtusKr+d2YHJ/3gwslaz5s3772Zsw9t3QoxGY0EjOCq1gFKbRDo20ofwZUQa4Rb5wtpcy879JPO6vhGOXuHPqKH3dcdYdUvWWFGJInnXLm297qqI7ydzt7BN26Hj9wPZ7d/iTJt1XnVSG0y5Zr33Gi0QhsQLtdXA9dn51lC2RkDj7zSFnAAa1s638ionR1Da1DSvzuNe+7brC9W2x+rRMXOYi0j7GWAQofodd5FLGCvY00Vch1c5xXSoILdTIQoUBnp8VVCq3gT+xYDLGD2ei6ElQ0GMo/wk0K5OGRynV7XOyMtLm1lkJBdeIm5JJ2dp9q/JW6/h2VOM6WK6TlmyNpSuUzzHubHrfEc4EGQdgN5CqCQUQIpDyGjWg+W8mgZKY9Islu7zhSJBX9HpEw5BG7jiHVDeTZoY8pSe0iGxxD6JneGAUwzTwSOxHtdaFtx7iep8r1k0Akrar1ryZ+m+Jw1PeiSRCkMQfr+eDlEEmiPMMum2ZT/BDoTfPKWXazpJv73piZCDjEOth7XkhIdfIdnYYt7AUluRJWu42BlAcPOTk93m+V2dbPcftmsaBHPwOx1AZ+w8khIHjoXD+IP5AInVg==</source>
+  </file>
+  <file path="Unit/PlaneAngle/Radian.php" generated-path="Unit.PlaneAngle.Radian.html" hash="a0174d68b201a89fd3dbb8ab5b3b3cc6" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevWKE+JBFcEiRE21AKRVRNVVBU6BtS5dh7d6Y++2Svk0Yo/71rlwCiL33yx8zO7M6efOzbXojxaCRgBLetiVAbi8BnLwOBr4FahHsftHTLIBOGcXKGDpR3KwyEARZfFsxVv2SDFYtknTPl+00wTUtwOJkew9dSDp9KPZzc/xWqjFNnTSeNrZTvTkuhNQpdRLia3z5qffahtFAna+FZVzoNO7JxtQ+dJOPdPvQWJf+tDK5L3bf5xeX1zWWWKpNRKwnWMoI2kYJZJkINa0MtIzx19CkoZCNdphkLoVFZGXCQ2Yp+0qbHCB9gOpwJ4WSHkYdH+MGhXOwyucuvu4WVDs9dY5GZKb7mXHGfKTD2L1TKH+B8yZ5SUX7uF8rcMVxnv+3saWvfpTacbl4LaEkSuN8Yn3bBmpGTgWk1qSblJ3Lw+OItE7Wc8v9uaSyKwc4XfxM6HeF53NypeBAAffCEKgdcJ6fyfjhYV5uG54bBEN7DyhvNxEwGeJM3UG4AB6cR6ZrjHeyF4rM3FC+hm0239LaAr5DsHgdHx9Xhu6O3w0dkxudWbMUfKU3xPg==</source>
+  </file>
+  <file path="Unit/Pressure/Atmosphere.php" generated-path="Unit.Pressure.Atmosphere.html" hash="baf9c23f915f0c3125e5cb939dbe0903" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevWKE+JBFcclRVpYZSKKJqqoIiQd+QKse3lzO9s0/edUKE8t+7dkka0Zc++WNmZ3Znzz71Ta/UeDRSMIL7xhLUtkWQs9eBwdfADcKjD5V2i6AjhnF0lk+MdysMjAHmX+fCNb/0EgsRSToXxvebYJcNw+mkfA/fcjl8zvVw9vhHqLDOXCw7bdvC+O48F7bWoCOEm9n9i9YXH3ILdWxb+KurXQU7snW1D51m690x9C1q+VtZXOe677Or69u76ySVJ+NGM6w1QWWJg11ExgrWlhtBZGryMRgUoypPM1aqQtPqgIPENvyTNz0SfIRyOFXK6Q5Jhkf4IaFc7TJ5SK+HeUCiGFB4kV4zbqTLjP0L5eJnuFyIozacnseZMnMC18ltO93v7JI7T32DASEtBirNGqRjov02RJckGyiLSTHJPyTR48FbR24k5//d01hlg0NvfGJ0FcFu6NSvelYAffCMJoVcR2fSjiRcV9ulkGAwhA+w8rYSYiIDvElbyDeAk3NCvpWIB0d673Q0VIfw3aZb+DYTXiGpAxqUk/Lt6bvhCzCVc6u26jdzsPVi</source>
+  </file>
+  <file path="Unit/Pressure/Bar.php" generated-path="Unit.Pressure.Bar.html" hash="eec76f8715945e39b2716fdf0c293305" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFuEzEQvfsrnioOSdRuEi5IpJTSqoggWkVquVVCXu9s1mXXXtmzCVGVf2dsmlIBB/binXlv3sy8OX3fN71S08lEYYK7xkbUtiXI2+vA8DW4ITz4UGlXBj1QmA7O8onxbkOBKWD1aSVc812vqRCRpHNufL8Ldt0wXs/mb/A5l+Mi1+P04ZdQYZ05X3fatoXx3VkubK0hFwnXy7snrY8+5BHqoW3xW1e7CgeydbUPnWbr3TH6lrTkNpa2ue7L8vLq5vYqSeXNuNGMrY6obORgy4GpwtZyI4hsHf0QDEmjKm8zVaoi0+pAo8Q2/I13PUW8w3y8UMrpjqIsT/gqplwePLlP0f0qUIxDIOEN8U/GtUyZsb+hXPyID6V01IZTeJwpSydwnbrtF883u9AB6SKoNGvIqDE+n0EEo5iCeTErZjkTxXN6EeuBGzH4fw80VblBbko/mFwVcVgzTageFdAHz2SSrfXgTLqK2OlquxYSRmO8xcbbSoiJDLxKvuc/4OQsEt+IqaOjUoejsXqZv911pW//haTWcTSfpW/8BCzk3au9+gl9kuxB</source>
+  </file>
+  <file path="Unit/Pressure/Kilopascal.php" generated-path="Unit.Pressure.Kilopascal.html" hash="00a3c1cc7757b1103c41583d5589f249" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRqiHJILNppdKDVBaRNW0gCJBb0jVxDubNXjtlT2bNEL5945dkkb0wsmemTfvzbw5/dQ1nVLj0UjBCO4bE6E2lkDeDgODr4EbgkcfKnSLgD2Fce8Mn2jvVhSYAsy/zQWrn3BJhZAkngvtu00wy4bhfTn5AN9zO3zJ/XD6+JeoME5fLFs0ttC+Pc+N1mhykeBmdv/C9dWHPELdWwv/eNFVsAMbV/vQIhvvjqGzhJJbGVrnvuvZ5dXt3VWiyptxgwxrjFCZyMEseqYK1oYbqcjW0fdBkwhVeZuxUhVpi4EGCa35F286inAGk+FUKYctRVme4KeYcrnz5CFFD/NAMfaBBNfH14gbmTLX/i/l5mf4vBBF1JzC4wyZOSnXSW073d/sh7G+w6jRQjoMVMgIMnGM+2sIbxRvYFKURZkzUayngxh7bsTnt95prLLAoTb9ZnJVhN3SaV71rAC64Jl0MrnunU43EnNdbZYCgsEQPsLKm0qACQzwLl0h/wBOziPxrVg8OHraKx0N1WH5btMuvBVAh68qaYI4mJRlOXxJT+Xdqq36A1lW9LI=</source>
+  </file>
+  <file path="Unit/Pressure/Megapascal.php" generated-path="Unit.Pressure.Megapascal.html" hash="a4dae3735431728aeed556d23ab45ecb" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFu2zAMvesriGKHJGidZJcBS9d1Kzosw1IEaHsrMDAybauTJUOikwVF/r2U1qRBd5kvsvQe3yMfzz93TafUeDRSMIK7xkSojCWQs8PA4CvghuDRhxLdKmBPYdw7w2fauzUFpgDL70vh6t9YUyEiSedS+24bTN0wvJ9MP8CPXA5fcz2cP/4VKozTl3WLxhbatxe50BpNLhIs5ncvWt98yC1UvbXwqouuhD3ZuMqHFtl4dwqdJZS3taFNrvs5v7q+ub1OUnkybpBhgxFKEzmYVc9UwsZwI4hMHX0fNIlRmacZK1WSthhokNiaf/G2owifYDqcKeWwpSjDE9xLKFf7TB7S7WEZKMY+kPD6+JaxkC4z9i+Ui5/gy0ocUXO6nmbK3AlcJbfd7LCzBdXYYdRoIS0GSmQE6TjGwzZEN0o2MC0mxSS/RImeju7YcyM5/++exiobHHvTHyZXRtgPnfpVTwqgC55Jp5Cr3um0IwnXVaYWEgyG8BHW3pRCTGSAd2kL+Q/g7CIS30jEg5P24HQyVMfw7bZdeSuEDt8gqYM4mE7yN3xBZnLu1E49Awvt9QU=</source>
+  </file>
+  <file path="Unit/Pressure/Pascal.php" generated-path="Unit.Pressure.Pascal.html" hash="70a298eb2e5d6295eeb4939fd477dd3e" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRqiHJIJN0kulhlJaRNVUBUWC3pCqiT2bNfXaK3s2aYTy74zdhCK4cNodvzfvzbw5/dw1nVLj0UjBCG4bm6C2jkC+HUaGUAM3BPchGvTLiD3Fce8tn+jg1xSZIiy+L4Sr/+CKKhHJOuc6dNtoVw3D+8n0A/wo7fC19MPp/T+hynp9vmrRukqH9qw0OqvJJ4Kr+e1e61uIZYS6dw7+66I3cCBbX4fYItvgj6FzhPK2trQpfT/nF5fXN5dZqmzGDTJsMIGxiaNd9kwGNpYbQWTrFPqoSYxM2WaslCHtMNIgszX/5m1HCT7BdDhTymNLSZYn+CWhXBwyucvV3SJSSn0k4fXpJeNKpizYa6g0P8CXpTii5lweF8rcC1xnt93s6WYLTBod5KOAQUaQaVN6uoRoJskFptWkmpSXJLHTsxp7biTjt95orIrBwZf+Mnkj5X7ZPKd6UABdDEw6h1v3XufbSKi+tishwWAIH2EdrBFiJgO8y+mXP4CTs0R8LdEOjrricjRUz6GbbbsMLoMvgGyeBtPh/m0m353aqUcPvu6q</source>
+  </file>
+  <file path="Unit/Pressure/PoundForcePerSquareInch.php" generated-path="Unit.Pressure.PoundForcePerSquareInch.html" hash="76225f546d6d2544351aff0b8f8c035d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUtFOGzEQfPdXrFAfkohckqqCtqFAi6gIKuik0DekyrH3coY7+2qvEyKUf+/aDRRRVeqTz57ZndnZOzrp6k6I0WAgYAA3tQlQmQaBz056AlcB1Qh3zmtpF15G9KNoDQ2Vsyv0hB7Ki5K56l4useAmqc+pct3Gm2VN8HY8OYTLXA5fcj0c3f1uVBirTpetNE2hXHucCxuj0AaEq9nNrtdX57OFKjYN/OkrrYYnsrGV860k4+w+dA1KflsZXOe6b7Oz8+v5eWqVJ6NaEqxlAG0CebOIhBrWhmpGeOrgolfIQjpPMxJCo2qkx15iK/pBmw4DfIJJfyqElS0GHh7hO4dy9pTJbbrdlh5DiB6ZF8NrxhW7zNjfUC5+hM8LVpSK0nU/U2aW4SqpbafPOytdtJpDUliin/+MbHVmVQ1pS6AlSWD7ITyvhkUCBwWTYlyM80vgPeCLu4xUc+j/u7SRyAL/NIIPhFYzvosjTSIeBUDnHaFK8VfRqrQ9jt1WZskk6PXhI6yc0UxMZIA3aT/5C2B4HJCuOfzeXpdkh1XShY6NhqzM/4Sq9/riJX++aReu4YpgXiHJUugdvP/wrjg86O+QKZ9bsRW/AM7+Bbc=</source>
+  </file>
+  <file path="Unit/Pressure/PressureUnit.php" generated-path="Unit.Pressure.PressureUnit.html" hash="7bc742a909bfba841843ffdedd77e9f3" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUsFuEzEQvfsr5tADRGGTcEFKGmipggiiEDXtrRKaeGezLl57ZXsbVlX/nfGQLRQunFbeefPmvTdz+q6tW6Umo5GCEVzXJkJlLAF/WwwJfAWpJrjzoUS3C9hRmHTOpFfau3sKiQJsPm4Yq7/jngomyTxn2rd9MPs6wevp7A18knZ4L/1weveLqDBOn+0bNLbQvnkrjdZocpHgcn195Prgg0ioOmvhNy+6EgawcZUPDSbj3RhaS8j/7g0dpO/z+mL1ZbvKVOIs1ZjggBFKE1Mwuy5RCQeTaq6w6+i7oIkHleJmolRJ2mKgFxmt07fUtxRhCbOXC6UcNhTZPMENh3IxZHKbX7ebQDF2gRjXxb8Rl6xSav+WpPkBznc8EXXKz7FA1o7LVZ72uHja2TAFdtl2iQmB9cZYwLnrwXEK7YDIi2OHte9smVvpRyKOUXxLj6RqGo6wIZdyfCZA9jiG2Dc7bwUgNItM4FlxMKVxe4n6JFe+VgI6ETlt8C2bMpyYd7YHU7EizXIw9E/HwiSRVwezYlpM5U/ky6A/3tilms/gf89oovCY3dHWkFEO8eg6PstXPSjIYhPpfA6DkSUc1zSfb65W2+3N1YqDf4YUm0vYYNRo53OZt1CP6id8gSJp</source>
+  </file>
+  <file path="Unit/Pressure/Torr.php" generated-path="Unit.Pressure.Torr.html" hash="068aad0cd98628aac48e889fbf192de1" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjKIeNhFsvg6VGkopiKqpAEUivSFVjj2bNezaK3ucNIry3zs2pKBy6ckf7817M2/OvnR1J8RwMBAwgGVtAlSmQeCzk57AVUA1wqPzWtqVlxH9MFpDp8rZDXpCD4vvC+aqJ7nGkkWSzoVy3c6bdU0wGY0/wo9cDpe5Hs4en4VKY9XFupWmKZVrz3NhYxTagHA7X75ofXM+t1DFpoFXXWk1HMnGVs63koyzJ9A1KPlvY3Cb627mV9d399dJKk9GtSTYygDaBPJmFQk1bA3VjPDUwUWvkI10nmYohEbVSI9FYiv6RbsOA3yGcX8mhJUtBh4e4SeHcnXM5CG9HhYeQ4gemRfDv4xb7jJj76FcvIevK3aUitLzJFPmluEquR1mrztz3kNaCWhJErjXEP7ugRUDpwLjclSO8k/g0PHNW0aqOeH/3dBQZINnV/xNaHWA46CpR7EXAJ13hCoFW0Wr0l44UFuZNZOg6MMn2DijmZjIAB9S8vkGcHoekO441qJH7NHri7fA/a5duaboLd9DyTwU4+m0nE4m/RdkxudBHMQfyDfupA==</source>
+  </file>
+  <file path="Unit/Speed/KilometrePerHour.php" generated-path="Unit.Speed.KilometrePerHour.html" hash="86cdc82bd7b82906a16813c193734a91" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PGzEQvftXjFAPSQSbhAtVwzeiIm1BkUJvSJVjz2YNu7ZljxMilP/escuXaA/di9eeN2/ee3N44hsvxHAwEDCA28ZEqE2LwKeXgcDVQA3CvQta2kWQCcMwWUN7ytkVBsIAs6sZY9WDXGLFJJnnVDm/CWbZEOyPxgfwrbTDeemHw/s/RJWx6nTZSdNWynXHpbE1Cm1EuJ7ePnN9daFIqFPbwhuvtBpewMbWLnSSjLO74FuU/LYyuC59P6YXlzfzy0xVnFEjCdYygjaRglkkQg1rQw1X2HV0KSjkQbq4GQqhUbUyYC+jFf2ijccIRzDuT4SwssPI5hF+cigXL5nc5dvd3CNqBqX4sXzNElPAyT9KpfMJzhY8TirK190CmVou13nUdvK6sO+mdR1SQPAcbMPaIW8HtCQJLDvG15Uwf+SAYFyNqlF5iZw/vrvLRA2H/b/LGooy4E3DDMNVVoCPhFZHKP6zdPEkAHxwhCqHXSer8q44ZFubJQcBvT58gZUzmoEZDPApb6P8AewdR6Qbjrq38/CX4Z2+eA+bb7qFaxnomw+VrCT2RtX+AX+f+8+lCZ9bsRW/AREI+xY=</source>
+  </file>
+  <file path="Unit/Speed/MetrePerSecond.php" generated-path="Unit.Speed.MetrePerSecond.html" hash="28871cf19f744258ab25b835d6d703e4" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1vEzEUvPtXjCoOSdRuEi5IpJRCVUQQqSKl3Cohx36bddm1LdubEFX57302bakiDpz88ebNvDdz/tE3XojxaCQwwm1jImrTEvj0MiS4Gqkh3LugpV0H2VMY99akM+XslkKigOXXJWPVL7mhikkyz6Vyfh/Mpkl4O5m+w7fSjs+lH+f3f4gqY9XlppOmrZTrLkpjaxTZSFjMb5+4vrhQRqj7tsVfXmk1nsHG1i50MhlnT+Fbkvy3NbQrfd/nV9c3q+tMVTZLjUzYyQhtYgpm3SfS2JnUcIW3jq4PilhIl23GQmhSrQw0yGiVfqa9p4gPmA5nQljZUeTlCT/YlKtnT+7y627liTSD+nhcXvCIfaDZP0ql8wGf1iwnVcrP0wKZWy7XWeowewlsQSnQksKKOA+NnAy0TBI8cowvcTB3ZHMwrSbVpPxE9p5evWWfGjb6f4MaiyJwrE+/E1kdUTbPQ4sHAfjgEqlsc91blVNie21tNmwBBkO8x9YZzcAMBt7kHMoNOLuIlG7Y5MFJl6XgeaxYxE6G4jVote/WrmWYj0eVPEccTIdPfzM+D+IgHgHGlPZd</source>
+  </file>
+  <file path="Unit/Speed/MilesPerHour.php" generated-path="Unit.Speed.MilesPerHour.html" hash="6cad52b057693a33934829ab4fb97d73" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUdtqGzEQfddXDCEPtknW62II1GkuDSlxiYPB6VugyNKsV+mutEgjuyb43ztS7qEPedJlzpyZc87xaVd3QgwHAwEDuK1NgMo0CHx20hO4CqhGuHdeS7v0MqIfRmvoUDm7Rk/oYX41Z6z6I1dYMEniOVOu23qzqgm+lKMj+Jnb4Xvuh+P7R6LCWHW2aqVpCuXak9zYGIU2IMymt09cP5zPK1SxaeCVV1oNz2BjK+dbScbZA+galPy3NrjJfdfTi8ubxWWiysqolgQbGUCbQN4sI6GGjaGaK6w6uOgV8iCd1QyF0Kga6bGX0Ip+07bDAN9g1J8IYWWLgcUj/GJTLp49uUuvu0WHqBkUw8fyjFeMHif/KeXOBzhf8jipKD0PMmRquVylUbvJS2AzVsRJsak17w0pGdCSJPDKIbzEwdyBzYFRURZl/gnsPb55y0g1G/3ZoIYiD3icP0d/labjX0KrA2TdaWXxIAA67whVMrmKVqWM2FxbmRUbAL0+fIW1M5qBCQywn1LIN4DDk4B0wxb39tp3Qvf64i1ksW2XrmFQV3+opC1CryzG46Ny3H+qTPjciZ34BzFY9b8=</source>
+  </file>
+  <file path="Unit/Speed/SpeedUnit.php" generated-path="Unit.Speed.SpeedUnit.html" hash="2517f50ce7611c06b8440c09c982bdf0" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNU8FuEzEQvfsr5tADROkm4YKUbaGlBBFEIVLKrRLy2rNZF6+9sr0Nq6r/znjYpBRx4LQaz5s3897Mnr3tmk6I2WQiYAI3jYlQG4tA306GBL6G1CDc+aClq4LsMcx6Z9Kp8u4eQ8IAm48bwqofcocFkWSeC+W7IZhdk+DVfPEaPnE5vON6OLv7TVQYpy52rTS2UL59w4XWKHQR4Xp9M3J98IFHqHtr4YlXOg0HsHG1D61MxrspdBYlvd0b3HPd5/XV6st2lalYWWpkgr2MoE1MwVR9Qg17kxrKkOro+6CQGmlWMxNCo7Iy4IuMVul7GjqMcA6Ll6UQTrYYSTzCNzLl6uDJbY5utx2iJlAf/05f04h9wPIfKa58gMuK2kmVcjhlyNpRus6tHsvjwrgF5IVAlVVrmSTQuDEWcOkGcGRCPGJIXeN7q3Ml/kxIFrJmLmBHTUv2tehSts4EyPqmEIe28pYBTFNmAk8DB6ON27HNJznztWbQCc/SBd+RJkNueWcHMDWNozBGGYbjoRBJpLXBopgXc36JdBX4Ryz71NAJ/O8JzYQcrRtlsUXZwFFyfOateBCQJ02o8h0cVJzDuKLlcrtZrd6T489gLDCDUsANhi3S76CXS+5YikfxC2eLIM0=</source>
+  </file>
+  <file path="Unit/Temperature/Celsius.php" generated-path="Unit.Temperature.Celsius.html" hash="2b8ffc0f8556ff537d92cce9fb99da4d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNVNtOGzEQffdXjFIkNgFyASFUQgltBCptQUjAG1LleGezJo69sr0JCOU7+hu89R1+rGNnE2hoqz557TlzzplLctAr8oKxVqPBoAFXuXSQSYVAZ8GtB5OBzxFujU25Hlheom2VWvotYfQErUcLF58vCCtGfIhNIgk8R8IU91YOcw/b7c4efInp8Cnmw8HtnKgptTgajrlUTWHGhzFRSYHaIZydXlVcJ8ZGC1mpFLzwcp3CAix1ZuyYe2n0JhQKOb1NJE5j3rfT/vH55XGgipX5nHuYcgepdN7KQekxhan0OUWoamdKK5CE0lhNi7EUheIWk4AW/ru/L9DBB+jUu4xpPkZHxSNcU1P6i57chNvNFY4LtNyXFglaulXQGRmNsbehmP8AHwckyoUP180IOdUUzoLgrLscWx+Vk6WDMBhIuedAjp1bToNIHfUGOs12sx1fHLUeX9156XPq8//OqcWiwFIY7zzq1MGrioNZ9sAACms8itDkrNQizIiaqzM5JBAkddiHiZEpAQMYYC1MIX4BbB069OfU4qQm5kq1Onsdu7wfD4yiKL3Pn7t0zthfZLkSpeKeZDNlaAvWJlyVuNrYNW+Cq17EvPgiLE19ngK93tzo1uEQ/Sfatzgil4SdCOh30Ianx6+UsL230+zs0qUfA442TeSQkEjMrSqo1ysZIJe0DevZ+j6RPD2eEEVCyfD8A5L38PwTdgm7ATvbFRzAIvVbE2Vw2Aio1hLUXaIGFvmoy34TGVUiwWfQ2Kjc/pl6Ea3/m1RUpP056SpXoHpDsLhWHylmvFR+f/nuc2umoOkXfXN8J7AI40xq13qkzTSu02LDw/8AjTic8LDa41mtsj6LSzJjvwBeo4T1</source>
+  </file>
+  <file path="Unit/Temperature/Fahrenheit.php" generated-path="Unit.Temperature.Fahrenheit.html" hash="b5d218c2f74b8b81f3a85f11bfef6460" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNVNtOGzEQffdXjFIkdlNyITRFEEooiKiUgpCAN6TK8c5mTTb2yvYmIJTv6G/w1nf4sY6dCykVFU9ee86cM3Nmkr1ukRWMNapVBlW4yqSFVOYIdBbcONApuAzhVpuEq77hJZpGqaSrCa3GaBwauPh2QVgx5AOsE4nnORC6uDdykDloNTe34XtIh8OQD3u3M6K6VOJgMOIyrws92g+JuRSoLMLZydWcq6dNKCEt8xxeeLlKYAGWKtVmxJ3UagOKHDm9jSVOQt6Pk6Pj88tjTxU6cxl3MOEWEmmdkf3SYQIT6TKKUNdWl0YgCSWhmwZjCYqcG4w8Wrif7r5AC19gM+4wpvgILTWPcE2mHC08ufG3myscFWi4Kw0StLSvQWdUaIj9Gwr5D/C1T6JcOH/dCJATReHUC047y7H1eGZQZSgd+NlAwh0HKtra5UCI15I9sFlv1pvhxZL7uHLnpcvI6veOqsGCwKo23jlUiYWVvn3J7IEBFEY7FN7qtFTCT4osVqkcEAiiGHZhrGVCQA8GWPOzCF8AtX2L7pyMjirpUqwSs9Xw5f2or3MC0PvsuUPnlL2hzHNR5tyRcpprWoe1Mc9LfO3wmtO+sG7AvJRGWBr/LAW63Vmttf0BukNavCgOn57JRn5FfM4HaMLT4ymltdrt+tZ2i269ELG0eSKDiLRC3ryROJ6rARVL27Eu1neJ5enxiDgiSoYabLVieP4FURuef8POom8Ag+S8Ikpf6AxW9agGgTpLVN8gH3bYXyLDucjpQuQjfGrv1D9v/19opvSCrcJ7xNK5WI/EFm6ssHrOtwgSTHmZu91l2GVGT0DRL/7m+E5g4accVa7VUOlJWLTF+vv/CZq8P+HhtefTyrzkadidKfsDbjKPTg==</source>
+  </file>
+  <file path="Unit/Temperature/Kelvin.php" generated-path="Unit.Temperature.Kelvin.html" hash="5e06c726c755742c776519a209100692" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrnlAPSQSbpJdKDaW0iKppASGR3pAqxzubNezaK3s2aYTy7x27hEb00pM9M2/em3lz+rGrO6XGo5HCCIvaRlS2Icjb6cDwFbgmPPhQarcMuqcw7p3lE+PdmgJTwO3XW8GaR72iQkgSz7nx3TbYVc14O5m+w7fcjs+5H6cPf4gK68z5qtW2KYxvz3JjYw25SLieL565vviQR6j6psFfXu1K7MHWVT60mq13x+ga0pJbW9rkvqv5xeXN3WWiyptxrRkbHVHayMEue6YSG8u1VGTr6PtgSITKvM1YqZJMowMNEtrwT952FPEB0+FMKadbirI84YeYcrH35D5F9wtqOwqa+0AC7eNr0LUMmmv/lnL/Ez4tRVQbTuFxhsydlKskuJu9nO07NWvrkO6CUrOGDBzjyzGEM4o1mBaTYpIzUZyng1j3XIvN/3umscoCe136xeTKiIN906jqSQFd8EwmWVz1zqQLibWusisBYTDEe6y9LQWYwMCbdIP8A07OIvGNGDw4esxCR0N1WLrbtkvfSPFVPmnHwXT4nJvJu1M79RuITfDt</source>
+  </file>
+  <file path="Unit/Temperature/TemperatureUnit.php" generated-path="Unit.Temperature.TemperatureUnit.html" hash="5a2e0c7f5c8ffa2cc6bb3cca43c438a1" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUsGO0zAQvfsr5rAHqErackFqt7BlFUSBQrV0byshx5k0Xhw7sp12o9X+O+OhpV24cIqcefPmvTdz+a6tWyFGg4GAAWxqHaDSBoG+rfQRXAWxRrh3vpS28LJDP+qsjq+Uszv0ET2sP64Jq37KLWZEkniulGt7r7d1hNfjyRv4xO3wnvvh8v43Uaatuto2UptMueYtNxqt0AaE1XJz4PrgPEuoOmPgxCttCUewtpXzjYza2SG0BiX922ncc9+X5XX+9XueqNhZrGWEvQxQ6hC9LrqIJex1rKlCroPrvEIaVLKbkRAlKiM9vkhoFX/EvsUAc5i8nAlhZYOBzCPcUijXx0zu0utug02LXsbOI0G78DdoRUK59m+J+x9hUdBQqWJ6DhmytFSu0sCn2Wltp0FQJPOljBJIdQgZLGwPNmVxBkobJKu160yZCPAhIuXJAXAbx6sbyrJBG1OO2kMyO4TQN4UzDGCaWSJwpNvrUtstZ36RKt8qBl2wotY7mh41Rees6UFXJEphCNL3f66GSALtECbZOBvzn0Angmdv2cWa7uF/72kk5CHBg62zpFKaB+PhWdDiUUDSG1Gl0zh6mcNhX9PpJl+t85vF5vYmpyU8A7PZOXxGs9N2OuWpM/EkfgG25ygn</source>
+  </file>
+  <file path="Unit/Time/Day.php" generated-path="Unit.Time.Day.html" hash="5074d249bdea2074bcbe86af9fddac16" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Day</name>
+      <full_name>\UnitConverter\Unit\Time\Day</full_name>
+      <docblock line="24">
+        <description>Day unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Day::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJx1UF1PGzEQfPevWKE+JBFcLhUqVUMpglJBVRASqfqCVG3svZzBZ5/sdcKp4r9jmxKQqu6LvR8zuzOHX/q2F2I6mQiYwKLVARptCNLbo2dwDXBLcOe8Qrv0GMlPo9W8J51dk2fycH1+nWblPa6oSiSZ51i6fvB61TK8r2cH8L3A4aTg4fDumajSVh6vOtSmkq47KkCjJdlAcHmx+Mv1zflyQhONgVdetApehrVtnO+QtbO70BvCVFtr2hTcj4vTs6ubs0xVlHGLDBsMoHRgr5eRScFGc5s6SXVw0UtKi1RRMxVCkTToaZSnJf/moacAn2E2ngthsaOQxBP8TKacvnhym7Pbhe5ovvX2Kw6QnQOFjJAoQ9jalVAhHQ+zqq7qUgnJG3qTY+Q2GbGgaOGXNoa6UK4rPIWbHpisCpC35vXij4AUvXdMMmtsopXZoqTNNnoVPcFoDJ9g7bQqo8+AHO+yFdssx95RIL5Kakc7Coedsfi3ezN0S2f+389HhdHHD/t1Pd525+X3KB7FE70/xFs=</source>
+  </file>
+  <file path="Unit/Time/Hour.php" generated-path="Unit.Time.Hour.html" hash="81b0d56709465f1a32be21e0cd2f019c" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Hour</name>
+      <full_name>\UnitConverter\Unit\Time\Hour</full_name>
+      <docblock line="24">
+        <description>Hour unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Hour::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxtUF1PGzEQfPevWCEekggul1YCifClIiqoWoREUF+QkGPv5Qw++2Svk0YV/521AykS3Ze79e7MzszxWd/2QoxHIwEjmLUmQmMsAn97GQh8A9QiPPmgpZsHmTCMkzO0r7xbYiAMcHt1y7vqWS6wYpLMc658vw5m0RJ8qSeH8KPA4VvBw/HThqgyTp0vOmlspXx3WoDWKHQR4df17I3ruw9FQpOshX+80ml4Xzau8aGTZLzbg96i5LelwVXB/by+uLy5u8xUxRm1kmAlI2gTKZh5ItSwMtTyhF1Hn4JCPqSLm7EQGpWVAQd5W9EjrXuMcAKT4VQIJzuMbB7hnkO5eM/kIXcPM9PhdJvtFRNDjg60JAnMGeM2L4ZFVg+Tqq7q8hI5HPzQy0QtJzHD5OC3sRa7WOQVng05/iF0OkK+mwWIvwK4+uAJVXbZJKdySOzONWaRAsJgCEew9EaX1Q0g124OY9vl2j+NSDfsd7DT8rWdofg8vlt3c2954f/jLCoOvh7U9XA7nJa/F/EiXgEBksU+</source>
+  </file>
+  <file path="Unit/Time/Microsecond.php" generated-path="Unit.Time.Microsecond.html" hash="b84ca5111af48a27a90faeab86544eac" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Microsecond</name>
+      <full_name>\UnitConverter\Unit\Time\Microsecond</full_name>
+      <docblock line="24">
+        <description>Microsecond unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Microsecond::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxtUNtuEzEQffdXjKI+bCK6SXhBIr2JqogiWlVqEC+VkGPPZqd47ZU9mxCh/hnfwDcxdmkKovNij33OmTnn6LRve6Wmk4mCCSxbStCQQ5Cz15EhNMAtwn2IVvtV1APG6eCJD03wG4yMEW4+3AjWfNNrrEUk65yZ0O8irVuG17P5G/hY6PCu8OHo/lGoJm/O1p0mV5vQnRSiI4M+IVxdLv9ovQ+xrNAMzsGzrvYWnsDkmxA7zRT8K+gdannbEG4L79Pl+cX17UWWKs641QxbncBS4kirgdHClriVH3GdwhANyiBb3EyVsmicjlhltOGvvOsxwTHMxwulvO4wiXmEzxLK+VMmd7m7W1KHi322V2RiSCi5WcgJgtWsQaRT2scm7CQmYF7P6ll5SZIR/tXrgVsJZImDhy/kHHapbFl0/pmB3xm9TZC3yOuoHwqk+hgYTfbcDN7kyMSrb2g9RIRqDG9hE8gW6CMh10GOZt/lOjxJyNfivhp1z0NHY/U/6nbXrYKrRr9+phf/83KpEoO55uM9YFFuD+pB/QYjf8+f</source>
+  </file>
+  <file path="Unit/Time/Millisecond.php" generated-path="Unit.Time.Millisecond.html" hash="1836dac0c766d6b330537e94aa3a26c3" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Millisecond</name>
+      <full_name>\UnitConverter\Unit\Time\Millisecond</full_name>
+      <docblock line="24">
+        <description>Millisecond unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Millisecond::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxtUMFOGzEQvfsrRqiHJCqbpJdKDaUIRFWqgpBI1QtS5diz2QGvvbLHSaOKf+/YlNAK5rI7nvfezHtHn4ZuUGo6mSiYwLKjBC05BPkOOjKEFrhDuAvRar+KOmOcZk98aILfYGSMcP3lWrDmXq+xEZGic2LCsIu07hjezebv4Wulw2nlw9Hdo1BD3pyse02uMaE/rkRHBn1CuLxY/tX6HGI9oc3OwbOu9haewOTbEHvNFPxbGBxqedsQbivv28XZ+dXNeZGqzrjTDFudwFLiSKvMaGFL3MlEXKeQo0FZZKubqVIWjdMRRwVt+CfvBkzwEebjhVJe95jEPMJ3CeXsKZPb0t0uqcfFPttLco4SSm4WSoJgNWsQ6ZT2sQk7iQmYN7NmVl+SZIT/9DpzJ4EsMXv4IYrYp3pl1flvB/5i9DZBuaKco34rkBpiYDTFc5u9KZGJV9/SOkeE0Rg+wCaQrdBHQqk3JZp9V+rwOCFfifvRQf+89GCsXqJudv0qOMGlV8fltjQSf7P5eD9d1L8H9aD+AKujzek=</source>
+  </file>
+  <file path="Unit/Time/Minute.php" generated-path="Unit.Time.Minute.html" hash="97902d55d4ddbace6655abcdfbc041a6" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Minute</name>
+      <full_name>\UnitConverter\Unit\Time\Minute</full_name>
+      <docblock line="24">
+        <description>Minute unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Minute::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxtUMFuEzEQvfsrRhWHJGo3CQeQmlIqqiKKaFWpQVwqIceezU7x2it7nBBV/XfGLglIMJfd8bz3Zt47ez90g1LTyUTBBJYdJWjJIch30JEhtMAdwmOIVvtV1BnjNHviExP8BiNjhLtPd4I1P/QaGxEpOhcmDLtI647h9Wz+Fj5XOnyofDh7fBFqyJuLda/JNSb055XoyKBPCDfXy99aH0OsJ7TZOfijq72FPZh8G2KvmYI/hsGhlrcN4bbyvlxfXt3eXxWp6ow7zbDVCSwljrTKjBa2xJ1MxHUKORqURba6mSpl0TgdcVTQhr/zbsAE72A+XijldY9JzCN8lVAu95k8lO5hST0uDtnekJdVUMIDq1mDqKZ0SEyISe6HeTNrZvUlSTz4V68zd5LFErOHb+Qc9qkeWHX28viT0dsEZXc5Qj0pkBpiYDTFaZu9KUGJQ9/SOkeE0RhOYRPIVugLodSrEsihK3VynpBvxfPoqK/7jsbqX8D9rl8FVyH/nZe70ujNbHwYLerfs3pWvwCfQcfB</source>
+  </file>
+  <file path="Unit/Time/Month.php" generated-path="Unit.Time.Month.html" hash="ab70924aa03e4d56cc9f5ea2f986c60d" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Month</name>
+      <full_name>\UnitConverter\Unit\Time\Month</full_name>
+      <docblock line="24">
+        <description>Month unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Month::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJx9UGFLIzEQ/Z5fMYgf2nJut3LocfU8OfE4RUWwh18ESZPZbjSbLMmktYj/3UnUnnDgfNmdzLw3772Dn33bCzEejQSMYNaaCI2xCPztZSDwDVCLcO+Dlm4eZMIwTs7QjvJuiYEwwNWfK95VD3KBFZNkniPl+3Uwi5Zgt57sw1mBw6+Ch4P7V6LKOHW06KSxlfLdYQFao9BFhIvT2RvXbx+KhCZZC/94pdPwvmxc40MnyXj3BXqLkt+WBlcFd356fHJ5fZKpijNqJcFKRtAmUjDzRKhhZajlCbuOPgWFfEgXN2MhNCorAw7ytqI7WvcY4QdMhlMhnOwwsnmEvxzK8Xsmt7m7nZkOp5tsL7zjGzk70JIkMGmMm8AYF1k+TKq6qstL5HTwQy8TtRzFDJODG2MtdrHoKzxv7PhI6HSEfDlLEE8CuPrgCVX22SSnckzszzVmkQLCYAjfYemNLquvgFzbOY5Nl2vnMCJdsuPBVpfPbQ3F//PrdTf39rONLCwOdvf2v32t6+FmPi1/z+JZvACBL8hk</source>
+  </file>
+  <file path="Unit/Time/Nanosecond.php" generated-path="Unit.Time.Nanosecond.html" hash="d2e9290a45b6f0b06a2954911412542a" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Nanosecond</name>
+      <full_name>\UnitConverter\Unit\Time\Nanosecond</full_name>
+      <docblock line="24">
+        <description>Nanosecond unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Nanosecond::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxtUNFKYzEQfc9XDLIPbdHb1hfBuiqKy7poEaz4IixpMrc3bm5ySSatRfx3J1GvgjsvySTnnJlzjk66phNiPBoJGMGiMRFqYxH47GQg8DVQg/Dog5ZuGWTCME7O0J7ybo2BMMDN7xvGqn9yhRWLZJ1T5bttMKuGYH8yPYA/hQ5nhQ9Hj29ClXHqdNVKYyvl2+NCtEahiwjXl4t3rV8+lBXqZC186kqn4QNsXO1DK8l4twudRclva4Obwru6PL+Y315kqeKMGkmwkRG0iRTMMhFq2Bhq+IddR5+CQh6ki5uxEBqVlQEHGa3oL207jPATpsOZEE62GNk8wh2Hcv6RyUPuHhamxVmf7Vw6H5Fj05ADBC1JAivH2KfG5MgeYFpNqkl5iRwRfulloobzWGBycG+sxTaWJYvO1xH4ROh0hLxDXkY8C+DqgidU2XGdnMqBsVNXm1UKCIMhHMLaG12gb4RcP3IwfZdr7zgizdn7YMf1M3eG4jvodtsuvWVY/O93Xi0O2N17TYc9ZlZuL+JFvAK6jc3J</source>
+  </file>
+  <file path="Unit/Time/Second.php" generated-path="Unit.Time.Second.html" hash="5f2e3383b458d4a00f414211137ea82f" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Second</name>
+      <full_name>\UnitConverter\Unit\Time\Second</full_name>
+      <docblock line="24">
+        <description>Second unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Second::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxtUMFuEzEQvfsrRhWHJKKbhAsSKaWiKqIIqkoJ6qUScuzZ7BSvvbLHCVHVf2fskoBE57I7nvfezHtnH4ZuUGo6mSiYwKqjBC05BPkOOjKEFrhDeAjRar+OOmOcZk98aoLfYmSMcPv5VrDmp95gIyJF58KEYR9p0zG8mc3fwpdKh4+VD2cPz0INeXOx6TW5xoT+vBIdGfQJ4dv16o/WpxDrCW12Dv7qam/hACbfhthrpuBfw+BQy9uWcFd5X68vr26WV0WqOuNOM+x0AkuJI60zo4UdcScTcZ1CjgZlka1upkpZNE5HHBW04R+8HzDBe5iPF0p53WMS8wjfJZTLQyb3pbtfUY+LY7ZLlMgslPDAatYgqikdExNikvth3syaWX1JEg/+0+vMnWSxwuzhjpzDPtUDq85BHn8xepug7C5HqEcFUkMMjKY4bbM3JShx6Fva5IgwGsM72AayFfpMKPWqBHLsSp2eJ+Qb8Tw6SXXfyVj9D1ju+3VwAnlxWq5Ko/n4OFnUvyf1pH4DAkTGeQ==</source>
+  </file>
+  <file path="Unit/Time/TimeUnit.php" generated-path="Unit.Time.TimeUnit.html" hash="22ea93ea7fecb5cb0305e042fdb2be17" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="Measure">\UnitConverter\Measure</namespace-alias>
+    <namespace-alias name="AbstractUnit">\UnitConverter\Unit\AbstractUnit</namespace-alias>
+    <class final="false" abstract="true" namespace="UnitConverter\Unit\Time" line="29" package="Default">
+      <extends>\UnitConverter\Unit\AbstractUnit</extends>
+      <name>TimeUnit</name>
+      <full_name>\UnitConverter\Unit\Time\TimeUnit</full_name>
+      <docblock line="29">
+        <description>Time base class, new time classes should be extending this class
+implenting their name, symbol and units
+Only override $unitOf and $base properties when necessary</description>
+        <long-description></long-description>
+        <tag name="version" line="29" description="1.0.0"/>
+        <tag name="since" line="29" description="1.0.0"/>
+        <tag name="author" line="29" description="Teun Willems"/>
+        <tag name="package" line="29" description="Default"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="31" code="PPC:ERR-50007">No summary for property $unitOf</error>
+      <error line="33" code="PPC:ERR-50007">No summary for property $base</error>
+    </parse_markers>
+    <source>eJxlUk1vEzEQvftXzKEHiEI+uCAlDRSqIIIIrdStuFRCXns2O8Vrr/zRsKr474ydRK3avazm6817b3z+qW97IaajkYARVC0FaMgg8L+XPoJrILYI985raWsvE/ppshTfKWcf0Ef0cP3tmnvVH7nDCYNknAvl+sHTro3wfjb/AN/LOHwp83B+fwCakFUXu06SmSjXfSyDhhTagLDdVEesr84XCk0yBp5wpdVwaibbON/JSM6OoTcoOfdAuC9zPzaX65836wxVlMVWRtjLAJpC9FSniBr2FFuusOrgklfIi3RRMxVCozLS45vcreLvOPQYYAXzt0shrOwwsHiEWzbl8uTJXY7uKuqQe1J4Wd0yw+S59rpUBj/XvEuqmIPl03EYDuqsjfmEMAabFeZkiZlUaF0yGmoE/BvRarK7g6jSkDGoY3tsPBSQPGQBYwhDVztTPM3HLa1X1gzgmJYnjXCW81dNaTkrJHrveuZMvHffomU2CkOQfji9AR4NfBGYT2aTWckEPjg+i2WKLV+3wmThFxmDXSiWy6P+A+8iPFtxVBXguT/iUQB/zCaiyqc8MV3B0ebFotps1+zji76iYgU3yE9ZLxZl11L8+w+mrgfr</source>
+  </file>
+  <file path="Unit/Time/Week.php" generated-path="Unit.Time.Week.html" hash="c6aaf8298efddb3a8d361534e9274a8d" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Week</name>
+      <full_name>\UnitConverter\Unit\Time\Week</full_name>
+      <docblock line="24">
+        <description>Week unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Week::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJx9UNFOGzEQfPdXrFAfkggul6oC1FCKiqhKVRASQbwgIcfeyxl89sleJ40q/p21A6ESEvtyt96d2Zk5+t63vRDj0UjACGatidAYi8DfXgYC3wC1CA8+aOnmQSYM4+QM7SnvlhgIA1z9uuJd9SgXWDFJ5jlRvl8Hs2gJPteTA/hd4PCj4OHoYUNUGadOFp00tlK+Oy5AaxS6iHBxPnvh+ulDkdAka+GNVzoNr8vGNT50kox3u9BblPy2NLgquD/np2eX12eZqjijVhKsZARtIgUzT4QaVoZanrDr6FNQyId0cTMWQqOyMuAgbyu6p3WPEb7BZDgVwskOI5tHuOFQTl8zucvd3cx0ON1me4v4CDk60JIkMGeM27wYFlk9TKq6qstL5HDwv14majmJGSYHt8Za7GKRV3g25PiX0OkI+W4WIP4J4OqDJ1TZZZOcyiGxO9eYRQoIgyF8haU3uqxuALk+5TC2Xa6944h0yX4HOyu+tjMU78fX627u7QcLWVYc7NdfDut6uB1Py9+TeBLPCs7GQw==</source>
+  </file>
+  <file path="Unit/Time/Year.php" generated-path="Unit.Time.Year.html" hash="b463c63caacd4c9260a25265b20ec6e6" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Time" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Time\TimeUnit</extends>
+      <name>Year</name>
+      <full_name>\UnitConverter\Unit\Time\Year</full_name>
+      <docblock line="24">
+        <description>Year unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+        <tag name="inherited_from" description="\UnitConverter\Unit\Time\TimeUnit" refers="\UnitConverter\Unit\Time\TimeUnit" link="/classes/UnitConverter.Unit.Time.TimeUnit.html"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="31" package="Default">
+        <name>$unitOf</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::unitOf</full_name>
+        <default>\UnitConverter\Measure::TIME</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="33" package="Default">
+        <name>$base</name>
+        <full_name>\UnitConverter\Unit\Time\TimeUnit::base</full_name>
+        <default>\UnitConverter\Unit\Time\Second::class</default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Time" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Time\Year::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJx9UGFLHDEQ/Z5fMYgf7g7d21NawbNWKoqWVgRPSkEouWT2NjabLMnkrkfxv3eS06sgOF+SSd57M++dfO7bXojxaCRgBLPWRGiMReCzl4HAN0AtwqMPWrp5kAnDODlD+8q7JQbCALdXt4xVv+UCKxbJOmfK9+tgFi3BQT05gq+FDl8KH04eN0KVceps0UljK+W700K0RqGLCN+vZ89alz6UFZpkLfzXlU7DC9i4xodOkvFuD3qLkt+WBleF9+36/OLm7iJLFWfUSoKVjKBNpGDmiVDDylDLP+w6+hQU8iBd3IyF0KisDDjIaEW/aN1jhE8wGU6FcLLDyOYR7jmU85dMHnL3MDMdTrfZ/kQZIEcHWpIE1oxxmxfTIm8Pk6qu6vISORx81ctELScxw+Tgh7EWu1jWKzobcfxD6HSEPDcvIP4K4OqDJ1TZZZOcyiGxO9eYRQoIgyEcw9IbXaAbQq7dHMa2y7V/GpFu2O9gZ83Tdobi7ffdupt7+w4grxUHh5MPhx/ruh5uAdNyexJP4h+lz8a3</source>
+  </file>
+  <file path="Unit/UnitInterface.php" generated-path="Unit.UnitInterface.html" hash="d30649c8c4e773bb1d9d555186266875" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <interface namespace="UnitConverter\Unit" line="24" package="Default">
+      <name>UnitInterface</name>
+      <full_name>\UnitConverter\Unit\UnitInterface</full_name>
+      <docblock line="24">
+        <description>Interface for the unit of measurement abstract class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="31" package="Default">
+        <name>setName</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::setName()</full_name>
+        <docblock line="31">
+          <description>Sets the units full symantic name.</description>
+          <long-description></long-description>
+          <tag name="return" line="31" description="" type="\UnitConverter\Unit\UnitInterface">
+            <type>\UnitConverter\Unit\UnitInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$name</name>
+          <default></default>
+          <type>\UnitConverter\Unit\string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="38" package="Default">
+        <name>getName</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::getName()</full_name>
+        <docblock line="38">
+          <description>Returns the full symantic name of the unit.</description>
+          <long-description></long-description>
+          <tag name="return" line="38" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="45" package="Default">
+        <name>setSymbol</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::setSymbol()</full_name>
+        <docblock line="45">
+          <description>Sets the symbol notation used for the unit.</description>
+          <long-description></long-description>
+          <tag name="return" line="45" description="" type="\UnitConverter\Unit\UnitInterface">
+            <type>\UnitConverter\Unit\UnitInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$symbol</name>
+          <default></default>
+          <type>\UnitConverter\Unit\string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="52" package="Default">
+        <name>getSymbol</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::getSymbol()</full_name>
+        <docblock line="52">
+          <description>Returns the symbol notation of the unit.</description>
+          <long-description></long-description>
+          <tag name="return" line="52" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="59" package="Default">
+        <name>setUnitOf</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::setUnitOf()</full_name>
+        <docblock line="59">
+          <description>Sets the type of measurement that this unit is measuring.</description>
+          <long-description></long-description>
+          <tag name="return" line="59" description="" type="\UnitConverter\Unit\UnitInterface">
+            <type>\UnitConverter\Unit\UnitInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$unitOf</name>
+          <default></default>
+          <type>\UnitConverter\Unit\string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="66" package="Default">
+        <name>getUnitOf</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::getUnitOf()</full_name>
+        <docblock line="66">
+          <description>Returns the type of measurement that this unit is measuring.</description>
+          <long-description></long-description>
+          <tag name="return" line="66" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="73" package="Default">
+        <name>setBase</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::setBase()</full_name>
+        <docblock line="73">
+          <description>Sets the unit class that this unit is based off of.</description>
+          <long-description></long-description>
+          <tag name="return" line="73" description="" type="\UnitConverter\Unit\UnitInterface">
+            <type>\UnitConverter\Unit\UnitInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$base</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="80" package="Default">
+        <name>getBase</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::getBase()</full_name>
+        <docblock line="80">
+          <description>Returns the unit class that this unit is based off of.</description>
+          <long-description></long-description>
+          <tag name="return" line="80" description="" type="\UnitConverter\Unit\UnitInterface">
+            <type>\UnitConverter\Unit\UnitInterface</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="87" package="Default">
+        <name>setUnits</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::setUnits()</full_name>
+        <docblock line="87">
+          <description>Sets the amount of base units required to make up 1 of the unit.</description>
+          <long-description></long-description>
+          <tag name="return" line="87" description="" type="\UnitConverter\Unit\UnitInterface">
+            <type>\UnitConverter\Unit\UnitInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$units</name>
+          <default></default>
+          <type>\UnitConverter\Unit\float</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="94" package="Default">
+        <name>getUnits</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::getUnits()</full_name>
+        <docblock line="94">
+          <description>Returns the amount of base units required to make up 1 of the unit.</description>
+          <long-description></long-description>
+          <tag name="return" line="94" description="" type="float">
+            <type>float</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter\Unit" line="101" package="Default">
+        <name>getBaseUnits</name>
+        <full_name>\UnitConverter\Unit\UnitInterface::getBaseUnits()</full_name>
+        <docblock line="101">
+          <description>Returns the units base unit units'.</description>
+          <long-description></long-description>
+          <tag name="return" line="101" description="" type="float">
+            <type>float</type>
+          </tag>
+        </docblock>
+      </method>
+    </interface>
+    <parse_markers>
+      <error line="31" code="PPC:ERR-50015">Argument $name is missing from the Docblock of setName</error>
+      <error line="45" code="PPC:ERR-50015">Argument $symbol is missing from the Docblock of setSymbol</error>
+      <error line="59" code="PPC:ERR-50015">Argument $unitOf is missing from the Docblock of setUnitOf</error>
+      <error line="73" code="PPC:ERR-50015">Argument $base is missing from the Docblock of setBase</error>
+      <error line="87" code="PPC:ERR-50015">Argument $units is missing from the Docblock of setUnits</error>
+    </parse_markers>
+    <source>eJy9lF1v0zAUhu/zK87FJLoK0pYbJDag2jREEYyJjjsk5DgnibfEDv5YVU38d46dJv1gEEonLtrI9vF73vP42Kdv6qKOotFwGMEQrgthIBMlAn1rpi2oDGyBcKN0ymSimUM9clLYZ1zJO9QWNVy9u6JYfstyjEnE60y5qpda5IWF5+PJC3gftsNZ2A+nN41QLCSf5hUTZcxV9TpsLAVHaRA+zq5XWm+VDhYyV5aw1mUyhTZYyEzpilmh5FOoS2Q0dydwEfZ9mJ1fXM4vvFSozBbMwoIZSIWxWiTOYgoLYQtaoaqNcpojJUpDNaMoSpGXTOPAR3P7zS5rNPAKJscnUSRZhYaKR/hCUM5bJl/96KTDOpM0l/mobFWMR+jZVuTVaaxQUkUJZWDcAqUzpkNJioYKg0k8jsdhxhA33BgzZwvS/VvIo0h0frzPzl10HwEEy0Cyc7Sm82oa/GZZMWkFB193HOKa4KlG67Tc0fNLI/qvXUJHRRKS+zMCg/aSBCAglTkcebljeLm9nfht2PkcEph1K2x5afvUe33IV5Pot4by1pA30cRuZ+9gUNZElSCVDe0GzlD3bJ7qQVTmjXrHpcm2B5ldewdjaR31gvHXYrejw1ULtyr0O32bVVI5CJMP/JStMbkw3gPTI5jtR9e67EUX8oVL/4CJhPkOU1lGv4OgnflXcXDk9fYg9R+85a23HlsdL1YpJ8Pz6Q2s3ieN353QZMcqqNgtTdcw6ev/vTrOwCArFTEI/Wb2gPh4hoOBvqYzDcoQ++eTNWtDzfjJPyX1x/dr4h/RT84vo0w=</source>
+  </file>
+  <file path="Unit/Volume/CubicMetre.php" generated-path="Unit.Volume.CubicMetre.html" hash="a7179c94b1f49823c366b8c95242f4e0" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1vEzEQvftXjCIOm6jdbOCAREopREUEkapSC6dKyOudzbp47ZU9ThpV+e+MnX6pXDj54715M+/NyaehG4SYTiYCJnDd6QCtNgh8DtITuBaoQ7h1vpG29jKin0ar6Vg5u0FP6OHy2yVz1R+5xpJFks6ZcsPO63VH8LaavYfvuRy+5Ho4uT0Ildqqs3UvtSmV609zodEKbUBYLa8ftL46n0doozHwrCttA49kbVvne0na2SMYDEr+22jc5rofy8X5xdV5ksrOqJMEWxmg0YG8riNhA1tNHSPsOrjoFXKjJruZCtGgMtJjkdiKftNuwAAfYTaeC2Flj4HNI/zkUBaPmdyk180vZ2KPzIrhNb7iGaNn7F8ol97D55r7SUXpeZQpS8twm3rt508bW8RaK+iRPELaCzSSJPDAITwtg4UDRwOzsiqr/BM4eXzxlpE6jvl/1zQVucGh+Sr3xjtC2wQ4eE7jinsBMHhHqFLCbbQqLYiTta1es3koxvABNk43TExkgDdpBfkGcHwakC4432Kknk2OxuIlfrXra2eKUf/uFZAmCMWsqqrxw/ecz73Yi799y/J0</source>
+  </file>
+  <file path="Unit/Volume/Gallon.php" generated-path="Unit.Volume.Gallon.html" hash="491ba0e14d8417a3e3a2aed45441bc5d" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevWKE+JBFckraIqqGUFlGaqiAkaJ+QKsfeuzP12Sd7nTRC+e+sDaGIvvTJHzM7szt7+LFveyHGo5GAEVy3JkJtLAKfvQwEvgZqEW590NItgkwYxskZ2lPeLTEQBrj8eslc9Vs2WLFI1jlWvl8H07QEryfTA/hWyuFzqYfD2wehyjh13HTS2Er57qgUWqPQRYTz+fWj1hcfSgt1shb+6kqnYUs2rvahk2S824XeouS/pcFVqfs+Pzm9uDrNUmUyaiXBSkbQJlIwi0SoYWWoZYSnjj4FhWykyzRjITQqKwMOMlvRL1r3GOEDTIczIZzsMPLwCD84lJNtJjf5dfPT29Qhs1J8iZ9zjykw9i9USu/g04L9pKL83C2UuWO4zl6b2dPGzqS13kFeCWhJErjXGJ/2wJqRU4FpNakm5Sdy6PjsLRO1nPD/bmgsisHWF/8QOh3hYdTcpbgTAH3whCoHWyen8l44UFebhmeGwRDew9IbzcRMBniVky83gL2jiHTBsQ52muKxMxTPoat1t/C2gC+Q7B4Hb6qDd/tvp8NHZMbnRmzEPWBm7p8=</source>
+  </file>
+  <file path="Unit/Volume/Litre.php" generated-path="Unit.Volume.Litre.html" hash="7a6df02a9c1cb8a594da535ce1511b8b" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUV1PGzEQfPevGKE+JBHkoy+VGkppEVVTAUKC9gmpcnx7OdM7+2Svk0Yo/71rEyiiL326887szO7s8ce+6ZWajEYKI9w2NqK2LUG+vQ4MX4Mbwr0PlXbLoBOFSXKWj4x3awpMAddfr4VrfukVjUUk65wa32+DXTWMt9PZO3wr7fhc+nF8/yg0ts6crjpt27Hx3UlpbK0hFwmXi9u91hcfygh1alv81dWuwhPZutqHTrP17hB9S1pqa0ub0nexODu/ujnPUmUzbjRjoyMqGznYZWKqsLHcCCJbR5+CITGqyjYTpSoyrQ40yGzDP3nbU8QHzIZzpZzuKMryhO8SytlTJnf5dffDt6kjYaX4Gr+UGVMQ7F+otD7g01L8tOH8PCyUhRO4zl67+fPFLiwHQr4IKs0aMmqMz2cQySihYDaejqelEiVzevHWiRsJ+H8PNFHFYG9Lv5lcFfG4aJ5RPSigD57J5Fjr5Ey+isTparuSjTEY4j3W3lZCzGTgTc69/AFHJ5H4SkIdHLTZ4mCoXiI3227pW8Fe1bN1HMyG+9pcvju1U38A8Kvrhw==</source>
+  </file>
+  <file path="Unit/Volume/Mililitre.php" generated-path="Unit.Volume.Mililitre.html" hash="7bc43850899de4669d9a73b99fbb63dd" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUcFOGzEQvfsrRqiHJIJNwgWpoZQWgQgiCAnaE1Ll2LNZg9de2eOECOXfGRtCI3qp9uC138x7894cf++aTojhYCBgAPeNiVAbi8BnJwOBr4EahEcftHTzIBOGYXKGDpR3SwyEAW4vb7lWPckFVkySeU6V79bBLBqCw9H4CK5KO/ws/XD8+EZUGadOF600tlK+PSmN1ih0EWE2vX/nuvChjFAna+Evr3QatsXG1T60kox3+9BZlPy2NLgqfdfTs/Obu/NMVZxRIwlWMoI2kYKZJ0INK0MNI+w6+hQUspAuboZCaFRWBuzlakV/aN1hhG8w7k+EcLLFyOYRfnEoZ9tMHvLt4be3qUWuSvEzPuMZU2DsX6i0vsCPOetJRfm6X0qmjuE6a20mHxubGcsfBYS8FdCSJPC4MX6sgmkjBwPjalSNykvk3HHnLhM1HPL/LmkoisCOND4TOh3hzXCeVbwIgC54QpXjrZNTeTscq6vNgp1Drw9fYemN5sJcDPAl51/+AA5OItINh9vba7cye32xi96t27m3jNtPQNaPPTY3Gvff3yd8bsRGvALvxPGz</source>
+  </file>
+  <file path="Unit/Volume/Pint.php" generated-path="Unit.Volume.Pint.html" hash="49a9ad924ca57e45bc7239c1d4e082d1" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUU1PWzEQvPtXrFAPSQQvSYsaqaGUFlE1qKBIUE5IyLH35Zn62U/2OiFC+e9dO0ARvfTkj5md2Z09+tI1nRDDwUDAAK4bE6E2FoHPTgYCXwM1CPc+aOkWQSYMw+QMHSjvVhgIA8x/zJmrfsslViySdU6U7zbBLBuC96PxBM5LOXwr9XB0vxOqjFMny1YaWynfHpdCaxS6iHAxu37S+u5DaaFO1sJfXek0PJONq31oJRnv9qGzKPlvZXBd6n7OTs8ur86yVJmMGkmwlhG0iRTMIhFqWBtqGOGpo09BIRvpMs1QCI3KyoC9zFZ0R5sOI3yGcX8qhJMtRh4e4ReHcvqcyW1+3d54m1pkVopv8QvuMQXG/oVK6SN8XbCfVJSf+4UycwzX2Ws7fdnY3DiCvBDQkiRwpzG+bIEVI2cC42pUjcpP5Mjx1Vsmajjf/93PUBSDnSs+EDodYTdm7lA8CoAueEKVQ62TU3knHKarzZLnhV4fPsHKG83ETAZ4l1MvN4CD44h0yZH29jp22OuL18DVpl14y9BbIFvH3qg6nHwYTz72n6Apn1uxFX8AYTDsOQ==</source>
+  </file>
+  <file path="Unit/Volume/VolumeUnit.php" generated-path="Unit.Volume.VolumeUnit.html" hash="96f69aee9c118e6b997d0d73c83fe1a2" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJyNUk1v00AQve+vmEMPEAUn4YLUNNBSBRGU0Eq0PVVC6/U43rLetfYjwar635mdOIXChZO1fm/ezHszZx+6phNiMhoJGMFNowPU2iDQt5M+gqshNggPzlfSll4m9JNkdXyjnN2hj+jh+vM1cdUPucWCRLLOuXJd7/W2ifB2OnsHX7gcPnI9nD0chApt1fm2ldoUyrXvudBohTYgbFY3g9Yn53mEOhkDv3WlreBI1rZ2vpVROzuGzqCkfzuNe65bry6XX78tsxQ7i42MsJcBKh2i12WKWMFex4YQch1c8gqpUcVuJkJUqIz0+CqzVfwe+w4DLGD2ei6ElS0GMo9wS6FcHjO5z6/7O2dSi8RK4W98QzMmT9i/EJc+wkVJ/aSK+TlmysoSXOdeT/PnjR16QJktVzJKoFlDKODC9mApgd0Bzysjb41Lpspl+DMiBciOuYLz1C2F16KNOTjtIbsbQ+jb0hkmsMw8Czia1utK2y2HfJKRq5pJJzxM511HhjRl5azpQdc0j8IQpO+fz4REAi0NZsW0mPKfQDeBf7xlig0dwP8e0ETIIbfB1iGfHN/gObxIVjwKyKNGVPkMjjYWMCzo9PTuan27WVLgL3hscQFrHTOHW83Fk/gFAT4d8A==</source>
+  </file>
+  <file path="UnitConverter.php" generated-path="UnitConverter.html" hash="d314b61795c5f8d3ab4e19a5a73200ba" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="MissingUnitRegistryException">\UnitConverter\Exception\MissingUnitRegistryException</namespace-alias>
+    <namespace-alias name="Measure">\UnitConverter\Measure</namespace-alias>
+    <namespace-alias name="UnitInterface">\UnitConverter\Unit\UnitInterface</namespace-alias>
+    <namespace-alias name="UnitRegistryInterface">\UnitConverter\Registry\UnitRegistryInterface</namespace-alias>
+    <class final="false" abstract="false" namespace="UnitConverter" line="29" package="Default">
+      <extends/>
+      <implements>\UnitConverter\UnitConverterInterface</implements>
+      <name>UnitConverter</name>
+      <full_name>\UnitConverter\UnitConverter</full_name>
+      <docblock line="29">
+        <description>The actual unit converter object.</description>
+        <long-description></long-description>
+        <tag name="version" line="29" description="1.0.0"/>
+        <tag name="since" line="29" description="1.0.0"/>
+        <tag name="author" line="29" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="29" description="Default"/>
+      </docblock>
+      <property static="false" visibility="protected" namespace="UnitConverter" line="34" package="Default">
+        <name>$registry</name>
+        <full_name>\UnitConverter\UnitConverter::registry</full_name>
+        <default></default>
+        <docblock line="34">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="34" description="&lt;p&gt;The registry that the unit converter accesses available units from.&lt;/p&gt;" type="\UnitConverter\Registry\UnitRegistryInterface" variable="">
+            <type>\UnitConverter\Registry\UnitRegistryInterface</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter" line="39" package="Default">
+        <name>$convert</name>
+        <full_name>\UnitConverter\UnitConverter::convert</full_name>
+        <default></default>
+        <docblock line="39">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="39" description="&lt;p&gt;The value being converted.&lt;/p&gt;" type="float" variable="$convert">
+            <type>float</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter" line="44" package="Default">
+        <name>$from</name>
+        <full_name>\UnitConverter\UnitConverter::from</full_name>
+        <default></default>
+        <docblock line="44">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="44" description="&lt;p&gt;The unit of measure being converted &lt;strong&gt;from&lt;/strong&gt;.&lt;/p&gt;" type="string" variable="$from">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="UnitConverter" line="49" package="Default">
+        <name>$to</name>
+        <full_name>\UnitConverter\UnitConverter::to</full_name>
+        <default></default>
+        <docblock line="49">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="49" description="&lt;p&gt;The unit of measure being converted &lt;strong&gt;to&lt;/strong&gt;.&lt;/p&gt;" type="string" variable="$to">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="57" package="Default">
+        <name>__construct</name>
+        <full_name>\UnitConverter\UnitConverter::__construct()</full_name>
+        <docblock line="57">
+          <description>Public constructor function for the UnitConverter class.</description>
+          <long-description></long-description>
+          <tag name="param" line="57" description="&lt;p&gt;A two-dimensional array of UnitInterface objects.&lt;/p&gt;" type="array&lt;mixed,\UnitConverter\Unit\UnitInterface&gt;" variable="$registry">
+            <type>array&lt;mixed,\UnitConverter\Unit\UnitInterface&gt;</type>
+          </tag>
+          <tag name="return" line="57" description="" type="\UnitConverter\UnitConverter">
+            <type>\UnitConverter\UnitConverter</type>
+          </tag>
+          <tag name="fluent" description="This method is part of a fluent interface and will return the same instance"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$registry</name>
+          <default>null</default>
+          <type>\UnitConverter\Registry\UnitRegistryInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="116" package="Default">
+        <name>setRegistry</name>
+        <full_name>\UnitConverter\UnitConverter::setRegistry()</full_name>
+        <docblock line="116">
+          <description>Set the unit converter registry for storing units of measure to convert values with.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\UnitConverter\UnitConverterInterface::setRegistry()" refers="\UnitConverter\UnitConverterInterface::setRegistry()" link="/classes/UnitConverter.UnitConverterInterface.html#method_setRegistry"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$registry</name>
+          <default></default>
+          <type>\UnitConverter\UnitRegistryInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="122" package="Default">
+        <name>convert</name>
+        <full_name>\UnitConverter\UnitConverter::convert()</full_name>
+        <docblock line="122">
+          <description>Set the unit converters' value to be converted. This method is the first
+method to be called in the chain of conversion methods.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\UnitConverter\UnitConverterInterface::convert()" refers="\UnitConverter\UnitConverterInterface::convert()" link="/classes/UnitConverter.UnitConverterInterface.html#method_convert"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>\UnitConverter\float</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="128" package="Default">
+        <name>from</name>
+        <full_name>\UnitConverter\UnitConverter::from()</full_name>
+        <docblock line="128">
+          <description>Set the unit converters' unit to be converted **from**. This method is the
+second to be called in the chain of conversion methods.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\UnitConverter\UnitConverterInterface::from()" refers="\UnitConverter\UnitConverterInterface::from()" link="/classes/UnitConverter.UnitConverterInterface.html#method_from"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$unit</name>
+          <default></default>
+          <type>\UnitConverter\string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="134" package="Default">
+        <name>to</name>
+        <full_name>\UnitConverter\UnitConverter::to()</full_name>
+        <docblock line="134">
+          <description>Set the unit converters' unit to be converted **to**. This method is the
+third to be called in the chain of conversion methods.</description>
+          <long-description></long-description>
+          <tag name="inherited_from" description="\UnitConverter\UnitConverterInterface::to()" refers="\UnitConverter\UnitConverterInterface::to()" link="/classes/UnitConverter.UnitConverterInterface.html#method_to"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$unit</name>
+          <default></default>
+          <type>\UnitConverter\string</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="57" code="PPC:ERR-50016">The type hint of the argument is incorrect for the type definition of the @param tag with argument $registry in __construct()</error>
+      <error line="116" code="PPC:ERR-50015">Argument $registry is missing from the Docblock of setRegistry</error>
+      <error line="116" code="PPC:ERR-50008">No summary for method setRegistry()</error>
+      <error line="122" code="PPC:ERR-50015">Argument $value is missing from the Docblock of convert</error>
+      <error line="122" code="PPC:ERR-50008">No summary for method convert()</error>
+      <error line="128" code="PPC:ERR-50015">Argument $unit is missing from the Docblock of from</error>
+      <error line="128" code="PPC:ERR-50008">No summary for method from()</error>
+      <error line="134" code="PPC:ERR-50015">Argument $unit is missing from the Docblock of to</error>
+      <error line="134" code="PPC:ERR-50008">No summary for method to()</error>
+    </parse_markers>
+    <source>eJydVs1uGzcQvu9TDFIfJMGS7F4KOJHr1HVSBXFgtClQoC4MaperpbNLCiRXqlDkIXrrra/YR+gMl8v90VpwcpEgkjPzzcw33+jV95tsE0XzySSCCXzMhIFU5Bzwe8O0BZWCzTg8Kp0wudKs5HpeSmGnsZJbri3XcPfTHb6NP7E1n6ET8nMVq81ei3Vm4duz8+/gnTOHH5w9vHqsHM2EjK/WBRP5LFbFpTPMRcyl4XC7/Oh9vVHaQUjLPIfGL5MJ1I+FTJUumBVKnsIm5wzPtoLvnN375fXNh19uyJXLzGbMwo4ZSISxWqxKyxPYCZvhDWZtVKljjoESl808ihIe50zzEb2O7YPdb7iBBZyPX0aRZAU3mDyHX7Eo13VN8KY0vbP7mz9jviGM97fCGCHXdP0zXxOMfbh8OWB5ixmVmg9d0S/3sZT4M0UkQ6/qKPftkC2Lpv8cWGxLlgM1GZomq9Ujj23oL54aBAvns7PZmTvBhLAKzW9W2gw799zOzyMssjFd3CAK7GbBpe1dBOjRXxGAAw8OFtMwmKLLTPvTigLEjV6SLI65MdhdtkVobJVXL3AktCpmLsYcPzdaWSwG0uakdokl7ONIc4VRTrx3B2DL8pLDimPvQ9Rk0K+/HXBLLETzE4LknLoccEyLiiR99zCZ0NPJZDAOXR0JYtUzQ1j1RACruu7vyhVOLdlijDK2SJG0lDExH1I/6V0OOF5Uvj1CFCZWQIf0v/8Br8Hu1DQRSBeiJlKYac32hLvz1FPZu4QrzW2pJRiep00CFcqA7OEhAIbRMMECFVAaJErVGN0QOQFrgLoyvTQ8WI3CY9QQgM+dCv3I0WUhJIddxrEcOHsapKoI23A1QwXDwcJpFduG2p06CQKHhegmulIqH+hUyFUHRcIvA6MxXNQ2VT4ihZHPKeQssDoMBcAX+6A8Y2cJ4DFgJbnjRThJWW74YTHeK5YAqwjoGD8wtc/JvaSpPlTOGufFBQ5rQif+vc202hk4JtTwWoIq3VysVCkTAzxc7QTuqhXtGnQjqWLUKmt5sbG0WguW4KXygoMJSiWnnAqOWtdLKDSuw+JjHaxzGdVjbPbFSuXUyL6PJztadR+bv1gsqubULXQ5gcTteqw6oxcfVNWowBHauSlVijInjG1xfTHu8qEHZ3oZkqqzOSTLNcvjMmeWt0bFbSnHHCU9c6juOE84WR3GvFn+dnsDb7XChtAGxb4yiDMef3LCxNxUQ1zHwNIUOJ4qgdlsBv/9+8/f8FZZyypvqViTUBI/GBLBEk93KEYYm3w7fLgMHNjKzTH2VoLnF0q1REiWBWYjUOeOrJVBsfzq5fGEt6/YEoHULqljZA4Fh1G7AKdDKR0cWjW+CCG8GpPQXzfcWFSm00sPdFT7J2PPSTcfXbueoPVuvd03sEwbxUoUahAJefhXU/Ogx6jTumiAVgWT+Hcsr8SgDudBYh09+DW3lDoO7BjmBL195CdlYK+1dhK0lpIXioG/W72d1tp5rb9C/TEOk9oPX6fZ6ezB4qxfLfyDLwjgeB5kkLpw4N09WdS/GpVxj78gFA7B8UD44OkwA9LX8KJbh9M28tPGu2/z5+h/B6GKRQ==</source>
+  </file>
+  <file path="UnitConverterInterface.php" generated-path="UnitConverterInterface.html" hash="5af0645066dbd137924ed177549e8e25" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <namespace-alias name="UnitInterface">\UnitConverter\Unit\UnitInterface</namespace-alias>
+    <interface namespace="UnitConverter" line="28" package="Default">
+      <name>UnitConverterInterface</name>
+      <full_name>\UnitConverter\UnitConverterInterface</full_name>
+      <docblock line="28">
+        <description>The interface for any and all unit converter classes. If you want
+a custom converter, implement this interface and you are good to
+go!</description>
+        <long-description></long-description>
+        <tag name="version" line="28" description="1.0.0"/>
+        <tag name="since" line="28" description="1.0.0"/>
+        <tag name="author" line="28" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="28" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="36" package="Default">
+        <name>setRegistry</name>
+        <full_name>\UnitConverter\UnitConverterInterface::setRegistry()</full_name>
+        <docblock line="36">
+          <description>Set the unit converter registry for storing units of measure to convert values with.</description>
+          <long-description></long-description>
+          <tag name="api" line="36" description=""/>
+          <tag name="param" line="36" description="&lt;p&gt;An instance of UnitRegistry.&lt;/p&gt;" type="\UnitConverter\UnitRegistryInterface" variable="$registry">
+            <type>\UnitConverter\UnitRegistryInterface</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$registry</name>
+          <default></default>
+          <type>\UnitConverter\UnitRegistryInterface</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="46" package="Default">
+        <name>convert</name>
+        <full_name>\UnitConverter\UnitConverterInterface::convert()</full_name>
+        <docblock line="46">
+          <description>Set the unit converters' value to be converted. This method is the first
+method to be called in the chain of conversion methods.</description>
+          <long-description></long-description>
+          <tag name="api" line="46" description=""/>
+          <tag name="example" line="46" description=""/>
+          <tag name="param" line="46" description="&lt;p&gt;The numerical value being converted.&lt;/p&gt;" type="float" variable="$value">
+            <type>float</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$value</name>
+          <default></default>
+          <type>float</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="56" package="Default">
+        <name>from</name>
+        <full_name>\UnitConverter\UnitConverterInterface::from()</full_name>
+        <docblock line="56">
+          <description>Set the unit converters' unit to be converted **from**. This method is the
+second to be called in the chain of conversion methods.</description>
+          <long-description></long-description>
+          <tag name="api" line="56" description=""/>
+          <tag name="example" line="56" description=""/>
+          <tag name="param" line="56" description="&lt;p&gt;The unit being conerted &lt;strong&gt;from&lt;/strong&gt;. The unit must first be registered to the UnitRegistry.&lt;/p&gt;" type="string" variable="$unit">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$unit</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="UnitConverter" line="66" package="Default">
+        <name>to</name>
+        <full_name>\UnitConverter\UnitConverterInterface::to()</full_name>
+        <docblock line="66">
+          <description>Set the unit converters' unit to be converted **to**. This method is the
+third to be called in the chain of conversion methods.</description>
+          <long-description></long-description>
+          <tag name="api" line="66" description=""/>
+          <tag name="example" line="66" description=""/>
+          <tag name="param" line="66" description="&lt;p&gt;The unit being converted &lt;strong&gt;to&lt;/strong&gt;. The unit must first be registered to the UnitRegistry.&lt;/p&gt;" type="string" variable="$unit">
+            <type>string</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$unit</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </interface>
+    <source>eJzVlN9v0zAQx9/zVxxVJdJoTVdekNgog2mIIkATG29IyHUuiUdsR/6xUSH+d85OmpaOwSR4gJfWce6+vu/nzjl+1tZtksyyLIEMLmthoRQNAv23zDjQJbga4UqbgqmVYR7NzCvhplyrazQODZy/OqdY/plVmJNI0Dnhul0bUdUOHh3OH8PrmA4vYj4cX3VCuVD8pJJMNDnXchETG8FRWYS3y8te66U2sYTSNw1sdZkqYBMsVKmNZE5odQBtg4z2rgXexLw3y9OzdxdnQSo6czVzcMMsFMI6I1beYQE3wtX0hlxb7Q1HOqiIbmZJUiBvmME0RHP3ya1btPAU5pOjJFFMoiXzCB8IyumGCb3xdm/vY3iKP0tFjyUlHe2ADy76bSA35G8dPTJyHYDDFjiVYy3aHJYlrLUnM8oFEQbcW6flNvQAhCQeEpXr3G3PCNohmZxBpXUBTgeNSj/Y9JAkLBGFeX6YH8YdSw3DnWfmXU2l3re7s2R7/A9oBiDJ1wQgIgHSv0AXO7hn32AVOreOmMivEaqKMTZMq6Tue/Lk9CYFrlnjqWWhx3lU7uRPWCv6FY06k7Gm9734UBKMh/OeK+JnHQsQ6KTd8E53Rr+tX9FY0rQqHuYRLA5BkA5aE3hyBwKaid8isA87T8HkCof9Iu8usERqSxGucLw3wljXqfUv+iyaLJp8oWIUrxmtyFUnFhvfhds7mOEXFmYLxkNZ00W/TOeT6aI0WqYjoUa0djodcTmiG7PLu2w0XcVxZyXcAOUl0h1jTW9vhaG1W3t3Qt50Ot2VnNwTZdzYIwlZFurPsp8h7fQsUvS/AzN8nQjWOLq53PgcCN521UdI+mR0MxJ8dPOJBqOx4OV+Ux5kId2t4Q/pO/0r9vQtM/8N+lue/ip5Ct7n/i35Ds9PkSM=</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
+  <namespace name="UnitConverter" full_name="UnitConverter">
+    <namespace name="Exception" full_name="UnitConverter\Exception"/>
+    <namespace name="Unit" full_name="UnitConverter\Unit">
+      <namespace name="Time" full_name="UnitConverter\Unit\Time"/>
+    </namespace>
+  </namespace>
+  <deprecated count="0"/>
+</project>
