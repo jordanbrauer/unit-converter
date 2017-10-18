@@ -50,6 +50,11 @@ abstract class AbstractUnit implements UnitInterface
    */
   protected $units;
 
+    /**
+     * @var string The scientific symbol of the unit
+     */
+  protected $scientificSymbol;
+
   public function __construct ()
   {
     $this->configure();
@@ -146,5 +151,16 @@ abstract class AbstractUnit implements UnitInterface
   public function getBaseUnits () : float
   {
     return $this->getBase()->getUnits();
+  }
+
+  public function getScientificSymbol () : string
+  {
+    return $this->scientificSymbol;
+  }
+
+  public function setScientificSymbol (string $scientificSymbol) : UnitInterface
+  {
+    $this->scientificSymbol = $scientificSymbol;
+    return $this;
   }
 }
