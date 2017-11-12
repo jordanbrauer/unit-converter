@@ -15,22 +15,22 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Energy;
 
 /**
- * FootPound unit data class.
+ * Kilojoule unit data class.
  *
  * @version 1.0.0
  * @since 1.0.0
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @author Andrew Boerema <1569403+andrewboerema@users.noreply.github.com>
  */
-class FootPound extends EnergyUnit
+class Kilojoule extends EnergyUnit
 {
   protected function configure () : void
   {
     $this
-      ->setName("foot pound")
+      ->setName("kilojoule")
 
-      ->setSymbol("ftlb")
+      ->setSymbol("kJ")
 
-      ->setUnits(1.35582)
+      ->setUnits(1000)
       ;
   }
 }

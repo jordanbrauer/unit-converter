@@ -14,9 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
-
 /**
  * Joule unit data class.
  *
@@ -31,7 +28,7 @@ class Joule extends EnergyUnit
     $this
       ->setName("joule")
 
-      ->setSymbol("j")
+      ->setSymbol("J")
 
       ->setUnits(1)
       ;
