@@ -16,6 +16,9 @@ namespace UnitConverter\Exception;
 
 use OutOfBoundsException;
 
+/**
+ * Exception thrown when the unit converter is missing a registry
+ */
 class MissingUnitRegistryException extends OutOfBoundsException
 {
 }

@@ -1,7 +1,7 @@
 {
   "name": "jordanbrauer/unit-converter",
   "description": "Convert standard units from one to another with this easy to use, lightweight package",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "component",
   "license": "MIT",
   "authors": [
@@ -11,15 +11,16 @@
     }
   ],
   "scripts": {
-    "docs": "./dev/docs.sh && phpdoc --config=./phpdoc.xml",
+    "docs": "./dev/docs.sh",
     "test": "phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "unit": "phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
     "integration": "phpunit --configuration=./phpunit.xml --testsuite=integration --color=always"
   },
   "require": {},
   "require-dev": {
-    "phpdocumentor/phpdocumentor": "^2.9",
+    "apigen/apigen": "dev-master",
     "phpunit/phpunit": "^6.3",
+    "roave/better-reflection": "dev-master#c87d856",
     "symfony/var-dumper": "^3.3"
   },
   "autoload": {

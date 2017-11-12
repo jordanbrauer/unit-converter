@@ -51,7 +51,7 @@ class UnitConverter implements UnitConverterInterface
   /**
    * Public constructor function for the UnitConverter class.
    *
-   * @param UnitInterface[] A two-dimensional array of UnitInterface objects.
+   * @param UnitInterface[] $registry A two-dimensional array of UnitInterface objects.
    * @return self
    */
   public function __construct (UnitRegistryInterface $registry = null)
@@ -111,7 +111,6 @@ class UnitConverter implements UnitConverterInterface
     # If the unit does not implement the calculate() method, convert it manually.
     return ($value * $from->getUnits()) / $to->getUnits();
   }
-
 
   public function setRegistry ($registry) : UnitConverterInterface
   {

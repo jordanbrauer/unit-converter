@@ -36,7 +36,12 @@ abstract class AbstractUnit implements UnitInterface
   protected $symbol;
 
   /**
-   * @var string $unit_of What is this unit measuring? Length, temperatutre, etc.
+   * @var string The scientific symbol of the unit
+   */
+  protected $scientificSymbol;
+
+  /**
+   * @var string $unitOf What is this unit measuring? Length, temperatutre, etc.
    */
   protected $unitOf;
 
@@ -49,11 +54,6 @@ abstract class AbstractUnit implements UnitInterface
    * @var float $units The amount of base units needed to make up 1 unit.
    */
   protected $units;
-
-    /**
-     * @var string The scientific symbol of the unit
-     */
-  protected $scientificSymbol;
 
   public function __construct ()
   {

@@ -26,6 +26,7 @@ interface UnitInterface
   /**
    * Sets the units full symantic name.
    *
+   * @param string $name The value to be set as the units name
    * @return UnitInterface
    */
   public function setName (string $name) : UnitInterface;
@@ -40,6 +41,7 @@ interface UnitInterface
   /**
    * Sets the symbol notation used for the unit.
    *
+   * @param string $symbol The value to be set as the units symbol
    * @return UnitInterface
    */
   public function setSymbol (string $symbol) : UnitInterface;
@@ -52,8 +54,24 @@ interface UnitInterface
   public function getSymbol () : string;
 
   /**
+   * Sets the unicode scientific symbol notation used for the unit.
+   *
+   * @param string $scientificSymbol The unicode character to be set as the units scientific symbol
+   * @return UnitInterface
+   */
+  public function setScientificSymbol (string $scientificSymbol) : UnitInterface;
+
+  /**
+   * Returns the symbol notation of the unit.
+   *
+   * @return string
+   */
+  public function getScientificSymbol () : string;
+
+  /**
    * Sets the type of measurement that this unit is measuring.
    *
+   * @param string $unitOf The value to be set as the units governing unit
    * @return UnitInterface
    */
   public function setUnitOf (string $unitOf) : UnitInterface;
@@ -68,7 +86,10 @@ interface UnitInterface
   /**
    * Sets the unit class that this unit is based off of.
    *
+   * @param mixed $base The class that the unit is based on.
    * @return UnitInterface
+   *
+   * @example $this->setBase(Volume::class);
    */
   public function setBase ($base) : UnitInterface;
 
@@ -82,6 +103,7 @@ interface UnitInterface
   /**
    * Sets the amount of base units required to make up 1 of the unit.
    *
+   * @param float $units The amount of units required to make a single base unit
    * @return UnitInterface
    */
   public function setUnits (float $units) : UnitInterface;

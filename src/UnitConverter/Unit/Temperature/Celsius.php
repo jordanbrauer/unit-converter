@@ -14,8 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use Exception;
+use UnitConverter\Unit\UnitInterface;
 
 /**
  * Celsius unit data class.
@@ -52,9 +52,9 @@ class Celsius extends TemperatureUnit
       case 'c': # °C = °C
         return $val;
         break;
-        
+
       default:
-        throw new \Exception("Unknown conversion formula for {$to->getSymbol()}");
+        throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
     }
   }
 }
