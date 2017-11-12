@@ -9,6 +9,8 @@
 
 Convert all kinds of standard units of measurement from one to another with this highly customizable, easy to use, lightweight PHP component.
 
+**[API Documentation](https://jordanbrauer.github.io/unit-converter/)**
+
 **Table of Contents:**
 
 1. About the Component
