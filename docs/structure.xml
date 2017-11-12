@@ -209,7 +209,7 @@ default types of measurement.</description>
     </parse_markers>
     <source>eJzNV19v2zYQf9enOAQFZgeJnexlQNqt2boUy7A2RZo8bcNASyeLjURqJGXX2Pbde0fKluRIjpPmYS9OLJHH+/3h3fnV6zIro2h6eBjBIdxk0kIqcwT6WwrjQKfgMoRP2iRCzYyo0EwrJd1xrNUCjUMDH375QGvjOzHHCQXhOOexLldGzjMH356cfge/+u3wk98Prz6FQBOp4vN5IWQ+iXXxg9+YyxiVRXh3eVPHequNTyGt8hyauEIlsF4sVapNIZzU6gjKHAU9W0hc+n2/Xb65eP/xgkN5ZC4TDpbCQiKtM3JWOUxgKV1Gbwi11ZWJkQ5KPJppFCUY58LgiFfH7i+3KtHC93A6fhlFShRoCTzCLZHyZs3JH9c45+grWlLZ7Zf8zX9cKvqa0u6XLQUYTv0Y0ho7Mw4N46aOHrBYpw1lxGssh2BmQpIkXkFkVAYLVG4jDkWxRBWcTk4mJ/6JJSWw9V1ULqOj95VtGjUpM641+g2+6J8IwCMECv8z0uNCKkKagmin6PNm7wWEaEgapxsKNsApOaUZEUAd9JzsKgpgkdQcXrSDMqcs1NrM4Z1/NUNeHWcY32FyBDiZT+AgRzV32UGIPqXPspqR1ciBKmaPUYLvmvDXTaqjntPHcAYzrXOSeJgCW2IsUzrCo2xkexYq7KqY6dyzUP9L6/1lWRPiA/ZQcQQHcbGTh0btLgHhoH7sb9HFGYH2p6ZGFz2g2Ph8cTC3uMwodgefy4xeWrLandJLxTlcpbUiF59jLH1yPxK8ypM505VKLODm1VJSKZlxKaA4iiXItUg4cXJ7pVqM+6xIBOEcFiVVisnXU8xnNYEMusooUFTd/u3UhEHWeT+v7GP79XZZafF+HU4SoBUeJ5LMyVVA5CCMEStONK6MIcvmK7BVWWrDlXH7dtqOEnX2PsJwwsRm68JYGHGqfs9zZOgL3wSuvLYiz0Mi1JKs5asVOMK/K4pDF0iEGtMtjTDq3PwxLwzQQiyt6ER/zlrPcGMxVNr96tBOfm598L4CQq2GzTFIWfAqI6WdOXYF6ysYs5Xnxts9BKlPpZ7Iq4WZV5t8a1Dvr24u4JLcbBI6i8KWBhd8QqWWQrEKmrrK0kjnOFKX3RAjtKQReuZYJjpM0xX3rbcQagVb986O4RhWuoKisnWM5m62CnmAmkpjXQh2dtasa/luNH6EThtrL7RMBpXrOWWwCXCgAe08+qJ9Qx4Urjbm5mK0qQgJ2F16BvBhdztR+3XgSd+emA+g3zjXo90XuVTWCZ5aNDfQTtlj4NJ9Y3cg765/waf19pYWthvyb9Nd/KS81UeoUSnuIJtm0UEh6pZJaieUtQq9Bj/TO8bVHdQeLUJoCD2w9rFeqGwPM9/YrSGMZmNr0d7jvOeudbL7/c+Q31McVxfL2mp1reiDeat2lsf+4aOTORe+M6p8C33HHPifCAVS5UqC+iK3ul2WqLCtSxXnOMNcq7nfqe+VLD+9S1uPBe2548Fp7nFmpVEIjaGRatcIxJW2di4n28ZE04w67nNqq/vtp2BvYe4bZHZp2fJsv4JD7LHnwhGPcV1vzo396oB7G3DH2Psk1YfH32fUfOt3ydMkHxpa/5dad2vMPZH/i74AfZfERw==</source>
   </file>
-  <file path="Unit/AbstractUnit.php" generated-path="Unit.AbstractUnit.html" hash="939de5e1e243d288331094eb63a0c280" package="Default">
+  <file path="Unit/AbstractUnit.php" generated-path="Unit.AbstractUnit.html" hash="d4ad80891e882d20ed101ea2756182c8" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
@@ -218,7 +218,7 @@ default types of measurement.</description>
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
     </parse_markers>
-    <source>eJy1Vk1v2zgQvetXzCFAlcCVk70skNZNN0GKZtF2C7RFLwUCmhpZbCVSy4+kQdv/vkNSlGXHqpPDXhyLGr735s2H8/ysq7ssmx8dZXAEH2thoBINAv3tmLagKrA1wlelSyaXmjnUcyeFfcqVvEFtUcP71+8pln9jKywIxOO85Kq702JVW/jj+ORP+Dtch/NwH55/jUCFkPzlqmWiKbhqX4SLjeAoDcLbq4891iulg4TKNQ2scZksIQULWSndMiuUnEHXIKOzG4G34d6bq4vLdx8uPVTIzNbMwi0zUApjtVg6iyXcClvTG8raKKc5ElEZsplnWYm8YRpzH83ttb3r0MACTg6fZZlkLRpKHuETmXKRPPnin55t2kogxnhfvaillxhPSDowSs276u1uSb7T2KK0MQJNAZ9rlMA1Uo5y5SEZSLydc2esarevzgC/WyR/Kk0v7UBekBCEc8oFWiFF61qPpPFfJyJfFOMMVRJ8VIkVxclV0Ndp1VFyguSkKlOyhjyHk+K4OA4nhkqKo2fmbE2QD63/PGNLspnxPnX4q3/0foJoqbZRp3++kuR0Rd5nPzKAYDUEVUyDrxXpPvD1CVl7i8yT2ET+sAjBc/qkvCxy3wQhmqo2BWbu2qVqxnD9iVQ2NB/kWKyKGdXBz8UC2sOdNPHWb4g8+jXV87Nv1dAx9BGKHCtMQWfwBuXK1jOw2FJdmHU2VN7ynZz+9j/VDs4NJ+EgNOYow/Dsv+9E9W93YFaNIuGB0wQw1ionQ4sOeIYaGEsCsQpa9o0OOziZZgpXAlXnljT3VEnJg+fX17SKyDlHTZMfUoDvBoADb9rTF/SuEisaipzGFeDXhtiL9DLMJHda+6HbmqYop89Oo3Vawo0S5Q6Vg6aBlRTBaQr/cV8Aa7hrmI0C1i71M1mO7ZrwqRdGy5q1yfgb1jjceLFVZas285E0Fj/D5d9mNajNx0Sz++g+6bOEF+sxYrpfiMvvnaI9B4xzNCFV78fp6cBINtJQ1ar8n5Pe6q3+R25/vttppu4b9KerPnjIf5vOoH3nF1Y+Xl/ey811t9XiYcct0vbaFjFJtkpkniASTmSRgKc0f4hbMN/ck3t198tzsV6Ij9GeSPeqX4NP6f8UduNaf9yVe/XHMK8/LdfH6E+ke/Wvwaf0n/slkYdlvFd0WCiLtLkfIziyTBOkqaJ/u0Zc+3w3w2yFLfcg003y3DzechNT2LmbxhT7nHggVh+dH4av4VL6IfqV/QfSBaDm</source>
+    <source>eJy1Vk1v2zgQvetXzCFAncCVk70skNZNN0GKZtF2C7RFLwUCmqIsthKp5UfSIO1/3xlSlG3ZipPDXpJI5Lz35s2H8vKsrdosmx0dZXAEnytpoZS1APzdMuNAl+AqAd+1KZhaGOaFmXkl3XOu1Y0wThj4+PYj3uU/2FLkCEI4r7lu74xcVg7+OD75E/4O4XAe4uHl9wiUS8VfLxsm65zr5lUIrCUXygp4f/W5w3qjTZBQ+rqGFS5TBaTLUpXaNMxJrabQ1oLhuxspbkPcu6uLyw+fLgkqZOYq5uCWWSikdUYuvBMF3EpX4QlmbbU3XCBREbKZZVkheM2MmNBt7q7dXSsszOHk8EWWKdYIi8kL+IKmXCRPvtHTi01bEcRa8pVELUhifIPSgWFq5CrZ3aB8b0QjlIs3hM3hayUUcCMwR7UkSAZK3M64t043w9ApiJ9OoD+lwUPXk+coRMA55gKNVLLxDSEZ8a+XkS+K8RYrCXSrECXeU8ugrzW6xeQkyklVxmQteg4n+XF+HN5YLKlYe2beVQj52PrPMrZAmxnvUoe/ukfyE2SDtY066flKodMlep/dZwDBagiqmAGqFeo+oPqErMki+yw2Eb3Mw+UZ/sS8nODUBOE2Vm0MzN41C12vw3VvlHah+WAi8mU+xTrQXMyhOdxJE6MeICL0a6znV2rV0DH4IxQ5VhgvncE7oZaumoITDdaFOe9C5R3fyUnR/5Q7ODechIPQmGsZhmf6eycqne7ALGuNwgOnDWCs0V6FFu3xLDawKBDEaWjYD3zZwsk4UwgJVD3Z0DYislxif8hS8lSbboFRfBc0rEYf8mlVl9YvcLlguygeCnt9jfsOeTx25uQQL9wHsAOqzPNXeFbKJU7eBHcCwO8NRy7SYdDBvTE02YORjTl3FhrhvFFwo2Wxw4peU8+KiuA0Xb/fFsBq7mvmooBVKbrBL9ZrMlKMThh+EViTqnvDai82Dgat5PRmPgpn71cIfjCrXu1knWi6jU5JnyW8WI81pu1CXP5sNS5TYJwLG1IlP05Pe0a0ESe30sX/nPSgt7ov6f58h2mm7uv1p1C63Oc/pLPCfaCtOFnfkeTl5k4dtHhYpPO0IociRsmWiYwIIuFIFgl4THMczpXqON57dXdbYL7auk/Rnkj3ql+Bj+n/EhbwSn9cyHv1x2ukP23wp+hPpHv1r8DH9J/TkpiEjb9XdFgo8/R5eIrgyDJOkKYK/7db49rnu+1nK2y5R5luk+f26ZbbmMLO3bROsc+JR2J1tyeH4c8QNBmff2rrwSfvMQ2+9ZV8YFS34PuhHZzsH98h1HzXB3t3fX5n/wEn1RUO</source>
   </file>
   <file path="Unit/Area/Acre.php" generated-path="Unit.Area.Acre.html" hash="b0cd52068edec5c7687931b522ea63a0" package="Default">
     <docblock line="0">
@@ -319,18 +319,41 @@ default types of measurement.</description>
     </parse_markers>
     <source>eJyNUU1PGzEQvftXjKIeNhFsEi6VCFA+RNVUDUIKvSEhxzubNXjtrT1OGqH8d8YmfCjqoXvx2vPmvXlvTr51TSfEcDAQMIC7RgeotUHgs5OewNVADcKj85W0Cy8j+mG0mg6Vsyv0hB5uf9wyVj3JJZZMknjOles2Xi8bgqPR+Cv8zO1wmfvh5PGVqNRWnS9bqU2pXHuWG41WaAPCbHq34/rufB6hjsbAB6+0FbyBta2dbyVpZw+gMyj5baVxnft+Ta+ub+bXiSo7o0YSrGWASgfyehEJK1hrarjCroOLXiELVdnNUIgKlZEei4RW9ECbDgOcwrg/EcLKFgObR/jNoVy9ZXKfbvcXHiVjYtivznjC6HHyj1JufIaLBatJRel6kCFTy+U6KW0n7/ua/4k8GbTaGN1iWkYlSQLPG8L7Lpg5cDIwLkflKL8EDh4/3WWkhlP+3y0NRRbYqc8+xPEvoa0CJONpZvEsADrvCFUKuY5WpR1xuLbWS04Aij4cw8rpioEJDPAlbSH/ARyeBaQbjrjohX2nvb74jJpv2oUzRa9tj/YqaZBQsNX0jfu70oTPrdiKF56P96Y=</source>
   </file>
-  <file path="Unit/Energy/Calorie.php" generated-path="Unit.Energy.Calorie.html" hash="b73d3e6612ccfc242bb930eeea7eb189" package="Default">
+  <file path="Unit/Energy/Calorie.php" generated-path="Unit.Energy.Calorie.html" hash="73eac5d07ae7a47c6278cfcbd450c148" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
       <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>Calorie</name>
+      <full_name>\UnitConverter\Unit\Energy\Calorie</full_name>
+      <docblock line="24">
+        <description>Calorie unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\Calorie::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
     </parse_markers>
-    <source>eJyNUV1rGzEQfNevWEIfbJOc7RJoqdM0rXGpSxMCSd8CRZb27pTqpENa2THB/70rOXFD6EOf9DGzM7uzZ5/6thdiPBoJGMFtayLUxiLw2ctA4GugFuHeBy3dKsiEYZycoRPl3RoDYYDrb9fMVb9lgxWLZJ0L5fttME1L8HYyfQffSzl8KfVwdr8XqoxTF00nja2U785LoTUKXUS4XN4+aX31obRQJ2vhr650Gp7JxtU+dJKMd8fQW5T8tza4KXU/lvPF1c0iS5XJqJUEGxlBm0jBrBKhho2hlhGeOvoUFLKRLtOMhdCorAw4yGxFv2jbY4SPMB3OhHCyw8jDI/zkUObPmdzl193CYWi2zErxNX7JPaaAs39ApfQRPq/YTyrKz+NCWTqG6+y1mx02NpfWB4OQdwJakgRuNsbDIlg0ciwwrSbVpPxETh1fvGWiliP+3xWNRTE4GOMDodMR9sPmPsWjAOiDJ1Q52jo5lTfDkbraNDw1DIbwAdbeaCZmMsCbnH25AZycR6QrDnZwpPYmR0PxErvZditvC/oKyfZxcDp9fzp8+p7xuRM78Qd1Cu8M</source>
+    <source>eJyNkE9rGzEQxe/6FI/Qg22StV0CDXWahhqXprQhkPQWKLI0u6tUKy2S1q4J+e4dyYkbeupppPnzZt7v/GPf9kJMJxOBCe5aE1EbS+DYy5Dga6SW8OCDlm4d5EBhOjiTTpR3GwqJAm6+3HCv+iUbqlgk61wq3++CadqEt7P5O3wt4/hU5nH+sBeqjFOXTSeNrZTvLsqgNYpcJHy/unvW+uxDOaEerMVfXek0XpqNq33oZDLeHaO3JDm3MbQtc9+ulqvr21WWKs5SKxO2MkKbmIJZD4k0tia1XGHX0Q9BES/Sxc1UCE3KykCj3K3Sz7TrKeID5uOFEE52FNk84QdDWb4wuc+/+5Wj0OwWB7pLaX0whMwPWiYJFo7xAI1nI1vAvJpVs5KJTIhe/eWQWsbxvzinoiw4LKbfiZyO2B+WbxSPAuiDT6QyhnpwKlNk+642zRAIozHeY+ON5sbcDLzJnMoLOLmIlK4ZwuhI7ZccjcXr2u2uW3tbqv9U8vo4Op2fnY6f0wuOT+JJ/AEE+s/f</source>
   </file>
-  <file path="Unit/Energy/EnergyUnit.php" generated-path="Unit.Energy.EnergyUnit.html" hash="ac3b8518f881c6884b05a10f3782772d" package="Default">
+  <file path="Unit/Energy/EnergyUnit.php" generated-path="Unit.Energy.EnergyUnit.html" hash="31e940b505f7d85e30e720e6f154829b" package="Default">
     <docblock line="0">
       <description></description>
       <long-description></long-description>
@@ -339,40 +362,313 @@ default types of measurement.</description>
     <parse_markers>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
     </parse_markers>
-    <source>eJyNUsFu1DAQvfsr5tADrLbZXS5ITRdaqgCLaKlKOSBVQo4zSVwcO7KdbqOq/854Nlso4sApcubNm/fezPHbvu2FWMxmAmZw3eoAtTYI9O2lj+BqiC3CrfOVtKWXA/rFYHU8VM7eoY/o4fLjJWHVT9lgRiSJ50S5fvS6aSO8Wq5ewyduh3fcD8e3O6JMW3XSdFKbTLnuDTcardAGhPPN9cT13nmWUA/GwG9eaSvYg7Wtne9k1M7OoTco6d+dxi33fd6cFRdfi0TFzmIrI2xlgEqH6HU5RKxgq2NLFXId3OAV0qCK3SyEqFAZ6fFFQqv4I449BljD6mUuhJUdBjKP8I1COdtncpNeN4VF34yEGsLf9XPSOHjM/1Hi1gc4LWmeVDE95wzZWCrXadZj/rSx3Qwok+VKRgmkNYQMTu0IlhLAXT2tjLy1bjBVasP7iBQgO+YOzlN3FF6HNqbgtIfkbg5h7EpnGMA0eSJwpNbrStuGQz5IlS81gw5YTO9dT4Y0ZeWsGUHXpEdhCNKPT2dCJIGWBqtsmS35T6CbwD/ecogtHcD/HtBCyCm3ydYunxTf5Dk8S1Y8CEhSI6p0Bnsba5gWdHRUXBRXH75T4M9wbHFNsgZDGB6Vi0fxC7KnHak=</source>
+    <source>eJyNUk1v1DAUvPtXvEMPsGqzu1yQul1oqQIU0VKVckCqhBznJXFx7Mgf3UZV/zvPL7uFIg6cIufNjGfm+ejt0A1CzGczATO47nSARhsE+g7SR3ANxA7h1vla2srLhH6erI4Hytk79BE9XH68JKz6KVssSCTrHCs3jF63XYRXi+Vr+MR0eMd8OLqdhApt1XHbS20K5fo3TDRaoQ0I52fXW633zrOFJhkDv3WlrWEH1rZxvpdRO7sPg0FJ/+40bpj3+ey0vPhaZilOFjsZYSMD1DpEr6sUsYaNjh1NKHVwySuki2pOMxeiRmWkxxcZreKPOA4YYA3LlyshrOwxUHiEb1TK6a6Tm3y6KS36diRUCn/Pz8lj8rj6x4ipD3BS0X1SxXyEx9XTiiZRqHLGWkYJZC6EAk7sCJYi4zTPO6IwnUumzjS8j0iNcURmcIG6p7Z6tDE3pT3kOPsQxr5yhgEss8oCjux5XWvbcqt7efKlYdAemxm8GyiBpnKcNSPohvwoDEH68eldkEigLcGyWBQL/hPoEeAfZ5liRxv/3xczF3Jb1DbW1A+3NmUOz6oUDwKy1Ygq730XYw3bjRwelhfl1YfvVPgzHEdck61kCMNXrcSj+AVMQRgs</source>
   </file>
-  <file path="Unit/Energy/FootPound.php" generated-path="Unit.Energy.FootPound.html" hash="784a98e3b45c6bcbc5feffad80269c57" package="Default">
+  <file path="Unit/Energy/FootPound.php" generated-path="Unit.Energy.FootPound.html" hash="a4527b31af7e963a68639ba36e5b0677" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
       <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>FootPound</name>
+      <full_name>\UnitConverter\Unit\Energy\FootPound</full_name>
+      <docblock line="24">
+        <description>FootPound unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\FootPound::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
     </parse_markers>
-    <source>eJyNUU1PGzEQvftXjFAPSQSbhAq1aiilRUFNBSgScEOqvN7ZXVOvvbLHSSOU/87YfDRCPXDyx3vz3syb42992wsxHo0EjOCm1QFqbRD47KUncDVQi3DvfCVt6WVEP45W04FydoWe0MPy55K56o9ssGCRpHOqXL/xumkJDifTT/Arl8OPXA/H909ChbbqtOmkNoVy3UkuNFqhDQiXi5tnrXPncwt1NAb+6UpbwQtZ29r5TpJ2dh96g5L/VhrXue5icTa/up4nqTwZtZJgLQNUOpDXZSSsYK2pZYSnDi56hWxU5WnGQlSojPQ4SGxFv2nTY4CvMB3OhLCyw8DDI9xyKGcvmdyl193com82zIrhLX7JPUaPs/9AufQBvpfsJxWl536mLCzDdfLazl43du4cLV3kMNJWoJIkgdsN4XUVLBs4GJgWk2KSfwLnjjtvGanlkN+7pLHIBjvW+JfQVgGeBk69igcB0HtHqFK8dbQqbYdjtbVueHIYDOELrJyumJjIAB9S/vkGcHASkK443MFezTbQJ5+9odiFrzdd6QwTyJRvoNRCGEyLj0dHnw+Hz8iMz63YikeFrPL2</source>
+    <source>eJyNkFtvEzEQhd/9K44qHpKo3SRFVREppaJKRRFUkVreKiHHO7vrsmuv7NmECPW/M3YvRDzx5MucOTPnO/vYN71S08lEYYK7xkZUtiXI2evA8BW4ITz4UGq3DnqgMB2c5SPj3YYCU8Dq80q05qeuqRCT5HNhfL8Ltm4Yx7P5Kb7kdnzK/Th7eDIqrDMXdadtWxjfnefG1hpykfDt+u7Z68qHvEI1tC3++mpX4kVsXeVDp9l6d4i+JS1/G0vb3Pf1+nJ5c7tMVjkZN5qx1RGljRzsemAqsbXcSEVSRz8EQzKozGmmSpVkWh1olNSGf/Cup4gPmI8XSjndUZTwhO8C5fKFyX163S8dhXq3eKV75T2v/CCLJ4IoNWuIdYyv2KQ7SgjMi1kxyz9RGNHeWw/cCJD/BTpVecDeaPrF5MqIp+XSnuq3AvrgmUxCUQ3OJJKCwFW2HgJhNMZ7bLwtRZjEwJvEKt+Ao/NIfCMgRgeVjEGf5hyM1X75dtetfSsCbtf/lNIKcTQv3p6cvDseP1cWcj6qR/UHvo/TyQ==</source>
   </file>
-  <file path="Unit/Energy/Joule.php" generated-path="Unit.Energy.Joule.html" hash="2e17bc45846157a3b480fdc6cf4c1b25" package="Default">
+  <file path="Unit/Energy/Joule.php" generated-path="Unit.Energy.Joule.html" hash="64ff3e59cca2f6c55bcac22c74058dd0" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
       <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>Joule</name>
+      <full_name>\UnitConverter\Unit\Energy\Joule</full_name>
+      <docblock line="24">
+        <description>Joule unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\Joule::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
     </parse_markers>
-    <source>eJyNUU1P4zAQvftXjBCHtoK03QvSls9FXW0RRUjADQm59iRxN7Eje9xuhfrfGZvCIsSBU+KZN+/Ne3N81tWdEMPBQMAA7msToDQNAn876QlcCVQjLJ3X0i68jOiH0Ro6VM6u0BN6uP1zy1j1V1ZYMEniOVeu23hT1QQ/RuMjuMrj8CvPw/HylagwVp1XrTRNoVx7mgcbo9AGhPnsfsf12/m8QhmbBv7zSqvhDWxs6XwryTh7AF2Dkmsrg+s8dz27nN7cTRNVdka1JFjLANoE8mYRCTWsDdXcYdfBRa+QhXR2MxRCo2qkx15CK3qiTYcBTmDcnwhhZYuBzSM8cCiXb5k8ptfj1KKvNoyK4XN/zjtGj5MvWnn0GS4WrCcVpedBhswst8uktZ28X+zKRfaULgJakgReNYT3MzBl4FBgXIyKUa4Ezhw/vGWkmgP+7oGGIgvsZPEfodUBXo2mHcWzAOi8I1Qp1jJala7CcdrSVOwYen34CStnNAMTGGA/5Z7/AA5PA9INh9rbWyaJvb742LnbtAvXcO9TPUmH3ri/q034uxVb8QLQr+tm</source>
+    <source>eJyNkMtOIzEQRff+ilLEohNBJ2EzEuElUBBEMwgJ2CGNHLu626HbbtnlhGjEv1M24SFWs7Jdrrq37jk+65teiPFoJGAED40JUJkWgc9eegJXATUIK+e1tEsvI/pxtIYOlLNr9IQe7q7vuFc9yxpLFkk658r1W2/qhuBwMv0FizwOF3kejlfvQqWx6rzupGlL5brTPNgahTYg/Ll52GldOZ9XqGLbwpeutBo+mo2tnO8kGWf3oW9Rcm1tcJPnft9czm/v50kqJ6NGEmxkAG0CebOMhBo2hhr+4dTBRa+QjXROMxZCo2qlxyJ1K/pL2x4DnMB0OBPCyg4Dh0d4ZCiXH0ye0utpbtHX29kn3YWL7J/ogZYkgWVD+ETGk4EDwLSclJNcCcwHv71lpIZh/C/MscgGO1t8IbQ6wPtSaT/xTwD03hGqhKCKViWCHN1Wpo4eoRjCEayd0dyYmgH2EqN8Azg4DUi3DKAYrJLFYCi+/9xvu6Vri8HiRz1Zh2I63NVmfL6KV/EGsr3MGQ==</source>
   </file>
-  <file path="Unit/Energy/WattHour.php" generated-path="Unit.Energy.WattHour.html" hash="30441fe67b2e785af66f2041d9a34cdb" package="Default">
+  <file path="Unit/Energy/Kilojoule.php" generated-path="Unit.Energy.Kilojoule.html" hash="f131aecf093690b603370082dbe480a7" package="Default">
     <docblock line="0">
-      <description></description>
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
       <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
       <tag name="package" line="0" description="Default"/>
     </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>Kilojoule</name>
+      <full_name>\UnitConverter\Unit\Energy\Kilojoule</full_name>
+      <docblock line="24">
+        <description>Kilojoule unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Andrew Boerema &lt;1569403+andrewboerema@users.noreply.github.com&gt;"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\Kilojoule::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
     <parse_markers>
-      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
     </parse_markers>
-    <source>eJyNUV1vEzEQfPevGFU8JFF7SaAUREopVEENolWlFvFSCTm+vZzLxT7ZewlRlf/O2v1UxQNP/pjZmd3Zw09t3So1HAwUBriqbURlG4KcrQ4MX4Frwo0PpXbzoDsKw85Z3jPerSgwBVycXgjX/NYLKkQk6Rwb326CXdSM16PxO3zL5fiS63F4cydUWGeOF0ttm8L45VEubKwhFwlns6t7ra8+5BaqrmnwpKtdiQeydZUPS83Wu120DWn5W1la57rvs5Pp+eU0SeXJuNaMtY4obeRg5x1TibXlWhCZOvouGBKjMk8zVKok0+hAvcQ2/Is3LUV8xLg/UcrpJUUZnvBDQjl5yOQ6va6njsJiI6wuvsTPpMcu0OQfUC69xee5+GnD6bmbKTMncJW8tpPHjf3UzKfSMtJSUGrWkG5jfNyEqEbJBeNiVIzyT5TY6dlbd1xLxv+7o6HKBk/O9IfJlRF346ZO1a0C2uCZTAq36pxJu5FQXWUXMjd6fXzAyttSiIkMvErp5xuwdxSJzyXa3s5aXFCLzU5fPUcvN8u5bwSvXyKpgdh7czCS+UZv9/cP3vfv4YmcW7VVfwFBxPJ7</source>
+    <source>eJxdkNtuEzEQhu/9FKOKiyS0mw2HIkgooVUQLVBVarmrhLz27K5Tr73yIWGF+u6MnaZEXI09h3/m/xaf+rZnbDqZMJjAXas81EojUOy5C2BrCC3C2jrJTeV4RDeNRoUTYc0GXUAHN19vqFc88AYLEkk6S2H7wammDfCqnL2DqzwO53keFuudUKGMWDYdV7oQtjvLg1oJNB7hx+Xdk9YX6/IJddQa/ulyI2HfrExtXceDsuYYeo2cchuF2zz3/fJidX27SlLZWWh5gC33IJUPTlUxoIStCi1VyLW30QmkRTK7mTImUWjucJS6RfgVhh49fITZeM6Y4R16Mo/wk6Bc7Jncp9/9yqBrhvkz3W9K27WNdEMiCJIHDiTt/TM2mvZkAmZFWZQ544kRHvx5DC0B+WykI3/nFh12HBazt6fv35SvX/Kcr3bpZfSkVxjrsNdD0ZDHWO1RT1lefXAU/g5opIfd2ckB+8MAemcDigSpjkYkxgTH1KqJDmE0hg+wsUpSY2oGeJEo5hfAyZnHcE2IRkcP+zVHY3ZYvR26ymqqX/1XSPv9aFaW5fgpPaf4yB7ZX7Bp2y4=</source>
+  </file>
+  <file path="Unit/Energy/KilowattHour.php" generated-path="Unit.Energy.KilowattHour.html" hash="7a8a561197caedd4db595e931162b32e" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>KilowattHour</name>
+      <full_name>\UnitConverter\Unit\Energy\KilowattHour</full_name>
+      <docblock line="24">
+        <description>KilowattHour unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Andrew Boerema &lt;1569403+andrewboerema@users.noreply.github.com&gt;"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\KilowattHour::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxdkFtPGzEQhd/9K0aoD0laNpsS0ktSmoKCoBeEBFVfkCqvPbtr8Nor25t0VfHfO3YSSrsvXo/PnJnzLT62dcvYeDRiMILbWnkolUags+UugC0h1Aj31kluCsc7dOPOqHAorFmjC+jg+uKatOKBV5iRSfRZCtv2TlV1gNf55A18Tu1wmvphcb81ypQRy6rhSmfCNiepUSuBxiN8u7zdeZ1bl1YoO63hry83EvZiZUrrGh6UNa+g1ciptla4SX1fL89WVzeraJWShZoH2HAPUvngVNEFlLBRoaYXSu1t5wTSIJnSjBmTKDR3OIhqEX6GvkUPH2AynDNmeIOewiN8JyhneyZ38Xa3Muiqfv5E94vSdsNDuKARECGC5IEDuXv/RI4MPOWASZZneap4woTP7rwLNTH5ZKSjiKcWHTYcFpPj2btpfvSSp3qxLS87T36ZsQ5b3WcVxeyKPe0xS6P/3Qt/BTTSw3b5mIP9ZgCtswFFRFV2RkTShMiUquocwmAI72FtlSRhFAO8iCzTH8DhicdwRaAGBw+7SVDTqIMhe6646ZvCatL8qP97iUv4wdEsp+84m05nb4e75zmdj+yR/QElbeFB</source>
+  </file>
+  <file path="Unit/Energy/Megaelectronvolt.php" generated-path="Unit.Energy.Megaelectronvolt.html" hash="be1146b84f1e4be3b020df52a718dac3" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>Megaelectronvolt</name>
+      <full_name>\UnitConverter\Unit\Energy\Megaelectronvolt</full_name>
+      <docblock line="24">
+        <description>Megaelectronvolt unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Andrew Boerema &lt;1569403+andrewboerema@users.noreply.github.com&gt;"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\Megaelectronvolt::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxlkF1P2zAUhu/9K46qXaRlTRNg7KMd60BFY1oREmxXSJPjnCRmjh35o1008d934lKG2JXt4/e857zP4lPXdIzNJhMGE7htpINKKgQ6O249mAp8g3BvbMl1YXlAOwta+qkweoPWo4XrL9ekFb94jSmZDD5LYbreyrrxcJjlb+FrbIez2A+L+51RKrVY1i2XKhWmPY2NSgrUDmF9efvodWFsXKEKSsE/X65L2IulroxtuZdGv4ZOIafaRuI29n27PF9d3awGq5jMN9zDljsopfNWFsFjCVvpG/qh1M4EK5AGlTHNjLESheIWk0Et/E/fd+jgI+TjOWOat+goPMJ3gnK+Z3I3vO5WGm3dz5/orrHmqFB4SzqjPAwgoeSeA01w7okemTjKAnmapVmsOEKFz948+Ia4fNalpZhnBi22HBb5m5P3x9nRAY/1YldeBkd+qTYWO9WnNUUNxZ74jMXR/++Gvz3q0sEuxJCH/WEAnTWeVISsCloMxAmVrmQdLEIyhg+wMbIk4SAGeDUwjTeA6alDf0XAklH7YtpozJ6Lbvq2MCoZrfHHi59hD5fk6Ul2mL/DaX40fvyd0/nAHthfQafl3Q==</source>
+  </file>
+  <file path="Unit/Energy/Megajoule.php" generated-path="Unit.Energy.Megajoule.html" hash="e022ab7045237bda7188a74662da6b4d" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>Megajoule</name>
+      <full_name>\UnitConverter\Unit\Energy\Megajoule</full_name>
+      <docblock line="24">
+        <description>Megajoule unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Andrew Boerema &lt;1569403+andrewboerema@users.noreply.github.com&gt;"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\Megajoule::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxdkF1v0zAUhu/9K44qLtKOpSkMELSMsqkTm+g0aeNuEnLsk8QlsSN/tERo/51jdx0VvrF9Pt5z3mfxpW96xqaTCYMJPDTKQaVaBLp7bj2YCnyDsDFWcl1aHtBOg1b+VBi9RevRwt23O6oVv3iNOYlEnaUw/WBV3Xh4U8w+wE1qh4vUD4vNXihXWizrjqs2F6Y7T42tEqgdwvr64Vnryti0QhXaFv7pci3hUKx0ZWzHvTL6NfQtcoptFe5S3/fry9Xt/SpKJWe+4R523IFUzltVBo8Sdso3lCHXzgQrkAbJ5GbKmETRcotZrBb+px96dPAZZuM5Y5p36Mg8wg+Ccnlg8hh/jyuNth7mL3TXWPONCbRDJAiSew4k7dwLNup2ZAJmeZEXKeKIER79efANAfmqpSV/FwYtdhwWs3fvP54Vb094ipf78DI40su1sdi3Q16Tx1AeUE9ZGn20FP72qKWD/drRAfvDAHprPIoIqQpaRMYER1eqDhYhG8Mn2BolqTAWA7yKFNML4PTcob8lRNmoO4wZjdlx9n7oStNmo/XNf4k432WzIp3xc2ZO9xN7Yn8BD6HbYQ==</source>
+  </file>
+  <file path="Unit/Energy/MegawattHour.php" generated-path="Unit.Energy.MegawattHour.html" hash="50f42c1fdcf14d7dc3eeb661e0882e61" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>MegawattHour</name>
+      <full_name>\UnitConverter\Unit\Energy\MegawattHour</full_name>
+      <docblock line="24">
+        <description>MegawattHour unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Andrew Boerema &lt;1569403+andrewboerema@users.noreply.github.com&gt;"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\MegawattHour::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxdkMtu2zAQRff8ioHRhew2stw47sNu6iZwkQR1ECApuglQUNRIYiqRAh92hSL/niFtp2m1oTi8c2fuWXzu6o6x8WjEYAR3tbRQygaBzo4bB7oEVyM8aFNwlRvu0Yy9ku5IaLVB49DAzcUNacUvXmFKJsFnKXTXG1nVDt5mk3dwFdvhLPbD4mFnlEolllXLZZMK3Z7GxkYKVBZhfXm39/qqTVyh9E0Df325KuAglqrUpuVOavUGugY51TYSt7Hv2+X56vp2FaxiMldzB1tuoZDWGZl7hwVspavphVJb7Y1AGlTENGPGChQNN5gEtXA/Xd+hhU8wGc4ZU7xFS+ERvhOU8wOT+3C7Xyk0VT9/prvGim+5cxc0AgJEKLjjQO7WPpMjA0s5YJJmaRYrljDhizv3riYmX1RhKOKZRoMth8XkZPZhmh2/5rGe78pLb8kvVdpg1/RpRTF9fqA9ZnH0v3vhb4eqsLBbPuRgfxhAZ7RDEVCVXolAmhCpUlbeICRD+AgbLQsSBjHAq8Ay/gEcnVp01wQqGbT7SVDTqMGQvVTc9m2um2Sw/lH/9xKWsMnxLKPvZDqdpe+H++c5nY/skT0B7H7g5A==</source>
+  </file>
+  <file path="Unit/Energy/NewtonMeter.php" generated-path="Unit.Energy.NewtonMeter.html" hash="f4276061fd01cd7547574f22cd9961b1" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>NewtonMeter</name>
+      <full_name>\UnitConverter\Unit\Energy\NewtonMeter</full_name>
+      <docblock line="24">
+        <description>NewtonMeter unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Andrew Boerema &lt;1569403+andrewboerema@users.noreply.github.com&gt;"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\NewtonMeter::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJxdkN1OGzEQhe/9FKOIi02ATbalVG1SmoKCSlUiJOgdUuW1Z3dNd+2Vf5KuKt69Y4cA7ZXt8Zkzc77F577pGZtOJgwmcNcoB5VqEejsufVgKvANwoOxkuvS8oB2GrTyx8LoDVqPFm6+3pBW/OI15mQSfZbC9INVdePhzax4D99SO5ynflg87IxypcWy7rhqc2G6s9TYKoHaIVxf3T15XRqbVqhC28KLL9cS9mKlK2M77pXRR9C3yKm2UbhNfd+vLlbr21W0Ssl8wz1suQOpnLeqDB4lbJVv6IdSOxOsQBokU5opYxJFyy1mUS38Tz/06OATFOM5Y5p36Cg8wg+CcrFnch9f9yuNth7mz3TXuPVGX2OEFhmC5J4DmTv3DI76HcWAIp/ls1RxRAlfvXnwDSH5oqWlhOcGLXYcFsW70w8ns7eHPNXLXXkZHPnl2ljs2yGvKWUo97CnLI3+Zy387VFLB7vVYwr2hwH01ngUEVQVtIicCZCuVB0sQjaGj7AxSpIwigEOIsl0Azg+c+jXhCkb6TQIujhpNGavBbdDV5o2G627/z7iCi4rxk+1OZ2P7JH9BZp+3UI=</source>
+  </file>
+  <file path="Unit/Energy/WattHour.php" generated-path="Unit.Energy.WattHour.html" hash="2253601443a8cf936e58cd03929f3490" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Energy" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Energy\EnergyUnit</extends>
+      <name>WattHour</name>
+      <full_name>\UnitConverter\Unit\Energy\WattHour</full_name>
+      <docblock line="24">
+        <description>WattHour unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Energy" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Energy\WattHour::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJyNkFtPGzEQhd/9K0ZRHzZR2WxaCogARUWpoCoICSpekJBjz65Nd+2VPZsQVfz3js1VfeqTLzNzzpzv4GtveiGmk4mACVwbG6G2LQKfvQwEvgYyCPc+aOmWQQ4YpoOztKW8W2EgDHB5esm96rdssGSRpHOsfL8JtjEEn6rZLvzI4/Atz8PB/ZNQaZ06bjpp21L57igPtlahiwjnZ9fPWt99yCvUQ9vCm650Gl6arat96CRZ7z5C36Lkv5XFdZ77eXayuLhaJKmcjIwkWMsI2kYKdjkQalhbMlzh1NEPQSEb6ZxmKoRG1cqARepWdEebHiMcwmw8F8LJDiOHR/jFUE5emNym1+3CYWg281e6N5LolOUhAQQtSQIrx/hKjYcjZ4BZWZVV/omMCN+95UCGefwvz6nIBm/O+EDodISn1dKW4o8A6IMnVAlEPTiVODIAV9tmCAjFGPZh5a3mxtQM8CGRyjeAraOIdMEYitGaXcCwzWgs3levNt3St8XoxvxTSP6x+LxTcbzqy/b2zt74uTzn81E8ir915NK8</source>
   </file>
   <file path="Unit/Length/AstronomicalUnit.php" generated-path="Unit.Length.AstronomicalUnit.html" hash="036649e4b68fea9d818773b556895062" package="Default">
     <docblock line="0">
@@ -649,6 +945,108 @@ default types of measurement.</description>
     </parse_markers>
     <source>eJyNUV1PGzEQfPevWEV9uERwSWhR1YZSWkRFKoIiQd+QKp+9lzO9s0/2OmmE8t+7NoEi1Ic++WNmZ3ZnTz73TS/EeDQSMILbxgSoTYvAZy89gauBGoR757W0lZcR/ThaQ4fK2TV6Qg/LyyVz1S+5wpJFks6Zcv3Wm1VDcDSZvofvuRy+5no4uX8UKo1VZ6tOmrZUrjvNha1RaAPCYn671/rmfG6hjm0Lf3Wl1fBENrZ2vpNknD2AvkXJf2uDm1x3NT+/uL65SFJ5MmokwUYG0CaQN1Uk1LAx1DDCUwcXvUI20nmasRAaVSs9Fomt6CdtewzwCabDmRBWdhh4eIQfHMr5UyZ36XW3kCEwJ4bX6II7jB5n/4By4QN8qdhNKkrPg0yZW4br5LSbPe9r6SLHoCVJ4B5DeM6f1QKnAdNyUk7yT+Cw8cVbRmo42f/dzFhkg70j/ia0OkCaMDUnHgRA7x2hSmnW0aq0DE7R1mbFo0IxhI+wdkYzMZEB3qS48w3g8DQgXXOWxaBPBoOheIncbLvKtcWgrV4ByTsUk/Ld8dvjD0fDPTTjcyd24g8ISum8</source>
   </file>
+  <file path="Unit/Mass/Stone.php" generated-path="Unit.Mass.Stone.html" hash="e1ebafcf26c26b8b18518391c7196b38" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Mass" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Mass\MassUnit</extends>
+      <name>Stone</name>
+      <full_name>\UnitConverter\Unit\Mass\Stone</full_name>
+      <docblock line="24">
+        <description>Stone data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Mass" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Mass\Stone::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJyNUF1PGzEQfPevWCEekqhcElBb0fClIiqoCooUeEOqHHsvZ3pnn7x7CRHiv3dtQopEH9iXu/XuzM7M0WlbtUoNBwMFA7itHEHpagT5tjoyhBK4QngI0Wo/j7rDOOy84z0T/BIjY4Tp5VR2zR+9wEJIEs+ZCe06ukXFsD8af4WfGQ7fMx6OHl6ICufN2aLRri5MaE4ysHYGPSFcX91uuH6EmCWUXV3DP17tLbwuO1+G2Gh2wX+CtkYtb0uHq4z7dXV+cTO7SFTZGVeaYaUJrCOObt4xWlg5rmQiril00aAcstnNUCmLptYRe2nb8G9et0hwDOP+RCmvGyQxj3AnoZy/ZnKfuvtrTTTZZjvj4BGsZg3CR7TNSiAkymFcjIpRfiEJBt/0uuNKUvhoikOVD2wu4iOjtwRJTZKlnhRItTEwmuS97LxJ0YlnX7pFFxF6ffgGy+BsXn0BpNpNEW27VHsnhHwjKfR2KJ3b6av389m6mYc6bfx3nFRR70tx8Hm0f9jfzif571k9q79ai84+</source>
+  </file>
+  <file path="Unit/Mass/UKLongTon.php" generated-path="Unit.Mass.UKLongTon.html" hash="fdd2d3c3035ba5cf7669469d5d69a546" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Mass" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Mass\MassUnit</extends>
+      <name>UKLongTon</name>
+      <full_name>\UnitConverter\Unit\Mass\UKLongTon</full_name>
+      <docblock line="24">
+        <description>UKLongTon data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Mass" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Mass\UKLongTon::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJyNkFtPGzEQhd/9K0ZRHzZR2VxaUYlQioqoSrkIieQNCTn27K5h117Z46RRxX9nbEqKRB/wy+7Y55yZ+Q6/9U0vxHg0EjCCRWMCVKZF4G8vPYGrgBqEe+e1tCsvI/pxtIb2lLNr9IQern9es1Y9yBpLDkk5x8r1W2/qhmA2mX6BX9kO37MfDu+fg0pj1XHdSdOWynVH2dgahTYgXJ4t/mb9cD6PUMW2hX+50mp4ERtbOd9JMs5+hL5FyXdrg5vsuzg7Ob26OU1ReTNqJMFGBtAmkDerSKhhY6jhF946uOgVciOdtxkLoVG10mOR1IruaNtjgK8wHc6FsLLDwMsjLBnKyQuT21TdXsoQ5ju2y/MLZ+uFs6AlSeDMEHa82BZ4epiWk3KSbwLDwVe1jNQwifeSHIvc4FVX/E1odYA0VRpP/BHAp/eOUCUGVbQqIeTdbWXq6BGKIRzA2hmdpc+GdD4kVLsqnb2jgHTFNIrB8hxST+Cmg6F4q7rZdivXFoP4QP99T8OFYlbOJp/3Z5+GO8E8/z2KR/EEEUbS/Q==</source>
+  </file>
+  <file path="Unit/Mass/USShortTon.php" generated-path="Unit.Mass.USShortTon.html" hash="55c855eda80ce08deee992fd37dcab1c" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Mass" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Mass\MassUnit</extends>
+      <name>USShortTon</name>
+      <full_name>\UnitConverter\Unit\Mass\USShortTon</full_name>
+      <docblock line="24">
+        <description>USShortTon data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Jordan Brauer" link="mailto:jbrauer.inc@gmail.com"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Mass" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Mass\USShortTon::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJyNUF1PGzEQfPevWEU8XKJy+WjVSg0FVERVKkBIl7whVY69lzPc2Sd7nTRC/PeuTQlI9IF9sdeemd2Zo5O+6YUYj0YCRrBoTIDatAh89tITuBqoQbhzXku78jKiH0dr6FA5u0FP6OHm5w1j1b1cY8kiSedUuX7nzbohmE2mX+BXpsP3zIejuyeh0lh1uu6kaUvluuNMbI1CGxCuLhb/tH44n1eoY9vCi660Gp7BxtbOd5KMsx+gb1Hy28bgNvMuL87Or6vzJJWdUSMJtjKANoG8WUVCDVtDDf+w6+CiV8iDdHYzFkKjaqXHIqEV/aZdjwG+wXQ4F8LKDgObR1hyKGfPmdym7vZKhjDfZ7usqsZ5WjgLWpIEFg1hHxjzAq8P03JSTvJL4HTwVS8jMf/dUY5FHvB6LP4htDpA2istKB4EcPXeEaqUQh2tSiGye1ubdfQIxRC+wsYZnaFPhFQHKax9l+rwOCBdcx7FYFlBHgo8dTAUb2HVrlu5thjEQP/9T9uFYlbOJp8+zz4O94B5vj2KR/EXOUnUnQ==</source>
+  </file>
   <file path="Unit/PlaneAngle/Degree.php" generated-path="Unit.PlaneAngle.Degree.html" hash="e4a2bdf9e2bcdbb2f5a781b43a0a2624" package="Default">
     <docblock line="0">
       <description></description>
@@ -725,6 +1123,40 @@ default types of measurement.</description>
       <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
     </parse_markers>
     <source>eJyNUcFu2zAMvesriGKHJGidZJcBS9d1Kzosw1IEaHsrMDAybauTJUOikwVF/r2U1qRBd5kvsvQe3yMfzz93TafUeDRSMIK7xkSojCWQs8PA4CvghuDRhxLdKmBPYdw7w2fauzUFpgDL70vh6t9YUyEiSedS+24bTN0wvJ9MP8CPXA5fcz2cP/4VKozTl3WLxhbatxe50BpNLhIs5ncvWt98yC1UvbXwqouuhD3ZuMqHFtl4dwqdJZS3taFNrvs5v7q+ub1OUnkybpBhgxFKEzmYVc9UwsZwI4hMHX0fNIlRmacZK1WSthhokNiaf/G2owifYDqcKeWwpSjDE9xLKFf7TB7S7WEZKMY+kPD6+JaxkC4z9i+Ui5/gy0ocUXO6nmbK3AlcJbfd7LCzBdXYYdRoIS0GSmQE6TjGwzZEN0o2MC0mxSS/RImeju7YcyM5/++exiobHHvTHyZXRtgPnfpVTwqgC55Jp5Cr3um0IwnXVaYWEgyG8BHW3pRCTGSAd2kL+Q/g7CIS30jEg5P24HQyVMfw7bZdeSuEDt8gqYM4mE7yN3xBZnLu1E49Awvt9QU=</source>
+  </file>
+  <file path="Unit/Pressure/Millibar.php" generated-path="Unit.Pressure.Millibar.html" hash="33fa9ad919d3662978a0ff1254757acb" package="Default">
+    <docblock line="0">
+      <description>This file is part of the jordanbrauer/unit-converter PHP package.</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2017 Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;"/>
+      <tag name="license" line="0" description="MIT&#10;&#10;For the full copyright and license information, please view the LICENSE&#10;file that was distributed with this source code."/>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="UnitConverter\Unit\Pressure" line="24" package="Default">
+      <extends>\UnitConverter\Unit\Pressure\PressureUnit</extends>
+      <name>Millibar</name>
+      <full_name>\UnitConverter\Unit\Pressure\Millibar</full_name>
+      <docblock line="24">
+        <description>Millibar unit data class.</description>
+        <long-description></long-description>
+        <tag name="version" line="24" description="1.0.0"/>
+        <tag name="since" line="24" description="1.0.0"/>
+        <tag name="author" line="24" description="Teun Willems"/>
+        <tag name="package" line="24" description="Default"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="UnitConverter\Unit\Pressure" line="26" package="Default">
+        <name>configure</name>
+        <full_name>\UnitConverter\Unit\Pressure\Millibar::configure()</full_name>
+        <docblock line="26">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="26" code="PPC:ERR-50008">No summary for method configure()</error>
+    </parse_markers>
+    <source>eJx1UNFKYzEQfc9XDLIPbdHb230RrLqiuKyLSsHKvgiSJnN7o7nJJZm0lsV/30m0VZCdl2SSc87MOcc/+rYXYjwaCRjBvDURGmMR+OxlIPANUIvw5IOWbhFkwjBOztCB8m6FgTDA7NeMsepZLrFikaxzpny/CWbZEnyvJ4fwu9DhvPDh+OlNqDJOnS07aWylfHdaiNYodBHh5mr+rvXTh7JCk6yFD13pNGzBxjU+dJKMd/vQW5T8tjK4Lrzrq4vL27vLLFWcUSsJ1jKCNpGCWSRCDWtDLf+w6+hTUMiDdHEzFkKjsjLgIKMVPdKmxwgnMBlOhXCyw8jmEe45lIttJg+5e5gFjDEFnO7yvTHWmoUMkCMELUkCa8e4y43pkV3ApKqrurxEDgk/9TJRy4nMMTn4w3LYxbJm0fkYgC+ETkfY7pAXEn8FcPXBE6rsuklO5dDYrWvMkmEwGMIRrLzRBfpGyPUth7Prch2cRqRb9j/Y696n7g3FV8jdplt4y6D/AfJqcTCp6+Hub1pur+L1H27szgI=</source>
   </file>
   <file path="Unit/Pressure/Pascal.php" generated-path="Unit.Pressure.Pascal.html" hash="70a298eb2e5d6295eeb4939fd477dd3e" package="Default">
     <docblock line="0">
@@ -1948,6 +2380,9 @@ third to be called in the chain of conversion methods.</description>
   <namespace name="UnitConverter" full_name="UnitConverter">
     <namespace name="Exception" full_name="UnitConverter\Exception"/>
     <namespace name="Unit" full_name="UnitConverter\Unit">
+      <namespace name="Energy" full_name="UnitConverter\Unit\Energy"/>
+      <namespace name="Mass" full_name="UnitConverter\Unit\Mass"/>
+      <namespace name="Pressure" full_name="UnitConverter\Unit\Pressure"/>
       <namespace name="Time" full_name="UnitConverter\Unit\Time"/>
     </namespace>
   </namespace>
