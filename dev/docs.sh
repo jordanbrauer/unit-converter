@@ -8,19 +8,16 @@
 #
 # $ chmod u+x ./dev/docs.sh
 
-DIRECTORY=./docs
+SOURCE=./src
+DESTINATION=./docs
 
-if [ -d $DIRECTORY ];
+if [ -d $DESTINATION ];
 then
   printf "Deleting old generated documentation .. "
-
-  rm -r $DIRECTORY/*
-
+  rm -r $DESTINATION/*
   echo "OK"
-
-  exit
 fi
 
 echo "No stale documentation to remove"
-
+php -d memory_limit=-1 -f ./vendor/bin/apigen generate $SOURCE --destination $DESTINATION
 exit

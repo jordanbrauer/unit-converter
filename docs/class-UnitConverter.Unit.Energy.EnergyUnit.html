@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="stylesheet" href="resources/bootstrap.min.css">
+        <link rel="stylesheet" href="resources/style.css">
+
+        <title>
+            Class UnitConverter\Unit\Energy\EnergyUnit
+        </title>
+    </head>
+
+    <body>
+<div id="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html">
+                                Overview
+                            </a>
+                        </li>
+
+                            <li>
+                                <a href="classes.html">Classes</a>
+                            </li>
+
+                            <li>
+                                <a href="interfaces.html">Interfaces</a>
+                            </li>
+
+
+
+                            <li>
+                                <a href="exceptions.html">Exceptions</a>
+                            </li>
+
+                    </ul>
+
+                    <form id="search" class="pull-right">
+                        <input type="text" name="q" class="form-control text" placeholder="Search class, function or namespace" autofocus>
+                    </form>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+            <div id="breadcrumbs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+
+<div class="pull-left type">
+    <span class="label label-success">Class</span>
+</div>
+
+<ol class="breadcrumb pull-left">
+        <li>
+            <a href="namespace-UnitConverter.html">UnitConverter</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-UnitConverter.Unit.html">Unit</a>
+        </li>
+            <li class="backslash">\</li>
+        <li>
+            <a href="namespace-UnitConverter.Unit.Energy.html">Energy</a>
+        </li>
+
+        <li class="backslash">\</li>
+        <li class="active">EnergyUnit</li>
+</ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+    <h1>EnergyUnit</h1>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                Energy base data class. Any new energy units should
+extend this class and implement their name, symbol and units;
+overriding the $unitOf and $base properties only if necessary.
+            </div>
+        </div>
+
+        <dl class="tree">
+            <dd>
+                    extends
+                    <a href="class-UnitConverter.Unit.AbstractUnit.html">
+                        UnitConverter\Unit\AbstractUnit
+                    </a>
+
+
+            </dd>
+        </dl>
+
+
+        <div>
+            <h2>Known subclasses</h2>
+            <a href="class-UnitConverter.Unit.Energy.Calorie.html">UnitConverter\Unit\Energy\Calorie</a>, 
+            <a href="class-UnitConverter.Unit.Energy.FootPound.html">UnitConverter\Unit\Energy\FootPound</a>, 
+            <a href="class-UnitConverter.Unit.Energy.Joule.html">UnitConverter\Unit\Energy\Joule</a>, 
+            <a href="class-UnitConverter.Unit.Energy.Kilojoule.html">UnitConverter\Unit\Energy\Kilojoule</a>, 
+            <a href="class-UnitConverter.Unit.Energy.KilowattHour.html">UnitConverter\Unit\Energy\KilowattHour</a>, 
+            <a href="class-UnitConverter.Unit.Energy.Megaelectronvolt.html">UnitConverter\Unit\Energy\Megaelectronvolt</a>, 
+            <a href="class-UnitConverter.Unit.Energy.Megajoule.html">UnitConverter\Unit\Energy\Megajoule</a>, 
+            <a href="class-UnitConverter.Unit.Energy.MegawattHour.html">UnitConverter\Unit\Energy\MegawattHour</a>, 
+            <a href="class-UnitConverter.Unit.Energy.NewtonMeter.html">UnitConverter\Unit\Energy\NewtonMeter</a>, 
+            <a href="class-UnitConverter.Unit.Energy.WattHour.html">UnitConverter\Unit\Energy\WattHour</a>
+        </div>
+
+    <div class="info">
+        <strong>Abstract</strong><br>
+
+            <br>
+            <br>
+            <br>
+            <a href="source-class-UnitConverter.Unit.Energy.EnergyUnit.html" class="open-source-code">Open source code</a>
+        <br>
+    </div>
+
+
+        <table class="summary table table-bordered table-responsive table-striped">
+            <tr>
+                <th>
+                    Methods inherited from <a href="class-UnitConverter.Unit.AbstractUnit.html#methods">UnitConverter\Unit\AbstractUnit</a>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#___construct">__construct()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_configure">configure()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_calculate">calculate()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_convert">convert()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_setName">setName()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_getName">getName()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_setSymbol">setSymbol()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_getSymbol">getSymbol()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_setUnitOf">setUnitOf()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_getUnitOf">getUnitOf()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_setBase">setBase()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_getBase">getBase()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_setUnits">setUnits()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_getUnits">getUnits()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_getBaseUnits">getBaseUnits()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_getScientificSymbol">getScientificSymbol()</a></code>, 
+                        <code><a href="class-UnitConverter.Unit.AbstractUnit.html#_setScientificSymbol">setScientificSymbol()</a></code>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+        <table class="summary table table-bordered table-responsive table-striped" id="properties">
+            <tr><th colspan="3">Properties Summary</th></tr>
+<tr id="$unitOf">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
+
+            
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-UnitConverter.Unit.Energy.EnergyUnit.html#31" class="property-name">$unitOf</a>
+        </code>
+        <div class="description">
+            
+
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$unitOf" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'energy'</span></code>
+        </div>
+    </td>
+</tr>
+<tr id="$base">
+    <td class="attributes">
+        <code class="keyword">
+            protected 
+
+            
+        </code>
+    </td>
+
+    <td class="name">
+        <code>
+            <a href="source-class-UnitConverter.Unit.Energy.EnergyUnit.html#33" class="property-name">$base</a>
+        </code>
+        <div class="description">
+            
+
+                <br>
+                <br>
+                <br>
+        </div>
+    </td>
+    <td class="value">
+        <div>
+            <a href="#$base" class="anchor pull-right">#</a>
+            <code><span class="php-quote">'UnitConverter\\Unit\\Energy\\Joule'</span></code>
+        </div>
+    </td>
+</tr>
+        </table>
+
+            <table class="summary table table-bordered table-responsive table-striped">
+                <tr>
+                    <th>
+                        Properties inherited from <a href="class-UnitConverter.Unit.AbstractUnit.html#properties">UnitConverter\Unit\AbstractUnit</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                            <code><a href="class-UnitConverter.Unit.AbstractUnit.html#$name" class="property-name">$name</a></code>, 
+                            <code><a href="class-UnitConverter.Unit.AbstractUnit.html#$symbol" class="property-name">$symbol</a></code>, 
+                            <code><a href="class-UnitConverter.Unit.AbstractUnit.html#$scientificSymbol" class="property-name">$scientificSymbol</a></code>, 
+                            <code><a href="class-UnitConverter.Unit.AbstractUnit.html#$unitOf" class="property-name">$unitOf</a></code>, 
+                            <code><a href="class-UnitConverter.Unit.AbstractUnit.html#$base" class="property-name">$base</a></code>, 
+                            <code><a href="class-UnitConverter.Unit.AbstractUnit.html#$units" class="property-name">$units</a></code>
+                    </td>
+                </tr>
+            </table>
+
+    <div id="footer">
+        Generated by <a href="https://github.com/apigen/apigen">ApiGen</a>
+    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="resources/jquery-3.2.1.min.js"></script>
+        <script src="resources/jquery-ui-1.12.1.min.js"></script>
+
+        <script src="elementlist.js"></script>
+        <script src="resources/main.js"></script>
+    </body>
+</html>
+
+

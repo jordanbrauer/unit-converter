@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Area;
 
 use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use UnitConverter\Unit\AbstractUnit;
 
 /**
  * Area unit base data class. Any new area units should
