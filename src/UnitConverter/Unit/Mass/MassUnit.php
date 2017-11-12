@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Mass;
 
 use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use UnitConverter\Unit\AbstractUnit;
 
 /**
  * Mass unit base data class. Any new mass units should

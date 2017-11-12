@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Pressure;
 
 use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use UnitConverter\Unit\AbstractUnit;
 
 /**
  * Pressure base data class. Any new pressure units should

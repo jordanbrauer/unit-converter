@@ -14,9 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
-
 /**
  * Nanometer data class.
  *
@@ -35,6 +32,6 @@ class Nanometer extends LengthUnit
 
       # 1.0E-9
       ->setUnits(0.000000001)
-      ;  
+      ;
   }
 }

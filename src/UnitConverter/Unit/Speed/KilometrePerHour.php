@@ -14,9 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Speed;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
-
 /**
  * Kilometre per hour unit data class.
  *

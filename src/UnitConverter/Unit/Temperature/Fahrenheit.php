@@ -14,8 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use Exception;
+use UnitConverter\Unit\UnitInterface;
 
 /**
  * Fahrenheit unit data class.
@@ -54,7 +54,7 @@ class Fahrenheit extends TemperatureUnit
         break;
 
       default:
-        throw new \Exception("Unknown conversion formula for {$to->getSymbol()}");
+        throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
     }
   }
 }

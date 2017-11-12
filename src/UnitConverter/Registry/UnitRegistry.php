@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
  * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
@@ -14,10 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Registry;
 
-use UnitConverter\Exception\{
-  UnknownUnitOfMeasureException,
-  UnknownMeasurementTypeException
-};
+use UnitConverter\Exception\UnknownUnitOfMeasureException;
+use UnitConverter\Exception\UnknownMeasurementTypeException;
 use UnitConverter\Measure;
 use UnitConverter\Unit\UnitInterface;
 

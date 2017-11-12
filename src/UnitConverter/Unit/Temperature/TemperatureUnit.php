@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Temperature;
 
 use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use UnitConverter\Unit\AbstractUnit;
 
 /**
  * Temperature base data class. Any new temperature units should

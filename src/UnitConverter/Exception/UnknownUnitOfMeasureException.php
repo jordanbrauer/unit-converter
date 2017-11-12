@@ -16,6 +16,9 @@ namespace UnitConverter\Exception;
 
 use OutOfBoundsException;
 
+/**
+ * Exception thrown when a conversion is attemped on an unknown unit
+ */
 class UnknownUnitOfMeasureException extends OutOfBoundsException
 {
 }

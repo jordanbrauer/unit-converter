@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Speed;
 
 use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use UnitConverter\Unit\AbstractUnit;
 
 /**
  * Speed unit base data class. Any new speed units should

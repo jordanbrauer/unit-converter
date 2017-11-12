@@ -18,8 +18,9 @@
   },
   "require": {},
   "require-dev": {
-    "phpdocumentor/phpdocumentor": "^2.9",
+    "apigen/apigen": "dev-master",
     "phpunit/phpunit": "^6.3",
+    "roave/better-reflection": "dev-master#c87d856",
     "symfony/var-dumper": "^3.3"
   },
   "autoload": {

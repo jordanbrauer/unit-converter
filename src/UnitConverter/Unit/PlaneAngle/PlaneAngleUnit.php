@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\PlaneAngle;
 
 use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
+use UnitConverter\Unit\AbstractUnit;
 
 /**
  * Plane Angle unit base data class. Any new plane angle units should
