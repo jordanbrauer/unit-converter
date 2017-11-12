@@ -29,6 +29,7 @@ It supports the following types of measurement by default (support for more meas
 * Pressure
 * Speed
 * Temperature
+* Time
 * Volume
 
 You also have the ability to [add your own measurements](#adding-custom-units)!
