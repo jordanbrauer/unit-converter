@@ -1,3 +1,8 @@
+### v0.4.1
+
+* Feat: add changelog (#49) e4ea6fe
+* Fix: api docs (#50) 728d698
+
 ### v0.4.0
 
 * Implement Kilopascal and Megapascal and write tests (#29) e1bc33c (@arubacao)
