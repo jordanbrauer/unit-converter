@@ -14,9 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
-
 /**
  * Calorie unit data class.
  *

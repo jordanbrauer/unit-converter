@@ -54,7 +54,7 @@ class EnergyUnitsSpec extends TestCase
     $actual = $this->converter
       ->convert(12)
       ->from("cal")
-      ->to("j")
+      ->to("J")
       ;
 
     $this->assertEquals(round($expected, 3), round($actual, 3));

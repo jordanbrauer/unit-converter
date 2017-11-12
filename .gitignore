@@ -394,3 +394,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/git,vim,node,linux,macos,emacs,windows,composer,phpstorm,sublimetext,phpstorm+all,phpstorm+iml,visualstudiocode
+
+/composer.lock

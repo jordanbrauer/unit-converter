@@ -14,9 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
-use UnitConverter\Measure;
-use UnitConverter\Unit\{ AbstractUnit, UnitInterface };
-
 /**
  * WattHour unit data class.
  *
@@ -31,7 +28,7 @@ class WattHour extends EnergyUnit
     $this
       ->setName("watt hour")
 
-      ->setSymbol("whr")
+      ->setSymbol("Wh")
 
       ->setUnits(3600.0054468)
       ;

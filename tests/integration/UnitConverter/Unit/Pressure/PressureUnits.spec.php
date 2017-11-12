@@ -19,6 +19,7 @@ use UnitConverter\UnitConverter;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Pressure\{
   Pascal,
+  Kilopascal,
   PoundForcePerSquareInch as PSI
 };
 
@@ -34,6 +35,7 @@ class PressureUnitsSpec extends TestCase
     $this->converter = new UnitConverter(
       new UnitRegistry(array(
         new Pascal,
+        new Kilopascal,
         new PSI,
       ))
     );
@@ -59,4 +61,66 @@ class PressureUnitsSpec extends TestCase
 
     $this->assertEquals(round($expected, 2), round($actual, 2));
   }
+
+    /**
+     * @test
+     * @coversNothing
+     */
+    public function assert1kpaEquals1000pa()
+    {
+        $expected = 1000;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("kpa")
+            ->to("pa")
+        ;
+
+        $this->assertEquals(round($expected, 2), round($actual, 2));
+    }
+
+    /**
+     * @test
+     * @coversNothing
+     */
+    public function assert1000paEquals1kpa()
+    {
+        $expected = 1;
+        $actual = $this->converter
+            ->convert(1000)
+            ->from("pa")
+            ->to("kpa")
+        ;
+
+        $this->assertEquals(round($expected, 2), round($actual, 2));
+    }
+
+    /**
+     * @coversNothing
+     */
+    public function assert1mpaEquals1000000pa()
+    {
+        $expected = 1000000;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("mpa")
+            ->to("pa")
+        ;
+
+        $this->assertEquals(round($expected, 2), round($actual, 2));
+    }
+
+    /**
+     * @coversNothing
+     */
+    public function assert1mpaEquals1000kpa()
+    {
+        $expected = 1000;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("mpa")
+            ->to("kpa")
+        ;
+
+        $this->assertEquals(round($expected, 2), round($actual, 2));
+    }
 }
