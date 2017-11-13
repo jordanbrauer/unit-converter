@@ -47,7 +47,7 @@ abstract class AbstractUnit implements UnitInterface
     protected $unitOf;
 
     /**
-     * @var string[UnitInterface] $base The units' base unit.
+     * @var string|UnitInterface $base The units' base unit classname.
      */
     protected $base;
 

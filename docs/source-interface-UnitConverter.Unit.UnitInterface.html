@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Source file
+            Source file | Unit Converter API
         </title>
     </head>
 
@@ -23,7 +23,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="index.html">
-                                Overview
+                                Unit Converter API
                             </a>
                         </li>
 
@@ -69,7 +69,7 @@
 </span></span><span class="l" id="line-10"><span class="php-comment"> * file that was distributed with this source code.
 </span></span><span class="l" id="line-11"><span class="php-comment"> */</span>
 </span><span class="l" id="line-12">
-</span><span class="l" id="line-13"><span class="php-keyword1">declare</span>(strict_types = <span class="php-num">1</span>);
+</span><span class="l" id="line-13"><span class="php-keyword1">declare</span> (strict_types = <span class="php-num">1</span>);
 </span><span class="l" id="line-14">
 </span><span class="l" id="line-15"><span class="php-keyword1">namespace</span> UnitConverter\Unit;
 </span><span class="l" id="line-16">
@@ -77,109 +77,109 @@
 </span></span><span class="l" id="line-18"><span class="php-comment"> * Interface for the unit of measurement abstract class.
 </span></span><span class="l" id="line-19"><span class="php-comment"> *
 </span></span><span class="l" id="line-20"><span class="php-comment"> * @version 1.0.0
-</span></span><span class="l" id="line-21"><span class="php-comment"> * @since 1.0.0
+</span></span><span class="l" id="line-21"><span class="php-comment"> * @since 0.0.1
 </span></span><span class="l" id="line-22"><span class="php-comment"> * @author Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;
 </span></span><span class="l" id="line-23"><span class="php-comment"> */</span>
 </span><span class="l" id="line-24"><span class="php-keyword1">interface</span> UnitInterface
 </span><span class="l" id="line-25">{
-</span><span class="l" id="line-26">  <span class="php-comment">/**
-</span></span><span class="l" id="line-27"><span class="php-comment">   * Sets the units full symantic name.
-</span></span><span class="l" id="line-28"><span class="php-comment">   *
-</span></span><span class="l" id="line-29"><span class="php-comment">   * @param string $name The value to be set as the units name
-</span></span><span class="l" id="line-30"><span class="php-comment">   * @return UnitInterface
-</span></span><span class="l" id="line-31"><span class="php-comment">   */</span>
-</span><span class="l" id="line-32">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setName (string <span class="php-var">$name</span>) : UnitInterface;
+</span><span class="l" id="line-26">    <span class="php-comment">/**
+</span></span><span class="l" id="line-27"><span class="php-comment">     * Sets the units full symantic name.
+</span></span><span class="l" id="line-28"><span class="php-comment">     *
+</span></span><span class="l" id="line-29"><span class="php-comment">     * @param string $name The value to be set as the units name
+</span></span><span class="l" id="line-30"><span class="php-comment">     * @return UnitInterface
+</span></span><span class="l" id="line-31"><span class="php-comment">     */</span>
+</span><span class="l" id="line-32">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setName (string <span class="php-var">$name</span>): UnitInterface;
 </span><span class="l" id="line-33">
-</span><span class="l" id="line-34">  <span class="php-comment">/**
-</span></span><span class="l" id="line-35"><span class="php-comment">   * Returns the full symantic name of the unit.
-</span></span><span class="l" id="line-36"><span class="php-comment">   *
-</span></span><span class="l" id="line-37"><span class="php-comment">   * @return string
-</span></span><span class="l" id="line-38"><span class="php-comment">   */</span>
-</span><span class="l" id="line-39">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getName () : string;
+</span><span class="l" id="line-34">    <span class="php-comment">/**
+</span></span><span class="l" id="line-35"><span class="php-comment">     * Returns the full symantic name of the unit.
+</span></span><span class="l" id="line-36"><span class="php-comment">     *
+</span></span><span class="l" id="line-37"><span class="php-comment">     * @return string
+</span></span><span class="l" id="line-38"><span class="php-comment">     */</span>
+</span><span class="l" id="line-39">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getName (): string;
 </span><span class="l" id="line-40">
-</span><span class="l" id="line-41">  <span class="php-comment">/**
-</span></span><span class="l" id="line-42"><span class="php-comment">   * Sets the symbol notation used for the unit.
-</span></span><span class="l" id="line-43"><span class="php-comment">   *
-</span></span><span class="l" id="line-44"><span class="php-comment">   * @param string $symbol The value to be set as the units symbol
-</span></span><span class="l" id="line-45"><span class="php-comment">   * @return UnitInterface
-</span></span><span class="l" id="line-46"><span class="php-comment">   */</span>
-</span><span class="l" id="line-47">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setSymbol (string <span class="php-var">$symbol</span>) : UnitInterface;
+</span><span class="l" id="line-41">    <span class="php-comment">/**
+</span></span><span class="l" id="line-42"><span class="php-comment">     * Sets the symbol notation used for the unit.
+</span></span><span class="l" id="line-43"><span class="php-comment">     *
+</span></span><span class="l" id="line-44"><span class="php-comment">     * @param string $symbol The value to be set as the units symbol
+</span></span><span class="l" id="line-45"><span class="php-comment">     * @return UnitInterface
+</span></span><span class="l" id="line-46"><span class="php-comment">     */</span>
+</span><span class="l" id="line-47">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setSymbol (string <span class="php-var">$symbol</span>): UnitInterface;
 </span><span class="l" id="line-48">
-</span><span class="l" id="line-49">  <span class="php-comment">/**
-</span></span><span class="l" id="line-50"><span class="php-comment">   * Returns the symbol notation of the unit.
-</span></span><span class="l" id="line-51"><span class="php-comment">   *
-</span></span><span class="l" id="line-52"><span class="php-comment">   * @return string
-</span></span><span class="l" id="line-53"><span class="php-comment">   */</span>
-</span><span class="l" id="line-54">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getSymbol () : string;
+</span><span class="l" id="line-49">    <span class="php-comment">/**
+</span></span><span class="l" id="line-50"><span class="php-comment">     * Returns the symbol notation of the unit.
+</span></span><span class="l" id="line-51"><span class="php-comment">     *
+</span></span><span class="l" id="line-52"><span class="php-comment">     * @return string
+</span></span><span class="l" id="line-53"><span class="php-comment">     */</span>
+</span><span class="l" id="line-54">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getSymbol (): string;
 </span><span class="l" id="line-55">
-</span><span class="l" id="line-56">  <span class="php-comment">/**
-</span></span><span class="l" id="line-57"><span class="php-comment">   * Sets the unicode scientific symbol notation used for the unit.
-</span></span><span class="l" id="line-58"><span class="php-comment">   *
-</span></span><span class="l" id="line-59"><span class="php-comment">   * @param string $scientificSymbol The unicode character to be set as the units scientific symbol
-</span></span><span class="l" id="line-60"><span class="php-comment">   * @return UnitInterface
-</span></span><span class="l" id="line-61"><span class="php-comment">   */</span>
-</span><span class="l" id="line-62">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setScientificSymbol (string <span class="php-var">$scientificSymbol</span>) : UnitInterface;
+</span><span class="l" id="line-56">    <span class="php-comment">/**
+</span></span><span class="l" id="line-57"><span class="php-comment">     * Sets the unicode scientific symbol notation used for the unit.
+</span></span><span class="l" id="line-58"><span class="php-comment">     *
+</span></span><span class="l" id="line-59"><span class="php-comment">     * @param string $scientificSymbol The unicode character to be set as the units scientific symbol
+</span></span><span class="l" id="line-60"><span class="php-comment">     * @return UnitInterface
+</span></span><span class="l" id="line-61"><span class="php-comment">     */</span>
+</span><span class="l" id="line-62">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setScientificSymbol (string <span class="php-var">$scientificSymbol</span>): UnitInterface;
 </span><span class="l" id="line-63">
-</span><span class="l" id="line-64">  <span class="php-comment">/**
-</span></span><span class="l" id="line-65"><span class="php-comment">   * Returns the symbol notation of the unit.
-</span></span><span class="l" id="line-66"><span class="php-comment">   *
-</span></span><span class="l" id="line-67"><span class="php-comment">   * @return string
-</span></span><span class="l" id="line-68"><span class="php-comment">   */</span>
-</span><span class="l" id="line-69">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getScientificSymbol () : string;
+</span><span class="l" id="line-64">    <span class="php-comment">/**
+</span></span><span class="l" id="line-65"><span class="php-comment">     * Returns the symbol notation of the unit.
+</span></span><span class="l" id="line-66"><span class="php-comment">     *
+</span></span><span class="l" id="line-67"><span class="php-comment">     * @return string
+</span></span><span class="l" id="line-68"><span class="php-comment">     */</span>
+</span><span class="l" id="line-69">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getScientificSymbol (): string;
 </span><span class="l" id="line-70">
-</span><span class="l" id="line-71">  <span class="php-comment">/**
-</span></span><span class="l" id="line-72"><span class="php-comment">   * Sets the type of measurement that this unit is measuring.
-</span></span><span class="l" id="line-73"><span class="php-comment">   *
-</span></span><span class="l" id="line-74"><span class="php-comment">   * @param string $unitOf The value to be set as the units governing unit
-</span></span><span class="l" id="line-75"><span class="php-comment">   * @return UnitInterface
-</span></span><span class="l" id="line-76"><span class="php-comment">   */</span>
-</span><span class="l" id="line-77">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setUnitOf (string <span class="php-var">$unitOf</span>) : UnitInterface;
+</span><span class="l" id="line-71">    <span class="php-comment">/**
+</span></span><span class="l" id="line-72"><span class="php-comment">     * Sets the type of measurement that this unit is measuring.
+</span></span><span class="l" id="line-73"><span class="php-comment">     *
+</span></span><span class="l" id="line-74"><span class="php-comment">     * @param string $unitOf The value to be set as the units governing unit
+</span></span><span class="l" id="line-75"><span class="php-comment">     * @return UnitInterface
+</span></span><span class="l" id="line-76"><span class="php-comment">     */</span>
+</span><span class="l" id="line-77">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setUnitOf (string <span class="php-var">$unitOf</span>): UnitInterface;
 </span><span class="l" id="line-78">
-</span><span class="l" id="line-79">  <span class="php-comment">/**
-</span></span><span class="l" id="line-80"><span class="php-comment">   * Returns the type of measurement that this unit is measuring.
-</span></span><span class="l" id="line-81"><span class="php-comment">   *
-</span></span><span class="l" id="line-82"><span class="php-comment">   * @return string
-</span></span><span class="l" id="line-83"><span class="php-comment">   */</span>
-</span><span class="l" id="line-84">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getUnitOf () : string;
+</span><span class="l" id="line-79">    <span class="php-comment">/**
+</span></span><span class="l" id="line-80"><span class="php-comment">     * Returns the type of measurement that this unit is measuring.
+</span></span><span class="l" id="line-81"><span class="php-comment">     *
+</span></span><span class="l" id="line-82"><span class="php-comment">     * @return string
+</span></span><span class="l" id="line-83"><span class="php-comment">     */</span>
+</span><span class="l" id="line-84">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getUnitOf (): string;
 </span><span class="l" id="line-85">
-</span><span class="l" id="line-86">  <span class="php-comment">/**
-</span></span><span class="l" id="line-87"><span class="php-comment">   * Sets the unit class that this unit is based off of.
-</span></span><span class="l" id="line-88"><span class="php-comment">   *
-</span></span><span class="l" id="line-89"><span class="php-comment">   * @param mixed $base The class that the unit is based on.
-</span></span><span class="l" id="line-90"><span class="php-comment">   * @return UnitInterface
-</span></span><span class="l" id="line-91"><span class="php-comment">   *
-</span></span><span class="l" id="line-92"><span class="php-comment">   * @example $this-&gt;setBase(Volume::class);
-</span></span><span class="l" id="line-93"><span class="php-comment">   */</span>
-</span><span class="l" id="line-94">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setBase (<span class="php-var">$base</span>) : UnitInterface;
+</span><span class="l" id="line-86">    <span class="php-comment">/**
+</span></span><span class="l" id="line-87"><span class="php-comment">     * Sets the unit class that this unit is based off of.
+</span></span><span class="l" id="line-88"><span class="php-comment">     *
+</span></span><span class="l" id="line-89"><span class="php-comment">     * @param mixed $base The class that the unit is based on.
+</span></span><span class="l" id="line-90"><span class="php-comment">     * @return UnitInterface
+</span></span><span class="l" id="line-91"><span class="php-comment">     *
+</span></span><span class="l" id="line-92"><span class="php-comment">     * @example $this-&gt;setBase(Volume::class);
+</span></span><span class="l" id="line-93"><span class="php-comment">     */</span>
+</span><span class="l" id="line-94">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setBase (<span class="php-var">$base</span>): UnitInterface;
 </span><span class="l" id="line-95">
-</span><span class="l" id="line-96">  <span class="php-comment">/**
-</span></span><span class="l" id="line-97"><span class="php-comment">   * Returns the unit class that this unit is based off of.
-</span></span><span class="l" id="line-98"><span class="php-comment">   *
-</span></span><span class="l" id="line-99"><span class="php-comment">   * @return UnitInterface
-</span></span><span class="l" id="line-100"><span class="php-comment">   */</span>
-</span><span class="l" id="line-101">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getBase () : UnitInterface;
+</span><span class="l" id="line-96">    <span class="php-comment">/**
+</span></span><span class="l" id="line-97"><span class="php-comment">     * Returns the unit class that this unit is based off of.
+</span></span><span class="l" id="line-98"><span class="php-comment">     *
+</span></span><span class="l" id="line-99"><span class="php-comment">     * @return UnitInterface
+</span></span><span class="l" id="line-100"><span class="php-comment">     */</span>
+</span><span class="l" id="line-101">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getBase (): UnitInterface;
 </span><span class="l" id="line-102">
-</span><span class="l" id="line-103">  <span class="php-comment">/**
-</span></span><span class="l" id="line-104"><span class="php-comment">   * Sets the amount of base units required to make up 1 of the unit.
-</span></span><span class="l" id="line-105"><span class="php-comment">   *
-</span></span><span class="l" id="line-106"><span class="php-comment">   * @param float $units The amount of units required to make a single base unit
-</span></span><span class="l" id="line-107"><span class="php-comment">   * @return UnitInterface
-</span></span><span class="l" id="line-108"><span class="php-comment">   */</span>
-</span><span class="l" id="line-109">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setUnits (float <span class="php-var">$units</span>) : UnitInterface;
+</span><span class="l" id="line-103">    <span class="php-comment">/**
+</span></span><span class="l" id="line-104"><span class="php-comment">     * Sets the amount of base units required to make up 1 of the unit.
+</span></span><span class="l" id="line-105"><span class="php-comment">     *
+</span></span><span class="l" id="line-106"><span class="php-comment">     * @param float $units The amount of units required to make a single base unit
+</span></span><span class="l" id="line-107"><span class="php-comment">     * @return UnitInterface
+</span></span><span class="l" id="line-108"><span class="php-comment">     */</span>
+</span><span class="l" id="line-109">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setUnits (float <span class="php-var">$units</span>): UnitInterface;
 </span><span class="l" id="line-110">
-</span><span class="l" id="line-111">  <span class="php-comment">/**
-</span></span><span class="l" id="line-112"><span class="php-comment">   * Returns the amount of base units required to make up 1 of the unit.
-</span></span><span class="l" id="line-113"><span class="php-comment">   *
-</span></span><span class="l" id="line-114"><span class="php-comment">   * @return float
-</span></span><span class="l" id="line-115"><span class="php-comment">   */</span>
-</span><span class="l" id="line-116">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getUnits () : float;
+</span><span class="l" id="line-111">    <span class="php-comment">/**
+</span></span><span class="l" id="line-112"><span class="php-comment">     * Returns the amount of base units required to make up 1 of the unit.
+</span></span><span class="l" id="line-113"><span class="php-comment">     *
+</span></span><span class="l" id="line-114"><span class="php-comment">     * @return float
+</span></span><span class="l" id="line-115"><span class="php-comment">     */</span>
+</span><span class="l" id="line-116">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getUnits (): float;
 </span><span class="l" id="line-117">
-</span><span class="l" id="line-118">  <span class="php-comment">/**
-</span></span><span class="l" id="line-119"><span class="php-comment">   * Returns the units base unit units'.
-</span></span><span class="l" id="line-120"><span class="php-comment">   *
-</span></span><span class="l" id="line-121"><span class="php-comment">   * @return float
-</span></span><span class="l" id="line-122"><span class="php-comment">   */</span>
-</span><span class="l" id="line-123">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getBaseUnits () : float;
+</span><span class="l" id="line-118">    <span class="php-comment">/**
+</span></span><span class="l" id="line-119"><span class="php-comment">     * Returns the units base unit units'.
+</span></span><span class="l" id="line-120"><span class="php-comment">     *
+</span></span><span class="l" id="line-121"><span class="php-comment">     * @return float
+</span></span><span class="l" id="line-122"><span class="php-comment">     */</span>
+</span><span class="l" id="line-123">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getBaseUnits (): float;
 </span><span class="l" id="line-124">}
 </span><span class="l" id="line-125"></span><br></code></pre>
     </div>

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Source file
+            Source file | Unit Converter API
         </title>
     </head>
 
@@ -23,7 +23,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="index.html">
-                                Overview
+                                Unit Converter API
                             </a>
                         </li>
 
@@ -69,7 +69,7 @@
 </span></span><span class="l" id="line-10"><span class="php-comment"> * file that was distributed with this source code.
 </span></span><span class="l" id="line-11"><span class="php-comment"> */</span>
 </span><span class="l" id="line-12">
-</span><span class="l" id="line-13"><span class="php-keyword1">declare</span>(strict_types = <span class="php-num">1</span>);
+</span><span class="l" id="line-13"><span class="php-keyword1">declare</span> (strict_types = <span class="php-num">1</span>);
 </span><span class="l" id="line-14">
 </span><span class="l" id="line-15"><span class="php-keyword1">namespace</span> UnitConverter\Registry;
 </span><span class="l" id="line-16">
@@ -80,127 +80,127 @@
 </span></span><span class="l" id="line-21"><span class="php-comment"> * and types of measurement.
 </span></span><span class="l" id="line-22"><span class="php-comment"> *
 </span></span><span class="l" id="line-23"><span class="php-comment"> * @version 1.0.0
-</span></span><span class="l" id="line-24"><span class="php-comment"> * @since 1.0.0
+</span></span><span class="l" id="line-24"><span class="php-comment"> * @since 0.0.1
 </span></span><span class="l" id="line-25"><span class="php-comment"> * @author Jordan Brauer &lt;jbrauer.inc@gmail.com&gt;
 </span></span><span class="l" id="line-26"><span class="php-comment"> */</span>
 </span><span class="l" id="line-27"><span class="php-keyword1">interface</span> UnitRegistryInterface
 </span><span class="l" id="line-28">{
-</span><span class="l" id="line-29">  <span class="php-comment">/**
-</span></span><span class="l" id="line-30"><span class="php-comment">   * Determine if a measurement type is registered to the unit registry or not.
-</span></span><span class="l" id="line-31"><span class="php-comment">   *
-</span></span><span class="l" id="line-32"><span class="php-comment">   * @param string $measurement The name of the measurment being checked, e.g. &quot;length&quot;.
-</span></span><span class="l" id="line-33"><span class="php-comment">   */</span>
-</span><span class="l" id="line-34">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isMeasurementRegistered (string <span class="php-var">$measurement</span>) : bool;
+</span><span class="l" id="line-29">    <span class="php-comment">/**
+</span></span><span class="l" id="line-30"><span class="php-comment">     * Determine if a measurement type is registered to the unit registry or not.
+</span></span><span class="l" id="line-31"><span class="php-comment">     *
+</span></span><span class="l" id="line-32"><span class="php-comment">     * @param string $measurement The name of the measurment being checked, e.g. &quot;length&quot;.
+</span></span><span class="l" id="line-33"><span class="php-comment">     */</span>
+</span><span class="l" id="line-34">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isMeasurementRegistered (string <span class="php-var">$measurement</span>): bool;
 </span><span class="l" id="line-35">
-</span><span class="l" id="line-36">  <span class="php-comment">/**
-</span></span><span class="l" id="line-37"><span class="php-comment">   * Determine if a specific unit of measure is registered to the unit registry or not.
-</span></span><span class="l" id="line-38"><span class="php-comment">   *
-</span></span><span class="l" id="line-39"><span class="php-comment">   * @param string $symbol The symbol notation of the unit being checked, e.g., &quot;cm&quot;.
-</span></span><span class="l" id="line-40"><span class="php-comment">   */</span>
-</span><span class="l" id="line-41">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isUnitRegistered (string <span class="php-var">$symbol</span>) : bool;
+</span><span class="l" id="line-36">    <span class="php-comment">/**
+</span></span><span class="l" id="line-37"><span class="php-comment">     * Determine if a specific unit of measure is registered to the unit registry or not.
+</span></span><span class="l" id="line-38"><span class="php-comment">     *
+</span></span><span class="l" id="line-39"><span class="php-comment">     * @param string $symbol The symbol notation of the unit being checked, e.g., &quot;cm&quot;.
+</span></span><span class="l" id="line-40"><span class="php-comment">     */</span>
+</span><span class="l" id="line-41">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> isUnitRegistered (string <span class="php-var">$symbol</span>): bool;
 </span><span class="l" id="line-42">
-</span><span class="l" id="line-43">  <span class="php-comment">/**
-</span></span><span class="l" id="line-44"><span class="php-comment">   * Fetch a unit from the unit registry for use elsewhere.
-</span></span><span class="l" id="line-45"><span class="php-comment">   *
-</span></span><span class="l" id="line-46"><span class="php-comment">   * @throws UnknownUnitOfMeasureException An out of bounds exception will be thrown if loading an unregistered unit is attempted.
-</span></span><span class="l" id="line-47"><span class="php-comment">   * @param string $symbol The symbol notation of the unit being loaded.
-</span></span><span class="l" id="line-48"><span class="php-comment">   * @return null|UnitInterface
-</span></span><span class="l" id="line-49"><span class="php-comment">   */</span>
-</span><span class="l" id="line-50">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> loadUnit (string <span class="php-var">$symbol</span>) : ?UnitInterface;
+</span><span class="l" id="line-43">    <span class="php-comment">/**
+</span></span><span class="l" id="line-44"><span class="php-comment">     * Fetch a unit from the unit registry for use elsewhere.
+</span></span><span class="l" id="line-45"><span class="php-comment">     *
+</span></span><span class="l" id="line-46"><span class="php-comment">     * @throws UnknownUnitOfMeasureException An out of bounds exception will be thrown if loading an unregistered unit is attempted.
+</span></span><span class="l" id="line-47"><span class="php-comment">     * @param string $symbol The symbol notation of the unit being loaded.
+</span></span><span class="l" id="line-48"><span class="php-comment">     * @return null|UnitInterface
+</span></span><span class="l" id="line-49"><span class="php-comment">     */</span>
+</span><span class="l" id="line-50">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> loadUnit (string <span class="php-var">$symbol</span>): ?UnitInterface;
 </span><span class="l" id="line-51">
-</span><span class="l" id="line-52">  <span class="php-comment">/**
-</span></span><span class="l" id="line-53"><span class="php-comment">   * Return a one-dimensional array of currently supported measurement types.
-</span></span><span class="l" id="line-54"><span class="php-comment">   *
-</span></span><span class="l" id="line-55"><span class="php-comment">   * @return array
-</span></span><span class="l" id="line-56"><span class="php-comment">   */</span>
-</span><span class="l" id="line-57">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> listMeasurements () : <span class="php-keyword1">array</span>;
+</span><span class="l" id="line-52">    <span class="php-comment">/**
+</span></span><span class="l" id="line-53"><span class="php-comment">     * Return a one-dimensional array of currently supported measurement types.
+</span></span><span class="l" id="line-54"><span class="php-comment">     *
+</span></span><span class="l" id="line-55"><span class="php-comment">     * @return array
+</span></span><span class="l" id="line-56"><span class="php-comment">     */</span>
+</span><span class="l" id="line-57">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> listMeasurements (): <span class="php-keyword1">array</span>;
 </span><span class="l" id="line-58">
-</span><span class="l" id="line-59">  <span class="php-comment">/**
-</span></span><span class="l" id="line-60"><span class="php-comment">   * Return a one-dimensional array of currently supported units. Optionally
-</span></span><span class="l" id="line-61"><span class="php-comment">   * pass a string equal to a type of measurement (e.g. &quot;length&quot;) to return
-</span></span><span class="l" id="line-62"><span class="php-comment">   * only units of the specifed type.
-</span></span><span class="l" id="line-63"><span class="php-comment">   *
-</span></span><span class="l" id="line-64"><span class="php-comment">   * @param string $measurement
-</span></span><span class="l" id="line-65"><span class="php-comment">   */</span>
-</span><span class="l" id="line-66">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> listUnits (string <span class="php-var">$measurement</span> = <span class="php-keyword1">null</span>) : <span class="php-keyword1">array</span>;
+</span><span class="l" id="line-59">    <span class="php-comment">/**
+</span></span><span class="l" id="line-60"><span class="php-comment">     * Return a one-dimensional array of currently supported units. Optionally
+</span></span><span class="l" id="line-61"><span class="php-comment">     * pass a string equal to a type of measurement (e.g. &quot;length&quot;) to return
+</span></span><span class="l" id="line-62"><span class="php-comment">     * only units of the specifed type.
+</span></span><span class="l" id="line-63"><span class="php-comment">     *
+</span></span><span class="l" id="line-64"><span class="php-comment">     * @param string $measurement
+</span></span><span class="l" id="line-65"><span class="php-comment">     */</span>
+</span><span class="l" id="line-66">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> listUnits (string <span class="php-var">$measurement</span> = <span class="php-keyword1">null</span>): <span class="php-keyword1">array</span>;
 </span><span class="l" id="line-67">
-</span><span class="l" id="line-68">  <span class="php-comment">/**
-</span></span><span class="l" id="line-69"><span class="php-comment">   * Register a single measurement to the unit registry by passing a
-</span></span><span class="l" id="line-70"><span class="php-comment">   * string as the argument
-</span></span><span class="l" id="line-71"><span class="php-comment">   *
-</span></span><span class="l" id="line-72"><span class="php-comment">   * @NOTE In order to prevent unwanted overwritting of measurement
-</span></span><span class="l" id="line-73"><span class="php-comment">   * types (especially those with many registered units) - you must
-</span></span><span class="l" id="line-74"><span class="php-comment">   * unregister the measurement first with ::unregisterMeasurement().
-</span></span><span class="l" id="line-75"><span class="php-comment">   *
-</span></span><span class="l" id="line-76"><span class="php-comment">   * @param string $measurement
-</span></span><span class="l" id="line-77"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-78"><span class="php-comment">   */</span>
-</span><span class="l" id="line-79">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerMeasurement (string <span class="php-var">$measurement</span>) : void;
+</span><span class="l" id="line-68">    <span class="php-comment">/**
+</span></span><span class="l" id="line-69"><span class="php-comment">     * Register a single measurement to the unit registry by passing a
+</span></span><span class="l" id="line-70"><span class="php-comment">     * string as the argument
+</span></span><span class="l" id="line-71"><span class="php-comment">     *
+</span></span><span class="l" id="line-72"><span class="php-comment">     * @NOTE In order to prevent unwanted overwritting of measurement
+</span></span><span class="l" id="line-73"><span class="php-comment">     * types (especially those with many registered units) - you must
+</span></span><span class="l" id="line-74"><span class="php-comment">     * unregister the measurement first with ::unregisterMeasurement().
+</span></span><span class="l" id="line-75"><span class="php-comment">     *
+</span></span><span class="l" id="line-76"><span class="php-comment">     * @param string $measurement
+</span></span><span class="l" id="line-77"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-78"><span class="php-comment">     */</span>
+</span><span class="l" id="line-79">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerMeasurement (string <span class="php-var">$measurement</span>): void;
 </span><span class="l" id="line-80">
-</span><span class="l" id="line-81">  <span class="php-comment">/**
-</span></span><span class="l" id="line-82"><span class="php-comment">   * Register many measurements to the unit registry by passing an
-</span></span><span class="l" id="line-83"><span class="php-comment">   * array of measurement strings as the argument
-</span></span><span class="l" id="line-84"><span class="php-comment">   *
-</span></span><span class="l" id="line-85"><span class="php-comment">   * @param array $measurements
-</span></span><span class="l" id="line-86"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-87"><span class="php-comment">   */</span>
-</span><span class="l" id="line-88">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerMeasurements (<span class="php-keyword1">array</span> <span class="php-var">$measurements</span>) : void;
+</span><span class="l" id="line-81">    <span class="php-comment">/**
+</span></span><span class="l" id="line-82"><span class="php-comment">     * Register many measurements to the unit registry by passing an
+</span></span><span class="l" id="line-83"><span class="php-comment">     * array of measurement strings as the argument
+</span></span><span class="l" id="line-84"><span class="php-comment">     *
+</span></span><span class="l" id="line-85"><span class="php-comment">     * @param array $measurements
+</span></span><span class="l" id="line-86"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-87"><span class="php-comment">     */</span>
+</span><span class="l" id="line-88">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerMeasurements (<span class="php-keyword1">array</span> <span class="php-var">$measurements</span>): void;
 </span><span class="l" id="line-89">
-</span><span class="l" id="line-90">  <span class="php-comment">/**
-</span></span><span class="l" id="line-91"><span class="php-comment">   * Register a single unit to the unit registry by passing an
-</span></span><span class="l" id="line-92"><span class="php-comment">   * instance of a UnitInterface as it's argument
-</span></span><span class="l" id="line-93"><span class="php-comment">   *
-</span></span><span class="l" id="line-94"><span class="php-comment">   * @param UnitInterface $unit
-</span></span><span class="l" id="line-95"><span class="php-comment">   * @throws UnknownMeasurementTypeException This will be thrown when an attempted unit registration is made on an unexisting measurement.
-</span></span><span class="l" id="line-96"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-97"><span class="php-comment">   */</span>
-</span><span class="l" id="line-98">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerUnit (UnitInterface <span class="php-var">$unit</span>) : void;
+</span><span class="l" id="line-90">    <span class="php-comment">/**
+</span></span><span class="l" id="line-91"><span class="php-comment">     * Register a single unit to the unit registry by passing an
+</span></span><span class="l" id="line-92"><span class="php-comment">     * instance of a UnitInterface as it's argument
+</span></span><span class="l" id="line-93"><span class="php-comment">     *
+</span></span><span class="l" id="line-94"><span class="php-comment">     * @param UnitInterface $unit
+</span></span><span class="l" id="line-95"><span class="php-comment">     * @throws UnknownMeasurementTypeException Thrown when an attempted unit registration is made on an unexisting measurement.
+</span></span><span class="l" id="line-96"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-97"><span class="php-comment">     */</span>
+</span><span class="l" id="line-98">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerUnit (UnitInterface <span class="php-var">$unit</span>): void;
 </span><span class="l" id="line-99">
-</span><span class="l" id="line-100">  <span class="php-comment">/**
-</span></span><span class="l" id="line-101"><span class="php-comment">   * Register many units to the unit registry by passing an array of unit
-</span></span><span class="l" id="line-102"><span class="php-comment">   * classes as it's argument.
-</span></span><span class="l" id="line-103"><span class="php-comment">   *
-</span></span><span class="l" id="line-104"><span class="php-comment">   * @param UnitInterface[] $units
-</span></span><span class="l" id="line-105"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-106"><span class="php-comment">   */</span>
-</span><span class="l" id="line-107">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerUnits (<span class="php-keyword1">array</span> <span class="php-var">$units</span>) : void;
+</span><span class="l" id="line-100">    <span class="php-comment">/**
+</span></span><span class="l" id="line-101"><span class="php-comment">     * Register many units to the unit registry by passing an array of unit
+</span></span><span class="l" id="line-102"><span class="php-comment">     * classes as it's argument.
+</span></span><span class="l" id="line-103"><span class="php-comment">     *
+</span></span><span class="l" id="line-104"><span class="php-comment">     * @param UnitInterface[] $units
+</span></span><span class="l" id="line-105"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-106"><span class="php-comment">     */</span>
+</span><span class="l" id="line-107">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> registerUnits (<span class="php-keyword1">array</span> <span class="php-var">$units</span>): void;
 </span><span class="l" id="line-108">
-</span><span class="l" id="line-109">  <span class="php-comment">/**
-</span></span><span class="l" id="line-110"><span class="php-comment">   * Unegister a single measurement from the unit registry.
-</span></span><span class="l" id="line-111"><span class="php-comment">   *
-</span></span><span class="l" id="line-112"><span class="php-comment">   * @NOTE: Invoking this method will also unregister all
-</span></span><span class="l" id="line-113"><span class="php-comment">   * units belonging to the measurement that is being unregistered.
-</span></span><span class="l" id="line-114"><span class="php-comment">   *
-</span></span><span class="l" id="line-115"><span class="php-comment">   * @param string $symbol
-</span></span><span class="l" id="line-116"><span class="php-comment">   * @throws UnknownMeasurementTypeException An error exception will be thrown if you attempt to unregister a non-existing measurement type.
-</span></span><span class="l" id="line-117"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-118"><span class="php-comment">   */</span>
-</span><span class="l" id="line-119">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterMeasurement (string <span class="php-var">$symbol</span>) : void;
+</span><span class="l" id="line-109">    <span class="php-comment">/**
+</span></span><span class="l" id="line-110"><span class="php-comment">     * Unegister a single measurement from the unit registry.
+</span></span><span class="l" id="line-111"><span class="php-comment">     *
+</span></span><span class="l" id="line-112"><span class="php-comment">     * @NOTE: Invoking this method will also unregister all
+</span></span><span class="l" id="line-113"><span class="php-comment">     * units belonging to the measurement that is being unregistered.
+</span></span><span class="l" id="line-114"><span class="php-comment">     *
+</span></span><span class="l" id="line-115"><span class="php-comment">     * @param string $symbol
+</span></span><span class="l" id="line-116"><span class="php-comment">     * @throws UnknownMeasurementTypeException An error exception will be thrown if you attempt to unregister a non-existing measurement type.
+</span></span><span class="l" id="line-117"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-118"><span class="php-comment">     */</span>
+</span><span class="l" id="line-119">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterMeasurement (string <span class="php-var">$symbol</span>): void;
 </span><span class="l" id="line-120">
-</span><span class="l" id="line-121">  <span class="php-comment">/**
-</span></span><span class="l" id="line-122"><span class="php-comment">   * Unegister many units from the unit registry
-</span></span><span class="l" id="line-123"><span class="php-comment">   *
-</span></span><span class="l" id="line-124"><span class="php-comment">   * @param string[] $symbols
-</span></span><span class="l" id="line-125"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-126"><span class="php-comment">   */</span>
-</span><span class="l" id="line-127">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterMeasurements (<span class="php-keyword1">array</span> <span class="php-var">$symbols</span>) : void;
+</span><span class="l" id="line-121">    <span class="php-comment">/**
+</span></span><span class="l" id="line-122"><span class="php-comment">     * Unegister many units from the unit registry
+</span></span><span class="l" id="line-123"><span class="php-comment">     *
+</span></span><span class="l" id="line-124"><span class="php-comment">     * @param string[] $symbols
+</span></span><span class="l" id="line-125"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-126"><span class="php-comment">     */</span>
+</span><span class="l" id="line-127">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterMeasurements (<span class="php-keyword1">array</span> <span class="php-var">$symbols</span>): void;
 </span><span class="l" id="line-128">
-</span><span class="l" id="line-129">  <span class="php-comment">/**
-</span></span><span class="l" id="line-130"><span class="php-comment">   * Unegister a single unit from the unit registry
-</span></span><span class="l" id="line-131"><span class="php-comment">   *
-</span></span><span class="l" id="line-132"><span class="php-comment">   * @param string $symbol
-</span></span><span class="l" id="line-133"><span class="php-comment">   * @throws UnknownUnitOfMeasureException An error exception will be thrown if you attempt to unregister a non-existing unit of measure.
-</span></span><span class="l" id="line-134"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-135"><span class="php-comment">   */</span>
-</span><span class="l" id="line-136">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterUnit (string <span class="php-var">$symbol</span>) : void;
+</span><span class="l" id="line-129">    <span class="php-comment">/**
+</span></span><span class="l" id="line-130"><span class="php-comment">     * Unegister a single unit from the unit registry
+</span></span><span class="l" id="line-131"><span class="php-comment">     *
+</span></span><span class="l" id="line-132"><span class="php-comment">     * @param string $symbol
+</span></span><span class="l" id="line-133"><span class="php-comment">     * @throws UnknownUnitOfMeasureException An error exception will be thrown if you attempt to unregister a non-existing unit of measure.
+</span></span><span class="l" id="line-134"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-135"><span class="php-comment">     */</span>
+</span><span class="l" id="line-136">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterUnit (string <span class="php-var">$symbol</span>): void;
 </span><span class="l" id="line-137">
-</span><span class="l" id="line-138">  <span class="php-comment">/**
-</span></span><span class="l" id="line-139"><span class="php-comment">   * Unegister many units from the unit registry
-</span></span><span class="l" id="line-140"><span class="php-comment">   *
-</span></span><span class="l" id="line-141"><span class="php-comment">   * @param string[] $symbols
-</span></span><span class="l" id="line-142"><span class="php-comment">   * @return void
-</span></span><span class="l" id="line-143"><span class="php-comment">   */</span>
-</span><span class="l" id="line-144">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterUnits (<span class="php-keyword1">array</span> <span class="php-var">$symbols</span>) : void;
+</span><span class="l" id="line-138">    <span class="php-comment">/**
+</span></span><span class="l" id="line-139"><span class="php-comment">     * Unegister many units from the unit registry
+</span></span><span class="l" id="line-140"><span class="php-comment">     *
+</span></span><span class="l" id="line-141"><span class="php-comment">     * @param string[] $symbols
+</span></span><span class="l" id="line-142"><span class="php-comment">     * @return void
+</span></span><span class="l" id="line-143"><span class="php-comment">     */</span>
+</span><span class="l" id="line-144">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> unregisterUnits (<span class="php-keyword1">array</span> <span class="php-var">$symbols</span>): void;
 </span><span class="l" id="line-145">}
 </span><span class="l" id="line-146"></span><br></code></pre>
     </div>

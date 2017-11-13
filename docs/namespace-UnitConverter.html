@@ -11,7 +11,7 @@
 
         <title>
                 Namespace UnitConverter
-
+ | Unit Converter API
         </title>
     </head>
 
@@ -24,7 +24,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="index.html">
-                                Overview
+                                Unit Converter API
                             </a>
                         </li>
 
@@ -81,6 +81,9 @@
         <table class="summary table table-bordered table-responsive table-striped" id="namespaces">
             <tr><th>Namespaces Summary</th></tr>
             <tr>
+                <td class="name"><a href="namespace-UnitConverter.Calculator.html">UnitConverter\Calculator</a></td>
+            </tr>
+            <tr>
                 <td class="name"><a href="namespace-UnitConverter.Exception.html">UnitConverter\Exception</a></td>
             </tr>
             <tr>
@@ -109,7 +112,8 @@ default types of measurement.</td>
                 UnitConverter
             </a>
         </td>
-        <td>The actual unit converter object.</td>
+        <td>The actual unit converter object. Extend this object
+if you would like to implement your own custom converter.</td>
     </tr>
     </table>
 
@@ -121,9 +125,7 @@ default types of measurement.</td>
                 UnitConverterInterface
             </a>
         </td>
-        <td>The interface for any and all unit converter classes. If you want
-a custom converter, implement this interface and you are good to
-go!</td>
+        <td>The interface for any and all unit converter classes.</td>
     </tr>
     </table>
 

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="resources/style.css">
 
         <title>
-            Class UnitConverter\Unit\AbstractUnit
+            Class UnitConverter\Unit\AbstractUnit | Unit Converter API
         </title>
     </head>
 
@@ -23,7 +23,7 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="index.html">
-                                Overview
+                                Unit Converter API
                             </a>
                         </li>
 
@@ -85,9 +85,9 @@
 
         <div class="panel panel-default">
             <div class="panel-body">
-                This class is the base class for all unit of measurement classes. When creating
-a new/custom unit of measure, extend from this class. The Bare minimum
-requirements for usage are defining all properties.
+                This class is the base class for all unit of measurement classes.
+
+When creating a new/custom unit of measure, extend from this class.
             </div>
         </div>
 
@@ -220,10 +220,10 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#58-61">__construct</a>( )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#62-65">__construct</a>( )</code>
 
             <div class="description">
-                
+                Public constructor function for units of measurement.
 
 
 
@@ -252,7 +252,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_configure">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#68-70">configure</a>( )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#72-74">configure</a>( )</code>
 
             <div class="description">
                 Configure the current unit of measure.
@@ -284,7 +284,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_calculate">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#79-82">calculate</a>( <span> float <span class="property-name">$value</span> </span>, <span> <a href="interface-UnitConverter.Unit.UnitInterface.html">UnitConverter\Unit\UnitInterface</a> <span class="property-name">$to</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#85-88">calculate</a>( <span> <a href="interface-UnitConverter.Calculator.CalculatorInterface.html">UnitConverter\Calculator\CalculatorInterface</a> <span class="property-name">$calculator</span> </span>, <span> int|float|string <span class="property-name">$value</span> </span>, <span> <a href="interface-UnitConverter.Unit.UnitInterface.html">UnitConverter\Unit\UnitInterface</a> <span class="property-name">$to</span> </span>, <span> int <span class="property-name">$precision</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 Calculate the amount of required base units to make up 1 unit.
@@ -316,7 +316,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_convert">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#91-94">convert</a>( <span> float <span class="property-name">$value</span> </span>, <span> <a href="interface-UnitConverter.Unit.UnitInterface.html">UnitConverter\Unit\UnitInterface</a> <span class="property-name">$to</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#93-96">convert</a>( <span> <span class="property-name">$params</span> ,…</span> )</code>
 
             <div class="description">
                 Exposes access to the ::calculate() method.
@@ -348,7 +348,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setName">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#96-100">setName</a>( <span> string <span class="property-name">$name</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#98-102">setName</a>( <span> string <span class="property-name">$name</span> </span> )</code>
 
             <div class="description">
                 
@@ -388,7 +388,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getName">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#102-105">getName</a>( )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#104-107">getName</a>( )</code>
 
             <div class="description">
                 
@@ -428,7 +428,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setSymbol">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#107-111">setSymbol</a>( <span> string <span class="property-name">$symbol</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#109-113">setSymbol</a>( <span> string <span class="property-name">$symbol</span> </span> )</code>
 
             <div class="description">
                 
@@ -468,7 +468,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getSymbol">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#113-116">getSymbol</a>( )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#115-118">getSymbol</a>( )</code>
 
             <div class="description">
                 
@@ -495,286 +495,6 @@ requirements for usage are defining all properties.
 
 
 
-<tr id="_setUnitOf">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_setUnitOf">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#118-122">setUnitOf</a>( <span> string <span class="property-name">$unitOf</span> </span> )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-                        <h2>Implementation of</h2>
-                        <div>
-                            <code>
-                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_setUnitOf">
-                                    UnitConverter\Unit\UnitInterface::setUnitOf()
-                                </a>
-                            </code>
-                        </div>
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getUnitOf">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getUnitOf">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#124-127">getUnitOf</a>( )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-                        <h2>Implementation of</h2>
-                        <div>
-                            <code>
-                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getUnitOf">
-                                    UnitConverter\Unit\UnitInterface::getUnitOf()
-                                </a>
-                            </code>
-                        </div>
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_setBase">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_setBase">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#129-133">setBase</a>( <span> <span class="property-name">$base</span> </span> )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-                        <h2>Implementation of</h2>
-                        <div>
-                            <code>
-                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_setBase">
-                                    UnitConverter\Unit\UnitInterface::setBase()
-                                </a>
-                            </code>
-                        </div>
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getBase">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getBase">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#135-138">getBase</a>( )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-                        <h2>Implementation of</h2>
-                        <div>
-                            <code>
-                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getBase">
-                                    UnitConverter\Unit\UnitInterface::getBase()
-                                </a>
-                            </code>
-                        </div>
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_setUnits">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_setUnits">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#140-144">setUnits</a>( <span> float <span class="property-name">$units</span> </span> )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-                        <h2>Implementation of</h2>
-                        <div>
-                            <code>
-                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_setUnits">
-                                    UnitConverter\Unit\UnitInterface::setUnits()
-                                </a>
-                            </code>
-                        </div>
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getUnits">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getUnits">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#146-149">getUnits</a>( )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-                        <h2>Implementation of</h2>
-                        <div>
-                            <code>
-                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getUnits">
-                                    UnitConverter\Unit\UnitInterface::getUnits()
-                                </a>
-                            </code>
-                        </div>
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
-<tr id="_getBaseUnits">
-
-    <td class="attributes col-md-1">
-        <code class="keyword">
-                 public 
-                
-                
-        </code>
-    </td>
-
-    <td class="name">
-        <div>
-            <a class="anchor pull-right" href="#_getBaseUnits">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#151-154">getBaseUnits</a>( )</code>
-
-            <div class="description">
-                
-
-
-
-
-
-
-
-
-                        <h2>Implementation of</h2>
-                        <div>
-                            <code>
-                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getBaseUnits">
-                                    UnitConverter\Unit\UnitInterface::getBaseUnits()
-                                </a>
-                            </code>
-                        </div>
-            </div>
-        </div>
-    </td>
-</tr>
-
-
-
 <tr id="_getScientificSymbol">
 
     <td class="attributes col-md-1">
@@ -788,7 +508,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_getScientificSymbol">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#156-159">getScientificSymbol</a>( )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#120-123">getScientificSymbol</a>( )</code>
 
             <div class="description">
                 
@@ -828,7 +548,7 @@ requirements for usage are defining all properties.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setScientificSymbol">#</a>
-            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#161-165">setScientificSymbol</a>( <span> string <span class="property-name">$scientificSymbol</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#125-129">setScientificSymbol</a>( <span> string <span class="property-name">$scientificSymbol</span> </span> )</code>
 
             <div class="description">
                 
@@ -845,6 +565,286 @@ requirements for usage are defining all properties.
                             <code>
                                 <a href="interface-UnitConverter.Unit.UnitInterface.html#_setScientificSymbol">
                                     UnitConverter\Unit\UnitInterface::setScientificSymbol()
+                                </a>
+                            </code>
+                        </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setUnitOf">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setUnitOf">#</a>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#131-135">setUnitOf</a>( <span> string <span class="property-name">$unitOf</span> </span> )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+                        <h2>Implementation of</h2>
+                        <div>
+                            <code>
+                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_setUnitOf">
+                                    UnitConverter\Unit\UnitInterface::setUnitOf()
+                                </a>
+                            </code>
+                        </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getUnitOf">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getUnitOf">#</a>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#137-140">getUnitOf</a>( )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+                        <h2>Implementation of</h2>
+                        <div>
+                            <code>
+                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getUnitOf">
+                                    UnitConverter\Unit\UnitInterface::getUnitOf()
+                                </a>
+                            </code>
+                        </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setBase">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setBase">#</a>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#142-146">setBase</a>( <span> <span class="property-name">$base</span> </span> )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+                        <h2>Implementation of</h2>
+                        <div>
+                            <code>
+                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_setBase">
+                                    UnitConverter\Unit\UnitInterface::setBase()
+                                </a>
+                            </code>
+                        </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getBase">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getBase">#</a>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#148-151">getBase</a>( )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+                        <h2>Implementation of</h2>
+                        <div>
+                            <code>
+                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getBase">
+                                    UnitConverter\Unit\UnitInterface::getBase()
+                                </a>
+                            </code>
+                        </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_setUnits">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_setUnits">#</a>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#153-157">setUnits</a>( <span> float <span class="property-name">$units</span> </span> )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+                        <h2>Implementation of</h2>
+                        <div>
+                            <code>
+                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_setUnits">
+                                    UnitConverter\Unit\UnitInterface::setUnits()
+                                </a>
+                            </code>
+                        </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getUnits">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getUnits">#</a>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#159-162">getUnits</a>( )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+                        <h2>Implementation of</h2>
+                        <div>
+                            <code>
+                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getUnits">
+                                    UnitConverter\Unit\UnitInterface::getUnits()
+                                </a>
+                            </code>
+                        </div>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<tr id="_getBaseUnits">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 public 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_getBaseUnits">#</a>
+            <code><a href="source-class-UnitConverter.Unit.AbstractUnit.html#164-167">getBaseUnits</a>( )</code>
+
+            <div class="description">
+                
+
+
+
+
+
+
+
+
+                        <h2>Implementation of</h2>
+                        <div>
+                            <code>
+                                <a href="interface-UnitConverter.Unit.UnitInterface.html#_getBaseUnits">
+                                    UnitConverter\Unit\UnitInterface::getBaseUnits()
                                 </a>
                             </code>
                         </div>
@@ -871,7 +871,7 @@ requirements for usage are defining all properties.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#31" class="property-name">$name</a>
+            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#32" class="property-name">$name</a>
         </code>
         <div class="description">
             
@@ -899,7 +899,7 @@ requirements for usage are defining all properties.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#36" class="property-name">$symbol</a>
+            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#37" class="property-name">$symbol</a>
         </code>
         <div class="description">
             
@@ -927,7 +927,7 @@ requirements for usage are defining all properties.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#41" class="property-name">$scientificSymbol</a>
+            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#42" class="property-name">$scientificSymbol</a>
         </code>
         <div class="description">
             
@@ -955,7 +955,7 @@ requirements for usage are defining all properties.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#46" class="property-name">$unitOf</a>
+            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#47" class="property-name">$unitOf</a>
         </code>
         <div class="description">
             
@@ -977,13 +977,13 @@ requirements for usage are defining all properties.
         <code class="keyword">
             protected 
 
-            <a href="interface-UnitConverter.Unit.UnitInterface.html">UnitConverter\Unit\UnitInterface</a>
+            string|\UnitConverter\Unit\UnitInterface
         </code>
     </td>
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#51" class="property-name">$base</a>
+            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#52" class="property-name">$base</a>
         </code>
         <div class="description">
             
@@ -1011,7 +1011,7 @@ requirements for usage are defining all properties.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#56" class="property-name">$units</a>
+            <a href="source-class-UnitConverter.Unit.AbstractUnit.html#57" class="property-name">$units</a>
         </code>
         <div class="description">
             
