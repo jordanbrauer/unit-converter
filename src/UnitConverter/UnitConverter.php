@@ -15,7 +15,6 @@ declare(strict_types = 1);
 namespace UnitConverter;
 
 use UnitConverter\Exception\MissingUnitRegistryException;
-use UnitConverter\Measure;
 use UnitConverter\Unit\UnitInterface;
 use UnitConverter\Registry\UnitRegistryInterface;
 
@@ -133,7 +132,6 @@ class UnitConverter implements UnitConverterInterface
   public function to (string $unit)
   {
     $this->to = $this->loadUnit($unit);
-
     return $this->calculate($this->convert, $this->from, $this->to);
   }
 }
