@@ -1,0 +1,12 @@
+ratings:
+  paths:
+    - src/**
+
+exclude_paths:
+  - .git/**/*
+  - .github/**/*
+  - bin/**/*
+  - dev/**/*
+  - docs/**/*
+  - tests/**/*
+  - vendor/**/*
