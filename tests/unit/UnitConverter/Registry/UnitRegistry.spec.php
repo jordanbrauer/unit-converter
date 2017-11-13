@@ -24,7 +24,13 @@ use UnitConverter\Unit\Length\Meter;
 use UnitConverter\Unit\Length\Milimeter;
 
 /**
- * @coversDefaultClass UnitConverter\UnitRegistry
+ * @coversDefaultClass UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\Unit\Length\Inch
+ * @uses UnitConverter\Unit\Length\Centimeter
+ * @uses UnitConverter\Unit\Length\Meter
+ * @uses UnitConverter\Unit\Length\Milimeter
  */
 class UnitRegistrySpec extends TestCase
 {
@@ -129,7 +135,6 @@ class UnitRegistrySpec extends TestCase
      * @test
      * @covers ::registerMeasurement
      * @covers ::registerMeasurements
-     * @uses ::isMeasurementRegistered
      */
     public function assertRegisterMeasurementMethodsAddItemsToUnitRegistry ()
     {
@@ -149,7 +154,6 @@ class UnitRegistrySpec extends TestCase
      * @test
      * @covers ::registerUnit
      * @covers ::registerUnits
-     * @uses ::isUnitRegistered
      */
     public function assertRegisterUnitMethodsAddItemsToUnitRegistry ()
     {
@@ -201,7 +205,6 @@ class UnitRegistrySpec extends TestCase
      * @test
      * @covers ::unregisterMeasurement
      * @covers ::unregisterMeasurements
-     * @uses ::isMeasurementRegistered
      */
     public function assertUnregisterMeasurementMethodsRemoveItemsFromUnitRegistry ()
     {
@@ -231,7 +234,6 @@ class UnitRegistrySpec extends TestCase
      * @test
      * @covers ::unregisterUnit
      * @covers ::unregisterUnits
-     * @uses ::isUnitRegistered
      */
     public function assertUnregisterUnitMethodsRemoveItemsFromUnitRegistry ()
     {

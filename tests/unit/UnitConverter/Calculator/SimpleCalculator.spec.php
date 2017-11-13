@@ -19,7 +19,9 @@ use UnitConverter\Calculator\SimpleCalculator;
 
 
 /**
- * @coversDefaultClass UnitConverter\SimpleCalculator
+ * @coversDefaultClass UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\AbstractCalculator
  */
 class SimpleCalculatorSpec extends TestCase
 {

@@ -16,13 +16,14 @@ namespace UnitConverter\Tests\Unit\Unit;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
-use UnitConverter\Unit\AbstractUnit;
-use UnitConverter\Unit\Length\Centimeter;
+use UnitConverter\Unit\AbstractUnit;;
 use UnitConverter\Unit\Length\Inch;
 use UnitConverter\Unit\Length\Meter;
 
 /**
- * @coversDefaultClass UnitConverter\UnitConverter
+ * @coversDefaultClass UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\Unit\Length\Inch
  */
 class AbstractUnitSpec extends TestCase
 {

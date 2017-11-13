@@ -23,6 +23,13 @@ use UnitConverter\Unit\Length\Inch;
 
 /**
  * @coversDefaultClass UnitConverter\UnitConverter
+ * @uses UnitConverter\UnitConverter
+ * @uses UnitConverter\Calculator\AbstractCalculator
+ * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\Unit\Length\Centimeter
+ * @uses UnitConverter\Unit\Length\Inch
  */
 class UnitConverterSpec extends TestCase
 {

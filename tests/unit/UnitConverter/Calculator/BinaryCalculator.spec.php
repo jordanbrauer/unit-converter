@@ -19,7 +19,9 @@ use UnitConverter\Calculator\BinaryCalculator;
 
 
 /**
- * @coversDefaultClass UnitConverter\BinaryCalculator
+ * @coversDefaultClass UnitConverter\Calculator\BinaryCalculator
+ * @uses UnitConverter\Calculator\BinaryCalculator
+ * @uses UnitConverter\Calculator\AbstractCalculator
  */
 class BinaryCalculatorSpec extends TestCase
 {
