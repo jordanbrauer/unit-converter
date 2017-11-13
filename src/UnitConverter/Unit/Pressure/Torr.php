@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Pressure;
 
@@ -23,14 +23,14 @@ namespace UnitConverter\Unit\Pressure;
  */
 class Torr extends PressureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("torr")
+    protected function configure (): void
+    {
+        $this
+            ->setName("torr")
 
-      ->setSymbol("Torr")
+            ->setSymbol("Torr")
 
-      ->setUnits(133.322)
-      ;
-  }
+            ->setUnits(133.322)
+            ;
+    }
 }

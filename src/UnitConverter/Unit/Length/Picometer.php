@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
@@ -18,20 +18,20 @@ namespace UnitConverter\Unit\Length;
  * Picometer data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Picometer extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("picometer")
+    protected function configure (): void
+    {
+        $this
+            ->setName("picometer")
 
-      ->setSymbol("pm")
+            ->setSymbol("pm")
 
-      # 1.0E-12
-      ->setUnits(0.000000000001)
-      ;
-  }
+            # 1.0E-12
+            ->setUnits(0.000000000001)
+            ;
+    }
 }

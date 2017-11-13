@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Mass;
 
@@ -18,12 +18,12 @@ namespace UnitConverter\Unit\Mass;
  * USShortTon data class.
  *
  * @version 1.0.0
- * @since 1.0.0
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @since 0.3.9
+ * @author Teun Willems
  */
 class USShortTon extends MassUnit
 {
-    protected function configure () : void
+    protected function configure (): void
     {
         $this
             ->setName("US Short Ton")
@@ -31,6 +31,6 @@ class USShortTon extends MassUnit
             ->setSymbol("ust")
 
             ->setUnits(2.204623)
-        ;
+            ;
     }
 }

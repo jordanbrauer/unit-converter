@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Speed;
 
@@ -23,12 +23,12 @@ use UnitConverter\Unit\AbstractUnit;
  * overriding the $unitOf and $base properties only if necessary.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 abstract class SpeedUnit extends AbstractUnit
 {
-  protected $unitOf = Measure::SPEED;
+    protected $unitOf = Measure::SPEED;
 
-  protected $base = MetrePerSecond::class;
+    protected $base = MetrePerSecond::class;
 }

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Energy;
  * Calorie unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Calorie extends EnergyUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("calorie")
+    protected function configure (): void
+    {
+        $this
+            ->setName("calorie")
 
-      ->setSymbol("cal")
+            ->setSymbol("cal")
 
-      ->setUnits(4184)
-      ;
-  }
+            ->setUnits(4184)
+            ;
+    }
 }

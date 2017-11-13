@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Pressure;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Pressure;
  * Bar unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Bar extends PressureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("bar")
+    protected function configure (): void
+    {
+        $this
+            ->setName("bar")
 
-      ->setSymbol("bar")
+            ->setSymbol("bar")
 
-      ->setUnits(100000)
-      ;
-  }
+            ->setUnits(100000)
+            ;
+    }
 }

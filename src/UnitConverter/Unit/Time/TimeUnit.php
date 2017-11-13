@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Time;
 
@@ -23,7 +23,7 @@ use UnitConverter\Unit\AbstractUnit;
  * Only override $unitOf and $base properties when necessary
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.3.9
  * @author Teun Willems
  */
 abstract class TimeUnit extends AbstractUnit

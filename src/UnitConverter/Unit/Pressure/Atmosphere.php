@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Pressure;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Pressure;
  * Atmosphere unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Atmosphere extends PressureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("atmosphere")
+    protected function configure (): void
+    {
+        $this
+            ->setName("atmosphere")
 
-      ->setSymbol("atm")
+            ->setSymbol("atm")
 
-      ->setUnits(101325)
-      ;
-  }
+            ->setUnits(101325)
+            ;
+    }
 }

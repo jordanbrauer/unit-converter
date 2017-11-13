@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Temperature;
  * Kelvin unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Kelvin extends TemperatureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("kelvin")
+    protected function configure (): void
+    {
+        $this
+            ->setName("kelvin")
 
-      ->setSymbol("k")
+            ->setSymbol("k")
 
-      ->setUnits(1)
-      ;
-  }
+            ->setUnits(1)
+            ;
+    }
 }

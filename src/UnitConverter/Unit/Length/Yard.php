@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Length;
  * Yard data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Yard extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("yard")
+    protected function configure (): void
+    {
+        $this
+            ->setName("yard")
 
-      ->setSymbol("yd")
+            ->setSymbol("yd")
 
-      ->setUnits(0.9144)
-      ;
-  }
+            ->setUnits(0.9144)
+            ;
+    }
 }

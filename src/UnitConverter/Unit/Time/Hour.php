@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Time;
 
@@ -18,12 +18,12 @@ namespace UnitConverter\Unit\Time;
  * Hour unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.3.9
  * @author Teun Willems
  */
 class Hour extends TimeUnit
 {
-    protected function configure () : void
+    protected function configure (): void
     {
         $this
             ->setName("hour")
@@ -31,6 +31,6 @@ class Hour extends TimeUnit
             ->setSymbol("hr")
 
             ->setUnits(3600)
-        ;
+            ;
     }
 }

@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Area;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Area;
  * Square centimeter data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class SquareCentimeter extends AreaUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("square centimeter")
+    protected function configure (): void
+    {
+        $this
+            ->setName("square centimeter")
 
-      ->setSymbol("cm2")
+            ->setSymbol("cm2")
 
-      ->setUnits(0.0001)
-      ;
-  }
+            ->setUnits(0.0001)
+            ;
+    }
 }

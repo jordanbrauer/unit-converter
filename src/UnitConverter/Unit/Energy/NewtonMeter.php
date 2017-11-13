@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Energy;
  * NewtonMeter unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.3.9
  * @author Andrew Boerema <1569403+andrewboerema@users.noreply.github.com>
  */
 class NewtonMeter extends EnergyUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("newton meter")
+    protected function configure (): void
+    {
+        $this
+            ->setName("newton meter")
 
-      ->setSymbol("Nm")
+            ->setSymbol("Nm")
 
-      ->setUnits(1)
-      ;
-  }
+            ->setUnits(1)
+            ;
+    }
 }

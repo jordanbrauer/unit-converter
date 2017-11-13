@@ -10,53 +10,51 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
+use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Energy\{
-  Joule,
-  Calorie
-};
+use UnitConverter\Unit\Energy\Joule;
+use UnitConverter\Unit\Energy\Calorie;
 
 /**
  * Test the default volume units for conversion accuracy.
- *
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class EnergyUnitsSpec extends TestCase
 {
-  protected function setUp ()
-  {
-    $this->converter = new UnitConverter(
-      new UnitRegistry(array(
-        new Joule,
-        new Calorie,
-      ))
-    );
-  }
+    protected function setUp ()
+    {
+        $this->converter = new UnitConverter(
+            new UnitRegistry(array(
+                new Joule,
+                new Calorie,
+            )),
+            new SimpleCalculator
+        );
+    }
 
-  protected function tearDown ()
-  {
-    unset($this->converter);
-  }
+    protected function tearDown ()
+    {
+        unset($this->converter);
+    }
 
-  /**
-   * @test
-   * @coversNothing
-   */
-  public function assert ()
-  {
-    $expected = 50208;
-    $actual = $this->converter
-      ->convert(12)
-      ->from("cal")
-      ->to("J")
-      ;
+    /**
+     * @test
+     * @coversNothing
+     */
+    public function assert1CalorieEquals4184Joules ()
+    {
+        $expected = 4184;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("cal")
+            ->to("J")
+            ;
 
-    $this->assertEquals(round($expected, 3), round($actual, 3));
-  }
+        $this->assertEquals($expected, $actual);
+    }
 }

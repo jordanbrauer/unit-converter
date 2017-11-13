@@ -13,7 +13,7 @@ DESTINATION=./docs
 
 if [ -d $DESTINATION ];
 then
-  printf "Deleting old generated documentation .. "
+  printf "Deleting stale documentation .. "
   rm -r $DESTINATION/*
   echo "OK"
 fi
