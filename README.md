@@ -54,6 +54,7 @@ Using the component is very easy, especially if you have used the Symfony framew
 
 ```php
 use UnitConverter\UnitConverter;
+use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Centimeter;
 use UnitConverter\Unit\Length\Inch;
@@ -66,9 +67,10 @@ $units = array(
 
 # Instantiate a new UnitRegistry and seed it with our array
 $registry = new UnitRegistry($units);
+$calculator = new SimpleCalculator;
 
 # Instantiate the UnitConverter, passing it the registry
-$converter = new UnitConverter($registry);
+$converter = new UnitConverter($registry, $calculator);
 ```
 
 #### Converting Units
