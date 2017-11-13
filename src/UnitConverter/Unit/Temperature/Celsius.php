@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Temperature;
 
 use Exception;
+use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Unit\UnitInterface;
 
 /**
@@ -35,18 +36,27 @@ class Celsius extends TemperatureUnit
       ;
   }
 
-  protected function calculate (float $value, UnitInterface $to) : ?float
+  protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $percision = null)
   {
     $val = $value ?? $this->getBasetUnits();
 
     # 0 °K = 273.15 °C
     switch ($to->getSymbol()) {
       case 'f': # °F = (°C × (9 ÷ 5)) + 32
-        return ($val * (9 / 5)) + 32;
+        return $calculator->round(
+          $calculator->add(
+            $calculator->mul($val, $calculator->div(9, 5)),
+            32
+          ),
+          $percision
+        );
         break;
 
       case 'k': # °K = °C + 273.15
-        return ($val + 273.15);
+        return $calculator->round(
+          $calculator->add($val, 273.15),
+          $percision
+        );
         break;
 
       case 'c': # °C = °C

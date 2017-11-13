@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit;
 
+use UnitConverter\Calculator\CalculatorInterface;
+
 /**
  * This class is the base class for all unit of measurement classes. When creating
  * a new/custom unit of measure, extend from this class. The Bare minimum
@@ -72,11 +74,13 @@ abstract class AbstractUnit implements UnitInterface
   /**
    * Calculate the amount of required base units to make up 1 unit.
    *
-   * @param float $value
+   * @param CalculatorInterface $calculator
+   * @param int|float|string $value
    * @param UnitInterface $to
-   * @return null|float
+   * @param int $percision The decimal percision to be calculated
+   * @return null|int|float|string
    */
-  protected function calculate (float $value, UnitInterface $to) : ?float
+  protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $percision = null)
   {
     return null;
   }
@@ -84,13 +88,15 @@ abstract class AbstractUnit implements UnitInterface
   /**
    * Exposes access to the ::calculate() method.
    *
-   * @param float $value
+   * @param CalculatorInterface $calculator
+   * @param int|float|string $value
    * @param UnitInterface $to
-   * @return null|float
+   * @param int $percision The decimal percision to be calculated
+   * @return null|int|float|string
    */
-  public function convert (float $value, UnitInterface $to)
+  public function convert (CalculatorInterface $calculator, $value, UnitInterface $to, int $percision = null)
   {
-    return $this->calculate($value, $to);
+    return $this->calculate($calculator, $value, $to, $percision);
   }
 
   public function setName (string $name) : UnitInterface
