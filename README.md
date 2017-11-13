@@ -3,6 +3,8 @@
 [![Latest Stable Version](https://poser.pugx.org/jordanbrauer/unit-converter/version)](https://packagist.org/packages/jordanbrauer/unit-converter)
 [![Latest Unstable Version](https://poser.pugx.org/jordanbrauer/unit-converter/v/unstable)](//packagist.org/packages/jordanbrauer/unit-converter)
 [![Build Status](https://travis-ci.org/jordanbrauer/unit-converter.svg?branch=master)](https://travis-ci.org/jordanbrauer/unit-converter)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/test_coverage)](https://codeclimate.com/github/jordanbrauer/unit-converter/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/maintainability)](https://codeclimate.com/github/jordanbrauer/unit-converter/maintainability)
 [![composer.lock available](https://poser.pugx.org/jordanbrauer/unit-converter/composerlock)](https://packagist.org/packages/jordanbrauer/unit-converter)
 [![Total Downloads](https://poser.pugx.org/jordanbrauer/unit-converter/downloads)](https://packagist.org/packages/jordanbrauer/unit-converter)
 [![License](https://poser.pugx.org/jordanbrauer/unit-converter/license)](https://packagist.org/packages/jordanbrauer/unit-converter)
@@ -19,7 +21,7 @@ Convert all kinds of standard units of measurement from one to another with this
 
 ### 1. About the Component
 
-This unit converter component aims to be modern and follow best practices where possible.  
+This unit converter component aims to be modern and follow best practices where possible.
 
 It supports the following types of measurement by default (support for more measurement types are on the roadmap).
 
