@@ -16,12 +16,11 @@ namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
+use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Pressure\{
-  Pascal,
-  Kilopascal,
-  PoundForcePerSquareInch as PSI
-};
+use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\Unit\Pressure\Kilopascal;
+use UnitConverter\Unit\Pressure\PoundForcePerSquareInch as PSI;
 
 /**
  * Test the default pressure units for conversion accuracy.
@@ -37,7 +36,8 @@ class PressureUnitsSpec extends TestCase
         new Pascal,
         new Kilopascal,
         new PSI,
-      ))
+      )),
+      new SimpleCalculator
     );
   }
 
@@ -59,7 +59,7 @@ class PressureUnitsSpec extends TestCase
       ->to("pa")
       ;
 
-    $this->assertEquals(round($expected, 2), round($actual, 2));
+    $this->assertEquals($expected, $actual);
   }
 
     /**
@@ -75,7 +75,7 @@ class PressureUnitsSpec extends TestCase
             ->to("pa")
         ;
 
-        $this->assertEquals(round($expected, 2), round($actual, 2));
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -91,7 +91,7 @@ class PressureUnitsSpec extends TestCase
             ->to("kpa")
         ;
 
-        $this->assertEquals(round($expected, 2), round($actual, 2));
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -106,7 +106,7 @@ class PressureUnitsSpec extends TestCase
             ->to("pa")
         ;
 
-        $this->assertEquals(round($expected, 2), round($actual, 2));
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -121,6 +121,6 @@ class PressureUnitsSpec extends TestCase
             ->to("kpa")
         ;
 
-        $this->assertEquals(round($expected, 2), round($actual, 2));
+        $this->assertEquals($expected, $actual);
     }
 }

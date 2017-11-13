@@ -16,6 +16,7 @@ namespace UnitConverter\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
+use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\{
   Centimeter,
@@ -34,24 +35,14 @@ class UnitConverterSpec extends TestCase
       new UnitRegistry(array(
         new Centimeter,
         new Inch,
-      ))
+      )),
+      new SimpleCalculator
     );
   }
 
   protected function tearDown ()
   {
     unset($this->converter);
-  }
-
-  /**
-   * @test
-   * @coversNothing
-   */
-  public function assertConversionAttemptsWithoutARegistryThrowsOutOfBoundsException ()
-  {
-    $this->expectException("UnitConverter\\Exception\\MissingUnitRegistryException");
-    $converter = new UnitConverter;
-    $converter->convert(1)->from("in")->to("cm");
   }
 
   /**

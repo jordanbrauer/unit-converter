@@ -16,11 +16,10 @@ namespace UnitConverter\Tests\Integration\Unit\Energy;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
+use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Energy\{
-  Joule,
-  Calorie
-};
+use UnitConverter\Unit\Energy\Joule;
+use UnitConverter\Unit\Energy\Calorie;
 
 /**
  * Test the default volume units for conversion accuracy.
@@ -35,7 +34,8 @@ class EnergyUnitsSpec extends TestCase
       new UnitRegistry(array(
         new Joule,
         new Calorie,
-      ))
+      )),
+      new SimpleCalculator
     );
   }
 
@@ -48,15 +48,15 @@ class EnergyUnitsSpec extends TestCase
    * @test
    * @coversNothing
    */
-  public function assert ()
+  public function assert1CalorieEquals4184Joules ()
   {
-    $expected = 50208;
+    $expected = 4184;
     $actual = $this->converter
-      ->convert(12)
+      ->convert(1)
       ->from("cal")
       ->to("J")
       ;
 
-    $this->assertEquals(round($expected, 3), round($actual, 3));
+    $this->assertEquals($expected, $actual);
   }
 }
