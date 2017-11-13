@@ -1,5 +1,23 @@
 # Change Log
 
+## [v0.5.0](https://github.com/jordanbrauer/unit-converter/tree/v0.5.0) (2017-11-13)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.4.1...v0.5.0)
+
+**Implemented enhancements:**
+
+- Dev documentation for API + examples [\#43](https://github.com/jordanbrauer/unit-converter/issues/43)
+- Include the use of bcmath for floating point precision [\#12](https://github.com/jordanbrauer/unit-converter/issues/12)
+-  Feat: implement calculator into unit converter & unit calculate methods [\#53](https://github.com/jordanbrauer/unit-converter/pull/53) ([jordanbrauer](https://github.com/jordanbrauer))
+- Feat: add explicit calculator classes to handle all math related operations [\#52](https://github.com/jordanbrauer/unit-converter/pull/52) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Closed issues:**
+
+- Need a Changelog of sorts [\#28](https://github.com/jordanbrauer/unit-converter/issues/28)
+
+**Merged pull requests:**
+
+- Upgrade: pull in development changes [\#55](https://github.com/jordanbrauer/unit-converter/pull/55) ([jordanbrauer](https://github.com/jordanbrauer))
+
 ## [v0.4.1](https://github.com/jordanbrauer/unit-converter/tree/v0.4.1) (2017-11-12)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.4.0...v0.4.1)
 
