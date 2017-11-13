@@ -28,22 +28,15 @@ use UnitConverter\Unit\UnitInterface;
 interface UnitConverterInterface
 {
   /**
-   * Set the unit converter registry for storing units of measure to convert values with.
-   *
-   * @api
-   * @param UnitRegistryInterface $registry An instance of UnitRegistry.
-   */
-  public function setRegistry ($registry) : UnitConverterInterface;
-
-  /**
    * Set the unit converters' value to be converted. This method is the first
    * method to be called in the chain of conversion methods.
    *
    * @api
    * @example $converter->convert(1)->from("in")->to("cm");
-   * @param float $value The numerical value being converted.
+   * @param int|float|string $value The numerical value being converted.
+   * @param int $precision The decimal precision to be rounded to
    */
-  public function convert (float $value);
+  public function convert ($value, int $percision = null);
 
   /**
    * Set the unit converters' unit to be converted **from**. This method is the

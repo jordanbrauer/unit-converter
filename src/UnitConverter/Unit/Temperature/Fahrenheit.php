@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Temperature;
 
 use Exception;
+use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Unit\UnitInterface;
 
 /**
@@ -35,18 +36,30 @@ class Fahrenheit extends TemperatureUnit
       ;
   }
 
-  protected function calculate (float $value, UnitInterface $to) : ?float
+  protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $percision = null)
   {
     $val = $value ?? $this->getBase()->getUnits();
 
     # 0 °K = 255.372 °F
     switch ($to->getSymbol()) {
       case 'c': # °C = (°F - 32) × (5 ÷ 9)
-        return ($val - 32) * (5 / 9);
+        return $calculator->round(
+          $calculator->mul(
+            $calculator->sub($val, 32),
+            $calculator->div(5, 9)
+          ),
+          $percision
+        );
         break;
 
       case 'k': # °K = (°F + 459.67) × (5 ÷ 9)
-        return (($val + 459.67) * 5 / 9);
+        return $calculator->round(
+          $calculator->mul(
+            $calculator->add($val, 459.67),
+            $calculator->div(5, 9)
+          ),
+          $percision
+        );
         break;
 
       case 'f': # °F = °F

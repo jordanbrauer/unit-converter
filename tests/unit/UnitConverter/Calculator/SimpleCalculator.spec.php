@@ -69,7 +69,7 @@ class SimpleCalculatorSpec extends TestCase
     $actual = $this->calculator->mul("2", "2");
 
     $this->assertEquals($expected, $actual);
-    $this->assertInternalType("float", $actual);
+    $this->assertInternalType("int", $actual);
   }
 
   /**
@@ -82,7 +82,7 @@ class SimpleCalculatorSpec extends TestCase
     $actual = $this->calculator->div("4", "2");
 
     $this->assertEquals($expected, $actual);
-    $this->assertInternalType("float", $actual);
+    $this->assertInternalType("int", $actual);
   }
 
   /**
@@ -95,7 +95,7 @@ class SimpleCalculatorSpec extends TestCase
     $actual = $this->calculator->mod("5", "2");
 
     $this->assertEquals($expected, $actual);
-    $this->assertInternalType("float", $actual);
+    $this->assertInternalType("int", $actual);
   }
 
   /**
@@ -108,6 +108,6 @@ class SimpleCalculatorSpec extends TestCase
     $actual = $this->calculator->pow("10", "2");
 
     $this->assertEquals($expected, $actual);
-    $this->assertInternalType("float", $actual);
+    $this->assertInternalType("int", $actual);
   }
 }

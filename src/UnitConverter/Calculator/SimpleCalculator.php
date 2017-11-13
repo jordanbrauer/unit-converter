@@ -66,42 +66,42 @@ class SimpleCalculator extends AbstractCalculator
    * @param int|float $value The value to round
    * @return float
    */
-  public function round ($value): float
+  public function round ($value, int $percision = null): float
   {
     return round(
       $value,
-      $this->getPrecision(),
+      ($percision ?? $this->getPrecision()),
       $this->getRoundingMode()
     );
   }
 
   public function add ($leftOperand, $rightOperand)
   {
-    return $this->round(($leftOperand + $rightOperand));
+    return ($leftOperand + $rightOperand);
   }
 
   public function sub ($leftOperand, $rightOperand)
   {
-    return $this->round(($leftOperand - $rightOperand));
+    return ($leftOperand - $rightOperand);
   }
 
   public function mul ($leftOperand, $rightOperand)
   {
-    return $this->round(($leftOperand * $rightOperand));
+    return ($leftOperand * $rightOperand);
   }
 
   public function div ($dividend, $divisor)
   {
-    return $this->round(($dividend / $divisor));
+    return ($dividend / $divisor);
   }
 
   public function mod ($dividend, $modulus)
   {
-    return $this->round(($dividend % $modulus));
+    return ($dividend % $modulus);
   }
 
   public function pow ($base, $exponent)
   {
-    return $this->round(pow($base, $exponent));
+    return pow($base, $exponent);
   }
 }

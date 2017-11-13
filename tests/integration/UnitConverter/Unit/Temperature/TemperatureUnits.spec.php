@@ -16,12 +16,11 @@ namespace UnitConverter\Tests\Integration\Unit\Temperature;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
+use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Temperature\{
-  Celsius,
-  Fahrenheit,
-  Kelvin
-};
+use UnitConverter\Unit\Temperature\Celsius;
+use UnitConverter\Unit\Temperature\Fahrenheit;
+use UnitConverter\Unit\Temperature\Kelvin;
 
 /**
  * Test the default temperature units for conversion accuracy.
@@ -37,7 +36,8 @@ class TemperatureUnitsSpec extends TestCase
         new Celsius,
         new Fahrenheit,
         new Kelvin,
-      ))
+      )),
+      new SimpleCalculator
     );
   }
 
@@ -59,7 +59,7 @@ class TemperatureUnitsSpec extends TestCase
       ->to("k")
       ;
 
-    $this->assertEquals(round($expected, 2), round($actual, 2));
+    $this->assertEquals($expected, $actual);
   }
 
   /**
@@ -75,7 +75,7 @@ class TemperatureUnitsSpec extends TestCase
       ->to("k")
       ;
 
-    $this->assertEquals(round($expected, 2), round($actual, 2));
+    $this->assertEquals($expected, $actual);
   }
 
   /**
@@ -91,7 +91,7 @@ class TemperatureUnitsSpec extends TestCase
       ->to("f")
       ;
 
-    $this->assertEquals(round($expected, 2), round($actual, 2));
+    $this->assertEquals($expected, $actual);
   }
 
   /**
@@ -102,11 +102,11 @@ class TemperatureUnitsSpec extends TestCase
   {
     $expected = -17.7778;
     $actual = $this->converter
-      ->convert(0)
+      ->convert(0, 4)
       ->from("f")
       ->to("c")
       ;
 
-    $this->assertEquals(round($expected, 2), round($actual, 2));
+    $this->assertEquals($expected, $actual);
   }
 }
