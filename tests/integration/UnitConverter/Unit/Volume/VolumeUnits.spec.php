@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
@@ -25,42 +25,40 @@ use UnitConverter\Unit\Volume\Pint;
 
 /**
  * Test the default volume units for conversion accuracy.
- *
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class VolumeUnitsSpec extends TestCase
 {
-  protected function setUp ()
-  {
-    $this->converter = new UnitConverter(
-      new UnitRegistry(array(
-        new Litre,
-        new Mililitre,
-        new Gallon,
-        new Pint,
-      )),
-      new SimpleCalculator
-    );
-  }
+    protected function setUp ()
+    {
+        $this->converter = new UnitConverter(
+            new UnitRegistry(array(
+                new Litre,
+                new Mililitre,
+                new Gallon,
+                new Pint,
+            )),
+            new SimpleCalculator
+        );
+    }
 
-  protected function tearDown ()
-  {
-    unset($this->converter);
-  }
+    protected function tearDown ()
+    {
+        unset($this->converter);
+    }
 
-  /**
-   * @test
-   * @coversNothing
-   */
-  public function assert ()
-  {
-    $expected = 4.73176;
-    $actual = $this->converter
-      ->convert(10, 5)
-      ->from("pt")
-      ->to("l")
-      ;
+    /**
+     * @test
+     * @coversNothing
+     */
+    public function assert ()
+    {
+        $expected = 4.73176;
+        $actual = $this->converter
+            ->convert(10, 5)
+            ->from("pt")
+            ->to("l")
+            ;
 
-    $this->assertEquals($expected, $actual);
-  }
+        $this->assertEquals($expected, $actual);
+    }
 }

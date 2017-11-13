@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Energy;
  * Megaelectronvolt unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.3.9
  * @author Andrew Boerema <1569403+andrewboerema@users.noreply.github.com>
  */
 class Megaelectronvolt extends EnergyUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("megaelectronvolt")
+    protected function configure (): void
+    {
+        $this
+            ->setName("megaelectronvolt")
 
-      ->setSymbol("MeV")
+            ->setSymbol("MeV")
 
-      ->setUnits(1.60218e-13)
-      ;
-  }
+            ->setUnits(1.60218e-13)
+            ;
+    }
 }

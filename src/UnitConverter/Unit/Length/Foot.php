@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Length;
  * Foot data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Foot extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("foot")
+    protected function configure (): void
+    {
+        $this
+            ->setName("foot")
 
-      ->setSymbol("ft")
+            ->setSymbol("ft")
 
-      ->setUnits(0.3048)
-      ;
-  }
+            ->setUnits(0.3048)
+            ;
+    }
 }

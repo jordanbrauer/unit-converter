@@ -10,13 +10,15 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
 /**
- * Internal math helper class for floating point decimal
- * percision
+ * A concrete calculator calss that uses the bcmath library
+ * to perform mathematical operations.
+ *
+ * @link http://php.net/manual/en/book.bc.php
  *
  * @version 1.0.0
  * @since 0.4.1
@@ -24,40 +26,40 @@ namespace UnitConverter\Calculator;
  */
 class BinaryCalculator extends AbstractCalculator
 {
-  public function setPrecision(int $precision): CalculatorInterface
-  {
-    parent::setPrecision($precision);
-    bcscale($precision);
-    return $this;
-  }
+    public function setPrecision(int $precision): CalculatorInterface
+    {
+        parent::setPrecision($precision);
+        bcscale($precision);
+        return $this;
+    }
 
-  public function add ($leftOperand, $rightOperand)
-  {
-    return bcadd($leftOperand, $rightOperand);
-  }
+    public function add ($leftOperand, $rightOperand)
+    {
+        return bcadd($leftOperand, $rightOperand);
+    }
 
-  public function sub ($leftOperand, $rightOperand)
-  {
-    return bcsub($leftOperand, $rightOperand);
-  }
+    public function sub ($leftOperand, $rightOperand)
+    {
+        return bcsub($leftOperand, $rightOperand);
+    }
 
-  public function mul ($leftOperand, $rightOperand)
-  {
-    return bcmul($leftOperand, $rightOperand);
-  }
+    public function mul ($leftOperand, $rightOperand)
+    {
+        return bcmul($leftOperand, $rightOperand);
+    }
 
-  public function div ($dividend, $divisor)
-  {
-    return bcdiv($dividend, $divisor);
-  }
+    public function div ($dividend, $divisor)
+    {
+        return bcdiv($dividend, $divisor);
+    }
 
-  public function mod ($dividend, $modulus)
-  {
-    return bcmod($dividend, $modulus);
-  }
+    public function mod ($dividend, $modulus)
+    {
+        return bcmod($dividend, $modulus);
+    }
 
-  public function pow ($base, $exponent)
-  {
-    return bcpow($base, $exponent);
-  }
+    public function pow ($base, $exponent)
+    {
+        return bcpow($base, $exponent);
+    }
 }

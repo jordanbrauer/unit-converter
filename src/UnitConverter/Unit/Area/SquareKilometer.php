@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Area;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Area;
  * Square kilometer data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class SquareKilometer extends AreaUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("square kilometer")
+    protected function configure (): void
+    {
+        $this
+            ->setName("square kilometer")
 
-      ->setSymbol("km2")
+            ->setSymbol("km2")
 
-      ->setUnits(1000000)
-      ;
-  }
+            ->setUnits(1000000)
+            ;
+    }
 }

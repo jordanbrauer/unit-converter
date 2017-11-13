@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Length;
  * Mile data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Mile extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("mile")
+    protected function configure (): void
+    {
+        $this
+            ->setName("mile")
 
-      ->setSymbol("mi")
+            ->setSymbol("mi")
 
-      ->setUnits(1609.344)
-      ;
-  }
+            ->setUnits(1609.344)
+            ;
+    }
 }

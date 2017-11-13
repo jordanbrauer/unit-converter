@@ -10,163 +10,159 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit;
 
 use UnitConverter\Calculator\CalculatorInterface;
 
 /**
- * This class is the base class for all unit of measurement classes. When creating
- * a new/custom unit of measure, extend from this class. The Bare minimum
- * requirements for usage are defining all properties.
+ * This class is the base class for all unit of measurement classes.
+ * When creating a new/custom unit of measure, extend from this class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 abstract class AbstractUnit implements UnitInterface
 {
-  /**
-   * @var string $name The units' full name.
-   */
-  protected $name;
+    /**
+     * @var string $name The units' full name.
+     */
+    protected $name;
 
-  /**
-   * @var string $symbol The units' symbol notation (e.g., meter = m).
-   */
-  protected $symbol;
+    /**
+     * @var string $symbol The units' symbol notation (e.g., meter = m).
+     */
+    protected $symbol;
 
-  /**
-   * @var string The scientific symbol of the unit
-   */
-  protected $scientificSymbol;
+    /**
+     * @var string The scientific symbol of the unit
+     */
+    protected $scientificSymbol;
 
-  /**
-   * @var string $unitOf What is this unit measuring? Length, temperatutre, etc.
-   */
-  protected $unitOf;
+    /**
+     * @var string $unitOf What is this unit measuring? Length, temperatutre, etc.
+     */
+    protected $unitOf;
 
-  /**
-   * @var UnitInterface $base The units' base unit.
-   */
-  protected $base;
+    /**
+     * @var string[UnitInterface] $base The units' base unit.
+     */
+    protected $base;
 
-  /**
-   * @var float $units The amount of base units needed to make up 1 unit.
-   */
-  protected $units;
+    /**
+     * @var float $units The amount of base units needed to make up 1 unit.
+     */
+    protected $units;
 
-  public function __construct ()
-  {
-    $this->configure();
-  }
+    /**
+     * Public constructor function for units of measurement.
+     */
+    public function __construct ()
+    {
+        $this->configure();
+    }
 
-  /**
-   * Configure the current unit of measure.
-   *
-   * @return void
-   */
-  protected function configure () : void
-  {
-  }
+    /**
+     * Configure the current unit of measure.
+     *
+     * @return void
+     */
+    protected function configure (): void
+    {
+    }
 
-  /**
-   * Calculate the amount of required base units to make up 1 unit.
-   *
-   * @param CalculatorInterface $calculator
-   * @param int|float|string $value
-   * @param UnitInterface $to
-   * @param int $percision The decimal percision to be calculated
-   * @return null|int|float|string
-   */
-  protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $percision = null)
-  {
-    return null;
-  }
+    /**
+     * Calculate the amount of required base units to make up 1 unit.
+     *
+     * @param CalculatorInterface $calculator
+     * @param int|float|string $value
+     * @param UnitInterface $to
+     * @param int $precision The decimal percision to be calculated
+     * @return null|int|float|string
+     */
+    protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
+    {
+        return null;
+    }
 
-  /**
-   * Exposes access to the ::calculate() method.
-   *
-   * @param CalculatorInterface $calculator
-   * @param int|float|string $value
-   * @param UnitInterface $to
-   * @param int $percision The decimal percision to be calculated
-   * @return null|int|float|string
-   */
-  public function convert (CalculatorInterface $calculator, $value, UnitInterface $to, int $percision = null)
-  {
-    return $this->calculate($calculator, $value, $to, $percision);
-  }
+    /**
+     * Exposes access to the ::calculate() method.
+     */
+    public function convert (...$params)
+    {
+        return $this->calculate(...$params);
+    }
 
-  public function setName (string $name) : UnitInterface
-  {
-    $this->name = $name;
-    return $this;
-  }
+    public function setName (string $name): UnitInterface
+    {
+        $this->name = $name;
+        return $this;
+    }
 
-  public function getName () : string
-  {
-    return $this->name;
-  }
+    public function getName (): string
+    {
+        return $this->name;
+    }
 
-  public function setSymbol (string $symbol) : UnitInterface
-  {
-    $this->symbol = $symbol;
-    return $this;
-  }
+    public function setSymbol (string $symbol): UnitInterface
+    {
+        $this->symbol = $symbol;
+        return $this;
+    }
 
-  public function getSymbol () : string
-  {
-    return $this->symbol;
-  }
+    public function getSymbol (): string
+    {
+        return $this->symbol;
+    }
 
-  public function setUnitOf (string $unitOf) : UnitInterface
-  {
-    $this->unitOf = $unitOf;
-    return $this;
-  }
+    public function getScientificSymbol (): string
+    {
+        return $this->scientificSymbol;
+    }
 
-  public function getUnitOf () : string
-  {
-    return $this->unitOf;
-  }
+    public function setScientificSymbol (string $scientificSymbol): UnitInterface
+    {
+        $this->scientificSymbol = $scientificSymbol;
+        return $this;
+    }
 
-  public function setBase ($base) : UnitInterface
-  {
-    $this->base = $base;
-    return $this;
-  }
+    public function setUnitOf (string $unitOf): UnitInterface
+    {
+        $this->unitOf = $unitOf;
+        return $this;
+    }
 
-  public function getBase () : UnitInterface
-  {
-    return new $this->base;
-  }
+    public function getUnitOf (): string
+    {
+        return $this->unitOf;
+    }
 
-  public function setUnits (float $units) : UnitInterface
-  {
-    $this->units = $units;
-    return $this;
-  }
+    public function setBase ($base): UnitInterface
+    {
+        $this->base = $base;
+        return $this;
+    }
 
-  public function getUnits () : float
-  {
-    return $this->units;
-  }
+    public function getBase (): UnitInterface
+    {
+        return new $this->base;
+    }
 
-  public function getBaseUnits () : float
-  {
-    return $this->getBase()->getUnits();
-  }
+    public function setUnits (float $units): UnitInterface
+    {
+        $this->units = $units;
+        return $this;
+    }
 
-  public function getScientificSymbol () : string
-  {
-    return $this->scientificSymbol;
-  }
+    public function getUnits (): float
+    {
+        return $this->units;
+    }
 
-  public function setScientificSymbol (string $scientificSymbol) : UnitInterface
-  {
-    $this->scientificSymbol = $scientificSymbol;
-    return $this;
-  }
+    public function getBaseUnits (): float
+    {
+        return $this->getBase()->getUnits();
+    }
 }

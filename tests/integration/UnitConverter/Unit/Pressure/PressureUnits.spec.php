@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
@@ -24,43 +24,41 @@ use UnitConverter\Unit\Pressure\PoundForcePerSquareInch as PSI;
 
 /**
  * Test the default pressure units for conversion accuracy.
- *
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class PressureUnitsSpec extends TestCase
 {
-  protected function setUp ()
-  {
-    $this->converter = new UnitConverter(
-      new UnitRegistry(array(
-        new Pascal,
-        new Kilopascal,
-        new PSI,
-      )),
-      new SimpleCalculator
-    );
-  }
+    protected function setUp ()
+    {
+        $this->converter = new UnitConverter(
+            new UnitRegistry(array(
+                new Pascal,
+                new Kilopascal,
+                new PSI,
+            )),
+            new SimpleCalculator
+        );
+    }
 
-  protected function tearDown ()
-  {
-    unset($this->converter);
-  }
+    protected function tearDown ()
+    {
+        unset($this->converter);
+    }
 
-  /**
-   * @test
-   * @coversNothing
-   */
-  public function assertZeroCelsiusEqualsTwoHundredSeventyThreeDecimalFifteen ()
-  {
-    $expected = 6894.76;
-    $actual = $this->converter
-      ->convert(1)
-      ->from("psi")
-      ->to("pa")
-      ;
+    /**
+     * @test
+     * @coversNothing
+     */
+    public function assertZeroCelsiusEqualsTwoHundredSeventyThreeDecimalFifteen ()
+    {
+        $expected = 6894.76;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("psi")
+            ->to("pa")
+            ;
 
-    $this->assertEquals($expected, $actual);
-  }
+        $this->assertEquals($expected, $actual);
+    }
 
     /**
      * @test
@@ -73,7 +71,7 @@ class PressureUnitsSpec extends TestCase
             ->convert(1)
             ->from("kpa")
             ->to("pa")
-        ;
+            ;
 
         $this->assertEquals($expected, $actual);
     }
@@ -89,7 +87,7 @@ class PressureUnitsSpec extends TestCase
             ->convert(1000)
             ->from("pa")
             ->to("kpa")
-        ;
+            ;
 
         $this->assertEquals($expected, $actual);
     }
@@ -104,7 +102,7 @@ class PressureUnitsSpec extends TestCase
             ->convert(1)
             ->from("mpa")
             ->to("pa")
-        ;
+            ;
 
         $this->assertEquals($expected, $actual);
     }
@@ -119,7 +117,7 @@ class PressureUnitsSpec extends TestCase
             ->convert(1)
             ->from("mpa")
             ->to("kpa")
-        ;
+            ;
 
         $this->assertEquals($expected, $actual);
     }

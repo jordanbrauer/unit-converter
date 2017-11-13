@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Area;
 
@@ -23,12 +23,12 @@ use UnitConverter\Unit\AbstractUnit;
  * overriding the $unitOf and $base properties only if necessary.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 abstract class AreaUnit extends AbstractUnit
 {
-  protected $unitOf = Measure::AREA;
+    protected $unitOf = Measure::AREA;
 
-  protected $base = SquareMeter::class;
+    protected $base = SquareMeter::class;
 }

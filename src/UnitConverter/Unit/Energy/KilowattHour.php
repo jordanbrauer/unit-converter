@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Energy;
  * KilowattHour unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.3.9
  * @author Andrew Boerema <1569403+andrewboerema@users.noreply.github.com>
  */
 class KilowattHour extends EnergyUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("kilowatt hour")
+    protected function configure (): void
+    {
+        $this
+            ->setName("kilowatt hour")
 
-      ->setSymbol("kWh")
+            ->setSymbol("kWh")
 
-      ->setUnits(3600005.4468)
-      ;
-  }
+            ->setUnits(3600005.4468)
+            ;
+    }
 }

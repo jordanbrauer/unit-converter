@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
@@ -22,49 +22,49 @@ use UnitConverter\Unit\UnitInterface;
  * Celsius unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Celsius extends TemperatureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("celsius")
+    protected function configure (): void
+    {
+        $this
+            ->setName("celsius")
 
-      ->setSymbol("c")
-      ;
-  }
-
-  protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $percision = null)
-  {
-    $val = $value ?? $this->getBasetUnits();
-
-    # 0 °K = 273.15 °C
-    switch ($to->getSymbol()) {
-      case 'f': # °F = (°C × (9 ÷ 5)) + 32
-        return $calculator->round(
-          $calculator->add(
-            $calculator->mul($val, $calculator->div(9, 5)),
-            32
-          ),
-          $percision
-        );
-        break;
-
-      case 'k': # °K = °C + 273.15
-        return $calculator->round(
-          $calculator->add($val, 273.15),
-          $percision
-        );
-        break;
-
-      case 'c': # °C = °C
-        return $val;
-        break;
-
-      default:
-        throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
+            ->setSymbol("c")
+            ;
     }
-  }
-}
+
+    protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
+    {
+        $val = $value ?? $this->getBasetUnits();
+
+        # 0 °K = 273.15 °C
+        switch ($to->getSymbol()) {
+            case 'f': # °F = (°C × (9 ÷ 5)) + 32
+                return $calculator->round(
+                    $calculator->add(
+                        $calculator->mul($val, $calculator->div(9, 5)),
+                        32
+                    ),
+                    $precision
+                );
+                break;
+
+            case 'k': # °K = °C + 273.15
+                return $calculator->round(
+                    $calculator->add($val, 273.15),
+                    $precision
+                );
+                break;
+
+            case 'c': # °C = °C
+                return $val;
+                break;
+
+            default:
+                throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
+            }
+        }
+    }

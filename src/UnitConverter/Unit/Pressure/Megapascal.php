@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Pressure;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Pressure;
  * Megapascal unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @since 0.3.9
+ * @author arubacao (https://github.com/arubacao)
  */
 class Megapascal extends PressureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("megapascal")
+    protected function configure (): void
+    {
+        $this
+            ->setName("megapascal")
 
-      ->setSymbol("mpa")
+            ->setSymbol("mpa")
 
-      ->setUnits(1000000)
-      ;
-  }
+            ->setUnits(1000000)
+            ;
+    }
 }

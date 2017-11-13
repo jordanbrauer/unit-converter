@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Energy;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Energy;
  * Joule unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Joule extends EnergyUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("joule")
+    protected function configure (): void
+    {
+        $this
+            ->setName("joule")
 
-      ->setSymbol("J")
+            ->setSymbol("J")
 
-      ->setUnits(1)
-      ;
-  }
+            ->setUnits(1)
+            ;
+    }
 }

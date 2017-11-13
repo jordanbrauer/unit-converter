@@ -10,14 +10,18 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Exception;
 
 use OutOfBoundsException;
 
 /**
- * Exception thrown when a unit uses a non-existent type of measurement
+ * Exception to be thrown when a unit uses a non-existent type of measurement
+ *
+ * @version 1.0.0
+ * @since 0.3.9
+ * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class UnknownMeasurementTypeException extends OutOfBoundsException
 {

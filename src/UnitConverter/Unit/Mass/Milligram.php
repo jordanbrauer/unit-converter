@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Mass;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Mass;
  * Milligram data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Milligram extends MassUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("milligram")
+    protected function configure (): void
+    {
+        $this
+            ->setName("milligram")
 
-      ->setSymbol("mg")
+            ->setSymbol("mg")
 
-      ->setUnits(0.000001)
-      ;
-  }
+            ->setUnits(0.000001)
+            ;
+    }
 }

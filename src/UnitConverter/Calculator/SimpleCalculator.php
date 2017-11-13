@@ -10,13 +10,19 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
 /**
- * Internal math helper class for floating point decimal
- * percision
+ * A basic implementation of the CalculatorInterface for performing
+ * mathematical operations with.
+ *
+ * @NOTE Due to the way that computers handle floating decimals, the
+ * results that this calculator yields may be less than accurate. To increase
+ * the accuracy of your results, you should round to more decimal places.
+ *
+ * @see UnitConverter\UnitConverter::convert() Increase rounding places on the fly.
  *
  * @version 1.0.0
  * @since 0.4.1
@@ -24,84 +30,33 @@ namespace UnitConverter\Calculator;
  */
 class SimpleCalculator extends AbstractCalculator
 {
-  /**
-   * @var int $roundingMode The mode in which rounding occurs. Use one of the PHP_ROUND_HALF_* constants.
-   */
-  protected $roundingMode;
+    public function add ($leftOperand, $rightOperand)
+    {
+        return ($leftOperand + $rightOperand);
+    }
 
-  public function __construct (int $precision = 2, int $roundingMode = PHP_ROUND_HALF_UP)
-  {
-    parent::__construct($precision);
-    $this->setRoundingMode($roundingMode);
-  }
+    public function sub ($leftOperand, $rightOperand)
+    {
+        return ($leftOperand - $rightOperand);
+    }
 
-  /**
-   * Use one of the PHP_ROUND_HALF_* constants to specify
-   * the mode in which rounding occurs.
-   *
-   * @link https://secure.php.net/manual/en/function.round.php
-   *
-   * @param int $mode The mode in which rounding occurs
-   * @return CalculatorInterface
-   */
-  public function setRoundingMode (int $roundingMode = PHP_ROUND_HALF_UP): CalculatorInterface
-  {
-    $this->roundingMode = $roundingMode;
-    return $this;
-  }
+    public function mul ($leftOperand, $rightOperand)
+    {
+        return ($leftOperand * $rightOperand);
+    }
 
-  /**
-   * Return the current rounding mode
-   *
-   * @return int
-   */
-  public function getRoundingMode (): int
-  {
-    return $this->roundingMode;
-  }
+    public function div ($dividend, $divisor)
+    {
+        return ($dividend / $divisor);
+    }
 
-  /**
-   * Return the result of a rounded float
-   *
-   * @param int|float $value The value to round
-   * @return float
-   */
-  public function round ($value, int $percision = null): float
-  {
-    return round(
-      $value,
-      ($percision ?? $this->getPrecision()),
-      $this->getRoundingMode()
-    );
-  }
+    public function mod ($dividend, $modulus)
+    {
+        return ($dividend % $modulus);
+    }
 
-  public function add ($leftOperand, $rightOperand)
-  {
-    return ($leftOperand + $rightOperand);
-  }
-
-  public function sub ($leftOperand, $rightOperand)
-  {
-    return ($leftOperand - $rightOperand);
-  }
-
-  public function mul ($leftOperand, $rightOperand)
-  {
-    return ($leftOperand * $rightOperand);
-  }
-
-  public function div ($dividend, $divisor)
-  {
-    return ($dividend / $divisor);
-  }
-
-  public function mod ($dividend, $modulus)
-  {
-    return ($dividend % $modulus);
-  }
-
-  public function pow ($base, $exponent)
-  {
-    return pow($base, $exponent);
-  }
+    public function pow ($base, $exponent)
+    {
+        return pow($base, $exponent);
+    }
 }

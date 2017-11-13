@@ -10,13 +10,13 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
 /**
- * Internal math helper class for floating point decimal
- * percision
+ * The abstract calculator class that all concrete calculators should
+ * extend from.
  *
  * @version 1.0.0
  * @since 0.4.1
@@ -24,82 +24,111 @@ namespace UnitConverter\Calculator;
  */
 abstract class AbstractCalculator implements CalculatorInterface
 {
-  /**
-   * @var int $precision The number of decimal places that will calculated
-   */
-  protected $precision;
+    /**
+     * @var int $precision The number of decimal places that will calculated
+     */
+    protected $precision;
 
-  /**
-   * Public constructor for the unit converter calculator.
-   *
-   * @param int $precision The number of decimal places that will be calculated
-   */
-  public function __construct (int $precision = 2)
-  {
-    $this->setPrecision($precision);
-  }
+    /**
+     * @var int $roundingMode The mode in which rounding occurs. Use one of the PHP_ROUND_HALF_* constants.
+     */
+    protected $roundingMode;
 
-  public function setPrecision (int $precision): CalculatorInterface
-  {
-    $this->precision = $precision;
-    return $this;
-  }
+    /**
+     * Public constructor for the unit converter calculator. For a list of
+     * valid $roundingMode arguments, see the PHP_ROUND_HALF_* constants.
+     *
+     * @link https://secure.php.net/manual/en/function.round.php
+     *
+     * @param int $precision The number of decimal digits to round to.
+     * @param int $roundingMode The mode in which rounding occurs.
+     */
+    public function __construct (int $precision = null, int $roundingMode = null)
+    {
+        $this->setPrecision(($precision ?? 2));
+        $this->setRoundingMode(($roundingMode ?? PHP_ROUND_HALF_UP));
+    }
 
-  public function getPrecision (): int
-  {
-    return $this->precision;
-  }
+    public function setPrecision (int $precision): CalculatorInterface
+    {
+        $this->precision = $precision;
+        return $this;
+    }
 
-  abstract public function add ($leftOperand, $rightOperand);
+    public function setRoundingMode (int $roundingMode): CalculatorInterface
+    {
+        $this->roundingMode = $roundingMode;
+        return $this;
+    }
 
-  abstract public function sub ($leftOperand, $rightOperand);
+    public function getPrecision (): int
+    {
+        return $this->precision;
+    }
 
-  abstract public function mul ($leftOperand, $rightOperand);
+    public function getRoundingMode (): int
+    {
+        return $this->roundingMode;
+    }
 
-  abstract public function div ($dividend, $divisor);
+    abstract public function add ($leftOperand, $rightOperand);
 
-  abstract public function mod ($dividend, $modulus);
+    abstract public function sub ($leftOperand, $rightOperand);
 
-  abstract public function pow ($base, $exponent);
+    abstract public function mul ($leftOperand, $rightOperand);
 
+    abstract public function div ($dividend, $divisor);
 
-  /**
-   * Syntacital sugar wrapper method for sub
-   */
-  public function subtract (...$params)
-  {
-    return $this->sub(...$params);
-  }
+    abstract public function mod ($dividend, $modulus);
 
-  /**
-   * Syntacital sugar wrapper method for mul
-   */
-  public function multiply (...$params)
-  {
-    return $this->mul(...$params);
-  }
+    abstract public function pow ($base, $exponent);
 
-  /**
-   * Syntacital sugar wrapper method for div
-   */
-  public function divide (...$params)
-  {
-    return $this->div(...$params);
-  }
+    public function round ($value, int $precision = null): float
+    {
+        return round(
+            $value,
+            ($precision ?? $this->getPrecision()),
+            $this->getRoundingMode()
+        );
+    }
 
-  /**
-   * Syntacital sugar wrapper method for mod
-   */
-  public function modulus (...$params)
-  {
-    return $this->mod(...$params);
-  }
+    /**
+     * Syntacital sugar wrapper method for sub
+     */
+    public function subtract (...$params)
+    {
+        return $this->sub(...$params);
+    }
 
-  /**
-   * Syntacital sugar wrapper method for pow
-   */
-  public function power (...$params)
-  {
-    return $this->pow(...$params);
-  }
+    /**
+     * Syntacital sugar wrapper method for mul
+     */
+    public function multiply (...$params)
+    {
+        return $this->mul(...$params);
+    }
+
+    /**
+     * Syntacital sugar wrapper method for div
+     */
+    public function divide (...$params)
+    {
+        return $this->div(...$params);
+    }
+
+    /**
+     * Syntacital sugar wrapper method for mod
+     */
+    public function modulus (...$params)
+    {
+        return $this->mod(...$params);
+    }
+
+    /**
+     * Syntacital sugar wrapper method for pow
+     */
+    public function power (...$params)
+    {
+        return $this->pow(...$params);
+    }
 }

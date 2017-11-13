@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
@@ -23,12 +23,12 @@ use UnitConverter\Unit\AbstractUnit;
  * overriding the $unitOf and $base properties only if necessary.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 abstract class LengthUnit extends AbstractUnit
 {
-  protected $unitOf = Measure::LENGTH;
+    protected $unitOf = Measure::LENGTH;
 
-  protected $base = Meter::class;
+    protected $base = Meter::class;
 }

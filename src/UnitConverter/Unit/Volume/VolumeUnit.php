@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Volume;
 
@@ -23,12 +23,12 @@ use UnitConverter\Unit\AbstractUnit;
  * overriding the $unitOf and $base properties only if necessary.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 abstract class VolumeUnit extends AbstractUnit
 {
-  protected $unitOf = Measure::VOLUME;
+    protected $unitOf = Measure::VOLUME;
 
-  protected $base = Litre::class;
+    protected $base = Litre::class;
 }

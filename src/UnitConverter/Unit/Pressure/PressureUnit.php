@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Pressure;
 
@@ -28,7 +28,7 @@ use UnitConverter\Unit\AbstractUnit;
  */
 abstract class PressureUnit extends AbstractUnit
 {
-  protected $unitOf = Measure::PRESSURE;
+    protected $unitOf = Measure::PRESSURE;
 
-  protected $base = Pascal::class;
+    protected $base = Pascal::class;
 }

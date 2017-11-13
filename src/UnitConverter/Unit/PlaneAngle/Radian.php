@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\PlaneAngle;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\PlaneAngle;
  * Radian unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Radian extends PlaneAngleUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("radian")
+    protected function configure (): void
+    {
+        $this
+            ->setName("radian")
 
-      ->setSymbol("rad")
+            ->setSymbol("rad")
 
-      ->setUnits(57.2958)
-      ;
-  }
+            ->setUnits(57.2958)
+            ;
+    }
 }

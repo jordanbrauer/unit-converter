@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Pressure;
 
@@ -18,19 +18,19 @@ namespace UnitConverter\Unit\Pressure;
  * Kilopascal unit data class.
  *
  * @version 1.0.0
- * @since 1.0.0
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @since 0.3.9
+ * @author arubacao (https://github.com/arubacao)
  */
 class Kilopascal extends PressureUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("kilopascal")
+    protected function configure (): void
+    {
+        $this
+            ->setName("kilopascal")
 
-      ->setSymbol("kpa")
+            ->setSymbol("kpa")
 
-      ->setUnits(1000)
-      ;
-  }
+            ->setUnits(1000)
+            ;
+    }
 }

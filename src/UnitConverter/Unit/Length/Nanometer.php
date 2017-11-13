@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types = 1);
+declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
@@ -18,20 +18,20 @@ namespace UnitConverter\Unit\Length;
  * Nanometer data class.
  *
  * @version 1.0.0
- * @since 1.0.0
+ * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Nanometer extends LengthUnit
 {
-  protected function configure () : void
-  {
-    $this
-      ->setName("nanometer")
+    protected function configure (): void
+    {
+        $this
+            ->setName("nanometer")
 
-      ->setSymbol("nm")
+            ->setSymbol("nm")
 
-      # 1.0E-9
-      ->setUnits(0.000000001)
-      ;
-  }
+            # 1.0E-9
+            ->setUnits(0.000000001)
+            ;
+    }
 }
