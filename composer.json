@@ -15,7 +15,8 @@
     "changelog": "github_changelog_generator",
     "test": "phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "unit": "phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
-    "integration": "phpunit --configuration=./phpunit.xml --testsuite=integration --color=always"
+    "integration": "phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
+    "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never"
   },
   "require-dev": {
     "apigen/apigen": "dev-master",
