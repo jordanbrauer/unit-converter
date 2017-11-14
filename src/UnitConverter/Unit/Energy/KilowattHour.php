@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Energy;
 
 /**
- * KilowattHour unit data class.
+ * Kilowatt hour unit data class.
  *
  * @version 1.0.0
  * @since 0.3.9
@@ -28,7 +28,9 @@ class KilowattHour extends EnergyUnit
         $this
             ->setName("kilowatt hour")
 
-            ->setSymbol("kWh")
+            ->setSymbol("kW h")
+
+            ->setScientificSymbol("kW · h")
 
             ->setUnits(3600005.4468)
             ;

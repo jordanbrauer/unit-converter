@@ -30,6 +30,8 @@ class Megaelectronvolt extends EnergyUnit
 
             ->setSymbol("MeV")
 
+            ->setScientificSymbol("MeV")
+
             ->setUnits(1.60218e-13)
             ;
     }

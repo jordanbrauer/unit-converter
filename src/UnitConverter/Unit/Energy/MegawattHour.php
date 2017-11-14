@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Energy;
 
 /**
- * MegawattHour unit data class.
+ * Megawatt hour unit data class.
  *
  * @version 1.0.0
  * @since 0.3.9
@@ -29,6 +29,8 @@ class MegawattHour extends EnergyUnit
             ->setName("megawatt hour")
 
             ->setSymbol("MWh")
+
+            ->setScientificSymbol("MWh")
 
             ->setUnits(3600005446.8)
             ;

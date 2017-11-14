@@ -30,6 +30,8 @@ class Joule extends EnergyUnit
 
             ->setSymbol("J")
 
+            ->setScientificSymbol("J")
+
             ->setUnits(1)
             ;
     }
