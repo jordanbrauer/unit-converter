@@ -15,18 +15,18 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Length;
 
 /**
- * Milimeter data class.
+ * Millimetre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Milimeter extends LengthUnit
+class Millimetre extends LengthUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("milimeter")
+            ->setName("millimetre")
 
             ->setSymbol("mm")
 

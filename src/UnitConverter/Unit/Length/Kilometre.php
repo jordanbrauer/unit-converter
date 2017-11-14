@@ -15,22 +15,22 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Length;
 
 /**
- * Decimeter data class.
+ * Kilometre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Decimeter extends LengthUnit
+class Kilometre extends LengthUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("decimeter")
+            ->setName("kilometre")
 
-            ->setSymbol("dm")
+            ->setSymbol("km")
 
-            ->setUnits(0.1)
+            ->setUnits(1000)
             ;
     }
 }

@@ -15,22 +15,23 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Length;
 
 /**
- * Kilometer data class.
+ * Picometre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Kilometer extends LengthUnit
+class Picometre extends LengthUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("kilometer")
+            ->setName("picometre")
 
-            ->setSymbol("km")
+            ->setSymbol("pm")
 
-            ->setUnits(1000)
+            # 1.0E-12
+            ->setUnits(0.000000000001)
             ;
     }
 }

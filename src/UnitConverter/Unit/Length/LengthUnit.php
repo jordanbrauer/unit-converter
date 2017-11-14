@@ -30,5 +30,5 @@ abstract class LengthUnit extends AbstractUnit
 {
     protected $unitOf = Measure::LENGTH;
 
-    protected $base = Meter::class;
+    protected $base = Metre::class;
 }

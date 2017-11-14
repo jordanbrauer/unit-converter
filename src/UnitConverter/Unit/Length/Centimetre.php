@@ -15,18 +15,18 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Length;
 
 /**
- * Centimeter data class.
+ * Centimetre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Centimeter extends LengthUnit
+class Centimetre extends LengthUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("centimeter")
+            ->setName("centimetre")
 
             ->setSymbol("cm")
 

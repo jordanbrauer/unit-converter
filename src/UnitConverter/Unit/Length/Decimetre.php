@@ -15,23 +15,22 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Length;
 
 /**
- * Micrometer data class.
+ * Decimetre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Micrometer extends LengthUnit
+class Decimetre extends LengthUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("micrometer")
+            ->setName("decimetre")
 
-            ->setSymbol("µm")
+            ->setSymbol("dm")
 
-            # 1.0E-6
-            ->setUnits(0.000001)
+            ->setUnits(0.1)
             ;
     }
 }

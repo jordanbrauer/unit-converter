@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;;
 use UnitConverter\Unit\Length\Inch;
-use UnitConverter\Unit\Length\Meter;
+use UnitConverter\Unit\Length\Metre;
 
 /**
  * @coversDefaultClass UnitConverter\Unit\AbstractUnit
@@ -35,7 +35,7 @@ class AbstractUnitSpec extends TestCase
             protected $symbol = "sP";
             protected $scientificSymbol = "Ω·m";
             protected $unitOf = Measure::LENGTH;
-            protected $base = Meter::class;
+            protected $base = Metre::class;
             protected $units = 9001;
         };
     }

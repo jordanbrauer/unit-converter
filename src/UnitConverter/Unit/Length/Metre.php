@@ -15,23 +15,22 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Length;
 
 /**
- * Nanometer data class.
+ * Metre data class. All units of Length are based off of Metre.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Nanometer extends LengthUnit
+class Metre extends LengthUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("nanometer")
+            ->setName("metre")
 
-            ->setSymbol("nm")
+            ->setSymbol("m")
 
-            # 1.0E-9
-            ->setUnits(0.000000001)
+            ->setUnits(1)
             ;
     }
 }
