@@ -30,6 +30,8 @@ class SquareMile extends AreaUnit
 
             ->setSymbol("mi2")
 
+            ->setScientificSymbol("mi²")
+
             ->setUnits(2589988.11)
             ;
     }

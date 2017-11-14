@@ -30,6 +30,8 @@ class Hectare extends AreaUnit
 
             ->setSymbol("ha")
 
+            ->setScientificSymbol("ha")
+
             ->setUnits(10000)
             ;
     }

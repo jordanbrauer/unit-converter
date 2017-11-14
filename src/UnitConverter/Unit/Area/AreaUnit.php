@@ -30,5 +30,5 @@ abstract class AreaUnit extends AbstractUnit
 {
     protected $unitOf = Measure::AREA;
 
-    protected $base = SquareMeter::class;
+    protected $base = SquareMetre::class;
 }

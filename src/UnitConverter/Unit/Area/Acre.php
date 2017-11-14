@@ -28,7 +28,9 @@ class Acre extends AreaUnit
         $this
             ->setName("acre")
 
-            ->setSymbol("ac")
+            ->setSymbol("acre")
+
+            ->setScientificSymbol("acre")
 
             ->setUnits(4046.86)
             ;
