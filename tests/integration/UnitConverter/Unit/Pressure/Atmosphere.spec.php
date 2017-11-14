@@ -22,7 +22,7 @@ use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Atmosphere;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that an atmosphere is indeed an atmosphere.
  *
  * @covers UnitConverter\Unit\Pressure\Atmosphere
  * @uses UnitConverter\Unit\Pressure\Pascal

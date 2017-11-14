@@ -21,7 +21,7 @@ use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Pressure\Pascal;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that a pascal is indeed a pascal.
  *
  * @covers UnitConverter\Unit\Pressure\Pascal
  * @uses UnitConverter\Unit\AbstractUnit

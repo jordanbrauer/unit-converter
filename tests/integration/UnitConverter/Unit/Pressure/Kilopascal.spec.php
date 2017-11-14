@@ -22,7 +22,7 @@ use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Kilopascal;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that a kilopascal is indeed a kilopascal.
  *
  * @covers UnitConverter\Unit\Pressure\Kilopascal
  * @uses UnitConverter\Unit\Pressure\Pascal

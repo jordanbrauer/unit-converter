@@ -22,7 +22,7 @@ use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Bar;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that a bar is indeed a bar.
  *
  * @covers UnitConverter\Unit\Pressure\Bar
  * @uses UnitConverter\Unit\Pressure\Pascal

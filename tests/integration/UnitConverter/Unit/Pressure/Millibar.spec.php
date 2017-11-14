@@ -22,7 +22,7 @@ use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Millibar;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that a millibar is indeed a millibar.
  *
  * @covers UnitConverter\Unit\Pressure\Millibar
  * @uses UnitConverter\Unit\Pressure\Pascal

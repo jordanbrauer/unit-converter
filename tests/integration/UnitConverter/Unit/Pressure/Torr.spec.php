@@ -22,7 +22,7 @@ use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Torr;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that a Torr is indeed a Torr.
  *
  * @covers UnitConverter\Unit\Pressure\Torr
  * @uses UnitConverter\Unit\Pressure\Pascal

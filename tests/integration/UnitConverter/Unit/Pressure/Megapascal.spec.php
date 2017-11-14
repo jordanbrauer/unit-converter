@@ -22,7 +22,7 @@ use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Megapascal;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that a megapascal is indeed a megapascal.
  *
  * @covers UnitConverter\Unit\Pressure\Megapascal
  * @uses UnitConverter\Unit\Pressure\Pascal

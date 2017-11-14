@@ -22,7 +22,7 @@ use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
 
 /**
- * Test the default pressure units for conversion accuracy.
+ * Test that a pound-force per sq in is indeed a pound-force per sq in.
  *
  * @covers UnitConverter\Unit\Pressure\PoundForcePerSquareInch
  * @uses UnitConverter\Unit\Pressure\Pascal
