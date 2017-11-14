@@ -15,22 +15,24 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Area;
 
 /**
- * Square millimeter data class.
+ * Square kilometre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class SquareMillimeter extends AreaUnit
+class SquareKilometre extends AreaUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("square millimeter")
+            ->setName("square kilometre")
 
-            ->setSymbol("mm2")
+            ->setSymbol("km2")
 
-            ->setUnits(0.000001)
+            ->setScientificSymbol("km²")
+
+            ->setUnits(1000000)
             ;
     }
 }

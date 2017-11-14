@@ -15,22 +15,24 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Area;
 
 /**
- * Square kilometer data class.
+ * Square centimetre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class SquareKilometer extends AreaUnit
+class SquareCentimetre extends AreaUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("square kilometer")
+            ->setName("square centimetre")
 
-            ->setSymbol("km2")
+            ->setSymbol("cm2")
 
-            ->setUnits(1000000)
+            ->setScientificSymbol("cm²")
+
+            ->setUnits(0.0001)
             ;
     }
 }

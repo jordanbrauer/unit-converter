@@ -15,23 +15,24 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Area;
 
 /**
- * Square meter data class. All area units will use this
- * class as the $base property.
+ * Square millimetre data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class SquareMeter extends AreaUnit
+class SquareMillimetre extends AreaUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("square meter")
+            ->setName("square millimetre")
 
-            ->setSymbol("m2")
+            ->setSymbol("mm2")
 
-            ->setUnits(1)
+            ->setScientificSymbol("mm²")
+
+            ->setUnits(0.000001)
             ;
     }
 }
