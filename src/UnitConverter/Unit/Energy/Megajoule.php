@@ -30,8 +30,6 @@ class Megajoule extends EnergyUnit
 
             ->setSymbol("MJ")
 
-            ->setScientificSymbol("MJ")
-
             ->setUnits(1000000)
             ;
     }

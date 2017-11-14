@@ -30,8 +30,6 @@ class Kilojoule extends EnergyUnit
 
             ->setSymbol("kJ")
 
-            ->setScientificSymbol("kJ")
-
             ->setUnits(1000)
             ;
     }

@@ -30,8 +30,6 @@ class Pint extends VolumeUnit
 
             ->setSymbol("pt")
 
-            ->setScientificSymbol("liq pt")
-
             ->setUnits(0.473176)
             ;
     }

@@ -30,8 +30,6 @@ class Gallon extends VolumeUnit
 
             ->setSymbol("gal")
 
-            ->setScientificSymbol("gal")
-
             ->setUnits(3.78541)
             ;
     }

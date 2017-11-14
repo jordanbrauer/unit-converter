@@ -30,8 +30,6 @@ class Calorie extends EnergyUnit
 
             ->setSymbol("cal")
 
-            ->setScientificSymbol("cal")
-
             ->setUnits(4184)
             ;
     }

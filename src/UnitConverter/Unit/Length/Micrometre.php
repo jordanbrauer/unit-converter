@@ -28,7 +28,9 @@ class Micrometre extends LengthUnit
         $this
             ->setName("micrometre")
 
-            ->setSymbol("µm")
+            ->setSymbol("um")
+
+            ->setScientificSymbol("µm")
 
             # 1.0E-6
             ->setUnits(0.000001)

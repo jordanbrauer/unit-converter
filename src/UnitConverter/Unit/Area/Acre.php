@@ -30,8 +30,6 @@ class Acre extends AreaUnit
 
             ->setSymbol("acre")
 
-            ->setScientificSymbol("acre")
-
             ->setUnits(4046.86)
             ;
     }

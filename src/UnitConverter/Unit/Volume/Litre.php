@@ -30,8 +30,6 @@ class Litre extends VolumeUnit
 
             ->setSymbol("L")
 
-            ->setScientificSymbol("L")
-
             ->setUnits(1)
             ;
     }

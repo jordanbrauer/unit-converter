@@ -30,8 +30,6 @@ class Millilitre extends VolumeUnit
 
             ->setSymbol("mL")
 
-            ->setScientificSymbol("mL")
-
             ->setUnits(0.001)
             ;
     }
