@@ -15,20 +15,22 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Volume;
 
 /**
- * Mililitre unit data class.
+ * Millilitre unit data class.
  *
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Mililitre extends VolumeUnit
+class Millilitre extends VolumeUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("mililitre")
+            ->setName("millilitre")
 
-            ->setSymbol("ml")
+            ->setSymbol("mL")
+
+            ->setScientificSymbol("mL")
 
             ->setUnits(0.001)
             ;
