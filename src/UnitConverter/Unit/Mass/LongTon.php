@@ -15,22 +15,22 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Mass;
 
 /**
- * UKLongTon data class.
+ * Long ton (U.K.) data class. Also known as 'weight ton', or 'gross ton'.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.3.9
  * @author Teun Willems
  */
-class UKLongTon extends MassUnit
+class LongTon extends MassUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("UK Long Ton")
+            ->setName("long ton")
 
-            ->setSymbol("ukt")
+            ->setSymbol("ton")
 
-            ->setUnits(2.204623)
+            ->setUnits(1016.047)
             ;
     }
 }
