@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Volume;
 
 /**
- * Pint unit data class.
+ * Pint (U.S. liquid) unit data class.
  *
  * @version 1.0.0
  * @since 0.0.1
@@ -29,6 +29,8 @@ class Pint extends VolumeUnit
             ->setName("pint")
 
             ->setSymbol("pt")
+
+            ->setScientificSymbol("liq pt")
 
             ->setUnits(0.473176)
             ;

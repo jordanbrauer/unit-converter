@@ -30,6 +30,8 @@ class CubicMetre extends VolumeUnit
 
             ->setSymbol("m3")
 
+            ->setScientificSymbol("m³")
+
             ->setUnits(1000)
             ;
     }

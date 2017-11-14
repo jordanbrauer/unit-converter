@@ -28,7 +28,9 @@ class Litre extends VolumeUnit
         $this
             ->setName("litre")
 
-            ->setSymbol("l")
+            ->setSymbol("L")
+
+            ->setScientificSymbol("L")
 
             ->setUnits(1)
             ;
