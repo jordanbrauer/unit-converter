@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Energy;
 
 /**
- * WattHour unit data class.
+ * Watt hour unit data class.
  *
  * @version 1.0.0
  * @since 0.0.1
@@ -29,6 +29,8 @@ class WattHour extends EnergyUnit
             ->setName("watt hour")
 
             ->setSymbol("Wh")
+
+            ->setScientificSymbol("W · h")
 
             ->setUnits(3600.0054468)
             ;

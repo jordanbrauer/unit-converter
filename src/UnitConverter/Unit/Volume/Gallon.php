@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Volume;
 
 /**
- * Gallon unit data class.
+ * Gallon (U.S.) unit data class.
  *
  * @version 1.0.0
  * @since 0.0.1

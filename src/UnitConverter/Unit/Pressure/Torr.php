@@ -30,6 +30,8 @@ class Torr extends PressureUnit
 
             ->setSymbol("Torr")
 
+            ->setScientificSymbol("Torr")
+
             ->setUnits(133.322)
             ;
     }

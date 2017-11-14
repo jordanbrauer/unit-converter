@@ -28,6 +28,7 @@ class Second extends TimeUnit
         $this
             ->setName("second")
 
+            # Double-prime Notation: ′′
             ->setSymbol("s")
 
             ->setUnits(1)

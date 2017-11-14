@@ -30,6 +30,8 @@ class Millibar extends PressureUnit
 
             ->setSymbol("mbar")
 
+            ->setScientificSymbol("mbar")
+
             ->setUnits(100)
             ;
     }

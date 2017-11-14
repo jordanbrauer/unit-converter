@@ -30,6 +30,8 @@ class Atmosphere extends PressureUnit
 
             ->setSymbol("atm")
 
+            ->setScientificSymbol("atm")
+
             ->setUnits(101325)
             ;
     }

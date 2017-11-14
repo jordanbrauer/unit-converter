@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Pressure;
 
 /**
- * PoundForcePerSquareInch unit data class.
+ * Pound-force per square inch unit data class.
  *
  * @version 1.0.0
  * @since 0.0.1
@@ -29,6 +29,8 @@ class PoundForcePerSquareInch extends PressureUnit
             ->setName("pound-force per square inch")
 
             ->setSymbol("psi")
+
+            ->setScientificSymbol("lbf/in²")
 
             ->setUnits(6894.76)
             ;

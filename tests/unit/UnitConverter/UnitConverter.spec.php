@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Centimeter;
+use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
 
 /**
@@ -28,7 +28,7 @@ use UnitConverter\Unit\Length\Inch;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Unit\AbstractUnit
- * @uses UnitConverter\Unit\Length\Centimeter
+ * @uses UnitConverter\Unit\Length\Centimetre
  * @uses UnitConverter\Unit\Length\Inch
  */
 class UnitConverterSpec extends TestCase
@@ -37,7 +37,7 @@ class UnitConverterSpec extends TestCase
     {
         $this->converter = new UnitConverter(
             new UnitRegistry(array(
-                new Centimeter,
+                new Centimetre,
                 new Inch,
             )),
             new SimpleCalculator

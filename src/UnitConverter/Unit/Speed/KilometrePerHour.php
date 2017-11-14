@@ -28,7 +28,9 @@ class KilometrePerHour extends SpeedUnit
         $this
             ->setName("kilometre per hour")
 
-            ->setSymbol("kph")
+            ->setSymbol("kmph")
+
+            ->setScientificSymbol("km/h")
 
             ->setUnits(0.277778)
             ;

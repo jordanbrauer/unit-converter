@@ -28,7 +28,9 @@ class Kilopascal extends PressureUnit
         $this
             ->setName("kilopascal")
 
-            ->setSymbol("kpa")
+            ->setSymbol("kPa")
+
+            ->setScientificSymbol("kPa")
 
             ->setUnits(1000)
             ;
