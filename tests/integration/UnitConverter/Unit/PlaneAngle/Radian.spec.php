@@ -53,7 +53,7 @@ class RadianSpec extends TestCase
     /**
      * @test
      */
-    public function assert1DegreeIs57decimal2958Degrees ()
+    public function assert1RadianIs57decimal2958Degrees ()
     {
         $expected = 57.2958;
         $actual = $this->converter
