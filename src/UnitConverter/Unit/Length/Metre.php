@@ -17,7 +17,7 @@ namespace UnitConverter\Unit\Length;
 /**
  * Metre data class. All units of Length are based off of Metre.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */

@@ -17,7 +17,7 @@ namespace UnitConverter\Unit\Volume;
 /**
  * Cubic metre unit data class.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
