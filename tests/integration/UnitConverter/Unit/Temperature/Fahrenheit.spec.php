@@ -18,22 +18,31 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Temperature\Celsius;
-use UnitConverter\Unit\Temperature\Fahrenheit;
 use UnitConverter\Unit\Temperature\Kelvin;
+use UnitConverter\Unit\Temperature\Fahrenheit;
+use UnitConverter\Unit\Temperature\Celsius;
 
 /**
- * Test the default temperature units for conversion accuracy.
+ * Ensure that Fahrenheit is Fahrenheit.
+ *
+ * @covers UnitConverter\Unit\Temperature\Fahrenheit
+ * @uses UnitConverter\Unit\Temperature\Kelvin
+ * @uses UnitConverter\Unit\Temperature\Celsius
+ * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\UnitConverter
+ * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\AbstractCalculator
+ * @uses UnitConverter\Registry\UnitRegistry
  */
-class TemperatureUnitsSpec extends TestCase
+class FahrenheitSpec extends TestCase
 {
     protected function setUp ()
     {
         $this->converter = new UnitConverter(
             new UnitRegistry(array(
-                new Celsius,
                 new Fahrenheit,
                 new Kelvin,
+                new Celsius,
             )),
             new SimpleCalculator
         );
@@ -46,31 +55,14 @@ class TemperatureUnitsSpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
      */
-    public function assertZeroCelsiusEqualsTwoHundredSeventyThreeDecimalFifteen ()
-    {
-        $expected = 273.15;
-        $actual = $this->converter
-            ->convert(0)
-            ->from("c")
-            ->to("k")
-            ;
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     * @coversNothing
-     */
-    public function assertZeroFahrenheitEqualsTwoHundredFiftyFiveDecimalThreeHundredSeventyTwo ()
+    public function assert0FahrenheitIs255decimal37Kelvin ()
     {
         $expected = 255.37;
         $actual = $this->converter
             ->convert(0)
-            ->from("f")
-            ->to("k")
+            ->from("F")
+            ->to("K")
             ;
 
         $this->assertEquals($expected, $actual);
@@ -78,31 +70,14 @@ class TemperatureUnitsSpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
      */
-    public function assertZeroCelsiusEqualsThirtyTwoFahrenheit ()
-    {
-        $expected = 32;
-        $actual = $this->converter
-            ->convert(0)
-            ->from("c")
-            ->to("f")
-            ;
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     * @coversNothing
-     */
-    public function assertZeroFahrenheitEqualsNegativeSeventeenDecimalSevenThousandSevenHundredSeventyEightCelsius ()
+    public function assert0FahrenheitIsNegative17decimal7778Celsius ()
     {
         $expected = -17.7778;
         $actual = $this->converter
             ->convert(0, 4)
-            ->from("f")
-            ->to("c")
+            ->from("F")
+            ->to("C")
             ;
 
         $this->assertEquals($expected, $actual);
