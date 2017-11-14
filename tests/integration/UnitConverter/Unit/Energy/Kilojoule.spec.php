@@ -19,19 +19,27 @@ use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Energy\Joule;
-use UnitConverter\Unit\Energy\Calorie;
+use UnitConverter\Unit\Energy\Kilojoule;
 
 /**
- * Test the default volume units for conversion accuracy.
+ * Ensure that a joule is infact, a joule.
+ *
+ * @covers UnitConverter\Unit\Energy\Kilojoule
+ * @uses UnitConverter\Unit\Energy\Joule
+ * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\UnitConverter
+ * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\AbstractCalculator
+ * @uses UnitConverter\Registry\UnitRegistry
  */
-class EnergyUnitsSpec extends TestCase
+class KilojouleSpec extends TestCase
 {
     protected function setUp ()
     {
         $this->converter = new UnitConverter(
             new UnitRegistry(array(
                 new Joule,
-                new Calorie,
+                new Kilojoule,
             )),
             new SimpleCalculator
         );
@@ -44,14 +52,13 @@ class EnergyUnitsSpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
      */
-    public function assert1CalorieEquals4184Joules ()
+    public function assert1KilojouleIs1000Joules ()
     {
-        $expected = 4184;
+        $expected = 1000;
         $actual = $this->converter
             ->convert(1)
-            ->from("cal")
+            ->from("kJ")
             ->to("J")
             ;
 
