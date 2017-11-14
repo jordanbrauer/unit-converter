@@ -32,7 +32,9 @@ class Fahrenheit extends TemperatureUnit
         $this
             ->setName("fahrenheit")
 
-            ->setSymbol("f")
+            ->setSymbol("F")
+
+            ->setScientificSymbol("°F")
             ;
     }
 
@@ -40,9 +42,9 @@ class Fahrenheit extends TemperatureUnit
     {
         $val = $value ?? $this->getBase()->getUnits();
 
-        # 0 °K = 255.372 °F
+        # 0 K = 255.372 °F
         switch ($to->getSymbol()) {
-            case 'c': # °C = (°F - 32) × (5 ÷ 9)
+            case 'C': # °C = (°F - 32) × (5 ÷ 9)
                 return $calculator->round(
                     $calculator->mul(
                         $calculator->sub($val, 32),
@@ -52,7 +54,7 @@ class Fahrenheit extends TemperatureUnit
                 );
                 break;
 
-            case 'k': # °K = (°F + 459.67) × (5 ÷ 9)
+            case 'K': # K = (°F + 459.67) × (5 ÷ 9)
                 return $calculator->round(
                     $calculator->mul(
                         $calculator->add($val, 459.67),
@@ -62,7 +64,7 @@ class Fahrenheit extends TemperatureUnit
                 );
                 break;
 
-            case 'f': # °F = °F
+            case 'F': # °F = °F
                 return $val;
                 break;
 
