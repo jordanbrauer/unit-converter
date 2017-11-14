@@ -19,23 +19,27 @@ use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Volume\Litre;
-use UnitConverter\Unit\Volume\Mililitre;
-use UnitConverter\Unit\Volume\Gallon;
-use UnitConverter\Unit\Volume\Pint;
+use UnitConverter\Unit\Volume\Millilitre;
 
 /**
- * Test the default volume units for conversion accuracy.
+ * Ensure that a millilitre is a millilitre.
+ *
+ * @covers UnitConverter\Unit\Volume\Millilitre
+ * @uses UnitConverter\Unit\Volume\Litre
+ * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\UnitConverter
+ * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\AbstractCalculator
+ * @uses UnitConverter\Registry\UnitRegistry
  */
-class VolumeUnitsSpec extends TestCase
+class MillilitreSpec extends TestCase
 {
     protected function setUp ()
     {
         $this->converter = new UnitConverter(
             new UnitRegistry(array(
                 new Litre,
-                new Mililitre,
-                new Gallon,
-                new Pint,
+                new Millilitre,
             )),
             new SimpleCalculator
         );
@@ -48,15 +52,14 @@ class VolumeUnitsSpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
      */
-    public function assert ()
+    public function assert1MillilitreIs0decimal001Litres ()
     {
-        $expected = 4.73176;
+        $expected = 0.001;
         $actual = $this->converter
-            ->convert(10, 5)
-            ->from("pt")
-            ->to("l")
+            ->convert(1, 3)
+            ->from("mL")
+            ->to("L")
             ;
 
         $this->assertEquals($expected, $actual);
