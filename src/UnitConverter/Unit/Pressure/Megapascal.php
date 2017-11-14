@@ -28,7 +28,9 @@ class Megapascal extends PressureUnit
         $this
             ->setName("megapascal")
 
-            ->setSymbol("mpa")
+            ->setSymbol("mPa")
+
+            ->setScientificSymbol("mPa")
 
             ->setUnits(1000000)
             ;

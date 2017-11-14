@@ -30,6 +30,8 @@ class Bar extends PressureUnit
 
             ->setSymbol("bar")
 
+            ->setScientificSymbol("bar")
+
             ->setUnits(100000)
             ;
     }
