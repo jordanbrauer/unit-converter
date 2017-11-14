@@ -15,22 +15,22 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Mass;
 
 /**
- * USShortTon data class.
+ * Short ton data class. Also known as 'net ton'.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.3.9
  * @author Teun Willems
  */
-class USShortTon extends MassUnit
+class ShortTon extends MassUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("US Short Ton")
+            ->setName("short ton")
 
-            ->setSymbol("ust")
+            ->setSymbol("ton")
 
-            ->setUnits(2.204623)
+            ->setUnits(907.1847)
             ;
     }
 }
