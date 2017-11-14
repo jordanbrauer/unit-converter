@@ -119,7 +119,7 @@ abstract class AbstractUnit implements UnitInterface
 
     public function getScientificSymbol (): string
     {
-        return $this->scientificSymbol;
+        return $this->scientificSymbol ?? $this->getSymbol();
     }
 
     public function setScientificSymbol (string $scientificSymbol): UnitInterface
