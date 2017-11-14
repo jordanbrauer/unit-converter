@@ -30,6 +30,8 @@ class MetrePerSecond extends SpeedUnit
 
             ->setSymbol("mps")
 
+            ->setScientificSymbol("m/s")
+
             ->setUnits(1)
             ;
     }
