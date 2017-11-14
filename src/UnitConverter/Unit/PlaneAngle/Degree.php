@@ -30,6 +30,8 @@ class Degree extends PlaneAngleUnit
 
             ->setSymbol("deg")
 
+            ->setScientificSymbol("°")
+
             ->setUnits(1)
             ;
     }
