@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.5.1](https://github.com/jordanbrauer/unit-converter/tree/v0.5.1) (2017-11-14)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.0...v0.5.1)
+
+**Closed issues:**
+
+- Add missing unit of measurement integration tests  [\#59](https://github.com/jordanbrauer/unit-converter/issues/59)
+
 ## [v0.5.0](https://github.com/jordanbrauer/unit-converter/tree/v0.5.0) (2017-11-13)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.4.1...v0.5.0)
 
