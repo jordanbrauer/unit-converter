@@ -15,18 +15,18 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Mass;
 
 /**
- * MetricTonne data class.
+ * Tonne data class.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class MetricTonne extends MassUnit
+class Tonne extends MassUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("metric tonne")
+            ->setName("tonne")
 
             ->setSymbol("t")
 
