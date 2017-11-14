@@ -15,20 +15,22 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Speed;
 
 /**
- * Miles per hour unit data class.
+ * Mile per hour unit data class.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class MilesPerHour extends SpeedUnit
+class MilePerHour extends SpeedUnit
 {
     protected function configure (): void
     {
         $this
-            ->setName("miles per hour")
+            ->setName("mile per hour")
 
-            ->setSymbol("mph")
+            ->setSymbol("miph")
+
+            ->setScientificSymbol("mi/h")
 
             ->setUnits(0.44704)
             ;
