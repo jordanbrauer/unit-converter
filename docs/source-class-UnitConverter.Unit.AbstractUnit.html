@@ -178,7 +178,7 @@
 </span><span class="l" id="line-119">
 </span><span class="l" id="line-120">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getScientificSymbol (): string
 </span><span class="l" id="line-121">    {
-</span><span class="l" id="line-122">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;scientificSymbol;
+</span><span class="l" id="line-122">        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;scientificSymbol ?? <span class="php-var">$this</span>-&gt;getSymbol();
 </span><span class="l" id="line-123">    }
 </span><span class="l" id="line-124">
 </span><span class="l" id="line-125">    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setScientificSymbol (string <span class="php-var">$scientificSymbol</span>): UnitInterface

@@ -15,7 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter\Unit\Energy;
 
 /**
- * FootPound unit data class.
+ * Foot pound-force unit data class.
  *
  * @version 1.0.0
  * @since 0.0.1
@@ -26,9 +26,11 @@ class FootPound extends EnergyUnit
     protected function configure (): void
     {
         $this
-            ->setName("foot pound")
+            ->setName("foot pound-force")
 
-            ->setSymbol("ftlb")
+            ->setSymbol("ft lbf")
+
+            ->setScientificSymbol("ft · lbf")
 
             ->setUnits(1.35582)
             ;

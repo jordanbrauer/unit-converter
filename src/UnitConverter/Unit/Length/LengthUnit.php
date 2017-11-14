@@ -22,7 +22,7 @@ use UnitConverter\Unit\AbstractUnit;
  * extend this class and implement their name, symbol and units;
  * overriding the $unitOf and $base properties only if necessary.
  *
- * @version 1.0.0
+ * @version 1.0.1
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
@@ -30,5 +30,5 @@ abstract class LengthUnit extends AbstractUnit
 {
     protected $unitOf = Measure::LENGTH;
 
-    protected $base = Meter::class;
+    protected $base = Metre::class;
 }

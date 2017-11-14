@@ -58,12 +58,12 @@ Using the component is very easy, especially if you have used the Symfony framew
 use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Centimeter;
+use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
 
 # An array of measurements being registered to the converter
 $units = array(
-  new Centimeter,
+  new Centimetre,
   new Inch,
 );
 

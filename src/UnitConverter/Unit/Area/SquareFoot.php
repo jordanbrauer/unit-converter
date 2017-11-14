@@ -30,6 +30,8 @@ class SquareFoot extends AreaUnit
 
             ->setSymbol("ft2")
 
+            ->setScientificSymbol("ft²")
+
             ->setUnits(0.092903)
             ;
     }

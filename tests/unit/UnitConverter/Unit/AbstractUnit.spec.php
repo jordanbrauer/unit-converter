@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;;
 use UnitConverter\Unit\Length\Inch;
-use UnitConverter\Unit\Length\Meter;
+use UnitConverter\Unit\Length\Metre;
 
 /**
  * @coversDefaultClass UnitConverter\Unit\AbstractUnit
@@ -33,8 +33,9 @@ class AbstractUnitSpec extends TestCase
         {
             protected $name = "saiyan power";
             protected $symbol = "sP";
+            protected $scientificSymbol = "Ω·m";
             protected $unitOf = Measure::LENGTH;
-            protected $base = Meter::class;
+            protected $base = Metre::class;
             protected $units = 9001;
         };
     }
@@ -69,6 +70,20 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getSymbol();
 
         $this->assertEquals("tS", $actual);
+        $this->assertInternalType("string", $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::setScientificSymbol
+     * @covers ::getScientificSymbol
+     */
+    public function assertGetScientificSymbolSetScientificSymbolMethodsCanReadAndWriteToUnitScientificSymbol ()
+    {
+        $this->unit->setScientificSymbol("ft³");
+        $actual = $this->unit->getScientificSymbol();
+
+        $this->assertEquals("ft³", $actual);
         $this->assertInternalType("string", $actual);
     }
 

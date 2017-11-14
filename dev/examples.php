@@ -10,14 +10,14 @@ use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\AbstractUnit;
-use UnitConverter\Unit\Length\Centimeter;
+use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
 
 # Configuring a New Converter
 # ===========================
 
 $units = array(
-  new Centimeter,
+  new Centimetre,
   new Inch,
 );
 

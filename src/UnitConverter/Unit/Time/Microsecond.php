@@ -17,7 +17,7 @@ namespace UnitConverter\Unit\Time;
 /**
  * Microsecond unit data class.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.3.9
  * @author Teun Willems
  */
@@ -28,7 +28,9 @@ class Microsecond extends TimeUnit
         $this
             ->setName("microsecond")
 
-            ->setSymbol("μs")
+            ->setSymbol("us")
+
+            ->setScientificSymbol("µs")
 
             ->setUnits(0.000001)
             ;

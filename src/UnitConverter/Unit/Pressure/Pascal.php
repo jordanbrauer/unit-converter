@@ -28,7 +28,9 @@ class Pascal extends PressureUnit
         $this
             ->setName("pascal")
 
-            ->setSymbol("pa")
+            ->setSymbol("Pa")
+
+            ->setScientificSymbol("Pa")
 
             ->setUnits(1)
             ;

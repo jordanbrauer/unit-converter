@@ -32,7 +32,9 @@ class Celsius extends TemperatureUnit
         $this
             ->setName("celsius")
 
-            ->setSymbol("c")
+            ->setSymbol("C")
+
+            ->setScientificSymbol("°C")
             ;
     }
 
@@ -40,9 +42,9 @@ class Celsius extends TemperatureUnit
     {
         $val = $value ?? $this->getBasetUnits();
 
-        # 0 °K = 273.15 °C
+        # 0 K = 273.15 °C
         switch ($to->getSymbol()) {
-            case 'f': # °F = (°C × (9 ÷ 5)) + 32
+            case 'F': # °F = (°C × (9 ÷ 5)) + 32
                 return $calculator->round(
                     $calculator->add(
                         $calculator->mul($val, $calculator->div(9, 5)),
@@ -52,14 +54,14 @@ class Celsius extends TemperatureUnit
                 );
                 break;
 
-            case 'k': # °K = °C + 273.15
+            case 'K': # K = °C + 273.15
                 return $calculator->round(
                     $calculator->add($val, 273.15),
                     $precision
                 );
                 break;
 
-            case 'c': # °C = °C
+            case 'C': # °C = °C
                 return $val;
                 break;
 

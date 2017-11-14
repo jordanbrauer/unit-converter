@@ -28,7 +28,9 @@ class Kelvin extends TemperatureUnit
         $this
             ->setName("kelvin")
 
-            ->setSymbol("k")
+            ->setSymbol("K")
+
+            ->setScientificSymbol("K")
 
             ->setUnits(1)
             ;

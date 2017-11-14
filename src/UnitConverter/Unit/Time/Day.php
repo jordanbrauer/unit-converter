@@ -17,7 +17,7 @@ namespace UnitConverter\Unit\Time;
 /**
  * Day unit data class.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.3.9
  * @author Teun Willems
  */
@@ -28,7 +28,7 @@ class Day extends TimeUnit
         $this
             ->setName("day")
 
-            ->setSymbol("day")
+            ->setSymbol("d")
 
             ->setUnits(86400)
             ;

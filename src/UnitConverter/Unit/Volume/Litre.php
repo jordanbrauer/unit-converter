@@ -17,7 +17,7 @@ namespace UnitConverter\Unit\Volume;
 /**
  * Litre unit data class.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
@@ -28,7 +28,7 @@ class Litre extends VolumeUnit
         $this
             ->setName("litre")
 
-            ->setSymbol("l")
+            ->setSymbol("L")
 
             ->setUnits(1)
             ;

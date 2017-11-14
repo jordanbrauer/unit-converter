@@ -18,26 +18,26 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\UnitInterface;
 use UnitConverter\Unit\AbstractUnit;
-use UnitConverter\Unit\Length\Centimeter;
+use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
-use UnitConverter\Unit\Length\Meter;
-use UnitConverter\Unit\Length\Milimeter;
+use UnitConverter\Unit\Length\Metre;
+use UnitConverter\Unit\Length\Millimetre;
 
 /**
  * @coversDefaultClass UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\Inch
- * @uses UnitConverter\Unit\Length\Centimeter
- * @uses UnitConverter\Unit\Length\Meter
- * @uses UnitConverter\Unit\Length\Milimeter
+ * @uses UnitConverter\Unit\Length\Centimetre
+ * @uses UnitConverter\Unit\Length\Metre
+ * @uses UnitConverter\Unit\Length\Millimetre
  */
 class UnitRegistrySpec extends TestCase
 {
     protected function setUp ()
     {
         $this->registry = new UnitRegistry(array(
-            new Centimeter,
+            new Centimetre,
             new Inch,
         ));
     }
@@ -173,7 +173,7 @@ class UnitRegistrySpec extends TestCase
                     ;
             }
         });
-        $this->registry->registerUnits([new Meter, new Milimeter]);
+        $this->registry->registerUnits([new Metre, new Millimetre]);
 
         $this->assertTrue($this->registry->isUnitRegistered("sP"));
         $this->assertTrue($this->registry->isUnitRegistered("m"));
