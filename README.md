@@ -1,13 +1,16 @@
 # unit-converter
 
-[![Latest Stable Version](https://poser.pugx.org/jordanbrauer/unit-converter/version)](https://packagist.org/packages/jordanbrauer/unit-converter)
-[![Latest Unstable Version](https://poser.pugx.org/jordanbrauer/unit-converter/v/unstable)](//packagist.org/packages/jordanbrauer/unit-converter)
-[![Build Status](https://travis-ci.org/jordanbrauer/unit-converter.svg?branch=master)](https://travis-ci.org/jordanbrauer/unit-converter)
-[![Code Climate](https://img.shields.io/codeclimate/coverage/github/jordanbrauer/unit-converter.svg)]()
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/jordanbrauer/unit-converter.svg)]()
-[![composer.lock available](https://poser.pugx.org/jordanbrauer/unit-converter/composerlock)](https://packagist.org/packages/jordanbrauer/unit-converter)
-[![Total Downloads](https://poser.pugx.org/jordanbrauer/unit-converter/downloads)](https://packagist.org/packages/jordanbrauer/unit-converter)
-[![License](https://poser.pugx.org/jordanbrauer/unit-converter/license)](https://packagist.org/packages/jordanbrauer/unit-converter)
+[![Latest Stable Version](https://poser.pugx.org/jordanbrauer/unit-converter/version?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
+[![Latest Unstable Version](https://poser.pugx.org/jordanbrauer/unit-converter/v/unstable?format=flat-square)](//packagist.org/packages/jordanbrauer/unit-converter)
+[![Travis](https://img.shields.io/travis/jordanbrauer/unit-converter.svg?style=flat-square)](https://travis-ci.org/jordanbrauer/unit-converter)
+[![Code Coverage](https://img.shields.io/codeclimate/coverage/github/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
+[![Code Maintainability](https://img.shields.io/codeclimate/maintainability/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
+[![Maintenance](https://img.shields.io/maintenance/yes/2017.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
+
+[![Packagist](https://img.shields.io/packagist/dt/jordanbrauer/unit-converter.svg?style=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/unit-converter.svg?style=flat-square)]()
+[![composer.lock available](https://poser.pugx.org/jordanbrauer/unit-converter/composerlock?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
+[![license](https://img.shields.io/github/license/jordanbrauer/unit-converter.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter/blob/develop/LICENSE)
 
 Convert all kinds of standard units of measurement from one to another with this highly customizable, easy to use, lightweight PHP component.
 
