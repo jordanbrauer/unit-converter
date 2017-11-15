@@ -19,6 +19,9 @@
     "coverage": "phpunit --coverage-text --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never"
   },
+  "require": {
+    "php": "^7.1"
+  },
   "require-dev": {
     "apigen/apigen": "dev-master",
     "phpunit/phpunit": "^6.3",
