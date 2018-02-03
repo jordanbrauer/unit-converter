@@ -152,7 +152,7 @@ class UnitConverter implements UnitConverterInterface
             throw new MissingCalculatorException("No calculator was found to perform mathematical operations with.");
 
         # Attempt a self conversion if one exists (e.g., temperatures)
-        $selConversion = $from->convert($calculator, $value, $to, $precision);
+        $selfConversion = $from->convert($calculator, $value, $to, $precision);
         if ($selfConversion) return $selfConversion;
 
         $fromUnits = $from->getUnits();
@@ -261,5 +261,40 @@ class UnitConverter implements UnitConverterInterface
         });
 
         return $units;
+    }
+
+    /**
+     * Print debug output for the current calculation.
+     *
+     * @throws ErrorException If dev dependencies are missing.
+     * @return $this
+     */
+    public function debug (): UnitConverterInterface
+    {
+        $dumper = "var_dump";
+        if (function_exists("dump")) $dumper = "dump";
+
+        # debug output
+        echo PHP_EOL;
+        echo "Debug out for caluclation:";
+        echo PHP_EOL;
+        echo "--------------------------";
+        echo PHP_EOL;
+        $dumper([
+            "precision" => null,
+            "rounding_mode" => null,
+            "units" => [
+                "value" => null,
+                "from" => null,
+                "to" => null,
+            ],
+            "products" => [
+                "mul" => null,
+                "div" => null,
+                "result" => null,
+            ],
+        ]);
+
+        return $this;
     }
 }
