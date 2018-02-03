@@ -15,6 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter;
 
 use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Exception\MissingUnitRegistryException;
 use UnitConverter\Exception\MissingCalculatorException;
 use UnitConverter\Registry\UnitRegistryInterface;
@@ -147,22 +148,32 @@ class UnitConverter implements UnitConverterInterface
         UnitInterface $to,
         int $precision = null
     ) {
-        $selfConversion = $from->convert($calculator, $value, $to, $precision);
-
-        if ($selfConversion)
-            return $selfConversion;
-
         if ($this->calculatorExists() === false)
             throw new MissingCalculatorException("No calculator was found to perform mathematical operations with.");
 
+        # Attempt a self conversion if one exists (e.g., temperatures)
+        $selConversion = $from->convert($calculator, $value, $to, $precision);
+        if ($selfConversion) return $selfConversion;
+
+        $fromUnits = $from->getUnits();
+        $toUnits = $to->getUnits();
+
+        # Cast & extract our units accordingly if a BinaryCalculator is present.
+        # NOTE: This overwrites the $fromUnits and $toUnits variables decalred above.
+        if (BinaryCalculator::class === $this->whichCalculator())
+            extract($this->castUnitsTo("string"));
+
+        # Perform the standard unit conversion calculation.
+        $result = $calculator->mul($value, $fromUnits);
+        $result = $calculator->div($result, $toUnits);
+        $result = $calculator->round($result, $precision);
+
+        # Cast our result accordingly if a BinaryCalculator is present.
+        if (BinaryCalculator::class === $this->whichCalculator())
+            $result = (string) $result;
+
         # If the unit does not implement the calculate() method, convert it manually.
-        return $calculator->round(
-            $calculator->div(
-                $calculator->mul($value, $from->getUnits()),
-                $to->getUnits()
-            ),
-            $precision
-        );
+        return $result;
     }
 
     /**
