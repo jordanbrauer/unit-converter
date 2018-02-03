@@ -225,4 +225,30 @@ class UnitConverter implements UnitConverterInterface
 
         return null;
     }
+
+    /**
+     * Returns an array containing the "from" and "to" unit values casted to the specified type.
+     *
+     * @throws ErrorException When an unsupported type is specified, throws exception.
+     *
+     * @param string $type The variable type to be casted. Can be one of, "int", "float", or "string".
+     * @return array
+     */
+    protected function castUnitsTo (string $type): array
+    {
+        $types = ["int", "float", "string"];
+        if (!in_array($type, $types))
+            throw new \ErrorException("Cannot cast units to {$type}. Use one of, ".implode(", ", $types));
+
+        $units = [
+            "fromUnits" => $this->from->getUnits(),
+            "toUnits" => $this->to->getUnits(),
+        ];
+
+        array_walk($units, function (&$value, $unit) use ($type) {
+            settype($value, $type);
+        });
+
+        return $units;
+    }
 }
