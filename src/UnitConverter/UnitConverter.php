@@ -211,4 +211,18 @@ class UnitConverter implements UnitConverterInterface
 
         return false;
     }
+
+    /**
+     * Determine which calculator is currently being used
+     *
+     * @internal
+     * @return null|string
+     */
+    protected function whichCalculator ()
+    {
+        if ($this->calculatorExists())
+            return get_class($this->calculator);
+
+        return null;
+    }
 }
