@@ -127,7 +127,7 @@ if you would like to implement your own custom converter.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#___construct">#</a>
-            <code><a href="source-class-UnitConverter.UnitConverter.html#69-73">__construct</a>( <span> <a href="interface-UnitConverter.Registry.UnitRegistryInterface.html">UnitConverter\Registry\UnitRegistryInterface</a> <span class="property-name">$registry</span> </span>, <span> <a href="interface-UnitConverter.Calculator.CalculatorInterface.html">UnitConverter\Calculator\CalculatorInterface</a> <span class="property-name">$calculator</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.UnitConverter.html#70-74">__construct</a>( <span> <a href="interface-UnitConverter.Registry.UnitRegistryInterface.html">UnitConverter\Registry\UnitRegistryInterface</a> <span class="property-name">$registry</span> </span>, <span> <a href="interface-UnitConverter.Calculator.CalculatorInterface.html">UnitConverter\Calculator\CalculatorInterface</a> <span class="property-name">$calculator</span> </span> )</code>
 
             <div class="description">
                 Public constructor function for the UnitConverter class.
@@ -159,7 +159,7 @@ if you would like to implement your own custom converter.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setRegistry">#</a>
-            <code><a href="source-class-UnitConverter.UnitConverter.html#82-86">setRegistry</a>( <span> <a href="interface-UnitConverter.Registry.UnitRegistryInterface.html">UnitConverter\Registry\UnitRegistryInterface</a> <span class="property-name">$registry</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.UnitConverter.html#83-87">setRegistry</a>( <span> <a href="interface-UnitConverter.Registry.UnitRegistryInterface.html">UnitConverter\Registry\UnitRegistryInterface</a> <span class="property-name">$registry</span> </span> )</code>
 
             <div class="description">
                 Set the unit converter registry for storing units of measure to convert values with.
@@ -195,7 +195,7 @@ if you would like to implement your own custom converter.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_setCalculator">#</a>
-            <code><a href="source-class-UnitConverter.UnitConverter.html#95-99">setCalculator</a>( <span> <a href="interface-UnitConverter.Calculator.CalculatorInterface.html">UnitConverter\Calculator\CalculatorInterface</a> <span class="property-name">$calculator</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.UnitConverter.html#96-100">setCalculator</a>( <span> <a href="interface-UnitConverter.Calculator.CalculatorInterface.html">UnitConverter\Calculator\CalculatorInterface</a> <span class="property-name">$calculator</span> </span> )</code>
 
             <div class="description">
                 Set the unit converter calculator to perform mathematical operations with.
@@ -231,7 +231,7 @@ if you would like to implement your own custom converter.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_convert">#</a>
-            <code><a href="source-class-UnitConverter.UnitConverter.html#101-106">convert</a>( <span> <span class="property-name">$value</span> </span>, <span> int <span class="property-name">$precision</span> = <span class="php-keyword1">NULL</span></span> )</code>
+            <code><a href="source-class-UnitConverter.UnitConverter.html#102-107">convert</a>( <span> <span class="property-name">$value</span> </span>, <span> int <span class="property-name">$precision</span> = <span class="php-keyword1">NULL</span></span> )</code>
 
             <div class="description">
                 
@@ -271,7 +271,7 @@ if you would like to implement your own custom converter.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_from">#</a>
-            <code><a href="source-class-UnitConverter.UnitConverter.html#108-112">from</a>( <span> string <span class="property-name">$unit</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.UnitConverter.html#109-113">from</a>( <span> string <span class="property-name">$unit</span> </span> )</code>
 
             <div class="description">
                 
@@ -311,7 +311,7 @@ if you would like to implement your own custom converter.
     <td class="name">
         <div>
             <a class="anchor pull-right" href="#_to">#</a>
-            <code><a href="source-class-UnitConverter.UnitConverter.html#114-124">to</a>( <span> string <span class="property-name">$unit</span> </span> )</code>
+            <code><a href="source-class-UnitConverter.UnitConverter.html#115-125">to</a>( <span> string <span class="property-name">$unit</span> </span> )</code>
 
             <div class="description">
                 
@@ -335,6 +335,38 @@ if you would like to implement your own custom converter.
         </div>
     </td>
 </tr>
+
+
+
+<tr id="_castUnitsTo">
+
+    <td class="attributes col-md-1">
+        <code class="keyword">
+                 protected 
+                
+                
+        </code>
+    </td>
+
+    <td class="name">
+        <div>
+            <a class="anchor pull-right" href="#_castUnitsTo">#</a>
+            <code><a href="source-class-UnitConverter.UnitConverter.html#248-264">castUnitsTo</a>( <span> string <span class="property-name">$type</span> </span> )</code>
+
+            <div class="description">
+                Returns an array containing the "from" and "to" unit values casted to the specified type.
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </td>
+</tr>
         </table>
 
 
@@ -354,7 +386,7 @@ if you would like to implement your own custom converter.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.UnitConverter.html#36" class="property-name">$registry</a>
+            <a href="source-class-UnitConverter.UnitConverter.html#37" class="property-name">$registry</a>
         </code>
         <div class="description">
             
@@ -382,7 +414,7 @@ if you would like to implement your own custom converter.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.UnitConverter.html#41" class="property-name">$calculator</a>
+            <a href="source-class-UnitConverter.UnitConverter.html#42" class="property-name">$calculator</a>
         </code>
         <div class="description">
             
@@ -410,7 +442,7 @@ if you would like to implement your own custom converter.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.UnitConverter.html#46" class="property-name">$convert</a>
+            <a href="source-class-UnitConverter.UnitConverter.html#47" class="property-name">$convert</a>
         </code>
         <div class="description">
             
@@ -438,7 +470,7 @@ if you would like to implement your own custom converter.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.UnitConverter.html#51" class="property-name">$from</a>
+            <a href="source-class-UnitConverter.UnitConverter.html#52" class="property-name">$from</a>
         </code>
         <div class="description">
             
@@ -466,7 +498,7 @@ if you would like to implement your own custom converter.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.UnitConverter.html#56" class="property-name">$to</a>
+            <a href="source-class-UnitConverter.UnitConverter.html#57" class="property-name">$to</a>
         </code>
         <div class="description">
             
@@ -494,7 +526,7 @@ if you would like to implement your own custom converter.
 
     <td class="name">
         <code>
-            <a href="source-class-UnitConverter.UnitConverter.html#61" class="property-name">$precision</a>
+            <a href="source-class-UnitConverter.UnitConverter.html#62" class="property-name">$precision</a>
         </code>
         <div class="description">
             
