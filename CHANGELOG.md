@@ -1,5 +1,19 @@
 # Change Log
 
+## [v0.6.0](https://github.com/jordanbrauer/unit-converter/tree/v0.6.0) (2018-02-04)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.1...v0.6.0)
+
+**Closed issues:**
+
+- Need a New Pull Request template [\#62](https://github.com/jordanbrauer/unit-converter/issues/62)
+- Need a New Issue template [\#61](https://github.com/jordanbrauer/unit-converter/issues/61)
+
+**Merged pull requests:**
+
+- Release 0.6.0 [\#66](https://github.com/jordanbrauer/unit-converter/pull/66) ([jordanbrauer](https://github.com/jordanbrauer))
+- Fix binary calc [\#64](https://github.com/jordanbrauer/unit-converter/pull/64) ([jordanbrauer](https://github.com/jordanbrauer))
+- GitHub templates [\#63](https://github.com/jordanbrauer/unit-converter/pull/63) ([jordanbrauer](https://github.com/jordanbrauer))
+
 ## [v0.5.1](https://github.com/jordanbrauer/unit-converter/tree/v0.5.1) (2017-11-14)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.0...v0.5.1)
 
