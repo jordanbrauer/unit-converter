@@ -15,6 +15,7 @@ declare (strict_types = 1);
 namespace UnitConverter;
 
 use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Exception\MissingUnitRegistryException;
 use UnitConverter\Exception\MissingCalculatorException;
 use UnitConverter\Registry\UnitRegistryInterface;
@@ -147,22 +148,32 @@ class UnitConverter implements UnitConverterInterface
         UnitInterface $to,
         int $precision = null
     ) {
-        $selfConversion = $from->convert($calculator, $value, $to, $precision);
-
-        if ($selfConversion)
-            return $selfConversion;
-
         if ($this->calculatorExists() === false)
             throw new MissingCalculatorException("No calculator was found to perform mathematical operations with.");
 
-        # If the unit does not implement the calculate() method, convert it manually.
-        return $calculator->round(
-            $calculator->div(
-                $calculator->mul($value, $from->getUnits()),
-                $to->getUnits()
-            ),
-            $precision
-        );
+        # Are we using a BinaryCalculator?
+        $isBinary = (BinaryCalculator::class === $this->whichCalculator());
+
+        # If a BinaryCalculator is present in addition to a runtime precision,
+        # reset the precision. See bug ticket #54 for more details.
+        if ($isBinary and $precision) $calculator->setPrecision($precision);
+
+        # Attempt a self conversion and return it if one exists (e.g., temperatures).
+        $selfConversion = $from->convert($calculator, $value, $to, $precision);
+        if ($selfConversion) return $selfConversion;
+
+        # Fetch our unit values. Additionaly, cast & extract them accordingly
+        # if a BinaryCalculator is present.
+        $fromUnits = $from->getUnits();
+        $toUnits = $to->getUnits();
+        if ($isBinary) extract($this->castUnitsTo("string"));
+
+        # Perform the standard unit conversion calculation.
+        $result = $calculator->mul($value, $fromUnits);
+        $result = $calculator->div($result, $toUnits);
+        $result = $calculator->round($result, $precision);
+
+        return $result;
     }
 
     /**
@@ -210,5 +221,45 @@ class UnitConverter implements UnitConverterInterface
             return true;
 
         return false;
+    }
+
+    /**
+     * Determine which calculator is currently being used
+     *
+     * @internal
+     * @return null|string
+     */
+    protected function whichCalculator ()
+    {
+        if ($this->calculatorExists())
+            return get_class($this->calculator);
+
+        return null;
+    }
+
+    /**
+     * Returns an array containing the "from" and "to" unit values casted to the specified type.
+     *
+     * @throws ErrorException When an unsupported type is specified, throws exception.
+     *
+     * @param string $type The variable type to be casted. Can be one of, "int", "float", or "string".
+     * @return array
+     */
+    protected function castUnitsTo (string $type): array
+    {
+        $types = ["int", "float", "string"];
+        if (!in_array($type, $types))
+            throw new \ErrorException("Cannot cast units to {$type}. Use one of, ".implode(", ", $types));
+
+        $units = [
+            "fromUnits" => $this->from->getUnits(),
+            "toUnits" => $this->to->getUnits(),
+        ];
+
+        array_walk($units, function (&$value, $unit) use ($type) {
+            settype($value, $type);
+        });
+
+        return $units;
     }
 }
