@@ -99,7 +99,7 @@ abstract class AbstractUnit implements UnitInterface
         return $this;
     }
 
-    public function getName (): string
+    public function getName (): ?string
     {
         return $this->name;
     }
@@ -110,12 +110,12 @@ abstract class AbstractUnit implements UnitInterface
         return $this;
     }
 
-    public function getSymbol (): string
+    public function getSymbol (): ?string
     {
         return $this->symbol;
     }
 
-    public function getScientificSymbol (): string
+    public function getScientificSymbol (): ?string
     {
         return $this->scientificSymbol ?? $this->getSymbol();
     }
@@ -132,7 +132,7 @@ abstract class AbstractUnit implements UnitInterface
         return $this;
     }
 
-    public function getUnitOf (): string
+    public function getUnitOf (): ?string
     {
         return $this->unitOf;
     }
@@ -143,7 +143,7 @@ abstract class AbstractUnit implements UnitInterface
         return $this;
     }
 
-    public function getBase (): UnitInterface
+    public function getBase (): ?UnitInterface
     {
         return new $this->base;
     }
@@ -154,12 +154,12 @@ abstract class AbstractUnit implements UnitInterface
         return $this;
     }
 
-    public function getUnits (): float
+    public function getUnits (): ?float
     {
         return $this->units;
     }
 
-    public function getBaseUnits (): float
+    public function getBaseUnits (): ?float
     {
         return $this->getBase()->getUnits();
     }
