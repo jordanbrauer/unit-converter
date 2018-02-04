@@ -18,6 +18,8 @@ namespace UnitConverter\Calculator;
  * A concrete calculator calss that uses the bcmath library
  * to perform mathematical operations.
  *
+ * @HACK https://github.com/jordanbrauer/unit-converter/issues/54
+ *
  * @link http://php.net/manual/en/book.bc.php
  *
  * @version 1.0.0
@@ -28,9 +30,19 @@ class BinaryCalculator extends AbstractCalculator
 {
     public function setPrecision(int $precision): CalculatorInterface
     {
+        $precision = ($precision * 2); // HACK: #54
         parent::setPrecision($precision);
         bcscale($precision);
         return $this;
+    }
+
+    /**
+     * Overwrites the default implementation for rounding. Simply
+     * casts the result to a string.
+     */
+    public function round ($value, int $precision = null): string
+    {
+        return (string) parent::round($value, $precision);
     }
 
     public function add ($leftOperand, $rightOperand)
