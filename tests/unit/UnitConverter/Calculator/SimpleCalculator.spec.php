@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -10,13 +10,10 @@
  * file that was distributed with this source code.
  */
 
-declare (strict_types = 1);
-
 namespace UnitConverter\Tests\Unit\Calculator;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
-
 
 /**
  * @coversDefaultClass UnitConverter\Calculator\SimpleCalculator
