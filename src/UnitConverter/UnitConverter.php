@@ -151,28 +151,28 @@ class UnitConverter implements UnitConverterInterface
         if ($this->calculatorExists() === false)
             throw new MissingCalculatorException("No calculator was found to perform mathematical operations with.");
 
-        # Attempt a self conversion if one exists (e.g., temperatures)
+        # Are we using a BinaryCalculator?
+        $isBinary = (BinaryCalculator::class === $this->whichCalculator());
+
+        # If a BinaryCalculator is present in addition to a runtime precision,
+        # reset the precision. See bug ticket #54 for more details.
+        if ($isBinary and $precision) $calculator->setPrecision($precision);
+
+        # Attempt a self conversion and return it if one exists (e.g., temperatures).
         $selfConversion = $from->convert($calculator, $value, $to, $precision);
         if ($selfConversion) return $selfConversion;
 
+        # Fetch our unit values. Additionaly, cast & extract them accordingly
+        # if a BinaryCalculator is present.
         $fromUnits = $from->getUnits();
         $toUnits = $to->getUnits();
-
-        # Cast & extract our units accordingly if a BinaryCalculator is present.
-        # NOTE: This overwrites the $fromUnits and $toUnits variables decalred above.
-        if (BinaryCalculator::class === $this->whichCalculator())
-            extract($this->castUnitsTo("string"));
+        if ($isBinary) extract($this->castUnitsTo("string"));
 
         # Perform the standard unit conversion calculation.
         $result = $calculator->mul($value, $fromUnits);
         $result = $calculator->div($result, $toUnits);
         $result = $calculator->round($result, $precision);
 
-        # Cast our result accordingly if a BinaryCalculator is present.
-        if (BinaryCalculator::class === $this->whichCalculator())
-            $result = (string) $result;
-
-        # If the unit does not implement the calculate() method, convert it manually.
         return $result;
     }
 
