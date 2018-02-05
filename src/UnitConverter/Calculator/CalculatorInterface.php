@@ -46,14 +46,14 @@ interface CalculatorInterface
      *
      * @return int
      */
-    public function getPrecision (): int;
+    public function getPrecision (): ?int;
 
     /**
      * Return the current rounding mode
      *
      * @return int
      */
-    public function getRoundingMode (): int;
+    public function getRoundingMode (): ?int;
 
     /**
      * Add two arbitrary precision numbers
