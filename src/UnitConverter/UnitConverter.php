@@ -227,7 +227,7 @@ class UnitConverter implements UnitConverterInterface
      * @internal
      * @return null|string
      */
-    protected function whichCalculator ()
+    protected function whichCalculator (): ?string
     {
         if ($this->calculatorExists())
             return get_class($this->calculator);

@@ -89,12 +89,12 @@ abstract class AbstractCalculator implements CalculatorInterface
         return $this;
     }
 
-    public function getPrecision (): int
+    public function getPrecision (): ?int
     {
         return $this->precision;
     }
 
-    public function getRoundingMode (): int
+    public function getRoundingMode (): ?int
     {
         return $this->roundingMode;
     }
