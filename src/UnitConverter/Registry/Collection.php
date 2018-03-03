@@ -33,6 +33,20 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     }
 
     /**
+     * Run a map over each of the items.
+     *
+     * @param callable $callback
+     * @return static
+     */
+    public function map (callable $callback): Collection
+    {
+        $offsets = array_keys($this->store);
+        $values = array_map($callback, $this->store, $offsets);
+
+        return new static(array_combine($offsets, $values));
+    }
+
+    /**
      * Get an item at a given offset.
      *
      * @param mixed $offset

@@ -131,4 +131,28 @@ class CollectionSpec extends TestCase
         $json = '{"one":[0.5,0.5],"two":[1,1],"three":[1.5,1.5]}';
         $this->assertJsonStringEqualsJsonString($json, $encoded);
     }
+
+    /**
+     * @test
+     * @covers ::map
+     */
+    public function assertDataCanBeMapped ()
+    {
+        $strData = ['1', '2', '3'];
+        $c = new Collection($strData);
+
+        foreach ($strData as $data) {
+            $this->assertInternalType('string', $data);
+            $this->assertNotInternalType('int', $data);
+        }
+
+        $intData = $c->map(function ($value) {
+            return (int) $value;
+        });
+
+        foreach ($intData as $data) {
+            $this->assertInternalType('int', $data);
+            $this->assertNotInternalType('string', $data);
+        }
+    }
 }
