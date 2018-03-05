@@ -32,6 +32,11 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
         $this->store = $store ?? [];
     }
 
+    public function copy (): Collection
+    {
+        return clone $this;
+    }
+
     /**
      * Run a map over each of the items.
      *
@@ -67,7 +72,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @param mixed $offset
      * @return mixed
      */
-    public function offsetGet($offset)
+    public function offsetGet ($offset)
     {
         return $this->store[$offset];
     }
@@ -79,7 +84,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @param mixed $value
      * @return void
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet ($offset, $value): void
     {
         if (is_null($offset)) {
             $this->store[] = $value;

@@ -184,4 +184,18 @@ class CollectionSpec extends TestCase
             $this->assertInternalType('int', $value);
         }
     }
+
+    /**
+     * @test
+     * @covers ::copy
+     */
+    public function assertDataCanBeCopied ()
+    {
+        $c = new Collection([1, 2, 3]);
+        $c2 = $c->copy();
+
+        $this->assertInstanceOf(Collection::class, $c2);
+        $this->assertNotSame($c, $c2);
+        $this->assertEquals($c, $c2);
+    }
 }
