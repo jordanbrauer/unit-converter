@@ -155,4 +155,33 @@ class CollectionSpec extends TestCase
             $this->assertNotInternalType('string', $data);
         }
     }
+
+    /**
+     * @test
+     * @covers ::filter
+     */
+    public function assertDataCanBeFiltered ()
+    {
+        $data = [0, '1', 2, '3', 4];
+        $c = new Collection($data);
+
+        for ($i = 0; $i < count($c); $i++) {
+            $value = $c[$i];
+            if (($value % 2) >= 1) {
+                $this->assertInternalType('string', $value);
+            } else {
+                $this->assertInternalType('integer', $value);
+            }
+        }
+
+        $intData = $c->filter(function ($value) {
+            return (gettype($value) === 'integer');
+        });
+
+        $this->assertFalse(empty($intData));
+        foreach ($intData as $value) {
+            $this->assertNotInternalType('string', $value);
+            $this->assertInternalType('int', $value);
+        }
+    }
 }

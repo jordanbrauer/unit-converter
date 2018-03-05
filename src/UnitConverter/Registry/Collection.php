@@ -47,6 +47,21 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     }
 
     /**
+     * Run a filter over each of the items.
+     *
+     * @param callable|null $callback
+     * @return static
+     */
+    public function filter (callable $callback = null): Collection
+    {
+        if ($callback) {
+            return new static(array_filter($this->store, $callback, ARRAY_FILTER_USE_BOTH));
+        }
+
+        return new static(array_filter($this->store));
+    }
+
+    /**
      * Get an item at a given offset.
      *
      * @param mixed $offset
