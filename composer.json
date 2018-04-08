@@ -20,9 +20,8 @@
     "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never"
   },
   "require-dev": {
-    "apigen/apigen": "dev-master",
+    "consolidation/robo": "^1.2",
     "phpunit/phpunit": "^6.3",
-    "roave/better-reflection": "dev-master#c87d856",
     "symfony/var-dumper": "^3.3"
   },
   "autoload": {
@@ -35,8 +34,5 @@
       "UnitConverter\\Tests\\Integration\\": "tests/integration/UnitConverter/",
       "UnitConverter\\Tests\\Unit\\": "tests/unit/UnitConverter/"
     }
-  },
-  "require": {
-    "consolidation/robo": "^1.2"
   }
 }
