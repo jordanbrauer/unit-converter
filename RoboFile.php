@@ -15,6 +15,17 @@ class RoboFile extends Tasks
     const DOCUMENTATION_ROOT = 'docs';
 
     /**
+     * Release the next stable version of the package.
+     *
+     * @param string $version A valid semver version scheme string to set as the next version and tag.
+     * @return void
+     */
+    public function releaseStable (string $version)
+    {
+        $this->say("Successfully bumped version to <fg=blue>v</><fg=cyan>{$version}</>");
+    }
+
+    /**
      * Generate a new copy of the changelog.
      *
      * @link https://github.com/skywinder/github-changelog-generator
@@ -83,7 +94,7 @@ class RoboFile extends Tasks
      * @return string
      */
     private function rootPath (): string
-{
+    {
         return rtrim(realpath(__DIR__), '/');
     }
 }
