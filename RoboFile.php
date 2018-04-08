@@ -36,6 +36,54 @@ class RoboFile extends Tasks
     }
 
     /**
+     * Generate a new copy of the changelog.
+     *
+     * @link https://github.com/skywinder/github-changelog-generator
+     *
+     * @return void
+     */
+    public function generateChangelog ()
+    {
+        $this->_exec('github_changelog_generator');
+    }
+
+    /**
+     * Generate a fresh set of documentation.
+     *
+     * @param null|string $source The source to generate the documentation from.
+     * @param null|string $destination The destination to output the generated files.
+     * @return void
+     */
+    public function generateDocs (string $source = null, string $destination = null): void
+    {
+        $destination = $this->documentationRoot($destination);
+
+        if (file_exists($destination) and is_dir($destination)) {
+            $this->say('<fg=red>Removing stale documentation .. </>');
+            $this->taskDeleteDir($destination)->run();
+            $this->say('<info>OK</info>');
+        } else {
+            $this->say('<comment>No stale documentation to remove</comment>');
+        }
+
+        $root = $this->rootPath();
+        $bin = self::DOCUMENTATION_BIN;
+        $generator = "{$root}/{$bin}";
+
+        if (file_exists($generator)) {
+            $source = $source ?? "{$root}/src/";
+            $this->taskExec($generator)
+                ->arg('run')
+                ->option('directory', $source)
+                ->option('target', $destination)
+                ->run();
+        } else {
+            $this->io()->error("phpdoc.phar could not be found in {$generator}");
+            exit;
+        }
+    }
+
+    /**
      * Commit an upgrade to the documentation for the project.
      *
      * @param string $version
@@ -84,54 +132,6 @@ class RoboFile extends Tasks
                     ->commit("{$commitMessage}")
                     ->run();
             }
-        }
-    }
-
-    /**
-     * Generate a new copy of the changelog.
-     *
-     * @link https://github.com/skywinder/github-changelog-generator
-     *
-     * @return void
-     */
-    public function generateChangelog ()
-    {
-        $this->_exec('github_changelog_generator');
-    }
-
-    /**
-     * Generate a fresh set of documentation.
-     *
-     * @param null|string $source The source to generate the documentation from.
-     * @param null|string $destination The destination to output the generated files.
-     * @return void
-     */
-    public function generateDocs (string $source = null, string $destination = null): void
-    {
-        $destination = $this->documentationRoot($destination);
-
-        if (file_exists($destination) and is_dir($destination)) {
-            $this->say('<fg=red>Removing stale documentation .. </>');
-            $this->taskDeleteDir($destination)->run();
-            $this->say('<info>OK</info>');
-        } else {
-            $this->say('<comment>No stale documentation to remove</comment>');
-        }
-
-        $root = $this->rootPath();
-        $bin = self::DOCUMENTATION_BIN;
-        $generator = "{$root}/{$bin}";
-
-        if (file_exists($generator)) {
-            $source = $source ?? "{$root}/src/";
-            $this->taskExec($generator)
-                ->arg('run')
-                ->option('directory', $source)
-                ->option('target', $destination)
-                ->run();
-        } else {
-            $this->io()->error("phpdoc.phar could not be found in {$generator}");
-            exit;
         }
     }
 
