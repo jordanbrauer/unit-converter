@@ -11,8 +11,6 @@
     }
   ],
   "scripts": {
-    "docs": "./bin/docs.sh",
-    "changelog": "github_changelog_generator",
     "test": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
     "integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
