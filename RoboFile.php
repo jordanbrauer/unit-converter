@@ -29,6 +29,8 @@ class RoboFile extends Tasks
      */
     public function releaseStable (string $version, bool $commit = true): void
     {
+        $commit = false;
+        // TODO: bump version(s) in files
 
         $this->upgradeDocumentation($version, $commit);
         $this->upgradeChangelog($version, $commit);
