@@ -35,6 +35,8 @@ class RoboFile extends Tasks
         $this->upgradeDocumentation($version, $commit);
         $this->upgradeChangelog($version, $commit);
         $this->tagRelease($version, $commit);
+
+        echo PHP_EOL;
         $this->say("Successfully bumped version to <fg=blue>v</><fg=cyan>{$version}</>");
     }
 
@@ -45,7 +47,7 @@ class RoboFile extends Tasks
      * @param boolean $commitTag (optional) Commit the tag or not.
      * @return void
      */
-    public function tagRelease(string $version, bool $commitTag = true)
+    public function tagRelease (string $version, bool $commitTag = true)
     {
         if ($commitTag) {
             $this->taskGitStack()
