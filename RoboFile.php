@@ -40,6 +40,23 @@ class RoboFile extends Tasks
     }
 
     /**
+     * Tag the current state of the repository.
+     *
+     * @param string $version The name of the tag.
+     * @param boolean $commitTag (optional) Commit the tag or not.
+     * @return void
+     */
+    public function tagRelease(string $version, bool $commitTag = true)
+    {
+        if ($commitTag) {
+            $this->taskGitStack()
+                ->stopOnFail()
+                ->tag('v'.ltrim($version, 'v'), 'Tag release for v'.$version)
+                ->run();
+        }
+    }
+
+    /**
      * Generate a new copy of the changelog.
      *
      * @link https://github.com/skywinder/github-changelog-generator
