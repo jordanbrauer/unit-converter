@@ -174,6 +174,32 @@ class RoboFile extends Tasks
     }
 
     /**
+     * Checkout the master branch, and throw an exception if the checkout fails.
+     *
+     * @throws Exception If the git checkout cannot be completed
+     * @param boolean $commit (optional) Will master _actually_ be checked out.
+     * @return int
+     */
+    private function checkoutMaster (bool $commit = true): int
+    {
+        $exitCode = 0;
+
+        if ($commit) {
+            $exitCode = $this->taskGitStack()
+                ->stopOnFail()
+                ->checkout('master')
+                ->run()
+                ->getExitCode();
+
+            if ((bool) $exitCode) {
+                throw new Exception("You seem to have uncommited changes");
+            }
+        }
+
+        return $exitCode;
+    }
+
+    /**
      * Returns the root path for the documentation to be generated in.
      *
      * @param null|string (optional) A custom path to generate the docs to.
