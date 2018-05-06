@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.6.5](https://github.com/jordanbrauer/unit-converter/tree/v0.6.5) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2...v0.6.5)
+
 ## [v0.6.2](https://github.com/jordanbrauer/unit-converter/tree/v0.6.2) (2018-05-06)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...v0.6.2)
 
