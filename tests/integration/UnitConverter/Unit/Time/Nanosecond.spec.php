@@ -62,4 +62,14 @@ class NanosecondSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatANanosecondIsASubmultipleSIUnit ()
+    {
+        $result = (new Nanosecond)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

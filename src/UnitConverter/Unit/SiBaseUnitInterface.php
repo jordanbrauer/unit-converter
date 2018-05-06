@@ -10,27 +10,15 @@
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Unit\Mass;
-
-use UnitConverter\Unit\SiSubmultipleUnitInterface;
+namespace UnitConverter\Unit;
 
 /**
- * Milligram data class.
+ * Interface for any SI base units to implement.
  *
  * @version 1.0.0
- * @since 0.0.1
+ * @since 0.6.7
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Milligram extends MassUnit implements SiSubmultipleUnitInterface
+interface SiBaseUnitInterface
 {
-    protected function configure (): void
-    {
-        $this
-            ->setName("milligram")
-
-            ->setSymbol("mg")
-
-            ->setUnits(0.000001)
-            ;
-    }
 }

@@ -59,4 +59,14 @@ class SecondSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatASecondIsAnSIUnit ()
+    {
+        $result = (new Second)->isSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

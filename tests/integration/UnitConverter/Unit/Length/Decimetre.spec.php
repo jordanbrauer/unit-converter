@@ -62,4 +62,14 @@ class DecimetreSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatADecimetreIsASubmultipleSIUnit ()
+    {
+        $result = (new Decimetre)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

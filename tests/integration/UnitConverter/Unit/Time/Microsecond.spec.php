@@ -62,4 +62,14 @@ class MicrosecondSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAMicrosecondIsASubmultipleSIUnit ()
+    {
+        $result = (new Microsecond)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

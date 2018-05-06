@@ -59,4 +59,14 @@ class KilogramSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAKilogramIsAnSIUnit ()
+    {
+        $result = (new Kilogram)->isSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

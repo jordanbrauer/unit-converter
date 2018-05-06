@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Time;
 
+use UnitConverter\Unit\SiSubmultipleUnitInterface;
+
 /**
  * Nanosecond unit data class.
  *
@@ -19,8 +21,10 @@ namespace UnitConverter\Unit\Time;
  * @since 0.3.9
  * @author Teun Willems
  */
-class Nanosecond extends TimeUnit
+class Nanosecond extends TimeUnit implements SiSubmultipleUnitInterface
 {
+    protected $siUnit = true;
+
     protected function configure (): void
     {
         $this

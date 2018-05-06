@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Temperature;
 
+use UnitConverter\Unit\SiBaseUnitInterface;
+
 /**
  * Kelvin unit data class.
  *
@@ -19,7 +21,7 @@ namespace UnitConverter\Unit\Temperature;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Kelvin extends TemperatureUnit
+class Kelvin extends TemperatureUnit implements SiBaseUnitInterface
 {
     protected function configure (): void
     {

@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Time;
 
+use UnitConverter\Unit\SiSubmultipleUnitInterface;
+
 /**
  * Microsecond unit data class.
  *
@@ -19,8 +21,10 @@ namespace UnitConverter\Unit\Time;
  * @since 0.3.9
  * @author Teun Willems
  */
-class Microsecond extends TimeUnit
+class Microsecond extends TimeUnit implements SiSubmultipleUnitInterface
 {
+    protected $siUnit = true;
+
     protected function configure (): void
     {
         $this

@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Length;
 
+use UnitConverter\Unit\SiSubmultipleUnitInterface;
+
 /**
  * Centimetre data class.
  *
@@ -19,7 +21,7 @@ namespace UnitConverter\Unit\Length;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Centimetre extends LengthUnit
+class Centimetre extends LengthUnit implements SiSubmultipleUnitInterface
 {
     protected function configure (): void
     {

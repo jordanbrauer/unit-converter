@@ -59,4 +59,14 @@ class MetreSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAMetreIsAnSIUnit ()
+    {
+        $result = (new Metre)->isSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

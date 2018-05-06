@@ -62,4 +62,14 @@ class MicrometreSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAMicrometreIsASubmultipleSIUnit ()
+    {
+        $result = (new Micrometre)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

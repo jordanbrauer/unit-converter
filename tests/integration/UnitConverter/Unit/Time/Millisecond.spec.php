@@ -62,4 +62,14 @@ class MillisecondSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAMillisecondIsASubmultipleSIUnit ()
+    {
+        $result = (new Millisecond)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

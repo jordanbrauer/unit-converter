@@ -62,4 +62,14 @@ class KilometreSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAKilometreIsAMultipleSIUnit ()
+    {
+        $result = (new Kilometre)->isMultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }
