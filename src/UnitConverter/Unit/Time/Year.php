@@ -31,4 +31,20 @@ class Year extends TimeUnit
             ->setUnits(31536000)
             ;
     }
+
+    /**
+     * Determines if the given (or current, if non supplied) year is a leap year.
+     *
+     * @param integer $year The year being checked.
+     * @return boolean
+     */
+    public static function isLeapYear (int $year = null): bool
+    {
+        $year = ($year ?? date('Y'));
+
+        return (
+            (0 == ($year % 4))
+            && ((0 != ($year % 100)) XOR (0 == ($year % 400)))
+        );
+    }
 }
