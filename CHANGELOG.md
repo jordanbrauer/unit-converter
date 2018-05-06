@@ -1,7 +1,16 @@
 # Change Log
 
 ## [v0.6.5](https://github.com/jordanbrauer/unit-converter/tree/v0.6.5) (2018-05-06)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2...v0.6.5)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.6...v0.6.5)
+
+## [v0.6.6](https://github.com/jordanbrauer/unit-converter/tree/v0.6.6) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.4...v0.6.6)
+
+## [v0.6.4](https://github.com/jordanbrauer/unit-converter/tree/v0.6.4) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.3...v0.6.4)
+
+## [v0.6.3](https://github.com/jordanbrauer/unit-converter/tree/v0.6.3) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2...v0.6.3)
 
 ## [v0.6.2](https://github.com/jordanbrauer/unit-converter/tree/v0.6.2) (2018-05-06)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...v0.6.2)
