@@ -35,6 +35,7 @@ class RoboFile extends Tasks
         $this->upgradeDocumentation($version, $commit);
         $this->upgradeChangelog($version, $commit);
         $this->tagRelease($version, $commit);
+        $this->pushAll($commit);
 
         echo PHP_EOL;
         $this->say("Successfully bumped version to <fg=blue>v</><fg=cyan>{$version}</>");
@@ -194,6 +195,31 @@ class RoboFile extends Tasks
 
             if ((bool) $exitCode) {
                 throw new Exception("You seem to have uncommited changes");
+            }
+        }
+
+        return $exitCode;
+    }
+
+    /**
+     * Helper function to push all to remote  origin.
+     *
+     * @param boolean $commit (optinoal) Is the push actually going to be performed?
+     * @return integer
+     */
+    private function pushAll (bool $commit = true): int
+    {
+        $exitCode = 0;
+
+        if ($commit) {
+            $exitCode = $this->taskGitStack()
+                ->stopOnFail()
+                ->push('origin')
+                ->run()
+                ->getExitCode();
+
+            if ((bool) $exitCode) {
+                throw new Exception("An error occured while trying to push to remote origin");
             }
         }
 
