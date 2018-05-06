@@ -114,7 +114,7 @@ class RoboFile extends Tasks
     private function upgradeDocumentation (string $version, bool $commit = true): void
     {
         $documentation = self::DOCUMENTATION_ROOT;
-        $message = self::DOCUMENATION_COMMIT_MESSAGE . $version;
+        $message = self::DOCUMENATION_COMMIT_MESSAGE;
         $this->upgradeAsset('generateDocs', $documentation, $message, $commit);
     }
 
