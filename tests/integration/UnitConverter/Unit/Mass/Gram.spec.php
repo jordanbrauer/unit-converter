@@ -62,4 +62,14 @@ class GramSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAGramIsAnSISubmultipleUnit ()
+    {
+        $result = (new Gram)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

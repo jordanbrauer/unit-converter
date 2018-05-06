@@ -62,4 +62,14 @@ class PicometreSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAPicometreIsASubmultipleSIUnit ()
+    {
+        $result = (new Picometre)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

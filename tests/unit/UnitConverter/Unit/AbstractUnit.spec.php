@@ -14,7 +14,7 @@ namespace UnitConverter\Tests\Unit\Unit;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
-use UnitConverter\Unit\AbstractUnit;;
+use UnitConverter\Unit\AbstractUnit;
 use UnitConverter\Unit\Length\Inch;
 use UnitConverter\Unit\Length\Metre;
 
@@ -41,6 +41,39 @@ class AbstractUnitSpec extends TestCase
     protected function tearDown ()
     {
         unset($this->unit);
+    }
+
+    /**
+     * @test
+     * @covers ::isSiUnit
+     */
+    public function assertNonSiUnitsReturnFalseWhenChecking ()
+    {
+        $result = $this->unit->isSiUnit();
+        $this->assertFalse($result);
+        $this->assertInternalType("bool", $result);
+    }
+
+    /**
+     * @test
+     * @covers ::isMultipleSiUnit
+     */
+    public function assertNonSiMultipleUnitsReturnFalseWhenChecking ()
+    {
+        $result = $this->unit->isMultipleSiUnit();
+        $this->assertFalse($result);
+        $this->assertInternalType("bool", $result);
+    }
+
+    /**
+     * @test
+     * @covers ::isSubmultipleSiUnit
+     */
+    public function assertNonSiSubmultipleUnitsReturnFalseWhenChecking ()
+    {
+        $result = $this->unit->isSubmultipleSiUnit();
+        $this->assertFalse($result);
+        $this->assertInternalType("bool", $result);
     }
 
     /**

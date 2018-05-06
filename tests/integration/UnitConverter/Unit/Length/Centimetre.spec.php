@@ -62,4 +62,14 @@ class CentimetreSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatACentimetreIsASubmultipleSIUnit ()
+    {
+        $result = (new Centimetre)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

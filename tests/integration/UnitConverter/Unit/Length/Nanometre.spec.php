@@ -62,4 +62,14 @@ class NanometreSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatANanometreIsASubmultipleSIUnit ()
+    {
+        $result = (new Nanometre)->isSubmultipleSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }

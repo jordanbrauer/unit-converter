@@ -59,4 +59,14 @@ class KelvinSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assertThatAKelvinIsAnSIUnit ()
+    {
+        $result = (new Kelvin)->isSiUnit();
+        $this->assertTrue($result);
+        $this->assertInternalType("bool", $result);
+    }
 }
