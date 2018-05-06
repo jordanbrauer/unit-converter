@@ -62,4 +62,52 @@ class MonthSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function assertMonthsWithLessThan30DaysAreProperlyDetected ()
+    {
+        $months = Month::LOW_DAY_COUNT_MONTHS;
+
+        foreach ($months as $month) {
+            $this->assertTrue(Month::hasNumberOfDays($month, 28));
+            $this->assertTrue(Month::hasNumberOfDays($month, 29));
+            $this->assertFalse(Month::hasNumberOfDays($month, 30));
+            $this->assertFalse(Month::hasNumberOfDays($month, 31));
+        }
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function assertMonthsWith30DaysAreProperlyDetected ()
+    {
+        $months = Month::MID_DAY_COUNT_MONTHS;
+
+        foreach ($months as $month) {
+            $this->assertFalse(Month::hasNumberOfDays($month, 28));
+            $this->assertFalse(Month::hasNumberOfDays($month, 29));
+            $this->assertTrue(Month::hasNumberOfDays($month, 30));
+            $this->assertFalse(Month::hasNumberOfDays($month, 31));
+        }
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function assertMonthsWith31DaysAreProperlyDetected ()
+    {
+        $months = Month::HIGH_DAY_COUNT_MONTHS;
+
+        foreach ($months as $month) {
+            $this->assertFalse(Month::hasNumberOfDays($month, 28));
+            $this->assertFalse(Month::hasNumberOfDays($month, 29));
+            $this->assertFalse(Month::hasNumberOfDays($month, 30));
+            $this->assertTrue(Month::hasNumberOfDays($month, 31));
+        }
+    }
 }
