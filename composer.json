@@ -35,8 +35,5 @@
       "UnitConverter\\Tests\\Integration\\": "tests/integration/UnitConverter/",
       "UnitConverter\\Tests\\Unit\\": "tests/unit/UnitConverter/"
     }
-  },
-  "require": {
-    "consolidation/robo": "^1.2"
   }
 }
