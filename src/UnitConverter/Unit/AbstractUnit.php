@@ -93,6 +93,21 @@ abstract class AbstractUnit implements UnitInterface
         return $this->calculate(...$params);
     }
 
+    public function isSiUnit (): bool
+    {
+        return $this instanceof SiBaseUnitInterface;
+    }
+
+    public function isMultipleSiUnit (): bool
+    {
+        return $this instanceof SiMultipleUnitInterface;
+    }
+
+    public function isSubmultipleSiUnit (): bool
+    {
+        return $this instanceof SiSubmultipleUnitInterface;
+    }
+
     public function setName (string $name): UnitInterface
     {
         $this->name = $name;

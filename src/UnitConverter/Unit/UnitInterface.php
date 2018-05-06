@@ -22,6 +22,27 @@ namespace UnitConverter\Unit;
 interface UnitInterface
 {
     /**
+     * Is the unit an SI base unit?
+     *
+     * @return boolean
+     */
+    public function isSiUnit (): bool;
+
+    /**
+     * Is the unit an SI multiple unit?
+     *
+     * @return boolean
+     */
+    public function isMultipleSiUnit (): bool;
+
+    /**
+     * Is the unit an SI submultiple unit?
+     *
+     * @return boolean
+     */
+    public function isSubmultipleSiUnit (): bool;
+
+    /**
      * Sets the units full symantic name.
      *
      * @param string $name The value to be set as the units name
