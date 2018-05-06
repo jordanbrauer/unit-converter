@@ -29,10 +29,8 @@ class RoboFile extends Tasks
      * @param bool $commit Should the changes be commited and tagged?
      * @return void
      */
-    public function releaseCandidate (string $version, bool $commit = true): void
+    public function releaseTemp (string $version, bool $commit = true): void
     {
-        $version = $version.'-rc';
-
         $this->checkoutMaster($commit);
         $this->tagRelease($version, $commit);
         $this->pushAll($version, $commit);
