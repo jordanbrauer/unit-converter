@@ -1,5 +1,37 @@
 # Change Log
 
+## [v0.6.2-rc](https://github.com/jordanbrauer/unit-converter/tree/v0.6.2-rc) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.1...v0.6.2-rc)
+
+**Fixed bugs:**
+
+- Upgrades to support a pre-release tag [\#82](https://github.com/jordanbrauer/unit-converter/pull/82) ([jordanbrauer](https://github.com/jordanbrauer))
+
+## [v0.6.1](https://github.com/jordanbrauer/unit-converter/tree/v0.6.1) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.0...v0.6.1)
+
+**Implemented enhancements:**
+
+- Add collection class for unit registry [\#75](https://github.com/jordanbrauer/unit-converter/issues/75)
+- Develop – Minor version change [\#81](https://github.com/jordanbrauer/unit-converter/pull/81) ([jordanbrauer](https://github.com/jordanbrauer))
+- Robofile taskrunner [\#80](https://github.com/jordanbrauer/unit-converter/pull/80) ([jordanbrauer](https://github.com/jordanbrauer))
+- Robofile taskrunner [\#78](https://github.com/jordanbrauer/unit-converter/pull/78) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Fixed bugs:**
+
+- BinaryCalculator requires UnitConverter to pass string values instead of int/float values  [\#54](https://github.com/jordanbrauer/unit-converter/issues/54)
+
+**Closed issues:**
+
+- Code style updates [\#67](https://github.com/jordanbrauer/unit-converter/issues/67)
+
+**Merged pull requests:**
+
+- Revert "Robofile taskrunner" [\#79](https://github.com/jordanbrauer/unit-converter/pull/79) ([jordanbrauer](https://github.com/jordanbrauer))
+- Unit collection [\#76](https://github.com/jordanbrauer/unit-converter/pull/76) ([jordanbrauer](https://github.com/jordanbrauer))
+- Update: outdated readme info & add new info [\#74](https://github.com/jordanbrauer/unit-converter/pull/74) ([jordanbrauer](https://github.com/jordanbrauer))
+- Fix code styles [\#71](https://github.com/jordanbrauer/unit-converter/pull/71) ([jordanbrauer](https://github.com/jordanbrauer))
+
 ## [v0.6.0](https://github.com/jordanbrauer/unit-converter/tree/v0.6.0) (2018-02-04)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.1...v0.6.0)
 
