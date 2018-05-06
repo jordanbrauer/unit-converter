@@ -10,8 +10,6 @@ use Robo\Tasks;
 
 class RoboFile extends Tasks
 {
-    const CHANGELOG_BIN = 'github_changelog_generator';
-
     const CHANGELOG_FILE = 'CHANGELOG.md';
 
     const CHANGELOG_COMMIT_MESSAGE = 'Update changelog for v';
@@ -48,24 +46,7 @@ class RoboFile extends Tasks
      */
     public function generateChangelog ()
     {
-        $bin = self::CHANGELOG_BIN;
-        $exitCode = $this->_exec($bin)->getExitCode();
-
-        switch ($exitCode) {
-            case 0:
-                $message = '<info>Successfully regenerated documentation</info>';
-                break;
-            case 1:
-                $message = "<fg=red>An error ({$exitCode}) occured while generating the documenation</>";
-                break;
-            case 127:
-                $message = '<fg=red>Cannot find <fg=red;options=bold>%s</>! Are you sure it is installed?</>';
-                break;
-            default:
-                throw new Exception("An unknown error ({$exitCode}) occured while generating the changelog");
-        }
-
-        $this->say(sprintf($message, $bin));
+        $this->_exec('github_changelog_generator');
     }
 
     /**
