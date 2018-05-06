@@ -23,6 +23,22 @@ class RoboFile extends Tasks
     const DOCUMENATION_COMMIT_MESSAGE = 'Update documentation for v';
 
     /**
+     * Release the next RC version to prepare for the next stable release.
+     *
+     * @param string $version A valid semver version scheme string to set as the next version and tag.
+     * @param bool $commit Should the changes be commited and tagged?
+     * @return void
+     */
+    public function releaseCandidate (string $version, bool $commit = true): void
+    {
+        $version = $version.'-rc';
+
+        $this->checkoutMaster($commit);
+        $this->tagRelease($version, $commit);
+        $this->pushAll($version, $commit);
+    }
+
+    /**
      * Release the next stable version of the package.
      *
      * @param string $version A valid semver version scheme string to set as the next version and tag.
@@ -35,7 +51,7 @@ class RoboFile extends Tasks
         $this->upgradeDocumentation($version, $commit);
         $this->upgradeChangelog($version, $commit);
         $this->tagRelease($version, $commit);
-        $this->pushAll($commit);
+        $this->pushAll($version, $commit);
 
         echo PHP_EOL;
         $this->say("Successfully bumped version to <fg=blue>v</><fg=cyan>{$version}</>");
@@ -72,10 +88,10 @@ class RoboFile extends Tasks
 
         switch ($exitCode) {
             case 0:
-                $message = '<info>Successfully regenerated documentation</info>';
+                $message = '<info>Successfully regenerated changelog</info>';
                 break;
             case 1:
-                $message = "<fg=red>An error ({$exitCode}) occured while generating the documenation</>";
+                $message = "<fg=red>An error ({$exitCode}) occured while generating the changelog</>";
                 break;
             case 127:
                 $message = '<fg=red>Cannot find <fg=red;options=bold>%s</>! Are you sure it is installed?</>';
@@ -204,17 +220,19 @@ class RoboFile extends Tasks
     /**
      * Helper function to push all to remote  origin.
      *
+     * @param string $version
      * @param boolean $commit (optinoal) Is the push actually going to be performed?
      * @return integer
      */
-    private function pushAll (bool $commit = true): int
+    private function pushAll (string $version, bool $commit = true): int
     {
         $exitCode = 0;
 
         if ($commit) {
             $exitCode = $this->taskGitStack()
                 ->stopOnFail()
-                ->push('origin')
+                ->push('origin', 'master')
+                ->push('origin', 'v'.$version)
                 ->run()
                 ->getExitCode();
 
