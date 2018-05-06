@@ -31,10 +31,11 @@ class RoboFile extends Tasks
      */
     public function releaseStable (string $version, bool $commit = true): void
     {
-        $this->checkoutMaster($commit);
+        $commit = false;
+        // TODO: bump version(s) in files
+
         $this->upgradeDocumentation($version, $commit);
         $this->upgradeChangelog($version, $commit);
-        $this->tagRelease($version, $commit);
         $this->say("Successfully bumped version to <fg=blue>v</><fg=cyan>{$version}</>");
     }
 
