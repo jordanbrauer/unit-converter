@@ -6,6 +6,7 @@
  * @see http://robo.li/
  */
 
+use Dotenv\Dotenv;
 use Robo\Tasks;
 
 class RoboFile extends Tasks
@@ -23,20 +24,6 @@ class RoboFile extends Tasks
     const DOCUMENATION_COMMIT_MESSAGE = 'Update documentation for v';
 
     /**
-     * Release the next RC version to prepare for the next stable release.
-     *
-     * @param string $version A valid semver version scheme string to set as the next version and tag.
-     * @param bool $commit Should the changes be commited and tagged?
-     * @return void
-     */
-    public function releaseTemp (string $version, bool $commit = true): void
-    {
-        $this->checkoutMaster($commit);
-        $this->tagRelease($version, $commit);
-        $this->pushAll($version, $commit);
-    }
-
-    /**
      * Release the next stable version of the package.
      *
      * @param string $version A valid semver version scheme string to set as the next version and tag.
@@ -46,8 +33,11 @@ class RoboFile extends Tasks
     public function releaseStable (string $version, bool $commit = true): void
     {
         $this->checkoutMaster($commit);
+        $this->tagRelease($version, $commit);
+        $this->pushAll($version, $commit);
         $this->upgradeDocumentation($version, $commit);
         $this->upgradeChangelog($version, $commit);
+        $this->removeTag($version, $commit);
         $this->tagRelease($version, $commit);
         $this->pushAll($version, $commit);
 
@@ -69,6 +59,29 @@ class RoboFile extends Tasks
                 ->stopOnFail()
                 ->tag('v'.ltrim($version, 'v'), 'Tag release for v'.$version)
                 ->run();
+        }
+    }
+
+    /**
+     * Remove a specified tag.
+     *
+     * @param string $version
+     * @param boolean $commitTag
+     * @return void
+     */
+    public function removeTag (string $version, bool $commitTag = true)
+    {
+        if ($commitTag) {
+            $env = (new Dotenv(__DIR__))->load();
+            $user = getenv('GITHUB_USERNAME');
+            $oauthToken = getenv('GITHUB_OAUTH_TOKEN');
+            $repository = getenv('GITHUB_REPOSITORY');
+            $baseUrl = getenv('GITHUB_API_URL');
+            $endpoint = "repos/{$user}/{$repository}/git/refs/tags/v{$version}";
+            $curl = "curl -X DELETE -i {$baseUrl}/{$endpoint} -u {$user}:{$oauthToken}";
+
+            $exitCode = $this->_exec($curl)->getExitCode();
+            $this->_exec('git tag -d v'.$version);
         }
     }
 
