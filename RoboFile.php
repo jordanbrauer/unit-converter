@@ -10,81 +10,19 @@ use Robo\Tasks;
 
 class RoboFile extends Tasks
 {
-    const CHANGELOG_FILE = 'CHANGELOG.md';
-
-    const CHANGELOG_COMMIT_MESSAGE = 'Update changelog for v';
-
     const DOCUMENTATION_BIN = 'bin/phpdoc.phar';
 
     const DOCUMENTATION_ROOT = 'docs';
-
-    const DOCUMENATION_COMMIT_MESSAGE = 'Update documentation for v';
 
     /**
      * Release the next stable version of the package.
      *
      * @param string $version A valid semver version scheme string to set as the next version and tag.
-     * @param bool $commit Should the changes be commited and tagged?
      * @return void
      */
-    public function releaseStable (string $version, bool $commit = true): void
+    public function releaseStable (string $version)
     {
-
-        $this->upgradeDocumentation($version, $commit);
-        $this->upgradeChangelog($version, $commit);
         $this->say("Successfully bumped version to <fg=blue>v</><fg=cyan>{$version}</>");
-    }
-
-    /**
-     * Commit an upgrade to the documentation for the project.
-     *
-     * @param string $version
-     * @param boolean $commit
-     * @return void
-     */
-    private function upgradeDocumentation (string $version, bool $commit = true): void
-    {
-        $documentation = self::DOCUMENTATION_ROOT;
-        $message = self::DOCUMENATION_COMMIT_MESSAGE;
-        $this->upgradeAsset('generateDocs', $documentation, $message, $commit);
-    }
-
-     /**
-     * Commit an upgrade to the changelog for the project.
-     *
-     * @param string $version
-     * @param boolean $commit
-     * @return void
-     */
-    private function upgradeChangelog (string $version, bool $commit = true): void
-    {
-        $changelog = self::CHANGELOG_FILE;
-        $message = self::CHANGELOG_COMMIT_MESSAGE . $version;
-        $this->upgradeAsset('generateChangelog', $changelog, $message, $commit);
-    }
-
-    /**
-     * Upgrade an asset for the next version of the project.
-     *
-     * @param string $method The name of the method to be used for upgrading.
-     * @param string $files The files to add from the method changes
-     * @param string $commitMessage The message to commit the changes with.
-     * @param boolean $commitChanges (optional) If set to false, a commit will not be executed. Useful for dry runs.
-     * @return void
-     */
-    private function upgradeAsset (string $method, string $files, string $commitMessage, bool $commitChanges = true): void
-    {
-        if (method_exists($this, $method)) {
-            $this->{$method}();
-
-            if ($commitChanges) {
-                $this->taskGitStack()
-                    ->stopOnFail()
-                    ->add("{$this->rootPath()}/{$files}")
-                    ->commit("{$commitMessage}")
-                    ->run();
-            }
-        }
     }
 
     /**
