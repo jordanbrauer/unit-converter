@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Length;
 
+use UnitConverter\Unit\SiBaseUnitInterface;
+
 /**
  * Metre data class. All units of Length are based off of Metre.
  *
@@ -19,7 +21,7 @@ namespace UnitConverter\Unit\Length;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Metre extends LengthUnit
+class Metre extends LengthUnit implements SiBaseUnitInterface
 {
     protected function configure (): void
     {
