@@ -1,5 +1,0 @@
-parameters:
-    visibilityLevels: [public, protected]
-    annotationGroups: [todo, deprecated, note]
-    title: "Unit Converter API"
-    overwrite: true
