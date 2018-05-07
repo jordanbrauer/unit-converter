@@ -65,6 +65,11 @@ class UnitConverter implements UnitConverterInterface
     protected $log;
 
     /**
+     * @var array $tempLog The temporary log that stores running calculations.
+     */
+    protected $tempLog;
+
+    /**
      * Public constructor function for the UnitConverter class.
      *
      * @param UnitInterface[] $registry A two-dimensional array of UnitInterface objects.
@@ -76,6 +81,7 @@ class UnitConverter implements UnitConverterInterface
         $this->setCalculator($calculator);
 
         $this->log = [];
+        $this->tempLog = [];
     }
 
     /**
@@ -121,7 +127,6 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->to = $this->loadUnit($unit);
         return $this->calculate(
-            $this->calculator,
             $this->convert,
             $this->from,
             $this->to,
@@ -145,7 +150,6 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      *
-     * @param CalculatorInterface $calculator $The calculator being used to
      * @param int|float|string $value The initial value being converted.
      * @param UnitInterface $from The unit of measure being converted **from**.
      * @param UnitInterface $to The unit of measure being converted **to**.
@@ -155,7 +159,6 @@ class UnitConverter implements UnitConverterInterface
      * @throws MissingCalculatorException
      */
     protected function calculate (
-        CalculatorInterface $calculator,
         $value,
         UnitInterface $from,
         UnitInterface $to,
@@ -169,12 +172,12 @@ class UnitConverter implements UnitConverterInterface
 
         # If a BinaryCalculator is present in addition to a runtime precision,
         # reset the precision. See bug ticket #54 for more details.
-        if ($isBinary and $precision) $calculator->setPrecision($precision);
+        if ($isBinary and $precision) $this->calculator->setPrecision($precision);
 
         // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method.
         // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
         # Attempt a self conversion and return it if one exists (e.g., temperatures).
-        $selfConversion = $from->convert($calculator, $value, $to, $precision);
+        $selfConversion = $from->convert($this->calculator, $value, $to, $precision);
         if ($selfConversion) {
             $result = $selfConversion;
             $parameters = [ 'left' => $value, 'right' => $to->getUnits(), 'precision' => $precision ];
@@ -187,15 +190,60 @@ class UnitConverter implements UnitConverterInterface
             if ($isBinary) extract($this->castUnitsTo("string"));
 
             # Perform the standard unit conversion calculation.
-            $mulResult = $calculator->mul($value, $fromUnits);
-            $log[] = $this->getLogStep('multiply', ['left' => $value, 'right' => $fromUnits], $mulResult);
-            $divResult = $calculator->div($mulResult, $toUnits);
-            $log[] = $this->getLogStep('divide', ['left' => $mulResult, 'right' => $toUnits], $divResult);
-            $result = $calculator->round($divResult, $precision);
-            $log[] = $this->getLogStep('round', ['value' => $divResult, 'precision' => $precision], $result);
+            $mulResult = $this->multiply($value, $fromUnits);
+            $divResult = $this->divide($mulResult, $toUnits);
+            $result = $this->round($divResult, $precision);
         }
 
-        $this->writeLog($log);
+        $this->writeLog();
+
+        return $result;
+    }
+
+    /**
+     * Helper method for multiplying and logging results.
+     *
+     * @param mixed $leftOperand
+     * @param mixed $rightOperand
+     * @return mixed
+     */
+    protected function multiply($leftOperand, $rightOperand)
+    {
+        $result = $this->calculator->{__FUNCTION__}($leftOperand, $rightOperand);
+        $entry = $this->getLogStep(__FUNCTION__, ['left' => $leftOperand, 'right' => $rightOperand], $result);
+        $this->logTemp($entry);
+
+        return $result;
+    }
+
+    /**
+     * Helper method for dividing and logging results.
+     *
+     * @param mixed $leftOperand
+     * @param mixed $rightOperand
+     * @return mixed
+     */
+    protected function divide($leftOperand, $rightOperand)
+    {
+        $result = $this->calculator->{__FUNCTION__}($leftOperand, $rightOperand);
+        $entry = $this->getLogStep(__FUNCTION__, ['left' => $leftOperand, 'right' => $rightOperand], $result);
+        $this->logTemp($entry);
+
+        return $result;
+    }
+
+    /**
+     * Helper method for rounding and logging results.
+     *
+     * @param mixed $value
+     * @param int $percision
+     * @return mixed
+     */
+    protected function round($value, $precision)
+    {
+        $result = $this->calculator->{__FUNCTION__}($value, $precision);
+        $entry = $this->getLogStep(__FUNCTION__, ['value' => $value, 'precision' => $precision], $result);
+        $this->logTemp($entry);
 
         return $result;
     }
@@ -305,13 +353,28 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * Add an entry to the conversion calculation log.
+     * Add an entry to the temporary calculation log.
      *
      * @param array $steps
      * @return void
      */
-    protected function writeLog (array $steps): void
+    protected function logTemp (array $step): void
     {
-        array_push($this->log, $steps);
+        array_push($this->tempLog, $step);
+    }
+
+    /**
+     * Add an entry to the conversion calculation log.
+     *
+     * @param array $steps (optional)
+     * @return void
+     */
+    protected function writeLog (array $steps = null): void
+    {
+        $steps = ($steps ?? $this->tempLog);
+        if (count($steps) > 0) {
+            array_push($this->log, $steps);
+            $this->tempLog = [];
+        }
     }
 }

@@ -38,34 +38,23 @@ class Fahrenheit extends TemperatureUnit
 
     protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
     {
-        $val = $value ?? $this->getBase()->getUnits();
+        $val = ($value ?? $this->getBase()->getUnits());
+        $divisor = $calculator->div(5, 9);
 
-        # 0 K = 255.372 °F
-        switch ($to->getSymbol()) {
+        switch ($to->getSymbol()) { # 0 K = 255.372 °F
             case 'C': # °C = (°F - 32) × (5 ÷ 9)
-                return $calculator->round(
-                    $calculator->mul(
-                        $calculator->sub($val, 32),
-                        $calculator->div(5, 9)
-                    ),
-                    $precision
-                );
+                $result = $calculator->sub($val, 32);
+                $result = $calculator->mul($result, $divisor);
+                return $calculator->round($result, $precision);
                 break;
-
             case 'K': # K = (°F + 459.67) × (5 ÷ 9)
-                return $calculator->round(
-                    $calculator->mul(
-                        $calculator->add($val, 459.67),
-                        $calculator->div(5, 9)
-                    ),
-                    $precision
-                );
+                $result = $calculator->add($val, 459.67);
+                $result = $calculator->mul($result, $divisor);
+                return $calculator->round($result, $precision);
                 break;
-
             case 'F': # °F = °F
                 return $val;
                 break;
-
             default:
                 throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
             }
