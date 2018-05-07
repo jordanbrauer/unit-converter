@@ -53,3 +53,4 @@ $converter
   ;
 
 dump($conversion);
+dump($converter->getConversionLog());
