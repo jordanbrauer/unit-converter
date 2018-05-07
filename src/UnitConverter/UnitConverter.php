@@ -121,7 +121,6 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->to = $this->loadUnit($unit);
         return $this->calculate(
-            $this->calculator,
             $this->convert,
             $this->from,
             $this->to,
@@ -145,7 +144,6 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      *
-     * @param CalculatorInterface $calculator $The calculator being used to
      * @param int|float|string $value The initial value being converted.
      * @param UnitInterface $from The unit of measure being converted **from**.
      * @param UnitInterface $to The unit of measure being converted **to**.
@@ -155,7 +153,6 @@ class UnitConverter implements UnitConverterInterface
      * @throws MissingCalculatorException
      */
     protected function calculate (
-        CalculatorInterface $calculator,
         $value,
         UnitInterface $from,
         UnitInterface $to,
@@ -169,12 +166,12 @@ class UnitConverter implements UnitConverterInterface
 
         # If a BinaryCalculator is present in addition to a runtime precision,
         # reset the precision. See bug ticket #54 for more details.
-        if ($isBinary and $precision) $calculator->setPrecision($precision);
+        if ($isBinary and $precision) $this->calculator->setPrecision($precision);
 
         // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method.
         // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
         # Attempt a self conversion and return it if one exists (e.g., temperatures).
-        $selfConversion = $from->convert($calculator, $value, $to, $precision);
+        $selfConversion = $from->convert($this->calculator, $value, $to, $precision);
         if ($selfConversion) {
             $result = $selfConversion;
             $parameters = [ 'left' => $value, 'right' => $to->getUnits(), 'precision' => $precision ];
@@ -187,11 +184,11 @@ class UnitConverter implements UnitConverterInterface
             if ($isBinary) extract($this->castUnitsTo("string"));
 
             # Perform the standard unit conversion calculation.
-            $mulResult = $calculator->mul($value, $fromUnits);
+            $mulResult = $this->calculator->mul($value, $fromUnits);
             $log[] = $this->getLogStep('multiply', ['left' => $value, 'right' => $fromUnits], $mulResult);
-            $divResult = $calculator->div($mulResult, $toUnits);
+            $divResult = $this->calculator->div($mulResult, $toUnits);
             $log[] = $this->getLogStep('divide', ['left' => $mulResult, 'right' => $toUnits], $divResult);
-            $result = $calculator->round($divResult, $precision);
+            $result = $this->calculator->round($divResult, $precision);
             $log[] = $this->getLogStep('round', ['value' => $divResult, 'precision' => $precision], $result);
         }
 
