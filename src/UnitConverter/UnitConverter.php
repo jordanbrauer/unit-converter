@@ -60,6 +60,11 @@ class UnitConverter implements UnitConverterInterface
     protected $precision;
 
     /**
+     * @var array $log The log of events for the current conversion calculations
+     */
+    protected $log;
+
+    /**
      * Public constructor function for the UnitConverter class.
      *
      * @param UnitInterface[] $registry A two-dimensional array of UnitInterface objects.
@@ -69,6 +74,8 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->setRegistry($registry);
         $this->setCalculator($calculator);
+
+        $this->log = [];
     }
 
     /**
@@ -123,6 +130,17 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Return an array, containing a list of events in the order they occured for
+     * the current calculation.
+     *
+     * @return array
+     */
+    public function getConversionLog (): array
+    {
+        return $this->log;
+    }
+
+    /**
      * Calculate the conversion from one unit to another.
      *
      * @FIXME Gross use of a check for a null calculate() method ... 😑 Gotta
@@ -158,18 +176,27 @@ class UnitConverter implements UnitConverterInterface
 
         # Attempt a self conversion and return it if one exists (e.g., temperatures).
         $selfConversion = $from->convert($calculator, $value, $to, $precision);
-        if ($selfConversion) return $selfConversion;
+        if ($selfConversion) {
+            $result = $selfConversion;
+            $parameters = [ 'left' => $value, 'right' => $to->getUnits(), 'precision' => $precision ];
+            $log[] = $this->getLogStep('convert', $parameters, $selfConversion);
+        } else {
+            # Fetch our unit values. Additionaly, cast & extract them accordingly
+            # if a BinaryCalculator is present.
+            $fromUnits = $from->getUnits();
+            $toUnits = $to->getUnits();
+            if ($isBinary) extract($this->castUnitsTo("string"));
 
-        # Fetch our unit values. Additionaly, cast & extract them accordingly
-        # if a BinaryCalculator is present.
-        $fromUnits = $from->getUnits();
-        $toUnits = $to->getUnits();
-        if ($isBinary) extract($this->castUnitsTo("string"));
+            # Perform the standard unit conversion calculation.
+            $mulResult = $calculator->mul($value, $fromUnits);
+            $log[] = $this->getLogStep('multiply', ['left' => $value, 'right' => $fromUnits], $mulResult);
+            $divResult = $calculator->div($mulResult, $toUnits);
+            $log[] = $this->getLogStep('divide', ['left' => $mulResult, 'right' => $toUnits], $divResult);
+            $result = $calculator->round($divResult, $precision);
+            $log[] = $this->getLogStep('round', ['value' => $divResult, 'precision' => $precision], $result);
+        }
 
-        # Perform the standard unit conversion calculation.
-        $result = $calculator->mul($value, $fromUnits);
-        $result = $calculator->div($result, $toUnits);
-        $result = $calculator->round($result, $precision);
+        $this->writeLog($log);
 
         return $result;
     }
@@ -259,5 +286,33 @@ class UnitConverter implements UnitConverterInterface
         });
 
         return $units;
+    }
+
+    /**
+     * Returns an a step entry for the calculation log, with the given parameters.
+     *
+     * @param array $parameters An array of parametrs used to create the product.
+     * @param string $operator The mathematical operator used in the calculation
+     * @param int|float|string $result The result of the calculation.
+     * @return array
+     */
+    protected function getLogStep (string $operator, array $parameters = [], $result): array
+    {
+        return [
+            'operator' => $operator,
+            'parameters' => $parameters,
+            'result' => $result,
+        ];
+    }
+
+    /**
+     * Add an entry to the conversion calculation log.
+     *
+     * @param array $steps
+     * @return void
+     */
+    protected function writeLog (array $steps): void
+    {
+        array_push($this->log, $steps);
     }
 }
