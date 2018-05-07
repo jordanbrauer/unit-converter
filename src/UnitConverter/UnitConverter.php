@@ -143,9 +143,6 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Calculate the conversion from one unit to another.
      *
-     * @FIXME Gross use of a check for a null calculate() method ... 😑 Gotta
-     * figure out a better way to use the calulate method.
-     *
      * @internal
      *
      * @param CalculatorInterface $calculator $The calculator being used to
@@ -174,6 +171,8 @@ class UnitConverter implements UnitConverterInterface
         # reset the precision. See bug ticket #54 for more details.
         if ($isBinary and $precision) $calculator->setPrecision($precision);
 
+        // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method.
+        // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
         # Attempt a self conversion and return it if one exists (e.g., temperatures).
         $selfConversion = $from->convert($calculator, $value, $to, $precision);
         if ($selfConversion) {

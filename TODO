@@ -1,3 +1,7 @@
 Backlog:
+  FIXME (1):
+    ☐ // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method. @file:///Users/jorb/Code/unit-converter/src/UnitConverter/UnitConverter.php#174
   HACK (1):
     ☐ $precision = ($precision * 2); // HACK: #54 @file:///Users/jorb/Code/unit-converter/src/UnitConverter/Calculator/BinaryCalculator.php#31
+  TODO (1):
+    ☐ // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89) @file:///Users/jorb/Code/unit-converter/src/UnitConverter/UnitConverter.php#175
