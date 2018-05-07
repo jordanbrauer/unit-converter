@@ -65,6 +65,11 @@ class UnitConverter implements UnitConverterInterface
     protected $log;
 
     /**
+     * @var array $tempLog The temporary log that stores running calculations.
+     */
+    protected $tempLog;
+
+    /**
      * Public constructor function for the UnitConverter class.
      *
      * @param UnitInterface[] $registry A two-dimensional array of UnitInterface objects.
@@ -76,6 +81,7 @@ class UnitConverter implements UnitConverterInterface
         $this->setCalculator($calculator);
 
         $this->log = [];
+        $this->tempLog = [];
     }
 
     /**
@@ -184,15 +190,60 @@ class UnitConverter implements UnitConverterInterface
             if ($isBinary) extract($this->castUnitsTo("string"));
 
             # Perform the standard unit conversion calculation.
-            $mulResult = $this->calculator->mul($value, $fromUnits);
-            $log[] = $this->getLogStep('multiply', ['left' => $value, 'right' => $fromUnits], $mulResult);
-            $divResult = $this->calculator->div($mulResult, $toUnits);
-            $log[] = $this->getLogStep('divide', ['left' => $mulResult, 'right' => $toUnits], $divResult);
-            $result = $this->calculator->round($divResult, $precision);
-            $log[] = $this->getLogStep('round', ['value' => $divResult, 'precision' => $precision], $result);
+            $mulResult = $this->multiply($value, $fromUnits);
+            $divResult = $this->divide($mulResult, $toUnits);
+            $result = $this->round($divResult, $precision);
         }
 
-        $this->writeLog($log);
+        $this->writeLog();
+
+        return $result;
+    }
+
+    /**
+     * Helper method for multiplying and logging results.
+     *
+     * @param mixed $leftOperand
+     * @param mixed $rightOperand
+     * @return mixed
+     */
+    protected function multiply($leftOperand, $rightOperand)
+    {
+        $result = $this->calculator->{__FUNCTION__}($leftOperand, $rightOperand);
+        $entry = $this->getLogStep(__FUNCTION__, ['left' => $leftOperand, 'right' => $rightOperand], $result);
+        $this->logTemp($entry);
+
+        return $result;
+    }
+
+    /**
+     * Helper method for dividing and logging results.
+     *
+     * @param mixed $leftOperand
+     * @param mixed $rightOperand
+     * @return mixed
+     */
+    protected function divide($leftOperand, $rightOperand)
+    {
+        $result = $this->calculator->{__FUNCTION__}($leftOperand, $rightOperand);
+        $entry = $this->getLogStep(__FUNCTION__, ['left' => $leftOperand, 'right' => $rightOperand], $result);
+        $this->logTemp($entry);
+
+        return $result;
+    }
+
+    /**
+     * Helper method for rounding and logging results.
+     *
+     * @param mixed $value
+     * @param int $percision
+     * @return mixed
+     */
+    protected function round($value, $precision)
+    {
+        $result = $this->calculator->{__FUNCTION__}($value, $precision);
+        $entry = $this->getLogStep(__FUNCTION__, ['value' => $value, 'precision' => $precision], $result);
+        $this->logTemp($entry);
 
         return $result;
     }
@@ -302,13 +353,28 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * Add an entry to the conversion calculation log.
+     * Add an entry to the temporary calculation log.
      *
      * @param array $steps
      * @return void
      */
-    protected function writeLog (array $steps): void
+    protected function logTemp (array $step): void
     {
-        array_push($this->log, $steps);
+        array_push($this->tempLog, $step);
+    }
+
+    /**
+     * Add an entry to the conversion calculation log.
+     *
+     * @param array $steps (optional)
+     * @return void
+     */
+    protected function writeLog (array $steps = null): void
+    {
+        $steps = ($steps ?? $this->tempLog);
+        if (count($steps) > 0) {
+            array_push($this->log, $steps);
+            $this->tempLog = [];
+        }
     }
 }
