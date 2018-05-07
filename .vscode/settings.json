@@ -1,0 +1,64 @@
+{
+    "files.encoding": "utf8",
+    "files.eol": "\n", // LF
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.formatOnPaste": true,
+
+    "[php]": {
+        "editor.tabSize": 4,
+    },
+    "[javascript]": {
+        "editor.tabSize": 2,
+    },
+
+    "[css]": {
+        "editor.tabSize": 2,
+    },
+    "[scss]": {
+        "editor.tabSize": 2,
+    },
+    "[less]": {
+        "editor.tabSize": 2,
+    },
+
+    "[json]": {
+        "editor.tabSize": 4,
+    },
+    "[yaml]": {
+        "editor.tabSize": 4,
+    },
+    "[xml]": {
+        "editor.tabSize": 4,
+    },
+
+    "vscode-language-todo.regex": "(//|#|<!--|;|/\\*)\\s*(TODO|FIXME|CHANGED|FIX|XXX|IDEA|HACK|NOTE|REVIEW|NB|BUG|QUESTION|COMBAK|TEMP|DEBUG|OPTIMIZE|UGLY)",
+    "todo.embedded.regex": "(?:<!-- *)?(?:#|//|/\\*+|<!--) *(TODO|FIXME|CHANGED|FIX|XXX|IDEA|HACK|NOTE|REVIEW|NB|BUG|QUESTION|COMBAK|TEMP|DEBUG|OPTIMIZE|UGLY)(?: |:|\"|'|`|-->|$)",
+    "todo.embedded.include": [
+        "./src",
+        "./test",
+    ],
+    "todo.embedded.exclude": [
+        "**/.git",
+        "**/.svn",
+        "**/.hg",
+        "**/.vscode",
+        "**/.github",
+        "**/.next",
+        "**/node_modules",
+        "**/bower_components",
+        "**/vendor",
+        "**/dist",
+        "**/build",
+        "**/out",
+        "**/output",
+        "**/_output",
+        "**/third_party",
+        "**/*.min.*",
+        "**/*.map"
+    ],
+}

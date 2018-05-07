@@ -7,8 +7,10 @@
 [![License](https://poser.pugx.org/jordanbrauer/unit-converter/license)](https://choosealicense.com/licenses/mit/)
 
 [![Build Status](https://travis-ci.org/jordanbrauer/unit-converter.svg?branch=master)](https://travis-ci.org/jordanbrauer/unit-converter)
-[![Code Climate](https://img.shields.io/codeclimate/coverage/github/jordanbrauer/unit-converter.svg)](https://codeclimate.com/github/jordanbrauer/unit-converter)
-[![Code Climate](https://img.shields.io/codeclimate/maintainability/jordanbrauer/unit-converter.svg)](https://codeclimate.com/github/jordanbrauer/unit-converter)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/test_coverage)](https://codeclimate.com/github/jordanbrauer/unit-converter/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/maintainability)](https://codeclimate.com/github/jordanbrauer/unit-converter/maintainability)
+<!-- [![Code Climate](https://img.shields.io/codeclimate/coverage/github/jordanbrauer/unit-converter.svg)](https://codeclimate.com/github/jordanbrauer/unit-converter) -->
+<!-- [![Code Climate](https://img.shields.io/codeclimate/maintainability/jordanbrauer/unit-converter.svg)](https://codeclimate.com/github/jordanbrauer/unit-converter) -->
 
 <br />
 
