@@ -1,0 +1,3 @@
+Backlog:
+  HACK (1):
+    ☐ $precision = ($precision * 2); // HACK: #54 @file:///Users/jorb/Code/unit-converter/src/UnitConverter/Calculator/BinaryCalculator.php#31
