@@ -1,5 +1,34 @@
 # Change Log
 
+## [v0.7.0](https://github.com/jordanbrauer/unit-converter/tree/v0.7.0) (2018-05-07)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.7...v0.7.0)
+
+**Implemented enhancements:**
+
+- Add methods to Time units for determining leaps [\#70](https://github.com/jordanbrauer/unit-converter/issues/70)
+- Introduce a debugging method with nice output [\#69](https://github.com/jordanbrauer/unit-converter/issues/69)
+- Implement new Unit property "siUnit" to indicate the units SI acceptance [\#60](https://github.com/jordanbrauer/unit-converter/issues/60)
+- Si units [\#86](https://github.com/jordanbrauer/unit-converter/pull/86) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Closed issues:**
+
+- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#94](https://github.com/jordanbrauer/unit-converter/issues/94)
+- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#93](https://github.com/jordanbrauer/unit-converter/issues/93)
+- Fix "method\_complexity" issue in src/UnitConverter/UnitConverter.php [\#92](https://github.com/jordanbrauer/unit-converter/issues/92)
+- Update README to have more information for setup/usage.  [\#68](https://github.com/jordanbrauer/unit-converter/issues/68)
+- Implement a better release workflow [\#58](https://github.com/jordanbrauer/unit-converter/issues/58)
+- Fix "method\_lines" issue in src/UnitConverter/Unit/Temperature/Fahrenheit.php [\#57](https://github.com/jordanbrauer/unit-converter/issues/57)
+- Fix "argument\_count" issue in src/UnitConverter/UnitConverter.php [\#56](https://github.com/jordanbrauer/unit-converter/issues/56)
+- Enforce a standard such as SI for unit of measure notations \(symbols\) [\#45](https://github.com/jordanbrauer/unit-converter/issues/45)
+
+**Merged pull requests:**
+
+- reduce lines in calculate method \(closes \#57\) [\#95](https://github.com/jordanbrauer/unit-converter/pull/95) ([jordanbrauer](https://github.com/jordanbrauer))
+- Repo files [\#91](https://github.com/jordanbrauer/unit-converter/pull/91) ([jordanbrauer](https://github.com/jordanbrauer))
+- Temporarily use vanilla codeclimate badges due to shields.io bug [\#90](https://github.com/jordanbrauer/unit-converter/pull/90) ([jordanbrauer](https://github.com/jordanbrauer))
+- Debugging tools [\#89](https://github.com/jordanbrauer/unit-converter/pull/89) ([jordanbrauer](https://github.com/jordanbrauer))
+- Time helpers [\#88](https://github.com/jordanbrauer/unit-converter/pull/88) ([jordanbrauer](https://github.com/jordanbrauer))
+
 ## [v0.6.7](https://github.com/jordanbrauer/unit-converter/tree/v0.6.7) (2018-05-06)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...v0.6.7)
 
