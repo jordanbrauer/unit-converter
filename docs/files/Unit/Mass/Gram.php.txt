@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Mass;
 
+use UnitConverter\Unit\SiSubmultipleUnitInterface;
+
 /**
  * Gram data class.
  *
@@ -19,7 +21,7 @@ namespace UnitConverter\Unit\Mass;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Gram extends MassUnit
+class Gram extends MassUnit implements SiSubmultipleUnitInterface
 {
     protected function configure (): void
     {

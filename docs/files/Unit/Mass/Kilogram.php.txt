@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Mass;
 
+use UnitConverter\Unit\SiBaseUnitInterface;
+
 /**
  * Kilogram data class.
  *
@@ -19,7 +21,7 @@ namespace UnitConverter\Unit\Mass;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Kilogram extends MassUnit
+class Kilogram extends MassUnit implements SiBaseUnitInterface
 {
     protected function configure (): void
     {

@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Length;
 
+use UnitConverter\Unit\SiSubmultipleUnitInterface;
+
 /**
  * Nanometre data class.
  *
@@ -19,7 +21,7 @@ namespace UnitConverter\Unit\Length;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Nanometre extends LengthUnit
+class Nanometre extends LengthUnit implements SiSubmultipleUnitInterface
 {
     protected function configure (): void
     {

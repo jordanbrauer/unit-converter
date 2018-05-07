@@ -12,6 +12,8 @@
 
 namespace UnitConverter\Unit\Length;
 
+use UnitConverter\Unit\SiMultipleUnitInterface;
+
 /**
  * Kilometre data class.
  *
@@ -19,7 +21,7 @@ namespace UnitConverter\Unit\Length;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Kilometre extends LengthUnit
+class Kilometre extends LengthUnit implements SiMultipleUnitInterface
 {
     protected function configure (): void
     {
