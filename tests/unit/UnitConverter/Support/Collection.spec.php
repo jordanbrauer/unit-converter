@@ -13,10 +13,11 @@
 namespace UnitConverter\Tests\Unit\Support;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\Support\Collection;
 use stdClass;
 
 /**
- * @coversDefaultClass UnitConverter\Registry\Collection
+ * @coversDefaultClass UnitConverter\Support\Collection
  */
 class CollectionSpec extends TestCase
 {
