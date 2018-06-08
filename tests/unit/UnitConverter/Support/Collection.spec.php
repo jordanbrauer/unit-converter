@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Tests\Unit\Registry;
+namespace UnitConverter\Tests\Unit\Support;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Registry\Collection;
