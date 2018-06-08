@@ -60,6 +60,21 @@ $ composer require jordanbrauer/unit-converter
 
 Using the component is very easy, especially if you have used the Symfony framework before.
 
+### Quick-Start
+
+If you'd like to skip the minutiae of this component's setup and get right down to business, you can get started by constructing a pre-configured converter via the builder object, like so,
+
+```php
+use UnitConverter\UnitConverter;
+
+$converter = UnitConverter::createBuilder()
+    ->addSimpleCalculator()
+    ->addDefaultRegistry()
+    ->build();
+```
+
+That's it! Usage of the converter (see [Converting Units](#converting-units)) will remain the same as a manually configured instance.
+
 ### Setup
 
 There are **three** main classes that make up a `UnitConverter`.
