@@ -85,6 +85,13 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * @return ConverterBuilder
+     */
+    public static function createBuilder () {
+        return new ConverterBuilder();
+    }
+
+    /**
      * Set the unit converter registry for storing units of measure to convert values with.
      *
      * @api
