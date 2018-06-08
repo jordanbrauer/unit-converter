@@ -20,6 +20,8 @@ use Traversable;
 
 class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
+    use ArrayDotNotation;
+
     protected $store;
 
     /**
@@ -30,6 +32,52 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     public function __construct (array $store = null)
     {
         $this->store = $store ?? [];
+    }
+
+    /**
+     * Get an item at a given path.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @param mixed $default (optional) A default value to return if none found.
+     * @return mixed
+     */
+    public function get (string $path, $default = null)
+    {
+        return static::getFromPath($this->store, $path, $default);
+    }
+
+    /**
+     * Set an item at a given path.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @param mixed $value The value to set for the given path.
+     * @return mixed
+     */
+    public function push (string $path, $value)
+    {
+        return static::pushToPath($this->store, $path, $value);
+    }
+
+    /**
+     * Unset an item at a given path.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @return void
+     */
+    public function pop (string $path): void
+    {
+        static::popPath($this->store, $path);
+    }
+
+    /**
+     * Check if an element exists in an array using dot notation.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @return bool
+     */
+    public function exists (string $path): bool
+    {
+        return static::pathExists($this->store, $path);
     }
 
     public function copy (): Collection
