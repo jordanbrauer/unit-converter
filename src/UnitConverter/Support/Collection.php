@@ -22,6 +22,11 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
 {
     use ArrayDotNotation;
 
+    /**
+     * The internal store for an instance of a collection.
+     *
+     * @var array
+     */
     protected $store;
 
     /**
@@ -80,6 +85,11 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
         return static::pathExists($this->store, $path);
     }
 
+    /**
+     * Return a copy of the collection.
+     *
+     * @return Collection
+     */
     public function copy (): Collection
     {
         return clone $this;
