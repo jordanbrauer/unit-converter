@@ -44,7 +44,7 @@ It supports the following types of measurement by default (support for more meas
 - Time
 - Volume
 
-You also have the ability to override & customize the default units, as well as [add your own](#adding-custom-units)!
+You also have the ability to override & customize the default units, as well as [add your own](#adding-your-own-custom-units)!
 
 ## 2. Installing the Component
 
