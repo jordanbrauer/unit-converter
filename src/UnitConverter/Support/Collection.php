@@ -10,7 +10,7 @@
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Registry;
+namespace UnitConverter\Support;
 
 use ArrayAccess;
 use Countable;
