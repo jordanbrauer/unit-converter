@@ -82,13 +82,17 @@ use UnitConverter\Unit\Length\Inch;
 # Start by creating an array of measurements you want to register to the converter.
 # Then, we will instantiate a new UnitRegistry and pass the array to it as it's only argument.
 
-$units = [ new Centimetre, new Inch, ];
+$units = [
+    new Centimetre,
+    new Inch,
+];
+
 $registry = new UnitRegistry($units);
 ```
 
 #### The Calculators
 
-As well know, computers are not the best with decimal values (floats). When converting units of measurement, we often deal with decimal values. Depending on how precise of a result you require, will depend on what sort of calculator implementation suits you.
+As we all know, computers are not the best with decimal values (floats). When converting units of measurement, we often deal with decimal values. Depending on how precise of a result you require, will depend on what sort of calculator implementation suits you.
 
 This package comes bundled with two calculators for you; the `SimpleCalculator`, and the `BinaryCalculator`. They both aim to solve two different problems with numbers.
 
@@ -136,17 +140,17 @@ var_dump($conversion); # (float) 2.54
 ```
 Easy as pie! Lets break it down though.
 
-##### convert(int|float|string $value)
+##### `convert(int|float|string $value)`
 
 The `convert` methods takes the value that you are converting. Simple as that.
 
 If you are using the `SimpleCalculator`, you can pass your value as any type. If you're using the `BinaryCalculator`, you can only pass strings.
 
-##### from(string $symbol)
+##### `from(string $symbol)`
 
 The `from` method takes the symbol of the unit of measure paired with your value passed to `convert`. To get the symbol of a unit dynamically, call the `getSymbol()` method on a unit.
 
-##### to(string $symbol)
+##### `to(string $symbol)`
 
 The `to` method does exactly what the from method does, except that it takes the symbol of the unit you are converting to.
 
@@ -191,7 +195,42 @@ class Gigawatt extends EnergyUnit
 
 ### Debugging
 
-_Coming Soon!_
+If you ever require some sort of debugging output for your conversions, there is a method available for that, on the converter which can be used it like so,
+
+```php
+dump($converter->getConversionLog());
+```
+Using the same example conversion from the [converting units](#converting-units) section, our dump would output the following
+```php
+array:1 [
+    0 => array:3 [
+        0 => array:3 [
+            "operator" => "multiply"
+            "parameters" => array:2 [
+                "left" => 1
+                "right" => 0.0254
+            ]
+            "result" => 0.0254
+        ]
+        1 => array:3 [
+            "operator" => "divide"
+            "parameters" => array:2 [
+                "left" => 0.0254
+                "right" => 0.01
+            ]
+            "result" => 2.54
+        ]
+        2 => array:3 [
+            "operator" => "round"
+            "parameters" => array:2 [
+                "value" => 2.54
+                "precision" => null
+            ]
+            "result" => 2.54
+        ]
+    ]
+]
+```
 
 ## 4. Documentation
 
