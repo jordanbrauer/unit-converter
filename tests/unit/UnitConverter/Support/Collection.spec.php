@@ -269,7 +269,7 @@ class CollectionSpec extends TestCase
 
     /**
      * @test
-     * @covers ::pop
+     * @covers ::exists
      */
     public function assertCanCheckPathExistsWithDotNotation ()
     {
