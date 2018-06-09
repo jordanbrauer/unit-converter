@@ -202,6 +202,19 @@ class CollectionSpec extends TestCase
 
     /**
      * @test
+     * @covers ::keys
+     */
+    public function assertCollectionKeysCanBeFetched ()
+    {
+        $c = new Collection(['foo' => [], 'bar' => [], 'baz' => []]);
+
+        $keys = $c->keys();
+        $this->assertEquals(['foo', 'bar', 'baz'], $keys);
+        $this->assertInternalType('array', $keys);
+    }
+
+    /**
+     * @test
      * @covers ::get
      */
     public function assertCanGetWithDotNotation ()
