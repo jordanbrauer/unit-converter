@@ -79,7 +79,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers \UnitConverter\Exception\UnknownUnitOfMeasureException
      */
     public function assertOutOfBoundsExceptionIsThrownForUnregisteredUnits ()
     {
@@ -180,7 +180,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers \UnitConverter\Exception\UnknownMeasurementTypeException
      */
     public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsOutOfBoundsException ()
     {
@@ -220,7 +220,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers \UnitConverter\Exception\UnknownMeasurementTypeException
      */
     public function assertUnregisteringUnknownMeasurementsThrowsOutOfBoundsException ()
     {
@@ -247,7 +247,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers \UnitConverter\Exception\UnknownUnitOfMeasureException
      */
     public function assertUnregisteringUnknownUnitsThrowsOutOfBoundsException ()
     {

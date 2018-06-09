@@ -69,7 +69,7 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers \UnitConverter\Exception\UnknownUnitOfMeasureException
      */
     public function assertConversionThrowsErrorExceptionAtUnknownUnits ()
     {
