@@ -85,6 +85,11 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
         return static::pathExists($this->store, $path);
     }
 
+    public function keys(): array
+    {
+        return array_keys($this->store);
+    }
+
     /**
      * Return a copy of the collection.
      *
