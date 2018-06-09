@@ -16,6 +16,7 @@ use UnitConverter\Exception\UnknownUnitOfMeasureException;
 use UnitConverter\Exception\UnknownMeasurementTypeException;
 use UnitConverter\Measure;
 use UnitConverter\Unit\UnitInterface;
+use UnitConverter\Support\Collection;
 
 /**
  * The unit converter registry object. This object is used
@@ -40,7 +41,7 @@ class UnitRegistry implements UnitRegistryInterface
      */
     public function __construct (array $units = array())
     {
-        $this->store = array(
+        $this->store = new Collection(array(
             Measure::LENGTH => array(),
             Measure::AREA => array(),
             Measure::VOLUME => array(),
@@ -51,22 +52,20 @@ class UnitRegistry implements UnitRegistryInterface
             Measure::PRESSURE => array(),
             Measure::TIME => array(),
             Measure::ENERGY => array(),
-        );
+        ));
 
-        if (count($units) > 0)
-            $this->registerUnits($units);
+        if (count($units) > 0) $this->registerUnits($units);
     }
 
     public function isMeasurementRegistered (string $measurement): bool
     {
-        return array_key_exists($measurement, $this->store);
+        return $this->store->exists($measurement);
     }
 
     public function isUnitRegistered (string $symbol): bool
     {
         foreach ($this->store as $measurement => $units) {
-            if (array_key_exists($symbol, $units))
-                return true;
+            if (array_key_exists($symbol, $units)) return true;
         }
 
         return false;
@@ -79,35 +78,32 @@ class UnitRegistry implements UnitRegistryInterface
 
         foreach ($this->store as $measurement => $units) {
             if (array_key_exists($symbol, $units))
-                return $this->store[$measurement][$symbol];
+                return $this->store->get("{$measurement}.{$symbol}");
         }
     }
 
     public function listMeasurements (): array
     {
-        return array_keys($this->store);
+        return $this->store->keys();
     }
 
     public function listUnits (string $measurement = null): array
     {
-        if ($measurement)
-            return array_keys($this->store[$measurement]);
+        if ($measurement) return array_keys($this->store->get($measurement));
 
         $registeredUnits = array();
 
         foreach ($this->store as $measurements) {
-            foreach ($measurements as $unit) {
-                array_push($registeredUnits, $unit->getSymbol());
-            }
+            $registeredUnits = array_merge($registeredUnits, $measurements);
         }
 
-        return $registeredUnits;
+        return array_keys($registeredUnits);
     }
 
     public function registerMeasurement (string $measurement): void
     {
         if ($this->isMeasurementRegistered($measurement) === false)
-            $this->store[$measurement] = $measurement;
+            $this->store->push($measurement, $measurement);
     }
 
     public function registerMeasurements (array $measurements): void
@@ -122,7 +118,7 @@ class UnitRegistry implements UnitRegistryInterface
         if (!$this->isMeasurementRegistered($unit->getUnitOf()))
             throw new UnknownMeasurementTypeException("Trying to register unit '{$unit->getName()}' to an unregisted measurement of '{$unit->getUnitOf()}'");
 
-        $this->store[$unit->getUnitOf()][$unit->getSymbol()] = $unit;
+        $this->store->push($unit->getRegistryKey(), $unit);
     }
 
     public function registerUnits (array $units): void
@@ -137,7 +133,7 @@ class UnitRegistry implements UnitRegistryInterface
         if (!$this->isMeasurementRegistered($measurement))
             throw new UnknownMeasurementTypeException("Trying to unregister a nonexistent measurement type {$measurement}");
 
-        unset($this->store[$measurement]);
+        $this->store->pop($measurement);
     }
 
     public function unregisterMeasurements(array $measurements): void
@@ -153,7 +149,7 @@ class UnitRegistry implements UnitRegistryInterface
             throw new UnknownUnitOfMeasureException("Trying to unregister a nonexistent unit {$symbol}");
 
         $unit = $this->loadUnit($symbol);
-        unset($this->store[$unit->getUnitOf()][$symbol]);
+        $this->store->pop("{$unit->getUnitOf()}.{$symbol}");
     }
 
     public function unregisterUnits (array $symbols): void
