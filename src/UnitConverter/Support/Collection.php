@@ -17,6 +17,7 @@ use Countable;
 use IteratorAggregate;
 use JsonSerializable;
 use Traversable;
+use ArrayIterator;
 
 class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
@@ -197,11 +198,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      */
     public function getIterator (): Traversable
     {
-        return (function () {
-            while(list($key, $val) = each($this->store)) {
-                yield $key => $val;
-            }
-        })();
+        return new ArrayIterator($this->store);
     }
 
     /**
