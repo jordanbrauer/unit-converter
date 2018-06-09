@@ -18,6 +18,7 @@ namespace UnitConverter\Unit;
  * @version 1.0.0
  * @since 0.6.7
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 interface SiBaseUnitInterface
 {
