@@ -19,6 +19,7 @@ namespace UnitConverter\Calculator;
  * @version 1.0.0
  * @since 0.4.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 interface CalculatorInterface
 {

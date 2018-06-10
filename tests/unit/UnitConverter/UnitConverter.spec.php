@@ -18,6 +18,7 @@ use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
+use UnitConverter\ConverterBuilder;
 
 /**
  * @coversDefaultClass UnitConverter\UnitConverter
@@ -69,7 +70,7 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
      */
     public function assertConversionThrowsErrorExceptionAtUnknownUnits ()
     {
@@ -79,5 +80,16 @@ class UnitConverterSpec extends TestCase
             ->from("yd") # any unregistered unit
             ->to("in")
             ;
+    }
+
+    /**
+     * @test
+     * @covers ::createBuilder
+     */
+    public function assertConverterCanReturnBuilder ()
+    {
+        $builder = $this->converter::createBuilder();
+
+        $this->assertInstanceOf(ConverterBuilder::class, $builder);
     }
 }
