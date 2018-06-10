@@ -22,8 +22,6 @@ use UnitConverter\ConverterBuilder;
 
 /**
  * @coversDefaultClass UnitConverter\UnitConverter
- * @coversDefaultClass UnitConverter\UnitConverter::<protected>
- * @coversDefaultClass UnitConverter\UnitConverter::<private>
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\SimpleCalculator
