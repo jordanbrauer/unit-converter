@@ -35,6 +35,8 @@ class ConverterBuilderSpec extends TestCase
     /**
      * @test
      * @covers ::build
+     * @covers ::addSimpleCalculator
+     * @covers ::addDefaultRegistry
      */
     public function assertBuilderReturnsFullyConfiguredConverter ()
     {
