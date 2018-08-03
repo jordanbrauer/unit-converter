@@ -21,6 +21,7 @@ use UnitConverter\Unit\UnitInterface;
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 interface UnitRegistryInterface
 {
