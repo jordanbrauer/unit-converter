@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,55 +27,40 @@ use UnitConverter\Unit\Length\Metre;
  */
 class AbstractUnitSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
-        $this->unit = new class extends AbstractUnit
-        {
+        $this->unit = new class() extends AbstractUnit {
             protected $name = "saiyan power";
+
             protected $symbol = "sP";
+
             protected $scientificSymbol = "Ω·m";
+
             protected $unitOf = Measure::LENGTH;
+
             protected $base = Metre::class;
+
             protected $units = 9001;
         };
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->unit);
     }
 
     /**
      * @test
-     * @covers ::isSiUnit
+     * @covers ::setBase
+     * @covers ::getBase
      */
-    public function assertNonSiUnitsReturnFalseWhenChecking ()
+    public function assertGetBaseSetBaseMethodsCanReadAndWriteToUnitBase()
     {
-        $result = $this->unit->isSiUnit();
-        $this->assertFalse($result);
-        $this->assertInternalType("bool", $result);
-    }
+        $this->unit->setBase(new Inch());
+        $actual = $this->unit->getBase();
 
-    /**
-     * @test
-     * @covers ::isMultipleSiUnit
-     */
-    public function assertNonSiMultipleUnitsReturnFalseWhenChecking ()
-    {
-        $result = $this->unit->isMultipleSiUnit();
-        $this->assertFalse($result);
-        $this->assertInternalType("bool", $result);
-    }
-
-    /**
-     * @test
-     * @covers ::isSubmultipleSiUnit
-     */
-    public function assertNonSiSubmultipleUnitsReturnFalseWhenChecking ()
-    {
-        $result = $this->unit->isSubmultipleSiUnit();
-        $this->assertFalse($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertInstanceOf(Inch::class, $actual);
+        $this->assertInternalType("object", $actual);
     }
 
     /**
@@ -81,7 +68,7 @@ class AbstractUnitSpec extends TestCase
      * @covers ::setName
      * @covers ::getName
      */
-    public function assertGetNameSetNameMethodsCanReadAndWriteToUnitName ()
+    public function assertGetNameSetNameMethodsCanReadAndWriteToUnitName()
     {
         $this->unit->setName("test set");
         $actual = $this->unit->getName();
@@ -92,24 +79,10 @@ class AbstractUnitSpec extends TestCase
 
     /**
      * @test
-     * @covers ::setSymbol
-     * @covers ::getSymbol
-     */
-    public function assertGetSymbolSetSymbolMethodsCanReadAndWriteToUnitSymbol ()
-    {
-        $this->unit->setSymbol("tS");
-        $actual = $this->unit->getSymbol();
-
-        $this->assertEquals("tS", $actual);
-        $this->assertInternalType("string", $actual);
-    }
-
-    /**
-     * @test
      * @covers ::setScientificSymbol
      * @covers ::getScientificSymbol
      */
-    public function assertGetScientificSymbolSetScientificSymbolMethodsCanReadAndWriteToUnitScientificSymbol ()
+    public function assertGetScientificSymbolSetScientificSymbolMethodsCanReadAndWriteToUnitScientificSymbol()
     {
         $this->unit->setScientificSymbol("ft³");
         $actual = $this->unit->getScientificSymbol();
@@ -120,10 +93,24 @@ class AbstractUnitSpec extends TestCase
 
     /**
      * @test
+     * @covers ::setSymbol
+     * @covers ::getSymbol
+     */
+    public function assertGetSymbolSetSymbolMethodsCanReadAndWriteToUnitSymbol()
+    {
+        $this->unit->setSymbol("tS");
+        $actual = $this->unit->getSymbol();
+
+        $this->assertEquals("tS", $actual);
+        $this->assertInternalType("string", $actual);
+    }
+
+    /**
+     * @test
      * @covers ::setUnitOf
      * @covers ::getUnitOf
      */
-    public function assertGetUnitOfSetUnitOfMethodsCanReadAndWriteToUnitUnitOf ()
+    public function assertGetUnitOfSetUnitOfMethodsCanReadAndWriteToUnitUnitOf()
     {
         $this->unit->setUnitOf(Measure::ENERGY);
         $actual = $this->unit->getUnitOf();
@@ -134,29 +121,48 @@ class AbstractUnitSpec extends TestCase
 
     /**
      * @test
-     * @covers ::setBase
-     * @covers ::getBase
-     */
-    public function assertGetBaseSetBaseMethodsCanReadAndWriteToUnitBase ()
-    {
-        $this->unit->setBase(new Inch);
-        $actual = $this->unit->getBase();
-
-        $this->assertInstanceOf(Inch::class, $actual);
-        $this->assertInternalType("object", $actual);
-    }
-
-    /**
-     * @test
      * @covers ::setUnits
      * @covers ::getUnits
      */
-    public function assertGetUnitsSetUnitsMethodsCanReadAndWriteToUnitUnits ()
+    public function assertGetUnitsSetUnitsMethodsCanReadAndWriteToUnitUnits()
     {
         $this->unit->setUnits(69);
         $actual = $this->unit->getUnits();
 
         $this->assertEquals(69, $actual);
         $this->assertInternalType("float", $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::isMultipleSiUnit
+     */
+    public function assertNonSiMultipleUnitsReturnFalseWhenChecking()
+    {
+        $result = $this->unit->isMultipleSiUnit();
+        $this->assertFalse($result);
+        $this->assertInternalType("bool", $result);
+    }
+
+    /**
+     * @test
+     * @covers ::isSubmultipleSiUnit
+     */
+    public function assertNonSiSubmultipleUnitsReturnFalseWhenChecking()
+    {
+        $result = $this->unit->isSubmultipleSiUnit();
+        $this->assertFalse($result);
+        $this->assertInternalType("bool", $result);
+    }
+
+    /**
+     * @test
+     * @covers ::isSiUnit
+     */
+    public function assertNonSiUnitsReturnFalseWhenChecking()
+    {
+        $result = $this->unit->isSiUnit();
+        $this->assertFalse($result);
+        $this->assertInternalType("bool", $result);
     }
 }

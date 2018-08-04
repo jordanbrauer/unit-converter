@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Inch;
+use UnitConverter\Unit\Length\Metre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that an inch is infact, an inch.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Length\Inch;
  */
 class InchSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new Inch,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new Inch(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class InchSpec extends TestCase
     /**
      * @test
      */
-    public function assert1InchIs0decimal0254Metres ()
+    public function assert1InchIs0decimal0254Metres()
     {
         $expected = 0.0254;
         $actual = $this->converter
             ->convert(1, 4)
             ->from("in")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }

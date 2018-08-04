@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,7 +23,7 @@ namespace UnitConverter\Unit\Pressure;
  */
 class PoundForcePerSquareInch extends PressureUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("pound-force per square inch")
@@ -30,7 +32,6 @@ class PoundForcePerSquareInch extends PressureUnit
 
             ->setScientificSymbol("lbf/in²")
 
-            ->setUnits(6894.76)
-            ;
+            ->setUnits(6894.76);
     }
 }

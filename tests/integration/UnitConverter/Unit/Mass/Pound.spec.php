@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Pound;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a pound is infact, a pound.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Mass\Pound;
  */
 class PoundSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Kilogram,
-                new Pound,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Kilogram(),
+                new Pound(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class PoundSpec extends TestCase
     /**
      * @test
      */
-    public function assert1PoundIs0decimal453592Kilograms ()
+    public function assert1PoundIs0decimal453592Kilograms()
     {
         $expected = 0.453592;
         $actual = $this->converter
             ->convert(1, 6)
             ->from("lb")
-            ->to("kg")
-            ;
+            ->to("kg");
 
         $this->assertEquals($expected, $actual);
     }

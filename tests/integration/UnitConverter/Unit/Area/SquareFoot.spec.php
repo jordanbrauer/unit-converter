@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Area\SquareMetre;
 use UnitConverter\Unit\Area\SquareFoot;
+use UnitConverter\Unit\Area\SquareMetre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a square foot is a square foot.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Area\SquareFoot;
  */
 class SquareFootSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new SquareMetre,
-                new SquareFoot,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new SquareMetre(),
+                new SquareFoot(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class SquareFootSpec extends TestCase
     /**
      * @test
      */
-    public function assert1SquareFootIs0decimal092903SquareMetres ()
+    public function assert1SquareFootIs0decimal092903SquareMetres()
     {
         $expected = 0.092903;
         $actual = $this->converter
             ->convert(1, 6)
             ->from("ft2")
-            ->to("m2")
-            ;
+            ->to("m2");
 
         $this->assertEquals($expected, $actual);
     }

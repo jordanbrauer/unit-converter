@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,18 +27,7 @@ use UnitConverter\Unit\UnitInterface;
  */
 class Celsius extends TemperatureUnit
 {
-    protected function configure (): void
-    {
-        $this
-            ->setName("celsius")
-
-            ->setSymbol("C")
-
-            ->setScientificSymbol("°C")
-            ;
-    }
-
-    protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
+    protected function calculate(CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
     {
         $val = $value ?? $this->getBasetUnits();
 
@@ -50,6 +41,7 @@ class Celsius extends TemperatureUnit
                     ),
                     $precision
                 );
+
                 break;
 
             case 'K': # K = °C + 273.15
@@ -57,14 +49,26 @@ class Celsius extends TemperatureUnit
                     $calculator->add($val, 273.15),
                     $precision
                 );
+
                 break;
 
             case 'C': # °C = °C
                 return $val;
+
                 break;
 
             default:
                 throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
             }
-        }
     }
+
+    protected function configure(): void
+    {
+        $this
+            ->setName("celsius")
+
+            ->setSymbol("C")
+
+            ->setScientificSymbol("°C");
+    }
+}

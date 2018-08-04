@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Litre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a cubic metre is a metre that has been cubed.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Volume\CubicMetre;
  */
 class CubicMetreSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Litre,
-                new CubicMetre,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Litre(),
+                new CubicMetre(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class CubicMetreSpec extends TestCase
     /**
      * @test
      */
-    public function assert1CubicMetreIs1000Litres ()
+    public function assert1CubicMetreIs1000Litres()
     {
         $expected = 1000;
         $actual = $this->converter
             ->convert(1)
             ->from("m3")
-            ->to("L")
-            ;
+            ->to("L");
 
         $this->assertEquals($expected, $actual);
     }

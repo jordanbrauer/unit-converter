@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,14 +23,13 @@ namespace UnitConverter\Unit\PlaneAngle;
  */
 class Radian extends PlaneAngleUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("radian")
 
             ->setSymbol("rad")
 
-            ->setUnits(57.2958)
-            ;
+            ->setUnits(57.2958);
     }
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Torr;
+use UnitConverter\UnitConverter;
 
 /**
  * Test that a Torr is indeed a Torr.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Pressure\Torr;
  */
 class TorrSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Pascal,
-                new Torr,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Pascal(),
+                new Torr(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class TorrSpec extends TestCase
     /**
      * @test
      */
-    public function assert1TorrIs133decimal322Pascal ()
+    public function assert1TorrIs133decimal322Pascal()
     {
         $expected = 133.322;
         $actual = $this->converter
             ->convert(1, 3)
             ->from("Torr")
-            ->to("Pa")
-            ;
+            ->to("Pa");
 
         $this->assertEquals($expected, $actual);
     }

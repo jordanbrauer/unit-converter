@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,10 +15,10 @@
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a second is infact, a second.
@@ -30,17 +32,17 @@ use UnitConverter\Unit\Time\Second;
  */
 class SecondSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Second,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Second(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -48,14 +50,13 @@ class SecondSpec extends TestCase
     /**
      * @test
      */
-    public function assert1SecondIs1Second ()
+    public function assert1SecondIs1Second()
     {
         $expected = 1;
         $actual = $this->converter
             ->convert(1)
             ->from("s")
-            ->to("s")
-            ;
+            ->to("s");
 
         $this->assertEquals($expected, $actual);
     }
@@ -63,9 +64,9 @@ class SecondSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatASecondIsAnSIUnit ()
+    public function assertThatASecondIsAnSIUnit()
     {
-        $result = (new Second)->isSiUnit();
+        $result = (new Second())->isSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

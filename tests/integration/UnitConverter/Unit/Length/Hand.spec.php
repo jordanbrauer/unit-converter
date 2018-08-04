@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Hand;
+use UnitConverter\Unit\Length\Metre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a hand is a hand.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Length\Hand;
  */
 class HandSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new Hand,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new Hand(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class HandSpec extends TestCase
     /**
      * @test
      */
-    public function assert1HandIs0decimal1016Metres ()
+    public function assert1HandIs0decimal1016Metres()
     {
         $expected = 0.1016;
         $actual = $this->converter
             ->convert(1, 4)
             ->from("h")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }

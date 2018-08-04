@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Time\Second;
 use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Second;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a millisecond is infact, a millisecond.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Time\Millisecond;
  */
 class MillisecondSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Second,
-                new Millisecond,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Second(),
+                new Millisecond(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class MillisecondSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MillisecondIs0decimal001Seconds ()
+    public function assert1MillisecondIs0decimal001Seconds()
     {
         $expected = 0.001;
         $actual = $this->converter
             ->convert(1, 3)
             ->from("ms")
-            ->to("s")
-            ;
+            ->to("s");
 
         $this->assertEquals($expected, $actual);
     }
@@ -66,9 +67,9 @@ class MillisecondSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatAMillisecondIsASubmultipleSIUnit ()
+    public function assertThatAMillisecondIsASubmultipleSIUnit()
     {
-        $result = (new Millisecond)->isSubmultipleSiUnit();
+        $result = (new Millisecond())->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

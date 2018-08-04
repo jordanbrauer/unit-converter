@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -12,8 +14,8 @@
 
 namespace UnitConverter\Registry;
 
-use UnitConverter\Exception\UnknownUnitOfMeasureException;
 use UnitConverter\Exception\UnknownMeasurementTypeException;
+use UnitConverter\Exception\UnknownUnitOfMeasureException;
 use UnitConverter\Measure;
 use UnitConverter\Unit\UnitInterface;
 
@@ -30,7 +32,7 @@ class UnitRegistry implements UnitRegistryInterface
     /**
      * @var array $store A two-dimensional array containing available types of measuerment that each contain their available units of measure.
      */
-    protected $store = array();
+    protected $store = [];
 
     /**
      * Public constructor function for the unit registry.
@@ -38,62 +40,54 @@ class UnitRegistry implements UnitRegistryInterface
      * @param UnitInterface[] $units A one-dimensional array of UnitInterface objects to be registered upon construction.
      * @return self
      */
-    public function __construct (array $units = array())
+    public function __construct(array $units = [])
     {
-        $this->store = array(
-            Measure::LENGTH => array(),
-            Measure::AREA => array(),
-            Measure::VOLUME => array(),
-            Measure::MASS => array(),
-            Measure::SPEED => array(),
-            Measure::PLANE_ANGLE => array(),
-            Measure::TEMPERATURE => array(),
-            Measure::PRESSURE => array(),
-            Measure::TIME => array(),
-            Measure::ENERGY => array(),
-        );
+        $this->store = [
+            Measure::LENGTH      => [],
+            Measure::AREA        => [],
+            Measure::VOLUME      => [],
+            Measure::MASS        => [],
+            Measure::SPEED       => [],
+            Measure::PLANE_ANGLE => [],
+            Measure::TEMPERATURE => [],
+            Measure::PRESSURE    => [],
+            Measure::TIME        => [],
+            Measure::ENERGY      => [],
+        ];
 
-        if (count($units) > 0)
+        if (count($units) > 0) {
             $this->registerUnits($units);
+        }
     }
 
-    public function isMeasurementRegistered (string $measurement): bool
+    public function isMeasurementRegistered(string $measurement): bool
     {
         return array_key_exists($measurement, $this->store);
     }
 
-    public function isUnitRegistered (string $symbol): bool
+    public function isUnitRegistered(string $symbol): bool
     {
         foreach ($this->store as $measurement => $units) {
-            if (array_key_exists($symbol, $units))
+            if (array_key_exists($symbol, $units)) {
                 return true;
+            }
         }
 
         return false;
     }
 
-    public function loadUnit (string $symbol): ?UnitInterface
-    {
-        if ($this->isUnitRegistered($symbol) === false)
-            throw new UnknownUnitOfMeasureException("Trying to access unregistered unit of '{$symbol}'");
-
-        foreach ($this->store as $measurement => $units) {
-            if (array_key_exists($symbol, $units))
-                return $this->store[$measurement][$symbol];
-        }
-    }
-
-    public function listMeasurements (): array
+    public function listMeasurements(): array
     {
         return array_keys($this->store);
     }
 
-    public function listUnits (string $measurement = null): array
+    public function listUnits(string $measurement = null): array
     {
-        if ($measurement)
+        if ($measurement) {
             return array_keys($this->store[$measurement]);
+        }
 
-        $registeredUnits = array();
+        $registeredUnits = [];
 
         foreach ($this->store as $measurements) {
             foreach ($measurements as $unit) {
@@ -104,38 +98,54 @@ class UnitRegistry implements UnitRegistryInterface
         return $registeredUnits;
     }
 
-    public function registerMeasurement (string $measurement): void
+    public function loadUnit(string $symbol): ?UnitInterface
     {
-        if ($this->isMeasurementRegistered($measurement) === false)
-            $this->store[$measurement] = $measurement;
+        if (false === $this->isUnitRegistered($symbol)) {
+            throw new UnknownUnitOfMeasureException("Trying to access unregistered unit of '{$symbol}'");
+        }
+
+        foreach ($this->store as $measurement => $units) {
+            if (array_key_exists($symbol, $units)) {
+                return $this->store[$measurement][$symbol];
+            }
+        }
     }
 
-    public function registerMeasurements (array $measurements): void
+    public function registerMeasurement(string $measurement): void
+    {
+        if (false === $this->isMeasurementRegistered($measurement)) {
+            $this->store[$measurement] = $measurement;
+        }
+    }
+
+    public function registerMeasurements(array $measurements): void
     {
         foreach ($measurements as $measurement) {
             $this->registerMeasurement($measurement);
         }
     }
 
-    public function registerUnit (UnitInterface $unit): void
+    public function registerUnit(UnitInterface $unit): void
     {
-        if (!$this->isMeasurementRegistered($unit->getUnitOf()))
+        if (!$this->isMeasurementRegistered($unit->getUnitOf())) {
             throw new UnknownMeasurementTypeException("Trying to register unit '{$unit->getName()}' to an unregisted measurement of '{$unit->getUnitOf()}'");
+        }
 
         $this->store[$unit->getUnitOf()][$unit->getSymbol()] = $unit;
     }
 
-    public function registerUnits (array $units): void
+    public function registerUnits(array $units): void
     {
         foreach ($units as $unit) {
             $this->registerUnit($unit);
         }
     }
 
-    public function unregisterMeasurement (string $measurement): void
+    public function unregisterMeasurement(string $measurement): void
     {
-        if (!$this->isMeasurementRegistered($measurement))
+        if (!$this->isMeasurementRegistered($measurement)) {
             throw new UnknownMeasurementTypeException("Trying to unregister a nonexistent measurement type {$measurement}");
+        }
 
         unset($this->store[$measurement]);
     }
@@ -147,16 +157,17 @@ class UnitRegistry implements UnitRegistryInterface
         }
     }
 
-    public function unregisterUnit (string $symbol): void
+    public function unregisterUnit(string $symbol): void
     {
-        if ($this->isUnitRegistered($symbol) === false)
+        if (false === $this->isUnitRegistered($symbol)) {
             throw new UnknownUnitOfMeasureException("Trying to unregister a nonexistent unit {$symbol}");
+        }
 
         $unit = $this->loadUnit($symbol);
         unset($this->store[$unit->getUnitOf()][$symbol]);
     }
 
-    public function unregisterUnits (array $symbols): void
+    public function unregisterUnits(array $symbols): void
     {
         foreach ($symbols as $unit) {
             $this->unregisterUnit($unit);

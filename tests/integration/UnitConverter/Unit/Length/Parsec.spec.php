@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Parsec;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a parsec is infact, a parsec.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Length\Parsec;
  */
 class ParsecSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new Parsec,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new Parsec(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class ParsecSpec extends TestCase
     /**
      * @test
      */
-    public function assert1ParsecIs30856775814913672decimal789139379577965Metres ()
+    public function assert1ParsecIs30856775814913672decimal789139379577965Metres()
     {
         $expected = 30856775814913672.789139379577965;
         $actual = $this->converter
             ->convert(1, 15)
             ->from("pc")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }

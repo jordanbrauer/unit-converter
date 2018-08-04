@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Area\SquareMetre;
 use UnitConverter\Unit\Area\Hectare;
+use UnitConverter\Unit\Area\SquareMetre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a hectare is a hectare.
@@ -32,18 +34,18 @@ use UnitConverter\Unit\Area\Hectare;
  */
 class HectareSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new SquareMetre,
-                new Hectare,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new SquareMetre(),
+                new Hectare(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +53,13 @@ class HectareSpec extends TestCase
     /**
      * @test
      */
-    public function assert1HectareIs10000SquareMetres ()
+    public function assert1HectareIs10000SquareMetres()
     {
         $expected = 10000;
         $actual = $this->converter
             ->convert(1)
             ->from("ha")
-            ->to("m2")
-            ;
+            ->to("m2");
 
         $this->assertEquals($expected, $actual);
     }
