@@ -1,5 +1,21 @@
 # Change Log
 
+## [v0.7.1](https://github.com/jordanbrauer/unit-converter/tree/v0.7.1) (2018-06-10)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.7.0...v0.7.1)
+
+**Implemented enhancements:**
+
+- List all suported units [\#98](https://github.com/jordanbrauer/unit-converter/issues/98)
+
+**Closed issues:**
+
+- Instantiate registry with all units [\#99](https://github.com/jordanbrauer/unit-converter/issues/99)
+
+**Merged pull requests:**
+
+- Add coverage annotation to exceptions [\#106](https://github.com/jordanbrauer/unit-converter/pull/106) ([jordanbrauer](https://github.com/jordanbrauer))
+- Converter builder and fully loaded registry [\#104](https://github.com/jordanbrauer/unit-converter/pull/104) ([proualexandre](https://github.com/proualexandre))
+
 ## [v0.7.0](https://github.com/jordanbrauer/unit-converter/tree/v0.7.0) (2018-05-07)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.7...v0.7.0)
 

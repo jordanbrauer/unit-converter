@@ -85,6 +85,13 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * @return ConverterBuilder
+     */
+    public static function createBuilder () {
+        return new ConverterBuilder();
+    }
+
+    /**
      * Set the unit converter registry for storing units of measure to convert values with.
      *
      * @api
@@ -150,13 +157,12 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      *
+     * @throws MissingCalculatorException
      * @param int|float|string $value The initial value being converted.
      * @param UnitInterface $from The unit of measure being converted **from**.
      * @param UnitInterface $to The unit of measure being converted **to**.
      * @param int $precision The decimal percision to be calculated
-     *
      * @return int|float|string
-     * @throws MissingCalculatorException
      */
     protected function calculate (
         $value,
@@ -167,29 +173,24 @@ class UnitConverter implements UnitConverterInterface
         if ($this->calculatorExists() === false)
             throw new MissingCalculatorException("No calculator was found to perform mathematical operations with.");
 
-        # Are we using a BinaryCalculator?
         $isBinary = (BinaryCalculator::class === $this->whichCalculator());
 
-        # If a BinaryCalculator is present in addition to a runtime precision,
-        # reset the precision. See bug ticket #54 for more details.
         if ($isBinary and $precision) $this->calculator->setPrecision($precision);
 
-        // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method.
-        // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
-        # Attempt a self conversion and return it if one exists (e.g., temperatures).
         $selfConversion = $from->convert($this->calculator, $value, $to, $precision);
+
+        // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method.
         if ($selfConversion) {
+            // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
             $result = $selfConversion;
             $parameters = [ 'left' => $value, 'right' => $to->getUnits(), 'precision' => $precision ];
             $log[] = $this->getLogStep('convert', $parameters, $selfConversion);
         } else {
-            # Fetch our unit values. Additionaly, cast & extract them accordingly
-            # if a BinaryCalculator is present.
             $fromUnits = $from->getUnits();
             $toUnits = $to->getUnits();
+
             if ($isBinary) extract($this->castUnitsTo("string"));
 
-            # Perform the standard unit conversion calculation.
             $mulResult = $this->multiply($value, $fromUnits);
             $divResult = $this->divide($mulResult, $toUnits);
             $result = $this->round($divResult, $precision);
