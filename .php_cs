@@ -15,22 +15,22 @@ $finder = PhpCsFixer\Finder::create()
     ])
     ->in($root);
 
-// foreach ([
-//     '*.md',
-//     '*.txt',
-//     '*.json',
-//     '*.yml',
-//     '*.yaml',
-//     '*.xml',
-//     'composer.*',
-//     '.php_cs*',
-//     '.env*',
-//     '.editorconfig',
-//     '.github_changelog_generator',
-//     '.gitignore',
-//     'LICENSE',
-//     'TODO',
-// ] as $pattern) $finder->notPath("{$root}/{$pattern}");
+foreach ([
+    '*.md',
+    '*.txt',
+    '*.json',
+    '*.yml',
+    '*.yaml',
+    '*.xml',
+    'composer.*',
+    '.php_cs*',
+    '.env*',
+    '.editorconfig',
+    '.github_changelog_generator',
+    '.gitignore',
+    'LICENSE',
+    'TODO',
+] as $pattern) $finder->notPath("{$root}/{$pattern}");
 
 return PhpCsFixer\Config::create()
     ->setFinder($finder)
@@ -245,6 +245,18 @@ return PhpCsFixer\Config::create()
 
       /*
       |----------------------------------------------------------------------
+      | Declare Strict Types (Risky)
+      |----------------------------------------------------------------------
+      |
+      | Force strict types declaration in all files.
+      | Requires PHP >= 7.0.
+      | WARNING: Forcing strict types will stop non strict code from working.
+      |
+      */
+      'declare_strict_types' => true,
+
+      /*
+      |----------------------------------------------------------------------
       | Else & Elseif Keyword(s)
       |----------------------------------------------------------------------
       |
@@ -286,6 +298,26 @@ return PhpCsFixer\Config::create()
       |
       */
       'explicit_indirect_variable' => true,
+
+      /*
+      |----------------------------------------------------------------------
+      | Final Internal Class
+      |----------------------------------------------------------------------
+      |
+      | Internal classes should be final. A final class must not have final
+      | methods.
+      |
+      */
+      'no_unneeded_final_method' => true,
+      'final_internal_class' => [
+        'annotation-black-list' => [
+          '@final',
+        ],
+        'annotation-white-list' => [
+          '@internal',
+        ],
+      ],
+
 
       /*
       |----------------------------------------------------------------------
