@@ -1,16 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
- * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
+ * @copyright 2018 Jordan Brauer <jbrauer.inc@gmail.com>
  * @license MIT
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare (strict_types = 1);
 
 namespace UnitConverter\Tests\Unit\Registry;
 
@@ -81,7 +79,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
      */
     public function assertOutOfBoundsExceptionIsThrownForUnregisteredUnits ()
     {
@@ -182,7 +180,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers UnitConverter\Exception\UnknownMeasurementTypeException
      */
     public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsOutOfBoundsException ()
     {
@@ -222,7 +220,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers UnitConverter\Exception\UnknownMeasurementTypeException
      */
     public function assertUnregisteringUnknownMeasurementsThrowsOutOfBoundsException ()
     {
@@ -249,7 +247,7 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
      */
     public function assertUnregisteringUnknownUnitsThrowsOutOfBoundsException ()
     {

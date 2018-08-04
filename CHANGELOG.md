@@ -1,5 +1,103 @@
 # Change Log
 
+## [v0.7.1](https://github.com/jordanbrauer/unit-converter/tree/v0.7.1) (2018-06-10)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.7.0...v0.7.1)
+
+**Implemented enhancements:**
+
+- List all suported units [\#98](https://github.com/jordanbrauer/unit-converter/issues/98)
+
+**Closed issues:**
+
+- Instantiate registry with all units [\#99](https://github.com/jordanbrauer/unit-converter/issues/99)
+
+**Merged pull requests:**
+
+- Add coverage annotation to exceptions [\#106](https://github.com/jordanbrauer/unit-converter/pull/106) ([jordanbrauer](https://github.com/jordanbrauer))
+- Converter builder and fully loaded registry [\#104](https://github.com/jordanbrauer/unit-converter/pull/104) ([proualexandre](https://github.com/proualexandre))
+
+## [v0.7.0](https://github.com/jordanbrauer/unit-converter/tree/v0.7.0) (2018-05-07)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.7...v0.7.0)
+
+**Implemented enhancements:**
+
+- Add methods to Time units for determining leaps [\#70](https://github.com/jordanbrauer/unit-converter/issues/70)
+- Introduce a debugging method with nice output [\#69](https://github.com/jordanbrauer/unit-converter/issues/69)
+- Implement new Unit property "siUnit" to indicate the units SI acceptance [\#60](https://github.com/jordanbrauer/unit-converter/issues/60)
+- Si units [\#86](https://github.com/jordanbrauer/unit-converter/pull/86) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Closed issues:**
+
+- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#94](https://github.com/jordanbrauer/unit-converter/issues/94)
+- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#93](https://github.com/jordanbrauer/unit-converter/issues/93)
+- Fix "method\_complexity" issue in src/UnitConverter/UnitConverter.php [\#92](https://github.com/jordanbrauer/unit-converter/issues/92)
+- Update README to have more information for setup/usage.  [\#68](https://github.com/jordanbrauer/unit-converter/issues/68)
+- Implement a better release workflow [\#58](https://github.com/jordanbrauer/unit-converter/issues/58)
+- Fix "method\_lines" issue in src/UnitConverter/Unit/Temperature/Fahrenheit.php [\#57](https://github.com/jordanbrauer/unit-converter/issues/57)
+- Fix "argument\_count" issue in src/UnitConverter/UnitConverter.php [\#56](https://github.com/jordanbrauer/unit-converter/issues/56)
+- Enforce a standard such as SI for unit of measure notations \(symbols\) [\#45](https://github.com/jordanbrauer/unit-converter/issues/45)
+
+**Merged pull requests:**
+
+- reduce lines in calculate method \(closes \#57\) [\#95](https://github.com/jordanbrauer/unit-converter/pull/95) ([jordanbrauer](https://github.com/jordanbrauer))
+- Repo files [\#91](https://github.com/jordanbrauer/unit-converter/pull/91) ([jordanbrauer](https://github.com/jordanbrauer))
+- Temporarily use vanilla codeclimate badges due to shields.io bug [\#90](https://github.com/jordanbrauer/unit-converter/pull/90) ([jordanbrauer](https://github.com/jordanbrauer))
+- Debugging tools [\#89](https://github.com/jordanbrauer/unit-converter/pull/89) ([jordanbrauer](https://github.com/jordanbrauer))
+- Time helpers [\#88](https://github.com/jordanbrauer/unit-converter/pull/88) ([jordanbrauer](https://github.com/jordanbrauer))
+
+## [v0.6.7](https://github.com/jordanbrauer/unit-converter/tree/v0.6.7) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...v0.6.7)
+
+**Merged pull requests:**
+
+- Release fixes [\#83](https://github.com/jordanbrauer/unit-converter/pull/83) ([jordanbrauer](https://github.com/jordanbrauer))
+
+## [v0.6.2-rc](https://github.com/jordanbrauer/unit-converter/tree/v0.6.2-rc) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.1...v0.6.2-rc)
+
+**Fixed bugs:**
+
+- Upgrades to support a pre-release tag [\#82](https://github.com/jordanbrauer/unit-converter/pull/82) ([jordanbrauer](https://github.com/jordanbrauer))
+
+## [v0.6.1](https://github.com/jordanbrauer/unit-converter/tree/v0.6.1) (2018-05-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.0...v0.6.1)
+
+**Implemented enhancements:**
+
+- Add collection class for unit registry [\#75](https://github.com/jordanbrauer/unit-converter/issues/75)
+- Develop – Minor version change [\#81](https://github.com/jordanbrauer/unit-converter/pull/81) ([jordanbrauer](https://github.com/jordanbrauer))
+- Robofile taskrunner [\#80](https://github.com/jordanbrauer/unit-converter/pull/80) ([jordanbrauer](https://github.com/jordanbrauer))
+- Robofile taskrunner [\#78](https://github.com/jordanbrauer/unit-converter/pull/78) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Fixed bugs:**
+
+- BinaryCalculator requires UnitConverter to pass string values instead of int/float values  [\#54](https://github.com/jordanbrauer/unit-converter/issues/54)
+
+**Closed issues:**
+
+- Code style updates [\#67](https://github.com/jordanbrauer/unit-converter/issues/67)
+
+**Merged pull requests:**
+
+- Revert "Robofile taskrunner" [\#79](https://github.com/jordanbrauer/unit-converter/pull/79) ([jordanbrauer](https://github.com/jordanbrauer))
+- Unit collection [\#76](https://github.com/jordanbrauer/unit-converter/pull/76) ([jordanbrauer](https://github.com/jordanbrauer))
+- Update: outdated readme info & add new info [\#74](https://github.com/jordanbrauer/unit-converter/pull/74) ([jordanbrauer](https://github.com/jordanbrauer))
+- Fix code styles [\#71](https://github.com/jordanbrauer/unit-converter/pull/71) ([jordanbrauer](https://github.com/jordanbrauer))
+
+## [v0.6.0](https://github.com/jordanbrauer/unit-converter/tree/v0.6.0) (2018-02-04)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.1...v0.6.0)
+
+**Closed issues:**
+
+- Need a New Pull Request template [\#62](https://github.com/jordanbrauer/unit-converter/issues/62)
+- Need a New Issue template [\#61](https://github.com/jordanbrauer/unit-converter/issues/61)
+
+**Merged pull requests:**
+
+- Release 0.6.0 [\#66](https://github.com/jordanbrauer/unit-converter/pull/66) ([jordanbrauer](https://github.com/jordanbrauer))
+- Fix binary calc [\#64](https://github.com/jordanbrauer/unit-converter/pull/64) ([jordanbrauer](https://github.com/jordanbrauer))
+- GitHub templates [\#63](https://github.com/jordanbrauer/unit-converter/pull/63) ([jordanbrauer](https://github.com/jordanbrauer))
+
 ## [v0.5.1](https://github.com/jordanbrauer/unit-converter/tree/v0.5.1) (2017-11-14)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.0...v0.5.1)
 

@@ -1,16 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
- * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
+ * @copyright 2018 Jordan Brauer <jbrauer.inc@gmail.com>
  * @license MIT
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare (strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
@@ -63,5 +61,53 @@ class MonthSpec extends TestCase
             ;
 
         $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function assertMonthsWithLessThan30DaysAreProperlyDetected ()
+    {
+        $months = Month::LOW_DAY_COUNT_MONTHS;
+
+        foreach ($months as $month) {
+            $this->assertTrue(Month::hasNumberOfDays($month, 28));
+            $this->assertTrue(Month::hasNumberOfDays($month, 29));
+            $this->assertFalse(Month::hasNumberOfDays($month, 30));
+            $this->assertFalse(Month::hasNumberOfDays($month, 31));
+        }
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function assertMonthsWith30DaysAreProperlyDetected ()
+    {
+        $months = Month::MID_DAY_COUNT_MONTHS;
+
+        foreach ($months as $month) {
+            $this->assertFalse(Month::hasNumberOfDays($month, 28));
+            $this->assertFalse(Month::hasNumberOfDays($month, 29));
+            $this->assertTrue(Month::hasNumberOfDays($month, 30));
+            $this->assertFalse(Month::hasNumberOfDays($month, 31));
+        }
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function assertMonthsWith31DaysAreProperlyDetected ()
+    {
+        $months = Month::HIGH_DAY_COUNT_MONTHS;
+
+        foreach ($months as $month) {
+            $this->assertFalse(Month::hasNumberOfDays($month, 28));
+            $this->assertFalse(Month::hasNumberOfDays($month, 29));
+            $this->assertFalse(Month::hasNumberOfDays($month, 30));
+            $this->assertTrue(Month::hasNumberOfDays($month, 31));
+        }
     }
 }

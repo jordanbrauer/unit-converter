@@ -1,16 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
- * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
+ * @copyright 2018 Jordan Brauer <jbrauer.inc@gmail.com>
  * @license MIT
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare (strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
@@ -21,9 +19,40 @@ namespace UnitConverter\Calculator;
  * @version 1.0.0
  * @since 0.4.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 abstract class AbstractCalculator implements CalculatorInterface
 {
+    /**
+     * @const int DEFAULT_PRECISION The default precision value.
+     */
+    const DEFAULT_PRECISION = 2;
+
+    /**
+     * @const int DEFAULT_ROUNDING_MODE The default rounding mode for calculators.
+     */
+    const DEFAULT_ROUNDING_MODE = self::ROUND_HALF_UP;
+
+    /**
+     * @const int ROUND_HALF_UP Makes 1.5 into 2 and -1.5 into -2.
+     */
+    const ROUND_HALF_UP = PHP_ROUND_HALF_UP;
+
+    /**
+     * @const int ROUND_HALF_DOWN Makes 1.5 into 1 and -1.5 into -1.
+     */
+    const ROUND_HALF_DOWN = PHP_ROUND_HALF_DOWN;
+
+    /**
+     * @const int ROUND_HALF_EVEN Rounds to the nearest even value.
+     */
+    const ROUND_HALF_EVEN = PHP_ROUND_HALF_EVEN;
+
+    /**
+     * @const int ROUND_HALF_ODD Rounds to the nearest odd value.
+     */
+    const ROUND_HALF_ODD = PHP_ROUND_HALF_ODD;
+
     /**
      * @var int $precision The number of decimal places that will calculated
      */
@@ -45,8 +74,8 @@ abstract class AbstractCalculator implements CalculatorInterface
      */
     public function __construct (int $precision = null, int $roundingMode = null)
     {
-        $this->setPrecision(($precision ?? 2));
-        $this->setRoundingMode(($roundingMode ?? PHP_ROUND_HALF_UP));
+        $this->setPrecision(($precision ?? self::DEFAULT_PRECISION));
+        $this->setRoundingMode(($roundingMode ?? self::DEFAULT_ROUNDING_MODE));
     }
 
     public function setPrecision (int $precision): CalculatorInterface
@@ -61,12 +90,12 @@ abstract class AbstractCalculator implements CalculatorInterface
         return $this;
     }
 
-    public function getPrecision (): int
+    public function getPrecision (): ?int
     {
         return $this->precision;
     }
 
-    public function getRoundingMode (): int
+    public function getRoundingMode (): ?int
     {
         return $this->roundingMode;
     }

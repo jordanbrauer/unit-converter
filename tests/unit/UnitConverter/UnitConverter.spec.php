@@ -1,16 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
- * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
+ * @copyright 2018 Jordan Brauer <jbrauer.inc@gmail.com>
  * @license MIT
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare (strict_types = 1);
 
 namespace UnitConverter\Tests\Unit;
 
@@ -20,6 +18,7 @@ use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
+use UnitConverter\ConverterBuilder;
 
 /**
  * @coversDefaultClass UnitConverter\UnitConverter
@@ -71,7 +70,7 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
-     * @coversNothing
+     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
      */
     public function assertConversionThrowsErrorExceptionAtUnknownUnits ()
     {
@@ -81,5 +80,16 @@ class UnitConverterSpec extends TestCase
             ->from("yd") # any unregistered unit
             ->to("in")
             ;
+    }
+
+    /**
+     * @test
+     * @covers ::createBuilder
+     */
+    public function assertConverterCanReturnBuilder ()
+    {
+        $builder = $this->converter::createBuilder();
+
+        $this->assertInstanceOf(ConverterBuilder::class, $builder);
     }
 }

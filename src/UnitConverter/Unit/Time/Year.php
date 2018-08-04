@@ -1,16 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
- * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
+ * @copyright 2018 Jordan Brauer <jbrauer.inc@gmail.com>
  * @license MIT
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare (strict_types = 1);
 
 namespace UnitConverter\Unit\Time;
 
@@ -32,5 +30,21 @@ class Year extends TimeUnit
 
             ->setUnits(31536000)
             ;
+    }
+
+    /**
+     * Determines if the given (or current, if non supplied) year is a leap year.
+     *
+     * @param integer $year The year being checked.
+     * @return boolean
+     */
+    public static function isLeapYear (int $year = null): bool
+    {
+        $year = ($year ?? date('Y'));
+
+        return (
+            (0 == ($year % 4))
+            && ((0 != ($year % 100)) XOR (0 == ($year % 400)))
+        );
     }
 }

@@ -1,22 +1,22 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
- * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
+ * @copyright 2018 Jordan Brauer <jbrauer.inc@gmail.com>
  * @license MIT
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-declare (strict_types = 1);
-
 namespace UnitConverter\Calculator;
 
 /**
  * A concrete calculator calss that uses the bcmath library
  * to perform mathematical operations.
+ *
+ * @HACK https://github.com/jordanbrauer/unit-converter/issues/54
  *
  * @link http://php.net/manual/en/book.bc.php
  *
@@ -28,9 +28,19 @@ class BinaryCalculator extends AbstractCalculator
 {
     public function setPrecision(int $precision): CalculatorInterface
     {
+        $precision = ($precision * 2); // HACK: #54
         parent::setPrecision($precision);
         bcscale($precision);
         return $this;
+    }
+
+    /**
+     * Overwrites the default implementation for rounding. Simply
+     * casts the result to a string.
+     */
+    public function round ($value, int $precision = null): string
+    {
+        return (string) parent::round($value, $precision);
     }
 
     public function add ($leftOperand, $rightOperand)

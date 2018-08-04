@@ -2,17 +2,17 @@
 
 So, you want to contribute to this project. Perhaps you've found a bug? Perhaps there is a feature or two that you feel is missing and would like to see implemented in the next release? Why wait until someone else can get around to fixing it when you can do it yourself!
 
-> Please read our **[Code of Conduct](#)** if you are unsure on how to conduct yourself when submitting issues and pull requests.
+> Please read our **[Code of Conduct](https://github.com/jordanbrauer/unit-converter/blob/master/CODE_OF_CONDUCT.md)** if you are unsure on how to conduct yourself when submitting issues and pull requests.
 
 ## Quick Start
 
 If you're an experienced developer, you can start contributing right away by following this high level overview of steps. We still recommend and ask that you read the full document 😉.
 
 1. Fork the latest version of this repository
-2. Clone the `develop` branch from your fork to your local machine
+2. Clone the `master` branch from your fork to your local machine
 3. Checkout a new branch for your feature
 4. Begin hacking!
-5. Make a pull request **into** `jordanbrauer:develop` **from** `you:your-branch`
+5. Make a pull request **into** `jordanbrauer:master` **from** `you:your-branch`
 
 ## How to Contribute
 
@@ -36,4 +36,4 @@ In an effort to keep an easily maintainable code base for everyone, I ask that a
 
 ### Submitting a Pull Request
 
-When it comes time for submission, make sure that you target the `develop` branch of this repository.
+When it comes time for submission, make sure that you target the `master` branch of this repository.

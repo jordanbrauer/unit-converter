@@ -1,16 +1,14 @@
-<?php
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
  *
- * @copyright 2017 Jordan Brauer <jbrauer.inc@gmail.com>
+ * @copyright 2018 Jordan Brauer <jbrauer.inc@gmail.com>
  * @license MIT
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare (strict_types = 1);
 
 namespace UnitConverter\Unit;
 
@@ -20,9 +18,31 @@ namespace UnitConverter\Unit;
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 interface UnitInterface
 {
+    /**
+     * Is the unit an SI base unit?
+     *
+     * @return boolean
+     */
+    public function isSiUnit (): bool;
+
+    /**
+     * Is the unit an SI multiple unit?
+     *
+     * @return boolean
+     */
+    public function isMultipleSiUnit (): bool;
+
+    /**
+     * Is the unit an SI submultiple unit?
+     *
+     * @return boolean
+     */
+    public function isSubmultipleSiUnit (): bool;
+
     /**
      * Sets the units full symantic name.
      *
@@ -36,7 +56,7 @@ interface UnitInterface
      *
      * @return string
      */
-    public function getName (): string;
+    public function getName (): ?string;
 
     /**
      * Sets the symbol notation used for the unit.
@@ -51,7 +71,7 @@ interface UnitInterface
      *
      * @return string
      */
-    public function getSymbol (): string;
+    public function getSymbol (): ?string;
 
     /**
      * Sets the unicode scientific symbol notation used for the unit.
@@ -66,7 +86,7 @@ interface UnitInterface
      *
      * @return string
      */
-    public function getScientificSymbol (): string;
+    public function getScientificSymbol (): ?string;
 
     /**
      * Sets the type of measurement that this unit is measuring.
@@ -81,7 +101,7 @@ interface UnitInterface
      *
      * @return string
      */
-    public function getUnitOf (): string;
+    public function getUnitOf (): ?string;
 
     /**
      * Sets the unit class that this unit is based off of.
@@ -98,7 +118,7 @@ interface UnitInterface
      *
      * @return UnitInterface
      */
-    public function getBase (): UnitInterface;
+    public function getBase (): ?UnitInterface;
 
     /**
      * Sets the amount of base units required to make up 1 of the unit.
@@ -113,12 +133,12 @@ interface UnitInterface
      *
      * @return float
      */
-    public function getUnits (): float;
+    public function getUnits (): ?float;
 
     /**
      * Returns the units base unit units'.
      *
      * @return float
      */
-    public function getBaseUnits (): float;
+    public function getBaseUnits (): ?float;
 }
