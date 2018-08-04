@@ -19,6 +19,7 @@ use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
 use UnitConverter\ConverterBuilder;
+use UnitConverter\Exception\BadUnit;
 
 /**
  * @coversDefaultClass UnitConverter\UnitConverter
@@ -70,11 +71,13 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
+     * @covers UnitConverter\Exception\BadUnit
      */
-    public function assertConversionThrowsErrorExceptionAtUnknownUnits ()
+    public function assertConversionThrowsUnknownBadUnitExceptionsAtUnknownUnits ()
     {
-        $this->expectException("UnitConverter\\Exception\\UnknownUnitOfMeasureException");
+        $this->expectException(BadUnit::class);
+        $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
+
         $this->converter
             ->convert(1)
             ->from("yd") # any unregistered unit
