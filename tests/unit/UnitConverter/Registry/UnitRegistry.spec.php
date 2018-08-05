@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,15 +15,15 @@
 namespace UnitConverter\Tests\Unit\Registry;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\Exception\BadMeasurement;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\UnitInterface;
 use UnitConverter\Unit\AbstractUnit;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Millimetre;
-use UnitConverter\Exception\BadUnit;
-use UnitConverter\Exception\BadMeasurement;
+use UnitConverter\Unit\UnitInterface;
 
 /**
  * @coversDefaultClass UnitConverter\Registry\UnitRegistry
@@ -36,56 +38,24 @@ use UnitConverter\Exception\BadMeasurement;
  */
 class UnitRegistrySpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
-        $this->registry = new UnitRegistry(array(
-            new Centimetre,
-            new Inch,
-        ));
+        $this->registry = new UnitRegistry([
+            new Centimetre(),
+            new Inch(),
+        ]);
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->registry);
     }
 
     /**
      * @test
-     * @covers ::isMeasurementRegistered
-     */
-    public function assertMeasurementIsRegistered ()
-    {
-        $this->assertTrue($this->registry->isMeasurementRegistered("length"));
-        $this->assertFalse($this->registry->isMeasurementRegistered("saiyanPower"));
-    }
-
-    /**
-     * @test
-     * @covers ::isUnitRegistered
-     */
-    public function assertUnitIsRegistered ()
-    {
-        $this->assertTrue($this->registry->isUnitRegistered("cm"));
-        $this->assertFalse($this->registry->isUnitRegistered("yd"));
-    }
-
-    /**
-     * @test
-     * @covers ::loadUnit
-     */
-    public function assertUnitObjectIsLoaded ()
-    {
-        $actual = $this->registry->loadUnit("cm");
-        $expected = UnitInterface::class;
-
-        $this->assertInstanceOf($expected, $actual);
-    }
-
-    /**
-     * @test
      * @covers UnitConverter\Exception\BadUnit
      */
-    public function assertBadUnitExceptionIsThrownForUnregisteredUnknownUnits ()
+    public function assertBadUnitExceptionIsThrownForUnregisteredUnknownUnits()
     {
         $this->expectException(BadUnit::class);
         $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
@@ -97,10 +67,10 @@ class UnitRegistrySpec extends TestCase
      * @test
      * @covers ::listMeasurements
      */
-    public function assertListMeasurementsMethodReturnsArray ()
+    public function assertListMeasurementsMethodReturnsArray()
     {
         $actual = $this->registry->listMeasurements();
-        $expected = array(
+        $expected = [
             "length",
             "area",
             "volume",
@@ -111,7 +81,7 @@ class UnitRegistrySpec extends TestCase
             "pressure",
             "time",
             "energy",
-        );
+        ];
 
         $this->assertEquals($expected, $actual);
         $this->assertInternalType("array", $actual);
@@ -122,13 +92,13 @@ class UnitRegistrySpec extends TestCase
      * @test
      * @covers ::listUnits
      */
-    public function assertListUnitsMethodReturnsArray ()
+    public function assertListUnitsMethodReturnsArray()
     {
         $actual = $this->registry->listUnits();
-        $expected = array(
+        $expected = [
             "cm",
             "in",
-        );
+        ];
 
         $this->assertEquals($expected, $actual);
         $this->assertInternalType("array", $actual);
@@ -137,10 +107,42 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
+     * @covers ::isMeasurementRegistered
+     */
+    public function assertMeasurementIsRegistered()
+    {
+        $this->assertTrue($this->registry->isMeasurementRegistered("length"));
+        $this->assertFalse($this->registry->isMeasurementRegistered("saiyanPower"));
+    }
+
+    /**
+     * @test
+     * @covers UnitConverter\Exception\BadMeasurement
+     */
+    public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsBadMeasurementException()
+    {
+        $this->expectException(BadMeasurement::class);
+        $this->expectExceptionCode(BadMeasurement::ERROR_UNKNOWN_MEASUREMENT);
+
+        $this->registry->registerUnit(new class() extends AbstractUnit {
+            protected function configure(): void
+            {
+                $this
+                    ->setName("testtt")
+                    ->setSymbol("Tst")
+                    ->setUnitOf("NO EXIST LOL")
+                    ->setBase(self::class)
+                    ->setUnits(1);
+            }
+        });
+    }
+
+    /**
+     * @test
      * @covers ::registerMeasurement
      * @covers ::registerMeasurements
      */
-    public function assertRegisterMeasurementMethodsAddItemsToUnitRegistry ()
+    public function assertRegisterMeasurementMethodsAddItemsToUnitRegistry()
     {
         $this->assertFalse($this->registry->isMeasurementRegistered("data"));
         $this->assertFalse($this->registry->isMeasurementRegistered("saiyanPower"));
@@ -159,25 +161,24 @@ class UnitRegistrySpec extends TestCase
      * @covers ::registerUnit
      * @covers ::registerUnits
      */
-    public function assertRegisterUnitMethodsAddItemsToUnitRegistry ()
+    public function assertRegisterUnitMethodsAddItemsToUnitRegistry()
     {
         $this->assertFalse($this->registry->isUnitRegistered("sP"));
         $this->assertFalse($this->registry->isUnitRegistered("m"));
         $this->assertFalse($this->registry->isUnitRegistered("mm"));
 
-        $this->registry->registerUnit(new class extends AbstractUnit {
-            protected function configure () : void
+        $this->registry->registerUnit(new class() extends AbstractUnit {
+            protected function configure(): void
             {
                 $this
                     ->setName("saiyanPower")
                     ->setSymbol("sP")
                     ->setUnitOf("energy")
                     ->setBase(self::class)
-                    ->setUnits(9001)
-                    ;
+                    ->setUnits(9001);
             }
         });
-        $this->registry->registerUnits([new Metre, new Millimetre]);
+        $this->registry->registerUnits([new Metre(), new Millimetre()]);
 
         $this->assertTrue($this->registry->isUnitRegistered("sP"));
         $this->assertTrue($this->registry->isUnitRegistered("m"));
@@ -186,51 +187,31 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\BadMeasurement
+     * @covers ::isUnitRegistered
      */
-    public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsBadMeasurementException ()
+    public function assertUnitIsRegistered()
     {
-        $this->expectException(BadMeasurement::class);
-        $this->expectExceptionCode(BadMeasurement::ERROR_UNKNOWN_MEASUREMENT);
-
-        $this->registry->registerUnit(new class extends AbstractUnit {
-            protected function configure () : void
-            {
-                $this
-                    ->setName("testtt")
-                    ->setSymbol("Tst")
-                    ->setUnitOf("NO EXIST LOL")
-                    ->setBase(self::class)
-                    ->setUnits(1)
-                    ;
-            }
-        });
+        $this->assertTrue($this->registry->isUnitRegistered("cm"));
+        $this->assertFalse($this->registry->isUnitRegistered("yd"));
     }
 
     /**
      * @test
-     * @covers ::unregisterMeasurement
-     * @covers ::unregisterMeasurements
+     * @covers ::loadUnit
      */
-    public function assertUnregisterMeasurementMethodsRemoveItemsFromUnitRegistry ()
+    public function assertUnitObjectIsLoaded()
     {
-        $this->assertTrue($this->registry->isMeasurementRegistered("length"));
-        $this->assertTrue($this->registry->isMeasurementRegistered("mass"));
-        $this->assertTrue($this->registry->isMeasurementRegistered("volume"));
+        $actual = $this->registry->loadUnit("cm");
+        $expected = UnitInterface::class;
 
-        $this->registry->unregisterMeasurement("length");
-        $this->registry->unregisterMeasurements(array("mass", "volume"));
-
-        $this->assertFalse($this->registry->isMeasurementRegistered("length"));
-        $this->assertFalse($this->registry->isMeasurementRegistered("mass"));
-        $this->assertFalse($this->registry->isMeasurementRegistered("volume"));
+        $this->assertInstanceOf($expected, $actual);
     }
 
     /**
      * @test
      * @covers UnitConverter\Exception\BadMeasurement
      */
-    public function assertUnregisteringUnknownMeasurementsThrowsBadMeasurementException ()
+    public function assertUnregisteringUnknownMeasurementsThrowsBadMeasurementException()
     {
         $this->expectException(BadMeasurement::class);
         $this->expectExceptionCode(BadMeasurement::ERROR_UNKNOWN_MEASUREMENT);
@@ -240,30 +221,49 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers ::unregisterUnit
-     * @covers ::unregisterUnits
-     */
-    public function assertUnregisterUnitMethodsRemoveItemsFromUnitRegistry ()
-    {
-        $this->assertTrue($this->registry->isUnitRegistered("cm"));
-        $this->assertTrue($this->registry->isUnitRegistered("in"));
-
-        $this->registry->unregisterUnit("cm");
-        $this->registry->unregisterUnits(array("in"));
-
-        $this->assertFalse($this->registry->isUnitRegistered("cm"));
-        $this->assertFalse($this->registry->isUnitRegistered("in"));
-    }
-
-    /**
-     * @test
      * @covers UnitConverter\Exception\BadUnit
      */
-    public function assertUnregisteringUnknownUnitsThrowsBadUnitException ()
+    public function assertUnregisteringUnknownUnitsThrowsBadUnitException()
     {
         $this->expectException(BadUnit::class);
         $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
 
         $this->registry->unregisterUnit("nOtREal");
+    }
+
+    /**
+     * @test
+     * @covers ::unregisterMeasurement
+     * @covers ::unregisterMeasurements
+     */
+    public function assertUnregisterMeasurementMethodsRemoveItemsFromUnitRegistry()
+    {
+        $this->assertTrue($this->registry->isMeasurementRegistered("length"));
+        $this->assertTrue($this->registry->isMeasurementRegistered("mass"));
+        $this->assertTrue($this->registry->isMeasurementRegistered("volume"));
+
+        $this->registry->unregisterMeasurement("length");
+        $this->registry->unregisterMeasurements(["mass", "volume"]);
+
+        $this->assertFalse($this->registry->isMeasurementRegistered("length"));
+        $this->assertFalse($this->registry->isMeasurementRegistered("mass"));
+        $this->assertFalse($this->registry->isMeasurementRegistered("volume"));
+    }
+
+    /**
+     * @test
+     * @covers ::unregisterUnit
+     * @covers ::unregisterUnits
+     */
+    public function assertUnregisterUnitMethodsRemoveItemsFromUnitRegistry()
+    {
+        $this->assertTrue($this->registry->isUnitRegistered("cm"));
+        $this->assertTrue($this->registry->isUnitRegistered("in"));
+
+        $this->registry->unregisterUnit("cm");
+        $this->registry->unregisterUnits(["in"]);
+
+        $this->assertFalse($this->registry->isUnitRegistered("cm"));
+        $this->assertFalse($this->registry->isUnitRegistered("in"));
     }
 }

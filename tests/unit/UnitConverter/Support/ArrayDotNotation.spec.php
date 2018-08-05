@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,8 +15,8 @@
 namespace UnitConverter\Tests\Unit\Support;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\Support\ArrayDotNotation;
 use stdClass;
+use UnitConverter\Support\ArrayDotNotation;
 
 /**
  * @coversDefaultClass UnitConverter\Support\ArrayDotNotation
@@ -23,7 +25,7 @@ class ArrayDotNotationSpec extends TestCase
 {
     protected function setUp()
     {
-        $this->fake = new class {
+        $this->fake = new class() {
             use ArrayDotNotation;
         };
     }
@@ -35,26 +37,49 @@ class ArrayDotNotationSpec extends TestCase
 
     /**
      * @test
+     * @covers ::pathExists
+     */
+    public function assertCanCheckPathExistsWithDotNotation()
+    {
+        $arr = ['foo' => ['bar' => 'baz']];
+        $this->assertTrue($this->fake->pathExists($arr, 'foo.bar'));
+        $this->assertFalse($this->fake->pathExists($arr, 'foo.baz'));
+    }
+
+    /**
+     * @test
      * @covers ::getFromPath
      * @covers ::getPathFromStruct
      * @covers ::getPathFromArray
      * @covers ::getPathFromObject
      * @covers ::defaultValue
      */
-    public function assertCanGetWithDotNotation ()
+    public function assertCanGetWithDotNotation()
     {
-        $arr = ['foo' => [ 'bar' => 'baz']];
+        $arr = ['foo' => ['bar' => 'baz']];
         $actual = $this->fake::getFromPath($arr, 'foo.bar');
         $this->assertEquals('baz', $actual);
     }
 
     /**
      * @test
+     * @covers ::popPath
+     */
+    public function assertCanPopWithDotNotation()
+    {
+        $arr = ['foo' => ['bar' => 'baz']];
+        $this->fake->popPath($arr, 'foo.bar');
+        $this->assertFalse(isset($arr['foo']['bar']));
+        $this->assertTrue(isset($arr['foo']));
+    }
+
+    /**
+     * @test
      * @covers ::pushToPath
      */
-    public function assertCanPushWithDotNotation ()
+    public function assertCanPushWithDotNotation()
     {
-        $arr = ['foo' => [ 'bar' => 'baz']];
+        $arr = ['foo' => ['bar' => 'baz']];
 
         $this->fake->pushToPath($arr, 'foo.bar', 'qux');
         $this->assertEquals('qux', $arr['foo']['bar']);
@@ -62,7 +87,7 @@ class ArrayDotNotationSpec extends TestCase
         $this->fake->pushToPath($arr, 'foo.bar', ['test']);
         $this->assertEquals('test', $arr['foo']['bar'][0]);
 
-        $object = new stdClass;
+        $object = new stdClass();
         $object->baz = 'qux';
         $this->fake->pushToPath($arr, 'foo.bar', $object);
         $this->assertEquals('qux', $arr['foo']['bar']->baz);
@@ -78,28 +103,5 @@ class ArrayDotNotationSpec extends TestCase
 
         $this->fake->pushToPath($arr, 'baz.qux', -10);
         $this->assertSame(-10, $arr['baz']['qux']);
-    }
-
-    /**
-     * @test
-     * @covers ::popPath
-     */
-    public function assertCanPopWithDotNotation ()
-    {
-        $arr = ['foo' => [ 'bar' => 'baz']];
-        $this->fake->popPath($arr, 'foo.bar');
-        $this->assertFalse(isset($arr['foo']['bar']));
-        $this->assertTrue(isset($arr['foo']));
-    }
-
-    /**
-     * @test
-     * @covers ::pathExists
-     */
-    public function assertCanCheckPathExistsWithDotNotation ()
-    {
-        $arr = ['foo' => [ 'bar' => 'baz']];
-        $this->assertTrue($this->fake->pathExists($arr, 'foo.bar'));
-        $this->assertFalse($this->fake->pathExists($arr, 'foo.baz'));
     }
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Mile;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a mile is infact, a mile.
@@ -34,18 +36,18 @@ use UnitConverter\Unit\Length\Mile;
  */
 class MileSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new Mile,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new Mile(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -53,14 +55,13 @@ class MileSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MileIs1609decimal344Metres ()
+    public function assert1MileIs1609decimal344Metres()
     {
         $expected = 1609.344;
         $actual = $this->converter
             ->convert(1, 3)
             ->from("mi")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }

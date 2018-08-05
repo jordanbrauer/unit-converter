@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,9 +25,21 @@ final class BadUnitExceptionsSpec extends TestCase
 {
     /**
      * @test
+     * @covers ::formula
+     */
+    public function assertBadUnitHasCodeForMissingForumla()
+    {
+        $exception = BadUnit::formula('AC/DC');
+
+        $this->assertInstanceOf(BadUnit::class, $exception);
+        $this->assertEquals(BadUnit::ERROR_SELF_CONVERSION_FORMULA, $exception->getCode());
+    }
+
+    /**
+     * @test
      * @covers ::unknown
      */
-    public function assertBadUnitHasCodeForUnknownUnits ()
+    public function assertBadUnitHasCodeForUnknownUnits()
     {
         $exception = BadUnit::unknown('cm');
 
@@ -37,23 +51,11 @@ final class BadUnitExceptionsSpec extends TestCase
      * @test
      * @covers ::scalar
      */
-    public function assertBadUnitHasCodeForUnsupportedScalarTypes ()
+    public function assertBadUnitHasCodeForUnsupportedScalarTypes()
     {
         $exception = BadUnit::scalar('poop');
 
         $this->assertInstanceOf(BadUnit::class, $exception);
         $this->assertEquals(BadUnit::ERROR_SCALAR_TYPE, $exception->getCode());
-    }
-
-    /**
-     * @test
-     * @covers ::formula
-     */
-    public function assertBadUnitHasCodeForMissingForumla ()
-    {
-        $exception = BadUnit::formula('AC/DC');
-
-        $this->assertInstanceOf(BadUnit::class, $exception);
-        $this->assertEquals(BadUnit::ERROR_SELF_CONVERSION_FORMULA, $exception->getCode());
     }
 }

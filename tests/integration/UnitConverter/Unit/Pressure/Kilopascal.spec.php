@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Kilopascal;
+use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\UnitConverter;
 
 /**
  * Test that a kilopascal is indeed a kilopascal.
@@ -34,18 +36,18 @@ use UnitConverter\Unit\Pressure\Kilopascal;
  */
 class KilopascalSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Pascal,
-                new Kilopascal,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Pascal(),
+                new Kilopascal(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -53,14 +55,13 @@ class KilopascalSpec extends TestCase
     /**
      * @test
      */
-    public function assert1KilopascalIs1000Pascal ()
+    public function assert1KilopascalIs1000Pascal()
     {
         $expected = 1000;
         $actual = $this->converter
             ->convert(1)
             ->from("kPa")
-            ->to("Pa")
-            ;
+            ->to("Pa");
 
         $this->assertEquals($expected, $actual);
     }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a millilitre is a millilitre.
@@ -34,18 +36,18 @@ use UnitConverter\Unit\Volume\Millilitre;
  */
 class MillilitreSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Litre,
-                new Millilitre,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Litre(),
+                new Millilitre(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -53,14 +55,13 @@ class MillilitreSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MillilitreIs0decimal001Litres ()
+    public function assert1MillilitreIs0decimal001Litres()
     {
         $expected = 0.001;
         $actual = $this->converter
             ->convert(1, 3)
             ->from("mL")
-            ->to("L")
-            ;
+            ->to("L");
 
         $this->assertEquals($expected, $actual);
     }

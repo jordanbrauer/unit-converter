@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,14 +27,13 @@ class Nanosecond extends TimeUnit implements SiSubmultipleUnitInterface
 {
     protected $siUnit = true;
 
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("nanosecond")
 
             ->setSymbol("ns")
 
-            ->setUnits(0.000000001)
-            ;
+            ->setUnits(0.000000001);
     }
 }

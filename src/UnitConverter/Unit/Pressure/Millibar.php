@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,7 +23,7 @@ namespace UnitConverter\Unit\Pressure;
  */
 class Millibar extends PressureUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("millibar")
@@ -30,7 +32,6 @@ class Millibar extends PressureUnit
 
             ->setScientificSymbol("mbar")
 
-            ->setUnits(100)
-            ;
+            ->setUnits(100);
     }
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,7 +27,7 @@ final class BadConverterExceptionsSpec extends TestCase
      * @test
      * @covers ::missingCalculator
      */
-    public function assertBadConverterHasCodeForMissingCalculator ()
+    public function assertBadConverterHasCodeForMissingCalculator()
     {
         $exception = BadConverter::missingCalculator();
 
@@ -37,7 +39,7 @@ final class BadConverterExceptionsSpec extends TestCase
      * @test
      * @covers ::missingRegistry
      */
-    public function assertBadConverterHasCodeForMissingRegistry ()
+    public function assertBadConverterHasCodeForMissingRegistry()
     {
         $exception = BadConverter::missingRegistry();
 

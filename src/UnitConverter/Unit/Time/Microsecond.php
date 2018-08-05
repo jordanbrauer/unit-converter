@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,7 +27,7 @@ class Microsecond extends TimeUnit implements SiSubmultipleUnitInterface
 {
     protected $siUnit = true;
 
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("microsecond")
@@ -34,7 +36,6 @@ class Microsecond extends TimeUnit implements SiSubmultipleUnitInterface
 
             ->setScientificSymbol("µs")
 
-            ->setUnits(0.000001)
-            ;
+            ->setUnits(0.000001);
     }
 }

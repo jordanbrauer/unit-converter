@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Support;
 
 use ArrayAccess;
+use ArrayIterator;
 use Countable;
 use IteratorAggregate;
 use JsonSerializable;
 use Traversable;
-use ArrayIterator;
 
 /**
  * A custom data structure to help perform robust operations on many items.
@@ -27,7 +29,7 @@ use ArrayIterator;
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  * @internal
  */
-class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
+final class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
     use ArrayDotNotation;
 
@@ -43,44 +45,29 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      *
      * @param UnitInterface[] $store A collection of objects that implement the UnitInterface.
      */
-    public function __construct (array $store = null)
+    public function __construct(array $store = null)
     {
         $this->store = $store ?? [];
     }
 
     /**
-     * Get an item at a given path.
+     * Return a copy of the collection.
      *
-     * @param string $path The path to the desired offset, deliminated by dots.
-     * @param mixed $default (optional) A default value to return if none found.
-     * @return mixed
+     * @return Collection
      */
-    public function get (string $path, $default = null)
+    public function copy(): Collection
     {
-        return static::getFromPath($this->store, $path, $default);
+        return clone $this;
     }
 
     /**
-     * Set an item at a given path.
+     * Count the elements of this collection.
      *
-     * @param string $path The path to the desired offset, deliminated by dots.
-     * @param mixed $value The value to set for the given path.
-     * @return mixed
+     * @return int
      */
-    public function push (string $path, $value)
+    public function count(): int
     {
-        return static::pushToPath($this->store, $path, $value);
-    }
-
-    /**
-     * Unset an item at a given path.
-     *
-     * @param string $path The path to the desired offset, deliminated by dots.
-     * @return void
-     */
-    public function pop (string $path): void
-    {
-        static::popPath($this->store, $path);
+        return count($this->store);
     }
 
     /**
@@ -89,38 +76,9 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @param string $path The path to the desired offset, deliminated by dots.
      * @return bool
      */
-    public function exists (string $path): bool
+    public function exists(string $path): bool
     {
         return static::pathExists($this->store, $path);
-    }
-
-    public function keys(): array
-    {
-        return array_keys($this->store);
-    }
-
-    /**
-     * Return a copy of the collection.
-     *
-     * @return Collection
-     */
-    public function copy (): Collection
-    {
-        return clone $this;
-    }
-
-    /**
-     * Run a map over each of the items.
-     *
-     * @param callable $callback
-     * @return static
-     */
-    public function map (callable $callback): Collection
-    {
-        $offsets = array_keys($this->store);
-        $values = array_map($callback, $this->store, $offsets);
-
-        return new static(array_combine($offsets, $values));
     }
 
     /**
@@ -129,7 +87,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @param callable|null $callback
      * @return static
      */
-    public function filter (callable $callback = null): Collection
+    public function filter(callable $callback = null): Collection
     {
         if ($callback) {
             return new static(array_filter($this->store, $callback, ARRAY_FILTER_USE_BOTH));
@@ -139,12 +97,81 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
     }
 
     /**
+     * Get an item at a given path.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @param mixed $default (optional) A default value to return if none found.
+     * @return mixed
+     */
+    public function get(string $path, $default = null)
+    {
+        return static::getFromPath($this->store, $path, $default);
+    }
+
+    /**
+     * Retrieve an external iterator
+     *
+     * @throws Exception
+     * @return Traversable|Iterator|Generator
+     */
+    public function getIterator(): Traversable
+    {
+        return new ArrayIterator($this->store);
+    }
+
+    /**
+     * Serializes the object to a value that can be serialized natively by json_encode().
+     *
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        return array_map(function ($value) {
+            if ($value instanceof JsonSerializable) {
+                return $value->jsonSerialize();
+            }
+
+            return $value;
+        }, $this->store);
+    }
+
+    public function keys(): array
+    {
+        return array_keys($this->store);
+    }
+
+    /**
+     * Run a map over each of the items.
+     *
+     * @param callable $callback
+     * @return static
+     */
+    public function map(callable $callback): Collection
+    {
+        $offsets = array_keys($this->store);
+        $values = array_map($callback, $this->store, $offsets);
+
+        return new static(array_combine($offsets, $values));
+    }
+
+    /**
+     * Determine if an item exists at an offset.
+     *
+     * @param mixed $offset
+     * @return bool
+     */
+    public function offsetExists($offset): bool
+    {
+        return array_key_exists($offset, $this->store);
+    }
+
+    /**
      * Get an item at a given offset.
      *
      * @param mixed $offset
      * @return mixed
      */
-    public function offsetGet ($offset)
+    public function offsetGet($offset)
     {
         return $this->store[$offset];
     }
@@ -156,10 +183,11 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @param mixed $value
      * @return void
      */
-    public function offsetSet ($offset, $value): void
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->store[] = $value;
+
             return;
         }
 
@@ -172,56 +200,31 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @param mixed $offset
      * @return void
      */
-    public function offsetUnset ($offset): void
+    public function offsetUnset($offset): void
     {
         unset($this->store[$offset]);
     }
 
     /**
-     * Determine if an item exists at an offset.
+     * Unset an item at a given path.
      *
-     * @param mixed $offset
-     * @return bool
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @return void
      */
-    public function offsetExists ($offset): bool
+    public function pop(string $path): void
     {
-        return array_key_exists($offset, $this->store);
+        static::popPath($this->store, $path);
     }
 
     /**
-     * Count the elements of this collection.
+     * Set an item at a given path.
      *
-     * @return int
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @param mixed $value The value to set for the given path.
+     * @return mixed
      */
-    public function count (): int
+    public function push(string $path, $value)
     {
-        return count($this->store);
-    }
-
-    /**
-     * Retrieve an external iterator
-     *
-     * @throws Exception
-     * @return Traversable|Iterator|Generator
-     */
-    public function getIterator (): Traversable
-    {
-        return new ArrayIterator($this->store);
-    }
-
-    /**
-     * Serializes the object to a value that can be serialized natively by json_encode().
-     *
-     * @return array
-     */
-    public function jsonSerialize (): array
-    {
-        return array_map(function ($value) {
-            if ($value instanceof JsonSerializable) {
-                return $value->jsonSerialize();
-            }
-
-            return $value;
-        }, $this->store);
+        return static::pushToPath($this->store, $path, $value);
     }
 }

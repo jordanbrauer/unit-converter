@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -11,8 +13,6 @@
  */
 
 namespace UnitConverter;
-
-use UnitConverter\Unit\UnitInterface;
 
 /**
  * The interface for any and all unit converter classes.
@@ -35,7 +35,7 @@ interface UnitConverterInterface
      * @param int $precision The decimal precision to be rounded to
      * @return UnitConverterInterface
      */
-    public function convert ($value, int $precision = null): UnitConverterInterface;
+    public function convert($value, int $precision = null): UnitConverterInterface;
 
     /**
      * Set the unit converters' unit to be converted **from**. This method is the
@@ -47,7 +47,7 @@ interface UnitConverterInterface
      * @param string $unit The unit being conerted **from**. The unit must first be registered to the UnitRegistry.
      * @return UnitConverterInterface
      */
-    public function from (string $unit): UnitConverterInterface;
+    public function from(string $unit): UnitConverterInterface;
 
     /**
      * Set the unit converters' unit to be converted **to**. This method is the
@@ -59,5 +59,5 @@ interface UnitConverterInterface
      * @param string $unit The unit being converted **to**. The unit must first be registered to the UnitRegistry.
      * @return int|float|string
      */
-    public function to (string $unit);
+    public function to(string $unit);
 }

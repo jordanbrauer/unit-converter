@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\ShortTon;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a short ton is infact, a short ton.
@@ -34,18 +36,18 @@ use UnitConverter\Unit\Mass\ShortTon;
  */
 class ShortTonSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Kilogram,
-                new ShortTon,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Kilogram(),
+                new ShortTon(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -53,14 +55,13 @@ class ShortTonSpec extends TestCase
     /**
      * @test
      */
-    public function assert1ShortTonIs907decimal1847Kilograms ()
+    public function assert1ShortTonIs907decimal1847Kilograms()
     {
         $expected = 907.1847;
         $actual = $this->converter
             ->convert(1, 4)
             ->from("ton")
-            ->to("kg")
-            ;
+            ->to("kg");
 
         $this->assertEquals($expected, $actual);
     }

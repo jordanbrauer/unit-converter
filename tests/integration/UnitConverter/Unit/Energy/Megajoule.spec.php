@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Energy\Joule;
 use UnitConverter\Unit\Energy\Megajoule;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a joule is infact, a joule.
@@ -34,18 +36,18 @@ use UnitConverter\Unit\Energy\Megajoule;
  */
 class MegajouleSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Joule,
-                new Megajoule,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Joule(),
+                new Megajoule(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -53,14 +55,13 @@ class MegajouleSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MegajouleIs1000000Joules ()
+    public function assert1MegajouleIs1000000Joules()
     {
         $expected = 1000000;
         $actual = $this->converter
             ->convert(1)
             ->from("MJ")
-            ->to("J")
-            ;
+            ->to("J");
 
         $this->assertEquals($expected, $actual);
     }

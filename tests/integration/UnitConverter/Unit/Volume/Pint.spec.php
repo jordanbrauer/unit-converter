@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Pint;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a pint is a pint.
@@ -34,18 +36,18 @@ use UnitConverter\Unit\Volume\Pint;
  */
 class PintSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Litre,
-                new Pint,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Litre(),
+                new Pint(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -53,14 +55,13 @@ class PintSpec extends TestCase
     /**
      * @test
      */
-    public function assert1PintIs0decimal473176Litres ()
+    public function assert1PintIs0decimal473176Litres()
     {
         $expected = 0.473176;
         $actual = $this->converter
             ->convert(1, 6)
             ->from("pt")
-            ->to("L")
-            ;
+            ->to("L");
 
         $this->assertEquals($expected, $actual);
     }

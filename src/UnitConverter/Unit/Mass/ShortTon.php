@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,14 +23,13 @@ namespace UnitConverter\Unit\Mass;
  */
 class ShortTon extends MassUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("short ton")
 
             ->setSymbol("ton")
 
-            ->setUnits(907.1847)
-            ;
+            ->setUnits(907.1847);
     }
 }
