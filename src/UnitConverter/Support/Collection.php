@@ -10,16 +10,24 @@
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Registry;
+namespace UnitConverter\Support;
 
 use ArrayAccess;
 use Countable;
 use IteratorAggregate;
 use JsonSerializable;
 use Traversable;
+use ArrayIterator;
 
 class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
+    use ArrayDotNotation;
+
+    /**
+     * The internal store for an instance of a collection.
+     *
+     * @var array
+     */
     protected $store;
 
     /**
@@ -32,6 +40,62 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
         $this->store = $store ?? [];
     }
 
+    /**
+     * Get an item at a given path.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @param mixed $default (optional) A default value to return if none found.
+     * @return mixed
+     */
+    public function get (string $path, $default = null)
+    {
+        return static::getFromPath($this->store, $path, $default);
+    }
+
+    /**
+     * Set an item at a given path.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @param mixed $value The value to set for the given path.
+     * @return mixed
+     */
+    public function push (string $path, $value)
+    {
+        return static::pushToPath($this->store, $path, $value);
+    }
+
+    /**
+     * Unset an item at a given path.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @return void
+     */
+    public function pop (string $path): void
+    {
+        static::popPath($this->store, $path);
+    }
+
+    /**
+     * Check if an element exists in an array using dot notation.
+     *
+     * @param string $path The path to the desired offset, deliminated by dots.
+     * @return bool
+     */
+    public function exists (string $path): bool
+    {
+        return static::pathExists($this->store, $path);
+    }
+
+    public function keys(): array
+    {
+        return array_keys($this->store);
+    }
+
+    /**
+     * Return a copy of the collection.
+     *
+     * @return Collection
+     */
     public function copy (): Collection
     {
         return clone $this;
@@ -134,11 +198,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      */
     public function getIterator (): Traversable
     {
-        return (function () {
-            while(list($key, $val) = each($this->store)) {
-                yield $key => $val;
-            }
-        })();
+        return new ArrayIterator($this->store);
     }
 
     /**
