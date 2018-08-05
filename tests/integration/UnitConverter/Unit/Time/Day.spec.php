@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Time\Day;
 use UnitConverter\Unit\Time\Second;
-use UnitConverter\UnitConverter;
+use UnitConverter\Unit\Time\Day;
 
 /**
  * Ensure that a day is infact, a day.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class DaySpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Day(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Second,
+                new Day,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class DaySpec extends TestCase
     /**
      * @test
      */
-    public function assert1DayIs86400Seconds()
+    public function assert1DayIs86400Seconds ()
     {
         $expected = 86400;
         $actual = $this->converter
             ->convert(1)
             ->from("d")
-            ->to("s");
+            ->to("s")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

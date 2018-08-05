@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,12 +13,12 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Temperature;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Temperature\Celsius;
-use UnitConverter\Unit\Temperature\Fahrenheit;
 use UnitConverter\Unit\Temperature\Kelvin;
-use UnitConverter\UnitConverter;
+use UnitConverter\Unit\Temperature\Fahrenheit;
+use UnitConverter\Unit\Temperature\Celsius;
 
 /**
  * Ensure that Fahrenheit is Fahrenheit.
@@ -33,22 +31,24 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class FahrenheitSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Fahrenheit(),
-                new Kelvin(),
-                new Celsius(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Fahrenheit,
+                new Kelvin,
+                new Celsius,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -56,13 +56,14 @@ class FahrenheitSpec extends TestCase
     /**
      * @test
      */
-    public function assert0FahrenheitIs255decimal37Kelvin()
+    public function assert0FahrenheitIs255decimal37Kelvin ()
     {
         $expected = 255.37;
         $actual = $this->converter
             ->convert(0)
             ->from("F")
-            ->to("K");
+            ->to("K")
+            ;
 
         $this->assertEquals($expected, $actual);
     }
@@ -70,13 +71,14 @@ class FahrenheitSpec extends TestCase
     /**
      * @test
      */
-    public function assert0FahrenheitIsNegative17decimal7778Celsius()
+    public function assert0FahrenheitIsNegative17decimal7778Celsius ()
     {
         $expected = -17.7778;
         $actual = $this->converter
             ->convert(0, 4)
             ->from("F")
-            ->to("C");
+            ->to("C")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

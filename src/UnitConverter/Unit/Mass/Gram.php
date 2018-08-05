@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,13 +23,14 @@ use UnitConverter\Unit\SiSubmultipleUnitInterface;
  */
 class Gram extends MassUnit implements SiSubmultipleUnitInterface
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("gram")
 
             ->setSymbol("g")
 
-            ->setUnits(0.001);
+            ->setUnits(0.001)
+            ;
     }
 }

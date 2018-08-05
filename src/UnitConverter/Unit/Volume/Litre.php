@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,13 +21,14 @@ namespace UnitConverter\Unit\Volume;
  */
 class Litre extends VolumeUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("litre")
 
             ->setSymbol("L")
 
-            ->setUnits(1);
+            ->setUnits(1)
+            ;
     }
 }

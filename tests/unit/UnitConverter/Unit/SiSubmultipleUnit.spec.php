@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -17,6 +15,7 @@ namespace UnitConverter\Tests\Unit\Unit;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;
+use UnitConverter\Unit\Length\Inch;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\SiSubmultipleUnitInterface;
 
@@ -28,24 +27,20 @@ use UnitConverter\Unit\SiSubmultipleUnitInterface;
  */
 class SiSubmultipleUnitSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
-        $this->unit = new class() extends AbstractUnit implements SiSubmultipleUnitInterface {
+        $this->unit = new class extends AbstractUnit implements SiSubmultipleUnitInterface
+        {
             protected $name = "saiyan power";
-
             protected $symbol = "sP";
-
             protected $scientificSymbol = "Ω·m";
-
             protected $unitOf = Measure::LENGTH;
-
             protected $base = Metre::class;
-
             protected $units = 9001;
         };
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->unit);
     }
@@ -54,7 +49,7 @@ class SiSubmultipleUnitSpec extends TestCase
      * @test
      * @covers ::isMultipleSiUnit
      */
-    public function assertSiSubmultipleUnitsAreSiBaseUnitsWhenChecking()
+    public function assertSiSubmultipleUnitsAreSiBaseUnitsWhenChecking ()
     {
         $result = $this->unit->isSubmultipleSiUnit();
         $this->assertTrue($result);

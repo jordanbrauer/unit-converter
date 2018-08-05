@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,13 +21,14 @@ namespace UnitConverter\Unit\Length;
  */
 class Mile extends LengthUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("mile")
 
             ->setSymbol("mi")
 
-            ->setUnits(1609.344);
+            ->setUnits(1609.344)
+            ;
     }
 }

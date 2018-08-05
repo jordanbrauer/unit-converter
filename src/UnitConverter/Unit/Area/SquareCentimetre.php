@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Area;
  */
 class SquareCentimetre extends AreaUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("square centimetre")
@@ -32,6 +30,7 @@ class SquareCentimetre extends AreaUnit
 
             ->setScientificSymbol("cm²")
 
-            ->setUnits(0.0001);
+            ->setUnits(0.0001)
+            ;
     }
 }

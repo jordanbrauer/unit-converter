@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Area;
  */
 class SquareFoot extends AreaUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("square foot")
@@ -32,6 +30,7 @@ class SquareFoot extends AreaUnit
 
             ->setScientificSymbol("ft²")
 
-            ->setUnits(0.092903);
+            ->setUnits(0.092903)
+            ;
     }
 }

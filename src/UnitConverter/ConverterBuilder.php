@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace UnitConverter;
 
 use UnitConverter\Calculator\BinaryCalculator;
@@ -84,55 +82,16 @@ use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
 use UnitConverter\Unit\Volume\Pint;
 
-class ConverterBuilder
-{
-    /** @var CalculatorInterface $calculator */
-    private $calculator;
-
+class ConverterBuilder {
     /** @var UnitRegistry $unitRegistry */
     private $registry;
-
-    public function addBinaryCalculator()
-    {
-        $this->calculator = new BinaryCalculator();
-
-        return $this;
-    }
-
-    public function addDefaultRegistry()
-    {
-        $this->registry = new UnitRegistry($this->getAllUnitsArray());
-
-        return $this;
-    }
-
-    public function addRegistryWith(array $units = [])
-    {
-        $this->registry = new UnitRegistry($units);
-
-        return $this;
-    }
-
-    public function addSimpleCalculator()
-    {
-        $this->calculator = new SimpleCalculator();
-
-        return $this;
-    }
-
-    /**
-     * @return UnitConverter
-     */
-    public function build()
-    {
-        return new UnitConverter($this->registry, $this->calculator);
-    }
+    /** @var CalculatorInterface $calculator */
+    private $calculator;
 
     /**
      * @return array
      */
-    private function getAllUnitsArray()
-    {
+    private function getAllUnitsArray() {
         return [
             # Area
             new Acre(),
@@ -227,7 +186,38 @@ class ConverterBuilder
             new Gallon(),
             new Litre(),
             new Millilitre(),
-            new Pint(),
+            new Pint()
         ];
+    }
+
+    public function addSimpleCalculator() {
+        $this->calculator = new SimpleCalculator();
+
+        return $this;
+    }
+
+    public function addBinaryCalculator() {
+        $this->calculator = new BinaryCalculator();
+
+        return $this;
+    }
+
+    public function addDefaultRegistry() {
+        $this->registry = new UnitRegistry($this->getAllUnitsArray());
+
+        return $this;
+    }
+
+    public function addRegistryWith(array $units = array()) {
+        $this->registry = new UnitRegistry($units);
+
+        return $this;
+    }
+
+    /**
+     * @return UnitConverter
+     */
+    public function build() {
+        return new UnitConverter($this->registry, $this->calculator);
     }
 }

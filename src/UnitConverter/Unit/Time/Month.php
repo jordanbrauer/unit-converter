@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,11 +21,22 @@ namespace UnitConverter\Unit\Time;
  */
 class Month extends TimeUnit
 {
-    const HIGH_DAY_COUNT_MONTHS = [1, 3, 5, 7, 8, 10, 12];
+    const LOW_DAY_COUNT_MONTHS = [ 2 ];
 
-    const LOW_DAY_COUNT_MONTHS = [2];
+    const MID_DAY_COUNT_MONTHS = [ 4, 6, 9, 11 ];
 
-    const MID_DAY_COUNT_MONTHS = [4, 6, 9, 11];
+    const HIGH_DAY_COUNT_MONTHS = [ 1, 3, 5, 7, 8, 10, 12 ];
+
+    protected function configure (): void
+    {
+        $this
+            ->setName("month")
+
+            ->setSymbol("mo")
+
+            ->setUnits(2678400)
+            ;
+    }
 
     /**
      * Check if a month has a given number of days in it;s calendar.
@@ -36,36 +45,23 @@ class Month extends TimeUnit
      * @param integer $number The number of days to check against.
      * @return boolean
      */
-    public static function hasNumberOfDays($month, int $number = 31): bool
+    public static function hasNumberOfDays ($month, int $number = 31): bool
     {
         switch ($number) {
             case 28:
             case 29:
                 $listing = self::LOW_DAY_COUNT_MONTHS;
-
                 break;
             case 30:
                 $listing = self::MID_DAY_COUNT_MONTHS;
-
                 break;
             case 31:
                 $listing = self::HIGH_DAY_COUNT_MONTHS;
-
                 break;
             default:
                 $listing = []; // no months exist
         }
 
         return in_array($month, $listing);
-    }
-
-    protected function configure(): void
-    {
-        $this
-            ->setName("month")
-
-            ->setSymbol("mo")
-
-            ->setUnits(2678400);
     }
 }

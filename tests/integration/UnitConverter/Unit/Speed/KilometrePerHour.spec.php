@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Speed;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Speed\KilometrePerHour;
 use UnitConverter\Unit\Speed\MetrePerSecond;
-use UnitConverter\UnitConverter;
+use UnitConverter\Unit\Speed\KilometrePerHour;
 
 /**
  * Ensure that a kilometre per hour is infact, a kilometre per hour.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class KilometrePerHourSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new MetrePerSecond(),
-                new KilometrePerHour(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new MetrePerSecond,
+                new KilometrePerHour,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class KilometrePerHourSpec extends TestCase
     /**
      * @test
      */
-    public function assert1KilometrePerHourIs0decimal277778MetresPerSecond()
+    public function assert1KilometrePerHourIs0decimal277778MetresPerSecond ()
     {
         $expected = 0.277778;
         $actual = $this->converter
             ->convert(1, 6)
             ->from("kmph")
-            ->to("mps");
+            ->to("mps")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,7 +23,7 @@ use UnitConverter\Unit\SiBaseUnitInterface;
  */
 class Kelvin extends TemperatureUnit implements SiBaseUnitInterface
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("kelvin")
@@ -34,6 +32,7 @@ class Kelvin extends TemperatureUnit implements SiBaseUnitInterface
 
             ->setScientificSymbol("K")
 
-            ->setUnits(1);
+            ->setUnits(1)
+            ;
     }
 }

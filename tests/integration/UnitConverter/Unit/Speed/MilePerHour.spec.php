@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Speed;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Speed\MetrePerSecond;
 use UnitConverter\Unit\Speed\MilePerHour;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a mile per hour is infact, a mile per hour.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class MilePerHourSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new MetrePerSecond(),
-                new MilePerHour(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new MetrePerSecond,
+                new MilePerHour,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class MilePerHourSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MilePerHourIs0decimal44704MetresPerSecond()
+    public function assert1MilePerHourIs0decimal44704MetresPerSecond ()
     {
         $expected = 0.44704;
         $actual = $this->converter
             ->convert(1, 5)
             ->from("miph")
-            ->to("mps");
+            ->to("mps")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

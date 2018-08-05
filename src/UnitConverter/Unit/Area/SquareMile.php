@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -20,10 +18,10 @@ namespace UnitConverter\Unit\Area;
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
- */
+*/
 class SquareMile extends AreaUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("square mile")
@@ -32,6 +30,7 @@ class SquareMile extends AreaUnit
 
             ->setScientificSymbol("mi²")
 
-            ->setUnits(2589988.11);
+            ->setUnits(2589988.11)
+            ;
     }
 }

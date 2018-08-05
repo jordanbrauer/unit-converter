@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,10 +13,10 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Speed;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Speed\MetrePerSecond;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a metre per second is a metre per second.
@@ -29,20 +27,22 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class MetrePerSecondSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new MetrePerSecond(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new MetrePerSecond,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -50,13 +50,14 @@ class MetrePerSecondSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MetrePerSecondIs1MetrePerSecond()
+    public function assert1MetrePerSecondIs1MetrePerSecond ()
     {
         $expected = 1;
         $actual = $this->converter
             ->convert(1)
             ->from("mps")
-            ->to("mps");
+            ->to("mps")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

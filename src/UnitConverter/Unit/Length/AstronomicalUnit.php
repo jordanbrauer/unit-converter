@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,13 +21,14 @@ namespace UnitConverter\Unit\Length;
  */
 class AstronomicalUnit extends LengthUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("astronomical unit")
 
             ->setSymbol("au")
 
-            ->setUnits(149597870700);
+            ->setUnits(149597870700)
+            ;
     }
 }

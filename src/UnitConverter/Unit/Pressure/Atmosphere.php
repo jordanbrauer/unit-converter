@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Pressure;
  */
 class Atmosphere extends PressureUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("atmosphere")
@@ -32,6 +30,7 @@ class Atmosphere extends PressureUnit
 
             ->setScientificSymbol("atm")
 
-            ->setUnits(101325);
+            ->setUnits(101325)
+            ;
     }
 }

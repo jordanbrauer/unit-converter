@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,13 +23,14 @@ use UnitConverter\Unit\SiMultipleUnitInterface;
  */
 class Kilometre extends LengthUnit implements SiMultipleUnitInterface
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("kilometre")
 
             ->setSymbol("km")
 
-            ->setUnits(1000);
+            ->setUnits(1000)
+            ;
     }
 }

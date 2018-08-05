@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -28,7 +26,7 @@ use UnitConverter\Unit\AbstractUnit;
  */
 abstract class LengthUnit extends AbstractUnit
 {
-    protected $base = Metre::class;
-
     protected $unitOf = Measure::LENGTH;
+
+    protected $base = Metre::class;
 }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,13 +21,14 @@ namespace UnitConverter\Unit\Energy;
  */
 class Megajoule extends EnergyUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("megajoule")
 
             ->setSymbol("MJ")
 
-            ->setUnits(1000000);
+            ->setUnits(1000000)
+            ;
     }
 }

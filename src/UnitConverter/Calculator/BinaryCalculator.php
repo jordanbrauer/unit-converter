@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -28,51 +26,50 @@ namespace UnitConverter\Calculator;
  */
 class BinaryCalculator extends AbstractCalculator
 {
-    public function add($leftOperand, $rightOperand)
+    public function setPrecision(int $precision): CalculatorInterface
     {
-        return bcadd($leftOperand, $rightOperand);
-    }
-
-    public function div($dividend, $divisor)
-    {
-        return bcdiv($dividend, $divisor);
-    }
-
-    public function mod($dividend, $modulus)
-    {
-        return bcmod($dividend, $modulus);
-    }
-
-    public function mul($leftOperand, $rightOperand)
-    {
-        return bcmul($leftOperand, $rightOperand);
-    }
-
-    public function pow($base, $exponent)
-    {
-        return bcpow($base, $exponent);
+        $precision = ($precision * 2); // HACK: #54
+        parent::setPrecision($precision);
+        bcscale($precision);
+        return $this;
     }
 
     /**
      * Overwrites the default implementation for rounding. Simply
      * casts the result to a string.
      */
-    public function round($value, int $precision = null): string
+    public function round ($value, int $precision = null): string
     {
         return (string) parent::round($value, $precision);
     }
 
-    public function setPrecision(int $precision): CalculatorInterface
+    public function add ($leftOperand, $rightOperand)
     {
-        $precision = ($precision * 2); // HACK: #54
-        parent::setPrecision($precision);
-        bcscale($precision);
-
-        return $this;
+        return bcadd($leftOperand, $rightOperand);
     }
 
-    public function sub($leftOperand, $rightOperand)
+    public function sub ($leftOperand, $rightOperand)
     {
         return bcsub($leftOperand, $rightOperand);
+    }
+
+    public function mul ($leftOperand, $rightOperand)
+    {
+        return bcmul($leftOperand, $rightOperand);
+    }
+
+    public function div ($dividend, $divisor)
+    {
+        return bcdiv($dividend, $divisor);
+    }
+
+    public function mod ($dividend, $modulus)
+    {
+        return bcmod($dividend, $modulus);
+    }
+
+    public function pow ($base, $exponent)
+    {
+        return bcpow($base, $exponent);
     }
 }

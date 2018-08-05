@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,13 +21,14 @@ namespace UnitConverter\Unit\Length;
  */
 class Inch extends LengthUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("inch")
 
             ->setSymbol("in")
 
-            ->setUnits(0.0254);
+            ->setUnits(0.0254)
+            ;
     }
 }

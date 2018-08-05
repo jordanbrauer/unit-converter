@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Area;
  */
 class SquareKilometre extends AreaUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("square kilometre")
@@ -32,6 +30,7 @@ class SquareKilometre extends AreaUnit
 
             ->setScientificSymbol("km²")
 
-            ->setUnits(1000000);
+            ->setUnits(1000000)
+            ;
     }
 }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Volume;
  */
 class CubicMetre extends VolumeUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("cubic metre")
@@ -32,6 +30,7 @@ class CubicMetre extends VolumeUnit
 
             ->setScientificSymbol("m³")
 
-            ->setUnits(1000);
+            ->setUnits(1000)
+            ;
     }
 }

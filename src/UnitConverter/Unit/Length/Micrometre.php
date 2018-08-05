@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -25,7 +23,7 @@ use UnitConverter\Unit\SiSubmultipleUnitInterface;
  */
 class Micrometre extends LengthUnit implements SiSubmultipleUnitInterface
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("micrometre")
@@ -35,6 +33,7 @@ class Micrometre extends LengthUnit implements SiSubmultipleUnitInterface
             ->setScientificSymbol("µm")
 
             # 1.0E-6
-            ->setUnits(0.000001);
+            ->setUnits(0.000001)
+            ;
     }
 }

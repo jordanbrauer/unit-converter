@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,46 +13,47 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\BinaryCalculator;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
+use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
-use UnitConverter\UnitConverter;
 
 /**
  * Tests that both the Simlpe and Binary calculator implementations
  * generate the same results, regardless of typing (int/float, or string).
+ *
+ * @coversNothing
  */
 class CalculatorResultsSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $registry = new UnitRegistry([
-            new Centimetre(),
-            new Inch(),
+            new Centimetre,
+            new Inch,
         ]);
 
         $this->simpleConverter = new UnitConverter(
-            $registry,
-            new SimpleCalculator()
+            $registry, new SimpleCalculator
         );
 
         $this->binaryConverter = new UnitConverter(
-            $registry,
-            new BinaryCalculator()
+            $registry, new BinaryCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
-        unset($this->simpleConverter, $this->binaryConverter);
+        unset($this->simpleConverter);
+        unset($this->binaryConverter);
     }
 
     /**
      * @test
      */
-    public function assertSimpleAndBinaryCalculatorsProduceSameResult()
+    public function assertSimpleAndBinaryCalculatorsProduceSameResult ()
     {
         $value = 1;
         $expectedSimpleResult = 2.54;

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,10 +13,10 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\PlaneAngle;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\PlaneAngle\Degree;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a degree is infact, a degree.
@@ -29,20 +27,22 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class DegreeSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Degree(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Degree,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -50,13 +50,14 @@ class DegreeSpec extends TestCase
     /**
      * @test
      */
-    public function assert1DegreeIs1Degree()
+    public function assert1DegreeIs1Degree ()
     {
         $expected = 1;
         $actual = $this->converter
             ->convert(1)
             ->from("deg")
-            ->to("deg");
+            ->to("deg")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

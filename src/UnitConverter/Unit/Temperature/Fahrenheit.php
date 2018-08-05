@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -14,8 +12,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
-use Exception;
 use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Unit\UnitInterface;
 
 /**
@@ -27,7 +25,18 @@ use UnitConverter\Unit\UnitInterface;
  */
 class Fahrenheit extends TemperatureUnit
 {
-    protected function calculate(CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
+    protected function configure (): void
+    {
+        $this
+            ->setName("fahrenheit")
+
+            ->setSymbol("F")
+
+            ->setScientificSymbol("°F")
+            ;
+    }
+
+    protected function calculate (CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
     {
         $val = ($value ?? $this->getBase()->getUnits());
         $divisor = $calculator->div(5, 9);
@@ -36,33 +45,18 @@ class Fahrenheit extends TemperatureUnit
             case 'C': # °C = (°F - 32) × (5 ÷ 9)
                 $result = $calculator->sub($val, 32);
                 $result = $calculator->mul($result, $divisor);
-
                 return $calculator->round($result, $precision);
-
                 break;
             case 'K': # K = (°F + 459.67) × (5 ÷ 9)
                 $result = $calculator->add($val, 459.67);
                 $result = $calculator->mul($result, $divisor);
-
                 return $calculator->round($result, $precision);
-
                 break;
             case 'F': # °F = °F
                 return $val;
-
                 break;
             default:
-                throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
+                throw BadUnit::formula($to->getSymbol());
             }
+        }
     }
-
-    protected function configure(): void
-    {
-        $this
-            ->setName("fahrenheit")
-
-            ->setSymbol("F")
-
-            ->setScientificSymbol("°F");
-    }
-}

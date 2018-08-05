@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Milligram;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a milligram is infact, a milligram.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class MilligramSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kilogram(),
-                new Milligram(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Kilogram,
+                new Milligram,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class MilligramSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MilligramIs0decimal000001Kilograms()
+    public function assert1MilligramIs0decimal000001Kilograms ()
     {
         $expected = 0.000001;
         $actual = $this->converter
             ->convert(1, 6)
             ->from("mg")
-            ->to("kg");
+            ->to("kg")
+            ;
 
         $this->assertEquals($expected, $actual);
     }
@@ -67,9 +68,9 @@ class MilligramSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatAMilligramIsASubmultipleSIUnit()
+    public function assertThatAMilligramIsASubmultipleSIUnit ()
     {
-        $result = (new Milligram())->isSubmultipleSiUnit();
+        $result = (new Milligram)->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

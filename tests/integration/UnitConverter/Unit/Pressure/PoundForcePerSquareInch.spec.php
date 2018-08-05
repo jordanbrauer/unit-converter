@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
-use UnitConverter\UnitConverter;
 
 /**
  * Test that a pound-force per sq in is indeed a pound-force per sq in.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class PoundForcePerSquareInchSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Pascal(),
-                new PoundForcePerSquareInch(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Pascal,
+                new PoundForcePerSquareInch,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class PoundForcePerSquareInchSpec extends TestCase
     /**
      * @test
      */
-    public function assert1PoundForcePerSquareInchIs16894decimal76Pascal()
+    public function assert1PoundForcePerSquareInchIs16894decimal76Pascal ()
     {
         $expected = 6894.76;
         $actual = $this->converter
             ->convert(1)
             ->from("psi")
-            ->to("Pa");
+            ->to("Pa")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

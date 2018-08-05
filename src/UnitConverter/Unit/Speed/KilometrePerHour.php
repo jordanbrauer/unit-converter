@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Speed;
  */
 class KilometrePerHour extends SpeedUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("kilometre per hour")
@@ -32,6 +30,7 @@ class KilometrePerHour extends SpeedUnit
 
             ->setScientificSymbol("km/h")
 
-            ->setUnits(0.277778);
+            ->setUnits(0.277778)
+            ;
     }
 }

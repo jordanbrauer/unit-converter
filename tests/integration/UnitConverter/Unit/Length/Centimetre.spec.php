@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Metre;
-use UnitConverter\UnitConverter;
+use UnitConverter\Unit\Length\Centimetre;
 
 /**
  * Ensure that a centimetre is infact, a centimetre.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class CentimetreSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Metre(),
-                new Centimetre(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Metre,
+                new Centimetre,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class CentimetreSpec extends TestCase
     /**
      * @test
      */
-    public function assert1CentimetreIs0decimal01Metres()
+    public function assert1CentimetreIs0decimal01Metres ()
     {
         $expected = 0.01;
         $actual = $this->converter
             ->convert(1)
             ->from("cm")
-            ->to("m");
+            ->to("m")
+            ;
 
         $this->assertEquals($expected, $actual);
     }
@@ -67,9 +68,9 @@ class CentimetreSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatACentimetreIsASubmultipleSIUnit()
+    public function assertThatACentimetreIsASubmultipleSIUnit ()
     {
-        $result = (new Centimetre())->isSubmultipleSiUnit();
+        $result = (new Centimetre)->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

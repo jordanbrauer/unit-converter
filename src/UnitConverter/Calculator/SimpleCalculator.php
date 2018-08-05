@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -30,33 +28,33 @@ namespace UnitConverter\Calculator;
  */
 class SimpleCalculator extends AbstractCalculator
 {
-    public function add($leftOperand, $rightOperand)
+    public function add ($leftOperand, $rightOperand)
     {
-        return $leftOperand + $rightOperand;
+        return ($leftOperand + $rightOperand);
     }
 
-    public function div($dividend, $divisor)
+    public function sub ($leftOperand, $rightOperand)
     {
-        return $dividend / $divisor;
+        return ($leftOperand - $rightOperand);
     }
 
-    public function mod($dividend, $modulus)
+    public function mul ($leftOperand, $rightOperand)
     {
-        return $dividend % $modulus;
+        return ($leftOperand * $rightOperand);
     }
 
-    public function mul($leftOperand, $rightOperand)
+    public function div ($dividend, $divisor)
     {
-        return $leftOperand * $rightOperand;
+        return ($dividend / $divisor);
     }
 
-    public function pow($base, $exponent)
+    public function mod ($dividend, $modulus)
+    {
+        return ($dividend % $modulus);
+    }
+
+    public function pow ($base, $exponent)
     {
         return pow($base, $exponent);
-    }
-
-    public function sub($leftOperand, $rightOperand)
-    {
-        return $leftOperand - $rightOperand;
     }
 }

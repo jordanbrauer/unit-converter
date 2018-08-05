@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Time\Second;
 use UnitConverter\Unit\Time\Week;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a week is infact, a week.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class WeekSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Week(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Second,
+                new Week,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class WeekSpec extends TestCase
     /**
      * @test
      */
-    public function assert1WeekIs604800Seconds()
+    public function assert1WeekIs604800Seconds ()
     {
         $expected = 604800;
         $actual = $this->converter
             ->convert(1)
             ->from("wk")
-            ->to("s");
+            ->to("s")
+            ;
 
         $this->assertEquals($expected, $actual);
     }

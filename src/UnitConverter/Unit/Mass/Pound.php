@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,13 +21,14 @@ namespace UnitConverter\Unit\Mass;
  */
 class Pound extends MassUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("pound")
 
             ->setSymbol("lb")
 
-            ->setUnits(0.453592);
+            ->setUnits(0.453592)
+            ;
     }
 }

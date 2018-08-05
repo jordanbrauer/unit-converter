@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Speed;
  */
 class MilePerHour extends SpeedUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("mile per hour")
@@ -32,6 +30,7 @@ class MilePerHour extends SpeedUnit
 
             ->setScientificSymbol("mi/h")
 
-            ->setUnits(0.44704);
+            ->setUnits(0.44704)
+            ;
     }
 }

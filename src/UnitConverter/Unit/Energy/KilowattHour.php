@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Energy;
  */
 class KilowattHour extends EnergyUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("kilowatt hour")
@@ -32,6 +30,7 @@ class KilowattHour extends EnergyUnit
 
             ->setScientificSymbol("kW · h")
 
-            ->setUnits(3600005.4468);
+            ->setUnits(3600005.4468)
+            ;
     }
 }

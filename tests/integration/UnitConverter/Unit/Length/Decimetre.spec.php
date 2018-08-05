@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -15,11 +13,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Decimetre;
 use UnitConverter\Unit\Length\Metre;
-use UnitConverter\UnitConverter;
+use UnitConverter\Unit\Length\Decimetre;
 
 /**
  * Ensure that a decimetre is infact, a decimetre.
@@ -31,21 +29,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class DecimetreSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp ()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Metre(),
-                new Decimetre(),
-            ]),
-            new SimpleCalculator()
+            new UnitRegistry(array(
+                new Metre,
+                new Decimetre,
+            )),
+            new SimpleCalculator
         );
     }
 
-    protected function tearDown()
+    protected function tearDown ()
     {
         unset($this->converter);
     }
@@ -53,13 +53,14 @@ class DecimetreSpec extends TestCase
     /**
      * @test
      */
-    public function assert1DecimetreIs0decimal1Metres()
+    public function assert1DecimetreIs0decimal1Metres ()
     {
         $expected = 0.1;
         $actual = $this->converter
             ->convert(1)
             ->from("dm")
-            ->to("m");
+            ->to("m")
+            ;
 
         $this->assertEquals($expected, $actual);
     }
@@ -67,9 +68,9 @@ class DecimetreSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatADecimetreIsASubmultipleSIUnit()
+    public function assertThatADecimetreIsASubmultipleSIUnit ()
     {
-        $result = (new Decimetre())->isSubmultipleSiUnit();
+        $result = (new Decimetre)->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

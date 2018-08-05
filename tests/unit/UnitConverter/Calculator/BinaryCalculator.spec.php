@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -26,7 +24,7 @@ class BinaryCalculatorSpec extends TestCase
 {
     protected function setUp()
     {
-        $this->calculator = new BinaryCalculator();
+        $this->calculator = new BinaryCalculator;
     }
 
     protected function tearDown()
@@ -38,7 +36,7 @@ class BinaryCalculatorSpec extends TestCase
      * @test
      * @covers ::add
      */
-    public function assertAddingTwoNumbersWorksAsExpected()
+    public function assertAddingTwoNumbersWorksAsExpected ()
     {
         $expected = 5;
         $actual = $this->calculator->add("2.5", "2.5");
@@ -49,9 +47,35 @@ class BinaryCalculatorSpec extends TestCase
 
     /**
      * @test
+     * @covers ::sub
+     */
+    public function assertSubtractingTwoNumbersWorksAsExpected ()
+    {
+        $expected = 2.5;
+        $actual = $this->calculator->sub("5", "2.5");
+
+        $this->assertEquals($expected, $actual);
+        $this->assertInternalType("string", $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::mul
+     */
+    public function assertMultiplyMethodProperlyMultipliesTwoNumbers ()
+    {
+        $expected = 4;
+        $actual = $this->calculator->mul("2", "2");
+
+        $this->assertEquals($expected, $actual);
+        $this->assertInternalType("string", $actual);
+    }
+
+    /**
+     * @test
      * @covers ::div
      */
-    public function assertDivideMethodProperlyDividesTwoNumbers()
+    public function assertDivideMethodProperlyDividesTwoNumbers ()
     {
         $expected = 2;
         $actual = $this->calculator->div("4", "2");
@@ -64,7 +88,7 @@ class BinaryCalculatorSpec extends TestCase
      * @test
      * @covers ::mod
      */
-    public function assertModulusMethodProperlyReturnsTheRemainderOfDivision()
+    public function assertModulusMethodProperlyReturnsTheRemainderOfDivision ()
     {
         $expected = 1;
         $actual = $this->calculator->mod("5", "2");
@@ -75,38 +99,12 @@ class BinaryCalculatorSpec extends TestCase
 
     /**
      * @test
-     * @covers ::mul
-     */
-    public function assertMultiplyMethodProperlyMultipliesTwoNumbers()
-    {
-        $expected = 4;
-        $actual = $this->calculator->mul("2", "2");
-
-        $this->assertEquals($expected, $actual);
-        $this->assertInternalType("string", $actual);
-    }
-
-    /**
-     * @test
      * @covers ::pow
      */
-    public function assertPowerMethodRaisesBaseNumberToPowerExponent()
+    public function assertPowerMethodRaisesBaseNumberToPowerExponent ()
     {
         $expected = 100;
         $actual = $this->calculator->pow("10", "2");
-
-        $this->assertEquals($expected, $actual);
-        $this->assertInternalType("string", $actual);
-    }
-
-    /**
-     * @test
-     * @covers ::sub
-     */
-    public function assertSubtractingTwoNumbersWorksAsExpected()
-    {
-        $expected = 2.5;
-        $actual = $this->calculator->sub("5", "2.5");
 
         $this->assertEquals($expected, $actual);
         $this->assertInternalType("string", $actual);

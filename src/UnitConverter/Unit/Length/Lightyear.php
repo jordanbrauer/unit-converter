@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,7 +21,7 @@ namespace UnitConverter\Unit\Length;
  */
 class Lightyear extends LengthUnit
 {
-    protected function configure(): void
+    protected function configure (): void
     {
         $this
             ->setName("lightyear")
@@ -32,6 +30,7 @@ class Lightyear extends LengthUnit
 
             # Metric (SI) Units = 9.4607 × 1015 m
             # – OR – 9.4607 Pm
-            ->setUnits(9460730472580800);
+            ->setUnits(9460730472580800)
+            ;
     }
 }

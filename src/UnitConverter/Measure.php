@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -24,23 +22,23 @@ namespace UnitConverter;
  */
 class Measure
 {
+    const LENGTH = "length";
+
     const AREA = "area";
 
-    const ENERGY = "energy";
-
-    const LENGTH = "length";
+    const VOLUME = "volume";
 
     const MASS = "mass";
 
-    const PLANE_ANGLE = "plane_angle";
-
-    const PRESSURE = "pressure";
-
     const SPEED = "speed";
+
+    const PLANE_ANGLE = "plane_angle";
 
     const TEMPERATURE = "temperature";
 
+    const PRESSURE = "pressure";
+
     const TIME = "time";
 
-    const VOLUME = "volume";
+    const ENERGY = "energy";
 }
