@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -22,7 +24,7 @@ namespace UnitConverter\Unit\Area;
  */
 class SquareMetre extends AreaUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("square metre")
@@ -31,7 +33,6 @@ class SquareMetre extends AreaUnit
 
             ->setScientificSymbol("m²")
 
-            ->setUnits(1)
-            ;
+            ->setUnits(1);
     }
 }

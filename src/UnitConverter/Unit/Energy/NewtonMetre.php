@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,7 +23,7 @@ namespace UnitConverter\Unit\Energy;
  */
 class NewtonMetre extends EnergyUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("newton metre")
@@ -30,7 +32,6 @@ class NewtonMetre extends EnergyUnit
 
             ->setScientificSymbol("N·m")
 
-            ->setUnits(1)
-            ;
+            ->setUnits(1);
     }
 }

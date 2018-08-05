@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,24 +25,24 @@ use Exception;
  */
 final class BadUnit extends Exception
 {
-    const ERROR_UNKNOWN_UNIT = 1;
-
     const ERROR_SCALAR_TYPE = 2;
 
     const ERROR_SELF_CONVERSION_FORMULA = 3;
 
+    const ERROR_UNKNOWN_UNIT = 1;
+
     /**
-     * Throw a new exception for an unknown type of unit.
+     * Throw a new exception for an un unkown self conversioin unit formula.
      *
-     * @param string $unit The type of unit that caused the error.
+     * @param string $symbol The symbol of the unit lacking a formula
      * @param Exception $previous
-     * @return self|Exception
+     * @return Exception
      */
-    public static function unknown(string $unit, Exception $previous = null): Exception
+    public static function formula(string $symbol, Exception $previous = null): Exception
     {
         return new self(
-            "Unknown unit of measurement, '{$unit}'",
-            self::ERROR_UNKNOWN_UNIT,
+            "Unknown conversion formula for {$symbol}",
+            self::ERROR_SELF_CONVERSION_FORMULA,
             $previous
         );
     }
@@ -57,23 +59,25 @@ final class BadUnit extends Exception
     {
         $message = "Cannot cast units to {$type}.";
 
-        if ($types and !empty($types)) $message .= " Use one of, ".implode(", ", $types);
+        if ($types and !empty($types)) {
+            $message .= " Use one of, ".implode(", ", $types);
+        }
 
         return new self($message, self::ERROR_SCALAR_TYPE, $previous);
     }
 
     /**
-     * Throw a new exception for an un unkown self conversioin unit formula.
+     * Throw a new exception for an unknown type of unit.
      *
-     * @param string $symbol The symbol of the unit lacking a formula
+     * @param string $unit The type of unit that caused the error.
      * @param Exception $previous
-     * @return Exception
+     * @return self|Exception
      */
-    public static function formula(string $symbol, Exception $previous = null): Exception
+    public static function unknown(string $unit, Exception $previous = null): Exception
     {
         return new self(
-            "Unknown conversion formula for {$symbol}",
-            self::ERROR_SELF_CONVERSION_FORMULA,
+            "Unknown unit of measurement, '{$unit}'",
+            self::ERROR_UNKNOWN_UNIT,
             $previous
         );
     }

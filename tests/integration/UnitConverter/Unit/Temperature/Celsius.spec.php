@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,12 +15,12 @@
 namespace UnitConverter\Tests\Integration\Unit\Temperature;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Temperature\Celsius;
 use UnitConverter\Unit\Temperature\Fahrenheit;
 use UnitConverter\Unit\Temperature\Kelvin;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that Clesius is infact Clesius.
@@ -36,19 +38,19 @@ use UnitConverter\Unit\Temperature\Kelvin;
  */
 class CelsiusSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Celsius,
-                new Fahrenheit,
-                new Kelvin,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Celsius(),
+                new Fahrenheit(),
+                new Kelvin(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -56,14 +58,13 @@ class CelsiusSpec extends TestCase
     /**
      * @test
      */
-    public function assert0CelsiusIs273decimal15Kelvin ()
+    public function assert0CelsiusIs273decimal15Kelvin()
     {
         $expected = 273.15;
         $actual = $this->converter
             ->convert(0)
             ->from("C")
-            ->to("K")
-            ;
+            ->to("K");
 
         $this->assertEquals($expected, $actual);
     }
@@ -71,14 +72,13 @@ class CelsiusSpec extends TestCase
     /**
      * @test
      */
-    public function assert0CelsiusIs32Fahrenheit ()
+    public function assert0CelsiusIs32Fahrenheit()
     {
         $expected = 32;
         $actual = $this->converter
             ->convert(0)
             ->from("C")
-            ->to("F")
-            ;
+            ->to("F");
 
         $this->assertEquals($expected, $actual);
     }

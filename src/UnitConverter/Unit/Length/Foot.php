@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,14 +23,13 @@ namespace UnitConverter\Unit\Length;
  */
 class Foot extends LengthUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("foot")
 
             ->setSymbol("ft")
 
-            ->setUnits(0.3048)
-            ;
+            ->setUnits(0.3048);
     }
 }

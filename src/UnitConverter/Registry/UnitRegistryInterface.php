@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -30,30 +32,21 @@ interface UnitRegistryInterface
      *
      * @param string $measurement The name of the measurment being checked, e.g. "length".
      */
-    public function isMeasurementRegistered (string $measurement): bool;
+    public function isMeasurementRegistered(string $measurement): bool;
 
     /**
      * Determine if a specific unit of measure is registered to the unit registry or not.
      *
      * @param string $symbol The symbol notation of the unit being checked, e.g., "cm".
      */
-    public function isUnitRegistered (string $symbol): bool;
-
-    /**
-     * Fetch a unit from the unit registry for use elsewhere.
-     *
-     * @throws BadUnit If loading an unregistered unit is attempted.
-     * @param string $symbol The symbol notation of the unit being loaded.
-     * @return null|UnitInterface
-     */
-    public function loadUnit (string $symbol): ?UnitInterface;
+    public function isUnitRegistered(string $symbol): bool;
 
     /**
      * Return a one-dimensional array of currently supported measurement types.
      *
      * @return array
      */
-    public function listMeasurements (): array;
+    public function listMeasurements(): array;
 
     /**
      * Return a one-dimensional array of currently supported units. Optionally
@@ -62,7 +55,16 @@ interface UnitRegistryInterface
      *
      * @param string $measurement
      */
-    public function listUnits (string $measurement = null): array;
+    public function listUnits(string $measurement = null): array;
+
+    /**
+     * Fetch a unit from the unit registry for use elsewhere.
+     *
+     * @throws BadUnit If loading an unregistered unit is attempted.
+     * @param string $symbol The symbol notation of the unit being loaded.
+     * @return null|UnitInterface
+     */
+    public function loadUnit(string $symbol): ?UnitInterface;
 
     /**
      * Register a single measurement to the unit registry by passing a
@@ -75,7 +77,7 @@ interface UnitRegistryInterface
      * @param string $measurement
      * @return void
      */
-    public function registerMeasurement (string $measurement): void;
+    public function registerMeasurement(string $measurement): void;
 
     /**
      * Register many measurements to the unit registry by passing an
@@ -84,7 +86,7 @@ interface UnitRegistryInterface
      * @param array $measurements
      * @return void
      */
-    public function registerMeasurements (array $measurements): void;
+    public function registerMeasurements(array $measurements): void;
 
     /**
      * Register a single unit to the unit registry by passing an
@@ -94,7 +96,7 @@ interface UnitRegistryInterface
      * @throws BadMeasurement When an attempted unit registration is made on an unexisting measurement.
      * @return void
      */
-    public function registerUnit (UnitInterface $unit): void;
+    public function registerUnit(UnitInterface $unit): void;
 
     /**
      * Register many units to the unit registry by passing an array of unit
@@ -103,7 +105,7 @@ interface UnitRegistryInterface
      * @param UnitInterface[] $units
      * @return void
      */
-    public function registerUnits (array $units): void;
+    public function registerUnits(array $units): void;
 
     /**
      * Unegister a single measurement from the unit registry.
@@ -115,7 +117,7 @@ interface UnitRegistryInterface
      * @throws BadMeasurement If you attempt to unregister a non-existing measurement type.
      * @return void
      */
-    public function unregisterMeasurement (string $symbol): void;
+    public function unregisterMeasurement(string $symbol): void;
 
     /**
      * Unegister many units from the unit registry
@@ -123,7 +125,7 @@ interface UnitRegistryInterface
      * @param string[] $symbols
      * @return void
      */
-    public function unregisterMeasurements (array $symbols): void;
+    public function unregisterMeasurements(array $symbols): void;
 
     /**
      * Unegister a single unit from the unit registry
@@ -132,7 +134,7 @@ interface UnitRegistryInterface
      * @throws BadUnit If you attempt to unregister a non-existing unit of measure.
      * @return void
      */
-    public function unregisterUnit (string $symbol): void;
+    public function unregisterUnit(string $symbol): void;
 
     /**
      * Unegister many units from the unit registry
@@ -140,5 +142,5 @@ interface UnitRegistryInterface
      * @param string[] $symbols
      * @return void
      */
-    public function unregisterUnits (array $symbols): void;
+    public function unregisterUnits(array $symbols): void;
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Picometre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a picometre is infact, a picometre.
@@ -34,18 +36,18 @@ use UnitConverter\Unit\Length\Picometre;
  */
 class PicometreSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new Picometre,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new Picometre(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -53,14 +55,13 @@ class PicometreSpec extends TestCase
     /**
      * @test
      */
-    public function assert1PicometreIs0decimal000000000001Metres ()
+    public function assert1PicometreIs0decimal000000000001Metres()
     {
         $expected = 0.000000000001;
         $actual = $this->converter
             ->convert(1, 12)
             ->from("pm")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }
@@ -68,9 +69,9 @@ class PicometreSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatAPicometreIsASubmultipleSIUnit ()
+    public function assertThatAPicometreIsASubmultipleSIUnit()
     {
-        $result = (new Picometre)->isSubmultipleSiUnit();
+        $result = (new Picometre())->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }
