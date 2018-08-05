@@ -1,0 +1,38 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once realpath(rtrim(__DIR__, '/').'/../vendor/autoload.php');
+
+use UnitConverter\{
+    Measure, UnitConverter
+};
+use UnitConverter\Calculator\SimpleCalculator;
+use UnitConverter\Registry\UnitRegistry;
+use UnitConverter\Unit\Length\{
+    Centimetre, Inch
+};
+
+// $converter = UnitConverter::createBuilder()
+//     ->addDefaultRegistry()
+//     ->addSimpleCalculator()
+//     ->build();
+
+$converter = new UnitConverter(
+    new UnitRegistry([
+        new Centimetre,
+        new Inch,
+    ]),
+    new SimpleCalculator
+);
+
+$iterations = 1000000; # one-million
+$values = array_map(function ($minimum) use ($iterations) {
+    return rand($minimum, $iterations);
+}, array_fill(0, $iterations, 1));
+
+for ($i = 0; $i < $iterations; $i++) {
+    echo "{$i}) {$converter->convert($values[$i])->from('cm')->to('in')}".PHP_EOL;
+}
+
