@@ -53,7 +53,7 @@ final class BadUnit extends Exception
      * @param Exception $previous
      * @return self|Exception
      */
-    public static function scalar(string $type, array $types = null, Exception $previous): Exception
+    public static function scalar(string $type, array $types = null, Exception $previous = null): Exception
     {
         $message = "Cannot cast units to {$type}.";
 
@@ -69,7 +69,7 @@ final class BadUnit extends Exception
      * @param Exception $previous
      * @return Exception
      */
-    public static function formula(string $symbol, Exception $previous): Exception
+    public static function formula(string $symbol, Exception $previous = null): Exception
     {
         return new self(
             "Unknown conversion formula for {$symbol}",
