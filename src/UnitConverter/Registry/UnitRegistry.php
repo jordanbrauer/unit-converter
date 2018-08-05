@@ -114,7 +114,7 @@ class UnitRegistry implements UnitRegistryInterface
 
     public function registerMeasurement(string $measurement): void
     {
-        if (false === $this->isMeasurementRegistered($measurement)) {
+        if (!$this->isMeasurementRegistered($measurement)) {
             $this->store->push($measurement, []);
         }
     }
@@ -162,12 +162,11 @@ class UnitRegistry implements UnitRegistryInterface
 
     public function unregisterUnit(string $symbol): void
     {
-        if (false === $this->isUnitRegistered($symbol)) {
+        if (!$this->isUnitRegistered($symbol)) {
             throw BadUnit::unknown($symbol);
         }
 
-        $unit = $this->loadUnit($symbol);
-        $this->store->pop("{$unit->getUnitOf()}.{$symbol}");
+        $this->store->pop($this->loadUnit($symbol)->getRegistryKey());
     }
 
     public function unregisterUnits(array $symbols): void
