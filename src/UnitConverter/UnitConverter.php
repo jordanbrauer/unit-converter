@@ -290,9 +290,23 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function divide($leftOperand, $rightOperand)
     {
-        $result = $this->calculator->{__FUNCTION__}($leftOperand, $rightOperand);
-        $entry = $this->getLogStep(__FUNCTION__, ['left' => $leftOperand, 'right' => $rightOperand], $result);
-        $this->logTemp($entry);
+        return $this->operation(__FUNCTION__, [
+            'left' => $leftOperand,
+            'right' => $rightOperand,
+        ]);
+    }
+
+    /**
+     * Generic helper method to perform calculator operations & log the results.
+     *
+     * @param string $operator
+     * @param array $parameters
+     * @return int|float|string
+     */
+    protected function operation(string $operator, array $parameters = [])
+    {
+        $result = $this->calculator->{$operator}(...array_values($parameters));
+        $this->logTemp($operator, $result, $parameters);
 
         return $result;
     }
@@ -337,12 +351,16 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Add an entry to the temporary calculation log.
      *
-     * @param array $steps
+     * @param string $method The name of the mathematical function be used.
+     * @param int|float|string $result The result of the operation.
+     * @param array $parameters An associative array of the operations parameters
      * @return void
      */
-    protected function logTemp(array $step): void
+    protected function logTemp(string $method, $result = null, array $parameters = []): void
     {
-        $this->tempLog[] = $step;
+        if ($this->logConversions) {
+            $this->tempLog[] = $this->getLogStep($method, $parameters, $result);
+        }
     }
 
     /**
@@ -354,11 +372,10 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function multiply($leftOperand, $rightOperand)
     {
-        $result = $this->calculator->{__FUNCTION__}($leftOperand, $rightOperand);
-        $entry = $this->getLogStep(__FUNCTION__, ['left' => $leftOperand, 'right' => $rightOperand], $result);
-        $this->logTemp($entry);
-
-        return $result;
+        return $this->operation(__FUNCTION__, [
+            'left' => $leftOperand,
+            'right' => $rightOperand,
+        ]);
     }
 
     /**
@@ -381,11 +398,10 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function round($value, $precision)
     {
-        $result = $this->calculator->{__FUNCTION__}($value, $precision);
-        $entry = $this->getLogStep(__FUNCTION__, ['value' => $value, 'precision' => $precision], $result);
-        $this->logTemp($entry);
-
-        return $result;
+        return $this->operation(__FUNCTION__, [
+            'value' => $value,
+            'precision' => $precision,
+        ]);
     }
 
     /**
