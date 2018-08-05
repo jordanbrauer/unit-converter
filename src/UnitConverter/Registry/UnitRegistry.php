@@ -41,7 +41,9 @@ class UnitRegistry implements UnitRegistryInterface
      */
     public function __construct (array $units = array())
     {
-        $this->store = new Collection(array(
+        $this->store = new Collection;
+
+        $this->registerMeasurements(array(
             Measure::LENGTH => array(),
             Measure::AREA => array(),
             Measure::VOLUME => array(),
