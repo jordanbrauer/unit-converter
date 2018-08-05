@@ -43,4 +43,33 @@ class Measure
     const TIME = "time";
 
     const VOLUME = "volume";
+
+    /**
+     * An array containing a list of default measurement types that are supported.
+     *
+     * @var array
+     */
+    private static $defaultMeasurements = [
+        Measure::LENGTH,
+        Measure::AREA,
+        Measure::VOLUME,
+        Measure::MASS,
+        Measure::SPEED,
+        Measure::PLANE_ANGLE,
+        Measure::TEMPERATURE,
+        Measure::PRESSURE,
+        Measure::TIME,
+        Measure::ENERGY,
+    ];
+
+    /**
+     * Return a list of all default supported measurement types. These types
+     * govern unit's of measurement.
+     *
+     * @return array
+     */
+    public static function getDefaultMeasurements(): array
+    {
+        return (static::$defaultMeasurements ?? []);
+    }
 }

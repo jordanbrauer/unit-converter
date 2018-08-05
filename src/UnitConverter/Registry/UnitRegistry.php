@@ -45,22 +45,8 @@ class UnitRegistry implements UnitRegistryInterface
     {
         $this->store = new Collection();
 
-        $this->registerMeasurements([
-            Measure::LENGTH,
-            Measure::AREA,
-            Measure::VOLUME,
-            Measure::MASS,
-            Measure::SPEED,
-            Measure::PLANE_ANGLE,
-            Measure::TEMPERATURE,
-            Measure::PRESSURE,
-            Measure::TIME,
-            Measure::ENERGY,
-        ]);
-
-        if (count($units) > 0) {
-            $this->registerUnits($units);
-        }
+        $this->registerMeasurements(Measure::getDefaultMeasurements());
+        $this->registerUnits($units);
     }
 
     public function isMeasurementRegistered(string $measurement): bool
