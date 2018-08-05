@@ -27,6 +27,8 @@ $converter = new UnitConverter(
     new SimpleCalculator
 );
 
+$converter->disableConversionLog();
+
 $iterations = 1000000; # one-million
 $values = array_map(function ($minimum) use ($iterations) {
     return rand($minimum, $iterations);

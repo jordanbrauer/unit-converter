@@ -78,6 +78,13 @@ class UnitConverter implements UnitConverterInterface
     protected $to;
 
     /**
+     * Are conversions going to be logged?
+     *
+     * @var boolean
+     */
+    protected $logConversions;
+
+    /**
      * Public constructor function for the UnitConverter class.
      *
      * @param UnitInterface[] $registry A two-dimensional array of UnitInterface objects.
@@ -87,6 +94,7 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->setRegistry($registry);
         $this->setCalculator($calculator);
+        $this->enableConversionLog();
     }
 
     /**
@@ -149,6 +157,26 @@ class UnitConverter implements UnitConverterInterface
         $this->registry = $registry;
 
         return $this;
+    }
+
+    /**
+     * Disables the logging of conversions & their order of operations.
+     *
+     * @return void
+     */
+    public function disableConversionLog(): void
+    {
+        $this->logConversions = false;
+    }
+
+    /**
+     * Enables the logging of conversions & their order of operations.
+     *
+     * @return void
+     */
+    public function enableConversionLog(): void
+    {
+        $this->logConversions = true;
     }
 
     public function to(string $unit)
