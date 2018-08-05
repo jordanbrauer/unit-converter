@@ -41,6 +41,10 @@ class CollectionSpec extends TestCase
         $this->assertEquals(1, $c2['one']);
         $this->assertEquals(2, $c2['two']);
         $this->assertEquals(3, $c2['three']);
+
+        $this->assertEquals(1, $c2->offsetGet('one'));
+        $this->assertEquals(2, $c2->offsetGet('two'));
+        $this->assertEquals(3, $c2->offsetGet('three'));
     }
 
     /**
@@ -56,6 +60,9 @@ class CollectionSpec extends TestCase
 
         $c->offsetSet('two', 2);
         $this->assertEquals(2, $c['two']);
+
+        $c['three'] = 3;
+        $this->assertEquals(3, $c['three']);
     }
 
     /**
