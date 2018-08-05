@@ -9,7 +9,7 @@ trait ArrayDotNotation
     /**
      * Get an array or object value using dot notation.
      *
-     * @param array|stdClass $struct The structure to retreive a value from.
+     * @param array|object $struct The structure to retreive a value from.
      * @param string $path The path to the value, in dot notation.
      * @param mixed $default (optional) A default value to return if none found.
      * @return mixed
@@ -93,8 +93,7 @@ trait ArrayDotNotation
     private static function getPathFromStruct(&$struct, $segment, $default = null)
     {
         return self::getPathFromArray($struct, $segment, $default)
-            ?? self::getPathFromObject($struct, $segment, $default)
-            ?? null;
+            ?? self::getPathFromObject($struct, $segment, $default);
     }
 
     /**
