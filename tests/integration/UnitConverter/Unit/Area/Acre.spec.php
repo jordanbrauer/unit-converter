@@ -51,6 +51,16 @@ class AcreSpec extends TestCase
     /**
      * @test
      * @covers ::configure
+     * @return void
+     */
+    public function assertAcreIsConfigured()
+    {
+        $acre = new Acre;
+        $this->assertInstanceOf(Acre::class, $acre);
+    }
+
+    /**
+     * @test
      */
     public function assert1AcreIs4046decimal86SquareMetres ()
     {
