@@ -29,6 +29,8 @@ use UnitConverter\ConverterBuilder;
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\Centimetre
  * @uses UnitConverter\Unit\Length\Inch
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class UnitConverterSpec extends TestCase
 {

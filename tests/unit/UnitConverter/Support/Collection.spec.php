@@ -18,6 +18,7 @@ use stdClass;
 
 /**
  * @coversDefaultClass UnitConverter\Support\Collection
+ * @uses UnitConverter\Support\Collection
  * @uses UnitConverter\Support\ArrayDotNotation
  */
 class CollectionSpec extends TestCase

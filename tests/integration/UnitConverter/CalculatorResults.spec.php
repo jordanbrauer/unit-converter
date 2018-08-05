@@ -23,6 +23,8 @@ use UnitConverter\Unit\Length\Inch;
 /**
  * Tests that both the Simlpe and Binary calculator implementations
  * generate the same results, regardless of typing (int/float, or string).
+ *
+ * @coversNothing
  */
 class CalculatorResultsSpec extends TestCase
 {
