@@ -21,7 +21,8 @@
     "consolidation/robo": "^1.2",
     "phpunit/phpunit": "^6.3",
     "symfony/var-dumper": "^3.3",
-    "vlucas/phpdotenv": "^2.4"
+    "vlucas/phpdotenv": "^2.4",
+    "codedungeon/phpunit-result-printer": "^0.19.12"
   },
   "autoload": {
     "psr-4": {
