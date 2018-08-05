@@ -31,7 +31,7 @@ class UnitRegistry implements UnitRegistryInterface
     /**
      * @var array $store A two-dimensional array containing available types of measuerment that each contain their available units of measure.
      */
-    protected $store = array();
+    protected $store;
 
     /**
      * Public constructor function for the unit registry.
@@ -44,16 +44,16 @@ class UnitRegistry implements UnitRegistryInterface
         $this->store = new Collection;
 
         $this->registerMeasurements(array(
-            Measure::LENGTH => array(),
-            Measure::AREA => array(),
-            Measure::VOLUME => array(),
-            Measure::MASS => array(),
-            Measure::SPEED => array(),
-            Measure::PLANE_ANGLE => array(),
-            Measure::TEMPERATURE => array(),
-            Measure::PRESSURE => array(),
-            Measure::TIME => array(),
-            Measure::ENERGY => array(),
+            Measure::LENGTH,
+            Measure::AREA,
+            Measure::VOLUME,
+            Measure::MASS,
+            Measure::SPEED,
+            Measure::PLANE_ANGLE,
+            Measure::TEMPERATURE,
+            Measure::PRESSURE,
+            Measure::TIME,
+            Measure::ENERGY,
         ));
 
         if (count($units) > 0) $this->registerUnits($units);
@@ -105,7 +105,7 @@ class UnitRegistry implements UnitRegistryInterface
     public function registerMeasurement (string $measurement): void
     {
         if ($this->isMeasurementRegistered($measurement) === false)
-            $this->store->push($measurement, $measurement);
+            $this->store->push($measurement, []);
     }
 
     public function registerMeasurements (array $measurements): void
