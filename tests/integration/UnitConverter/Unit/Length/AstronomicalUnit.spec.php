@@ -29,6 +29,8 @@ use UnitConverter\Unit\Length\AstronomicalUnit;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class AstronomicalUnitSpec extends TestCase
 {

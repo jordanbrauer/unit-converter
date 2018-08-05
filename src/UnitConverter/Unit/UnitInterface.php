@@ -141,4 +141,11 @@ interface UnitInterface
      * @return float
      */
     public function getBaseUnits (): ?float;
+
+    /**
+     * Returns the unit's registry key.
+     *
+     * @return string|null
+     */
+    public function getRegistryKey (): ?string;
 }

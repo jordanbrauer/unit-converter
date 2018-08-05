@@ -23,6 +23,8 @@ use UnitConverter\Unit\Time\Year;
  * Ensure that a year is infact, a year.
  *
  * @covers UnitConverter\Unit\Time\Year
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

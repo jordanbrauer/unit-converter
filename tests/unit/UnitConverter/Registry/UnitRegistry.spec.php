@@ -26,6 +26,8 @@ use UnitConverter\Exception\BadMeasurement;
 /**
  * @coversDefaultClass UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\Inch
  * @uses UnitConverter\Unit\Length\Centimetre

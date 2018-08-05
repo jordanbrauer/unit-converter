@@ -179,4 +179,9 @@ abstract class AbstractUnit implements UnitInterface
     {
         return $this->getBase()->getUnits();
     }
+
+    public function getRegistryKey (): ?string
+    {
+        return $this->unitOf . '.' . $this->symbol;
+    }
 }
