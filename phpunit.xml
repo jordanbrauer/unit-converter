@@ -2,6 +2,7 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
          bootstrap="vendor/autoload.php"
+         printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer"
          forceCoversAnnotation="true"
          beStrictAboutCoversAnnotation="true"
          beStrictAboutOutputDuringTests="true"
@@ -33,6 +34,12 @@
     <testsuites>
       <testsuite name="integration">
         <directory suffix=".spec.php">tests/integration/</directory>
+      </testsuite>
+    </testsuites>
+
+    <testsuites>
+      <testsuite name="errors">
+        <directory suffix=".spec.php">tests/exception/</directory>
       </testsuite>
     </testsuites>
 </phpunit>

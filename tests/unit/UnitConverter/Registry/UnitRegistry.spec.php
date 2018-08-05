@@ -20,6 +20,8 @@ use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Millimetre;
+use UnitConverter\Exception\BadUnit;
+use UnitConverter\Exception\BadMeasurement;
 
 /**
  * @coversDefaultClass UnitConverter\Registry\UnitRegistry
@@ -81,11 +83,13 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
+     * @covers UnitConverter\Exception\BadUnit
      */
-    public function assertOutOfBoundsExceptionIsThrownForUnregisteredUnits ()
+    public function assertBadUnitExceptionIsThrownForUnregisteredUnknownUnits ()
     {
-        $this->expectException("UnitConverter\\Exception\\UnknownUnitOfMeasureException");
+        $this->expectException(BadUnit::class);
+        $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
+
         $this->registry->loadUnit("yd");
     }
 
@@ -182,11 +186,13 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\UnknownMeasurementTypeException
+     * @covers UnitConverter\Exception\BadMeasurement
      */
-    public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsOutOfBoundsException ()
+    public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsBadMeasurementException ()
     {
-        $this->expectException("UnitConverter\\Exception\\UnknownMeasurementTypeException");
+        $this->expectException(BadMeasurement::class);
+        $this->expectExceptionCode(BadMeasurement::ERROR_UNKNOWN_MEASUREMENT);
+
         $this->registry->registerUnit(new class extends AbstractUnit {
             protected function configure () : void
             {
@@ -222,11 +228,13 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\UnknownMeasurementTypeException
+     * @covers UnitConverter\Exception\BadMeasurement
      */
-    public function assertUnregisteringUnknownMeasurementsThrowsOutOfBoundsException ()
+    public function assertUnregisteringUnknownMeasurementsThrowsBadMeasurementException ()
     {
-        $this->expectException("UnitConverter\\Exception\\UnknownMeasurementTypeException");
+        $this->expectException(BadMeasurement::class);
+        $this->expectExceptionCode(BadMeasurement::ERROR_UNKNOWN_MEASUREMENT);
+
         $this->registry->unregisterMeasurement("NOT REAL");
     }
 
@@ -249,11 +257,13 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
+     * @covers UnitConverter\Exception\BadUnit
      */
-    public function assertUnregisteringUnknownUnitsThrowsOutOfBoundsException ()
+    public function assertUnregisteringUnknownUnitsThrowsBadUnitException ()
     {
-        $this->expectException("UnitConverter\\Exception\\UnknownUnitOfMeasureException");
+        $this->expectException(BadUnit::class);
+        $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
+
         $this->registry->unregisterUnit("nOtREal");
     }
 }

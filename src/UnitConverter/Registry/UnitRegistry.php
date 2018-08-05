@@ -12,8 +12,8 @@
 
 namespace UnitConverter\Registry;
 
-use UnitConverter\Exception\UnknownUnitOfMeasureException;
-use UnitConverter\Exception\UnknownMeasurementTypeException;
+use UnitConverter\Exception\BadMeasurement;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Measure;
 use UnitConverter\Unit\UnitInterface;
 use UnitConverter\Support\Collection;
@@ -75,8 +75,7 @@ class UnitRegistry implements UnitRegistryInterface
 
     public function loadUnit (string $symbol): ?UnitInterface
     {
-        if ($this->isUnitRegistered($symbol) === false)
-            throw new UnknownUnitOfMeasureException("Trying to access unregistered unit of '{$symbol}'");
+        if (!$this->isUnitRegistered($symbol)) throw BadUnit::unknown($symbol);
 
         foreach ($this->store as $measurement => $units) {
             if (array_key_exists($symbol, $units))
@@ -117,8 +116,9 @@ class UnitRegistry implements UnitRegistryInterface
 
     public function registerUnit (UnitInterface $unit): void
     {
-        if (!$this->isMeasurementRegistered($unit->getUnitOf()))
-            throw new UnknownMeasurementTypeException("Trying to register unit '{$unit->getName()}' to an unregisted measurement of '{$unit->getUnitOf()}'");
+        $unitOf = $unit->getUnitOf();
+
+        if (!$this->isMeasurementRegistered($unitOf)) throw BadMeasurement::unknown($unitOf);
 
         $this->store->push($unit->getRegistryKey(), $unit);
     }
@@ -133,7 +133,7 @@ class UnitRegistry implements UnitRegistryInterface
     public function unregisterMeasurement (string $measurement): void
     {
         if (!$this->isMeasurementRegistered($measurement))
-            throw new UnknownMeasurementTypeException("Trying to unregister a nonexistent measurement type {$measurement}");
+            throw BadMeasurement::unknown($measurement);
 
         $this->store->pop($measurement);
     }
@@ -148,7 +148,7 @@ class UnitRegistry implements UnitRegistryInterface
     public function unregisterUnit (string $symbol): void
     {
         if ($this->isUnitRegistered($symbol) === false)
-            throw new UnknownUnitOfMeasureException("Trying to unregister a nonexistent unit {$symbol}");
+            throw BadUnit::unknown($symbol);
 
         $unit = $this->loadUnit($symbol);
         $this->store->pop("{$unit->getUnitOf()}.{$symbol}");

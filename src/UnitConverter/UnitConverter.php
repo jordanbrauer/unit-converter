@@ -14,8 +14,7 @@ namespace UnitConverter;
 
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\BinaryCalculator;
-use UnitConverter\Exception\MissingUnitRegistryException;
-use UnitConverter\Exception\MissingCalculatorException;
+use UnitConverter\Exception\BadConverter;
 use UnitConverter\Registry\UnitRegistryInterface;
 use UnitConverter\Unit\UnitInterface;
 
@@ -62,12 +61,19 @@ class UnitConverter implements UnitConverterInterface
     /**
      * @var array $log The log of events for the current conversion calculations
      */
-    protected $log;
+    protected $log = [];
 
     /**
      * @var array $tempLog The temporary log that stores running calculations.
      */
-    protected $tempLog;
+    protected $tempLog = [];
+
+    /**
+     * A static array of supported scalar types for a unit's value.
+     *
+     * @var array
+     */
+    private static $types = ["int", "float", "string"];
 
     /**
      * Public constructor function for the UnitConverter class.
@@ -79,9 +85,6 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->setRegistry($registry);
         $this->setCalculator($calculator);
-
-        $this->log = [];
-        $this->tempLog = [];
     }
 
     /**
@@ -157,7 +160,7 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      *
-     * @throws MissingCalculatorException
+     * @throws BadConverter
      * @param int|float|string $value The initial value being converted.
      * @param UnitInterface $from The unit of measure being converted **from**.
      * @param UnitInterface $to The unit of measure being converted **to**.
@@ -170,8 +173,7 @@ class UnitConverter implements UnitConverterInterface
         UnitInterface $to,
         int $precision = null
     ) {
-        if ($this->calculatorExists() === false)
-            throw new MissingCalculatorException("No calculator was found to perform mathematical operations with.");
+        if (!$this->calculatorExists()) throw BadConverter::missingCalculator();
 
         $isBinary = (BinaryCalculator::class === $this->whichCalculator());
 
@@ -258,12 +260,11 @@ class UnitConverter implements UnitConverterInterface
      * @param string $symbol The symbol of the unit being loaded.
      *
      * @return UnitInterface
-     * @throws MissingUnitRegistryException Thrown if an attempt is made to access a non-existent registry.
+     * @throws BadConverter Thrown if an attempt is made to access a non-existent registry.
      */
     protected function loadUnit(string $symbol): UnitInterface
     {
-        if ($this->registryExists() === false)
-            throw new MissingUnitRegistryException("No unit registry was found to load units from.");
+        if (!$this->registryExists()) throw BadConverter::missingRegistry();
 
         return $this->registry->loadUnit($symbol);
     }
@@ -276,10 +277,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function registryExists (): bool
     {
-        if ($this->registry instanceof UnitRegistryInterface)
-            return true;
-
-        return false;
+        return $this->registry instanceof UnitRegistryInterface;
     }
 
     /**
@@ -290,10 +288,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function calculatorExists (): bool
     {
-        if ($this->calculator instanceof CalculatorInterface)
-            return true;
-
-        return false;
+        return $this->calculator instanceof CalculatorInterface;
     }
 
     /**
@@ -304,8 +299,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function whichCalculator (): ?string
     {
-        if ($this->calculatorExists())
-            return get_class($this->calculator);
+        if ($this->calculatorExists()) return get_class($this->calculator);
 
         return null;
     }
@@ -313,16 +307,13 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Returns an array containing the "from" and "to" unit values casted to the specified type.
      *
-     * @throws ErrorException When an unsupported type is specified, throws exception.
-     *
+     * @throws BadUnit When an unsupported scalar type is specified, throws exception.
      * @param string $type The variable type to be casted. Can be one of, "int", "float", or "string".
      * @return array
      */
     protected function castUnitsTo (string $type): array
     {
-        $types = ["int", "float", "string"];
-        if (!in_array($type, $types))
-            throw new \ErrorException("Cannot cast units to {$type}. Use one of, ".implode(", ", $types));
+        if (!in_array($type, self::$types)) throw BadUnit::scalar($type, self::$types);
 
         $units = [
             "fromUnits" => $this->from->getUnits(),
@@ -361,7 +352,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function logTemp (array $step): void
     {
-        array_push($this->tempLog, $step);
+        $this->tempLog[] = $step;
     }
 
     /**
@@ -374,7 +365,7 @@ class UnitConverter implements UnitConverterInterface
     {
         $steps = ($steps ?? $this->tempLog);
         if (count($steps) > 0) {
-            array_push($this->log, $steps);
+            $this->log[] = $steps;
             $this->tempLog = [];
         }
     }

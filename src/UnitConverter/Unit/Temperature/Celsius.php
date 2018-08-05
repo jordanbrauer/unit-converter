@@ -12,8 +12,8 @@
 
 namespace UnitConverter\Unit\Temperature;
 
-use Exception;
 use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Unit\UnitInterface;
 
 /**
@@ -64,7 +64,7 @@ class Celsius extends TemperatureUnit
                 break;
 
             default:
-                throw new Exception("Unknown conversion formula for {$to->getSymbol()}");
+                throw BadUnit::formula($to->getSymbol());
             }
         }
     }

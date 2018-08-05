@@ -74,6 +74,7 @@ abstract class AbstractUnit implements UnitInterface
     /**
      * Calculate the amount of required base units to make up 1 unit.
      *
+     * @throws BadUnit If a unit attempts self conversion and has no formula
      * @param CalculatorInterface $calculator
      * @param int|float|string $value
      * @param UnitInterface $to
