@@ -27,6 +27,7 @@ class AbstractUnitSpec extends TestCase
 {
     protected function setUp ()
     {
+        $this->registryKey = Measure::LENGTH . '.sP';
         $this->unit = new class extends AbstractUnit
         {
             protected $name = "saiyan power";
@@ -40,6 +41,7 @@ class AbstractUnitSpec extends TestCase
 
     protected function tearDown ()
     {
+        unset($this->registryKey);
         unset($this->unit);
     }
 
@@ -158,5 +160,17 @@ class AbstractUnitSpec extends TestCase
 
         $this->assertEquals(69, $actual);
         $this->assertInternalType("float", $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::getRegistryKey
+     */
+    public function assertGetRegistryKeyMethodCanReadFromUnits ()
+    {
+        $actual = $this->unit->getRegistryKey();
+
+        $this->assertEquals($this->registryKey, $actual);
+        $this->assertInternalType("string", $actual);
     }
 }

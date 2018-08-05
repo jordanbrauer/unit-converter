@@ -10,13 +10,16 @@
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Tests\Unit\Registry;
+namespace UnitConverter\Tests\Unit\Support;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\Registry\Collection;
+use UnitConverter\Support\Collection;
+use stdClass;
 
 /**
- * @coversDefaultClass UnitConverter\Registry\Collection
+ * @coversDefaultClass UnitConverter\Support\Collection
+ * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Support\ArrayDotNotation
  */
 class CollectionSpec extends TestCase
 {
@@ -39,6 +42,10 @@ class CollectionSpec extends TestCase
         $this->assertEquals(1, $c2['one']);
         $this->assertEquals(2, $c2['two']);
         $this->assertEquals(3, $c2['three']);
+
+        $this->assertEquals(1, $c2->offsetGet('one'));
+        $this->assertEquals(2, $c2->offsetGet('two'));
+        $this->assertEquals(3, $c2->offsetGet('three'));
     }
 
     /**
@@ -54,6 +61,9 @@ class CollectionSpec extends TestCase
 
         $c->offsetSet('two', 2);
         $this->assertEquals(2, $c['two']);
+
+        $c['three'] = 3;
+        $this->assertEquals(3, $c['three']);
     }
 
     /**
@@ -197,5 +207,83 @@ class CollectionSpec extends TestCase
         $this->assertInstanceOf(Collection::class, $c2);
         $this->assertNotSame($c, $c2);
         $this->assertEquals($c, $c2);
+    }
+
+    /**
+     * @test
+     * @covers ::keys
+     */
+    public function assertCollectionKeysCanBeFetched ()
+    {
+        $c = new Collection(['foo' => [], 'bar' => [], 'baz' => []]);
+
+        $keys = $c->keys();
+        $this->assertEquals(['foo', 'bar', 'baz'], $keys);
+        $this->assertInternalType('array', $keys);
+    }
+
+    /**
+     * @test
+     * @covers ::get
+     */
+    public function assertCanGetWithDotNotation ()
+    {
+        $c = new Collection(['foo' => [ 'bar' => 'baz']]);
+        $this->assertEquals('baz', $c->get('foo.bar'));
+    }
+
+    /**
+     * @test
+     * @covers ::push
+     */
+    public function assertCanPushWithDotNotation ()
+    {
+        $c = new Collection(['foo' => [ 'bar' => 'baz']]);
+
+        $c->push('foo.bar', 'qux');
+        $this->assertEquals('qux', $c['foo']['bar']);
+
+        $c->push('foo.bar', ['test']);
+        $this->assertEquals('test', $c['foo']['bar'][0]);
+
+        $object = new stdClass;
+        $object->baz = 'qux';
+        $c->push('foo.bar', $object);
+        $this->assertEquals('qux', $c['foo']['bar']->baz);
+
+        $c->push('baz.qux', true);
+        $this->assertTrue($c['baz']['qux']);
+
+        $c->push('baz.qux', false);
+        $this->assertFalse($c['baz']['qux']);
+
+        $c->push('baz.qux', 10);
+        $this->assertSame(10, $c['baz']['qux']);
+
+        $c->push('baz.qux', -10);
+        $this->assertSame(-10, $c['baz']['qux']);
+    }
+
+    /**
+     * @test
+     * @covers ::pop
+     */
+    public function assertCanPopWithDotNotation ()
+    {
+        $c = new Collection(['foo' => [ 'bar' => 'baz']]);
+        $c->pop('foo.bar');
+        $this->assertFalse(isset($c['foo']['bar']));
+        $this->assertTrue(isset($c['foo']));
+    }
+
+    /**
+     * @test
+     * @covers ::exists
+     */
+    public function assertCanCheckPathExistsWithDotNotation ()
+    {
+        $c = new Collection(['foo' => [ 'bar' => 'baz']]);
+        $this->assertTrue($c->exists('foo.bar'));
+        $this->assertFalse($c->exists('foo.baz'));
     }
 }

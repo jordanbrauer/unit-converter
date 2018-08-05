@@ -19,6 +19,11 @@ use UnitConverter\UnitConverter;
 /**
  * @coversDefaultClass UnitConverter\ConverterBuilder
  * @uses UnitConverter\ConverterBuilder
+ * @uses UnitConverter\UnitConverter
+ * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Unit\AbstractUnit
  */
 class ConverterBuilderSpec extends TestCase
 {

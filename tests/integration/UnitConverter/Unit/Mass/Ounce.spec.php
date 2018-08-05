@@ -29,6 +29,8 @@ use UnitConverter\Unit\Mass\Ounce;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class OunceSpec extends TestCase
 {
