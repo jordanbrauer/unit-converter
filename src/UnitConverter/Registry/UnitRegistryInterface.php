@@ -42,7 +42,7 @@ interface UnitRegistryInterface
     /**
      * Fetch a unit from the unit registry for use elsewhere.
      *
-     * @throws UnknownUnitOfMeasureException An out of bounds exception will be thrown if loading an unregistered unit is attempted.
+     * @throws BadUnit If loading an unregistered unit is attempted.
      * @param string $symbol The symbol notation of the unit being loaded.
      * @return null|UnitInterface
      */
@@ -91,7 +91,7 @@ interface UnitRegistryInterface
      * instance of a UnitInterface as it's argument
      *
      * @param UnitInterface $unit
-     * @throws UnknownMeasurementTypeException Thrown when an attempted unit registration is made on an unexisting measurement.
+     * @throws BadMeasurement When an attempted unit registration is made on an unexisting measurement.
      * @return void
      */
     public function registerUnit (UnitInterface $unit): void;
@@ -112,7 +112,7 @@ interface UnitRegistryInterface
      * units belonging to the measurement that is being unregistered.
      *
      * @param string $symbol
-     * @throws UnknownMeasurementTypeException An error exception will be thrown if you attempt to unregister a non-existing measurement type.
+     * @throws BadMeasurement If you attempt to unregister a non-existing measurement type.
      * @return void
      */
     public function unregisterMeasurement (string $symbol): void;
@@ -129,7 +129,7 @@ interface UnitRegistryInterface
      * Unegister a single unit from the unit registry
      *
      * @param string $symbol
-     * @throws UnknownUnitOfMeasureException An error exception will be thrown if you attempt to unregister a non-existing unit of measure.
+     * @throws BadUnit If you attempt to unregister a non-existing unit of measure.
      * @return void
      */
     public function unregisterUnit (string $symbol): void;
