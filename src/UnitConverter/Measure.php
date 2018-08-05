@@ -21,6 +21,7 @@ namespace UnitConverter;
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 class Measure
 {
