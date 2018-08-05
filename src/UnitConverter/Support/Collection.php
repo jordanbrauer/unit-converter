@@ -19,6 +19,14 @@ use JsonSerializable;
 use Traversable;
 use ArrayIterator;
 
+/**
+ * A custom data structure to help perform robust operations on many items.
+ *
+ * @version 1.1.0
+ * @since 0.6.1
+ * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @internal
+ */
 class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
     use ArrayDotNotation;
