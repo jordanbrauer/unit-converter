@@ -50,7 +50,6 @@ class SquareKilometreSpec extends TestCase
 
     /**
      * @test
-     * @covers ::configure
      */
     public function assert1SquareKilometreIs1000000SquareMetres ()
     {

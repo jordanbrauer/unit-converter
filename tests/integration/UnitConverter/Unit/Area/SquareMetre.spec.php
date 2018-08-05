@@ -47,7 +47,6 @@ class SquareMetreSpec extends TestCase
 
     /**
      * @test
-     * @covers ::configure
      */
     public function assert1SquareMetreIs1SquareMetre ()
     {

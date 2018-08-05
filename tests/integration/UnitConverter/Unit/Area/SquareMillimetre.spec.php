@@ -50,7 +50,6 @@ class SquareMillimetreSpec extends TestCase
 
     /**
      * @test
-     * @covers ::configure
      */
     public function assert1SquareMillimetreIs0decimal000001SquareMetres ()
     {

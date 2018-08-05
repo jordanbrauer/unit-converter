@@ -50,7 +50,6 @@ class SquareMileSpec extends TestCase
 
     /**
      * @test
-     * @covers ::configure
      */
     public function assert1SquareMileIs2589988decimal11SquareMetres ()
     {

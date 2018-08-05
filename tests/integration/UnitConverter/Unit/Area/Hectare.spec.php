@@ -50,7 +50,6 @@ class HectareSpec extends TestCase
 
     /**
      * @test
-     * @covers ::configure
      */
     public function assert1HectareIs10000SquareMetres ()
     {
