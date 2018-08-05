@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareFoot;
 /**
  * Ensure that a square foot is a square foot.
  *
- * @covers UnitConverter\Unit\Area\SquareFoot
+ * @coversDefaultClass UnitConverter\Unit\Area\SquareFoot
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -50,6 +50,7 @@ class SquareFootSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1SquareFootIs0decimal092903SquareMetres ()
     {

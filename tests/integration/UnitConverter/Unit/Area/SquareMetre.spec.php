@@ -21,7 +21,7 @@ use UnitConverter\Unit\Area\SquareMetre;
 /**
  * Ensure that a square metre is infact, a square metre.
  *
- * @covers UnitConverter\Unit\Area\SquareMetre
+ * @coversDefaultClass UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
@@ -47,6 +47,7 @@ class SquareMetreSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1SquareMetreIs1SquareMetre ()
     {

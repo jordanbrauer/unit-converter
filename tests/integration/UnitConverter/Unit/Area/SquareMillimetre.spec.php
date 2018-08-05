@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareMillimetre;
 /**
  * Ensure that a square millimetre is a square millimetre.
  *
- * @covers UnitConverter\Unit\Area\SquareMillimetre
+ * @coversDefaultClass UnitConverter\Unit\Area\SquareMillimetre
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -50,6 +50,7 @@ class SquareMillimetreSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1SquareMillimetreIs0decimal000001SquareMetres ()
     {

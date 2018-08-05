@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareCentimetre;
 /**
  * Ensure that a square centimetre is a square centimetre.
  *
- * @covers UnitConverter\Unit\Area\SquareCentimetre
+ * @coversDefaultClass UnitConverter\Unit\Area\SquareCentimetre
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -50,6 +50,7 @@ class SquareCentimetreSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1SquareCentimetreIs0decimal0001SquareMetres ()
     {

@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\Hectare;
 /**
  * Ensure that a hectare is a hectare.
  *
- * @covers UnitConverter\Unit\Area\Hectare
+ * @coversDefaultClass UnitConverter\Unit\Area\Hectare
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -50,6 +50,7 @@ class HectareSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1HectareIs10000SquareMetres ()
     {

@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\Acre;
 /**
  * Ensure that an acre is an acre.
  *
- * @covers UnitConverter\Unit\Area\Acre
+ * @coversDefaultClass UnitConverter\Unit\Area\Acre
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -50,6 +50,7 @@ class AcreSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1AcreIs4046decimal86SquareMetres ()
     {

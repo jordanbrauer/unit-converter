@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareKilometre;
 /**
  * Ensure that a square kilometre is a square kilometre.
  *
- * @covers UnitConverter\Unit\Area\SquareKilometre
+ * @coversDefaultClass UnitConverter\Unit\Area\SquareKilometre
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -50,6 +50,7 @@ class SquareKilometreSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1SquareKilometreIs1000000SquareMetres ()
     {

@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareMile;
 /**
  * Ensure that a square mile is a square mile.
  *
- * @covers UnitConverter\Unit\Area\SquareMile
+ * @coversDefaultClass UnitConverter\Unit\Area\SquareMile
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -50,6 +50,7 @@ class SquareMileSpec extends TestCase
 
     /**
      * @test
+     * @covers ::configure
      */
     public function assert1SquareMileIs2589988decimal11SquareMetres ()
     {
