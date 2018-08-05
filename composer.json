@@ -15,7 +15,7 @@
     "integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
     "coverage": "vendor/bin/phpunit --coverage-text --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never",
-    "fix-cs": "bin/php-cs-fixer fix --config=.php_cs --show-progress=dots --ansi -v"
+    "style": "bin/php-cs-fixer fix --config=.php_cs --show-progress=dots --ansi -v"
   },
   "require-dev": {
     "consolidation/robo": "^1.2",

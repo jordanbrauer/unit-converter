@@ -71,6 +71,6 @@ class Measure
      */
     public static function getDefaultMeasurements(): array
     {
-        return (static::$defaultMeasurements ?? []);
+        return static::$defaultMeasurements ?? [];
     }
 }

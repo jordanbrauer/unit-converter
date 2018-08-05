@@ -58,6 +58,13 @@ class UnitConverter implements UnitConverterInterface
     protected $log = [];
 
     /**
+     * Are conversions going to be logged?
+     *
+     * @var boolean
+     */
+    protected $logConversions;
+
+    /**
      * @var int $precision The decimal precision to be calculated
      */
     protected $precision;
@@ -76,13 +83,6 @@ class UnitConverter implements UnitConverterInterface
      * @var string $to The unit of measure being converted **to**.
      */
     protected $to;
-
-    /**
-     * Are conversions going to be logged?
-     *
-     * @var boolean
-     */
-    protected $logConversions;
 
     /**
      * Public constructor function for the UnitConverter class.
@@ -111,6 +111,26 @@ class UnitConverter implements UnitConverterInterface
         $this->convert = $value;
 
         return $this;
+    }
+
+    /**
+     * Disables the logging of conversions & their order of operations.
+     *
+     * @return void
+     */
+    public function disableConversionLog(): void
+    {
+        $this->logConversions = false;
+    }
+
+    /**
+     * Enables the logging of conversions & their order of operations.
+     *
+     * @return void
+     */
+    public function enableConversionLog(): void
+    {
+        $this->logConversions = true;
     }
 
     public function from(string $unit): UnitConverterInterface
@@ -157,26 +177,6 @@ class UnitConverter implements UnitConverterInterface
         $this->registry = $registry;
 
         return $this;
-    }
-
-    /**
-     * Disables the logging of conversions & their order of operations.
-     *
-     * @return void
-     */
-    public function disableConversionLog(): void
-    {
-        $this->logConversions = false;
-    }
-
-    /**
-     * Enables the logging of conversions & their order of operations.
-     *
-     * @return void
-     */
-    public function enableConversionLog(): void
-    {
-        $this->logConversions = true;
     }
 
     public function to(string $unit)
@@ -291,24 +291,9 @@ class UnitConverter implements UnitConverterInterface
     protected function divide($leftOperand, $rightOperand)
     {
         return $this->operation(__FUNCTION__, [
-            'left' => $leftOperand,
+            'left'  => $leftOperand,
             'right' => $rightOperand,
         ]);
-    }
-
-    /**
-     * Generic helper method to perform calculator operations & log the results.
-     *
-     * @param string $operator
-     * @param array $parameters
-     * @return int|float|string
-     */
-    protected function operation(string $operator, array $parameters = [])
-    {
-        $result = $this->calculator->{$operator}(...array_values($parameters));
-        $this->logTemp($operator, $result, $parameters);
-
-        return $result;
     }
 
     /**
@@ -373,9 +358,24 @@ class UnitConverter implements UnitConverterInterface
     protected function multiply($leftOperand, $rightOperand)
     {
         return $this->operation(__FUNCTION__, [
-            'left' => $leftOperand,
+            'left'  => $leftOperand,
             'right' => $rightOperand,
         ]);
+    }
+
+    /**
+     * Generic helper method to perform calculator operations & log the results.
+     *
+     * @param string $operator
+     * @param array $parameters
+     * @return int|float|string
+     */
+    protected function operation(string $operator, array $parameters = [])
+    {
+        $result = $this->calculator->{$operator}(...array_values($parameters));
+        $this->logTemp($operator, $result, $parameters);
+
+        return $result;
     }
 
     /**
@@ -399,7 +399,7 @@ class UnitConverter implements UnitConverterInterface
     protected function round($value, $precision)
     {
         return $this->operation(__FUNCTION__, [
-            'value' => $value,
+            'value'     => $value,
             'precision' => $precision,
         ]);
     }
