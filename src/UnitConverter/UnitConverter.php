@@ -61,12 +61,19 @@ class UnitConverter implements UnitConverterInterface
     /**
      * @var array $log The log of events for the current conversion calculations
      */
-    protected $log;
+    protected $log = [];
 
     /**
      * @var array $tempLog The temporary log that stores running calculations.
      */
-    protected $tempLog;
+    protected $tempLog = [];
+
+    /**
+     * A static array of supported scalar types for a unit's value.
+     *
+     * @var array
+     */
+    private static $types = ["int", "float", "string"];
 
     /**
      * Public constructor function for the UnitConverter class.
@@ -78,9 +85,6 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->setRegistry($registry);
         $this->setCalculator($calculator);
-
-        $this->log = [];
-        $this->tempLog = [];
     }
 
     /**
@@ -273,10 +277,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function registryExists (): bool
     {
-        if ($this->registry instanceof UnitRegistryInterface)
-            return true;
-
-        return false;
+        return $this->registry instanceof UnitRegistryInterface;
     }
 
     /**
@@ -287,10 +288,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function calculatorExists (): bool
     {
-        if ($this->calculator instanceof CalculatorInterface)
-            return true;
-
-        return false;
+        return $this->calculator instanceof CalculatorInterface;
     }
 
     /**
@@ -301,8 +299,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function whichCalculator (): ?string
     {
-        if ($this->calculatorExists())
-            return get_class($this->calculator);
+        if ($this->calculatorExists()) return get_class($this->calculator);
 
         return null;
     }
@@ -355,7 +352,7 @@ class UnitConverter implements UnitConverterInterface
      */
     protected function logTemp (array $step): void
     {
-        array_push($this->tempLog, $step);
+        $this->tempLog[] = $step;
     }
 
     /**
@@ -368,7 +365,7 @@ class UnitConverter implements UnitConverterInterface
     {
         $steps = ($steps ?? $this->tempLog);
         if (count($steps) > 0) {
-            array_push($this->log, $steps);
+            $this->log[] = $steps;
             $this->tempLog = [];
         }
     }
