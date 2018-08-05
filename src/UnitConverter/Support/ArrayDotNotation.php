@@ -19,25 +19,7 @@ trait ArrayDotNotation
         if (is_array($struct) and isset($struct[$path])) return $struct[$path];
 
         foreach (explode(".", $path) as $segment) {
-            if (is_object($struct)) {
-                if (isset($struct->{$segment})) {
-                    $struct = $struct->{$segment};
-                } else {
-                    return ($default and $default instanceof Closure)
-                        ? $default()
-                        : $default;
-                }
-            }
-
-            if (is_array($struct)) {
-                if (isset($struct[$segment])) {
-                    $struct = $struct[$segment];
-                } else {
-                    return ($default and $default instanceof Closure)
-                        ? $default()
-                        : $default;
-                }
-            }
+            self::getPathFromStruct($struct, $segment, $default);
         }
 
         return $struct;
@@ -98,5 +80,67 @@ trait ArrayDotNotation
         }
 
         return true;
+    }
+
+    /**
+     * Wrapper method for all structure types to seek paths from.
+     *
+     * @param array|object $struct The structure that will be traversed.
+     * @param int|string $segment The name of the property to access a value by.
+     * @param mixed $default (optional) A default value that should be returned.
+     * @return mixed|null
+     */
+    private static function getPathFromStruct(&$struct, $segment, $default = null)
+    {
+        return self::getPathFromArray($struct, $segment, $default)
+            ?? self::getPathFromObject($struct, $segment, $default)
+            ?? null;
+    }
+
+    /**
+     * Build a path in an array for accessing values using dot notation.
+     *
+     * @param array $array The array that will be traversed.
+     * @param int|string $index The index to access the value with.
+     * @param mixed $default (optional) A default value that should be returned.
+     * @return mixed|null
+     */
+    private static function getPathFromArray(&$array, $index, $default = null)
+    {
+        if (!is_array($array)) return null;
+
+        if (!isset($array[$index])) return self::defaultValue($default);
+
+        $array = $array[$index];
+    }
+
+    /**
+     * Build a path on an object for accessing values using dot notation.
+     *
+     * @param object $object The object that will be traversed.
+     * @param string $property The property to access the value with.
+     * @param mixed $default (optional) A default value that should be returned.
+     * @return mixed|null
+     */
+    private static function getPathFromObject(&$object, $property, $default = null)
+    {
+        if (!is_object($object)) return null;
+
+        if (!isset($object->{$property})) return self::defaultValue($default);
+
+        $object = $object->{$property};
+    }
+
+    /**
+     * Returns the result of an evaluated subject.
+     *
+     * @param mixed|Closure $subject A value or closure to execute and return.
+     * @return mixed|null
+     */
+    private static function defaultValue($subject = null)
+    {
+        return ($subject and $subject instanceof Closure)
+            ? $subject()
+            : $subject;
     }
 }
