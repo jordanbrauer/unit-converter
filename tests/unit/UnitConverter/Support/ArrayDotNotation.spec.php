@@ -36,6 +36,10 @@ class ArrayDotNotationSpec extends TestCase
     /**
      * @test
      * @covers ::getFromPath
+     * @covers ::getPathFromStruct
+     * @covers ::getPathFromArray
+     * @covers ::getPathFromObject
+     * @covers ::defaultValue
      */
     public function assertCanGetWithDotNotation ()
     {
