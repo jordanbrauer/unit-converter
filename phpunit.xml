@@ -36,4 +36,10 @@
         <directory suffix=".spec.php">tests/integration/</directory>
       </testsuite>
     </testsuites>
+
+    <testsuites>
+      <testsuite name="errors">
+        <directory suffix=".spec.php">tests/exception/</directory>
+      </testsuite>
+    </testsuites>
 </phpunit>
