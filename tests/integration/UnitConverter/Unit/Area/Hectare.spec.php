@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\Hectare;
 /**
  * Ensure that a hectare is a hectare.
  *
- * @coversDefaultClass UnitConverter\Unit\Area\Hectare
+ * @covers UnitConverter\Unit\Area\Hectare
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

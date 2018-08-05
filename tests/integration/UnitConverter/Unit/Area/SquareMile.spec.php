@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareMile;
 /**
  * Ensure that a square mile is a square mile.
  *
- * @coversDefaultClass UnitConverter\Unit\Area\SquareMile
+ * @covers UnitConverter\Unit\Area\SquareMile
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

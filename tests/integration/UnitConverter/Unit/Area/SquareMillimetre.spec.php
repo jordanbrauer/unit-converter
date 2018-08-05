@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareMillimetre;
 /**
  * Ensure that a square millimetre is a square millimetre.
  *
- * @coversDefaultClass UnitConverter\Unit\Area\SquareMillimetre
+ * @covers UnitConverter\Unit\Area\SquareMillimetre
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

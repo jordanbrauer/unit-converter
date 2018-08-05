@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareFoot;
 /**
  * Ensure that a square foot is a square foot.
  *
- * @coversDefaultClass UnitConverter\Unit\Area\SquareFoot
+ * @covers UnitConverter\Unit\Area\SquareFoot
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareCentimetre;
 /**
  * Ensure that a square centimetre is a square centimetre.
  *
- * @coversDefaultClass UnitConverter\Unit\Area\SquareCentimetre
+ * @covers UnitConverter\Unit\Area\SquareCentimetre
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

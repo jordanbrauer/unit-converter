@@ -22,7 +22,7 @@ use UnitConverter\Unit\Area\SquareKilometre;
 /**
  * Ensure that a square kilometre is a square kilometre.
  *
- * @coversDefaultClass UnitConverter\Unit\Area\SquareKilometre
+ * @covers UnitConverter\Unit\Area\SquareKilometre
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

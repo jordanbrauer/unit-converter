@@ -21,7 +21,7 @@ use UnitConverter\Unit\Area\SquareMetre;
 /**
  * Ensure that a square metre is infact, a square metre.
  *
- * @coversDefaultClass UnitConverter\Unit\Area\SquareMetre
+ * @covers UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
