@@ -7,7 +7,6 @@ $finder = PhpCsFixer\Finder::create()
       '.github',
       '.vscode',
       'bin',
-      'dev',
       'docs',
       'vendor',
       'node_modules',
@@ -30,6 +29,7 @@ foreach ([
     '.gitignore',
     'LICENSE',
     'TODO',
+    'examples.php',
 ] as $pattern) $finder->notPath("{$root}/{$pattern}");
 
 return PhpCsFixer\Config::create()

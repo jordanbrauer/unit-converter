@@ -5,13 +5,13 @@ ini_set('display_errors', 1);
 
 require_once realpath(rtrim(__DIR__, '/').'/vendor/autoload.php');
 
-use UnitConverter\Measure;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
+use UnitConverter\Measure;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\AbstractUnit;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
+use UnitConverter\UnitConverter;
 
 # -------------------------------------
 # Quick Setup
@@ -27,27 +27,26 @@ $converter = UnitConverter::createBuilder()
 # -------------------------------------
 
 $units = [
-  new Centimetre,
-  new Inch,
+    new Centimetre(),
+    new Inch(),
 ];
 
 $registry = new UnitRegistry($units);
-$calculator = new SimpleCalculator;
+$calculator = new SimpleCalculator();
 $converter = new UnitConverter($registry, $calculator);
 
 # -------------------------------------
 # Custom Units
 # -------------------------------------
 
-$registry->registerUnit(new class extends AbstractUnit {
-    protected function configure (): void
+$registry->registerUnit(new class() extends AbstractUnit {
+    protected function configure(): void
     {
         $this->setName('testtt')
             ->setSymbol('Tst')
             ->setUnitOf(Measure::VOLUME)
             ->setBase(self::class)
-            ->setUnits(1)
-            ;
+            ->setUnits(1);
     }
 });
 
