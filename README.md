@@ -10,7 +10,7 @@
 
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
 [![Packagist](https://img.shields.io/packagist/dt/jordanbrauer/unit-converter.svg?style=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/unit-converter.svg?style=flat-square)](http://php.net/releases/)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/unit-converter.svg?style=flat-square)](https://secure.php.net/releases/)
 [![composer.lock available](https://poser.pugx.org/jordanbrauer/unit-converter/composerlock?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
 [![license](https://img.shields.io/github/license/jordanbrauer/unit-converter.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter/blob/master/LICENSE)
 
