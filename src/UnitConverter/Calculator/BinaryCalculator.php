@@ -73,7 +73,7 @@ class BinaryCalculator extends AbstractCalculator
      *
      * {@inheritDoc}
      */
-    public function round($value, int $precision = null): string
+    public function round($value, int $precision = null)
     {
         return (string) parent::round($value, $precision);
     }

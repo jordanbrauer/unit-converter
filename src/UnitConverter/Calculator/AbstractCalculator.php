@@ -185,7 +185,7 @@ abstract class AbstractCalculator implements CalculatorInterface
     /**
      * {@inheritDoc}
      */
-    public function round($value, int $precision = null): float
+    public function round($value, int $precision = null)
     {
         return round(
             $value,
