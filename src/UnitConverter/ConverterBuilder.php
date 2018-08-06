@@ -126,6 +126,13 @@ class ConverterBuilder
         );
     }
 
+    /**
+     * Retrieve instance of all units for a given measurement type.
+     *
+     * @internal
+     * @param string $measurement
+     * @return array
+     */
     private function instantiateAllUnitsFor(string $measurement): array
     {
         if (!in_array($measurement, Measure::getDefaultMeasurements())) {
