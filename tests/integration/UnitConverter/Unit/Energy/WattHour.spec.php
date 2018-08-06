@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Energy\Joule;
 use UnitConverter\Unit\Energy\WattHour;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a joule is infact, a joule.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Energy\WattHour;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class WattHourSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Joule,
-                new WattHour,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Joule(),
+                new WattHour(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class WattHourSpec extends TestCase
     /**
      * @test
      */
-    public function assert1WattHourIs3600decimal0054468Joules ()
+    public function assert1WattHourIs3600decimal0054468Joules()
     {
         $expected = 3600.0054468;
         $actual = $this->converter
             ->convert(1, 7)
             ->from("Wh")
-            ->to("J")
-            ;
+            ->to("J");
 
         $this->assertEquals($expected, $actual);
     }

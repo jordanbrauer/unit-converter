@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\AstronomicalUnit;
+use UnitConverter\Unit\Length\Metre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that an astronomical unit is an astronomical unit.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Length\AstronomicalUnit;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class AstronomicalUnitSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new AstronomicalUnit,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new AstronomicalUnit(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class AstronomicalUnitSpec extends TestCase
     /**
      * @test
      */
-    public function assert1AstronomicalUnitIs149597870700Metres ()
+    public function assert1AstronomicalUnitIs149597870700Metres()
     {
         $expected = 149597870700;
         $actual = $this->converter
             ->convert(1)
             ->from("au")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }

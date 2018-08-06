@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -23,85 +25,81 @@ namespace UnitConverter\Unit;
 interface UnitInterface
 {
     /**
-     * Is the unit an SI base unit?
+     * Returns the unit class that this unit is based off of.
      *
-     * @return boolean
-     */
-    public function isSiUnit (): bool;
-
-    /**
-     * Is the unit an SI multiple unit?
-     *
-     * @return boolean
-     */
-    public function isMultipleSiUnit (): bool;
-
-    /**
-     * Is the unit an SI submultiple unit?
-     *
-     * @return boolean
-     */
-    public function isSubmultipleSiUnit (): bool;
-
-    /**
-     * Sets the units full symantic name.
-     *
-     * @param string $name The value to be set as the units name
      * @return UnitInterface
      */
-    public function setName (string $name): UnitInterface;
+    public function getBase(): ?UnitInterface;
+
+    /**
+     * Returns the units base unit units'.
+     *
+     * @return float
+     */
+    public function getBaseUnits(): ?float;
 
     /**
      * Returns the full symantic name of the unit.
      *
      * @return string
      */
-    public function getName (): ?string;
+    public function getName(): ?string;
 
     /**
-     * Sets the symbol notation used for the unit.
+     * Returns the unit's registry key.
      *
-     * @param string $symbol The value to be set as the units symbol
-     * @return UnitInterface
+     * @return string|null
      */
-    public function setSymbol (string $symbol): UnitInterface;
-
-    /**
-     * Returns the symbol notation of the unit.
-     *
-     * @return string
-     */
-    public function getSymbol (): ?string;
-
-    /**
-     * Sets the unicode scientific symbol notation used for the unit.
-     *
-     * @param string $scientificSymbol The unicode character to be set as the units scientific symbol
-     * @return UnitInterface
-     */
-    public function setScientificSymbol (string $scientificSymbol): UnitInterface;
+    public function getRegistryKey(): ?string;
 
     /**
      * Returns the symbol notation of the unit.
      *
      * @return string
      */
-    public function getScientificSymbol (): ?string;
+    public function getScientificSymbol(): ?string;
 
     /**
-     * Sets the type of measurement that this unit is measuring.
+     * Returns the symbol notation of the unit.
      *
-     * @param string $unitOf The value to be set as the units governing unit
-     * @return UnitInterface
+     * @return string
      */
-    public function setUnitOf (string $unitOf): UnitInterface;
+    public function getSymbol(): ?string;
 
     /**
      * Returns the type of measurement that this unit is measuring.
      *
      * @return string
      */
-    public function getUnitOf (): ?string;
+    public function getUnitOf(): ?string;
+
+    /**
+     * Returns the amount of base units required to make up 1 of the unit.
+     *
+     * @return float
+     */
+    public function getUnits(): ?float;
+
+    /**
+     * Is the unit an SI multiple unit?
+     *
+     * @return boolean
+     */
+    public function isMultipleSiUnit(): bool;
+
+    /**
+     * Is the unit an SI base unit?
+     *
+     * @return boolean
+     */
+    public function isSiUnit(): bool;
+
+    /**
+     * Is the unit an SI submultiple unit?
+     *
+     * @return boolean
+     */
+    public function isSubmultipleSiUnit(): bool;
 
     /**
      * Sets the unit class that this unit is based off of.
@@ -111,14 +109,39 @@ interface UnitInterface
      *
      * @example $this->setBase(Volume::class);
      */
-    public function setBase ($base): UnitInterface;
+    public function setBase($base): UnitInterface;
 
     /**
-     * Returns the unit class that this unit is based off of.
+     * Sets the units full symantic name.
      *
+     * @param string $name The value to be set as the units name
      * @return UnitInterface
      */
-    public function getBase (): ?UnitInterface;
+    public function setName(string $name): UnitInterface;
+
+    /**
+     * Sets the unicode scientific symbol notation used for the unit.
+     *
+     * @param string $scientificSymbol The unicode character to be set as the units scientific symbol
+     * @return UnitInterface
+     */
+    public function setScientificSymbol(string $scientificSymbol): UnitInterface;
+
+    /**
+     * Sets the symbol notation used for the unit.
+     *
+     * @param string $symbol The value to be set as the units symbol
+     * @return UnitInterface
+     */
+    public function setSymbol(string $symbol): UnitInterface;
+
+    /**
+     * Sets the type of measurement that this unit is measuring.
+     *
+     * @param string $unitOf The value to be set as the units governing unit
+     * @return UnitInterface
+     */
+    public function setUnitOf(string $unitOf): UnitInterface;
 
     /**
      * Sets the amount of base units required to make up 1 of the unit.
@@ -126,19 +149,5 @@ interface UnitInterface
      * @param float $units The amount of units required to make a single base unit
      * @return UnitInterface
      */
-    public function setUnits (float $units): UnitInterface;
-
-    /**
-     * Returns the amount of base units required to make up 1 of the unit.
-     *
-     * @return float
-     */
-    public function getUnits (): ?float;
-
-    /**
-     * Returns the units base unit units'.
-     *
-     * @return float
-     */
-    public function getBaseUnits (): ?float;
+    public function setUnits(float $units): UnitInterface;
 }

@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Nanometre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a nanometre is infact, a nanometre.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Length\Nanometre;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class NanometreSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new Nanometre,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new Nanometre(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class NanometreSpec extends TestCase
     /**
      * @test
      */
-    public function assert1NanometreIs0decimal000000001Metres ()
+    public function assert1NanometreIs0decimal000000001Metres()
     {
         $expected = 0.000000001;
         $actual = $this->converter
             ->convert(1, 9)
             ->from("nm")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }
@@ -66,9 +69,9 @@ class NanometreSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatANanometreIsASubmultipleSIUnit ()
+    public function assertThatANanometreIsASubmultipleSIUnit()
     {
-        $result = (new Nanometre)->isSubmultipleSiUnit();
+        $result = (new Nanometre())->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

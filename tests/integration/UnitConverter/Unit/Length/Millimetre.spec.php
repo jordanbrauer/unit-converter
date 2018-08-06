@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Millimetre;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a millimetre is infact, a millimetre.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Length\Millimetre;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class MillimetreSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Metre,
-                new Millimetre,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Metre(),
+                new Millimetre(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class MillimetreSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MillimetreIs0decimal001Metres ()
+    public function assert1MillimetreIs0decimal001Metres()
     {
         $expected = 0.001;
         $actual = $this->converter
             ->convert(1, 3)
             ->from("mm")
-            ->to("m")
-            ;
+            ->to("m");
 
         $this->assertEquals($expected, $actual);
     }
@@ -66,9 +69,9 @@ class MillimetreSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatAMillimetreIsASubmultipleSIUnit ()
+    public function assertThatAMillimetreIsASubmultipleSIUnit()
     {
-        $result = (new Millimetre)->isSubmultipleSiUnit();
+        $result = (new Millimetre())->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

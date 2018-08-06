@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,14 +23,13 @@ namespace UnitConverter\Unit\Time;
  */
 class Day extends TimeUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("day")
 
             ->setSymbol("d")
 
-            ->setUnits(86400)
-            ;
+            ->setUnits(86400);
     }
 }

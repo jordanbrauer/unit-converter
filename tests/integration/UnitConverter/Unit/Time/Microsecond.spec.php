@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Time\Second;
 use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Second;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a microsecond is infact, a microsecond.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Time\Microsecond;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class MicrosecondSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Second,
-                new Microsecond,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Second(),
+                new Microsecond(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class MicrosecondSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MicrosecondIs0decimal000001Seconds ()
+    public function assert1MicrosecondIs0decimal000001Seconds()
     {
         $expected = 0.000001;
         $actual = $this->converter
             ->convert(1, 6)
             ->from("us")
-            ->to("s")
-            ;
+            ->to("s");
 
         $this->assertEquals($expected, $actual);
     }
@@ -66,9 +69,9 @@ class MicrosecondSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatAMicrosecondIsASubmultipleSIUnit ()
+    public function assertThatAMicrosecondIsASubmultipleSIUnit()
     {
-        $result = (new Microsecond)->isSubmultipleSiUnit();
+        $result = (new Microsecond())->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

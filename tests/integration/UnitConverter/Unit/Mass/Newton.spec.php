@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Newton;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a newton is infact, a newton.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Mass\Newton;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class NewtonSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Kilogram,
-                new Newton,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Kilogram(),
+                new Newton(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class NewtonSpec extends TestCase
     /**
      * @test
      */
-    public function assert1NewtonIs9decimal80665002863885Kilograms ()
+    public function assert1NewtonIs9decimal80665002863885Kilograms()
     {
         $expected = 9.80665002863885;
         $actual = $this->converter
             ->convert(1, 14)
             ->from("N")
-            ->to("kg")
-            ;
+            ->to("kg");
 
         $this->assertEquals($expected, $actual);
     }

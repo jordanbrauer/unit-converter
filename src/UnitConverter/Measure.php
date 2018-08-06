@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -19,26 +21,56 @@ namespace UnitConverter;
  * @version 1.0.0
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 class Measure
 {
-    const LENGTH = "length";
-
     const AREA = "area";
 
-    const VOLUME = "volume";
+    const ENERGY = "energy";
+
+    const LENGTH = "length";
 
     const MASS = "mass";
 
-    const SPEED = "speed";
-
     const PLANE_ANGLE = "plane_angle";
-
-    const TEMPERATURE = "temperature";
 
     const PRESSURE = "pressure";
 
+    const SPEED = "speed";
+
+    const TEMPERATURE = "temperature";
+
     const TIME = "time";
 
-    const ENERGY = "energy";
+    const VOLUME = "volume";
+
+    /**
+     * An array containing a list of default measurement types that are supported.
+     *
+     * @var array
+     */
+    private static $defaultMeasurements = [
+        Measure::LENGTH,
+        Measure::AREA,
+        Measure::VOLUME,
+        Measure::MASS,
+        Measure::SPEED,
+        Measure::PLANE_ANGLE,
+        Measure::TEMPERATURE,
+        Measure::PRESSURE,
+        Measure::TIME,
+        Measure::ENERGY,
+    ];
+
+    /**
+     * Return a list of all default supported measurement types. These types
+     * govern unit's of measurement.
+     *
+     * @return array
+     */
+    public static function getDefaultMeasurements(): array
+    {
+        return static::$defaultMeasurements ?? [];
+    }
 }

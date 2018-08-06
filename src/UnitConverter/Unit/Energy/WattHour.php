@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -21,7 +23,7 @@ namespace UnitConverter\Unit\Energy;
  */
 class WattHour extends EnergyUnit
 {
-    protected function configure (): void
+    protected function configure(): void
     {
         $this
             ->setName("watt hour")
@@ -30,7 +32,6 @@ class WattHour extends EnergyUnit
 
             ->setScientificSymbol("W · h")
 
-            ->setUnits(3600.0054468)
-            ;
+            ->setUnits(3600.0054468);
     }
 }

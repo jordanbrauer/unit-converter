@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -26,7 +28,7 @@ use UnitConverter\Unit\AbstractUnit;
  */
 abstract class PressureUnit extends AbstractUnit
 {
-    protected $unitOf = Measure::PRESSURE;
-
     protected $base = Pascal::class;
+
+    protected $unitOf = Measure::PRESSURE;
 }

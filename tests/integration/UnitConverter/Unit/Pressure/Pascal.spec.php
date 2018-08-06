@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,10 +15,10 @@
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\UnitConverter;
 
 /**
  * Test that a pascal is indeed a pascal.
@@ -27,20 +29,22 @@ use UnitConverter\Unit\Pressure\Pascal;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class PascalSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Pascal,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Pascal(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -48,14 +52,13 @@ class PascalSpec extends TestCase
     /**
      * @test
      */
-    public function assert1PascalIs1Pascal ()
+    public function assert1PascalIs1Pascal()
     {
         $expected = 1;
         $actual = $this->converter
             ->convert(1)
             ->from("Pa")
-            ->to("Pa")
-            ;
+            ->to("Pa");
 
         $this->assertEquals($expected, $actual);
     }

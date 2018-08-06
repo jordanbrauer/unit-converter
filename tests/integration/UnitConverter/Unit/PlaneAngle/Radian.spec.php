@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\PlaneAngle;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\PlaneAngle\Degree;
 use UnitConverter\Unit\PlaneAngle\Radian;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a radian is infact, a radian.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\PlaneAngle\Radian;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class RadianSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Degree,
-                new Radian,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Degree(),
+                new Radian(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class RadianSpec extends TestCase
     /**
      * @test
      */
-    public function assert1RadianIs57decimal2958Degrees ()
+    public function assert1RadianIs57decimal2958Degrees()
     {
         $expected = 57.2958;
         $actual = $this->converter
             ->convert(1, 4)
             ->from("rad")
-            ->to("deg")
-            ;
+            ->to("deg");
 
         $this->assertEquals($expected, $actual);
     }

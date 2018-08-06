@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Gram;
+use UnitConverter\Unit\Mass\Kilogram;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a gram is infact, a gram.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Mass\Gram;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class GramSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Kilogram,
-                new Gram,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Kilogram(),
+                new Gram(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class GramSpec extends TestCase
     /**
      * @test
      */
-    public function assert1GramIs0decimal001Kilograms ()
+    public function assert1GramIs0decimal001Kilograms()
     {
         $expected = 0.001;
         $actual = $this->converter
             ->convert(1, 3)
             ->from("g")
-            ->to("kg")
-            ;
+            ->to("kg");
 
         $this->assertEquals($expected, $actual);
     }
@@ -66,9 +69,9 @@ class GramSpec extends TestCase
     /**
      * @test
      */
-    public function assertThatAGramIsAnSISubmultipleUnit ()
+    public function assertThatAGramIsAnSISubmultipleUnit()
     {
-        $result = (new Gram)->isSubmultipleSiUnit();
+        $result = (new Gram())->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
     }

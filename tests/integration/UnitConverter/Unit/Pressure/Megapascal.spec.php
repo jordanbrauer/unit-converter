@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,11 +15,11 @@
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Pressure\Pascal;
 use UnitConverter\Unit\Pressure\Megapascal;
+use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\UnitConverter;
 
 /**
  * Test that a megapascal is indeed a megapascal.
@@ -29,21 +31,23 @@ use UnitConverter\Unit\Pressure\Megapascal;
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class MegapascalSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Pascal,
-                new Megapascal,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Pascal(),
+                new Megapascal(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -51,14 +55,13 @@ class MegapascalSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MegapascalIs1000000Pascal ()
+    public function assert1MegapascalIs1000000Pascal()
     {
         $expected = 1000000;
         $actual = $this->converter
             ->convert(1)
             ->from("mPa")
-            ->to("Pa")
-            ;
+            ->to("Pa");
 
         $this->assertEquals($expected, $actual);
     }

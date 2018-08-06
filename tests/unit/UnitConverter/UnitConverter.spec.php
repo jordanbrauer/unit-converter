@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types = 1);
 
 /**
  * This file is part of the jordanbrauer/unit-converter PHP package.
@@ -13,12 +15,13 @@
 namespace UnitConverter\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Calculator\SimpleCalculator;
+use UnitConverter\ConverterBuilder;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
-use UnitConverter\ConverterBuilder;
+use UnitConverter\UnitConverter;
 
 /**
  * @coversDefaultClass UnitConverter\UnitConverter
@@ -29,21 +32,23 @@ use UnitConverter\ConverterBuilder;
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\Centimetre
  * @uses UnitConverter\Unit\Length\Inch
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
  */
 class UnitConverterSpec extends TestCase
 {
-    protected function setUp ()
+    protected function setUp()
     {
         $this->converter = new UnitConverter(
-            new UnitRegistry(array(
-                new Centimetre,
-                new Inch,
-            )),
-            new SimpleCalculator
+            new UnitRegistry([
+                new Centimetre(),
+                new Inch(),
+            ]),
+            new SimpleCalculator()
         );
     }
 
-    protected function tearDown ()
+    protected function tearDown()
     {
         unset($this->converter);
     }
@@ -55,14 +60,13 @@ class UnitConverterSpec extends TestCase
      * @covers ::to
      * @covers ::calculate
      */
-    public function assertCalculateMethodReturnsCorrectCalculation ()
+    public function assertCalculateMethodReturnsCorrectCalculation()
     {
         $expected = 2.54; # = (1 * 0.0254) / 0.01
         $actual = $this->converter
             ->convert(1)
             ->from("in")
-            ->to("cm")
-            ;
+            ->to("cm");
 
         $this->assertEquals($expected, $actual);
         $this->assertInternalType("float", $actual);
@@ -70,23 +74,24 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\UnknownUnitOfMeasureException
+     * @covers UnitConverter\Exception\BadUnit
      */
-    public function assertConversionThrowsErrorExceptionAtUnknownUnits ()
+    public function assertConversionThrowsUnknownBadUnitExceptionsAtUnknownUnits()
     {
-        $this->expectException("UnitConverter\\Exception\\UnknownUnitOfMeasureException");
+        $this->expectException(BadUnit::class);
+        $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
+
         $this->converter
             ->convert(1)
             ->from("yd") # any unregistered unit
-            ->to("in")
-            ;
+            ->to("in");
     }
 
     /**
      * @test
      * @covers ::createBuilder
      */
-    public function assertConverterCanReturnBuilder ()
+    public function assertConverterCanReturnBuilder()
     {
         $builder = $this->converter::createBuilder();
 
