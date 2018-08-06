@@ -40,10 +40,11 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertAddingTwoNumbersWorksAsExpected()
     {
-        $expected = 5;
+        $expected = "5";
         $actual = $this->calculator->add("2.5", "2.5");
 
         $this->assertEquals($expected, $actual);
+        // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
         $this->assertInternalType("string", $actual);
     }
 
@@ -53,10 +54,11 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertDivideMethodProperlyDividesTwoNumbers()
     {
-        $expected = 2;
+        $expected = "2";
         $actual = $this->calculator->div("4", "2");
 
         $this->assertEquals($expected, $actual);
+        // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
         $this->assertInternalType("string", $actual);
     }
 
@@ -66,10 +68,11 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertModulusMethodProperlyReturnsTheRemainderOfDivision()
     {
-        $expected = 1;
+        $expected = "1";
         $actual = $this->calculator->mod("5", "2");
 
         $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
         $this->assertInternalType("string", $actual);
     }
 
@@ -79,10 +82,11 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertMultiplyMethodProperlyMultipliesTwoNumbers()
     {
-        $expected = 4;
+        $expected = "4";
         $actual = $this->calculator->mul("2", "2");
 
         $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
         $this->assertInternalType("string", $actual);
     }
 
@@ -92,10 +96,25 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertPowerMethodRaisesBaseNumberToPowerExponent()
     {
-        $expected = 100;
+        $expected = "100";
         $actual = $this->calculator->pow("10", "2");
 
         $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
+        $this->assertInternalType("string", $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::round
+     * @return void
+     */
+    public function assertRoundingANumberWorksAsExpected()
+    {
+        $expected = "2.5";
+        $actual = $this->calculator->round("2.54", 1);
+        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
         $this->assertInternalType("string", $actual);
     }
 
@@ -105,10 +124,11 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertSubtractingTwoNumbersWorksAsExpected()
     {
-        $expected = 2.5;
+        $expected = "2.5";
         $actual = $this->calculator->sub("5", "2.5");
 
         $this->assertEquals($expected, $actual);
+        // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
         $this->assertInternalType("string", $actual);
     }
 }
