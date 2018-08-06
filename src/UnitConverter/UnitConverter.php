@@ -38,22 +38,30 @@ class UnitConverter implements UnitConverterInterface
     private static $types = ["int", "float", "string"];
 
     /**
-     * @var CalculatorInterface $calculator The converters internal calculator used to handle mathematical operations
+     * The converters internal calculator used to handle mathematical operations
+     *
+     * @var CalculatorInterface $calculator
      */
     protected $calculator;
 
     /**
-     * @var float $convert The value being converted.
+     * The value being converted.
+     *
+     * @var float $convert
      */
     protected $convert;
 
     /**
-     * @var string $from The unit of measure being converted **from**.
+     * The unit of measure being converted **from**.
+     *
+     * @var string $from
      */
     protected $from;
 
     /**
-     * @var array $log The log of events for the current conversion calculations
+     * The log of events for the current conversion calculations
+     *
+     * @var array $log
      */
     protected $log = [];
 
@@ -65,22 +73,30 @@ class UnitConverter implements UnitConverterInterface
     protected $logConversions;
 
     /**
-     * @var int $precision The decimal precision to be calculated
+     * The decimal precision to be calculated
+     *
+     * @var int $precision
      */
     protected $precision;
 
     /**
-     * @var UnitRegistryInterface $registry The registry that the unit converter accesses available units from
+     * The registry that the unit converter accesses available units from
+     *
+     * @var UnitRegistryInterface $registry
      */
     protected $registry;
 
     /**
-     * @var array $tempLog The temporary log that stores running calculations.
+     * The temporary log that stores running calculations.
+     *
+     * @var array $tempLog
      */
     protected $tempLog = [];
 
     /**
-     * @var string $to The unit of measure being converted **to**.
+     * The unit of measure being converted **to**.
+     *
+     * @var string $to
      */
     protected $to;
 
@@ -98,6 +114,9 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Returns a builder object for quickly scaffolding out a new converter.
+     *
+     * @api
      * @return ConverterBuilder
      */
     public static function createBuilder()
@@ -105,6 +124,9 @@ class UnitConverter implements UnitConverterInterface
         return new ConverterBuilder();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function convert($value, int $precision = null): UnitConverterInterface
     {
         $this->percision = $precision;
@@ -116,6 +138,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Disables the logging of conversions & their order of operations.
      *
+     * @api
      * @return void
      */
     public function disableConversionLog(): void
@@ -126,6 +149,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Enables the logging of conversions & their order of operations.
      *
+     * @api
      * @return void
      */
     public function enableConversionLog(): void
@@ -133,6 +157,9 @@ class UnitConverter implements UnitConverterInterface
         $this->logConversions = true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function from(string $unit): UnitConverterInterface
     {
         $this->from = $this->loadUnit($unit);
@@ -144,6 +171,7 @@ class UnitConverter implements UnitConverterInterface
      * Return an array, containing a list of events in the order they occured for
      * the current calculation.
      *
+     * @api
      * @return array
      */
     public function getConversionLog(): array
@@ -179,6 +207,9 @@ class UnitConverter implements UnitConverterInterface
         return $this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function to(string $unit)
     {
         $this->to = $this->loadUnit($unit);
@@ -195,7 +226,6 @@ class UnitConverter implements UnitConverterInterface
      * Calculate the conversion from one unit to another.
      *
      * @internal
-     *
      * @throws BadConverter
      * @param int|float|string $value The initial value being converted.
      * @param UnitInterface $from The unit of measure being converted **from**.
@@ -259,6 +289,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Returns an array containing the "from" and "to" unit values casted to the specified type.
      *
+     * @internal
      * @throws BadUnit When an unsupported scalar type is specified, throws exception.
      * @param string $type The variable type to be casted. Can be one of, "int", "float", or "string".
      * @return array
@@ -284,6 +315,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Helper method for dividing and logging results.
      *
+     * @internal
      * @param mixed $leftOperand
      * @param mixed $rightOperand
      * @return mixed
@@ -299,6 +331,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Returns an a step entry for the calculation log, with the given parameters.
      *
+     * @internal
      * @param array $parameters An array of parametrs used to create the product.
      * @param string $operator The mathematical operator used in the calculation
      * @param int|float|string $result The result of the calculation.
@@ -318,11 +351,9 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      * @uses UnitConverter\UnitRegistry::loadUnit
-     *
-     * @param string $symbol The symbol of the unit being loaded.
-     *
-     * @return UnitInterface
      * @throws BadConverter Thrown if an attempt is made to access a non-existent registry.
+     * @param string $symbol The symbol of the unit being loaded.
+     * @return UnitInterface
      */
     protected function loadUnit(string $symbol): UnitInterface
     {
@@ -336,6 +367,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Add an entry to the temporary calculation log.
      *
+     * @internal
      * @param string $method The name of the mathematical function be used.
      * @param int|float|string $result The result of the operation.
      * @param array $parameters An associative array of the operations parameters
@@ -351,6 +383,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Helper method for multiplying and logging results.
      *
+     * @internal
      * @param mixed $leftOperand
      * @param mixed $rightOperand
      * @return mixed
@@ -366,6 +399,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Generic helper method to perform calculator operations & log the results.
      *
+     * @internal
      * @param string $operator
      * @param array $parameters
      * @return int|float|string
@@ -392,6 +426,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Helper method for rounding and logging results.
      *
+     * @internal
      * @param mixed $value
      * @param int $percision
      * @return mixed
@@ -422,6 +457,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * Add an entry to the conversion calculation log.
      *
+     * @internal
      * @param array $steps (optional)
      * @return void
      */

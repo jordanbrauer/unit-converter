@@ -49,11 +49,17 @@ class UnitRegistry implements UnitRegistryInterface
         $this->registerUnits($units);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function isMeasurementRegistered(string $measurement): bool
     {
         return $this->store->exists($measurement);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function isUnitRegistered(string $symbol): bool
     {
         foreach ($this->store as $measurement => $units) {
@@ -65,11 +71,17 @@ class UnitRegistry implements UnitRegistryInterface
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function listMeasurements(): array
     {
         return $this->store->keys();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function listUnits(string $measurement = null): array
     {
         if ($measurement) {
@@ -85,6 +97,9 @@ class UnitRegistry implements UnitRegistryInterface
         return array_keys($registeredUnits);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function loadUnit(string $symbol): ?UnitInterface
     {
         if (!$this->isUnitRegistered($symbol)) {
@@ -98,6 +113,9 @@ class UnitRegistry implements UnitRegistryInterface
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function registerMeasurement(string $measurement): void
     {
         if (!$this->isMeasurementRegistered($measurement)) {
@@ -105,6 +123,9 @@ class UnitRegistry implements UnitRegistryInterface
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function registerMeasurements(array $measurements): void
     {
         foreach ($measurements as $measurement) {
@@ -112,6 +133,9 @@ class UnitRegistry implements UnitRegistryInterface
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function registerUnit(UnitInterface $unit): void
     {
         $unitOf = $unit->getUnitOf();
@@ -123,6 +147,9 @@ class UnitRegistry implements UnitRegistryInterface
         $this->store->push($unit->getRegistryKey(), $unit);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function registerUnits(array $units): void
     {
         foreach ($units as $unit) {
@@ -130,6 +157,9 @@ class UnitRegistry implements UnitRegistryInterface
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function unregisterMeasurement(string $measurement): void
     {
         if (!$this->isMeasurementRegistered($measurement)) {
@@ -139,6 +169,9 @@ class UnitRegistry implements UnitRegistryInterface
         $this->store->pop($measurement);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function unregisterMeasurements(array $measurements): void
     {
         foreach ($measurements as $measurement) {
@@ -146,6 +179,9 @@ class UnitRegistry implements UnitRegistryInterface
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function unregisterUnit(string $symbol): void
     {
         if (!$this->isUnitRegistered($symbol)) {
@@ -155,6 +191,9 @@ class UnitRegistry implements UnitRegistryInterface
         $this->store->pop($this->loadUnit($symbol)->getRegistryKey());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function unregisterUnits(array $symbols): void
     {
         foreach ($symbols as $unit) {

@@ -30,31 +30,49 @@ namespace UnitConverter\Calculator;
  */
 class SimpleCalculator extends AbstractCalculator
 {
+    /**
+     * {@inheritDoc}
+     */
     public function add($leftOperand, $rightOperand)
     {
         return $leftOperand + $rightOperand;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function div($dividend, $divisor)
     {
         return $dividend / $divisor;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function mod($dividend, $modulus)
     {
         return $dividend % $modulus;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function mul($leftOperand, $rightOperand)
     {
         return $leftOperand * $rightOperand;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function pow($base, $exponent)
     {
         return pow($base, $exponent);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function sub($leftOperand, $rightOperand)
     {
         return $leftOperand - $rightOperand;

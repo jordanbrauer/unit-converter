@@ -26,42 +26,58 @@ namespace UnitConverter\Calculator;
 abstract class AbstractCalculator implements CalculatorInterface
 {
     /**
-     * @const int DEFAULT_PRECISION The default precision value.
+     * The default precision value.
+     *
+     * @const int DEFAULT_PRECISION
      */
     const DEFAULT_PRECISION = 2;
 
     /**
-     * @const int DEFAULT_ROUNDING_MODE The default rounding mode for calculators.
+     * The default rounding mode for calculators.
+     *
+     * @const int DEFAULT_ROUNDING_MODE
      */
     const DEFAULT_ROUNDING_MODE = self::ROUND_HALF_UP;
 
     /**
-     * @const int ROUND_HALF_DOWN Makes 1.5 into 1 and -1.5 into -1.
+     * Makes 1.5 into 1 and -1.5 into -1.
+     *
+     * @const int ROUND_HALF_DOWN
      */
     const ROUND_HALF_DOWN = PHP_ROUND_HALF_DOWN;
 
     /**
-     * @const int ROUND_HALF_EVEN Rounds to the nearest even value.
+     * Rounds to the nearest even value.
+     *
+     * @const int ROUND_HALF_EVEN
      */
     const ROUND_HALF_EVEN = PHP_ROUND_HALF_EVEN;
 
     /**
-     * @const int ROUND_HALF_ODD Rounds to the nearest odd value.
+     * Rounds to the nearest odd value.
+     *
+     * @const int ROUND_HALF_ODD
      */
     const ROUND_HALF_ODD = PHP_ROUND_HALF_ODD;
 
     /**
-     * @const int ROUND_HALF_UP Makes 1.5 into 2 and -1.5 into -2.
+     * Makes 1.5 into 2 and -1.5 into -2.
+     *
+     * @const int ROUND_HALF_UP
      */
     const ROUND_HALF_UP = PHP_ROUND_HALF_UP;
 
     /**
-     * @var int $precision The number of decimal places that will calculated
+     * The number of decimal places that will calculated
+     *
+     * @var int $precision
      */
     protected $precision;
 
     /**
-     * @var int $roundingMode The mode in which rounding occurs. Use one of the PHP_ROUND_HALF_* constants.
+     * The mode in which rounding occurs. Use one of the PHP_ROUND_HALF_* constants.
+     *
+     * @var int $roundingMode
      */
     protected $roundingMode;
 
@@ -73,6 +89,7 @@ abstract class AbstractCalculator implements CalculatorInterface
      *
      * @param int $precision The number of decimal digits to round to.
      * @param int $roundingMode The mode in which rounding occurs.
+     * @return self
      */
     public function __construct(int $precision = null, int $roundingMode = null)
     {
@@ -80,58 +97,94 @@ abstract class AbstractCalculator implements CalculatorInterface
         $this->setRoundingMode(($roundingMode ?? self::DEFAULT_ROUNDING_MODE));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     abstract public function add($leftOperand, $rightOperand);
 
+    /**
+     * {@inheritDoc}
+     */
     abstract public function div($dividend, $divisor);
 
     /**
-     * Syntacital sugar wrapper method for div
+     * Syntacital sugar wrapper method for div.
+     *
+     * @api
+     * @uses CalculatorInterface::div
      */
     public function divide(...$params)
     {
         return $this->div(...$params);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getPrecision(): ?int
     {
         return $this->precision;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function getRoundingMode(): ?int
     {
         return $this->roundingMode;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     abstract public function mod($dividend, $modulus);
 
     /**
      * Syntacital sugar wrapper method for mod
+     *
+     * @api
+     * @uses CalculatorInterface::mod
      */
     public function modulus(...$params)
     {
         return $this->mod(...$params);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     abstract public function mul($leftOperand, $rightOperand);
 
     /**
      * Syntacital sugar wrapper method for mul
+     *
+     * @api
+     * @uses CalculatorInterface::mul
      */
     public function multiply(...$params)
     {
         return $this->mul(...$params);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     abstract public function pow($base, $exponent);
 
     /**
      * Syntacital sugar wrapper method for pow
+     *
+     * @api
+     * @uses CalculatorInterface::pow
      */
     public function power(...$params)
     {
         return $this->pow(...$params);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function round($value, int $precision = null): float
     {
         return round(
@@ -141,6 +194,9 @@ abstract class AbstractCalculator implements CalculatorInterface
         );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function setPrecision(int $precision): CalculatorInterface
     {
         $this->precision = $precision;
@@ -148,6 +204,9 @@ abstract class AbstractCalculator implements CalculatorInterface
         return $this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function setRoundingMode(int $roundingMode): CalculatorInterface
     {
         $this->roundingMode = $roundingMode;
@@ -155,10 +214,16 @@ abstract class AbstractCalculator implements CalculatorInterface
         return $this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     abstract public function sub($leftOperand, $rightOperand);
 
     /**
      * Syntacital sugar wrapper method for sub
+     *
+     * @api
+     * @uses CalculatorInterface::sub
      */
     public function subtract(...$params)
     {

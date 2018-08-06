@@ -18,9 +18,8 @@ namespace UnitConverter\Calculator;
  * A concrete calculator calss that uses the bcmath library
  * to perform mathematical operations.
  *
- * @HACK https://github.com/jordanbrauer/unit-converter/issues/54
- *
  * @link http://php.net/manual/en/book.bc.php
+ * @HACK https://github.com/jordanbrauer/unit-converter/issues/54
  *
  * @version 1.0.0
  * @since 0.4.1
@@ -28,26 +27,41 @@ namespace UnitConverter\Calculator;
  */
 class BinaryCalculator extends AbstractCalculator
 {
+    /**
+     * {@inheritDoc}
+     */
     public function add($leftOperand, $rightOperand)
     {
         return bcadd($leftOperand, $rightOperand);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function div($dividend, $divisor)
     {
         return bcdiv($dividend, $divisor);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function mod($dividend, $modulus)
     {
         return bcmod($dividend, $modulus);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function mul($leftOperand, $rightOperand)
     {
         return bcmul($leftOperand, $rightOperand);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function pow($base, $exponent)
     {
         return bcpow($base, $exponent);
@@ -56,12 +70,20 @@ class BinaryCalculator extends AbstractCalculator
     /**
      * Overwrites the default implementation for rounding. Simply
      * casts the result to a string.
+     *
+     * {@inheritDoc}
      */
     public function round($value, int $precision = null): string
     {
         return (string) parent::round($value, $precision);
     }
 
+    /**
+     * Overwrites the default implementation for setting the precision to round
+     * values to.
+     *
+     * {@inheritDoc}
+     */
     public function setPrecision(int $precision): CalculatorInterface
     {
         $precision = ($precision * 2); // HACK: #54
@@ -71,6 +93,9 @@ class BinaryCalculator extends AbstractCalculator
         return $this;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function sub($leftOperand, $rightOperand)
     {
         return bcsub($leftOperand, $rightOperand);

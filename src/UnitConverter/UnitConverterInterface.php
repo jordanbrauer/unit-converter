@@ -28,9 +28,8 @@ interface UnitConverterInterface
      * Set the unit converters' value to be converted. This method is the first
      * method to be called in the chain of conversion methods.
      *
-     * @api
      * @example $converter->convert(1)->from("in")->to("cm");
-     *
+     * @api
      * @param int|float|string $value The numerical value being converted.
      * @param int $precision The decimal precision to be rounded to
      * @return UnitConverterInterface
@@ -41,9 +40,8 @@ interface UnitConverterInterface
      * Set the unit converters' unit to be converted **from**. This method is the
      * second to be called in the chain of conversion methods.
      *
-     * @api
      * @example $converter->convert(1)->from("in")->to("cm");
-     *
+     * @api
      * @param string $unit The unit being conerted **from**. The unit must first be registered to the UnitRegistry.
      * @return UnitConverterInterface
      */
@@ -53,9 +51,8 @@ interface UnitConverterInterface
      * Set the unit converters' unit to be converted **to**. This method is the
      * third to be called in the chain of conversion methods.
      *
-     * @api
      * @example $converter->convert(1)->from("in")->to("cm");
-     *
+     * @api
      * @param string $unit The unit being converted **to**. The unit must first be registered to the UnitRegistry.
      * @return int|float|string
      */

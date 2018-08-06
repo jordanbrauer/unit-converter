@@ -30,20 +30,25 @@ interface UnitRegistryInterface
     /**
      * Determine if a measurement type is registered to the unit registry or not.
      *
+     * @api
      * @param string $measurement The name of the measurment being checked, e.g. "length".
+     * @return bool
      */
     public function isMeasurementRegistered(string $measurement): bool;
 
     /**
      * Determine if a specific unit of measure is registered to the unit registry or not.
      *
+     * @api
      * @param string $symbol The symbol notation of the unit being checked, e.g., "cm".
+     * @return bool
      */
     public function isUnitRegistered(string $symbol): bool;
 
     /**
      * Return a one-dimensional array of currently supported measurement types.
      *
+     * @api
      * @return array
      */
     public function listMeasurements(): array;
@@ -53,7 +58,9 @@ interface UnitRegistryInterface
      * pass a string equal to a type of measurement (e.g. "length") to return
      * only units of the specifed type.
      *
+     * @api
      * @param string $measurement
+     * @return array
      */
     public function listUnits(string $measurement = null): array;
 
