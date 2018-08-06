@@ -1,6 +1,34 @@
 # Change Log
 
-## [v0.7.1](https://github.com/jordanbrauer/unit-converter/tree/v0.7.1) (2018-06-10)
+## [v0.8.0](https://github.com/jordanbrauer/unit-converter/tree/v0.8.0) (2018-08-06)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.7.1...v0.8.0)
+
+**Implemented enhancements:**
+
+- Array dot notation for Collection [\#100](https://github.com/jordanbrauer/unit-converter/issues/100)
+- Array dot notation [\#102](https://github.com/jordanbrauer/unit-converter/pull/102) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Fixed bugs:**
+
+- \[7.0.1\]\[FatalErrorException\] BinaryCalculator::round must be compatible with UnitConverter\Calculator\AbstractCalculator::round [\#115](https://github.com/jordanbrauer/unit-converter/issues/115)
+- Self-converting units \(such as temperature\) are not logged [\#105](https://github.com/jordanbrauer/unit-converter/issues/105)
+
+**Closed issues:**
+
+- Fix "method\_lines" issue in src/UnitConverter/ConverterBuilder.php [\#113](https://github.com/jordanbrauer/unit-converter/issues/113)
+- missing the createBuilder method when installing through composer [\#107](https://github.com/jordanbrauer/unit-converter/issues/107)
+- Add PHP CS Fixer to project [\#101](https://github.com/jordanbrauer/unit-converter/issues/101)
+- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#97](https://github.com/jordanbrauer/unit-converter/issues/97)
+
+**Merged pull requests:**
+
+- Fix method lines [\#114](https://github.com/jordanbrauer/unit-converter/pull/114) ([jordanbrauer](https://github.com/jordanbrauer))
+- Fix self conversion logs [\#112](https://github.com/jordanbrauer/unit-converter/pull/112) ([jordanbrauer](https://github.com/jordanbrauer))
+- Improved exceptions [\#110](https://github.com/jordanbrauer/unit-converter/pull/110) ([jordanbrauer](https://github.com/jordanbrauer))
+- Readme badges [\#109](https://github.com/jordanbrauer/unit-converter/pull/109) ([jordanbrauer](https://github.com/jordanbrauer))
+- Php cs fixer [\#108](https://github.com/jordanbrauer/unit-converter/pull/108) ([jordanbrauer](https://github.com/jordanbrauer))
+
+## [v0.7.1](https://github.com/jordanbrauer/unit-converter/tree/v0.7.1) (2018-08-03)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.7.0...v0.7.1)
 
 **Implemented enhancements:**
