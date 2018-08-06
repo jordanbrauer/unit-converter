@@ -17,6 +17,9 @@
     "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never",
     "style": "bin/php-cs-fixer fix --config=.php_cs --show-progress=dots --ansi -v"
   },
+  "require": {
+    "php": "^7.1"
+  },
   "require-dev": {
     "consolidation/robo": "^1.2",
     "phpunit/phpunit": "^6.3",
