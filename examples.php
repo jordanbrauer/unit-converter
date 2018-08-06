@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once realpath(rtrim(__DIR__, '/').'/../vendor/autoload.php');
+require_once realpath(rtrim(__DIR__, '/').'/vendor/autoload.php');
 
 use UnitConverter\Measure;
 use UnitConverter\UnitConverter;
