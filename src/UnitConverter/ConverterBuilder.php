@@ -7,6 +7,7 @@ namespace UnitConverter;
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\SimpleCalculator;
+use UnitConverter\Exception\BadMeasurement;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Area\Acre;
 use UnitConverter\Unit\Area\Hectare;
@@ -86,12 +87,24 @@ use UnitConverter\Unit\Volume\Pint;
 
 class ConverterBuilder
 {
-    /** @var CalculatorInterface $calculator */
+    const ALL_UNIT_METHOD = 'getAll%sUnits';
+
+    /**
+     * @var CalculatorInterface $calculator
+     */
     private $calculator;
 
-    /** @var UnitRegistry $unitRegistry */
+    /**
+     * @var UnitRegistryInterface $unitRegistry
+     */
     private $registry;
 
+    /**
+     * Sets the converter's calculator as the binary implementation.
+     *
+     * @api
+     * @return self
+     */
     public function addBinaryCalculator()
     {
         $this->calculator = new BinaryCalculator();
@@ -99,6 +112,13 @@ class ConverterBuilder
         return $this;
     }
 
+    /**
+     * Seeds the converter's registry with all default units provided with this
+     * package.
+     *
+     * @api
+     * @return self
+     */
     public function addDefaultRegistry()
     {
         $this->registry = new UnitRegistry($this->getAllUnitsArray());
@@ -106,6 +126,28 @@ class ConverterBuilder
         return $this;
     }
 
+    /**
+     * Seeds the converter's registry with all units of the given measurement
+     * type that are provided with this package.
+     *
+     * @api
+     * @param string $measurement The type of measurement to seed units for.
+     * @return self
+     */
+    public function addRegistryFor(string $measurement)
+    {
+        $this->registry = new UnitRegistry($this->getAllUnitsFor($measurement));
+
+        return $this;
+    }
+
+    /**
+     * Seeds the converter's registry with a user-defined subset of units.
+     *
+     * @api
+     * @param UnitInterface[] $units An array of units to add to the registry.
+     * @return self
+     */
     public function addRegistryWith(array $units = [])
     {
         $this->registry = new UnitRegistry($units);
@@ -113,6 +155,13 @@ class ConverterBuilder
         return $this;
     }
 
+    /**
+     * Set's the converter's calculator as the simple implementation provided
+     * with this package.
+     *
+     * @api
+     * @return self
+     */
     public function addSimpleCalculator()
     {
         $this->calculator = new SimpleCalculator();
@@ -121,6 +170,10 @@ class ConverterBuilder
     }
 
     /**
+     * Retrieve a new instance of the unit converter with the configured
+     * registry & calculator.
+     *
+     * @api
      * @return UnitConverter
      */
     public function build()
@@ -129,12 +182,14 @@ class ConverterBuilder
     }
 
     /**
+     * Retriece all units of _area_.
+     *
+     * @internal
      * @return array
      */
-    private function getAllUnitsArray()
+    private function getAllAreaUnits(): array
     {
         return [
-            # Area
             new Acre(),
             new Hectare(),
             new SquareCentimetre(),
@@ -143,8 +198,18 @@ class ConverterBuilder
             new SquareMetre(),
             new SquareMile(),
             new SquareMillimetre(),
+        ];
+    }
 
-            # Energy
+    /**
+     * Retrieve instances of all units of _energy_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllEnergyUnits(): array
+    {
+        return [
             new Calorie(),
             new FootPound(),
             new Joule(),
@@ -155,8 +220,18 @@ class ConverterBuilder
             new MegawattHour(),
             new NewtonMetre(),
             new WattHour(),
+        ];
+    }
 
-            # Length
+    /**
+     * Retrieve instances of all units of _length_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllLengthUnits(): array
+    {
+        return [
             new AstronomicalUnit(),
             new Centimetre(),
             new Decimetre(),
@@ -173,8 +248,18 @@ class ConverterBuilder
             new Parsec(),
             new Picometre(),
             new Yard(),
+        ];
+    }
 
-            # Mass
+    /**
+     * Retrieve instances of all units of _mass_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllMassUnits(): array
+    {
+        return [
             new Gram(),
             new Kilogram(),
             new LongTon(),
@@ -185,12 +270,32 @@ class ConverterBuilder
             new ShortTon(),
             new Stone(),
             new Tonne(),
+        ];
+    }
 
-            # Plane Angle
+    /**
+     * Retrieve instances of all _plane angle_ units.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllPlaneAngleUnits(): array
+    {
+        return [
             new Degree(),
             new Radian(),
+        ];
+    }
 
-            # Pressure
+    /**
+     * Retrieve instances of all units of _pressure_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllPressureUnits(): array
+    {
+        return [
             new Atmosphere(),
             new Bar(),
             new Kilopascal(),
@@ -199,18 +304,48 @@ class ConverterBuilder
             new Pascal(),
             new PoundForcePerSquareInch(),
             new Torr(),
+        ];
+    }
 
-            # Speed
+    /**
+     * Retrieve instances of all units of _speed_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllSpeedUnits(): array
+    {
+        return [
             new KilometrePerHour(),
             new MetrePerSecond(),
             new MilePerHour(),
+        ];
+    }
 
-            # Temperature
+    /**
+     * Retrieve instances of all units of _temperature_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllTemperatureUnits(): array
+    {
+        return [
             new Celsius(),
             new Fahrenheit(),
             new Kelvin(),
+        ];
+    }
 
-            # Time
+    /**
+     * Retrieve instances of all units of _time_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllTimeUnits(): array
+    {
+        return [
             new Day(),
             new Hour(),
             new Microsecond(),
@@ -221,8 +356,59 @@ class ConverterBuilder
             new Second(),
             new Week(),
             new Year(),
+        ];
+    }
 
-            # Volume
+    /**
+     * Retrieve instances of all units.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllUnitsArray()
+    {
+        return array_merge(
+            $this->getAllAreaUnits(),
+            $this->getAllEnergyUnits(),
+            $this->getAllLengthUnits(),
+            $this->getAllMassUnits(),
+            $this->getAllPlaneAngleUnits(),
+            $this->getAllPressureUnits(),
+            $this->getAllSpeedUnits(),
+            $this->getAllTemperatureUnits(),
+            $this->getAllTimeUnits(),
+            $this->getAllVolumeUnits()
+        );
+    }
+
+    /**
+     * Retrieve instances of all units for a given measurement type.
+     *
+     * @internal
+     * @param string $measurement The measurement type to retrieve all units for.
+     * @return array
+     */
+    private function getAllUnitsFor(string $measurement): array
+    {
+        if (!in_array($measurement, Measure::getDefaultMeasurements())) {
+            throw BadMeasurement::unknown($measurement);
+        }
+
+        $measurement = str_replace(['_', '-', '.', ' '], '', $measurement);
+        $getAllMeasurementUnits = sprintf(self::ALL_UNIT_METHOD, $measurement);
+
+        return $this->{$getAllMeasurementUnits}();
+    }
+
+    /**
+     * Retrieve instances of all units of _volume_.
+     *
+     * @internal
+     * @return array
+     */
+    private function getAllVolumeUnits(): array
+    {
+        return [
             new CubicMetre(),
             new Gallon(),
             new Litre(),
