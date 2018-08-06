@@ -21,54 +21,54 @@
     <script src="../js/jquery.smooth-scroll.js"></script>
     <script src="../js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-        <script type="text/javascript">
-        function loadExternalCodeSnippets() {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
 
-                pre.textContent = '';
+            pre.textContent = '';
 
-                code.textContent = 'Loading…';
+            code.textContent = 'Loading…';
 
-                pre.appendChild(code);
+            pre.appendChild(code);
 
-                var xhr = new XMLHttpRequest();
+            var xhr = new XMLHttpRequest();
 
-                xhr.open('GET', src, true);
+            xhr.open('GET', src, true);
 
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
 
-                        if (xhr.status < 400 && xhr.responseText) {
-                            code.textContent = xhr.responseText;
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
 
-                            Prism.highlightElement(code);
-                        }
-                        else if (xhr.status >= 400) {
-                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                        }
-                        else {
-                            code.textContent = '✖ Error: File does not exist or is empty';
-                        }
+                        Prism.highlightElement(code);
                     }
-                };
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
 
-                xhr.send(null);
-            });
-        }
-
-        $(document).ready(function(){
-            loadExternalCodeSnippets();
+            xhr.send(null);
         });
-        $('#source-view').on('shown', function () {
-            loadExternalCodeSnippets();
-        })
-    </script>
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
 
     <link rel="shortcut icon" href="../images/favicon.ico"/>
     <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
@@ -114,7 +114,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">264</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">245</span>
                                 </a>
                             </li>
                             <li>
@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1975016741"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-644664813"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1975016741" class="accordion-body collapse in">
+            <div id="namespace-644664813" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-530614113"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-500861219"></a>
                                 <a href="../namespaces/UnitConverter.html" style="margin-left: 30px; padding-left: 0">UnitConverter</a>
             </div>
-            <div id="namespace-530614113" class="accordion-body collapse ">
+            <div id="namespace-500861219" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1399691821"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1951511135"></a>
                                 <a href="../namespaces/UnitConverter.Calculator.html" style="margin-left: 30px; padding-left: 0">Calculator</a>
             </div>
-            <div id="namespace-1399691821" class="accordion-body collapse ">
+            <div id="namespace-1951511135" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -181,18 +181,17 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-306528907"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1863620685"></a>
                                 <a href="../namespaces/UnitConverter.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
             </div>
-            <div id="namespace-306528907" class="accordion-body collapse ">
+            <div id="namespace-1863620685" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
                     <ul>
-                                                                                                    <li class="class"><a href="../classes/UnitConverter.Exception.MissingCalculatorException.html">MissingCalculatorException</a></li>
-                                                    <li class="class"><a href="../classes/UnitConverter.Exception.MissingUnitRegistryException.html">MissingUnitRegistryException</a></li>
-                                                    <li class="class"><a href="../classes/UnitConverter.Exception.UnknownMeasurementTypeException.html">UnknownMeasurementTypeException</a></li>
-                                                    <li class="class"><a href="../classes/UnitConverter.Exception.UnknownUnitOfMeasureException.html">UnknownUnitOfMeasureException</a></li>
+                                                                                                    <li class="class"><a href="../classes/UnitConverter.Exception.BadConverter.html">BadConverter</a></li>
+                                                    <li class="class"><a href="../classes/UnitConverter.Exception.BadMeasurement.html">BadMeasurement</a></li>
+                                                    <li class="class"><a href="../classes/UnitConverter.Exception.BadUnit.html">BadUnit</a></li>
                                             </ul>
                 </div>
             </div>
@@ -202,19 +201,37 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-884362157"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-157440220"></a>
+                                <a href="../namespaces/UnitConverter.Support.html" style="margin-left: 30px; padding-left: 0">Support</a>
+            </div>
+            <div id="namespace-157440220" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/UnitConverter.Support.Collection.html">Collection</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1594486234"></a>
                                 <a href="../namespaces/UnitConverter.Unit.html" style="margin-left: 30px; padding-left: 0">Unit</a>
             </div>
-            <div id="namespace-884362157" class="accordion-body collapse ">
+            <div id="namespace-1594486234" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1743045258"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-903280136"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Area.html" style="margin-left: 30px; padding-left: 0">Area</a>
             </div>
-            <div id="namespace-1743045258" class="accordion-body collapse ">
+            <div id="namespace-903280136" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -237,10 +254,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-384894244"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2079744623"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Energy.html" style="margin-left: 30px; padding-left: 0">Energy</a>
             </div>
-            <div id="namespace-384894244" class="accordion-body collapse ">
+            <div id="namespace-2079744623" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -265,10 +282,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1115266979"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1677951824"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Length.html" style="margin-left: 30px; padding-left: 0">Length</a>
             </div>
-            <div id="namespace-1115266979" class="accordion-body collapse ">
+            <div id="namespace-1677951824" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -299,10 +316,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-269531437"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1839315846"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Mass.html" style="margin-left: 30px; padding-left: 0">Mass</a>
             </div>
-            <div id="namespace-269531437" class="accordion-body collapse ">
+            <div id="namespace-1839315846" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -327,10 +344,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-625765177"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1811042913"></a>
                                 <a href="../namespaces/UnitConverter.Unit.PlaneAngle.html" style="margin-left: 30px; padding-left: 0">PlaneAngle</a>
             </div>
-            <div id="namespace-625765177" class="accordion-body collapse ">
+            <div id="namespace-1811042913" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -347,10 +364,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-549916302"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2098092532"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Pressure.html" style="margin-left: 30px; padding-left: 0">Pressure</a>
             </div>
-            <div id="namespace-549916302" class="accordion-body collapse ">
+            <div id="namespace-2098092532" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -373,10 +390,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1461989145"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1887332005"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Speed.html" style="margin-left: 30px; padding-left: 0">Speed</a>
             </div>
-            <div id="namespace-1461989145" class="accordion-body collapse ">
+            <div id="namespace-1887332005" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -394,10 +411,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-397086478"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-252259142"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Temperature.html" style="margin-left: 30px; padding-left: 0">Temperature</a>
             </div>
-            <div id="namespace-397086478" class="accordion-body collapse ">
+            <div id="namespace-252259142" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -415,10 +432,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1558657517"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1093872201"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Time.html" style="margin-left: 30px; padding-left: 0">Time</a>
             </div>
-            <div id="namespace-1558657517" class="accordion-body collapse ">
+            <div id="namespace-1093872201" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -443,10 +460,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1400646004"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2114210537"></a>
                                 <a href="../namespaces/UnitConverter.Unit.Volume.html" style="margin-left: 30px; padding-left: 0">Volume</a>
             </div>
-            <div id="namespace-1400646004" class="accordion-body collapse ">
+            <div id="namespace-2114210537" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -498,46 +515,205 @@
     <section class="row-fluid">
         <div class="span10 offset2">
             <div class="row-fluid">
-                <div class="span8 content file">
+                <div class="span8 content class">
                     <nav>
-                                                                    </nav>
-
+                                                <a href="../namespaces/UnitConverter.Exception.html">\UnitConverter\Exception</a> <i class="icon-level-up"></i>
+                                            </nav>
                     <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
-                    <h1><small>Registry</small>Collection.php</h1>
-                    <p><em></em></p>
-                    
 
+                    <h1><small>\UnitConverter\Exception</small>BadMeasurement</h1>
+                    <p><em>Exception to be thrown when a unit converter is missing a calculator.</em></p>
                     
                     
-                                    </div>
-
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/UnitConverter.Exception.BadMeasurement.html#method_unknown" class="">unknown()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/UnitConverter.Exception.BadMeasurement.html#constant_ERROR_UNKNOWN_MEASUREMENT" class="">ERROR_UNKNOWN_MEASUREMENT</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
                 <aside class="span4 detailsbar">
+                                                                <span class="label label-info">final</span>
+                    
+                    
                     <dl>
-                                                    <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                        <dt>File</dt>
+                            <dd><a href="../files/Exception.BadMeasurement.html"><div class="path-wrapper">Exception/BadMeasurement.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper">\Exception</div>
+                                                                                                    <div class="namespace-wrapper">\UnitConverter\Exception\BadMeasurement</div>
+                            </dd>
+
                         
                         
-                    </dl>
+                        
+                        
+                                                                        </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
-                                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                                            </table>
-
+                                            <tr>
+                            <th>
+                                version
+                            </th>
+                            <td>
+                                                                    
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                since
+                            </th>
+                            <td>
+                                                                    
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Jordan Brauer <a href="mailto:jbrauer.inc@gmail.com">jbrauer.inc@gmail.com</a></p>
+                                                            </td>
+                        </tr>
+                                        </table>
                 </aside>
             </div>
 
-            
-            
+                                    <a id="constants" name="constants"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ERROR_UNKNOWN_MEASUREMENT" name="constant_ERROR_UNKNOWN_MEASUREMENT" class="anchor"></a>
+            <article id="constant_ERROR_UNKNOWN_MEASUREMENT" class="constant">
+                <h3 class="">ERROR_UNKNOWN_MEASUREMENT</h3>
+                <pre class="signature">ERROR_UNKNOWN_MEASUREMENT</pre>
+                <p><em></em></p>
+                
+            </article>
         </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_unknown" name="method_unknown" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">unknown()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">unknown(string  <span class="argument">$measurement</span>, \Exception  <span class="argument">$previous = null</span>) : self</pre>
+                <p><em>Throw a new exception for an unknown type of measurement.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$measurement </td>
+                                <td><p>The type of measurement that caused the error.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Exception</td>
+                                <td>$previous </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    self
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
     </section>
 
     <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="source-view-label"></h3>
+            <h3 id="source-view-label">BadMeasurement.php</h3>
         </div>
         <div class="modal-body">
-            <pre data-src="../files/Registry/Collection.php.txt" class="language-php line-numbers"></pre>
+            <pre data-src="../files/Exception/BadMeasurement.php.txt" class="language-php line-numbers"></pre>
         </div>
     </div>
 
@@ -578,7 +754,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on August 4th, 2018 at 01:19.
+                    on August 6th, 2018 at 21:14.
                 </section>
             </section>
         </section>
