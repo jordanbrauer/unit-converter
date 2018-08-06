@@ -140,7 +140,7 @@ class ConverterBuilder
         }
 
         return array_map(function ($class) {
-            return new $class;
+            return new $class();
         }, Measure::getDefaultUnitsFor($measurement));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-$root = realpath(__DIR__ . '/..');
+$root = realpath(__DIR__);
 $finder = PhpCsFixer\Finder::create()
     ->exclude([
       '.git',
@@ -12,25 +12,10 @@ $finder = PhpCsFixer\Finder::create()
       'node_modules',
       'bower_components',
     ])
-    ->in($root);
-
-foreach ([
-    '*.md',
-    '*.txt',
-    '*.json',
-    '*.yml',
-    '*.yaml',
-    '*.xml',
-    'composer.*',
-    '.php_cs*',
-    '.env*',
-    '.editorconfig',
-    '.github_changelog_generator',
-    '.gitignore',
-    'LICENSE',
-    'TODO',
-    'examples.php',
-] as $pattern) $finder->notPath("{$root}/{$pattern}");
+    ->in([
+      "{$root}/src",
+      "{$root}/tests"
+    ]);
 
 return PhpCsFixer\Config::create()
     ->setFinder($finder)

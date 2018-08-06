@@ -16,10 +16,10 @@ namespace UnitConverter\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\ConverterBuilder;
-use UnitConverter\UnitConverter;
+use UnitConverter\Measure;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
-use UnitConverter\Measure;
+use UnitConverter\UnitConverter;
 
 /**
  * @coversDefaultClass UnitConverter\ConverterBuilder
@@ -121,13 +121,13 @@ class ConverterBuilderSpec extends TestCase
     /**
      * @test
      * @covers ::build
-     * @covers ::addSimpleCalculator
+     * @covers ::addBinaryCalculator
      * @covers ::addDefaultRegistry
      */
-    public function assertBuilderReturnsFullyConfiguredConverter()
+    public function assertBuilderCanConfiguredConverterWithBinaryCalculator()
     {
         $converter = $this->builder
-            ->addSimpleCalculator()
+            ->addBinaryCalculator()
             ->addDefaultRegistry()
             ->build();
 
@@ -137,14 +137,17 @@ class ConverterBuilderSpec extends TestCase
     /**
      * @test
      * @covers ::build
-     * @covers ::addBinaryCalculator
-     * @covers ::addDefaultRegistry
+     * @covers ::addSimpleCalculator
+     * @covers ::addRegistryWith
      */
-    public function assertBuilderCanConfiguredConverterWithBinaryCalculator()
+    public function assertBuilderCanConfiguredConverterWithCustomRegistry()
     {
         $converter = $this->builder
-            ->addBinaryCalculator()
-            ->addDefaultRegistry()
+            ->addSimpleCalculator()
+            ->addRegistryWith([
+                new Centimetre(),
+                new Inch(),
+            ])
             ->build();
 
         $this->assertInstanceOf(UnitConverter::class, $converter);
@@ -170,16 +173,13 @@ class ConverterBuilderSpec extends TestCase
      * @test
      * @covers ::build
      * @covers ::addSimpleCalculator
-     * @covers ::addRegistryWith
+     * @covers ::addDefaultRegistry
      */
-    public function assertBuilderCanConfiguredConverterWithCustomRegistry()
+    public function assertBuilderReturnsFullyConfiguredConverter()
     {
         $converter = $this->builder
             ->addSimpleCalculator()
-            ->addRegistryWith([
-                new Centimetre,
-                new Inch,
-            ])
+            ->addDefaultRegistry()
             ->build();
 
         $this->assertInstanceOf(UnitConverter::class, $converter);
