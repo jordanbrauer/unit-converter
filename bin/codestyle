@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if command -v php; then
+  composer style -- $@ || {
+    exit 1
+  }
+fi
+
+exit 0
