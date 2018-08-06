@@ -255,8 +255,11 @@ class UnitConverter implements UnitConverterInterface
         if ($selfConversion) {
             // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
             $result = $selfConversion;
-            $parameters = ['left' => $value, 'right' => $to->getUnits(), 'precision' => $precision];
-            $log[] = $this->getLogStep('convert', $parameters, $selfConversion);
+            $this->logTemp('convert', $result, [
+                'left' => $value,
+                'right' => $to->getUnits(),
+                'precision' => $precision
+            ]);
         } else {
             $fromUnits = $from->getUnits();
             $toUnits = $to->getUnits();
