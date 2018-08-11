@@ -16,6 +16,7 @@ namespace UnitConverter;
 
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadConverter;
 use UnitConverter\Registry\UnitRegistryInterface;
 use UnitConverter\Unit\UnitInterface;
@@ -249,27 +250,21 @@ class UnitConverter implements UnitConverterInterface
             $this->calculator->setPrecision($precision);
         }
 
-        $selfConversion = $from->convert($this->calculator, $value, $to, $precision);
+        $fromUnits = $from->getUnits();
+        $toUnits = $to->getUnits();
 
-        // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method.
-        if ($selfConversion) {
-            // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
-            $result = $selfConversion;
-            $this->logTemp('convert', $result, ['left' => $value, 'right' => $to->getUnits(), 'precision' => $precision]);
-        } else {
-            $fromUnits = $from->getUnits();
-            $toUnits = $to->getUnits();
-
-            if ($isBinary) {
-                extract($this->castUnitsTo("string"));
-            }
-
-            $mulResult = $this->multiply($value, $fromUnits);
-            $divResult = $this->divide($mulResult, $toUnits);
-            $result = $this->round($divResult, $precision);
+        if ($isBinary) {
+            extract($this->castUnitsTo("string"), EXTR_IF_EXISTS);
         }
 
-        $this->writeLog();
+        $result = ($from->getFormulaFor($to, $this->calculator)
+            ?? new UnitConversionFormula($this->calculator))
+            ->describe($value, $fromUnits, $toUnits, $precision);
+
+        # TODO: move logging to formula – something like calculator memory? 🧠
+        # TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
+        // $this->writeLog($this->calculator->dumpMemory());
+        // $this->calculator->clear();
 
         return $result;
     }
