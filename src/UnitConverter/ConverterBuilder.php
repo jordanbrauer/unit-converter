@@ -18,9 +18,24 @@ class ConverterBuilder
     private $calculator;
 
     /**
+     * @var array $defaultMeasurements
+     */
+    private $defaultMeasurements;
+
+    /**
      * @var UnitRegistryInterface $unitRegistry
      */
     private $registry;
+
+    /**
+     * Public constructor method.
+     *
+     * @return self
+     */
+    public function __construct()
+    {
+        $this->defaultMeasurements = Measure::getDefaultMeasurements();
+    }
 
     /**
      * Sets the converter's calculator as the binary implementation.
@@ -112,18 +127,11 @@ class ConverterBuilder
      */
     private function instantiateAllUnits()
     {
-        return array_merge(
-            $this->instantiateAllUnitsFor(Measure::AREA),
-            $this->instantiateAllUnitsFor(Measure::ENERGY),
-            $this->instantiateAllUnitsFor(Measure::LENGTH),
-            $this->instantiateAllUnitsFor(Measure::MASS),
-            $this->instantiateAllUnitsFor(Measure::PLANE_ANGLE),
-            $this->instantiateAllUnitsFor(Measure::PRESSURE),
-            $this->instantiateAllUnitsFor(Measure::SPEED),
-            $this->instantiateAllUnitsFor(Measure::TEMPERATURE),
-            $this->instantiateAllUnitsFor(Measure::TIME),
-            $this->instantiateAllUnitsFor(Measure::VOLUME)
-        );
+        $measurements = array_map(function (string $measurement) {
+            return $this->instantiateAllUnitsFor($measurement);
+        }, $this->defaultMeasurements);
+
+        return array_merge(...$measurements);
     }
 
     /**
@@ -135,7 +143,7 @@ class ConverterBuilder
      */
     private function instantiateAllUnitsFor(string $measurement): array
     {
-        if (!in_array($measurement, Measure::getDefaultMeasurements())) {
+        if (!in_array($measurement, $this->defaultMeasurements)) {
             throw BadMeasurement::unknown($measurement);
         }
 
