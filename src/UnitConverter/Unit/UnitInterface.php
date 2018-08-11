@@ -14,6 +14,9 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit;
 
+use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Calculator\Formula\FormulaInterface;
+
 /**
  * Interface for the unit of measurement abstract class.
  *
@@ -24,6 +27,23 @@ namespace UnitConverter\Unit;
  */
 interface UnitInterface
 {
+    /**
+     * Add a new formula to the unit.
+     *
+     * @param string $symbol The symbol of the unit to use for identifying the formula.
+     * @param string $class The class name (FQCN) of formula implementation.
+     * @return void
+     */
+    public function addFormula(string $symbol, string $class): void;
+
+    /**
+     * Add multiple formulae to the unit.
+     *
+     * @param array $formulae An associative array containing the symbol & class.
+     * @return void
+     */
+    public function addFormulae(array $formulae): void;
+
     /**
      * Returns the unit class that this unit is based off of.
      *
@@ -37,6 +57,15 @@ interface UnitInterface
      * @return float
      */
     public function getBaseUnits(): ?float;
+
+    /**
+     * Return a unit's conversion formula, if it has one.
+     *
+     * @param UnitInterface $to The unit being converted to.
+     * @param CalculatorInterface $calculator The calculator to run the formula through.
+     * @return null|FormulaInterface
+     */
+    public function getFormulaFor(UnitInterface $to, CalculatorInterface $calculator): ?FormulaInterface;
 
     /**
      * Returns the full symantic name of the unit.

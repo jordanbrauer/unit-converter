@@ -15,6 +15,8 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit;
 
 use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Calculator\Formula\FormulaInterface;
+use UnitConverter\Exception\BadUnit;
 
 /**
  * This class is the base class for all unit of measurement classes.
@@ -30,6 +32,13 @@ abstract class AbstractUnit implements UnitInterface
      * @var string|UnitInterface $base The units' base unit classname.
      */
     protected $base;
+
+    /**
+     * An array of formulae for this unit to convert itself with.
+     *
+     * @var array
+     */
+    protected $formulae;
 
     /**
      * @var string $name The units' full name.
@@ -61,15 +70,20 @@ abstract class AbstractUnit implements UnitInterface
      */
     public function __construct()
     {
+        $this->formulae = [];
         $this->configure();
     }
 
-    /**
-     * Exposes access to the ::calculate() method.
-     */
-    public function convert(...$params)
+    public function addFormula(string $symbol, string $class): void
     {
-        return $this->calculate(...$params);
+        $this->formulae[$symbol] = $class;
+    }
+
+    public function addFormulae(array $formulae): void
+    {
+        foreach ($formulae as $symbol => $class) {
+            $this->addFormula($symbol, $class);
+        }
     }
 
     public function getBase(): ?UnitInterface
@@ -80,6 +94,21 @@ abstract class AbstractUnit implements UnitInterface
     public function getBaseUnits(): ?float
     {
         return $this->getBase()->getUnits();
+    }
+
+    public function getFormulaFor(UnitInterface $to, CalculatorInterface $calculator): ?FormulaInterface
+    {
+        if (empty($this->formulae)) {
+            return null;
+        }
+
+        $symbol = $to->getSymbol();
+
+        if (!array_key_exists($symbol, $this->formulae)) {
+            throw BadUnit::formula($symbol);
+        }
+
+        return new $this->formulae[$symbol]($calculator);
     }
 
     public function getName(): ?string
@@ -167,20 +196,6 @@ abstract class AbstractUnit implements UnitInterface
         $this->units = $units;
 
         return $this;
-    }
-
-    /**
-     * Calculate the amount of required base units to make up 1 unit.
-     *
-     * @throws BadUnit If a unit attempts self conversion and has no formula
-     * @param CalculatorInterface $calculator
-     * @param int|float|string $value
-     * @param UnitInterface $to
-     * @param int $precision The decimal percision to be calculated
-     * @return null|int|float|string
-     */
-    protected function calculate(CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
-    {
     }
 
     /**
