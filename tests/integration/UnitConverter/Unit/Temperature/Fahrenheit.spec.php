@@ -82,4 +82,18 @@ class FahrenheitSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assert1FahrenheitIs1Fahrenheit()
+    {
+        $expected = 1;
+        $actual = $this->converter
+            ->convert(1, 2)
+            ->from("F")
+            ->to("F");
+
+        $this->assertEquals($expected, $actual);
+    }
 }

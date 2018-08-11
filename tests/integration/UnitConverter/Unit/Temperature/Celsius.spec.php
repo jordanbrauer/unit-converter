@@ -82,4 +82,18 @@ class CelsiusSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+
+    /**
+     * @test
+     */
+    public function assert1CelsiusIs1Celsius()
+    {
+        $expected = 1;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("C")
+            ->to("C");
+
+        $this->assertEquals($expected, $actual);
+    }
 }
