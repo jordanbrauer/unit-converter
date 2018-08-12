@@ -208,12 +208,7 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->to = $this->loadUnit($unit);
 
-        return $this->calculate(
-            $this->convert,
-            $this->from,
-            $this->to,
-            $this->percision
-        );
+        return $this->calculate($this->percision);
     }
 
     /**
@@ -221,18 +216,11 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      * @throws BadConverter
-     * @param int|float|string $value The initial value being converted.
-     * @param UnitInterface $from The unit of measure being converted **from**.
-     * @param UnitInterface $to The unit of measure being converted **to**.
      * @param int $precision The decimal percision to be calculated
      * @return int|float|string
      */
-    protected function calculate(
-        $value,
-        UnitInterface $from,
-        UnitInterface $to,
-        int $precision = null
-    ) {
+    protected function calculate(int $precision = null)
+    {
         if (!$this->calculatorExists()) {
             throw BadConverter::missingCalculator();
         }
@@ -243,15 +231,15 @@ class UnitConverter implements UnitConverterInterface
             $this->calculator->setPrecision($precision);
         }
 
-        $fromUnits = $from->getUnits();
-        $toUnits = $to->getUnits();
+        $fromUnits = $this->from->getUnits();
+        $toUnits = $this->to->getUnits();
 
         if ($isBinary) {
             extract($this->castUnitsTo("string"), EXTR_IF_EXISTS);
         }
 
-        $formula = $from->getFormulaFor($to) ?? new UnitConversionFormula();
-        $result = $this->calculator->exec($formula, $value, $fromUnits, $toUnits, $precision);
+        $formula = $this->from->getFormulaFor($this->to) ?? new UnitConversionFormula();
+        $result = $this->calculator->exec($formula, $this->convert, $fromUnits, $toUnits, $precision);
 
         $this->writeLog($this->calculator->dump(true));
 
