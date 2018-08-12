@@ -25,9 +25,11 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  */
 class ToCelsius extends AbstractFormula
 {
-    const MAGIC_NUMBER = 32;
+    const FORMULA_STRING = '°C = (°F - 32) × (5 ÷ 9)';
 
-    protected $string = '°C = (°F - 32) × (5 ÷ 9)';
+    const FORMULA_TEMPLATE = '%s°C = (%s°F - 32) × (5 ÷ 9)';
+
+    const MAGIC_NUMBER = 32;
 
     /**
      * {@inheritDoc}
@@ -35,13 +37,12 @@ class ToCelsius extends AbstractFormula
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
         $divisor = $this->calculator->div(5, 9);
+        $subResult = $this->calculator->sub($value, self::MAGIC_NUMBER);
+        $mulResult = $this->calculator->mul($subResult, $divisor);
+        $result = $this->calculator->round($mulResult, $precision);
 
-        return $this->calculator->round(
-            $this->calculator->mul(
-                $this->calculator->sub($value, self::MAGIC_NUMBER),
-                $divisor
-            ),
-            $precision
-        );
+        $this->plugVariables($result, $value);
+
+        return $result;
     }
 }

@@ -26,6 +26,20 @@ use UnitConverter\Calculator\CalculatorInterface;
 abstract class AbstractFormula implements FormulaInterface
 {
     /**
+     * The string representation of the formula.
+     *
+     * @const string
+     */
+    const FORMULA_STRING = '';
+
+    /**
+     * The template of the formula for casting to a string after running an operation.
+     *
+     * @const string
+     */
+    const FORMULA_TEMPLATE = '';
+
+    /**
      * The calculator to run the formula through.
      *
      * @var CalculatorInterface
@@ -33,11 +47,12 @@ abstract class AbstractFormula implements FormulaInterface
     protected $calculator;
 
     /**
-     * The string representation of the formula.
+     * A one-dimensional array of values to plug into the formula template when
+     * this formula is casted to a string.
      *
-     * @var string
+     * @var array
      */
-    protected $string = '';
+    protected $values = [];
 
     /**
      * Public constructor method.
@@ -45,7 +60,7 @@ abstract class AbstractFormula implements FormulaInterface
      * @param CalculatorInterface $calculator
      * @return self
      */
-    public function __construct(CalculatorInterface $calculator)
+    public function __construct(CalculatorInterface $calculator = null)
     {
         $this->calculator = $calculator;
     }
@@ -57,11 +72,38 @@ abstract class AbstractFormula implements FormulaInterface
      */
     public function __toString()
     {
-        return (string) $this->string;
+        return ((mb_strlen(static::FORMULA_TEMPLATE) > 0) and (count($this->values) > 0))
+            ? sprintf(static::FORMULA_TEMPLATE, ...$this->values)
+            : static::FORMULA_STRING;
     }
 
     /**
      * {@inheritDoc}
      */
     abstract public function describe($value, $fromUnits, $toUnits, int $precision = null);
+
+    /**
+     * Explicitly sets the calculator for a formula.
+     *
+     * @param CalculatorInterface $calculator The calculator that will be set for describing values.
+     * @return FormulaInterface
+     */
+    public function setCalculator(CalculatorInterface $calculator): FormulaInterface
+    {
+        $this->calculator = $calculator;
+
+        return $this;
+    }
+
+    /**
+     * Set the values (passed _**in order**_) to be used for the template for
+     * logging a complete version of the formula.
+     *
+     * @param mixed ...$variables A variadic set of arguments, passed in order to fill the template with.
+     * @return void
+     */
+    protected function plugVariables(...$variables): void
+    {
+        $this->values = $variables;
+    }
 }

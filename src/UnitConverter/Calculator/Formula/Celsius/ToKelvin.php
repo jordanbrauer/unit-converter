@@ -25,18 +25,22 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  */
 class ToKelvin extends AbstractFormula
 {
-    const MAGIC_NUMBER = 273.15;
+    const FORMULA_STRING = 'K = °C + 273.15';
 
-    protected $string = 'K = °C + 273.15';
+    const FORMULA_TEMPLATE = '%s K = %s°C + 273.15';
+
+    const MAGIC_NUMBER = 273.15;
 
     /**
      * {@inheritDoc}
      */
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
-        return $this->calculator->round(
-            $this->calculator->add($value, self::MAGIC_NUMBER),
-            $precision
-        );
+        $addResult = $this->calculator->add($value, self::MAGIC_NUMBER);
+        $result = $this->calculator->round($addResult, $precision);
+
+        $this->plugVariables($result, $value);
+
+        return $result;
     }
 }

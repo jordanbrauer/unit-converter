@@ -14,7 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit;
 
-use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\Formula\FormulaInterface;
 use UnitConverter\Exception\BadUnit;
 
@@ -96,7 +95,7 @@ abstract class AbstractUnit implements UnitInterface
         return $this->getBase()->getUnits();
     }
 
-    public function getFormulaFor(UnitInterface $to, CalculatorInterface $calculator): ?FormulaInterface
+    public function getFormulaFor(UnitInterface $to): ?FormulaInterface
     {
         if (empty($this->formulae)) {
             return null;
@@ -108,7 +107,7 @@ abstract class AbstractUnit implements UnitInterface
             throw BadUnit::formula($symbol);
         }
 
-        return new $this->formulae[$symbol]($calculator);
+        return new $this->formulae[$symbol]();
     }
 
     public function getName(): ?string

@@ -23,19 +23,21 @@ namespace UnitConverter\Calculator\Formula;
  */
 class UnitConversionFormula extends AbstractFormula
 {
-    protected $string = 'x = (a × b) ÷ c';
+    const FORMULA_STRING = 'x = (a × b) ÷ c';
+
+    const FORMULA_TEMPLATE = '%s = (%s × %s) ÷ %s';
 
     /**
      * {@inheritDoc}
      */
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
-        return $this->calculator->round(
-            $this->calculator->div(
-                $this->calculator->mul($value, $fromUnits),
-                $toUnits
-            ),
-            $precision
-        );
+        $mulResult = $this->calculator->mul($value, $fromUnits);
+        $divResult = $this->calculator->div($mulResult, $toUnits);
+        $result = $this->calculator->round($divResult, $precision);
+
+        $this->plugVariables($result, $value, $fromUnits, $toUnits);
+
+        return $result;
     }
 }

@@ -23,13 +23,17 @@ namespace UnitConverter\Calculator\Formula;
  */
 class NullFormula extends AbstractFormula
 {
-    protected $string = 'x';
+    const FORMULA_STRING = 'x';
+
+    const FORMULA_TEMPLATE = '%s';
 
     /**
      * {@inheritDoc}
      */
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
+        $this->plugVariables($value);
+
         return $value;
     }
 }

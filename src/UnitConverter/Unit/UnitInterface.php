@@ -14,7 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit;
 
-use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\Formula\FormulaInterface;
 
 /**
@@ -62,10 +61,9 @@ interface UnitInterface
      * Return a unit's conversion formula, if it has one.
      *
      * @param UnitInterface $to The unit being converted to.
-     * @param CalculatorInterface $calculator The calculator to run the formula through.
      * @return null|FormulaInterface
      */
-    public function getFormulaFor(UnitInterface $to, CalculatorInterface $calculator): ?FormulaInterface;
+    public function getFormulaFor(UnitInterface $to): ?FormulaInterface;
 
     /**
      * Returns the full symantic name of the unit.

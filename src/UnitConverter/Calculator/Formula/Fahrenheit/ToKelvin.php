@@ -25,9 +25,11 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  */
 class ToKelvin extends AbstractFormula
 {
-    const MAGIC_NUMBER = 459.67;
+    const FORMULA_STRING = 'K = (°F + 459.67) × (5 ÷ 9)';
 
-    protected $string = 'K = (°F + 459.67) × (5 ÷ 9)';
+    const FORMULA_TEMPLATE = '%s K = (%s°F + 459.67) × (5 ÷ 9)';
+
+    const MAGIC_NUMBER = 459.67;
 
     /**
      * {@inheritDoc}
@@ -35,13 +37,12 @@ class ToKelvin extends AbstractFormula
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
         $divisor = $this->calculator->div(5, 9);
+        $addResult = $this->calculator->add($value, self::MAGIC_NUMBER);
+        $mulResult = $this->calculator->mul($addResult, $divisor);
+        $result = $this->calculator->round($mulResult, $precision);
 
-        return $this->calculator->round(
-            $this->calculator->mul(
-                $this->calculator->add($value, self::MAGIC_NUMBER),
-                $divisor
-            ),
-            $precision
-        );
+        $this->plugVariables($result, $value);
+
+        return $result;
     }
 }

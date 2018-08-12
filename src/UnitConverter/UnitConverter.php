@@ -71,7 +71,7 @@ class UnitConverter implements UnitConverterInterface
      *
      * @var boolean
      */
-    protected $logConversions;
+    protected $loggingEnabled;
 
     /**
      * The decimal precision to be calculated
@@ -86,13 +86,6 @@ class UnitConverter implements UnitConverterInterface
      * @var UnitRegistryInterface $registry
      */
     protected $registry;
-
-    /**
-     * The temporary log that stores running calculations.
-     *
-     * @var array $tempLog
-     */
-    protected $tempLog = [];
 
     /**
      * The unit of measure being converted **to**.
@@ -144,7 +137,7 @@ class UnitConverter implements UnitConverterInterface
      */
     public function disableConversionLog(): void
     {
-        $this->logConversions = false;
+        $this->loggingEnabled = false;
     }
 
     /**
@@ -155,7 +148,7 @@ class UnitConverter implements UnitConverterInterface
      */
     public function enableConversionLog(): void
     {
-        $this->logConversions = true;
+        $this->loggingEnabled = true;
     }
 
     /**
@@ -257,14 +250,10 @@ class UnitConverter implements UnitConverterInterface
             extract($this->castUnitsTo("string"), EXTR_IF_EXISTS);
         }
 
-        $result = ($from->getFormulaFor($to, $this->calculator)
-            ?? new UnitConversionFormula($this->calculator))
-            ->describe($value, $fromUnits, $toUnits, $precision);
+        $formula = $from->getFormulaFor($to) ?? new UnitConversionFormula();
+        $result = $this->calculator->exec($formula, $value, $fromUnits, $toUnits, $precision);
 
-        # TODO: move logging to formula – something like calculator memory? 🧠
-        # TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
-        // $this->writeLog($this->calculator->dumpMemory());
-        // $this->calculator->clear();
+        $this->writeLog($this->calculator->dump(true));
 
         return $result;
     }
@@ -307,40 +296,6 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * Helper method for dividing and logging results.
-     *
-     * @internal
-     * @param mixed $leftOperand
-     * @param mixed $rightOperand
-     * @return mixed
-     */
-    protected function divide($leftOperand, $rightOperand)
-    {
-        return $this->operation(__FUNCTION__, [
-            'left'  => $leftOperand,
-            'right' => $rightOperand,
-        ]);
-    }
-
-    /**
-     * Returns an a step entry for the calculation log, with the given parameters.
-     *
-     * @internal
-     * @param array $parameters An array of parametrs used to create the product.
-     * @param string $operator The mathematical operator used in the calculation
-     * @param int|float|string $result The result of the calculation.
-     * @return array
-     */
-    protected function getLogStep(string $operator, array $parameters = [], $result): array
-    {
-        return [
-            'operator'   => $operator,
-            'parameters' => $parameters,
-            'result'     => $result,
-        ];
-    }
-
-    /**
      * Load a unit from the unit converter registry.
      *
      * @internal
@@ -359,54 +314,6 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * Add an entry to the temporary calculation log.
-     *
-     * @internal
-     * @param string $method The name of the mathematical function be used.
-     * @param int|float|string $result The result of the operation.
-     * @param array $parameters An associative array of the operations parameters
-     * @return void
-     */
-    protected function logTemp(string $method, $result = null, array $parameters = []): void
-    {
-        if ($this->logConversions) {
-            $this->tempLog[] = $this->getLogStep($method, $parameters, $result);
-        }
-    }
-
-    /**
-     * Helper method for multiplying and logging results.
-     *
-     * @internal
-     * @param mixed $leftOperand
-     * @param mixed $rightOperand
-     * @return mixed
-     */
-    protected function multiply($leftOperand, $rightOperand)
-    {
-        return $this->operation(__FUNCTION__, [
-            'left'  => $leftOperand,
-            'right' => $rightOperand,
-        ]);
-    }
-
-    /**
-     * Generic helper method to perform calculator operations & log the results.
-     *
-     * @internal
-     * @param string $operator
-     * @param array $parameters
-     * @return int|float|string
-     */
-    protected function operation(string $operator, array $parameters = [])
-    {
-        $result = $this->calculator->{$operator}(...array_values($parameters));
-        $this->logTemp($operator, $result, $parameters);
-
-        return $result;
-    }
-
-    /**
      * Determine whether or not the converter has an active registry.
      *
      * @internal
@@ -415,22 +322,6 @@ class UnitConverter implements UnitConverterInterface
     protected function registryExists(): bool
     {
         return $this->registry instanceof UnitRegistryInterface;
-    }
-
-    /**
-     * Helper method for rounding and logging results.
-     *
-     * @internal
-     * @param mixed $value
-     * @param int $percision
-     * @return mixed
-     */
-    protected function round($value, $precision)
-    {
-        return $this->operation(__FUNCTION__, [
-            'value'     => $value,
-            'precision' => $precision,
-        ]);
     }
 
     /**
@@ -452,15 +343,13 @@ class UnitConverter implements UnitConverterInterface
      * Add an entry to the conversion calculation log.
      *
      * @internal
-     * @param array $steps (optional)
+     * @param array $calculation
      * @return void
      */
-    protected function writeLog(array $steps = null): void
+    protected function writeLog(array $calculation): void
     {
-        $steps = ($steps ?? $this->tempLog);
-        if (count($steps) > 0) {
-            $this->log[] = $steps;
-            $this->tempLog = [];
+        if ($this->loggingEnabled) {
+            $this->log[] = $calculation;
         }
     }
 }
