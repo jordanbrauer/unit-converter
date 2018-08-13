@@ -36,8 +36,9 @@ class ToKelvin extends AbstractFormula
      */
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
-        $divisor = $this->calculator->div(5, 9);
-        $addResult = $this->calculator->add($value, self::MAGIC_NUMBER);
+        // XXX: this formula assumes all calculators can accept strings, as it's the safest type.
+        $divisor = $this->calculator->div('5', '9');
+        $addResult = $this->calculator->add($value, (string) self::MAGIC_NUMBER);
         $mulResult = $this->calculator->mul($addResult, $divisor);
         $result = $this->calculator->round($mulResult, $precision);
 

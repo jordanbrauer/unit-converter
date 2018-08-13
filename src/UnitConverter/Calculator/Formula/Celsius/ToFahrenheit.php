@@ -36,9 +36,10 @@ class ToFahrenheit extends AbstractFormula
      */
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
-        $divisor = $this->calculator->div(9, 5);
+        // XXX: this formula assumes all calculators can accept strings, as it's the safest type.
+        $divisor = $this->calculator->div('9', '5');
         $mulResult = $this->calculator->mul($value, $divisor);
-        $addResult = $this->calculator->add($mulResult, self::MAGIC_NUMBER);
+        $addResult = $this->calculator->add($mulResult, (string) self::MAGIC_NUMBER);
         $result = $this->calculator->round($addResult, $precision);
 
         $this->plugVariables($result, $value);

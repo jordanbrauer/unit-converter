@@ -36,7 +36,8 @@ class ToKelvin extends AbstractFormula
      */
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
-        $addResult = $this->calculator->add($value, self::MAGIC_NUMBER);
+        // XXX: this formula assumes all calculators can accept strings, as it's the safest type.
+        $addResult = $this->calculator->add($value, (string) self::MAGIC_NUMBER);
         $result = $this->calculator->round($addResult, $precision);
 
         $this->plugVariables($result, $value);
