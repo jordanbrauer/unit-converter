@@ -123,7 +123,7 @@ class UnitConverter implements UnitConverterInterface
      */
     public function convert($value, int $precision = null): UnitConverterInterface
     {
-        $this->percision = $precision;
+        $this->precision = $precision;
         $this->convert = $value;
 
         return $this;
@@ -208,7 +208,7 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->to = $this->loadUnit($unit);
 
-        return $this->calculate($this->percision);
+        return $this->calculate();
     }
 
     /**
@@ -216,30 +216,27 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      * @throws BadConverter
-     * @param int $precision The decimal percision to be calculated
      * @return int|float|string
      */
-    protected function calculate(int $precision = null)
+    protected function calculate()
     {
         if (!$this->calculatorExists()) {
             throw BadConverter::missingCalculator();
         }
 
-        $isBinary = (BinaryCalculator::class === $this->whichCalculator());
-
-        if ($isBinary and $precision) {
-            $this->calculator->setPrecision($precision);
-        }
-
         $fromUnits = $this->from->getUnits();
         $toUnits = $this->to->getUnits();
 
-        if ($isBinary) {
-            extract($this->castUnitsTo("string"), EXTR_IF_EXISTS);
+        if (BinaryCalculator::class === $this->whichCalculator()) {
+            extract($this->castUnitsTo("string", $fromUnits, $toUnits));
+
+            if ($this->precision) {
+                $this->calculator->setPrecision($this->precision);
+            }
         }
 
         $formula = $this->from->getFormulaFor($this->to) ?? new UnitConversionFormula();
-        $result = $this->calculator->exec($formula, $this->convert, $fromUnits, $toUnits, $precision);
+        $result = $this->calculator->exec($formula, $this->convert, $fromUnits, $toUnits, $this->precision);
 
         $this->writeLog($this->calculator->dump(true));
 
@@ -263,17 +260,19 @@ class UnitConverter implements UnitConverterInterface
      * @internal
      * @throws BadUnit When an unsupported scalar type is specified, throws exception.
      * @param string $type The variable type to be casted. Can be one of, "int", "float", or "string".
+     * @param int|float|string $fromUnits
+     * @param int|float|string $toUnits
      * @return array
      */
-    protected function castUnitsTo(string $type): array
+    protected function castUnitsTo(string $type, $fromUnits, $toUnits): array
     {
         if (!in_array($type, self::$types)) {
             throw BadUnit::scalar($type, self::$types);
         }
 
         $units = [
-            "fromUnits" => $this->from->getUnits(),
-            "toUnits"   => $this->to->getUnits(),
+            "fromUnits" => $fromUnits,
+            "toUnits"   => $toUnits,
         ];
 
         array_walk($units, function (&$value, $unit) use ($type) {
