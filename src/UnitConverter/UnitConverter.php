@@ -31,6 +31,8 @@ use UnitConverter\Unit\UnitInterface;
  */
 class UnitConverter implements UnitConverterInterface
 {
+    const CONVERSION_HASH_LENGTH = [0, 7];
+
     /**
      * A static array of supported scalar types for a unit's value.
      *
@@ -93,6 +95,13 @@ class UnitConverter implements UnitConverterInterface
      * @var string $to
      */
     protected $to;
+
+    /**
+     * The current conversions unique hash.
+     *
+     * @var string
+     */
+    private $hash;
 
     /**
      * Public constructor function for the UnitConverter class.
@@ -224,6 +233,12 @@ class UnitConverter implements UnitConverterInterface
             throw BadConverter::missingCalculator();
         }
 
+        $conversionHash = $this->generateConversionHash();
+
+        if (array_key_exists($conversionHash, $this->log)) {
+            return $this->log[$conversionHash]['result'];
+        }
+
         $fromUnits = $this->from->getUnits();
         $toUnits = $this->to->getUnits();
 
@@ -238,7 +253,7 @@ class UnitConverter implements UnitConverterInterface
         $formula = $this->from->getFormulaFor($this->to) ?? new UnitConversionFormula();
         $result = $this->calculator->exec($formula, $this->convert, $fromUnits, $toUnits, $this->precision);
 
-        $this->writeLog($this->calculator->dump(true));
+        $this->writeLog($result, ($this->calculator->dump(true)[0] ?? null));
 
         return $result;
     }
@@ -330,13 +345,48 @@ class UnitConverter implements UnitConverterInterface
      * Add an entry to the conversion calculation log.
      *
      * @internal
-     * @param array $calculation
+     * @param int|float|string $result
+     * @param string $calculation
      * @return void
      */
-    protected function writeLog(array $calculation): void
+    protected function writeLog($result, string $calculation = null): void
     {
-        if ($this->loggingEnabled) {
-            $this->log[] = $calculation;
+        if ($this->loggingEnabled and $calculation) {
+            $this->log[$this->getConversionHash()] = [
+                'calculation' => $calculation,
+                'value'       => $this->convert,
+                'precision'   => $this->precision,
+                'from'        => $this->from->getSymbol(),
+                'to'          => $this->to->getSymbol(),
+                'result'      => $result,
+            ];
         }
+    }
+
+    /**
+     * Sets & returns a unique md5 hash of the current conversion.
+     *
+     * @return string
+     */
+    private function generateConversionHash(): string
+    {
+        $this->hash = mb_substr(md5(
+            $this->convert.
+            $this->precision.
+            $this->from->getRegistryKey().
+            $this->to->getSymbol()
+        ), ...self::CONVERSION_HASH_LENGTH);
+
+        return $this->hash;
+    }
+
+    /**
+     * Return a unique md5 hash of the current conversion.
+     *
+     * @return null|string
+     */
+    private function getConversionHash(): ?string
+    {
+        return $this->hash;
     }
 }
