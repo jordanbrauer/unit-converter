@@ -58,7 +58,7 @@ class MilesPerGallonSpec extends TestCase
     {
         $expected = 1;
         $actual = $this->converter
-            ->convert(2.35215)
+            ->convert(0.42514)
             ->from("mpg")
             ->to("km/l");
 
