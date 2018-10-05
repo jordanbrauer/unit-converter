@@ -17,14 +17,14 @@ namespace UnitConverter\Tests\Integration\Unit\FuelEconomy;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\FuelEconomy\KilometerPerLitre;
+use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\UnitConverter;
 
 /**
  *
  * @covers UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
- * @uses UnitConverter\Unit\FuelEconomy\KilometerPerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
@@ -39,8 +39,8 @@ class LitrePer100KilometresSpec extends TestCase
     {
         $this->converter = new UnitConverter(
             new UnitRegistry([
-                new KilometerPerLitre(),
-                new LitrePer100Kilometres()
+                new KilometrePerLitre(),
+                new LitrePer100Kilometres(),
             ]),
             new SimpleCalculator()
         );
@@ -54,7 +54,7 @@ class LitrePer100KilometresSpec extends TestCase
     /**
      * @test
      */
-    public function assert100LitrePer100KilometresIs1KilometerPerLitre()
+    public function assert100LitrePer100KilometresIs1KilometrePerLitre()
     {
         $expected = 100;
         $actual = $this->converter

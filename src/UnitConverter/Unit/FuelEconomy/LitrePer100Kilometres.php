@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types = 1);
 
 /**
@@ -10,13 +11,14 @@ declare(strict_types = 1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace UnitConverter\Unit\FuelEconomy;
 
 /**
  * LitrePer100Kilometres unit data class.
  *
- * @version 2.0.0
- * @since 0.0.1
+ * @version 1.0.0
+ * @since 0.9.0
  */
 class LitrePer100Kilometres extends FuelEconomyUnit
 {

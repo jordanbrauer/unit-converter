@@ -17,14 +17,14 @@ namespace UnitConverter\Tests\Integration\Unit\FuelEconomy;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\FuelEconomy\KilometerPerLitre;
+use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
 use UnitConverter\UnitConverter;
 
 /**
  *
  * @covers UnitConverter\Unit\FuelEconomy\MilesPerGallon
- * @uses UnitConverter\Unit\FuelEconomy\KilometerPerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
@@ -39,8 +39,8 @@ class MilesPerGallonSpec extends TestCase
     {
         $this->converter = new UnitConverter(
             new UnitRegistry([
-                new KilometerPerLitre(),
-                new MilesPerGallon()
+                new KilometrePerLitre(),
+                new MilesPerGallon(),
             ]),
             new SimpleCalculator()
         );
@@ -54,7 +54,7 @@ class MilesPerGallonSpec extends TestCase
     /**
      * @test
      */
-    public function assert2decimal35215MilesPerGallonIs1KilometerPerLitre()
+    public function assert2decimal35215MilesPerGallonIs1KilometrePerLitre()
     {
         $expected = 1;
         $actual = $this->converter

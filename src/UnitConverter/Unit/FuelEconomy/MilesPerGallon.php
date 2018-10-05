@@ -17,8 +17,8 @@ namespace UnitConverter\Unit\FuelEconomy;
 /**
  * MilesPerGallon (US) unit data class.
  *
- * @version 2.0.0
- * @since 0.0.1
+ * @version 1.0.0
+ * @since 0.9.0
  */
 class MilesPerGallon extends FuelEconomyUnit
 {

@@ -15,12 +15,12 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\FuelEconomy;
 
 /**
- * KilometerPerLitre unit data class.
+ * KilometrePerLitre unit data class.
  *
- * @version 2.0.0
- * @since 0.0.1
+ * @version 1.0.1
+ * @since 0.9.0
  */
-class KilometerPerLitre extends FuelEconomyUnit
+class KilometrePerLitre extends FuelEconomyUnit
 {
     protected function configure(): void
     {
