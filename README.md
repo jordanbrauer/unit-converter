@@ -38,7 +38,7 @@ It supports the following types of measurement by default (support for more meas
 - Digital Storage _Coming Soon!_
 - Energy (Power)
 - Frequency _Coming Soon!_
-- Fuel Economy _Coming Soon!_
+- Fuel Economy **_New!_**
 - Length
 - Mass (Weight)
 - Plane Angle (Rotation)
