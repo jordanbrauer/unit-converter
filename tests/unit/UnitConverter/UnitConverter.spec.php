@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\ConverterBuilder;
 use UnitConverter\Exception\BadUnit;
+use UnitConverter\Measure;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
@@ -85,6 +86,39 @@ class UnitConverterSpec extends TestCase
             ->convert(1)
             ->from("yd") # any unregistered unit
             ->to("in");
+    }
+
+    /**
+     * @test
+     * @covers ::all
+     * @return void
+     */
+    public function assertConverterCanReturnAllPossibleConversionsForAGivenUnit()
+    {
+        $symbol = 'cm';
+        $possibleConversions = array_filter(array_map(function ($class) use ($symbol) {
+            $possibleConversion = (new $class())->getSymbol();
+            if ($possibleConversion != $symbol) {
+                return $possibleConversion;
+            }
+        }, Measure::getDefaultUnitsFor(Measure::LENGTH)), function ($item) {
+            return $item;
+        });
+        $results = $this->converter::createBuilder()
+            ->addDefaultRegistry()
+            ->addSimpleCalculator()
+            ->build()
+            ->convert(180)
+            ->from($symbol)
+            ->all();
+
+        $this->assertInternalType('array', $results);
+        $this->assertNotEmpty($results);
+        $this->assertEquals(count($possibleConversions), count($results));
+
+        foreach ($possibleConversions as $possibleConversion) {
+            $this->assertArrayHasKey($possibleConversion, $results);
+        }
     }
 
     /**
