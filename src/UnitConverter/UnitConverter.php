@@ -125,6 +125,31 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Convert a unit to all other possible units of measurement. The results will
+     * be an associative array in the form of `symbol => conversion`.
+     *
+     * @return array
+     */
+    public function all()
+    {
+        $results = [];
+        $symbol = $this->from->getSymbol();
+
+        array_map(function ($unit) use (&$results, $symbol) {
+            if ($symbol != $unit) {
+                $results[$unit] = $this->calculate(
+                    $this->convert,
+                    $this->from,
+                    $this->to = $this->loadUnit($unit), # assignment for ::castUnitsTo
+                    $this->percision
+                );
+            }
+        }, $this->registry->listUnits($this->from->getUnitOf()));
+
+        return $results;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function convert($value, int $precision = null): UnitConverterInterface
