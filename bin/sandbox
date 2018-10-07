@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once realpath(rtrim(__DIR__, '/').'/../vendor/autoload.php');
+
+use UnitConverter\UnitConverter;
+
+$converter = UnitConverter::createBuilder()
+    ->addSimpleCalculator()
+    // ->addBinaryCalculator()
+    ->addDefaultRegistry()
+    ->build();
+
+// $input = ["40", 0];
+$input = [40, 0];
+
+$conversions = [
+    'in' => 'cm',
+    'lb' => 'g',
+    'L' => 'gal',
+    'C' => 'F',
+    // 'C' => 'C',
+    // 'C' => 'K',
+    'F' => 'C',
+    // 'F' => 'F',
+    // 'F' => 'K',
+];
+
+foreach ($conversions as $from => $to) {
+    $converter->convert(...$input)->from($from)->to($to);
+}
+
+// dump($converter);
+dump($converter->getConversionLog());
