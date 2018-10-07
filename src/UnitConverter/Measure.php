@@ -108,6 +108,8 @@ class Measure
 
     const ENERGY = "energy";
 
+    const FREQUENCY = 'frequency';
+
     const LENGTH = "length";
 
     const MASS = "mass";
