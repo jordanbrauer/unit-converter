@@ -32,6 +32,9 @@ use UnitConverter\Unit\Energy\Megajoule;
 use UnitConverter\Unit\Energy\MegawattHour;
 use UnitConverter\Unit\Energy\NewtonMetre;
 use UnitConverter\Unit\Energy\WattHour;
+use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
+use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
+use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
 use UnitConverter\Unit\Length\AstronomicalUnit;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Decimetre;
@@ -162,6 +165,9 @@ class Measure
             Litre::class,
             Millilitre::class,
             Pint::class,
+            KilometrePerLitre::class,
+            LitrePer100Kilometres::class,
+            MilesPerGallon::class,
         ],
         self::MASS => [
             Gram::class,
