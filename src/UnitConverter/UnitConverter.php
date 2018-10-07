@@ -233,10 +233,8 @@ class UnitConverter implements UnitConverterInterface
             throw BadConverter::missingCalculator();
         }
 
-        $conversionHash = $this->generateConversionHash();
-
-        if (array_key_exists($conversionHash, $this->log)) {
-            return $this->log[$conversionHash]['result'];
+        if ($this->conversionExists()) {
+            return $this->log[$this->getConversionHash()]['result'];
         }
 
         $fromUnits = $this->from->getUnits();
@@ -362,6 +360,19 @@ class UnitConverter implements UnitConverterInterface
                 'result'      => $result,
             ];
         }
+    }
+
+    /**
+     * Generates a conversion hash for the current set of parameters & checks if
+     * it matches any previous conversions. If logging is disabled, a conversion
+     * hash **will not** be generated & the check will not be made.
+     *
+     * @return bool
+     */
+    private function conversionExists(): bool
+    {
+        return $this->loggingEnabled
+            and array_key_exists($this->generateConversionHash(), $this->log);
     }
 
     /**
