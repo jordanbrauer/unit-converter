@@ -285,16 +285,17 @@ class UnitConverter implements UnitConverterInterface
             throw BadUnit::scalar($type, self::$types);
         }
 
-        $units = [
-            "fromUnits" => $fromUnits,
-            "toUnits"   => $toUnits,
-        ];
-
-        array_walk($units, function (&$value, $unit) use ($type) {
+        return array_combine([
+            'fromUnits',
+            'toUnits',
+        ], array_map(function ($value) use ($type) {
             settype($value, $type);
-        });
 
-        return $units;
+            return $value;
+        }, [
+            $fromUnits,
+            $toUnits,
+        ]));
     }
 
     /**
