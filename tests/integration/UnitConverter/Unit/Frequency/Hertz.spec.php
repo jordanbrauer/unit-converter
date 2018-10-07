@@ -12,12 +12,12 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Tests\Integration\Unit\Length;
+namespace UnitConverter\Tests\Integration\Unit\Frequency;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Hertz;
+use UnitConverter\Unit\Frequency\Hertz;
 use UnitConverter\UnitConverter;
 
 /**

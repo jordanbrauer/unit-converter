@@ -23,7 +23,7 @@ use UnitConverter\Unit\SiBaseUnitInterface;
  * @since 0.0.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class Hertz extends FrequencyUnit implements SiBaseUnitInterface
+class Hertz extends FrequencyUnit
 {
     protected function configure(): void
     {

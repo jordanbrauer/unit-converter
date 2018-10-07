@@ -32,6 +32,7 @@ use UnitConverter\Unit\Energy\Megajoule;
 use UnitConverter\Unit\Energy\MegawattHour;
 use UnitConverter\Unit\Energy\NewtonMetre;
 use UnitConverter\Unit\Energy\WattHour;
+use UnitConverter\Unit\Frequency\Hertz;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
@@ -231,6 +232,9 @@ class Measure
             NewtonMetre::class,
             WattHour::class,
         ],
+		self::FREQUENCY => [
+			Hertz::class,
+		]
     ];
 
     /**
