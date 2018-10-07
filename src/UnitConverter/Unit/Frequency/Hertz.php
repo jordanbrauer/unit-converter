@@ -14,14 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Frequency;
 
-use UnitConverter\Unit\SiBaseUnitInterface;
-
 /**
- * Hertz data class. All units of Length are based off of Hertz.
- *
- * @version 2.0.0
- * @since 0.0.1
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * Hertz data class. All units of Frequency are based off of Hertz.
  */
 class Hertz extends FrequencyUnit
 {

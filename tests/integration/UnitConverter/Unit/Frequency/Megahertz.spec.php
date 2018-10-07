@@ -55,7 +55,7 @@ class MegahertzSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MegahertzIs1000Hertzs()
+    public function assert1MegahertzIs1000000Hertzs()
     {
         $expected = 1000000;
         $actual = $this->converter

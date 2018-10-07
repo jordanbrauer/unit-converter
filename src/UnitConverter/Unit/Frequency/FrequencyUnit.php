@@ -21,10 +21,6 @@ use UnitConverter\Unit\AbstractUnit;
  * Frequency unit base data class. Any new frequency units should
  * extend this class and implement their name, symbol and units;
  * overriding the $unitOf and $base properties only if necessary.
- *
- * @version 1.0.1
- * @since 0.0.1
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 abstract class FrequencyUnit extends AbstractUnit
 {

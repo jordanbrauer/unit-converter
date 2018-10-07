@@ -14,14 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Frequency;
 
-use UnitConverter\Unit\SiMultipleUnitInterface;
-
 /**
  * Megahertz data class.
- *
- * @version 2.0.0
- * @since 0.0.1
- * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
 class Megahertz extends FrequencyUnit
 {
