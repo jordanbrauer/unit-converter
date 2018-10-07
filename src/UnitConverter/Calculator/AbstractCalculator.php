@@ -102,26 +102,16 @@ abstract class AbstractCalculator implements CalculatorInterface
      */
     public function __construct(int $precision = null, int $roundingMode = null)
     {
-        $this->history = [];
-        $this->setPrecision(($precision ?? self::DEFAULT_PRECISION));
-        $this->setRoundingMode(($roundingMode ?? self::DEFAULT_ROUNDING_MODE));
+        $this->init(
+            ($precision ?? self::DEFAULT_PRECISION),
+            ($roundingMode ?? self::DEFAULT_ROUNDING_MODE)
+        );
     }
 
     /**
      * {@inheritDoc}
      */
     abstract public function add($leftOperand, $rightOperand);
-
-    /**
-     * Clears the claculator history & resets the precision and rounding modes.
-     *
-     * @api
-     * @return void
-     */
-    public function clear(): void
-    {
-        self::__construct();
-    }
 
     /**
      * {@inheritDoc}
@@ -151,7 +141,7 @@ abstract class AbstractCalculator implements CalculatorInterface
         $history = $this->history;
 
         if ($clear) {
-            $this->clear();
+            $this->init(self::DEFAULT_PRECISION, self::DEFAULT_ROUNDING_MODE);
         }
 
         return $history;
@@ -286,5 +276,19 @@ abstract class AbstractCalculator implements CalculatorInterface
     public function subtract(...$params)
     {
         return $this->sub(...$params);
+    }
+
+    /**
+     * Helper method to initialize the calculator's settings.
+     *
+     * @param int $precision The number of decimal digits to round to.
+     * @param int $roundingMode The mode in which rounding occurs.
+     * @return void
+     */
+    private function init(int $precision, int $roundingMode): void
+    {
+        $this->history = [];
+        $this->setPrecision($precision);
+        $this->setRoundingMode($roundingMode);
     }
 }
