@@ -17,8 +17,8 @@ namespace UnitConverter\Tests\Integration\Unit\Frequency;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Frequency\Millihertz;
 use UnitConverter\Unit\Frequency\Hertz;
+use UnitConverter\Unit\Frequency\Millihertz;
 use UnitConverter\UnitConverter;
 
 /**
@@ -57,7 +57,7 @@ class MillihertzSpec extends TestCase
      */
     public function assert1MillihertzIs0decimal001Hertzs()
     {
-		$expected = 0.001;
+        $expected = 0.001;
         $actual = $this->converter
             ->convert(1, 3)
             ->from("mHz")

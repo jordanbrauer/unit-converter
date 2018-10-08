@@ -29,32 +29,32 @@ use UnitConverter\UnitConverter;
  */
 class HertzSpec extends TestCase
 {
-	protected function setUp()
-	{
-		$this->converter = new UnitConverter(
-			new UnitRegistry([
-								 new Hertz(),
-							 ]),
-			new SimpleCalculator()
-		);
-	}
+    protected function setUp()
+    {
+        $this->converter = new UnitConverter(
+            new UnitRegistry([
+                new Hertz(),
+            ]),
+            new SimpleCalculator()
+        );
+    }
 
-	protected function tearDown()
-	{
-		unset($this->converter);
-	}
+    protected function tearDown()
+    {
+        unset($this->converter);
+    }
 
-	/**
-	 * @test
-	 */
-	public function assert1HertzIs1Hertz()
-	{
-		$expected = 1;
-		$actual = $this->converter
-			->convert(1)
-			->from("Hz")
-			->to("Hz");
+    /**
+     * @test
+     */
+    public function assert1HertzIs1Hertz()
+    {
+        $expected = 1;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("Hz")
+            ->to("Hz");
 
-		$this->assertEquals($expected, $actual);
-	}
+        $this->assertEquals($expected, $actual);
+    }
 }

@@ -17,8 +17,8 @@ namespace UnitConverter\Tests\Integration\Unit\Frequency;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Frequency\Kilohertz;
 use UnitConverter\Unit\Frequency\Hertz;
+use UnitConverter\Unit\Frequency\Kilohertz;
 use UnitConverter\UnitConverter;
 
 /**

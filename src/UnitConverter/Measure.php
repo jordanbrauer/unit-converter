@@ -237,14 +237,14 @@ class Measure
             NewtonMetre::class,
             WattHour::class,
         ],
-		self::FREQUENCY => [
-			Hertz::class,
-			Kilohertz::class,
-			Megahertz::class,
-			Gigahertz::class,
-			Terahertz::class,
-			Millihertz::class,
-		]
+        self::FREQUENCY => [
+            Hertz::class,
+            Kilohertz::class,
+            Megahertz::class,
+            Gigahertz::class,
+            Terahertz::class,
+            Millihertz::class,
+        ],
     ];
 
     /**

@@ -26,6 +26,6 @@ class Millihertz extends FrequencyUnit
 
             ->setSymbol("mHz")
 
-			->setUnits(0.001);
+            ->setUnits(0.001);
     }
 }
