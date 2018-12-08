@@ -90,6 +90,40 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
+     * @covers ::calculatorExists
+     * @return void
+     */
+    public function assertConverterCanDetermineWhenCalculatorExists(): void
+    {
+        $this->assertTrue($this->converter->calculatorExists());
+    }
+
+    /**
+     * @test
+     * @covers ::registryExists
+     * @return void
+     */
+    public function assertConverterCanDetermineWhenRegistryExists(): void
+    {
+        $this->assertTrue($this->converter->registryExists());
+    }
+
+    /**
+     * @test
+     * @covers ::whichCalculator
+     * @return void
+     */
+    public function assertConverterCanDetermineWhichCalculatorIsInUse(): void
+    {
+        $class = $this->converter->whichCalculator();
+
+        $this->assertInternalType('string', $class);
+        $this->assertNotEmpty($class);
+        $this->assertInstanceOf(SimpleCalculator::class, (new $class()));
+    }
+
+    /**
+     * @test
      * @covers ::all
      * @return void
      */
@@ -130,5 +164,62 @@ class UnitConverterSpec extends TestCase
         $builder = $this->converter::createBuilder();
 
         $this->assertInstanceOf(ConverterBuilder::class, $builder);
+    }
+
+    /**
+     * @test
+     * @covers ::setCalculator
+     * @return void
+     */
+    public function assertConverterCanSetNewCalculator(): void
+    {
+        $calculator = new SimpleCalculator();
+
+        $this->assertNotSame($calculator, $this->converter->getCalculator());
+
+        $this->converter->setCalculator($calculator);
+
+        $this->assertSame($calculator, $this->converter->getCalculator());
+    }
+
+    /**
+     * @test
+     * @covers ::setRegistry
+     * @return void
+     */
+    public function assertConverterCanSetNewRegistry(): void
+    {
+        $registry = new UnitRegistry();
+
+        $this->assertNotSame($registry, $this->converter->getRegistry());
+
+        $this->converter->setRegistry($registry);
+
+        $this->assertSame($registry, $this->converter->getRegistry());
+    }
+
+    /**
+     * @test
+     * @covers ::getCalculator
+     * @return void
+     */
+    public function assertConverterReturnsCurrentCalculator(): void
+    {
+        $calculator = $this->converter->getCalculator();
+
+        $this->assertInstanceOf(SimpleCalculator::class, $calculator);
+    }
+
+    /**
+     * @test
+     * @covers ::getRegistry
+     * @return void
+     */
+    public function assertConverterReturnsCurrentRegistry(): void
+    {
+        $registry = $this->converter->getRegistry();
+
+        $this->assertInstanceOf(UnitRegistry::class, $registry);
+        $this->assertEquals(2, count($registry->listUnits()));
     }
 }
