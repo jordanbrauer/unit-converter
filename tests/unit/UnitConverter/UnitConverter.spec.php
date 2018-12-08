@@ -126,7 +126,7 @@ class UnitConverterSpec extends TestCase
      * @test
      * @covers ::all
      * @uses \UnitConverter\ConverterBuilder
-     * @uses \UnitConverter\Unit\Length
+     * @uses \UnitConverter\Unit\Length\LengthUnit::configure
      * @return void
      */
     public function assertConverterCanReturnAllPossibleConversionsForAGivenUnit(): void
