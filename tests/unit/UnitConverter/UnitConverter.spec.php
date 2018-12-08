@@ -25,12 +25,27 @@ use UnitConverter\UnitConverter;
 /**
  * @coversDefaultClass UnitConverter\UnitConverter
  * @uses UnitConverter\UnitConverter
+ * @uses \UnitConverter\ConverterBuilder
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\Unit\Length\AstronomicalUnit
  * @uses UnitConverter\Unit\Length\Centimetre
+ * @uses UnitConverter\Unit\Length\Decimetre
+ * @uses UnitConverter\Unit\Length\Foot
+ * @uses UnitConverter\Unit\Length\Hand
  * @uses UnitConverter\Unit\Length\Inch
+ * @uses UnitConverter\Unit\Length\Kilometre
+ * @uses UnitConverter\Unit\Length\LightYear
+ * @uses UnitConverter\Unit\Length\Metre
+ * @uses UnitConverter\Unit\Length\Micrometre
+ * @uses UnitConverter\Unit\Length\Mile
+ * @uses UnitConverter\Unit\Length\Millimetre
+ * @uses UnitConverter\Unit\Length\Nanometre
+ * @uses UnitConverter\Unit\Length\Parsec
+ * @uses UnitConverter\Unit\Length\Picometre
+ * @uses UnitConverter\Unit\Length\Yard
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
@@ -120,7 +135,6 @@ class UnitConverterSpec extends TestCase
     /**
      * @test
      * @covers ::all
-     * @uses \UnitConverter\ConverterBuilder
      * @return void
      */
     public function assertConverterCanReturnAllPossibleConversionsForAGivenUnit(): void
