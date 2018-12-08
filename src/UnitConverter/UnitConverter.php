@@ -144,7 +144,7 @@ class UnitConverter implements UnitConverterInterface
                     $this->convert,
                     $this->from,
                     $this->to = $this->loadUnit($unit), # assignment for ::castUnitsTo
-                    $this->percision
+                    $this->precision
                 );
             }
         }, $this->registry->listUnits($this->from->getUnitOf()));
