@@ -126,20 +126,14 @@ class UnitConverterSpec extends TestCase
      * @test
      * @covers ::all
      * @uses \UnitConverter\ConverterBuilder
+     * @uses \UnitConverter\Unit\Length\LengthUnit
      * @return void
      */
-    public function assertConverterCanReturnAllPossibleConversionsForAGivenUnit()
+    public function assertConverterCanReturnAllPossibleConversionsForAGivenUnit(): void
     {
         $symbol = 'cm';
         $measurement = Measure::LENGTH;
-        $possibleConversions = array_filter(array_map(function ($class) use ($symbol) {
-            $possibleConversion = (new $class())->getSymbol();
-            if ($possibleConversion != $symbol) {
-                return $possibleConversion;
-            }
-        }, Measure::getDefaultUnitsFor($measurement)), function ($item) {
-            return $item;
-        });
+        $possibleConversions = $this->getPossibleConversionsFor($measurement, $symbol);
         $results = $this->converter::createBuilder()
             ->addRegistryFor($measurement)
             ->addSimpleCalculator()
@@ -223,5 +217,17 @@ class UnitConverterSpec extends TestCase
 
         $this->assertInstanceOf(UnitRegistry::class, $registry);
         $this->assertEquals(2, count($registry->listUnits()));
+    }
+
+    private function getPossibleConversionsFor(string $measurement, string $symbol): array
+    {
+        return array_filter(array_map(function ($class) use ($symbol) {
+            $possibleConversion = (new $class())->getSymbol();
+            if ($possibleConversion != $symbol) {
+                return $possibleConversion;
+            }
+        }, Measure::getDefaultUnitsFor($measurement)), function ($item) {
+            return $item;
+        });
     }
 }
