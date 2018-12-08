@@ -125,6 +125,17 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Determine whether or not the converter has an active calculator.
+     *
+     * @api
+     * @return bool
+     */
+    public function calculatorExists(): bool
+    {
+        return $this->calculator instanceof CalculatorInterface;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function convert($value, int $precision = null): UnitConverterInterface
@@ -168,6 +179,16 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Return the current calculator instance for the unit converter.
+     *
+     * @return CalculatorInterface
+     */
+    public function getCalculator(): CalculatorInterface
+    {
+        return $this->calculator;
+    }
+
+    /**
      * Return an array, containing a list of events in the order they occured for
      * the current calculation.
      *
@@ -177,6 +198,27 @@ class UnitConverter implements UnitConverterInterface
     public function getConversionLog(): array
     {
         return $this->log;
+    }
+
+    /**
+     * Return the current registry instance for the unit converter.
+     *
+     * @return UnitRegistryInterface
+     */
+    public function getRegistry(): UnitRegistryInterface
+    {
+        return $this->registry;
+    }
+
+    /**
+     * Determine whether or not the converter has an active registry.
+     *
+     * @api
+     * @return bool
+     */
+    public function registryExists(): bool
+    {
+        return $this->registry instanceof UnitRegistryInterface;
     }
 
     /**
@@ -220,6 +262,19 @@ class UnitConverter implements UnitConverterInterface
             $this->to,
             $this->percision
         );
+    }
+
+    /**
+     * Determine which calculator is currently being used
+     *
+     * @api
+     * @return null|string
+     */
+    public function whichCalculator(): ?string
+    {
+        return ($this->calculatorExists())
+            ? get_class($this->calculator)
+            : null;
     }
 
     /**
@@ -272,17 +327,6 @@ class UnitConverter implements UnitConverterInterface
         $this->writeLog();
 
         return $result;
-    }
-
-    /**
-     * Determine whether or not the converter has an active calculator.
-     *
-     * @internal
-     * @return bool
-     */
-    protected function calculatorExists(): bool
-    {
-        return $this->calculator instanceof CalculatorInterface;
     }
 
     /**
@@ -412,17 +456,6 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * Determine whether or not the converter has an active registry.
-     *
-     * @internal
-     * @return bool
-     */
-    protected function registryExists(): bool
-    {
-        return $this->registry instanceof UnitRegistryInterface;
-    }
-
-    /**
      * Helper method for rounding and logging results.
      *
      * @internal
@@ -436,21 +469,6 @@ class UnitConverter implements UnitConverterInterface
             'value'     => $value,
             'precision' => $precision,
         ]);
-    }
-
-    /**
-     * Determine which calculator is currently being used
-     *
-     * @internal
-     * @return null|string
-     */
-    protected function whichCalculator(): ?string
-    {
-        if ($this->calculatorExists()) {
-            return get_class($this->calculator);
-        }
-
-        return null;
     }
 
     /**
