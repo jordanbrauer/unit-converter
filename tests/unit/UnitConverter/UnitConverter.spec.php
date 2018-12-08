@@ -20,8 +20,6 @@ use UnitConverter\ConverterBuilder;
 use UnitConverter\Exception\BadUnit;
 use UnitConverter\Measure;
 use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Centimetre;
-use UnitConverter\Unit\Length\Inch;
 use UnitConverter\UnitConverter;
 
 /**
@@ -40,13 +38,10 @@ class UnitConverterSpec extends TestCase
 {
     protected function setUp()
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Centimetre(),
-                new Inch(),
-            ]),
-            new SimpleCalculator()
-        );
+        $this->converter = UnitConverter::createBuilder()
+            ->addRegistryFor(Measure::LENGTH)
+            ->addSimpleCalculator()
+            ->build();
     }
 
     protected function tearDown()
@@ -84,8 +79,8 @@ class UnitConverterSpec extends TestCase
 
         $this->converter
             ->convert(1)
-            ->from("yd") # any unregistered unit
-            ->to("in");
+            ->from("F") # any unregistered unit
+            ->to("C");
     }
 
     /**
@@ -126,7 +121,6 @@ class UnitConverterSpec extends TestCase
      * @test
      * @covers ::all
      * @uses \UnitConverter\ConverterBuilder
-     * @uses \UnitConverter\Unit\Length\LengthUnit::configure
      * @return void
      */
     public function assertConverterCanReturnAllPossibleConversionsForAGivenUnit(): void
@@ -134,13 +128,7 @@ class UnitConverterSpec extends TestCase
         $symbol = 'cm';
         $measurement = Measure::LENGTH;
         $possibleConversions = $this->getPossibleConversionsFor($measurement, $symbol);
-        $results = $this->converter::createBuilder()
-            ->addRegistryFor($measurement)
-            ->addSimpleCalculator()
-            ->build()
-            ->convert(180)
-            ->from($symbol)
-            ->all();
+        $results = $this->converter->convert(180)->from($symbol)->all();
 
         $this->assertInternalType('array', $results);
         $this->assertNotEmpty($results);
@@ -216,9 +204,20 @@ class UnitConverterSpec extends TestCase
         $registry = $this->converter->getRegistry();
 
         $this->assertInstanceOf(UnitRegistry::class, $registry);
-        $this->assertEquals(2, count($registry->listUnits()));
+        $this->assertEquals(
+            count(Measure::getDefaultUnitsFor(Measure::LENGTH)),
+            count($registry->listUnits())
+        );
     }
 
+    /**
+     * Helper method that returns a list of all possible conversions for a given
+     * measurement & unit symbol.
+     *
+     * @param string $measurement
+     * @param string $symbol
+     * @return array
+     */
     private function getPossibleConversionsFor(string $measurement, string $symbol): array
     {
         return array_filter(array_map(function ($class) use ($symbol) {
