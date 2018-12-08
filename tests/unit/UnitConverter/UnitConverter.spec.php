@@ -97,4 +97,29 @@ class UnitConverterSpec extends TestCase
 
         $this->assertInstanceOf(ConverterBuilder::class, $builder);
     }
+
+    /**
+     * @test
+     * @covers ::getCalculator
+     * @return void
+     */
+    public function assertConverterReturnsCurrentCalculator(): void
+    {
+        $calculator = $this->converter->getCalculator();
+
+        $this->assertInstanceOf(SimpleCalculator::class, $calculator);
+    }
+
+    /**
+     * @test
+     * @covers ::getRegistry
+     * @return void
+     */
+    public function assertConverterReturnsCurrentRegistry(): void
+    {
+        $registry = $this->converter->getRegistry();
+
+        $this->assertInstanceOf(UnitRegistry::class, $registry);
+        $this->assertEquals(2, count($registry->listUnits()));
+    }
 }
