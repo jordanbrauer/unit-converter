@@ -140,12 +140,8 @@ class UnitConverter implements UnitConverterInterface
 
         array_map(function ($unit) use (&$results, $symbol) {
             if ($symbol != $unit) {
-                $results[$unit] = $this->calculate(
-                    $this->convert,
-                    $this->from,
-                    $this->to = $this->loadUnit($unit), # assignment for ::castUnitsTo
-                    $this->precision
-                );
+                $this->to = $this->loadUnit($unit);
+                $results[$unit] = $this->calculate();
             }
         }, $this->registry->listUnits($this->from->getUnitOf()));
 
