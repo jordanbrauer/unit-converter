@@ -135,7 +135,6 @@ class UnitConverterSpec extends TestCase
     /**
      * @test
      * @covers ::setCalculator
-     * @uses ::getCalculator
      * @return void
      */
     public function assertConverterCanSetNewCalculator(): void
@@ -152,7 +151,6 @@ class UnitConverterSpec extends TestCase
     /**
      * @test
      * @covers ::setRegistry
-     * @uses ::getRegistry
      * @return void
      */
     public function assertConverterCanSetNewRegistry(): void
