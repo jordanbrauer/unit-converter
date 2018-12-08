@@ -8,17 +8,26 @@ So, you want to contribute to this project. Perhaps you've found a bug? Perhaps 
 
 If you're an experienced developer, you can start contributing right away by following this high level overview of steps. We still recommend and ask that you read the full document 😉.
 
-1. Fork the latest version of this repository
-2. Clone the `master` branch from your fork to your local machine
-3. Checkout a new branch for your feature
-4. Begin hacking!
-5. Make a pull request **into** `jordanbrauer:master` **from** `you:your-branch`
+1. Fork the latest version of this repository.
+1. Clone your fork to your local machine.
+1. Install the project's developer dependencies:
+
+    ```bash
+    $ composer install
+    $ npm install # yarn works too
+    ```
+
+1. Checkout a new branch for your feature!
+1. Begin hacking!
+1. Make a pull request **into** `jordanbrauer:master` **from** `you:your-branch`
 
 ## How to Contribute
 
 If you are not an experienced developer, or would like to read the full set of instructions and guidelines for contributing, this section is for you.
 
 ### Style Guide
+
+> **Note:** If you install the Composer & npm developer dependencies, your code style changes will be handled by PHP CS Fixer, thanks to an automatic pre-commit hook that is set up after npm installs.
 
 * Files **MUST** use only `<?php` tags.
 * Files **MUST** use only `utf-8` encoding without BOM.

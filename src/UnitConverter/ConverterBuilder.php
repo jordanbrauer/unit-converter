@@ -135,7 +135,7 @@ class ConverterBuilder
     }
 
     /**
-     * Retrieve instance of all units for a given measurement type.
+     * Retrieve instances of all units for a given measurement type.
      *
      * @internal
      * @param string $measurement
