@@ -125,21 +125,23 @@ class UnitConverterSpec extends TestCase
     /**
      * @test
      * @covers ::all
+     * @uses \UnitConverter\ConverterBuilder
      * @return void
      */
     public function assertConverterCanReturnAllPossibleConversionsForAGivenUnit()
     {
         $symbol = 'cm';
+        $measurement = Measure::LENGTH;
         $possibleConversions = array_filter(array_map(function ($class) use ($symbol) {
             $possibleConversion = (new $class())->getSymbol();
             if ($possibleConversion != $symbol) {
                 return $possibleConversion;
             }
-        }, Measure::getDefaultUnitsFor(Measure::LENGTH)), function ($item) {
+        }, Measure::getDefaultUnitsFor($measurement)), function ($item) {
             return $item;
         });
         $results = $this->converter::createBuilder()
-            ->addDefaultRegistry()
+            ->addRegistryFor($measurement)
             ->addSimpleCalculator()
             ->build()
             ->convert(180)
