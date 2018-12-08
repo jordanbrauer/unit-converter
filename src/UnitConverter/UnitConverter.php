@@ -133,15 +133,14 @@ class UnitConverter implements UnitConverterInterface
      *
      * @return array
      */
-    public function all()
+    public function all(): array
     {
         $results = [];
         $symbol = $this->from->getSymbol();
 
         array_map(function ($unit) use (&$results, $symbol) {
             if ($symbol != $unit) {
-                $this->to = $this->loadUnit($unit);
-                $results[$unit] = $this->calculate();
+                $results[$unit] = $this->to($unit);
             }
         }, $this->registry->listUnits($this->from->getUnitOf()));
 
