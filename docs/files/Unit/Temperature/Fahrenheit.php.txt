@@ -14,9 +14,9 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
-use UnitConverter\Calculator\CalculatorInterface;
-use UnitConverter\Exception\BadUnit;
-use UnitConverter\Unit\UnitInterface;
+use UnitConverter\Calculator\Formula\NullFormula;
+use UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToCelsius;
+use UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToKelvin;
 
 /**
  * Fahrenheit unit data class.
@@ -27,35 +27,6 @@ use UnitConverter\Unit\UnitInterface;
  */
 class Fahrenheit extends TemperatureUnit
 {
-    protected function calculate(CalculatorInterface $calculator, $value, UnitInterface $to, int $precision = null)
-    {
-        $val = ($value ?? $this->getBase()->getUnits());
-        $divisor = $calculator->div(5, 9);
-
-        switch ($to->getSymbol()) { # 0 K = 255.372 °F
-            case 'C': # °C = (°F - 32) × (5 ÷ 9)
-                $result = $calculator->sub($val, 32);
-                $result = $calculator->mul($result, $divisor);
-
-                return $calculator->round($result, $precision);
-
-                break;
-            case 'K': # K = (°F + 459.67) × (5 ÷ 9)
-                $result = $calculator->add($val, 459.67);
-                $result = $calculator->mul($result, $divisor);
-
-                return $calculator->round($result, $precision);
-
-                break;
-            case 'F': # °F = °F
-                return $val;
-
-                break;
-            default:
-                throw BadUnit::formula($to->getSymbol());
-            }
-    }
-
     protected function configure(): void
     {
         $this
@@ -63,7 +34,13 @@ class Fahrenheit extends TemperatureUnit
 
             ->setSymbol("F")
 
-            ->setScientificSymbol("°F");
+            ->setScientificSymbol("°F")
+
+            ->addFormulae([
+                'K' => ToKelvin::class,
+                'F' => NullFormula::class,
+                'C' => ToCelsius::class,
+            ]); # 🐓 🍗 secret blend of herbs & spices?
     }
 }
 
