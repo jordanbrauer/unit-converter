@@ -28,6 +28,8 @@ use UnitConverter\UnitConverter;
  * @uses \UnitConverter\ConverterBuilder
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\Formula\AbstractFormula
+ * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\AstronomicalUnit

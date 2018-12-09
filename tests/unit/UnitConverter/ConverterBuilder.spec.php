@@ -48,6 +48,15 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Unit\Energy\MegawattHour
  * @uses UnitConverter\Unit\Energy\NewtonMetre
  * @uses UnitConverter\Unit\Energy\WattHour
+ * @uses UnitConverter\Unit\Frequency\Gigahertz
+ * @uses UnitConverter\Unit\Frequency\Hertz
+ * @uses UnitConverter\Unit\Frequency\Kilohertz
+ * @uses UnitConverter\Unit\Frequency\Megahertz
+ * @uses UnitConverter\Unit\Frequency\Millihertz
+ * @uses UnitConverter\Unit\Frequency\Terahertz
+ * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
+ * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
  * @uses UnitConverter\Unit\Length\AstronomicalUnit
  * @uses UnitConverter\Unit\Length\Centimetre
  * @uses UnitConverter\Unit\Length\Decimetre

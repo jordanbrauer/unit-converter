@@ -23,6 +23,10 @@ use UnitConverter\Unit\Length\Inch;
 /**
  * @coversDefaultClass UnitConverter\Calculator\Formula\UnitConversionFormula
  * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\Formula\AbstractFormula
+ * @uses UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\Unit\Length\Centimetre
+ * @uses UnitConverter\Unit\Length\Inch
  */
 final class UnitConversionFormulaSpec extends TestCase
 {
