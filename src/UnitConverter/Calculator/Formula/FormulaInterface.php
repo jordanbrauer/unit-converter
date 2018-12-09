@@ -20,6 +20,7 @@ namespace UnitConverter\Calculator\Formula;
  * @version 1.0.0
  * @since 0.8.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
+ * @codeCoverageIgnore
  */
 interface FormulaInterface
 {
