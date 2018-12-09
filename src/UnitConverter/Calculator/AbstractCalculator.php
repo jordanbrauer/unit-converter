@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
+use UnitConverter\Calculator\Formula\FormulaInterface;
+
 /**
  * The abstract calculator class that all concrete calculators should
  * extend from.
@@ -68,6 +70,13 @@ abstract class AbstractCalculator implements CalculatorInterface
     const ROUND_HALF_UP = PHP_ROUND_HALF_UP;
 
     /**
+     * A non-persitent stack of events for the current calculator's calculations
+     *
+     * @var array $history
+     */
+    protected $history;
+
+    /**
      * The number of decimal places that will calculated
      *
      * @var int $precision
@@ -93,8 +102,10 @@ abstract class AbstractCalculator implements CalculatorInterface
      */
     public function __construct(int $precision = null, int $roundingMode = null)
     {
-        $this->setPrecision(($precision ?? self::DEFAULT_PRECISION));
-        $this->setRoundingMode(($roundingMode ?? self::DEFAULT_ROUNDING_MODE));
+        $this->init(
+            ($precision ?? self::DEFAULT_PRECISION),
+            ($roundingMode ?? self::DEFAULT_ROUNDING_MODE)
+        );
     }
 
     /**
@@ -116,6 +127,43 @@ abstract class AbstractCalculator implements CalculatorInterface
     public function divide(...$params)
     {
         return $this->div(...$params);
+    }
+
+    /**
+     * Dump the calculator's history. Optionally clear the calculator afterwards.
+     *
+     * @api
+     * @param boolean $clear (optional) Clear the calculator after dumping.
+     * @return array
+     */
+    public function dump(bool $clear = false): array
+    {
+        $history = $this->history;
+
+        if ($clear) {
+            $this->init(self::DEFAULT_PRECISION, self::DEFAULT_ROUNDING_MODE);
+        }
+
+        return $history;
+    }
+
+    /**
+     * A robust calculator method to run formulaic operations, abstracting the
+     * logic to a single, contained class.
+     *
+     * @api
+     * @param FormulaInterface $formula The formula to run.
+     * @param mixed ...$parameters A variadic set of arguments to pass to the formula.
+     * @return int|float|string
+     */
+    public function exec(FormulaInterface $formula, ...$parameters)
+    {
+        $formula = (clone $formula)->setCalculator($this);
+        $result = $formula->describe(...$parameters);
+
+        $this->history[] = (string) $formula;
+
+        return $result;
     }
 
     /**
@@ -228,5 +276,19 @@ abstract class AbstractCalculator implements CalculatorInterface
     public function subtract(...$params)
     {
         return $this->sub(...$params);
+    }
+
+    /**
+     * Helper method to initialize the calculator's settings.
+     *
+     * @param int $precision The number of decimal digits to round to.
+     * @param int $roundingMode The mode in which rounding occurs.
+     * @return void
+     */
+    private function init(int $precision, int $roundingMode): void
+    {
+        $this->history = [];
+        $this->setPrecision($precision);
+        $this->setRoundingMode($roundingMode);
     }
 }

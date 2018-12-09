@@ -32,6 +32,11 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
+ * @uses UnitConverter\Calculator\Formula\AbstractFormula
+ * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\Temperature\Celsius\ToKelvin
+ * @uses UnitConverter\Calculator\Formula\Temperature\Celsius\ToFahrenheit
+ * @uses UnitConverter\Calculator\Formula\NullFormula
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
@@ -79,6 +84,20 @@ class CelsiusSpec extends TestCase
             ->convert(0)
             ->from("C")
             ->to("F");
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @test
+     */
+    public function assert1CelsiusIs1Celsius()
+    {
+        $expected = 1;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("C")
+            ->to("C");
 
         $this->assertEquals($expected, $actual);
     }

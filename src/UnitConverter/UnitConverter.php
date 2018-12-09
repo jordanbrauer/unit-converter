@@ -16,6 +16,7 @@ namespace UnitConverter;
 
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
+use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadConverter;
 use UnitConverter\Registry\UnitRegistryInterface;
 use UnitConverter\Unit\UnitInterface;
@@ -30,6 +31,8 @@ use UnitConverter\Unit\UnitInterface;
  */
 class UnitConverter implements UnitConverterInterface
 {
+    const CONVERSION_HASH_LENGTH = [0, 7];
+
     /**
      * A static array of supported scalar types for a unit's value.
      *
@@ -70,7 +73,7 @@ class UnitConverter implements UnitConverterInterface
      *
      * @var boolean
      */
-    protected $logConversions;
+    protected $loggingEnabled;
 
     /**
      * The decimal precision to be calculated
@@ -87,18 +90,18 @@ class UnitConverter implements UnitConverterInterface
     protected $registry;
 
     /**
-     * The temporary log that stores running calculations.
-     *
-     * @var array $tempLog
-     */
-    protected $tempLog = [];
-
-    /**
      * The unit of measure being converted **to**.
      *
      * @var string $to
      */
     protected $to;
+
+    /**
+     * The current conversions unique hash.
+     *
+     * @var string
+     */
+    private $hash;
 
     /**
      * Public constructor function for the UnitConverter class.
@@ -130,19 +133,14 @@ class UnitConverter implements UnitConverterInterface
      *
      * @return array
      */
-    public function all()
+    public function all(): array
     {
         $results = [];
         $symbol = $this->from->getSymbol();
 
         array_map(function ($unit) use (&$results, $symbol) {
             if ($symbol != $unit) {
-                $results[$unit] = $this->calculate(
-                    $this->convert,
-                    $this->from,
-                    $this->to = $this->loadUnit($unit), # assignment for ::castUnitsTo
-                    $this->percision
-                );
+                $results[$unit] = $this->to($unit);
             }
         }, $this->registry->listUnits($this->from->getUnitOf()));
 
@@ -165,7 +163,7 @@ class UnitConverter implements UnitConverterInterface
      */
     public function convert($value, int $precision = null): UnitConverterInterface
     {
-        $this->percision = $precision;
+        $this->precision = $precision;
         $this->convert = $value;
 
         return $this;
@@ -179,7 +177,7 @@ class UnitConverter implements UnitConverterInterface
      */
     public function disableConversionLog(): void
     {
-        $this->logConversions = false;
+        $this->loggingEnabled = false;
     }
 
     /**
@@ -190,7 +188,7 @@ class UnitConverter implements UnitConverterInterface
      */
     public function enableConversionLog(): void
     {
-        $this->logConversions = true;
+        $this->loggingEnabled = true;
     }
 
     /**
@@ -281,12 +279,7 @@ class UnitConverter implements UnitConverterInterface
     {
         $this->to = $this->loadUnit($unit);
 
-        return $this->calculate(
-            $this->convert,
-            $this->from,
-            $this->to,
-            $this->percision
-        );
+        return $this->calculate();
     }
 
     /**
@@ -307,49 +300,33 @@ class UnitConverter implements UnitConverterInterface
      *
      * @internal
      * @throws BadConverter
-     * @param int|float|string $value The initial value being converted.
-     * @param UnitInterface $from The unit of measure being converted **from**.
-     * @param UnitInterface $to The unit of measure being converted **to**.
-     * @param int $precision The decimal percision to be calculated
      * @return int|float|string
      */
-    protected function calculate(
-        $value,
-        UnitInterface $from,
-        UnitInterface $to,
-        int $precision = null
-    ) {
+    protected function calculate()
+    {
         if (!$this->calculatorExists()) {
             throw BadConverter::missingCalculator();
         }
 
-        $isBinary = (BinaryCalculator::class === $this->whichCalculator());
-
-        if ($isBinary and $precision) {
-            $this->calculator->setPrecision($precision);
+        if ($this->conversionExists()) {
+            return $this->log[$this->getConversionHash()]['result'];
         }
 
-        $selfConversion = $from->convert($this->calculator, $value, $to, $precision);
+        $fromUnits = $this->from->getUnits();
+        $toUnits = $this->to->getUnits();
 
-        // FIXME: Gross use of a check for a null convert() method ... 😑 Gotta figure out a better way to use the convert method.
-        if ($selfConversion) {
-            // TODO: refactor debugging (https://codeclimate.com/github/jordanbrauer/unit-converter/pull/89)
-            $result = $selfConversion;
-            $this->logTemp('convert', $result, ['left' => $value, 'right' => $to->getUnits(), 'precision' => $precision]);
-        } else {
-            $fromUnits = $from->getUnits();
-            $toUnits = $to->getUnits();
+        if (BinaryCalculator::class === $this->whichCalculator()) {
+            extract($this->castUnitsTo("string", $fromUnits, $toUnits));
 
-            if ($isBinary) {
-                extract($this->castUnitsTo("string"));
+            if ($this->precision) {
+                $this->calculator->setPrecision($this->precision);
             }
-
-            $mulResult = $this->multiply($value, $fromUnits);
-            $divResult = $this->divide($mulResult, $toUnits);
-            $result = $this->round($divResult, $precision);
         }
 
-        $this->writeLog();
+        $formula = $this->from->getFormulaFor($this->to) ?? new UnitConversionFormula();
+        $result = $this->calculator->exec($formula, $this->convert, $fromUnits, $toUnits, $this->precision);
+
+        $this->writeLog($result, ($this->calculator->dump(true)[0] ?? null));
 
         return $result;
     }
@@ -360,58 +337,27 @@ class UnitConverter implements UnitConverterInterface
      * @internal
      * @throws BadUnit When an unsupported scalar type is specified, throws exception.
      * @param string $type The variable type to be casted. Can be one of, "int", "float", or "string".
+     * @param int|float|string $fromUnits
+     * @param int|float|string $toUnits
      * @return array
      */
-    protected function castUnitsTo(string $type): array
+    protected function castUnitsTo(string $type, $fromUnits, $toUnits): array
     {
         if (!in_array($type, self::$types)) {
             throw BadUnit::scalar($type, self::$types);
         }
 
-        $units = [
-            "fromUnits" => $this->from->getUnits(),
-            "toUnits"   => $this->to->getUnits(),
-        ];
-
-        array_walk($units, function (&$value, $unit) use ($type) {
+        return array_combine([
+            'fromUnits',
+            'toUnits',
+        ], array_map(function ($value) use ($type) {
             settype($value, $type);
-        });
 
-        return $units;
-    }
-
-    /**
-     * Helper method for dividing and logging results.
-     *
-     * @internal
-     * @param mixed $leftOperand
-     * @param mixed $rightOperand
-     * @return mixed
-     */
-    protected function divide($leftOperand, $rightOperand)
-    {
-        return $this->operation(__FUNCTION__, [
-            'left'  => $leftOperand,
-            'right' => $rightOperand,
-        ]);
-    }
-
-    /**
-     * Returns an a step entry for the calculation log, with the given parameters.
-     *
-     * @internal
-     * @param array $parameters An array of parametrs used to create the product.
-     * @param string $operator The mathematical operator used in the calculation
-     * @param int|float|string $result The result of the calculation.
-     * @return array
-     */
-    protected function getLogStep(string $operator, array $parameters = [], $result): array
-    {
-        return [
-            'operator'   => $operator,
-            'parameters' => $parameters,
-            'result'     => $result,
-        ];
+            return $value;
+        }, [
+            $fromUnits,
+            $toUnits,
+        ]));
     }
 
     /**
@@ -433,82 +379,64 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * Add an entry to the temporary calculation log.
-     *
-     * @internal
-     * @param string $method The name of the mathematical function be used.
-     * @param int|float|string $result The result of the operation.
-     * @param array $parameters An associative array of the operations parameters
-     * @return void
-     */
-    protected function logTemp(string $method, $result = null, array $parameters = []): void
-    {
-        if ($this->logConversions) {
-            $this->tempLog[] = $this->getLogStep($method, $parameters, $result);
-        }
-    }
-
-    /**
-     * Helper method for multiplying and logging results.
-     *
-     * @internal
-     * @param mixed $leftOperand
-     * @param mixed $rightOperand
-     * @return mixed
-     */
-    protected function multiply($leftOperand, $rightOperand)
-    {
-        return $this->operation(__FUNCTION__, [
-            'left'  => $leftOperand,
-            'right' => $rightOperand,
-        ]);
-    }
-
-    /**
-     * Generic helper method to perform calculator operations & log the results.
-     *
-     * @internal
-     * @param string $operator
-     * @param array $parameters
-     * @return int|float|string
-     */
-    protected function operation(string $operator, array $parameters = [])
-    {
-        $result = $this->calculator->{$operator}(...array_values($parameters));
-        $this->logTemp($operator, $result, $parameters);
-
-        return $result;
-    }
-
-    /**
-     * Helper method for rounding and logging results.
-     *
-     * @internal
-     * @param mixed $value
-     * @param int $percision
-     * @return mixed
-     */
-    protected function round($value, $precision)
-    {
-        return $this->operation(__FUNCTION__, [
-            'value'     => $value,
-            'precision' => $precision,
-        ]);
-    }
-
-    /**
      * Add an entry to the conversion calculation log.
      *
      * @internal
-     * @param array $steps (optional)
+     * @param int|float|string $result
+     * @param string $calculation
      * @return void
      */
-    protected function writeLog(array $steps = null): void
+    protected function writeLog($result, string $calculation = null): void
     {
-        $steps = ($steps ?? $this->tempLog);
-        if (count($steps) > 0) {
-            $this->log[] = $steps;
-            $this->tempLog = [];
+        if ($this->loggingEnabled and $calculation) {
+            $this->log[$this->getConversionHash()] = [
+                'calculation' => $calculation,
+                'value'       => $this->convert,
+                'precision'   => $this->precision,
+                'from'        => $this->from->getSymbol(),
+                'to'          => $this->to->getSymbol(),
+                'result'      => $result,
+            ];
         }
+    }
+
+    /**
+     * Generates a conversion hash for the current set of parameters & checks if
+     * it matches any previous conversions. If logging is disabled, a conversion
+     * hash **will not** be generated & the check will not be made.
+     *
+     * @return bool
+     */
+    private function conversionExists(): bool
+    {
+        return $this->loggingEnabled
+            and array_key_exists($this->generateConversionHash(), $this->log);
+    }
+
+    /**
+     * Sets & returns a unique md5 hash of the current conversion.
+     *
+     * @return string
+     */
+    private function generateConversionHash(): string
+    {
+        $this->hash = mb_substr(md5(
+            $this->convert.
+            $this->precision.
+            $this->from->getRegistryKey().
+            $this->to->getSymbol()
+        ), ...self::CONVERSION_HASH_LENGTH);
+
+        return $this->hash;
+    }
+
+    /**
+     * Return a unique md5 hash of the current conversion.
+     *
+     * @return null|string
+     */
+    private function getConversionHash(): ?string
+    {
+        return $this->hash;
     }
 }

@@ -32,6 +32,12 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
+ * @uses UnitConverter\Calculator\Formula\AbstractFormula
+ * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToKelvin
+ * @uses UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToCelsius
+ * @uses UnitConverter\Calculator\Formula\NullFormula
+ * @uses UnitConverter\Calculator\Formula\Temperature\TemperatureFormula
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
@@ -79,6 +85,20 @@ class FahrenheitSpec extends TestCase
             ->convert(0, 4)
             ->from("F")
             ->to("C");
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @test
+     */
+    public function assert1FahrenheitIs1Fahrenheit()
+    {
+        $expected = 1;
+        $actual = $this->converter
+            ->convert(1, 2)
+            ->from("F")
+            ->to("F");
 
         $this->assertEquals($expected, $actual);
     }

@@ -18,7 +18,8 @@
     "style": "bin/php-cs-fixer fix --config=.php_cs --show-progress=dots --ansi -v"
   },
   "require": {
-    "php": "^7.1"
+    "php": "^7.1",
+    "ext-bcmath": "*"
   },
   "require-dev": {
     "consolidation/robo": "^1.2",
