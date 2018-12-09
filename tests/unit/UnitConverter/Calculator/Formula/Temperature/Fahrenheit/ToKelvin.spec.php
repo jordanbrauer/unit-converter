@@ -65,7 +65,7 @@ final class ToKelvinSpec extends TestCase
     /**
      * @test
      * @covers ::describe
-     * @covers UnitConverter\Calculator\Formula\Temperature\TemperatureFormula::fahrenhait
+     * @covers UnitConverter\Calculator\Formula\Temperature\TemperatureFormula::fahrenheit
      * @return void
      */
     public function assertGenericToKelvinDescribesValuesCorrectly(): void
