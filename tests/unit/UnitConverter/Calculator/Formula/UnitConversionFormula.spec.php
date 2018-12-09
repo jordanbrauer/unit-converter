@@ -12,7 +12,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Tests\Unit\Calculator;
+namespace UnitConverter\Tests\Unit\Calculator\Formula;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
@@ -51,11 +51,23 @@ final class UnitConversionFormulaSpec extends TestCase
     /**
      * @test
      * @covers ::__toString
+     * @covers ::plugVariables
      * @return void
      */
     public function assertFormulaHasStringRepresentation(): void
     {
         $expected = 'x = (a × b) ÷ c';
+        $actual = (string) $this->formula;
+
+        $this->assertEquals($expected, $actual);
+
+        $this->formula->describe(
+            $this->value,
+            $this->fromUnits,
+            $this->toUnits
+        );
+
+        $expected = '2.54 = (1 × 0.0254) ÷ 0.01';
         $actual = (string) $this->formula;
 
         $this->assertEquals($expected, $actual);
