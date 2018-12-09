@@ -15,6 +15,8 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Unit\Unit;
 
 use PHPUnit\Framework\TestCase;
+use UnitConverter\Calculator\Formula\NullFormula;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;
 use UnitConverter\Unit\Length\Inch;
@@ -24,6 +26,7 @@ use UnitConverter\Unit\Length\Metre;
  * @coversDefaultClass UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\Inch
+ * @uses UnitConverter\Calculator\Formula\NullFormula
  */
 class AbstractUnitSpec extends TestCase
 {
@@ -48,6 +51,40 @@ class AbstractUnitSpec extends TestCase
     protected function tearDown()
     {
         unset($this->registryKey, $this->unit);
+    }
+
+    /**
+     * @test
+     * @covers ::addFormulae
+     * @covers ::getFormulaFor
+     * @return void
+     */
+    public function assertAddingFormulaAndGettingFormulaForMeasurement(): void
+    {
+        $this->unit->addFormulae([
+            'F'  => NullFormula::class,
+            'U'  => NullFormula::class,
+            'B'  => NullFormula::class,
+            'A'  => NullFormula::class,
+            'R'  => NullFormula::class,
+            'sP' => NullFormula::class,
+        ]);
+
+        $formula = $this->unit->getFormulaFor($this->unit);
+
+        $this->assertInstanceOf(NullFormula::class, $formula);
+    }
+
+    /**
+     * @test
+     * @covers ::getBaseUnits
+     * @return void
+     */
+    public function assertBaseUnitsAreAccessible(): void
+    {
+        $baseUnits = $this->unit->getBaseUnits();
+
+        $this->assertEquals(1, $baseUnits);
     }
 
     /**
@@ -116,6 +153,35 @@ class AbstractUnitSpec extends TestCase
 
         $this->assertEquals("tS", $actual);
         $this->assertInternalType("string", $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::addFormula
+     * @covers ::getFormulaFor
+     * @return void
+     */
+    public function assertGettingFormulaForUnregisteredUnitThrowsBadUnitFormulaException(): void
+    {
+        $this->expectException(BadUnit::class);
+        $this->expectExceptionCode(BadUnit::ERROR_SELF_CONVERSION_FORMULA);
+        $this->unit->addFormula('💩', NullFormula::class);
+        $this->unit->getFormulaFor($this->unit);
+    }
+
+    /**
+     * @test
+     * @covers ::addFormula
+     * @covers ::getFormulaFor
+     * @return void
+     */
+    public function assertGettingFormulaWhileNoneExistReturnsNull(): void
+    {
+        $this->unit->addFormula('sP', NullFormula::class);
+
+        $formula = $this->unit->getFormulaFor($this->unit);
+
+        $this->assertInstanceOf(NullFormula::class, $formula);
     }
 
     /**
