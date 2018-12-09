@@ -14,9 +14,9 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
-use UnitConverter\Calculator\Formula\Fahrenheit\ToCelsius;
-use UnitConverter\Calculator\Formula\Fahrenheit\ToKelvin;
 use UnitConverter\Calculator\Formula\NullFormula;
+use UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToCelsius;
+use UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToKelvin;
 
 /**
  * Fahrenheit unit data class.

@@ -12,9 +12,9 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Calculator\Formula\Fahrenheit;
+namespace UnitConverter\Calculator\Formula\Temperature\Fahrenheit;
 
-use UnitConverter\Calculator\Formula\AbstractFormula;
+use UnitConverter\Calculator\Formula\Temperature\TemperatureFormula;
 
 /**
  * Formula to convert Fahrenheit values to Kelvin.
@@ -23,7 +23,7 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  * @since 0.8.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class ToKelvin extends AbstractFormula
+class ToKelvin extends TemperatureFormula
 {
     const FORMULA_STRING = 'K = (°F + 459.67) × (5 ÷ 9)';
 
@@ -36,14 +36,6 @@ class ToKelvin extends AbstractFormula
      */
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
-        // XXX: this formula assumes all calculators can accept strings, as it's the safest type.
-        $divisor = $this->calculator->div('5', '9');
-        $addResult = $this->calculator->add($value, (string) self::MAGIC_NUMBER);
-        $mulResult = $this->calculator->mul($addResult, $divisor);
-        $result = $this->calculator->round($mulResult, $precision);
-
-        $this->plugVariables($result, $value);
-
-        return $result;
+        return $this->fahrenheit($value, $precision, 'add');
     }
 }

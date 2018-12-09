@@ -12,24 +12,24 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Calculator\Formula\Fahrenheit;
+namespace UnitConverter\Calculator\Formula\Temperature\Celsius;
 
-use UnitConverter\Calculator\Formula\AbstractFormula;
+use UnitConverter\Calculator\Formula\Temperature\TemperatureFormula;
 
 /**
- * Formula to convert Fahrenheit values to Celsius.
+ * Formula to convert Celsius values to Kelvin.
  *
  * @version 1.0.0
  * @since 0.8.1
  * @author Jordan Brauer <jbrauer.inc@gmail.com>
  */
-class ToCelsius extends AbstractFormula
+class ToKelvin extends TemperatureFormula
 {
-    const FORMULA_STRING = '°C = (°F - 32) × (5 ÷ 9)';
+    const FORMULA_STRING = 'K = °C + 273.15';
 
-    const FORMULA_TEMPLATE = '%s°C = (%s°F - 32) × (5 ÷ 9)';
+    const FORMULA_TEMPLATE = '%s K = %s°C + 273.15';
 
-    const MAGIC_NUMBER = 32;
+    const MAGIC_NUMBER = 273.15;
 
     /**
      * {@inheritDoc}
@@ -37,10 +37,8 @@ class ToCelsius extends AbstractFormula
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
         // XXX: this formula assumes all calculators can accept strings, as it's the safest type.
-        $divisor = $this->calculator->div('5', '9');
-        $subResult = $this->calculator->sub($value, (string) self::MAGIC_NUMBER);
-        $mulResult = $this->calculator->mul($subResult, $divisor);
-        $result = $this->calculator->round($mulResult, $precision);
+        $addResult = $this->calculator->add($value, (string) self::MAGIC_NUMBER);
+        $result = $this->calculator->round($addResult, $precision);
 
         $this->plugVariables($result, $value);
 
