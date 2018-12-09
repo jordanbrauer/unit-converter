@@ -35,6 +35,8 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
  * @uses UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToKelvin
+ * @uses UnitConverter\Calculator\Formula\Temperature\Celsius\ToCelsius
+ * @uses UnitConverter\Calculator\Formula\NullFormula
  * @uses UnitConverter\Calculator\Formula\Temperature\TemperatureFormula
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
