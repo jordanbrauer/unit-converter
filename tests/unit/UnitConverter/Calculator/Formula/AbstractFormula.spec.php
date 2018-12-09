@@ -17,6 +17,7 @@ namespace UnitConverter\Tests\Unit\Calculator\Formula;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\Formula\AbstractFormula;
+use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Inch;
 
@@ -31,9 +32,14 @@ final class AbstractFormulaSpec extends TestCase
 {
     protected function setUp()
     {
-        $this->formula = new class() extends AbstractFormula {
+        $this->formula = new class(new SimpleCalculator()) extends AbstractFormula {
+            const FORMULA_TEMPLATE = '%s';
+
             public function describe($value, $fromUnits, $toUnits, int $precision = null)
             {
+                $this->plugVariables($value);
+
+                return $value;
             }
 
             /**
@@ -68,12 +74,25 @@ final class AbstractFormulaSpec extends TestCase
      */
     public function assertCalculatorsCanBeOverriden(): void
     {
-        $this->assertNull($this->formula->getCalculator());
-
         $calculator = new BinaryCalculator();
 
         $this->formula->setCalculator($calculator);
 
         $this->assertSame($calculator, $this->formula->getCalculator());
+    }
+
+    /**
+     * @test
+     * @covers ::plugVariables
+     * @covers ::__toString
+     * @return void
+     */
+    public function assertVariablesArePluggedCorrectly(): void
+    {
+        $expected = 1;
+
+        $this->formula->describe($expected, 2, 3);
+
+        $this->assertEquals("{$expected}", (string) $this->formula);
     }
 }
