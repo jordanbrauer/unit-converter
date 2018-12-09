@@ -12,7 +12,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Tests\Unit\Calculator\Formula;
+namespace UnitConverter\Tests\Unit\Calculator\Formula\Temperature\Fahrenheit;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\Formula\Temperature\Fahrenheit\ToCelsius;
