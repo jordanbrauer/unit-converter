@@ -52,6 +52,7 @@ final class UnitConversionFormulaSpec extends TestCase
      * @test
      * @covers ::__toString
      * @covers ::plugVariables
+     * @uses UnitConverter\Calculator\Formula\UnitConversionFormula::describe
      * @return void
      */
     public function assertFormulaHasStringRepresentation(): void

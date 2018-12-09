@@ -23,6 +23,7 @@ use UnitConverter\Unit\Length\Inch;
 
 /**
  * @coversDefaultClass UnitConverter\Calculator\Formula\AbstractFormula
+ * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\Centimetre
