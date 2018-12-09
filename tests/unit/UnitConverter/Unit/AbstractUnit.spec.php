@@ -24,8 +24,11 @@ use UnitConverter\Unit\Length\Metre;
 
 /**
  * @coversDefaultClass UnitConverter\Unit\AbstractUnit
+ * @uses UnitConverter\Exception\BadUnit
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\Length\Inch
+ * @uses UnitConverter\Unit\Length\Metre
+ * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\NullFormula
  */
 class AbstractUnitSpec extends TestCase
