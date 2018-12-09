@@ -1,5 +1,27 @@
 # Change Log
 
+## [v0.8.1](https://github.com/jordanbrauer/unit-converter/tree/v0.8.1) (2018-12-09)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.0...v0.8.1)
+
+**Implemented enhancements:**
+
+- Convert a unit to all other possible units of measurement. [\#119](https://github.com/jordanbrauer/unit-converter/issues/119)
+- Add support for units of measurement, Fuel Economy [\#42](https://github.com/jordanbrauer/unit-converter/issues/42)
+- Add support for units of measurement, Frequency [\#41](https://github.com/jordanbrauer/unit-converter/issues/41)
+- Expose api [\#124](https://github.com/jordanbrauer/unit-converter/pull/124) ([jordanbrauer](https://github.com/jordanbrauer))
+- Add support for units of measurement, Frequency [\#123](https://github.com/jordanbrauer/unit-converter/pull/123) ([jmauerhan](https://github.com/jmauerhan))
+- Convert to all [\#121](https://github.com/jordanbrauer/unit-converter/pull/121) ([jordanbrauer](https://github.com/jordanbrauer))
+- Refactor calculate [\#116](https://github.com/jordanbrauer/unit-converter/pull/116) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Closed issues:**
+
+- Fix "method\_complexity" issue in src/UnitConverter/UnitConverter.php [\#96](https://github.com/jordanbrauer/unit-converter/issues/96)
+
+**Merged pull requests:**
+
+- add php metrics library for static code analysis [\#125](https://github.com/jordanbrauer/unit-converter/pull/125) ([jordanbrauer](https://github.com/jordanbrauer))
+- \#42 : Add support for units of measurement, Fuel Economy  \(\#1\) [\#117](https://github.com/jordanbrauer/unit-converter/pull/117) ([Progi1984](https://github.com/Progi1984))
+
 ## [v0.8.0](https://github.com/jordanbrauer/unit-converter/tree/v0.8.0) (2018-08-06)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.7.1...v0.8.0)
 
