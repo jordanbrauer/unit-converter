@@ -10,6 +10,7 @@ echo PHP_EOL." Operating System: ".\php_uname('s')
     .PHP_EOL." OS Release: ".\php_uname('r')
     .PHP_EOL." PHP SAPI Version: ".\phpversion()." (".\php_sapi_name().")"
     .PHP_EOL." Zend Version: ".\zend_version()
+    .PHP_EOL." PHP Memory Limit: ".\ini_get('memory_limit')
     .PHP_EOL;
 
 require_once \realpath(\rtrim(__DIR__, '/').'/../vendor/autoload.php');
@@ -22,7 +23,7 @@ $converter = \UnitConverter\UnitConverter::createBuilder()
 $converter->disableConversionLog();
 
 $iterations = 1000000;
-$values = \array_map(function ($minimum) use ($iterations) { return \rand($minimum, $iterations); }, \array_fill(0, $iterations, 1));
+$values = \array_map(function ($minimum) use ($iterations) { return \mt_rand($minimum, $iterations); }, \array_fill(0, $iterations, 1));
 $time = -\microtime(true);
 $ruBegin = \getrusage();
 
