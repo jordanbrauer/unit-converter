@@ -22,10 +22,9 @@ Convert all kinds of standard units of measurement from one to another with this
 
 **Table of Contents:**
 
-1. About the Component
-2. Installing the Component
-3. Basic Usage
-4. Documentation
+1. [About the Component](#1-about-the-component)
+2. [Installing the Component](#2-installing-the-component)
+3. [Basic Usage](#3-basic-usage)
 
 ## 1. About the Component
 
