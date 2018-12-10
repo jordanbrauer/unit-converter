@@ -171,9 +171,39 @@ The `from` method takes the symbol of the unit of measure paired with your value
 
 ##### `to(string $symbol)`
 
-The `to` method does exactly what the from method does, except that it takes the symbol of the unit you are converting to.
+The `to` method does exactly what the `from` method does, except that it takes the symbol of the unit you are converting to.
 
 It must called as the last method in the chain. It returns the result of the conversion from the calculator.
+
+##### `all()`
+
+The `all` method does exactly what the `to` method does, except that it takes no arguments & instead of returning a single value, it returns all possible conversions in an associative array.
+
+Just like the `to` method, it must called as the last method in the chain.
+
+```php
+$converter->convert(1)->from("in")->all();
+```
+Would produce the following;
+```php
+array:15 [
+  "au" => 0.0
+  "cm" => 2.54
+  "dm" => 0.25
+  "ft" => 0.08
+  "h" => 0.25
+  "km" => 0.0
+  "ly" => 0.0
+  "m" => 0.03
+  "um" => 25400.0
+  "mi" => 0.0
+  "mm" => 25.4
+  "nm" => 25400000.0
+  "pc" => 0.0
+  "pm" => 25400000000.0
+  "yd" => 0.03
+]
+```
 
 #### Customizing &amp; Extending Default Units
 
@@ -196,6 +226,10 @@ Checkout the API documentation for details on all the methods available to units
 
 You are able to add your own custom units to the unit registry. The unit converter and registry are flexible enough to allow for you to create your own unit of measure classes, or register them on the fly as needed.
 
+##### 1. Extend the Base Unit
+
+The type of measurement you are creating will depend on which base unit you will have to extend. Configure the basic information.
+
 ```php
 use UnitConverter\Unit\Energy\EnergyUnit;
 
@@ -204,7 +238,7 @@ class Gigawatt extends EnergyUnit
   protected function configure (): void
   {
     $this
-      ->setName("gigawatt")
+      ->setName("gigawatt") # Great Scott, Marty!
       ->setSymbol("gw")
       ->setUnits(1.21)
       ;
@@ -212,44 +246,48 @@ class Gigawatt extends EnergyUnit
 }
 ```
 
+##### 2. Add Custom Unit to Registry
+
+You will want to do this where you are configuring your unit converter (e.g., a DI/IoC container).
+
+```php
+# if you have access to the registry directly:
+$registry->registerUnit(new Gigawatt);
+
+# if you only have access to the converter:
+$converter->getRegistry()->registerUnit(new Gigawatt);
+```
+
+That's it! Your custom unit of measurement is ready to use & will behave exactly as if it were part of the default units provided with this package.
+
 ### Debugging
 
 If you ever require some sort of debugging output for your conversions, there is a method available for that, on the converter which can be used it like so,
 
 ```php
-dump($converter->getConversionLog());
+var_dump($converter->getConversionLog());
 ```
 Using the same example conversion from the [converting units](#converting-units) section, our dump would output the following
 ```php
 array:1 [
-    0 => array:3 [
-        0 => array:3 [
-            "operator" => "multiply"
-            "parameters" => array:2 [
-                "left" => 1
-                "right" => 0.0254
-            ]
-            "result" => 0.0254
-        ]
-        1 => array:3 [
-            "operator" => "divide"
-            "parameters" => array:2 [
-                "left" => 0.0254
-                "right" => 0.01
-            ]
-            "result" => 2.54
-        ]
-        2 => array:3 [
-            "operator" => "round"
-            "parameters" => array:2 [
-                "value" => 2.54
-                "precision" => null
-            ]
-            "result" => 2.54
-        ]
-    ]
+  "130d9d5" => array:6 [
+    "calculation" => "2.54 = (1 × 0.0254) ÷ 0.01"
+    "value" => 1
+    "precision" => null
+    "from" => "in"
+    "to" => "cm"
+    "result" => 2.54
+  ]
 ]
 ```
+
+> **Note:** having the conversion log enabled will greatly hinder performance. If you find yourself running out of memory, you can disable the conversion log (it is enabled, by default), like so;
+
+```php
+$converter->disableConversionLog();
+```
+
+The conversion log tries it's best to be economical by checking for repeat calculations & returning the previous result if one already exists. This prevents the array that stores the data from getting too large. However, generally speaking, this will not be a problem for most users.
 
 ## 4. Documentation
 
