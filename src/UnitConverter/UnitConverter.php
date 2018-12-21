@@ -128,6 +128,30 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Returns a unit converter set up for common use cases
+     * @return UnitConverter
+     */
+    public static function default()
+    {
+        return self::createBuilder()
+            ->addSimpleCalculator()
+            ->addDefaultRegistry()
+            ->build();
+    }
+
+    /**
+     * Returns a unit converter set up for binary use cases
+     * @return UnitConverter
+     */
+    public static function binary()
+    {
+        return self::createBuilder()
+            ->addBinaryCalculator()
+            ->addDefaultRegistry()
+            ->build();
+    }
+
+    /**
      * Convert a unit to all other possible units of measurement. The results will
      * be an associative array in the form of `symbol => conversion`.
      *
