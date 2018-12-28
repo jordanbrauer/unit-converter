@@ -25,6 +25,7 @@ Convert all kinds of standard units of measurement from one to another with this
 1. [About the Component](#1-about-the-component)
 2. [Installing the Component](#2-installing-the-component)
 3. [Basic Usage](#3-basic-usage)
+4. [Documentation](#4-documentation)
 
 ## 1. About the Component
 
@@ -81,6 +82,20 @@ $converter->convert(1)->from("in")->to("cm"); # (float) 2.54
 ```
 
 and you're done! For a more in-depth setup guide, [**check the wiki**](https://github.com/jordanbrauer/unit-converter/wiki).
+
+### Usage Examples
+
+```php
+$isOverSpeedLimit = function (SpeedUnit $speed) {
+    return $speed->to('miph') > 50;
+}
+
+$isOverSpeedLimit(new KilometrePerHour(59)); # (bool) true
+```
+
+## Documentation
+
+There are two kinds of in-depth documentation for this project: user & API documentation. Use whichever one you need to help answer your questions!
 
 ### User Documentation
 
