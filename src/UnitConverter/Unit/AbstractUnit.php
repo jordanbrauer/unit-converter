@@ -16,6 +16,7 @@ namespace UnitConverter\Unit;
 
 use UnitConverter\Calculator\Formula\FormulaInterface;
 use UnitConverter\Exception\BadUnit;
+use UnitConverter\Calculator\AbstractCalculator;
 
 /**
  * This class is the base class for all unit of measurement classes.
@@ -64,11 +65,16 @@ abstract class AbstractUnit implements UnitInterface
      */
     protected $units;
 
+    protected $value;
+
     /**
      * Public constructor function for units of measurement.
+     *
+     * @param int|float|string $value The amount of units to be reprsented by the final object as.
      */
-    public function __construct()
+    public function __construct($value = 1)
     {
+        $this->value = $value;
         $this->formulae = [];
         $this->configure();
     }
@@ -195,6 +201,17 @@ abstract class AbstractUnit implements UnitInterface
         $this->units = $units;
 
         return $this;
+    }
+
+    public function to(UnitInterface $unit, int $precision = null)
+    {
+        return \UnitConverter\UnitConverter::createBuilder()
+            ->addSimpleCalculator()
+            ->addRegistryWith([$this, $unit])
+            ->build()
+            ->convert($this->getValue(), $precision)
+            ->from($this->getSymbol())
+            ->to($unit->getSymbol());
     }
 
     /**
