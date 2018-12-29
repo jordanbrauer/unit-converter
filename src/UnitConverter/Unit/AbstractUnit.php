@@ -64,6 +64,9 @@ abstract class AbstractUnit implements UnitInterface
      */
     protected $units;
 
+    /**
+     * @var int|float|string The value of the unit (how many of it are measured).
+     */
     protected $value;
 
     /**
