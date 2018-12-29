@@ -16,7 +16,6 @@ namespace UnitConverter\Unit;
 
 use UnitConverter\Calculator\Formula\FormulaInterface;
 use UnitConverter\Exception\BadUnit;
-use UnitConverter\Calculator\AbstractCalculator;
 
 /**
  * This class is the base class for all unit of measurement classes.
@@ -76,6 +75,7 @@ abstract class AbstractUnit implements UnitInterface
     {
         $this->value = $value;
         $this->formulae = [];
+
         $this->configure();
     }
 
@@ -89,6 +89,28 @@ abstract class AbstractUnit implements UnitInterface
         foreach ($formulae as $symbol => $class) {
             $this->addFormula($symbol, $class);
         }
+    }
+
+    /**
+     * Convenience method that converts the current unit to whatever unit is
+     * passed in. Optionally supply precision & whether or not to use a binary
+     * calculator (BCMath).
+     *
+     * @param UnitInterface $unit An instance of the unit being converted to.
+     * @param integer $precision The precision to calculate to.
+     * @param boolean $binary Are we using BCMath?
+     * @return int|float|string
+     */
+    public function as(UnitInterface $unit, int $precision = null, bool $binary = false)
+    {
+        return \UnitConverter\UnitConverter::createBuilder()
+            ->{'add'.(($binary) ? 'Binary' : 'Simple').'Calculator'}() # ¯\_(ツ)_/¯
+            ->addRegistryWith([$this, $unit])
+            ->build()
+            // ->disableConversionLog() # TODO: when this returns interface, uncomment!
+            ->convert((string) $this->getValue(), $precision)
+            ->from($this->getSymbol())
+            ->to($unit->getSymbol());
     }
 
     public function getBase(): ?UnitInterface
@@ -144,6 +166,11 @@ abstract class AbstractUnit implements UnitInterface
     public function getUnits(): ?float
     {
         return $this->units;
+    }
+
+    public function getValue()
+    {
+        return $this->value;
     }
 
     public function isMultipleSiUnit(): bool
@@ -203,15 +230,11 @@ abstract class AbstractUnit implements UnitInterface
         return $this;
     }
 
-    public function to(UnitInterface $unit, int $precision = null)
+    public function setValue($value): UnitInterface
     {
-        return \UnitConverter\UnitConverter::createBuilder()
-            ->addSimpleCalculator()
-            ->addRegistryWith([$this, $unit])
-            ->build()
-            ->convert($this->getValue(), $precision)
-            ->from($this->getSymbol())
-            ->to($unit->getSymbol());
+        $this->value = $value;
+
+        return $this;
     }
 
     /**
