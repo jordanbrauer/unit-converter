@@ -85,12 +85,30 @@ and you're done! For a more in-depth setup guide, [**check the wiki**](https://g
 
 ### Usage Examples
 
+Here are where some usage examples of something that may fit more along the lines of _"real-life"_, are found. Keep in mind that the code examples in each use-case, while working & valid, do contain **some** pseudo-code in them for demonstration purposes.
+
+#### The Traffic Camera
+
+In this example, pretend we have a traffic camera that only captures speeds in Imperial measurement of _miles per hour_. The traffic camera records each passing car's speed to determine if they were speeding & if so, snap a photo of their license plate as proof to serve a ticket. In this case, the camera caught a speed of `59` _miles per hour_.
+
+Here we construct a new unit & give it a value representing how many of the unit exists,
+
+```php
+$capturedSpeed = new MilePerHour(59);
+```
+
+Next, a conversion of units needs to take place, because this traffic camera model is being used in a country that uses the metric system.
+
+As you can see in this example, we are leveraging the power of typehints to ensure we only receive units of the desired measurement. Inside of the closure, we are using one of the unit's most convenient & powerful methods: `to()`. It allows us to convert units without the direct use of the `UnitConverter` & `UnitRegistry` objects – giving the benefit of even cleaner code & type safety.
+
 ```php
 $isOverSpeedLimit = function (SpeedUnit $speed) {
-    return $speed->to('miph') > 50;
-}
+    return $speed->as(new KilometrePerHour) > 50;
+};
 
-$isOverSpeedLimit(new KilometrePerHour(59)); # (bool) true
+if ($isOverSpeedLimit($capturedSpeed)) { # (bool) true
+    TrafficCamera::snapPhoto();
+}
 ```
 
 ## Documentation
