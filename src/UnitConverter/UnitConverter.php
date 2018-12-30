@@ -117,6 +117,20 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Returns a unit converter set up for binary use cases
+     *
+     * @api
+     * @return UnitConverterInterface
+     */
+    public static function binary(): UnitConverterInterface
+    {
+        return self::createBuilder()
+            ->addBinaryCalculator()
+            ->addDefaultRegistry()
+            ->build();
+    }
+
+    /**
      * Returns a builder object for quickly scaffolding out a new converter.
      *
      * @api
@@ -129,24 +143,14 @@ class UnitConverter implements UnitConverterInterface
 
     /**
      * Returns a unit converter set up for common use cases
-     * @return UnitConverter
+     *
+     * @api
+     * @return UnitConverterInterface
      */
-    public static function default()
+    public static function default(): UnitConverterInterface
     {
         return self::createBuilder()
             ->addSimpleCalculator()
-            ->addDefaultRegistry()
-            ->build();
-    }
-
-    /**
-     * Returns a unit converter set up for binary use cases
-     * @return UnitConverter
-     */
-    public static function binary()
-    {
-        return self::createBuilder()
-            ->addBinaryCalculator()
             ->addDefaultRegistry()
             ->build();
     }
@@ -197,22 +201,26 @@ class UnitConverter implements UnitConverterInterface
      * Disables the logging of conversions & their order of operations.
      *
      * @api
-     * @return void
+     * @return UnitConverterInterface
      */
-    public function disableConversionLog(): void
+    public function disableConversionLog(): UnitConverterInterface
     {
         $this->loggingEnabled = false;
+
+        return $this;
     }
 
     /**
      * Enables the logging of conversions & their order of operations.
      *
      * @api
-     * @return void
+     * @return UnitConverterInterface
      */
-    public function enableConversionLog(): void
+    public function enableConversionLog(): UnitConverterInterface
     {
         $this->loggingEnabled = true;
+
+        return $this;
     }
 
     /**
