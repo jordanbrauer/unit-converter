@@ -64,7 +64,18 @@ Using the component is very easy, especially if you have used the Symfony or Lar
 
 ### Quick-Start
 
-If you'd like to skip the minutiae of this component's setup and get right down to business, you can get started by constructing a pre-configured converter via the builder object, like so,
+If you'd like to skip the minutiae of this component's setup and get right down to business, you can get started by constructing a pre-configured converter via static constructors or the builder object, like so,
+
+###### Static Constructors
+
+```php
+use UnitConverter\UnitConverter;
+
+$converter = UnitConverter::default(); # simple calculator
+$converter = UnitConverter::binary(); # binary calculator (BC math)
+```
+
+###### Builder
 
 ```php
 use UnitConverter\UnitConverter;
