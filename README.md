@@ -99,7 +99,7 @@ $capturedSpeed = new MilePerHour(59);
 
 Next, a conversion of units needs to take place, because this traffic camera model is being used in a country that uses the metric system.
 
-As you can see in this example, we are leveraging the power of typehints to ensure we only receive units of the desired measurement. Inside of the closure, we are using one of the unit's most convenient & powerful methods: `to()`. It allows us to convert units without the direct use of the `UnitConverter` & `UnitRegistry` objects – giving the benefit of even cleaner code & type safety.
+As you can see in this example, we are leveraging the power of typehints to ensure we only receive units of the desired measurement. Inside of the closure, we are using one of the unit's most convenient & powerful methods: `as()`. It allows us to convert units without the direct use of the `UnitConverter` & `UnitRegistry` objects – giving the benefit of even cleaner code & type safety.
 
 ```php
 $isOverSpeedLimit = function (SpeedUnit $speed) {
