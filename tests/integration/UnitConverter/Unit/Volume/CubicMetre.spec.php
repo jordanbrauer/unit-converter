@@ -14,10 +14,12 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use UnitConverter\Unit\Volume\CubicMetre;
-use UnitConverter\Measure;
-use UnitConverter\UnitConverterInterface;
 use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Gallon;
+use UnitConverter\Unit\Volume\Litre;
+use UnitConverter\Unit\Volume\Millilitre;
+use UnitConverter\Unit\Volume\Pint;
 
 /**
  * Ensure that a cubic metre is a metre that has been cubed.
@@ -34,34 +36,18 @@ use UnitConverter\Tests\TestCase;
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
-class CubicMetreSpec extends TestCase
+final class CubicMetreSpec extends TestCase
 {
-    const FROM_CUBIC_METRES_TO_LITRES = '1 cubic metre is equal to 1000 litres';
-
-    /**
-     * @test
-     * @dataProvider correctConversions
-     *
-     * @param int|float|string $amount
-     * @param string $from
-     * @param string $to
-     * @param int|float|string $expected
-     * @return void
-     */
-    public function assertCorrectConversions(UnitConverterInterface $converter, $amount, string $from, $expected, string $to): void
-    {
-        $converter = $this->simpleVolumeConverter();
-        $actual = $converter->convert($amount)->from($from)->to($to);
-
-        $this->assertEquals($expected, $actual);
-    }
-
     public function correctConversions()
     {
-        $simple = $this->simpleVolumeConverter();
+        $m3 = new CubicMetre();
 
-        yield from [
-            static::FROM_CUBIC_METRES_TO_LITRES => [$simple, 1, 'm3', 1000, 'L'],
+        yield from [ # NOTE: conversions taken from google unit converter
+            '1 cubic metre is equal to 1 cubic metre'            => [1, $m3, 1.0, new CubicMetre(), 0],
+            '1 cubic metre is equal to 264.17 US liquid gallons' => [1, $m3, 264.172, new Gallon(), 3],
+            '1 cubic metre is equal to 1000 litres'              => [1, $m3, 1000.0, new Litre(), 0],
+            '1 cubic metre is equal to 1000000 millilitres'      => [1, $m3, 1000000.0, new Millilitre(), 0],
+            '1 cubic metre is equal to 2113.38 US liquid pints'  => [1, $m3, 2113.38, new Pint(), 2],
         ];
     }
 }
