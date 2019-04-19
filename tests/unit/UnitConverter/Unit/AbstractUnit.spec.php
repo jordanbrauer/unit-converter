@@ -30,12 +30,22 @@ use UnitConverter\Unit\Length\Metre;
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\NullFormula
+ * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\BinaryCalculator
+ * @uses UnitConverter\ConverterBuilder
+ * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\UnitConverter
  */
 class AbstractUnitSpec extends TestCase
 {
+    const RESULT_SAIYAN_POWER_TO_INCHES = 354370.08;
+
     protected function setUp()
     {
-        $this->registryKey = Measure::LENGTH.'.sP';
+        $this->registryKey = Measure::LENGTH.".sP";
         $this->unit = new class() extends AbstractUnit {
             protected $name = "saiyan power";
 
@@ -65,12 +75,12 @@ class AbstractUnitSpec extends TestCase
     public function assertAddingFormulaAndGettingFormulaForMeasurement(): void
     {
         $this->unit->addFormulae([
-            'F'  => NullFormula::class,
-            'U'  => NullFormula::class,
-            'B'  => NullFormula::class,
-            'A'  => NullFormula::class,
-            'R'  => NullFormula::class,
-            'sP' => NullFormula::class,
+            "F"  => NullFormula::class,
+            "U"  => NullFormula::class,
+            "B"  => NullFormula::class,
+            "A"  => NullFormula::class,
+            "R"  => NullFormula::class,
+            "sP" => NullFormula::class,
         ]);
 
         $formula = $this->unit->getFormulaFor($this->unit);
@@ -168,7 +178,7 @@ class AbstractUnitSpec extends TestCase
     {
         $this->expectException(BadUnit::class);
         $this->expectExceptionCode(BadUnit::ERROR_SELF_CONVERSION_FORMULA);
-        $this->unit->addFormula('💩', NullFormula::class);
+        $this->unit->addFormula("💩", NullFormula::class);
         $this->unit->getFormulaFor($this->unit);
     }
 
@@ -180,7 +190,7 @@ class AbstractUnitSpec extends TestCase
      */
     public function assertGettingFormulaWhileNoneExistReturnsNull(): void
     {
-        $this->unit->addFormula('sP', NullFormula::class);
+        $this->unit->addFormula("sP", NullFormula::class);
 
         $formula = $this->unit->getFormulaFor($this->unit);
 
@@ -217,6 +227,30 @@ class AbstractUnitSpec extends TestCase
 
     /**
      * @test
+     * @covers ::setValue
+     * @covers ::getValue
+     * @return void
+     */
+    public function assertGetValueSetValueMethodsCanReadAndWriteToUnitValue(): void
+    {
+        $default = $this->unit->getValue();
+
+        $this->assertInternalType("integer", $default);
+        $this->assertEquals(1, $default);
+        $this->assertSame(1, $default);
+
+        $this->unit->setValue(69);
+
+        $actual = $this->unit->getValue();
+
+        $this->assertInternalType("integer", $actual);
+        $this->assertNotEquals($default, $actual);
+        $this->assertEquals(69, $actual);
+        $this->assertSame(69, $actual);
+    }
+
+    /**
+     * @test
      * @covers ::isMultipleSiUnit
      */
     public function assertNonSiMultipleUnitsReturnFalseWhenChecking()
@@ -246,5 +280,50 @@ class AbstractUnitSpec extends TestCase
         $result = $this->unit->isSiUnit();
         $this->assertFalse($result);
         $this->assertInternalType("bool", $result);
+    }
+
+    /**
+     * @test
+     * @covers ::as
+     * @return void
+     */
+    public function assertUnitCanActAsAnotherUnit(): void
+    {
+        $expected = 9001.0;
+        $actual = $this->unit->as(new Metre());
+
+        $this->assertInternalType("float", $actual);
+        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::as
+     * @return void
+     */
+    public function assertUnitCanActAsAnotherUnitWithBinaryPrecision(): void
+    {
+        $expected = (string) self::RESULT_SAIYAN_POWER_TO_INCHES;
+        $actual = $this->unit->as(new Inch(), 2, true);
+
+        $this->assertInternalType("string", $actual);
+        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
+    }
+
+    /**
+     * @test
+     * @covers ::as
+     * @return void
+     */
+    public function assertUnitCanActAsAnotherUnitWithPrecision(): void
+    {
+        $expected = self::RESULT_SAIYAN_POWER_TO_INCHES;
+        $actual = $this->unit->as(new Inch(), 2);
+
+        $this->assertInternalType("float", $actual);
+        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 }
