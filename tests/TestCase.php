@@ -15,11 +15,14 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
-use UnitConverter\UnitConverter;
 use UnitConverter\Measure;
+use UnitConverter\UnitConverter;
+use UnitConverter\UnitConverterInterface;
 
 abstract class TestCase extends PHPUnitTestCase
 {
+    use AssertsCorrectConversions;
+
     /**
      * @var ConverterBuilder
      */
@@ -35,21 +38,24 @@ abstract class TestCase extends PHPUnitTestCase
         unset($this->builder);
     }
 
-    protected function simpleConverter(): UnitConverterInterface
-    {
-        return $this->builder->addSimpleCalculator()
-            ->addDefaultRegistry();
-    }
-
     protected function binaryConverter(): UnitConverterInterface
     {
         return $this->builder->addBinaryCalculator()
-            ->addDefaultRegistry();
+            ->addDefaultRegistry()
+            ->build();
+    }
+
+    protected function simpleConverter(): UnitConverterInterface
+    {
+        return $this->builder->addSimpleCalculator()
+            ->addDefaultRegistry()
+            ->build();
     }
 
     protected function simpleVolumeConverter(): UnitConverterInterface
     {
         return $this->builder->addSimpleCalculator()
-            ->addRegistryFor(Measure::VOLUME);
+            ->addRegistryFor(Measure::VOLUME)
+            ->build();
     }
 }

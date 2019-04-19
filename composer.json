@@ -37,6 +37,7 @@
   },
   "autoload-dev": {
     "psr-4": {
+      "UnitConverter\\Tests\\": "tests/",
       "UnitConverter\\Tests\\Integration\\": "tests/integration/UnitConverter/",
       "UnitConverter\\Tests\\Unit\\": "tests/unit/UnitConverter/"
     }
