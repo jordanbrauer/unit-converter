@@ -14,12 +14,10 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Volume\CubicMetre;
-use UnitConverter\Unit\Volume\Litre;
-use UnitConverter\UnitConverter;
+use UnitConverter\Measure;
+use UnitConverter\UnitConverterInterface;
+use UnitConverter\Tests\TestCase;
 
 /**
  * Ensure that a cubic metre is a metre that has been cubed.
@@ -38,33 +36,32 @@ use UnitConverter\UnitConverter;
  */
 class CubicMetreSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-                new CubicMetre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
+    const FROM_CUBIC_METRES_TO_LITRES = '1 cubic metre is equal to 1000 litres';
 
     /**
      * @test
+     * @dataProvider correctConversions
+     *
+     * @param int|float|string $amount
+     * @param string $from
+     * @param string $to
+     * @param int|float|string $expected
+     * @return void
      */
-    public function assert1CubicMetreIs1000Litres()
+    public function assertCorrectConversions(UnitConverterInterface $converter, $amount, string $from, $expected, string $to): void
     {
-        $expected = 1000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("m3")
-            ->to("L");
+        $converter = $this->simpleVolumeConverter();
+        $actual = $converter->convert($amount)->from($from)->to($to);
 
         $this->assertEquals($expected, $actual);
+    }
+
+    public function correctConversions()
+    {
+        $simple = $this->simpleVolumeConverter();
+
+        yield from [
+            static::FROM_CUBIC_METRES_TO_LITRES => [$simple, 1, 'm3', 1000, 'L'],
+        ];
     }
 }
