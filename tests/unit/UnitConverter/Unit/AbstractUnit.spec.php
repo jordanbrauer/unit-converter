@@ -30,6 +30,14 @@ use UnitConverter\Unit\Length\Metre;
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\NullFormula
+ * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\SimpleCalculator
+ * @uses UnitConverter\Calculator\BinaryCalculator
+ * @uses UnitConverter\ConverterBuilder
+ * @uses UnitConverter\Registry\UnitRegistry
+ * @uses UnitConverter\Support\ArrayDotNotation
+ * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\UnitConverter
  */
 class AbstractUnitSpec extends TestCase
 {
