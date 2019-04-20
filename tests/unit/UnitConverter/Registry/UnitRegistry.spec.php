@@ -16,7 +16,7 @@ namespace UnitConverter\Tests\Unit\Registry;
 
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Exception\BadMeasurement;
-use UnitConverter\Exception\BadUnit;
+use UnitConverter\Exception\BadRegistry;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\AbstractUnit;
 use UnitConverter\Unit\Length\Centimetre;
@@ -53,12 +53,12 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\BadUnit
+     * @covers UnitConverter\Exception\BadRegistry
      */
-    public function assertBadUnitExceptionIsThrownForUnregisteredUnknownUnits()
+    public function assertBadRegistryExceptionIsThrownForUnregisteredUnknownUnits()
     {
-        $this->expectException(BadUnit::class);
-        $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
+        $this->expectException(BadRegistry::class);
+        $this->expectExceptionCode(BadRegistry::ERROR_UNKNOWN_UNIT);
 
         $this->registry->loadUnit("yd");
     }
@@ -222,12 +222,12 @@ class UnitRegistrySpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\BadUnit
+     * @covers UnitConverter\Exception\BadRegistry
      */
-    public function assertUnregisteringUnknownUnitsThrowsBadUnitException()
+    public function assertUnregisteringUnknownUnitsThrowsBadRegistryException()
     {
-        $this->expectException(BadUnit::class);
-        $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
+        $this->expectException(BadRegistry::class);
+        $this->expectExceptionCode(BadRegistry::ERROR_UNKNOWN_UNIT);
 
         $this->registry->unregisterUnit("nOtREal");
     }
