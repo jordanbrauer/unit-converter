@@ -17,11 +17,10 @@ namespace UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Calculator\Formula\AbstractFormula;
 
 /**
- * Formula to convert Celsius values to Kelvin.
+ * Formula to convert Kilometre Per Litre values to Miles Per Gallon.
  *
  * @version 1.0.0
- * @since 0.8.1
- * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @author Maksim Martianov <7222812+maksimru@users.noreply.github.com>
  */
 class ToMilesPerGallon extends AbstractFormula
 {
