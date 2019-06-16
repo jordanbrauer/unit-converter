@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Cheatsheet Concept</title>
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.4/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="css/prism.css">
+    <link rel="stylesheet" href="css/cheatsheet.css">
+  </head>
+  <body>
+    <section class="hero is-link is-bold">
+      <div class="hero-body">
+        <div class="columns">
+          <div class="column is-12">
+            <div class="container content">
+              <h1 class="title"><i class="fas fa-drafting-compass"></i> PHP Unit Converter</h1>
+              <h3 class="subtitle">Convert standard units from one to another with this easy to use, lightweight package</h3>
+              <a href="https://github.com/jordanbrauer/unit-converter" target="_blank" class="button is-link is-inverted is-medium is-outlined">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Github</span>
+              </a>
+              <a href="https://packagist.org/packages/jordanbrauer/unit-converter" target="_blank" class="button is-link is-inverted is-medium is-outlined">
+                <span class="icon">
+                  <i class="fas fa-code"></i>
+                </span>
+                <span>Packagist</span>
+              </a>
+              <a href="https://choosealicense.com/licenses/mit/" target="_blank" class="button is-link is-inverted is-medium is-outlined">
+                <span class="icon">
+                  <i class="fas fa-book"></i>
+                </span>
+                <span>MIT License</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-3">
+            <aside class="is-medium menu">
+          <p class="menu-label">
+            categories
+          </p>
+          <ul class="menu-list">
+            <li class="is-right"><a href="#const" class="is-active"><i class="fab fa-css3-alt"></i> CSS</a></li>
+            <li><a href="#let" class="is-active"><i class="fab fa-js"></i> JS</a></li>
+            <li><a href="#let" class="is-active"><i class="fab fa-html5"></i> HTML</a></li>
+          </ul>
+              <p class="menu-label">
+                More to read...
+              </p>
+              <ul class="menu-list">
+                <li><span class="tag is-white is-medium">Lorem</span></li>
+                <li><span class="tag is-white is-medium">Ipsum</span></li>
+                <li><span class="tag is-white is-medium">Dolor</span></li>
+                <li><span class="tag is-white is-medium">Animi</span></li>
+                <li><span class="tag is-white is-medium">Eximi</span></li>
+                <li><span class="tag is-white is-medium">Nullius</span></li>
+                <li><span class="tag is-white is-medium">Oxipi</span></li>
+                <li><span class="tag is-white is-medium">Vultus</span></li>
+                <li><span class="tag is-white is-medium">Voluptatis</span></li>
+                <li><span class="tag is-white is-medium">Exomarphis</span></li>
+                <li><span class="tag is-white is-medium">Finimi</span></li>
+                <li><span class="tag is-white is-medium">Aenigma</span></li>
+                <li><span class="tag is-white is-medium">Arkham</span></li>
+                <li><span class="tag is-white is-medium">Blue</span></li>
+                <li><span class="tag is-white is-medium">Medium</span></li>
+              </ul>
+            </aside>
+          </div>
+          <div class="column is-9">
+            <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+              <ul>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">UnitConverter</a></li>
+                <li><a href="#">UnitConverter</a></li>
+                <li class="is-active"><a href="#" aria-current="page">convert</a></li>
+              </ul>
+            </nav>
+            <div class="content is-medium">
+              <h3 id="const" class="title is-3">UnitConverter::convert <i class="far is-size-4 fa-eye has-text-success"></i></h3>
+              <!-- <h3 id="const" class="title is-3">convert <i class="fas is-size-4 fa-shield-alt has-text-warning"></i></h3> -->
+              <!-- <h3 id="const" class="title is-3">convert <i class="fas is-size-4 fa-lock has-text-danger"></i></h3> -->
+              <h4 class="subtitle is-6 has-text-grey">Since <code>0.0.1</code></h4>
+              <h5 class="subtitle is-6 has-text-grey"><code>UnitConverter::convert()</code> — Sets the value to be converted.</h5>
+              <hr />
+              <h4 class="title is-4">Description</h4>
+              <pre><code class="language-php">UnitConverter::convert(mixed $value, int $precision = null): UnitConverterInterface;</code></pre>
+              <p>Set the unit converters' value to be converted. This method is the first method to be called in the chain of conversion methods.</p>
+              <h4 class="title is-4">Parameters</h4>
+              <div class="box">
+                <h5 class="title"><code>int | float | string <b>$value</b></code></h5>
+                <!-- <h6 class="subtitle is-6"><code>int | float | string</code></h6> -->
+                <p>The numerical value being converted.</p>
+              </div>
+              <div class="box">
+                <h5><code>int <b>$precision</b></code></h5>
+                <p>The decimal precision to be rounded to</p>
+              </div>
+              <h4 class="title is-4">Returns</h4>
+              <p><code>UnitConverterInterface</code></p>
+              <h4 class="title is-4">Examples</h4>
+              <div class="box">
+                <h4 id="const" class="title is-4">Integer Input</h4>
+                <p>Sets 9,001 units to be configured, represented as an integer.</p>
+                <pre><code class="language-php">$converter = UnitConverter::default();
+$converter->convert(9001);</code></pre>
+                <article class="message is-danger">
+                  <div class="message-body">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Warning:</strong> <code>UnitConverter</code> instances
+                    configured with the <code>BinaryCalculator</code> can not accept integer input.
+                  </div>
+                </article>
+              </div>
+              <div class="box">
+                <h4 id="const" class="title is-4">Floating Decimal Input</h4>
+                <p>Sets pi-to-the-fifth-decimal-units to be configured, represented as a floating decimal.</p>
+                <pre><code class="language-php">$converter = UnitConverter::default();
+$converter->convert(3.14159);</code></pre>
+                <article class="message is-danger">
+                  <div class="message-body">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Warning:</strong> <code>UnitConverter</code> instances
+                    configured with
+                    the <code>BinaryCalculator</code> can not accept floating decimal input.
+                  </div>
+                </article>
+              </div>
+              <div class="box">
+                <h4 id="const" class="title is-4">Numeric String Input</h4>
+                <p>The converter will generally always accept string input, and is considered the safest type to pass <code>$value</code> in as.</p>
+                <pre><code class="language-php">$converter = UnitConverter::default();
+$converter->convert('101');
+$converter->convert('0.99');</code></pre>
+              </div>
+              <div class="box">
+                <h4 id="const" class="title is-4">Converting with Precision</h4>
+                <p>The following snippet will convert 5 metres to inches, with a precision of 9 (to the ninth decimal place).</p>
+                <pre><code class="language-php">$converter = UnitConverter::default();
+$converter->convert(5, 9)->from('m')->to('in'); # (float) 196.850393701</code></pre>
+                <article class="message is-warning">
+                  <div class="message-body">
+                    <i class="far fa-sticky-note"></i> <strong>Note:</strong> the result of the calculation could have less decimal
+                    place values than you specify in the <code>$precision</code> parameter. This will happen if the result cannot be any
+                    more precise than what PHP deems.
+                  </div>
+                </article>
+              </div>
+              <h4 class="title is-4">Notes</h4>
+              <h4 class="title is-4">Related</h4>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<footer class="footer">
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-one-third">
+        <article class="notification media has-background-white">
+          <figure class="media-left">
+            <span class="icon">
+              <i class="has-text-warning fas fa-columns fa-lg"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Columns</h1>
+              <p class="is-size-5 subtitle">
+                The power of <strong>Flexbox</strong> in a simple interface
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-info">
+              <i class="fab fa-lg fa-wpforms"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Form</h1>
+              <p class="is-size-5 subtitle">
+                The indispensable <strong>form controls</strong>, designed for maximum clarity
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-danger">
+              <i class="fas fa-lg fa-cubes"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Components</h1>
+              <p class="is-size-5 subtitle">
+                Advanced multi-part components with lots of possibilities
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-grey">
+              <i class="fas fa-lg fa-cogs"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Modifiers</h1>
+              <p class="is-size-5 subtitle">
+                An <strong>easy-to-read</strong> naming system designed for humans
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-primary">
+              <i class="fas fa-lg fa-warehouse"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Layout</h1>
+              <p class="is-size-5 subtitle">
+                Design the <strong>structure</strong> of your webpage with these CSS classes
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column is-one-third">
+        <article class="notification has-background-white media">
+          <figure class="media-left">
+            <span class="icon has-text-danger">
+              <i class="fas fa-lg fa-cube"></i>
+            </span>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <h1 class="title is-size-4">Elements</h1>
+              <p class="is-size-5 subtitle">
+                Essential interface elements that only require a <strong>single CSS class</strong>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<hr>
+<div class="columns is-mobile is-centered">
+  <div class="field is-grouped is-grouped-multiline">
+    <div class="control">
+      <div class="tags has-addons"><a class="tag is-link" href="https://github.com/dansup/bulma-templates">Bulma Templates</a>
+      <span class="tag is-info">MIT license</span>
+    </div>
+  </div>
+  <div class="control">
+    <div class="tags has-addons">
+      <span class="tag is-dark">based on a pen</span>
+      <span class="tag has-addons is-warning"><a href="https://codepen.io/melanieseltzer/pen/odOXWM"><i class="fab fa-lg fa-codepen"></i></a></span>
+    </div>
+  </div>
+</div>
+</div>
+
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-markup-templating.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-javadoclike.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-php.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-php-extras.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/components/prism-phpdoc.js"></script>
+<script>
+  window.addEventListener('resize', () => {
+  const divs = document.querySelectorAll(".menu-list");
+  if (window.innerWidth < 768){
+    divs.forEach(div => div.classList.add("tags"));
+  }
+  else {
+    divs.forEach(div => div.classList.remove("tags"));
+  }
+});
+</script>
+</body>
+</html>
