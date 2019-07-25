@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  "php-7.1":
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.1-node-browsers
@@ -46,3 +46,9 @@ jobs:
       # run tests with phpunit or codecept
       - run: composer clover
       - run: ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - "php-7.1"
