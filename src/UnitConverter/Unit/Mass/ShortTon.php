@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Mass;
 
 /**
- * Short ton data class. Also known as 'net ton'.
+ * Short ton data class. Also known as 'net ton', or 'U.S. ton'
  *
  * @version 2.0.0
  * @since 0.3.9

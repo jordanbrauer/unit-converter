@@ -28,7 +28,7 @@ class LongTon extends MassUnit
         $this
             ->setName("long ton")
 
-            ->setSymbol("ton")
+            ->setSymbol("w/t") # NOTE: A long ton is also referred to as "weight ton (W/T)"
 
             ->setUnits(1016.047);
     }

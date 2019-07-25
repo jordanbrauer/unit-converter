@@ -17,7 +17,7 @@ namespace UnitConverter\Tests\Unit;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\ConverterBuilder;
-use UnitConverter\Exception\BadUnit;
+use UnitConverter\Exception\BadRegistry;
 use UnitConverter\Measure;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\UnitConverter;
@@ -87,12 +87,12 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
-     * @covers UnitConverter\Exception\BadUnit
+     * @covers UnitConverter\Exception\BadRegistry
      */
-    public function assertConversionThrowsUnknownBadUnitExceptionsAtUnknownUnits()
+    public function assertConversionThrowsUnknownBadRegistryExceptionsAtUnknownUnits()
     {
-        $this->expectException(BadUnit::class);
-        $this->expectExceptionCode(BadUnit::ERROR_UNKNOWN_UNIT);
+        $this->expectException(BadRegistry::class);
+        $this->expectExceptionCode(BadRegistry::ERROR_UNKNOWN_UNIT);
 
         $this->converter
             ->convert(1)
