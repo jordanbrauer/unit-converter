@@ -1,19 +1,24 @@
 #!/usr/bin/env php
 <?php
 
-\error_reporting(E_ALL);
+use UnitConverter\Unit\Length\Inch;
+use UnitConverter\Unit\Length\Centimetre;
+
+\system('clear');
+\error_reporting(\E_ALL);
 \ini_set('display_errors', 1);
 
-echo PHP_EOL." Operating System: ".\php_uname('s')
-    .PHP_EOL." Machine Architecture: ".\php_uname('m')
-    .PHP_EOL." OS Version: ".\php_uname('v')
-    .PHP_EOL." OS Release: ".\php_uname('r')
-    .PHP_EOL." PHP SAPI Version: ".\phpversion()." (".\php_sapi_name().")"
-    .PHP_EOL." Zend Version: ".\zend_version()
-    .PHP_EOL." PHP Memory Limit: ".\ini_get('memory_limit')
-    .PHP_EOL;
-
 require_once \realpath(\rtrim(__DIR__, '/').'/../vendor/autoload.php');
+
+echo \PHP_EOL." Operating System: ".\php_uname('s')
+    .\PHP_EOL." Machine Architecture: ".\php_uname('m')
+    .\PHP_EOL." OS Version: ".\php_uname('v')
+    .\PHP_EOL." OS Release: ".\php_uname('r')
+    .\PHP_EOL." PHP SAPI Version: ".\phpversion()." (".\php_sapi_name().")"
+    .\PHP_EOL." Zend Version: ".\zend_version()
+    .\PHP_EOL." PHP Memory Limit: ".\ini_get('memory_limit')
+    .\PHP_EOL
+    .\PHP_EOL." Executing conversions ...\r";
 
 $converter = \UnitConverter\UnitConverter::createBuilder()
     ->addDefaultRegistry()
@@ -22,24 +27,32 @@ $converter = \UnitConverter\UnitConverter::createBuilder()
 
 $converter->disableConversionLog();
 
-$iterations = 1000000;
-$values = \array_map(function ($minimum) use ($iterations) { return \mt_rand($minimum, $iterations); }, \array_fill(0, $iterations, 1));
-$time = -\microtime(true);
+$iterations = (($argv[1] ?? \null) && \is_numeric($argv[1])) ? (int) $argv[1] : 1000000;
+$values = \array_map(function ($minimum) use ($iterations) {
+    return \mt_rand($minimum, $iterations);
+}, \array_fill(0, $iterations, 1));
+$time = -\microtime(\true);
 $ruBegin = \getrusage();
 
-for ($i = 0; $i < $iterations; $i++) $converter->convert($values[$i])->from('in')->to('cm');
+for ($i = 0; $i < $iterations; $i++) {
+    $converter->convert($values[$i])->from('in')->to('cm');
+}
 
-$allocatedMemory = \memory_get_usage(true);
+$allocatedMemory = \memory_get_usage(\true);
 $ruEnd = \getrusage();
-$time += \microtime(true);
-$calcRuTime = function ($ru, $rus, $index) { return (($ru["ru_{$index}.tv_sec"] * 1000) + \intval(($ru["ru_{$index}.tv_usec"] / 1000))) - (($rus["ru_{$index}.tv_sec"] * 1000) + \intval(($rus["ru_{$index}.tv_usec"] / 1000))); };
-$calcMemUsage = function ($x) { return @\round($x / \pow(1024, ($i = \floor(\log($x, 1024)))), 2).' '.['b', 'kb', 'mb', 'gb', 'tb', 'pb'][$i]; };
+$time += \microtime(\true);
+$calcRuTime = function ($ru, $rus, $index) {
+    return (($ru["ru_{$index}.tv_sec"] * 1000) + \intval(($ru["ru_{$index}.tv_usec"] / 1000))) - (($rus["ru_{$index}.tv_sec"] * 1000) + \intval(($rus["ru_{$index}.tv_usec"] / 1000)));
+};
+$calcMemUsage = function ($x) {
+    return @\round($x / \pow(1024, ($i = \floor(\log($x, 1024)))), 2).' '.['b', 'kb', 'mb', 'gb', 'tb', 'pb'][$i];
+};
 
-echo PHP_EOL." Iterations: ".\number_format($iterations)
-    .PHP_EOL." Memory Usage: {$calcMemUsage($allocatedMemory)}"
-    .PHP_EOL." Clock Time: ".\number_format($time, 2)." s"
-    .PHP_EOL." Process Computation Time: {$calcRuTime($ruEnd, $ruBegin, 'utime')} ms"
-    .PHP_EOL." System Call Time: {$calcRuTime($ruEnd, $ruBegin, 'stime')} ms"
-    .PHP_EOL
-    .PHP_EOL.\sprintf(" Executed %s conversions per second", \number_format(($iterations / $time), 0))
-    .PHP_EOL;
+echo " Iterations: ".\number_format($iterations)."   "
+    .\PHP_EOL." Memory Usage: {$calcMemUsage($allocatedMemory)}"
+    .\PHP_EOL." Clock Time: ".\number_format($time, 2)." s"
+    .\PHP_EOL." Process Computation Time: {$calcRuTime($ruEnd, $ruBegin, 'utime')} ms"
+    .\PHP_EOL." System Call Time: {$calcRuTime($ruEnd, $ruBegin, 'stime')} ms"
+    .\PHP_EOL
+    .\PHP_EOL.\sprintf(" Executed %s conversions per second", \number_format(($iterations / $time), 0))
+    .\PHP_EOL;
