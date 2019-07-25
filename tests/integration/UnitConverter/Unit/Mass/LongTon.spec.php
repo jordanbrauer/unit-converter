@@ -62,7 +62,7 @@ class LongTonSpec extends TestCase
         $expected = 1016.047;
         $actual = $this->converter
             ->convert(1, 3)
-            ->from("ton")
+            ->from("w/t")
             ->to("kg");
 
         $this->assertEquals($expected, $actual);
