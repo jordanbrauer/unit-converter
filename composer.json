@@ -33,7 +33,10 @@
   "autoload": {
     "psr-4": {
       "UnitConverter\\": "src/UnitConverter/"
-    }
+    },
+    "files": [
+        "src/helpers.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
