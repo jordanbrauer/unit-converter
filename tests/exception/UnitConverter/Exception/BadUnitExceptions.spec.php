@@ -37,18 +37,6 @@ final class BadUnitExceptionsSpec extends TestCase
 
     /**
      * @test
-     * @covers ::unknown
-     */
-    public function assertBadUnitHasCodeForUnknownUnits()
-    {
-        $exception = BadUnit::unknown('cm');
-
-        $this->assertInstanceOf(BadUnit::class, $exception);
-        $this->assertEquals(BadUnit::ERROR_UNKNOWN_UNIT, $exception->getCode());
-    }
-
-    /**
-     * @test
      * @covers ::scalar
      */
     public function assertBadUnitHasCodeForUnsupportedScalarTypes()
