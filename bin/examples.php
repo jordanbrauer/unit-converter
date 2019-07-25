@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types = 1);
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once realpath(rtrim(__DIR__, '/').'/vendor/autoload.php');
+require_once \realpath(\rtrim(__DIR__, '/').'/../vendor/autoload.php');
 
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Measure;
@@ -54,12 +56,26 @@ $registry->registerUnit(new class() extends AbstractUnit {
 # Converting Units
 # -------------------------------------
 
-$conversion = $converter->convert(1, 2)->from('in')->to('cm');
+$conversions = [
+    "\$converter->convert(1, 2)->from('in')->to('cm');" => $converter->convert(1, 2)->from('in')->to('cm'),
+    '(new Inch)->as(new Centimetre);'                   => (new Inch())->as(new Centimetre()),
+    'inches()->as(centimetres());'                      => inches()->as(centimetres()),
+    'convert(inches(), centimetres());'                 => convert(inches(), centimetres()),
+];
 
-var_dump($conversion);
+$strings = array_keys($conversions);
+$pad = array_reduce($strings, function (?int $longest, string $code): int {
+    $length = strlen($code);
+
+    return ($length > $longest) ? $length : $longest;
+});
+
+foreach ($conversions as $code => $result) {
+    echo PHP_EOL.' '.str_pad($code, (1 + $pad), ' ').'# ('.gettype($result).') '.$result.PHP_EOL;
+}
 
 # -------------------------------------
 # Debugging
 # -------------------------------------
 
-echo json_encode($converter->getConversionLog(), JSON_PRETTY_PRINT);
+$conversions = $converter->getConversionLog();
