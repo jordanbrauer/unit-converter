@@ -41,14 +41,14 @@ class LitreSpec extends TestCase
 {
     public function correctConversions(): Iterator
     {
-        $l = new Litre();
+        $l = new Litre(1);
 
         yield from [
-            '1 litre is equal to 0.001 cubic metres' => [1, $l, 0.001, new CubicMetre(), 3],
-            '1 litre is equal to 0.264172 gallons'   => [1, $l, 0.264172, new Gallon(), 6],
-            '1 litre is equal to 1 litre'            => [1, $l, 1.0, new Litre(), 0],
-            '1 litre is equal to 1000 millilitres'   => [1, $l, 1000.0, new Millilitre(), 0],
-            '1 litre is equal to 2.11338 pints'      => [1, $l, 2.11338, new Pint(), 5],
+            '1 litre is equal to 0.001 cubic metres' => [$l, new CubicMetre(0.001), 3],
+            '1 litre is equal to 0.264172 gallons'   => [$l, new Gallon(0.264172), 6],
+            '1 litre is equal to 1 litre'            => [$l, new Litre(1.0), 0],
+            '1 litre is equal to 1000 millilitres'   => [$l, new Millilitre(1000.0), 0],
+            '1 litre is equal to 2.11338 pints'      => [$l, new Pint(2.11338), 5],
         ];
     }
 }

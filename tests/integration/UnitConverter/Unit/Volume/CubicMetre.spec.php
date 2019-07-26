@@ -48,14 +48,14 @@ final class CubicMetreSpec extends TestCase
 {
     public function correctConversions(): Iterator
     {
-        $m3 = new CubicMetre();
+        $m3 = new CubicMetre(1);
 
         yield from [ # NOTE: conversions taken from google unit converter
-            '1 cubic metre is equal to 1 cubic metre'            => [1, $m3, 1.0, new CubicMetre(), 0],
-            '1 cubic metre is equal to 264.17 US liquid gallons' => [1, $m3, 264.172, new Gallon(), 3],
-            '1 cubic metre is equal to 1000 litres'              => [1, $m3, 1000.0, new Litre(), 0],
-            '1 cubic metre is equal to 1000000 millilitres'      => [1, $m3, 1000000.0, new Millilitre(), 0],
-            '1 cubic metre is equal to 2113.38 US liquid pints'  => [1, $m3, 2113.38, new Pint(), 2],
+            '1 cubic metre is equal to 1 cubic metre'            => [$m3, new CubicMetre(1.0), 0],
+            '1 cubic metre is equal to 264.17 US liquid gallons' => [$m3, new Gallon(264.172), 3],
+            '1 cubic metre is equal to 1000 litres'              => [$m3, new Litre(1000.0), 0],
+            '1 cubic metre is equal to 1000000 millilitres'      => [$m3, new Millilitre(1000000.0), 0],
+            '1 cubic metre is equal to 2113.38 US liquid pints'  => [$m3, new Pint(2113.38), 2],
         ];
     }
 }

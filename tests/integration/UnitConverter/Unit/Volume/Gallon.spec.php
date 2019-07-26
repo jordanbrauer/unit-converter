@@ -49,14 +49,14 @@ final class GallonSpec extends TestCase
 {
     public function correctConversions(): Iterator
     {
-        $gal = new Gallon();
+        $gal = new Gallon(1);
 
         yield from [ # NOTE: conversions taken from google unit converter
-            '1 gallon is equal to 0.004 cubic metres' => [1, $gal, 0.004, new CubicMetre(), 3],
-            '1 gallon is equal to 1 gallon'           => [1, $gal, 1.0, new Gallon(), 0],
-            '1 gallon is equal to 3.79 litres'        => [1, $gal, 3.785, new Litre(), 3],
-            '1 gallon is equal to 3785.4 millilitres' => [1, $gal, 3785.41, new Millilitre(), 2],
-            '1 gallon is equal to 8 pints'            => [1, $gal, 8.0, new Pint(), 0],
+            '1 gallon is equal to 0.004 cubic metres' => [$gal, new CubicMetre(0.004), 3],
+            '1 gallon is equal to 1 gallon'           => [$gal, new Gallon(1.0), 0],
+            '1 gallon is equal to 3.79 litres'        => [$gal, new Litre(3.785), 3],
+            '1 gallon is equal to 3785.4 millilitres' => [$gal, new Millilitre(3785.41), 2],
+            '1 gallon is equal to 8 pints'            => [$gal, new Pint(8.0), 0],
         ];
     }
 }

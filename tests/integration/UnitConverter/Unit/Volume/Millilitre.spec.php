@@ -42,14 +42,14 @@ class MillilitreSpec extends TestCase
 {
     public function correctConversions(): Iterator
     {
-        $ml = new Millilitre();
+        $ml = new Millilitre(1);
 
         yield from [
-            '1 millilitre is 1,000,000 cubic metres' => [1, $ml, 0.000001, new CubicMetre(), 6],
-            '1 millilitre is 0.000264172 gallons'    => [1, $ml, 0.000264172, new Gallon(), 9],
-            '1 millilitre is 0.001 litres'           => [1, $ml, 0.001, new Litre(), 3],
-            '1 millilitre is 1 millilitre'           => [1, $ml, 1.0, new Millilitre(), 0],
-            '1 millilitre is 0.00211338 pints'       => [1, $ml, 0.00211338, new Pint(), 8],
+            '1 millilitre is 1,000,000 cubic metres' => [$ml, new CubicMetre(0.000001), 6],
+            '1 millilitre is 0.000264172 gallons'    => [$ml, new Gallon(0.000264172), 9],
+            '1 millilitre is 0.001 litres'           => [$ml, new Litre(0.001), 3],
+            '1 millilitre is 1 millilitre'           => [$ml, new Millilitre(1.0), 0],
+            '1 millilitre is 0.00211338 pints'       => [$ml, new Pint(0.00211338), 8],
         ];
     }
 }
