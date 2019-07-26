@@ -37,6 +37,13 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\ConverterBuilder
+ * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
+ * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
+ * @uses UnitConverter\Unit\Volume\CubicMetre
+ * @uses UnitConverter\Unit\Volume\Millilitre
+ * @uses UnitConverter\Unit\Volume\Pint
  */
 final class GallonSpec extends TestCase
 {

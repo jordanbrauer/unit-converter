@@ -35,6 +35,13 @@ use UnitConverter\Unit\Volume\Pint;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\ConverterBuilder
+ * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
+ * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
+ * @uses UnitConverter\Unit\Volume\Gallon
+ * @uses UnitConverter\Unit\Volume\Millilitre
+ * @uses UnitConverter\Unit\Volume\Pint
  */
 final class CubicMetreSpec extends TestCase
 {

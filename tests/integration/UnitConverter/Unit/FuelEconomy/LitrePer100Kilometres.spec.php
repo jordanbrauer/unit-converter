@@ -35,6 +35,9 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\LitrePer100Kilometres\ToKilometrePerLitre
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\LitrePer100Kilometres\ToMilesPerGallon
+ * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
  */
 class LitrePer100KilometresSpec extends TestCase
 {
@@ -110,5 +113,4 @@ class LitrePer100KilometresSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-
 }

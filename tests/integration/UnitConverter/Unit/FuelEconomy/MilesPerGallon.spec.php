@@ -35,6 +35,10 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
+ * @uses UnitConverter\Calculator\Formula\NullFormula
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallon\ToKilometrePerLitre
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallon\ToLitrePer100Kilometres
  */
 class MilesPerGallonSpec extends TestCase
 {
@@ -44,7 +48,7 @@ class MilesPerGallonSpec extends TestCase
             new UnitRegistry([
                 new KilometrePerLitre(),
                 new MilesPerGallon(),
-                new LitrePer100Kilometres()
+                new LitrePer100Kilometres(),
             ]),
             new SimpleCalculator()
         );
@@ -58,13 +62,13 @@ class MilesPerGallonSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MilesPerGallonIs1MilesPerGallon()
+    public function assert10KilometersPerLitreIs23LitrePer100Kilometres()
     {
-        $expected = 1;
+        $expected = 23.52;
         $actual = $this->converter
-            ->convert(1)
+            ->convert(10)
             ->from("mpg")
-            ->to("mpg");
+            ->to("L/100km");
 
         $this->assertEquals($expected, $actual);
     }
@@ -86,13 +90,13 @@ class MilesPerGallonSpec extends TestCase
     /**
      * @test
      */
-    public function assert10KilometersPerLitreIs23LitrePer100Kilometres()
+    public function assert1MilesPerGallonIs1MilesPerGallon()
     {
-        $expected = 23.52;
+        $expected = 1;
         $actual = $this->converter
-            ->convert(10)
+            ->convert(1)
             ->from("mpg")
-            ->to("L/100km");
+            ->to("mpg");
 
         $this->assertEquals($expected, $actual);
     }

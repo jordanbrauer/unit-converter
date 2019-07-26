@@ -37,6 +37,8 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\Formula\NullFormula
  * @uses UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
  * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre\ToMilesPerGallon
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre\ToLitrePer100Kilometres
  */
 class KilometrePerLitreSpec extends TestCase
 {
