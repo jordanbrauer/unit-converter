@@ -14,10 +14,13 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
+use UnitConverter\Unit\Volume\Millilitre;
+use UnitConverter\Unit\Volume\Pint;
 use UnitConverter\UnitConverter;
 
 /**
@@ -36,32 +39,16 @@ use UnitConverter\UnitConverter;
  */
 class LitreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $l = new Litre();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1LitreIs1Litre()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("L")
-            ->to("L");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 litre is equal to 0.001 cubic metres' => [1, $l, 0.001, new CubicMetre(), 3],
+            '1 litre is equal to 0.264172 gallons'   => [1, $l, 0.264172, new Gallon(), 6],
+            '1 litre is equal to 1 litre'            => [1, $l, 1.0, new Litre(), 0],
+            '1 litre is equal to 1000 millilitres'   => [1, $l, 1000.0, new Millilitre(), 0],
+            '1 litre is equal to 2.11338 pints'      => [1, $l, 2.11338, new Pint(), 5],
+        ];
     }
 }

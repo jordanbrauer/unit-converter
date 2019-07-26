@@ -14,11 +14,13 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
+use UnitConverter\Unit\Volume\Pint;
 use UnitConverter\UnitConverter;
 
 /**
@@ -38,33 +40,16 @@ use UnitConverter\UnitConverter;
  */
 class MillilitreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-                new Millilitre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $ml = new Millilitre();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MillilitreIs0decimal001Litres()
-    {
-        $expected = 0.001;
-        $actual = $this->converter
-            ->convert(1, 3)
-            ->from("mL")
-            ->to("L");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 millilitre is 1,000,000 cubic metres' => [1, $ml, 0.000001, new CubicMetre(), 6],
+            '1 millilitre is 0.000264172 gallons'    => [1, $ml, 0.000264172, new Gallon(), 9],
+            '1 millilitre is 0.001 litres'           => [1, $ml, 0.001, new Litre(), 3],
+            '1 millilitre is 1 millilitre'           => [1, $ml, 1.0, new Millilitre(), 0],
+            '1 millilitre is 0.00211338 pints'       => [1, $ml, 0.00211338, new Pint(), 8],
+        ];
     }
 }

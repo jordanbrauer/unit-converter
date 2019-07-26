@@ -14,10 +14,12 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
+use UnitConverter\Unit\Volume\Millilitre;
 use UnitConverter\Unit\Volume\Pint;
 use UnitConverter\UnitConverter;
 
@@ -38,33 +40,16 @@ use UnitConverter\UnitConverter;
  */
 class PintSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-                new Pint(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $pt = new Pint();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1PintIs0decimal473176Litres()
-    {
-        $expected = 0.473176;
-        $actual = $this->converter
-            ->convert(1, 6)
-            ->from("pt")
-            ->to("L");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 pint is equal to 0.000473176 cubic metres' => [1, $pt, 0.000473176, new CubicMetre(), 9],
+            '1 pint is equal to 0.125 gallons'            => [1, $pt, 0.125, new Gallon(), 3],
+            '1 pint is equal to 0.473176 litres'          => [1, $pt, 0.473176, new Litre(), 6],
+            '1 pint is equal to 473.176 millilitre'       => [1, $pt, 473.176, new Millilitre(), 3],
+            '1 pint is equal to 1 pint'                   => [1, $pt, 1.0, new Pint(), 0],
+        ];
     }
 }

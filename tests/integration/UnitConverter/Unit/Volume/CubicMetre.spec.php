@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
+use Iterator;
 use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Volume\CubicMetre;
 use UnitConverter\Unit\Volume\Gallon;
@@ -45,7 +46,7 @@ use UnitConverter\Unit\Volume\Pint;
  */
 final class CubicMetreSpec extends TestCase
 {
-    public function correctConversions()
+    public function correctConversions(): Iterator
     {
         $m3 = new CubicMetre();
 
