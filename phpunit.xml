@@ -38,8 +38,8 @@
     </testsuites>
 
     <testsuites>
-      <testsuite name="errors">
-        <directory suffix=".spec.php">tests/exception/</directory>
+      <testsuite name="volume">
+        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Volume/</directory>
       </testsuite>
     </testsuites>
 </phpunit>
