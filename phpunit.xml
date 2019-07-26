@@ -38,6 +38,12 @@
     </testsuites>
 
     <testsuites>
+      <testsuite name="time">
+        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Time/</directory>
+      </testsuite>
+    </testsuites>
+
+    <testsuites>
       <testsuite name="volume">
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Volume/</directory>
       </testsuite>

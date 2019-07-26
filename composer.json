@@ -13,6 +13,7 @@
     "test": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
     "integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
+    "test-time": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=time --color=always",
     "test-volume": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=volume --color=always",
     "coverage": "vendor/bin/phpunit --coverage-text --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never",
