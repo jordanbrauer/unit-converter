@@ -13,18 +13,20 @@ trait AssertsCorrectConversions
     /**
      * @test
      * @dataProvider correctConversions
-     * @param int|float|string $amount
      * @param UnitInterface $from
-     * @param int|float|string $expected
      * @param UnitInterface $to
+     * @param int $precision
      * @return void
      */
-    public function assertCorrectConversions($amount, UnitInterface $from, $expected, UnitInterface $to, int $precision = null): void
+    public function assertCorrectConversions(UnitInterface $from, UnitInterface $to, int $precision = null): void
     {
         $this->assertSame($from->getUnitOf(), $to->getUnitOf(), 'Cannot convert units that do not share a measurement');
 
         $converter = $this->determineConverter($from);
-        $actual = $converter->convert($amount, $precision)->from($from->getSymbol())->to($to->getSymbol());
+        $expected = $to->getValue();
+        $actual = $converter->convert($from->getValue(), $precision)
+            ->from($from->getSymbol())
+            ->to($to->getSymbol());
 
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
@@ -39,8 +41,7 @@ trait AssertsCorrectConversions
     private function determineConverter(UnitInterface $from): UnitConverter
     {
         switch ($from->getUnitOf()) {
-            case Measure::VOLUME:
-                return $this->simpleVolumeConverter();
+            case Measure::VOLUME: return $this->simpleVolumeConverter();
         }
     }
 }
