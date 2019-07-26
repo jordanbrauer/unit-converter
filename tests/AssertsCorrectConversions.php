@@ -41,6 +41,7 @@ trait AssertsCorrectConversions
     private function determineConverter(UnitInterface $from): UnitConverter
     {
         switch ($from->getUnitOf()) {
+            case Measure::TIME: return $this->simpleTimeConverter();
             case Measure::VOLUME: return $this->simpleVolumeConverter();
         }
     }

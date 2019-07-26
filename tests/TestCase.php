@@ -52,6 +52,13 @@ abstract class TestCase extends PHPUnitTestCase
             ->build();
     }
 
+    protected function simpleTimeConverter(): UnitConverterInterface
+    {
+        return $this->builder->addSimpleCalculator()
+            ->addRegistryFor(Measure::TIME)
+            ->build();
+    }
+
     protected function simpleVolumeConverter(): UnitConverterInterface
     {
         return $this->builder->addSimpleCalculator()
