@@ -65,11 +65,20 @@ abstract class AbstractUnit implements UnitInterface
     protected $units;
 
     /**
-     * Public constructor function for units of measurement.
+     * @var int|float|string The value of the unit (how many of it are measured).
      */
-    public function __construct()
+    protected $value;
+
+    /**
+     * Public constructor function for units of measurement.
+     *
+     * @param int|float|string $value The amount of units to be reprsented by the final object as.
+     */
+    public function __construct($value = 1)
     {
+        $this->value = $value;
         $this->formulae = [];
+
         $this->configure();
     }
 
@@ -83,6 +92,28 @@ abstract class AbstractUnit implements UnitInterface
         foreach ($formulae as $symbol => $class) {
             $this->addFormula($symbol, $class);
         }
+    }
+
+    /**
+     * Convenience method that converts the current unit to whatever unit is
+     * passed in. Optionally supply precision & whether or not to use a binary
+     * calculator (BCMath).
+     *
+     * @param UnitInterface $unit An instance of the unit being converted to.
+     * @param integer $precision The precision to calculate to.
+     * @param boolean $binary Are we using BCMath?
+     * @return int|float|string
+     */
+    public function as(UnitInterface $unit, int $precision = null, bool $binary = false)
+    {
+        return \UnitConverter\UnitConverter::createBuilder()
+            ->{'add'.(($binary) ? 'Binary' : 'Simple').'Calculator'}() # ¯\_(ツ)_/¯
+            ->addRegistryWith([$this, $unit])
+            ->build()
+            // ->disableConversionLog() # TODO: when this returns interface, uncomment!
+            ->convert((string) $this->getValue(), $precision)
+            ->from($this->getSymbol())
+            ->to($unit->getSymbol());
     }
 
     public function getBase(): ?UnitInterface
@@ -140,6 +171,11 @@ abstract class AbstractUnit implements UnitInterface
         return $this->units;
     }
 
+    public function getValue()
+    {
+        return $this->value;
+    }
+
     public function isMultipleSiUnit(): bool
     {
         return $this instanceof SiMultipleUnitInterface;
@@ -193,6 +229,13 @@ abstract class AbstractUnit implements UnitInterface
     public function setUnits(float $units): UnitInterface
     {
         $this->units = $units;
+
+        return $this;
+    }
+
+    public function setValue($value): UnitInterface
+    {
+        $this->value = $value;
 
         return $this;
     }
