@@ -108,6 +108,13 @@ interface UnitInterface
     public function getUnits(): ?float;
 
     /**
+     * Returns the unit's numeric value (how many of it there are).
+     *
+     * @return int|float|string
+     */
+    public function getValue();
+
+    /**
      * Is the unit an SI multiple unit?
      *
      * @return boolean
@@ -177,4 +184,12 @@ interface UnitInterface
      * @return UnitInterface
      */
     public function setUnits(float $units): UnitInterface;
+
+    /**
+     * Sets the unit's numeric value (how many of it are there?).
+     *
+     * @param int|float|string $value The numeric value to use.
+     * @return UnitInterface
+     */
+    public function setValue($value): UnitInterface;
 }

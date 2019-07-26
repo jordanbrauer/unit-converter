@@ -62,7 +62,7 @@ class HourSpec extends TestCase
         $expected = 3600;
         $actual = $this->converter
             ->convert(1)
-            ->from("h")
+            ->from("hr")
             ->to("s");
 
         $this->assertEquals($expected, $actual);

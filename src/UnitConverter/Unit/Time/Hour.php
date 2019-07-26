@@ -28,7 +28,7 @@ class Hour extends TimeUnit
         $this
             ->setName("hour")
 
-            ->setSymbol("h")
+            ->setSymbol("hr")
 
             ->setUnits(3600);
     }

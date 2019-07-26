@@ -14,6 +14,10 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\FuelEconomy;
 
+use UnitConverter\Calculator\Formula\FuelEconomy\LitrePer100Kilometres\ToKilometrePerLitre;
+use UnitConverter\Calculator\Formula\FuelEconomy\LitrePer100Kilometres\ToMilesPerGallon;
+use UnitConverter\Calculator\Formula\NullFormula;
+
 /**
  * LitrePer100Kilometres unit data class.
  *
@@ -27,6 +31,10 @@ class LitrePer100Kilometres extends FuelEconomyUnit
         $this
             ->setName("litre per 100 kilometres")
             ->setSymbol("L/100km")
-            ->setUnits(100);
+            ->addFormulae([
+                'km/l'    => ToKilometrePerLitre::class,
+                'mpg'     => ToMilesPerGallon::class,
+                'L/100km' => NullFormula::class,
+            ]);
     }
 }

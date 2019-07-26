@@ -10,7 +10,7 @@
 <!-- [![Maintainability](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/maintainability)](https://codeclimate.com/github/jordanbrauer/unit-converter/maintainability) -->
 <!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/test_coverage)](https://codeclimate.com/github/jordanbrauer/unit-converter/test_coverage) -->
 
-[![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
+[![Maintenance](https://img.shields.io/maintenance/yes/2019.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
 [![Packagist](https://img.shields.io/packagist/dt/jordanbrauer/unit-converter.svg?style=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/unit-converter.svg?style=flat-square)](https://secure.php.net/releases/)
 [![composer.lock available](https://poser.pugx.org/jordanbrauer/unit-converter/composerlock?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
@@ -25,6 +25,7 @@ Convert all kinds of standard units of measurement from one to another with this
 1. [About the Component](#1-about-the-component)
 2. [Installing the Component](#2-installing-the-component)
 3. [Basic Usage](#3-basic-usage)
+4. [Documentation](#4-documentation)
 
 ## 1. About the Component
 
@@ -63,7 +64,18 @@ Using the component is very easy, especially if you have used the Symfony or Lar
 
 ### Quick-Start
 
-If you'd like to skip the minutiae of this component's setup and get right down to business, you can get started by constructing a pre-configured converter via the builder object, like so,
+If you'd like to skip the minutiae of this component's setup and get right down to business, you can get started by constructing a pre-configured converter via static constructors or the builder object, like so,
+
+###### Static Constructors
+
+```php
+use UnitConverter\UnitConverter;
+
+$converter = UnitConverter::default(); # simple calculator
+$converter = UnitConverter::binary(); # binary calculator (BC math)
+```
+
+###### Builder
 
 ```php
 use UnitConverter\UnitConverter;
@@ -81,6 +93,38 @@ $converter->convert(1)->from("in")->to("cm"); # (float) 2.54
 ```
 
 and you're done! For a more in-depth setup guide, [**check the wiki**](https://github.com/jordanbrauer/unit-converter/wiki).
+
+### Usage Examples
+
+Here are where some usage examples of something that may fit more along the lines of _"real-life"_, are found. Keep in mind that the code examples in each use-case, while working & valid, do contain **some** pseudo-code in them for demonstration purposes.
+
+#### The Traffic Camera
+
+In this example, pretend we have a traffic camera that only captures speeds in Imperial measurement of _miles per hour_. The traffic camera records each passing car's speed to determine if they were speeding & if so, snap a photo of their license plate as proof to serve a ticket. In this case, the camera caught a speed of `59` _miles per hour_.
+
+Here we construct a new unit & give it a value representing how many of the unit exists,
+
+```php
+$capturedSpeed = new MilePerHour(59);
+```
+
+Next, a conversion of units needs to take place, because this traffic camera model is being used in a country that uses the metric system.
+
+As you can see in this example, we are leveraging the power of typehints to ensure we only receive units of the desired measurement. Inside of the closure, we are using one of the unit's most convenient & powerful methods: `as()`. It allows us to convert units without the direct use of the `UnitConverter` & `UnitRegistry` objects – giving the benefit of even cleaner code & type safety.
+
+```php
+$isOverSpeedLimit = function (SpeedUnit $speed) {
+    return $speed->as(new KilometrePerHour) > 50;
+};
+
+if ($isOverSpeedLimit($capturedSpeed)) { # (bool) true
+    TrafficCamera::snapPhoto();
+}
+```
+
+## Documentation
+
+There are two kinds of in-depth documentation for this project: user & API documentation. Use whichever one you need to help answer your questions!
 
 ### User Documentation
 
