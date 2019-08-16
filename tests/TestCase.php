@@ -52,6 +52,13 @@ abstract class TestCase extends PHPUnitTestCase
             ->build();
     }
 
+    protected function simplePlaneAngleConverter(): UnitConverterInterface
+    {
+        return $this->builder->addSimpleCalculator()
+            ->addRegistryFor(Measure::PLANE_ANGLE)
+            ->build();
+    }
+
     protected function simpleTimeConverter(): UnitConverterInterface
     {
         return $this->builder->addSimpleCalculator()

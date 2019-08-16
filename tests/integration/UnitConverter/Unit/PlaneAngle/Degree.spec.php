@@ -14,10 +14,10 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\PlaneAngle;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\PlaneAngle\Degree;
+use UnitConverter\Unit\PlaneAngle\Radian;
 use UnitConverter\UnitConverter;
 
 /**
@@ -36,32 +36,13 @@ use UnitConverter\UnitConverter;
  */
 class DegreeSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Degree(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $deg = new Degree(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1DegreeIs1Degree()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("deg")
-            ->to("deg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 degree is equal to 1 degree'         => [$deg, new Degree(1.0), 0],
+            '1 degree is equal to 0.0174533 radian' => [$deg, new Radian(0.0174533), 7],
+        ];
     }
 }
