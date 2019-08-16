@@ -15,7 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Registry;
 
 use UnitConverter\Exception\BadMeasurement;
-use UnitConverter\Exception\BadUnit;
+use UnitConverter\Exception\BadRegistry;
 use UnitConverter\Measure;
 use UnitConverter\Support\Collection;
 use UnitConverter\Unit\UnitInterface;
@@ -103,7 +103,7 @@ class UnitRegistry implements UnitRegistryInterface
     public function loadUnit(string $symbol): ?UnitInterface
     {
         if (!$this->isUnitRegistered($symbol)) {
-            throw BadUnit::unknown($symbol);
+            throw BadRegistry::unknown($symbol);
         }
 
         foreach ($this->store as $measurement => $units) {
@@ -142,6 +142,12 @@ class UnitRegistry implements UnitRegistryInterface
 
         if (!$this->isMeasurementRegistered($unitOf)) {
             throw BadMeasurement::unknown($unitOf);
+        }
+
+        $symbol = $unit->getSymbol();
+
+        if ($this->isUnitRegistered($symbol)) {
+            throw BadRegistry::duplicate($symbol);
         }
 
         $this->store->push($unit->getRegistryKey(), $unit);
@@ -185,7 +191,7 @@ class UnitRegistry implements UnitRegistryInterface
     public function unregisterUnit(string $symbol): void
     {
         if (!$this->isUnitRegistered($symbol)) {
-            throw BadUnit::unknown($symbol);
+            throw BadRegistry::unknown($symbol);
         }
 
         $this->store->pop($this->loadUnit($symbol)->getRegistryKey());

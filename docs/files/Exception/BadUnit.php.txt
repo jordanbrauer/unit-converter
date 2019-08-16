@@ -29,8 +29,6 @@ final class BadUnit extends Exception
 
     const ERROR_SELF_CONVERSION_FORMULA = 3;
 
-    const ERROR_UNKNOWN_UNIT = 1;
-
     /**
      * Throw a new exception for an un unkown self conversioin unit formula.
      *
@@ -64,22 +62,6 @@ final class BadUnit extends Exception
         }
 
         return new self($message, self::ERROR_SCALAR_TYPE, $previous);
-    }
-
-    /**
-     * Throw a new exception for an unknown type of unit.
-     *
-     * @param string $unit The type of unit that caused the error.
-     * @param Exception $previous
-     * @return self|Exception
-     */
-    public static function unknown(string $unit, Exception $previous = null): Exception
-    {
-        return new self(
-            "Unknown unit of measurement, '{$unit}'",
-            self::ERROR_UNKNOWN_UNIT,
-            $previous
-        );
     }
 }
 
