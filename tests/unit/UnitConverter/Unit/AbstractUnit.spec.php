@@ -90,6 +90,16 @@ class AbstractUnitSpec extends TestCase
 
     /**
      * @test
+     * @covers ::as
+     * @return void
+     */
+    public function assertAsUnitConversationWorkForSameUnits()
+    {
+        $this->assertEquals(1, (new Inch(1))->as(new Inch()));
+    }
+
+    /**
+     * @test
      * @covers ::getBaseUnits
      * @return void
      */
