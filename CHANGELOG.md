@@ -1,6 +1,19 @@
 # Change Log
 
-## [v0.8.2](https://github.com/jordanbrauer/unit-converter/tree/v0.8.2) (2019-07-25)
+## [v0.8.3](https://github.com/jordanbrauer/unit-converter/tree/v0.8.3) (2019-08-16)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.2...v0.8.3)
+
+**Fixed bugs:**
+
+- Regression after merge \#fix-127-trampled-units [\#139](https://github.com/jordanbrauer/unit-converter/issues/139)
+- Fix regression bug \#139 [\#140](https://github.com/jordanbrauer/unit-converter/pull/140) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Merged pull requests:**
+
+- Bump js-yaml from 3.12.0 to 3.13.1 [\#138](https://github.com/jordanbrauer/unit-converter/pull/138) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump lodash from 4.17.11 to 4.17.15 [\#137](https://github.com/jordanbrauer/unit-converter/pull/137) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v0.8.2](https://github.com/jordanbrauer/unit-converter/tree/v0.8.2) (2019-07-26)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.1...v0.8.2)
 
 **Fixed bugs:**
