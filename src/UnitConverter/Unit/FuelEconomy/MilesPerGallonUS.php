@@ -14,8 +14,9 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\FuelEconomy;
 
-use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallon\ToKilometrePerLitre;
-use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallon\ToLitrePer100Kilometres;
+use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonUS\ToKilometrePerLitre;
+use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonUS\ToLitrePer100Kilometres;
+use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonUS\ToMilesPerGallonImperial;
 use UnitConverter\Calculator\Formula\NullFormula;
 
 /**
@@ -24,18 +25,19 @@ use UnitConverter\Calculator\Formula\NullFormula;
  * @version 1.0.0
  * @since 0.9.0
  */
-class MilesPerGallon extends FuelEconomyUnit
+class MilesPerGallonUS extends FuelEconomyUnit
 {
     protected function configure(): void
     {
         $this
-            ->setName("miles per gallon")
+            ->setName("miles per US gallon")
 
             ->setSymbol("mpg")
 
             ->addFormulae([
                 'L/100km' => ToLitrePer100Kilometres::class,
                 'km/l' => ToKilometrePerLitre::class,
+                'mpig' => ToMilesPerGallonImperial::class,
                 'mpg' => NullFormula::class,
             ]);
     }

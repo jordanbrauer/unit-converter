@@ -17,18 +17,19 @@ namespace UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Calculator\Formula\AbstractFormula;
 
 /**
- * Formula to convert Kilometre Per Litre values to Litre Per 100 Kilometres.
+ * Formula to convert Kilometre Per Litre values to Miles Per Gallon.
  *
  * @version 1.0.0
  * @author Maksim Martianov <7222812+maksimru@users.noreply.github.com>
  */
-class ToLitrePer100Kilometres extends AbstractFormula
+class ToMilesPerGallonUS extends AbstractFormula
 {
-    const MAGIC_NUMBER = 100;
 
-    const FORMULA_STRING = 'L/100km = 100 / km/l';
+    const MAGIC_NUMBER = 2.35215;
 
-    const FORMULA_TEMPLATE = '%s L/100km = 100 / %skm/l';
+    const FORMULA_STRING = 'mpg(US) = 2.35215 * km/l';
+
+    const FORMULA_TEMPLATE = '%s mpg(US) = 2.35215 * %skm/l';
 
     /**
      * {@inheritDoc}
@@ -36,7 +37,7 @@ class ToLitrePer100Kilometres extends AbstractFormula
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
         // XXX: this formula assumes all calculators can accept strings, as it's the safest type.
-        $addResult = $this->calculator->div(self::MAGIC_NUMBER, $value);
+        $addResult = $this->calculator->mul(self::MAGIC_NUMBER, $value);
         $result = $this->calculator->round($addResult, $precision);
 
         $this->plugVariables($result, $value);

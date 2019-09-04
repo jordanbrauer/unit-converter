@@ -74,6 +74,7 @@ class UnitRegistrySpec extends TestCase
             "length",
             "area",
             "volume",
+            "fuel_economy",
             "mass",
             "speed",
             "plane_angle",

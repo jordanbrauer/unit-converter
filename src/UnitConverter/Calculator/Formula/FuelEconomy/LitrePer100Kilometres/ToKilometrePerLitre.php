@@ -24,6 +24,8 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  */
 class ToKilometrePerLitre extends AbstractFormula
 {
+    const MAGIC_NUMBER = 100;
+
     const FORMULA_STRING = 'km/l = 100 / L/100km';
 
     const FORMULA_TEMPLATE = '%s km/l = 100 / %sL/100km';
@@ -34,7 +36,7 @@ class ToKilometrePerLitre extends AbstractFormula
     public function describe($value, $fromUnits, $toUnits, int $precision = null)
     {
         // XXX: this formula assumes all calculators can accept strings, as it's the safest type.
-        $addResult = $this->calculator->div(100, $value);
+        $addResult = $this->calculator->div(self::MAGIC_NUMBER, $value);
         $result = $this->calculator->round($addResult, $precision);
 
         $this->plugVariables($result, $value);

@@ -19,7 +19,8 @@ use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
-use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
+use UnitConverter\Unit\FuelEconomy\MilesPerGallonImperial;
+use UnitConverter\Unit\FuelEconomy\MilesPerGallonUS;
 use UnitConverter\UnitConverter;
 
 /**
@@ -43,8 +44,9 @@ class LitrePer100KilometresSpec extends TestCase
         $this->converter = new UnitConverter(
             new UnitRegistry([
                 new KilometrePerLitre(),
+                new MilesPerGallonUS(),
+                new MilesPerGallonImperial(),
                 new LitrePer100Kilometres(),
-                new MilesPerGallon(),
             ]),
             new SimpleCalculator()
         );
@@ -100,13 +102,27 @@ class LitrePer100KilometresSpec extends TestCase
     /**
      * @test
      */
-    public function assert5LitrePer100KilometresIs47MilesPerGallon()
+    public function assert5LitrePer100KilometresIs47MilesPerUSGallon()
     {
         $expected = 47.04;
         $actual = $this->converter
             ->convert(5)
             ->from("L/100km")
             ->to("mpg");
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @test
+     */
+    public function assert5LitrePer100KilometresIs56MilesPerImperialGallon()
+    {
+        $expected = 56.5;
+        $actual = $this->converter
+            ->convert(5)
+            ->from("L/100km")
+            ->to("mpig");
 
         $this->assertEquals($expected, $actual);
     }

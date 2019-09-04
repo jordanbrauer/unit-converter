@@ -68,7 +68,7 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertModulusMethodProperlyReturnsTheRemainderOfDivision()
     {
-        $expected = "1";
+        $expected = "1.0000";
         $actual = $this->calculator->mod("5", "2");
 
         $this->assertEquals($expected, $actual);

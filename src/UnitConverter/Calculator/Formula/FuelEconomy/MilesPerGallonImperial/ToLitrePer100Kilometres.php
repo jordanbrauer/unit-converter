@@ -12,23 +12,24 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre;
+namespace UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial;
 
 use UnitConverter\Calculator\Formula\AbstractFormula;
 
 /**
- * Formula to convert Kilometre Per Litre values to Litre Per 100 Kilometres.
+ * Formula to convert Miles Per Gallon values to Litre Per 100 Kilometres.
  *
  * @version 1.0.0
  * @author Maksim Martianov <7222812+maksimru@users.noreply.github.com>
  */
 class ToLitrePer100Kilometres extends AbstractFormula
 {
-    const MAGIC_NUMBER = 100;
 
-    const FORMULA_STRING = 'L/100km = 100 / km/l';
+    const MAGIC_NUMBER = 282.481;
 
-    const FORMULA_TEMPLATE = '%s L/100km = 100 / %skm/l';
+    const FORMULA_STRING = 'L/100km = 282.481 / mpg(imp)';
+
+    const FORMULA_TEMPLATE = '%s L/100km = 282.481 / %smpg(imp)';
 
     /**
      * {@inheritDoc}

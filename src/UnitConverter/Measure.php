@@ -40,7 +40,8 @@ use UnitConverter\Unit\Frequency\Millihertz;
 use UnitConverter\Unit\Frequency\Terahertz;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
-use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
+use UnitConverter\Unit\FuelEconomy\MilesPerGallonImperial;
+use UnitConverter\Unit\FuelEconomy\MilesPerGallonUS;
 use UnitConverter\Unit\Length\AstronomicalUnit;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Decimetre;
@@ -132,6 +133,8 @@ class Measure
 
     const VOLUME = "volume";
 
+    const FUEL_ECONOMY = "fuel_economy";
+
     /**
      * An array containing a list of default measurement types that are
      * supported, and the unit classes they govern.
@@ -173,9 +176,12 @@ class Measure
             Litre::class,
             Millilitre::class,
             Pint::class,
+        ],
+        self::FUEL_ECONOMY => [
             KilometrePerLitre::class,
             LitrePer100Kilometres::class,
-            MilesPerGallon::class,
+            MilesPerGallonUS::class,
+            MilesPerGallonImperial::class,
         ],
         self::MASS => [
             Gram::class,

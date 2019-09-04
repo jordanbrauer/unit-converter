@@ -19,7 +19,8 @@ use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
-use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
+use UnitConverter\Unit\FuelEconomy\MilesPerGallonImperial;
+use UnitConverter\Unit\FuelEconomy\MilesPerGallonUS;
 use UnitConverter\UnitConverter;
 
 /**
@@ -36,15 +37,16 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
-class MilesPerGallonSpec extends TestCase
+class MilesPerGallonImperialSpec extends TestCase
 {
     protected function setUp()
     {
         $this->converter = new UnitConverter(
             new UnitRegistry([
                 new KilometrePerLitre(),
-                new MilesPerGallon(),
-                new LitrePer100Kilometres()
+                new MilesPerGallonUS(),
+                new MilesPerGallonImperial(),
+                new LitrePer100Kilometres(),
             ]),
             new SimpleCalculator()
         );
@@ -58,12 +60,26 @@ class MilesPerGallonSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MilesPerGallonIs1MilesPerGallon()
+    public function assert1MilesPerImperialGallonIs1MilesPerImperialGallon()
     {
         $expected = 1;
         $actual = $this->converter
             ->convert(1)
-            ->from("mpg")
+            ->from("mpig")
+            ->to("mpig");
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @test
+     */
+    public function assert1MilesPerImperialGallonIs1MilesPerGallon()
+    {
+        $expected = 0.83;
+        $actual = $this->converter
+            ->convert(1)
+            ->from("mpig")
             ->to("mpg");
 
         $this->assertEquals($expected, $actual);
@@ -72,12 +88,12 @@ class MilesPerGallonSpec extends TestCase
     /**
      * @test
      */
-    public function assert1MilesPerGallonIs1KilometrePerLitre()
+    public function assert1MilesPerImperialGallonIs1KilometrePerLitre()
     {
-        $expected = 0.43;
+        $expected = 0.35;
         $actual = $this->converter
             ->convert(1)
-            ->from("mpg")
+            ->from("mpig")
             ->to("km/l");
 
         $this->assertEquals($expected, $actual);
@@ -86,12 +102,12 @@ class MilesPerGallonSpec extends TestCase
     /**
      * @test
      */
-    public function assert10KilometersPerLitreIs23LitrePer100Kilometres()
+    public function assert10MilesPerImperialGallonIs28LitrePer100Kilometres()
     {
-        $expected = 23.52;
+        $expected = 28.25;
         $actual = $this->converter
             ->convert(10)
-            ->from("mpg")
+            ->from("mpig")
             ->to("L/100km");
 
         $this->assertEquals($expected, $actual);

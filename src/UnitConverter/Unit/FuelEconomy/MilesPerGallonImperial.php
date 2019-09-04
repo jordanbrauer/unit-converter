@@ -14,31 +14,31 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\FuelEconomy;
 
-use UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre\ToLitrePer100Kilometres;
-use UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre\ToMilesPerGallonImperial;
-use UnitConverter\Calculator\Formula\FuelEconomy\KilometrePerLitre\ToMilesPerGallonUS;
+use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial\ToKilometrePerLitre;
+use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial\ToLitrePer100Kilometres;
+use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial\ToMilesPerGallonUS;
 use UnitConverter\Calculator\Formula\NullFormula;
 
 /**
- * KilometrePerLitre unit data class.
+ * MilesPerGallon (US) unit data class.
  *
- * @version 1.0.1
+ * @version 1.0.0
  * @since 0.9.0
  */
-class KilometrePerLitre extends FuelEconomyUnit
+class MilesPerGallonImperial extends FuelEconomyUnit
 {
     protected function configure(): void
     {
         $this
-            ->setName("kilometre per litre")
+            ->setName("miles per Imperial gallon")
 
-            ->setSymbol("km/l")
+            ->setSymbol("mpig")
 
             ->addFormulae([
                 'L/100km' => ToLitrePer100Kilometres::class,
+                'km/l' => ToKilometrePerLitre::class,
                 'mpg' => ToMilesPerGallonUS::class,
-                'mpig' => ToMilesPerGallonImperial::class,
-                'km/l' => NullFormula::class,
+                'mpig' => NullFormula::class,
             ]);
     }
 }
