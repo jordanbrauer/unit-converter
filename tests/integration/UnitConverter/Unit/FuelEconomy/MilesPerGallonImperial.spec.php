@@ -65,8 +65,8 @@ class MilesPerGallonImperialSpec extends TestCase
         $expected = 1;
         $actual = $this->converter
             ->convert(1)
-            ->from("mpig")
-            ->to("mpig");
+            ->from("mpg uk")
+            ->to("mpg uk");
 
         $this->assertEquals($expected, $actual);
     }
@@ -79,7 +79,7 @@ class MilesPerGallonImperialSpec extends TestCase
         $expected = 0.83;
         $actual = $this->converter
             ->convert(1)
-            ->from("mpig")
+            ->from("mpg uk")
             ->to("mpg");
 
         $this->assertEquals($expected, $actual);
@@ -93,7 +93,7 @@ class MilesPerGallonImperialSpec extends TestCase
         $expected = 0.35;
         $actual = $this->converter
             ->convert(1)
-            ->from("mpig")
+            ->from("mpg uk")
             ->to("km/l");
 
         $this->assertEquals($expected, $actual);
@@ -107,7 +107,7 @@ class MilesPerGallonImperialSpec extends TestCase
         $expected = 28.25;
         $actual = $this->converter
             ->convert(10)
-            ->from("mpig")
+            ->from("mpg uk")
             ->to("L/100km");
 
         $this->assertEquals($expected, $actual);

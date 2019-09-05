@@ -93,7 +93,7 @@ class KilometrePerLitreSpec extends TestCase
         $actual = $this->converter
             ->convert(1)
             ->from("km/l")
-            ->to("mpig");
+            ->to("mpg uk");
 
         $this->assertEquals($expected, $actual);
     }

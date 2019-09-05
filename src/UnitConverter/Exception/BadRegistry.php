@@ -33,14 +33,14 @@ final class BadRegistry extends Exception
     /**
      * Create a new exception for duplicate units.
      *
-     * @param string $symbol The symbol that is offending as a duplicate.
+     * @param string $id The id that is offending as a duplicate.
      * @param Exception $previous
      * @return Exception
      */
-    public static function duplicate(string $symbol, Exception $previous = null): Exception
+    public static function duplicate(string $id, Exception $previous = null): Exception
     {
         return new self(
-            "Unit '{$symbol}' is already registered. Please use a different notation or remove the conflicting unit",
+            "Unit '{$id}' is already registered. Please use a different notation or remove the conflicting unit",
             self::ERROR_DUPLICATE_UNIT,
             $previous
         );

@@ -32,14 +32,14 @@ final class BadUnit extends Exception
     /**
      * Throw a new exception for an un unkown self conversioin unit formula.
      *
-     * @param string $symbol The symbol of the unit lacking a formula
+     * @param string $id The id of the unit lacking a formula
      * @param Exception $previous
      * @return Exception
      */
-    public static function formula(string $symbol, Exception $previous = null): Exception
+    public static function formula(string $id, Exception $previous = null): Exception
     {
         return new self(
-            "Unknown conversion formula for {$symbol}",
+            "Unknown conversion formula for {$id}",
             self::ERROR_SELF_CONVERSION_FORMULA,
             $previous
         );

@@ -35,7 +35,7 @@ class LitrePer100Kilometres extends FuelEconomyUnit
             ->addFormulae([
                 'km/l' => ToKilometrePerLitre::class,
                 'mpg' => ToMilesPerGallonUS::class,
-                'mpig' => ToMilesPerGallonImperial::class,
+                'mpg uk' => ToMilesPerGallonImperial::class,
                 'L/100km' => NullFormula::class,
             ]);
     }

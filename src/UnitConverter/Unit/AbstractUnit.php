@@ -55,6 +55,11 @@ abstract class AbstractUnit implements UnitInterface
     protected $symbol;
 
     /**
+     * @var string $id The units' id (by default equal to symbol).
+     */
+    protected $id;
+
+    /**
      * @var string $unitOf What is this unit measuring? Length, temperatutre, etc.
      */
     protected $unitOf;
@@ -76,21 +81,22 @@ abstract class AbstractUnit implements UnitInterface
      */
     public function __construct($value = 1)
     {
+        $this->id = $this->symbol;
         $this->value = $value;
         $this->formulae = [];
 
         $this->configure();
     }
 
-    public function addFormula(string $symbol, string $class): void
+    public function addFormula(string $id, string $class): void
     {
-        $this->formulae[$symbol] = $class;
+        $this->formulae[$id] = $class;
     }
 
     public function addFormulae(array $formulae): void
     {
-        foreach ($formulae as $symbol => $class) {
-            $this->addFormula($symbol, $class);
+        foreach ($formulae as $id => $class) {
+            $this->addFormula($id, $class);
         }
     }
 
@@ -112,8 +118,8 @@ abstract class AbstractUnit implements UnitInterface
             ->build()
             // ->disableConversionLog() # TODO: when this returns interface, uncomment!
             ->convert((string) $this->getValue(), $precision)
-            ->from($this->getSymbol())
-            ->to($unit->getSymbol());
+            ->from($this->getId())
+            ->to($unit->getId());
     }
 
     public function getBase(): ?UnitInterface
@@ -132,13 +138,13 @@ abstract class AbstractUnit implements UnitInterface
             return null;
         }
 
-        $symbol = $to->getSymbol();
+        $id = $to->getId();
 
-        if (!array_key_exists($symbol, $this->formulae)) {
-            throw BadUnit::formula($symbol);
+        if (!array_key_exists($id, $this->formulae)) {
+            throw BadUnit::formula($id);
         }
 
-        return new $this->formulae[$symbol]();
+        return new $this->formulae[$id]();
     }
 
     public function getName(): ?string
@@ -148,7 +154,7 @@ abstract class AbstractUnit implements UnitInterface
 
     public function getRegistryKey(): ?string
     {
-        return $this->unitOf.'.'.$this->symbol;
+        return $this->unitOf.'.'.$this->getId();
     }
 
     public function getScientificSymbol(): ?string
@@ -159,6 +165,11 @@ abstract class AbstractUnit implements UnitInterface
     public function getSymbol(): ?string
     {
         return $this->symbol;
+    }
+
+    public function getId(): ?string
+    {
+        return $this->id ?? $this->getSymbol();
     }
 
     public function getUnitOf(): ?string
@@ -215,6 +226,16 @@ abstract class AbstractUnit implements UnitInterface
     public function setSymbol(string $symbol): UnitInterface
     {
         $this->symbol = $symbol;
+        if (empty($this->getId())) {
+            $this->setId($symbol);
+        }
+
+        return $this;
+    }
+
+    public function setId(string $id): UnitInterface
+    {
+        $this->id = $id;
 
         return $this;
     }

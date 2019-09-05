@@ -164,10 +164,10 @@ class UnitConverter implements UnitConverterInterface
     public function all(): array
     {
         $results = [];
-        $symbol = $this->from->getSymbol();
+        $id = $this->from->getId();
 
-        array_map(function ($unit) use (&$results, $symbol) {
-            if ($symbol != $unit) {
+        array_map(function ($unit) use (&$results, $id) {
+            if ($id != $unit) {
                 $results[$unit] = $this->to($unit);
             }
         }, $this->registry->listUnits($this->from->getUnitOf()));
@@ -398,16 +398,16 @@ class UnitConverter implements UnitConverterInterface
      * @internal
      * @uses UnitConverter\UnitRegistry::loadUnit
      * @throws BadConverter Thrown if an attempt is made to access a non-existent registry.
-     * @param string $symbol The symbol of the unit being loaded.
+     * @param string $id The id of the unit being loaded.
      * @return UnitInterface
      */
-    protected function loadUnit(string $symbol): UnitInterface
+    protected function loadUnit(string $id): UnitInterface
     {
         if (!$this->registryExists()) {
             throw BadConverter::missingRegistry();
         }
 
-        return $this->registry->loadUnit($symbol);
+        return $this->registry->loadUnit($id);
     }
 
     /**
@@ -425,8 +425,8 @@ class UnitConverter implements UnitConverterInterface
                 'calculation' => $calculation,
                 'value'       => $this->convert,
                 'precision'   => $this->precision,
-                'from'        => $this->from->getSymbol(),
-                'to'          => $this->to->getSymbol(),
+                'from'        => $this->from->getId(),
+                'to'          => $this->to->getId(),
                 'result'      => $result,
             ];
         }
@@ -456,7 +456,7 @@ class UnitConverter implements UnitConverterInterface
             $this->convert.
             $this->precision.
             $this->from->getRegistryKey().
-            $this->to->getSymbol()
+            $this->to->getId()
         ), ...self::CONVERSION_HASH_LENGTH);
 
         return $this->hash;

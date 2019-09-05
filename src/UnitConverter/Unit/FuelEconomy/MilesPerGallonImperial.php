@@ -32,13 +32,17 @@ class MilesPerGallonImperial extends FuelEconomyUnit
         $this
             ->setName("miles per Imperial gallon")
 
-            ->setSymbol("mpig")
+            ->setSymbol("mpg")
+
+            ->setId('mpg uk')
+
+            ->setScientificSymbol('mpg<sub>Imp</sub>')
 
             ->addFormulae([
                 'L/100km' => ToLitrePer100Kilometres::class,
                 'km/l' => ToKilometrePerLitre::class,
                 'mpg' => ToMilesPerGallonUS::class,
-                'mpig' => NullFormula::class,
+                'mpg uk' => NullFormula::class,
             ]);
     }
 }

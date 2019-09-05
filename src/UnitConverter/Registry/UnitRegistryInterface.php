@@ -40,10 +40,10 @@ interface UnitRegistryInterface
      * Determine if a specific unit of measure is registered to the unit registry or not.
      *
      * @api
-     * @param string $symbol The symbol notation of the unit being checked, e.g., "cm".
+     * @param string $id The unit id being checked.
      * @return bool
      */
-    public function isUnitRegistered(string $symbol): bool;
+    public function isUnitRegistered(string $id): bool;
 
     /**
      * Return a one-dimensional array of currently supported measurement types.
@@ -68,10 +68,10 @@ interface UnitRegistryInterface
      * Fetch a unit from the unit registry for use elsewhere.
      *
      * @throws BadUnit If loading an unregistered unit is attempted.
-     * @param string $symbol The symbol notation of the unit being loaded.
+     * @param string $id The unit id being loaded.
      * @return null|UnitInterface
      */
-    public function loadUnit(string $symbol): ?UnitInterface;
+    public function loadUnit(string $id): ?UnitInterface;
 
     /**
      * Register a single measurement to the unit registry by passing a
@@ -120,34 +120,34 @@ interface UnitRegistryInterface
      * @NOTE: Invoking this method will also unregister all
      * units belonging to the measurement that is being unregistered.
      *
-     * @param string $symbol
+     * @param string $id
      * @throws BadMeasurement If you attempt to unregister a non-existing measurement type.
      * @return void
      */
-    public function unregisterMeasurement(string $symbol): void;
+    public function unregisterMeasurement(string $id): void;
 
     /**
      * Unegister many units from the unit registry
      *
-     * @param string[] $symbols
+     * @param string[] $ids
      * @return void
      */
-    public function unregisterMeasurements(array $symbols): void;
+    public function unregisterMeasurements(array $ids): void;
 
     /**
      * Unegister a single unit from the unit registry
      *
-     * @param string $symbol
+     * @param string $id
      * @throws BadUnit If you attempt to unregister a non-existing unit of measure.
      * @return void
      */
-    public function unregisterUnit(string $symbol): void;
+    public function unregisterUnit(string $id): void;
 
     /**
      * Unegister many units from the unit registry
      *
-     * @param string[] $symbols
+     * @param string[] $ids
      * @return void
      */
-    public function unregisterUnits(array $symbols): void;
+    public function unregisterUnits(array $ids): void;
 }

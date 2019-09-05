@@ -94,6 +94,13 @@ interface UnitInterface
     public function getSymbol(): ?string;
 
     /**
+     * Returns the id of the unit.
+     *
+     * @return string
+     */
+    public function getId(): ?string;
+
+    /**
      * Returns the type of measurement that this unit is measuring.
      *
      * @return string
@@ -168,6 +175,14 @@ interface UnitInterface
      * @return UnitInterface
      */
     public function setSymbol(string $symbol): UnitInterface;
+
+    /**
+     * Sets the symbol notation used for the unit.
+     *
+     * @param string $id The value to be set as the units id
+     * @return UnitInterface
+     */
+    public function setId(string $id): UnitInterface;
 
     /**
      * Sets the type of measurement that this unit is measuring.

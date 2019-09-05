@@ -34,10 +34,12 @@ class MilesPerGallonUS extends FuelEconomyUnit
 
             ->setSymbol("mpg")
 
+            ->setScientificSymbol('mpg<sub>US</sub>')
+
             ->addFormulae([
                 'L/100km' => ToLitrePer100Kilometres::class,
                 'km/l' => ToKilometrePerLitre::class,
-                'mpig' => ToMilesPerGallonImperial::class,
+                'mpg uk' => ToMilesPerGallonImperial::class,
                 'mpg' => NullFormula::class,
             ]);
     }

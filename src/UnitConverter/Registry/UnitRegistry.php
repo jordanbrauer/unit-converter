@@ -60,10 +60,10 @@ class UnitRegistry implements UnitRegistryInterface
     /**
      * {@inheritDoc}
      */
-    public function isUnitRegistered(string $symbol): bool
+    public function isUnitRegistered(string $id): bool
     {
         foreach ($this->store as $measurement => $units) {
-            if (array_key_exists($symbol, $units)) {
+            if (array_key_exists($id, $units)) {
                 return true;
             }
         }
@@ -100,15 +100,15 @@ class UnitRegistry implements UnitRegistryInterface
     /**
      * {@inheritDoc}
      */
-    public function loadUnit(string $symbol): ?UnitInterface
+    public function loadUnit(string $id): ?UnitInterface
     {
-        if (!$this->isUnitRegistered($symbol)) {
-            throw BadRegistry::unknown($symbol);
+        if (!$this->isUnitRegistered($id)) {
+            throw BadRegistry::unknown($id);
         }
 
         foreach ($this->store as $measurement => $units) {
-            if (array_key_exists($symbol, $units)) {
-                return $this->store->get("{$measurement}.{$symbol}");
+            if (array_key_exists($id, $units)) {
+                return $this->store->get("{$measurement}.{$id}");
             }
         }
     }
@@ -144,10 +144,10 @@ class UnitRegistry implements UnitRegistryInterface
             throw BadMeasurement::unknown($unitOf);
         }
 
-        $symbol = $unit->getSymbol();
+        $id = $unit->getId();
 
-        if ($this->isUnitRegistered($symbol)) {
-            throw BadRegistry::duplicate($symbol);
+        if ($this->isUnitRegistered($id)) {
+            throw BadRegistry::duplicate($id);
         }
 
         $this->store->push($unit->getRegistryKey(), $unit);
@@ -188,21 +188,21 @@ class UnitRegistry implements UnitRegistryInterface
     /**
      * {@inheritDoc}
      */
-    public function unregisterUnit(string $symbol): void
+    public function unregisterUnit(string $id): void
     {
-        if (!$this->isUnitRegistered($symbol)) {
-            throw BadRegistry::unknown($symbol);
+        if (!$this->isUnitRegistered($id)) {
+            throw BadRegistry::unknown($id);
         }
 
-        $this->store->pop($this->loadUnit($symbol)->getRegistryKey());
+        $this->store->pop($this->loadUnit($id)->getRegistryKey());
     }
 
     /**
      * {@inheritDoc}
      */
-    public function unregisterUnits(array $symbols): void
+    public function unregisterUnits(array $ids): void
     {
-        foreach ($symbols as $unit) {
+        foreach ($ids as $unit) {
             $this->unregisterUnit($unit);
         }
     }

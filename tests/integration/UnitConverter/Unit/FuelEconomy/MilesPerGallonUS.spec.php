@@ -80,7 +80,7 @@ class MilesPerGallonUSSpec extends TestCase
         $actual = $this->converter
             ->convert(1)
             ->from("mpg")
-            ->to("mpig");
+            ->to("mpg uk");
 
         $this->assertEquals($expected, $actual);
     }

@@ -122,7 +122,7 @@ class LitrePer100KilometresSpec extends TestCase
         $actual = $this->converter
             ->convert(5)
             ->from("L/100km")
-            ->to("mpig");
+            ->to("mpg uk");
 
         $this->assertEquals($expected, $actual);
     }
