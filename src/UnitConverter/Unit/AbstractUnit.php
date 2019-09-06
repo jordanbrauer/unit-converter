@@ -114,7 +114,7 @@ abstract class AbstractUnit implements UnitInterface
     {
         return \UnitConverter\UnitConverter::createBuilder()
             ->{'add'.(($binary) ? 'Binary' : 'Simple').'Calculator'}() # ¯\_(ツ)_/¯
-            ->addRegistryWith(array_unique([$this, $unit], SORT_REGULAR))
+            ->addRegistryWith(get_class($this) === get_class($unit) ? [$this] : [$this, $unit])
             ->build()
             // ->disableConversionLog() # TODO: when this returns interface, uncomment!
             ->convert((string) $this->getValue(), $precision)
