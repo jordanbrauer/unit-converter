@@ -100,6 +100,16 @@ class AbstractUnitSpec extends TestCase
 
     /**
      * @test
+     * @covers ::as
+     * @return void
+     */
+    public function assertAsUnitConversationWorkForSameUnitsRegardlessOfValue(): void
+    {
+        $this->assertEquals(2, (new Inch(2))->as(new Inch()));
+    }
+
+    /**
+     * @test
      * @covers ::getBaseUnits
      * @return void
      */
@@ -330,7 +340,7 @@ class AbstractUnitSpec extends TestCase
     public function assertUnitCanActAsAnotherUnitWithPrecision(): void
     {
         $expected = self::RESULT_SAIYAN_POWER_TO_INCHES;
-        $actual = $this->unit->as(new Inch(), 2);
+        $actual = $this->unit->as(new Inch(1), 2);
 
         $this->assertInternalType("float", $actual);
         $this->assertEquals($expected, $actual);
