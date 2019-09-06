@@ -14,11 +14,18 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
@@ -38,33 +45,21 @@ use UnitConverter\UnitConverter;
  */
 class DaySpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Day(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $d = new Day(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1DayIs86400Seconds()
-    {
-        $expected = 86400;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("d")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 day is equal to 86,400,000,000,000 nanoseconds' => [$d, new Nanosecond(86400000000000.0), 0],
+            '1 day is equal to 86,400,000,000 microseconds'    => [$d, new Microsecond(86400000000.0), 0],
+            '1 day is equal to 86,400,000 milliseconds'        => [$d, new Millisecond(86400000.0), 0],
+            '1 day is equal to 86,400 seconds'                 => [$d, new Second(86400.0), 0],
+            '1 day is equal to 1,440 minutes'                  => [$d, new Minute(1440.0), 0],
+            '1 day is equal to 24 hours'                       => [$d, new Hour(24.0), 0],
+            '1 day is equal to 1 day'                          => [$d, new Day(1.0), 0],
+            '1 day is equal to 0.142857 weeks'                 => [$d, new Week(0.142857), 6],
+            '1 day is equal to 0.0328767 months'               => [$d, new Month(0.0328767), 7],
+            '1 day is equal to 0.00273973 years'               => [$d, new Year(0.00273973), 8],
+        ];
     }
 }
