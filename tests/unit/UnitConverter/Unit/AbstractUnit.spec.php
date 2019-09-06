@@ -298,7 +298,7 @@ class AbstractUnitSpec extends TestCase
      * @covers ::__toString
      * @return void
      */
-    public function assertStringValueOfUnitsIsTheSymbolWithoutValue(): void
+    public function assertStringValueOfUnitsIsTheSymbolWithoutNumericValue(): void
     {
         $this->assertSame($this->unit->getScientificSymbol(), (string) $this->unit);
     }
