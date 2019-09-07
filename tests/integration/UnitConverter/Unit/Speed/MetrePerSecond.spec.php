@@ -14,10 +14,11 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Speed;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Speed\KilometrePerHour;
 use UnitConverter\Unit\Speed\MetrePerSecond;
+use UnitConverter\Unit\Speed\MilePerHour;
 use UnitConverter\UnitConverter;
 
 /**
@@ -36,32 +37,14 @@ use UnitConverter\UnitConverter;
  */
 class MetrePerSecondSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new MetrePerSecond(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mps = new MetrePerSecond(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MetrePerSecondIs1MetrePerSecond()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("mps")
-            ->to("mps");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 metre per second is equal to 1 metre per second'      => [$mps, new MetrePerSecond(1.0), 0],
+            '1 metre per second is equal to 3.6 kilometres per hour' => [$mps, new KilometrePerHour(3.6), 1],
+            '1 metre per second is equal to 2.23694 miles per hour'  => [$mps, new MilePerHour(2.23694), 5],
+        ];
     }
 }

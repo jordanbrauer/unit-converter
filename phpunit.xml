@@ -36,6 +36,10 @@
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/PlaneAngle/</directory>
       </testsuite>
 
+      <testsuite name="speed">
+        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Speed/</directory>
+      </testsuite>
+
       <testsuite name="time">
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Time/</directory>
       </testsuite>

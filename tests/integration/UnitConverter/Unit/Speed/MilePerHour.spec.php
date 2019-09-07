@@ -14,9 +14,9 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Speed;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Speed\KilometrePerHour;
 use UnitConverter\Unit\Speed\MetrePerSecond;
 use UnitConverter\Unit\Speed\MilePerHour;
 use UnitConverter\UnitConverter;
@@ -38,33 +38,14 @@ use UnitConverter\UnitConverter;
  */
 class MilePerHourSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new MetrePerSecond(),
-                new MilePerHour(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mps = new MilePerHour(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MilePerHourIs0decimal44704MetresPerSecond()
-    {
-        $expected = 0.44704;
-        $actual = $this->converter
-            ->convert(1, 5)
-            ->from("miph")
-            ->to("mps");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 mile per hour is equal to 0.44704 metre per second'    => [$mps, new MetrePerSecond(0.44704), 5],
+            '1 mile per hour is equal to 1.60934 kilometres per hour' => [$mps, new KilometrePerHour(1.60934), 5],
+            '1 mile per hour is equal to 1.0 mile per hour'           => [$mps, new MilePerHour(1.0), 0],
+        ];
     }
 }
