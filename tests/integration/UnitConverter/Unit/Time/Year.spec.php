@@ -14,10 +14,17 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Generator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
 use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
@@ -38,36 +45,6 @@ use UnitConverter\UnitConverter;
  */
 class YearSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Year(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1YearIs31536000Seconds()
-    {
-        $expected = 31536000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("y")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
-    }
-
     /**
      * @test
      * @return void
@@ -84,5 +61,23 @@ class YearSpec extends TestCase
         foreach ($regularYears as $year) {
             $this->assertFalse(Year::isLeapYear($year));
         }
+    }
+
+    public function correctConversions(): Generator
+    {
+        $y = new Year(1);
+
+        yield from [
+            '1 year is equal to 31,536,000,000,000,000 nanoseconds' => [$y, new Nanosecond(31536000000000000.0), 0],
+            '1 year is equal to 31,536,000,000,000 microseconds'    => [$y, new Microsecond(31536000000000.0), 0],
+            '1 year is equal to 31,536,000,000 milliseconds'        => [$y, new Millisecond(31536000000.0), 0],
+            '1 year is equal to 31,536,000 seconds'                 => [$y, new Second(31536000.0), 0],
+            '1 year is equal to 525600 minutes'                     => [$y, new Minute(525600.0), 0],
+            '1 year is equal to 8760 hours'                         => [$y, new Hour(8760.0), 0],
+            '1 year is equal to 365 days'                           => [$y, new Day(365.0), 0],
+            '1 year is equal to 52.1429 weeks'                      => [$y, new Week(52.1429), 4],
+            '1 year is equal to 12 months'                          => [$y, new Month(12.0), 6],
+            '1 year is equal to 1 year'                             => [$y, new Year(1.0), 0],
+        ];
     }
 }
