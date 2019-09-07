@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Pressure\Atmosphere;
+use UnitConverter\Unit\Pressure\Bar;
 use UnitConverter\Unit\Pressure\Kilopascal;
+use UnitConverter\Unit\Pressure\Megapascal;
+use UnitConverter\Unit\Pressure\Millibar;
 use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
+use UnitConverter\Unit\Pressure\Torr;
 use UnitConverter\UnitConverter;
 
 /**
  * Test that a kilopascal is indeed a kilopascal.
  *
  * @covers UnitConverter\Unit\Pressure\Kilopascal
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Pressure\Pascal
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class KilopascalSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Pascal(),
-                new Kilopascal(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $kpa = new Kilopascal(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1KilopascalIs1000Pascal()
-    {
-        $expected = 1000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("kPa")
-            ->to("Pa");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 kilopascal is equal to 1,000 pascal'                         => [$kpa, new Pascal(1000.0), 0],
+            '1 kilopascal is equal to 7.50064 torr'                         => [$kpa, new Torr(7.50064), 5],
+            '1 kilopascal is equal to 0.00986923 atmosphere'                => [$kpa, new Atmosphere(0.00986923), 8],
+            '1 kilopascal is equal to 10 millibar'                          => [$kpa, new Millibar(10.0), 0],
+            '1 kilopascal is equal to 1 kilopascal'                         => [$kpa, new Kilopascal(1.0), 0],
+            '1 kilopascal is equal to 0.145038 pound-force per square inch' => [$kpa, new PoundForcePerSquareInch(0.145038), 6],
+            '1 kilopascal is equal to 0.01 bar'                             => [$kpa, new Bar(0.01), 2],
+            '1 kilopascal is equal to 0.001 megapascal'                     => [$kpa, new Megapascal(0.001), 3],
+        ];
     }
 }

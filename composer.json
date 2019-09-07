@@ -15,6 +15,7 @@
     "test:integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
     "test:frequency": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=frequency --color=always",
     "test:planeangle": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=planeangle --color=always",
+    "test:pressure": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=pressure --color=always",
     "test:speed": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=speed --color=always",
     "test:temperature": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=temperature --color=always",
     "test:time": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=time --color=always",
