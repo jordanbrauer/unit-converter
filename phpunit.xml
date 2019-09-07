@@ -32,6 +32,10 @@
         <directory suffix=".spec.php">tests/integration/</directory>
       </testsuite>
 
+      <testsuite name="frequency">
+        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Frequency/</directory>
+      </testsuite>
+
       <testsuite name="planeangle">
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/PlaneAngle/</directory>
       </testsuite>

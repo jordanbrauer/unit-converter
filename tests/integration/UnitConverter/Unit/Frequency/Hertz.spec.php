@@ -14,10 +14,14 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Frequency;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Frequency\Gigahertz;
 use UnitConverter\Unit\Frequency\Hertz;
+use UnitConverter\Unit\Frequency\Kilohertz;
+use UnitConverter\Unit\Frequency\Megahertz;
+use UnitConverter\Unit\Frequency\Millihertz;
+use UnitConverter\Unit\Frequency\Terahertz;
 use UnitConverter\UnitConverter;
 
 /**
@@ -36,32 +40,17 @@ use UnitConverter\UnitConverter;
  */
 class HertzSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Hertz(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $hz = new Hertz(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1HertzIs1Hertz()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("Hz")
-            ->to("Hz");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 hertz is equal to 1,000 millihertz'         => [$hz, new Millihertz(1000.0), 0],
+            '1 hertz is equal to 1 hertz'                  => [$hz, new Hertz(1.0), 0],
+            '1 hertz is equal to 0.001 kilohertz'          => [$hz, new Kilohertz(0.001), 3],
+            '1 hertz is equal to 0.000001 megahertz'       => [$hz, new Megahertz(0.000001), 6],
+            '1 hertz is equal to 0.000000001 gigahertz'    => [$hz, new Gigahertz(0.000000001), 9],
+            '1 hertz is equal to 0.000000000001 terahertz' => [$hz, new Terahertz(0.000000000001), 12],
+        ];
     }
 }

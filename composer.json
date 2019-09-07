@@ -13,6 +13,7 @@
     "test": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
     "test:unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
     "test:integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
+    "test:frequency": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=frequency --color=always",
     "test:planeangle": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=planeangle --color=always",
     "test:speed": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=speed --color=always",
     "test:temperature": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=temperature --color=always",

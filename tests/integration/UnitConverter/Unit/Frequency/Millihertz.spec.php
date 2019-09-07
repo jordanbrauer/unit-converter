@@ -14,11 +14,14 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Frequency;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Frequency\Gigahertz;
 use UnitConverter\Unit\Frequency\Hertz;
+use UnitConverter\Unit\Frequency\Kilohertz;
+use UnitConverter\Unit\Frequency\Megahertz;
 use UnitConverter\Unit\Frequency\Millihertz;
+use UnitConverter\Unit\Frequency\Terahertz;
 use UnitConverter\UnitConverter;
 
 /**
@@ -38,33 +41,17 @@ use UnitConverter\UnitConverter;
  */
 class MillihertzSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Hertz(),
-                new Millihertz(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mhz = new Millihertz(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MillihertzIs0decimal001Hertzs()
-    {
-        $expected = 0.001;
-        $actual = $this->converter
-            ->convert(1, 3)
-            ->from("mHz")
-            ->to("Hz");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 millihertz is equal to 1 millihertz'                => [$mhz, new Millihertz(1.0), 0],
+            '1 millihertz is equal to 0.001 hertz'                 => [$mhz, new Hertz(0.001), 3],
+            '1 millihertz is equal to 0.000001 kilohertz'          => [$mhz, new Kilohertz(0.000001), 6],
+            '1 millihertz is equal to 0.000000001 megahertz'       => [$mhz, new Megahertz(0.000000001), 9],
+            '1 millihertz is equal to 0.000000000001 gigahertz'    => [$mhz, new Gigahertz(0.000000000001), 12],
+            '1 millihertz is equal to 0.000000000000001 terahertz' => [$mhz, new Terahertz(0.000000000000001), 15],
+        ];
     }
 }

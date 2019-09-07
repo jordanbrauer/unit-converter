@@ -14,10 +14,13 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Frequency;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Frequency\Gigahertz;
 use UnitConverter\Unit\Frequency\Hertz;
+use UnitConverter\Unit\Frequency\Kilohertz;
+use UnitConverter\Unit\Frequency\Megahertz;
+use UnitConverter\Unit\Frequency\Millihertz;
 use UnitConverter\Unit\Frequency\Terahertz;
 use UnitConverter\UnitConverter;
 
@@ -38,33 +41,17 @@ use UnitConverter\UnitConverter;
  */
 class TerahertzSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Hertz(),
-                new Terahertz(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $thz = new Terahertz(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1TerahertzIs1000000000000Hertzs()
-    {
-        $expected = 1000000000000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("THz")
-            ->to("Hz");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 terahertz is equal to 1,000,000,000,000,000 millihertz' => [$thz, new Millihertz(1000000000000000.0), 0],
+            '1 terahertz is equal to 1,000,000,000,000 hertz'          => [$thz, new Hertz(1000000000000.0), 0],
+            '1 terahertz is equal to 1,000,000,000 kilohertz'          => [$thz, new Kilohertz(1000000000.0), 0],
+            '1 terahertz is equal to 1,000,000 megahertz'              => [$thz, new Megahertz(1000000.0), 0],
+            '1 terahertz is equal to 1,000 gigahertz'                  => [$thz, new Gigahertz(1000.0), 0],
+            '1 terahertz is equal to 1 terahertz'                      => [$thz, new Terahertz(1.0), 0],
+        ];
     }
 }
