@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a nanosecond is infact, a nanosecond.
  *
  * @covers UnitConverter\Unit\Time\Nanosecond
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

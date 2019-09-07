@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a hour is infact, a hour.
  *
  * @covers UnitConverter\Unit\Time\Hour
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

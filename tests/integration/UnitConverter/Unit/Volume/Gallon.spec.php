@@ -27,6 +27,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a U.S. gallon is a U.S. gallon.
  *
  * @covers UnitConverter\Unit\Volume\Gallon
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Volume\Litre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

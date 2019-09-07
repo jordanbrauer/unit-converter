@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a minute is infact, a minute.
  *
  * @covers UnitConverter\Unit\Time\Minute
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

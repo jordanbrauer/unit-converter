@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a day is infact, a day.
  *
  * @covers UnitConverter\Unit\Time\Day
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

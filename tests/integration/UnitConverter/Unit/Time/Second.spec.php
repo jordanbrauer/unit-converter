@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a second is infact, a second.
  *
  * @covers UnitConverter\Unit\Time\Second
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator

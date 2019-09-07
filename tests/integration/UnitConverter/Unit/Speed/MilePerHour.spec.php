@@ -25,6 +25,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a mile per hour is infact, a mile per hour.
  *
  * @covers UnitConverter\Unit\Speed\MilePerHour
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Speed\MetrePerSecond
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

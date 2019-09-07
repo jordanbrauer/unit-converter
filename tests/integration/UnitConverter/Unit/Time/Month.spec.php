@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a month is infact, a month.
  *
  * @covers UnitConverter\Unit\Time\Month
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

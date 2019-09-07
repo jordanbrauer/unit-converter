@@ -31,6 +31,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a millisecond is infact, a millisecond.
  *
  * @covers UnitConverter\Unit\Time\Millisecond
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

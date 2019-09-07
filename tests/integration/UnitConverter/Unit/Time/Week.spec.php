@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a week is infact, a week.
  *
  * @covers UnitConverter\Unit\Time\Week
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

@@ -24,6 +24,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a degree is infact, a degree.
  *
  * @covers UnitConverter\Unit\PlaneAngle\Degree
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator

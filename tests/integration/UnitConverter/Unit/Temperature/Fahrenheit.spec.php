@@ -25,6 +25,7 @@ use UnitConverter\UnitConverter;
  * Ensure that Fahrenheit is Fahrenheit.
  *
  * @covers UnitConverter\Unit\Temperature\Fahrenheit
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Temperature\Kelvin
  * @uses UnitConverter\Unit\Temperature\Celsius
  * @uses UnitConverter\Unit\AbstractUnit

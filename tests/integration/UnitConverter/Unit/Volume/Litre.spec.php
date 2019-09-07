@@ -27,6 +27,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a litre is litre.
  *
  * @covers UnitConverter\Unit\Volume\Litre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator

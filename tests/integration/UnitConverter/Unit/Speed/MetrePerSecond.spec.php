@@ -25,6 +25,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a metre per second is a metre per second.
  *
  * @covers UnitConverter\Unit\Speed\MetrePerSecond
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator

@@ -26,6 +26,7 @@ use UnitConverter\Unit\Volume\Pint;
  * Ensure that a cubic metre is a metre that has been cubed.
  *
  * @covers UnitConverter\Unit\Volume\CubicMetre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Volume\Litre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

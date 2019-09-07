@@ -24,6 +24,7 @@ use UnitConverter\UnitConverter;
 
 /**
  * @covers UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
  * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
  * @uses UnitConverter\Unit\AbstractUnit

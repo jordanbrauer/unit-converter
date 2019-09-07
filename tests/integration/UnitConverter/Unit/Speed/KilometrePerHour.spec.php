@@ -25,6 +25,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a kilometre per hour is infact, a kilometre per hour.
  *
  * @covers UnitConverter\Unit\Speed\KilometrePerHour
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Speed\MetrePerSecond
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

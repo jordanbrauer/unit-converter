@@ -24,6 +24,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a radian is infact, a radian.
  *
  * @covers UnitConverter\Unit\PlaneAngle\Radian
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\PlaneAngle\Degree
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

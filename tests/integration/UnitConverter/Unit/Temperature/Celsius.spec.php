@@ -25,6 +25,7 @@ use UnitConverter\UnitConverter;
  * Ensure that Clesius is infact Clesius.
  *
  * @covers UnitConverter\Unit\Temperature\Celsius
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Temperature\Fahrenheit
  * @uses UnitConverter\Unit\Temperature\Kelvin
  * @uses UnitConverter\Unit\AbstractUnit

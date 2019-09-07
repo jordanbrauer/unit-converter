@@ -32,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a year is infact, a year.
  *
  * @covers UnitConverter\Unit\Time\Year
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  * @uses UnitConverter\Unit\Time\Second

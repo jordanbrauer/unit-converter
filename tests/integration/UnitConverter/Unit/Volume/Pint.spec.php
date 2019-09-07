@@ -27,6 +27,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a pint is a pint.
  *
  * @covers UnitConverter\Unit\Volume\Pint
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Volume\Litre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
