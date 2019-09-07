@@ -40,6 +40,10 @@
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Speed/</directory>
       </testsuite>
 
+      <testsuite name="temperature">
+        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Temperature/</directory>
+      </testsuite>
+
       <testsuite name="time">
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Time/</directory>
       </testsuite>
