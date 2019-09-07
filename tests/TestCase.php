@@ -15,14 +15,11 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
-use UnitConverter\Measure;
+use UnitConverter\Unit\UnitInterface;
 use UnitConverter\UnitConverter;
-use UnitConverter\UnitConverterInterface;
 
 abstract class TestCase extends PHPUnitTestCase
 {
-    use AssertsCorrectConversions;
-
     /**
      * @var ConverterBuilder
      */
@@ -38,38 +35,24 @@ abstract class TestCase extends PHPUnitTestCase
         unset($this->builder);
     }
 
-    protected function binaryConverter(): UnitConverterInterface
+    /**
+     * @test
+     * @dataProvider correctConversions
+     * @param UnitInterface $from
+     * @param UnitInterface $to
+     * @param int $precision
+     * @return void
+     */
+    public function assertCorrectConversions(UnitInterface $from, UnitInterface $to, int $precision = null): void
     {
-        return $this->builder->addBinaryCalculator()
-            ->addDefaultRegistry()
-            ->build();
-    }
+        $this->assertSame($from->getUnitOf(), $to->getUnitOf(), 'Cannot convert units that do not share a measurement');
 
-    protected function simpleConverter(): UnitConverterInterface
-    {
-        return $this->builder->addSimpleCalculator()
-            ->addDefaultRegistry()
-            ->build();
-    }
+        $fromClass = get_class($from); // HACK: re-instantiating the unit will make @covers work with data providers
+        $from = new $fromClass($from->getValue());
+        $expected = $to->getValue();
+        $actual = $from->as($to, $precision);
 
-    protected function simplePlaneAngleConverter(): UnitConverterInterface
-    {
-        return $this->builder->addSimpleCalculator()
-            ->addRegistryFor(Measure::PLANE_ANGLE)
-            ->build();
-    }
-
-    protected function simpleTimeConverter(): UnitConverterInterface
-    {
-        return $this->builder->addSimpleCalculator()
-            ->addRegistryFor(Measure::TIME)
-            ->build();
-    }
-
-    protected function simpleVolumeConverter(): UnitConverterInterface
-    {
-        return $this->builder->addSimpleCalculator()
-            ->addRegistryFor(Measure::VOLUME)
-            ->build();
+        $this->assertEquals($expected, $actual);
+        $this->assertSame($expected, $actual);
     }
 }
