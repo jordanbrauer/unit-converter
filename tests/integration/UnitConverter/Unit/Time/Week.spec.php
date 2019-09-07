@@ -14,11 +14,18 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Generator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
 use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
@@ -38,33 +45,21 @@ use UnitConverter\UnitConverter;
  */
 class WeekSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Generator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Week(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $w = new Week(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1WeekIs604800Seconds()
-    {
-        $expected = 604800;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("wk")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 week is equal to 604,800,000,000,000 nanoseconds' => [$w, new Nanosecond(604800000000000.0), 0],
+            '1 week is equal to 604,800,000,000 microseconds'    => [$w, new Microsecond(604800000000.0), 0],
+            '1 week is equal to 604,800,000 milliseconds'        => [$w, new Millisecond(604800000.0), 0],
+            '1 week is equal to 604,800 seconds'                 => [$w, new Second(604800.0), 0],
+            '1 week is equal to 10080 minutes'                   => [$w, new Minute(10080.0), 0],
+            '1 week is equal to 168 hours'                       => [$w, new Hour(168.0), 0],
+            '1 week is equal to 7 days'                          => [$w, new Day(7.0), 0],
+            '1 week is equal to 1 week'                          => [$w, new Week(1.0), 0],
+            '1 week is equal to 0.230137 month'                  => [$w, new Month(0.230137), 6],
+            '1 week is equal to 0.0191781 years'                 => [$w, new Year(0.0191781), 7],
+        ];
     }
 }
