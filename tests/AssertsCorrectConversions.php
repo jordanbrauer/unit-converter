@@ -19,6 +19,9 @@ trait AssertsCorrectConversions
      */
     public function assertCorrectConversions(UnitInterface $from, UnitInterface $to, int $precision = null): void
     {
+        $fromClass = get_class($from); // HACK: re-instantiating the unit will make @covers work with data providers
+        $from = new $fromClass($from->getValue());
+
         $this->assertSame($from->getUnitOf(), $to->getUnitOf(), 'Cannot convert units that do not share a measurement');
 
         $expected = $to->getValue();
