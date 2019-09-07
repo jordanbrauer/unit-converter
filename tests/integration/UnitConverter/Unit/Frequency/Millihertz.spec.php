@@ -28,6 +28,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a millihertz is infact, a millihertz.
  *
  * @covers UnitConverter\Unit\Frequency\Millihertz
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Frequency\Hertz
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

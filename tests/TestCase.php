@@ -19,9 +19,6 @@ use UnitConverter\Measure;
 use UnitConverter\UnitConverter;
 use UnitConverter\UnitConverterInterface;
 
-/**
- * @uses UnitConverter\ConverterBuilder
- */
 abstract class TestCase extends PHPUnitTestCase
 {
     use AssertsCorrectConversions;

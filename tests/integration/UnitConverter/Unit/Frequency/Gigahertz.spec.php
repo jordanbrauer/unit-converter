@@ -28,6 +28,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a gigahertz is infact, a gigahertz.
  *
  * @covers UnitConverter\Unit\Frequency\Gigahertz
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Frequency\Hertz
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

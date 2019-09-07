@@ -28,6 +28,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a hertz is a hertz.
  *
  * @covers UnitConverter\Unit\Frequency\Hertz
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator

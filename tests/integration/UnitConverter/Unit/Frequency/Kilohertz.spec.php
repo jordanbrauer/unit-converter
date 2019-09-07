@@ -28,6 +28,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a kilohertz is infact, a kilohertz.
  *
  * @covers UnitConverter\Unit\Frequency\Kilohertz
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Frequency\Hertz
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
