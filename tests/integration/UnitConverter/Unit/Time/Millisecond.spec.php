@@ -14,11 +14,17 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
 use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
@@ -38,36 +44,6 @@ use UnitConverter\UnitConverter;
  */
 class MillisecondSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Millisecond(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MillisecondIs0decimal001Seconds()
-    {
-        $expected = 0.001;
-        $actual = $this->converter
-            ->convert(1, 3)
-            ->from("ms")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
-    }
-
     /**
      * @test
      */
@@ -76,5 +52,23 @@ class MillisecondSpec extends TestCase
         $result = (new Millisecond())->isSubmultipleSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
+    }
+
+    public function correctConversions()
+    {
+        $ms = new Millisecond(1);
+
+        yield from [
+            '1 millisecond is equal to 1,000,000 nanoseconds'    => [$ms, new Nanosecond(1000000.0), 0],
+            '1 millisecond is equal to 1,000 microseconds'       => [$ms, new Microsecond(1000.0), 0],
+            '1 millisecond is equal to 1 milliseconds'           => [$ms, new Millisecond(1.0), 0],
+            '1 millisecond is equal to 0.001 seconds'            => [$ms, new Second(0.001), 3],
+            '1 millisecond is equal to 0.000016667 minutes'      => [$ms, new Minute(0.000016667), 9],
+            '1 millisecond is equal to 0.00000027778 hours'      => [$ms, new Hour(0.00000027778), 12],
+            '1 millisecond is equal to 0.0000000115740 days'     => [$ms, new Day(0.0000000115740), 13],
+            '1 millisecond is equal to 0.00000000165340 weeks'   => [$ms, new Week(0.00000000165340), 14],
+            '1 millisecond is equal to 0.000000000380520 months' => [$ms, new Month(0.000000000380520), 15],
+            '1 millisecond is equal to 0.000000000031710 years'  => [$ms, new Year(0.000000000031710), 15],
+        ];
     }
 }
