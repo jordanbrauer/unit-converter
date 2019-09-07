@@ -14,11 +14,18 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Generator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
 use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
@@ -38,33 +45,21 @@ use UnitConverter\UnitConverter;
  */
 class MinuteSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Generator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Minute(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $m = new Minute(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MinuteIs60Seconds()
-    {
-        $expected = 60;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("min")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 minute is equal to 60,000,000,000 nanoseconds' => [$m, new Nanosecond(60000000000.0), 0],
+            '1 minute is equal to 60,000,000 microseconds'    => [$m, new Microsecond(60000000.0), 0],
+            '1 minute is equal to 60,000 milliseconds'        => [$m, new Millisecond(60000.0), 0],
+            '1 minute is equal to 60 seconds'                 => [$m, new Second(60.0), 0],
+            '1 minute is equal to 1 minute'                   => [$m, new Minute(1.0), 0],
+            '1 minute is equal to 0.0166667 hours'            => [$m, new Hour(0.0166667), 7],
+            '1 minute is equal to 0.000694444 days'           => [$m, new Day(0.000694444), 9],
+            '1 minute is equal to 0.000099206 weeks'          => [$m, new Week(0.000099206), 9],
+            '1 minute is equal to 0.000022831 months'         => [$m, new Month(0.000022831), 9],
+            '1 minute is equal to 0.00000190260 years'        => [$m, new Year(0.00000190260), 11],
+        ];
     }
 }
