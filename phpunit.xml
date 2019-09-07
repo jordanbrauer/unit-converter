@@ -49,6 +49,7 @@
       </testsuite>
 
       <testsuite name="volume">
+        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/FuelEconomy/</directory>
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Volume/</directory>
       </testsuite>
     </testsuites>
