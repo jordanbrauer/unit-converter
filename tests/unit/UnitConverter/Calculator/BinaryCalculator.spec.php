@@ -82,7 +82,7 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertMultiplyMethodProperlyMultipliesTwoNumbers()
     {
-        $expected = "4";
+        $expected = "4.0000";
         $actual = $this->calculator->mul("2", "2");
 
         $this->assertEquals($expected, $actual);
@@ -96,7 +96,7 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertPowerMethodRaisesBaseNumberToPowerExponent()
     {
-        $expected = "100";
+        $expected = "100.0000";
         $actual = $this->calculator->pow("10", "2");
 
         $this->assertEquals($expected, $actual);

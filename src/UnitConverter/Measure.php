@@ -42,6 +42,7 @@ use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallonImperial;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallonUS;
+use UnitConverter\Unit\FuelEconomy\MilesPerLitre;
 use UnitConverter\Unit\Length\AstronomicalUnit;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Decimetre;
@@ -182,6 +183,7 @@ class Measure
             LitrePer100Kilometres::class,
             MilesPerGallonUS::class,
             MilesPerGallonImperial::class,
+            MilesPerLitre::class
         ],
         self::MASS => [
             Gram::class,

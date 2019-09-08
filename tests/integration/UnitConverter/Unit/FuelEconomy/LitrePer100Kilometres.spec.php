@@ -21,6 +21,7 @@ use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallonImperial;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallonUS;
+use UnitConverter\Unit\FuelEconomy\MilesPerLitre;
 use UnitConverter\UnitConverter;
 
 /**
@@ -47,6 +48,7 @@ class LitrePer100KilometresSpec extends TestCase
                 new MilesPerGallonUS(),
                 new MilesPerGallonImperial(),
                 new LitrePer100Kilometres(),
+                new MilesPerLitre()
             ]),
             new SimpleCalculator()
         );
@@ -123,6 +125,20 @@ class LitrePer100KilometresSpec extends TestCase
             ->convert(5)
             ->from("L/100km")
             ->to("mpg uk");
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @test
+     */
+    public function assert11LitrePer100KilometresIs5MilesPerLitre()
+    {
+        $expected = 5.65;
+        $actual = $this->converter
+            ->convert(11)
+            ->from("L/100km")
+            ->to("mi/l");
 
         $this->assertEquals($expected, $actual);
     }
