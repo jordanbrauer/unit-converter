@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Area\Acre;
+use UnitConverter\Unit\Area\Hectare;
+use UnitConverter\Unit\Area\SquareCentimetre;
+use UnitConverter\Unit\Area\SquareFoot;
+use UnitConverter\Unit\Area\SquareKilometre;
 use UnitConverter\Unit\Area\SquareMetre;
 use UnitConverter\Unit\Area\SquareMile;
+use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a square mile is a square mile.
  *
  * @covers UnitConverter\Unit\Area\SquareMile
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class SquareMileSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new SquareMetre(),
-                new SquareMile(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mi2 = new SquareMile(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1SquareMileIs2589988decimal11SquareMetres()
-    {
-        $expected = 2589988.11;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("mi2")
-            ->to("m2");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 square mile is equal to 2,589,988,110,000 square millimetres' => [$mi2, new SquareMillimetre(2589988110000.0), 0],
+            '1 square mile is equal to 25,899,881,100 square centimetre'     => [$mi2, new SquareCentimetre(25899881100.0), 0],
+            '1 square mile is equal to 2,589,988 square metre'               => [$mi2, new SquareMetre(2589988.0), 0],
+            '1 square mile is equal to 1 square mile'                        => [$mi2, new SquareMile(1.0), 0],
+            '1 square mile is equal to 2.58999 square kilometres'            => [$mi2, new SquareKilometre(2.58999), 5],
+            '1 square mile is equal to 27,878,412 square foot'               => [$mi2, new SquareFoot(27878412.0), 0],
+            '1 square mile is equal to 258.999 hectare'                      => [$mi2, new Hectare(258.999), 3],
+            '1 square mile is equal to 640 acre'                             => [$mi2, new Acre(640.0), 0],
+        ];
     }
 }

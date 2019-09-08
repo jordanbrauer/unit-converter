@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Area\Acre;
+use UnitConverter\Unit\Area\Hectare;
+use UnitConverter\Unit\Area\SquareCentimetre;
+use UnitConverter\Unit\Area\SquareFoot;
 use UnitConverter\Unit\Area\SquareKilometre;
 use UnitConverter\Unit\Area\SquareMetre;
+use UnitConverter\Unit\Area\SquareMile;
+use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a square kilometre is a square kilometre.
  *
  * @covers UnitConverter\Unit\Area\SquareKilometre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class SquareKilometreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new SquareMetre(),
-                new SquareKilometre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $km2 = new SquareKilometre(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1SquareKilometreIs1000000SquareMetres()
-    {
-        $expected = 1000000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("km2")
-            ->to("m2");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 square kilometre is equal to 1,000,000,000,000 square millimetres' => [$km2, new SquareMillimetre(1000000000000.0), 0],
+            '1 square kilometre is equal to 10,000,000,000 square centimetres'    => [$km2, new SquareCentimetre(10000000000.0), 0],
+            '1 square kilometre is equal to 1,000,000 square metres'              => [$km2, new SquareMetre(1000000.0), 0],
+            '1 square kilometre is equal to 0.386102 square miles'                => [$km2, new SquareMile(0.386102), 6],
+            '1 square kilometre is equal to 1 square kilometres'                  => [$km2, new SquareKilometre(1.0), 0],
+            '1 square kilometre is equal to 10763915 square feet'                 => [$km2, new SquareFoot(10763915.0), 0],
+            '1 square kilometre is equal to 100 hectare'                          => [$km2, new Hectare(100.0), 0],
+            '1 square kilometre is equal to 247.105 acre'                         => [$km2, new Acre(247.105), 3],
+        ];
     }
 }
