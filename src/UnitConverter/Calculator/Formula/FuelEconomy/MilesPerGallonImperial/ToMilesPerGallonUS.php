@@ -27,9 +27,9 @@ class ToMilesPerGallonUS extends AbstractFormula
 
     const MAGIC_NUMBER = 0.832674;
 
-    const FORMULA_STRING = 'mpg(Imperial) = 0.832674 * mpg(US)';
+    const FORMULA_STRING = 'mpg(US) = 0.832674 * mpg(Imperial)';
 
-    const FORMULA_TEMPLATE = '%s mpg(Imperial) = 0.832674 * %smpg(US)';
+    const FORMULA_TEMPLATE = '%s mpg(US) = 0.832674 * %smpg(Imperial)';
 
     /**
      * {@inheritDoc}

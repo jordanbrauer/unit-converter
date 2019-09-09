@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\FuelEconomy;
 
+use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial\ToMilesPerLitre;
 use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial\ToKilometrePerLitre;
 use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial\ToLitrePer100Kilometres;
 use UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonImperial\ToMilesPerGallonUS;
@@ -42,6 +43,7 @@ class MilesPerGallonImperial extends FuelEconomyUnit
                 'L/100km' => ToLitrePer100Kilometres::class,
                 'km/l' => ToKilometrePerLitre::class,
                 'mpg' => ToMilesPerGallonUS::class,
+                'mi/l' => ToMilesPerLitre::class,
                 'mpg uk' => NullFormula::class,
             ]);
     }

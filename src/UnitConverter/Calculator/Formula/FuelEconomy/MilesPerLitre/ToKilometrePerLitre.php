@@ -12,24 +12,24 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonUS;
+namespace UnitConverter\Calculator\Formula\FuelEconomy\MilesPerLitre;
 
 use UnitConverter\Calculator\Formula\AbstractFormula;
 
 /**
- * Formula to convert Kilometre Per Litre values to Miles Per Gallon.
+ * Formula to convert Miles Per Gallon values to Kilometre Per Litre.
  *
  * @version 1.0.0
  * @author Maksim Martianov <7222812+maksimru@users.noreply.github.com>
  */
-class ToMilesPerGallonImperial extends AbstractFormula
+class ToKilometrePerLitre extends AbstractFormula
 {
 
-    const MAGIC_NUMBER = 1.20095;
+    const MAGIC_NUMBER = 1.609344;
 
-    const FORMULA_STRING = 'mpg(Imperial) = 1.20095 * mpg(US)';
+    const FORMULA_STRING = 'km/l = 1.609344 * mi/l';
 
-    const FORMULA_TEMPLATE = '%s mpg(Imperial) = 1.20095 * %smpg(US)';
+    const FORMULA_TEMPLATE = '%s km/l = 1.609344 * %smi/l';
 
     /**
      * {@inheritDoc}

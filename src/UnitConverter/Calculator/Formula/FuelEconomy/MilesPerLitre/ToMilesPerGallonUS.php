@@ -12,7 +12,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Calculator\Formula\FuelEconomy\MilesPerGallonUS;
+namespace UnitConverter\Calculator\Formula\FuelEconomy\MilesPerLitre;
 
 use UnitConverter\Calculator\Formula\AbstractFormula;
 
@@ -22,14 +22,14 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  * @version 1.0.0
  * @author Maksim Martianov <7222812+maksimru@users.noreply.github.com>
  */
-class ToMilesPerGallonImperial extends AbstractFormula
+class ToMilesPerGallonUS extends AbstractFormula
 {
 
-    const MAGIC_NUMBER = 1.20095;
+    const MAGIC_NUMBER = 3.785412;
 
-    const FORMULA_STRING = 'mpg(Imperial) = 1.20095 * mpg(US)';
+    const FORMULA_STRING = 'mpg(US) = 3.785412 * mi/l';
 
-    const FORMULA_TEMPLATE = '%s mpg(Imperial) = 1.20095 * %smpg(US)';
+    const FORMULA_TEMPLATE = '%s mpg(US) = 3.785412 * %smi/l';
 
     /**
      * {@inheritDoc}

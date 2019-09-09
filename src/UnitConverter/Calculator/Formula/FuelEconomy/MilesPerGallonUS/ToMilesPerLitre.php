@@ -22,14 +22,14 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  * @version 1.0.0
  * @author Maksim Martianov <7222812+maksimru@users.noreply.github.com>
  */
-class ToMilesPerGallonImperial extends AbstractFormula
+class ToMilesPerLitre extends AbstractFormula
 {
 
-    const MAGIC_NUMBER = 1.20095;
+    const MAGIC_NUMBER = 0.264172;
 
-    const FORMULA_STRING = 'mpg(Imperial) = 1.20095 * mpg(US)';
+    const FORMULA_STRING = 'mi/l = 0.264172 * mpg(US)';
 
-    const FORMULA_TEMPLATE = '%s mpg(Imperial) = 1.20095 * %smpg(US)';
+    const FORMULA_TEMPLATE = '%s mi/l = 0.264172 * %smpg(US)';
 
     /**
      * {@inheritDoc}
