@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Registry;
 
+use RuntimeException;
 use UnitConverter\Exception\BadMeasurement;
 use UnitConverter\Exception\BadRegistry;
 use UnitConverter\Measure;
@@ -64,6 +65,10 @@ class UnitRegistry implements UnitRegistryInterface
     {
         foreach ($this->store as $measurement => $units) {
             if (array_key_exists($symbol, $units)) {
+                if (is_array($units[$symbol])) {
+                    throw new RuntimeException(sprintf('Encountered unit "%s" with variants: %s; but have no way to select one', $symbol, implode(', ', array_keys($units[$symbol]))));
+                }
+
                 return true;
             }
         }
