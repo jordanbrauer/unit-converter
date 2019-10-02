@@ -36,6 +36,10 @@
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Area/</directory>
       </testsuite>
 
+      <testsuite name="energy">
+        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Energy/</directory>
+      </testsuite>
+
       <testsuite name="frequency">
         <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Frequency/</directory>
       </testsuite>

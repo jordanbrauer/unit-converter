@@ -14,6 +14,7 @@
     "test:unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
     "test:integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
     "test:area": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=area --color=always",
+    "test:energy": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=energy --color=always",
     "test:frequency": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=frequency --color=always",
     "test:planeangle": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=planeangle --color=always",
     "test:pressure": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=pressure --color=always",
