@@ -25,15 +25,17 @@ use UnitConverter\Unit\FuelEconomy\MilesPerLitre;
 use UnitConverter\UnitConverter;
 
 /**
- *
  * @covers UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
  * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\LitrePer100Kilometres\ToKilometrePerLitre
+ * @uses UnitConverter\Calculator\Formula\FuelEconomy\LitrePer100Kilometres\ToMilesPerGallon
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
@@ -142,5 +144,4 @@ class LitrePer100KilometresSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
-
 }

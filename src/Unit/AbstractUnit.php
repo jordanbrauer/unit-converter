@@ -88,6 +88,16 @@ abstract class AbstractUnit implements UnitInterface
         $this->configure();
     }
 
+    /**
+     * String representation of a unit used for unique sorting.
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->getScientificSymbol() ?? '';
+    }
+
     public function addFormula(string $id, string $class): void
     {
         $this->formulae[$id] = $class;
@@ -114,7 +124,7 @@ abstract class AbstractUnit implements UnitInterface
     {
         return \UnitConverter\UnitConverter::createBuilder()
             ->{'add'.(($binary) ? 'Binary' : 'Simple').'Calculator'}() # ¯\_(ツ)_/¯
-            ->addRegistryWith(get_class($this) === get_class($unit) ? [$this] : [$this, $unit])
+            ->addRegistryWith(array_unique([$this, $unit]))
             ->build()
             // ->disableConversionLog() # TODO: when this returns interface, uncomment!
             ->convert((string) $this->getValue(), $precision)
