@@ -14,11 +14,18 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Energy\Calorie;
+use UnitConverter\Unit\Energy\FootPound;
 use UnitConverter\Unit\Energy\Joule;
+use UnitConverter\Unit\Energy\Kilojoule;
+use UnitConverter\Unit\Energy\KilowattHour;
+use UnitConverter\Unit\Energy\Megaelectronvolt;
+use UnitConverter\Unit\Energy\Megajoule;
+use UnitConverter\Unit\Energy\MegawattHour;
 use UnitConverter\Unit\Energy\NewtonMetre;
+use UnitConverter\Unit\Energy\WattHour;
 use UnitConverter\UnitConverter;
 
 /**
@@ -36,35 +43,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
-class NewtonMetreSpec extends TestCase
+final class NewtonMetreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Joule(),
-                new NewtonMetre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $nm = new NewtonMetre(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1NewtonMetreIs3600005446decimal8Joules()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("Nm")
-            ->to("J");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 newton metre is equal to 1 newton metre'                   => [$nm, new NewtonMetre(1.0), 0],
+            '1 newton metre is equal to 1 joule'                          => [$nm, new Joule(1.0), 0],
+            '1 newton metre is equal to 0.001 kilojoules'                 => [$nm, new Kilojoule(0.001), 3],
+            '1 newton metre is equal to 0.000001 megajoules'              => [$nm, new Megajoule(0.000001), 6],
+            '1 newton metre is equal to 0.000277778 watt hours'           => [$nm, new WattHour(0.000277778), 9],
+            '1 newton metre is equal to 0.00000027778 kilowatt hours'     => [$nm, new KilowattHour(0.00000027778), 11],
+            '1 newton metre is equal to 0.000000000277778 megawatt hours' => [$nm, new MegawattHour(0.000000000277778), 15],
+            '1 newton metre is equal to 0.000239006 calories'             => [$nm, new Calorie(0.000239006), 9],
+            '1 newton metre is equal to 0.737562 foot pounds'             => [$nm, new FootPound(0.737562), 6],
+            /* NOTE: this test or conversion is fucked */ // '1 newton metre is equal to 26,114,419,104,000,000 megaelectronvolts' => [$nm, new Megaelectronvolt(26114419104000000.0), 0],
+        ];
     }
 }

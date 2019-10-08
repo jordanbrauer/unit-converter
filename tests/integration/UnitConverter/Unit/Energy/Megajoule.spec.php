@@ -14,11 +14,18 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Energy\Calorie;
+use UnitConverter\Unit\Energy\FootPound;
 use UnitConverter\Unit\Energy\Joule;
+use UnitConverter\Unit\Energy\Kilojoule;
+use UnitConverter\Unit\Energy\KilowattHour;
+use UnitConverter\Unit\Energy\Megaelectronvolt;
 use UnitConverter\Unit\Energy\Megajoule;
+use UnitConverter\Unit\Energy\MegawattHour;
+use UnitConverter\Unit\Energy\NewtonMetre;
+use UnitConverter\Unit\Energy\WattHour;
 use UnitConverter\UnitConverter;
 
 /**
@@ -36,35 +43,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
-class MegajouleSpec extends TestCase
+final class MegajouleSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Joule(),
-                new Megajoule(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mj = new Megajoule(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MegajouleIs1000000Joules()
-    {
-        $expected = 1000000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("MJ")
-            ->to("J");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 megajoule is equal to 1 megajoule'                => [$mj, new Megajoule(1.0), 0],
+            '1 megajoule is equal to 1,000,000 newton metres'    => [$mj, new NewtonMetre(1000000.0), 0],
+            '1 megajoule is equal to 1,000,000 joules'           => [$mj, new Joule(1000000.0), 0],
+            '1 megajoule is equal to 1,000 kilojoules'           => [$mj, new Kilojoule(1000.0), 0],
+            '1 megajoule is equal to 0.000277778 megawatt hours' => [$mj, new MegawattHour(0.000277778), 9],
+            '1 megajoule is equal to 277.778 watt hours'         => [$mj, new WattHour(277.778), 3],
+            '1 megajoule is equal to 0.277778 kilowatt hours'    => [$mj, new KilowattHour(0.277778), 6],
+            '1 megajoule is equal to 239.006 calories'           => [$mj, new Calorie(239.006), 3],
+            '1 megajoule is equal to 737,562 foot pounds'        => [$mj, new FootPound(737562.0), 0],
+            /* NOTE: this test or conversion is fucked */ // '1 megajoule is equal to 1.0 megaelectronvolt' => [$mj, new Megaelectronvolt(1.0), 0],
+        ];
     }
 }

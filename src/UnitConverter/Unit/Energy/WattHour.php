@@ -32,6 +32,6 @@ class WattHour extends EnergyUnit
 
             ->setScientificSymbol("W · h")
 
-            ->setUnits(3600.0054468);
+            ->setUnits(3600);
     }
 }

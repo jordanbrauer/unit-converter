@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests;
 
+use Iterator;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use UnitConverter\Unit\UnitInterface;
 use UnitConverter\UnitConverter;
@@ -55,4 +56,6 @@ abstract class TestCase extends PHPUnitTestCase
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
     }
+
+    abstract public function correctConversions(): Iterator;
 }

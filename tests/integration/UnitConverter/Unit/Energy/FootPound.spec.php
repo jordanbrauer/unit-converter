@@ -49,16 +49,16 @@ class FootPoundSpec extends TestCase
         $ftlbf = new FootPound(1);
 
         yield from [
-            '1 foot pound is equal to 0.000324048 calories'         => [$ftlbf, new Calorie(0.0003240489), 10],
-            '1 foot pound is equal to 1 foot pounds'                => [$ftlbf, new FootPound(1.0), 0],
-            '1 foot pound is equal to 1.35582 joules'               => [$ftlbf, new Joule(1.35582), 5],
-            '1 foot pound is equal to 0.00135582 kilojoules'        => [$ftlbf, new Kilojoule(0.00135582), 8],
-            '1 foot pound is equal to 0.00000037662 kilowatt hours' => [$ftlbf, new KilowattHour(0.00000037662), 11],
+            '1 foot pound is equal to 0.000324048 calories'                     => [$ftlbf, new Calorie(0.000324048), 9],
+            '1 foot pound is equal to 1 foot pounds'                            => [$ftlbf, new FootPound(1.0), 0],
+            '1 foot pound is equal to 1.35582 joules'                           => [$ftlbf, new Joule(1.35582), 5],
+            '1 foot pound is equal to 0.00135582 kilojoules'                    => [$ftlbf, new Kilojoule(0.00135582), 8],
+            '1 foot pound is equal to 0.00000037662 kilowatt hours'             => [$ftlbf, new KilowattHour(0.00000037662), 11],
+            '1 foot pound is equal to 0.00000135582 megajoules'                 => [$ftlbf, new Megajoule(0.00000135582), 11],
+            '1 foot pound is equal to 0.000000000376616 megawatt hours'         => [$ftlbf, new MegawattHour(0.000000000376616), 15],
+            '1 foot pound is equal to 1.36 newton metres'                       => [$ftlbf, new NewtonMetre(1.36), 2],
+            '1 foot pound is equal to 0.00037661609675872 watt hours'           => [$ftlbf, new WattHour(0.00037661609675872), 17],
             /* NOTE: this test or conversion is fucked */ // '1 foot pound is equal to 26,114,419,104,000,000 megaelectronvolts' => [$ftlbf, new Megaelectronvolt(26114419104000000.0), 0],
-            '1 foot pound is equal to 0.00000135582 megajoules'         => [$ftlbf, new Megajoule(0.00000135582), 11],
-            '1 foot pound is equal to 0.000000000376616 megawatt hours' => [$ftlbf, new MegawattHour(0.000000000376616), 15],
-            '1 foot pound is equal to 1.36 newton metres'               => [$ftlbf, new NewtonMetre(1.36), 2],
-            '1 foot pound is equal to 0.000376616 watt hours'           => [$ftlbf, new WattHour(0.000376616), 9],
         ];
     }
 }
