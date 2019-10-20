@@ -23,7 +23,7 @@ use UnitConverter\UnitConverter;
 /**
  * Test that a bit is indeed a bit.
  *
- * @covers \UnitConverter\Unit\DigitalStorage\\Bit
+ * @covers \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter
  * @uses \UnitConverter\Calculator\SimpleCalculator
