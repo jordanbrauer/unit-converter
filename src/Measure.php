@@ -22,6 +22,19 @@ use UnitConverter\Unit\Area\SquareKilometre;
 use UnitConverter\Unit\Area\SquareMetre;
 use UnitConverter\Unit\Area\SquareMile;
 use UnitConverter\Unit\Area\SquareMillimetre;
+use UnitConverter\Unit\DigitalStorage\Bit;
+use UnitConverter\Unit\DigitalStorage\Gibibit;
+use UnitConverter\Unit\DigitalStorage\Gigabit;
+use UnitConverter\Unit\DigitalStorage\Gigabyte;
+use UnitConverter\Unit\DigitalStorage\Kibibit;
+use UnitConverter\Unit\DigitalStorage\Kilobit;
+use UnitConverter\Unit\DigitalStorage\Kilobyte;
+use UnitConverter\Unit\DigitalStorage\Mebibit;
+use UnitConverter\Unit\DigitalStorage\Megabit;
+use UnitConverter\Unit\DigitalStorage\Megabyte;
+use UnitConverter\Unit\DigitalStorage\Tebibit;
+use UnitConverter\Unit\DigitalStorage\Terabit;
+use UnitConverter\Unit\DigitalStorage\Terabyte;
 use UnitConverter\Unit\Energy\Calorie;
 use UnitConverter\Unit\Energy\FootPound;
 use UnitConverter\Unit\Energy\Joule;
@@ -111,6 +124,8 @@ use UnitConverter\Unit\Volume\Pint;
 class Measure
 {
     const AREA = "area";
+
+    const DIGITAL_STORAGE = "digital_storage";
 
     const ENERGY = "energy";
 
@@ -244,6 +259,21 @@ class Measure
             Gigahertz::class,
             Terahertz::class,
             Millihertz::class,
+        ],
+        self::DIGITAL_STORAGE => [
+            Bit::class,
+            Kilobit::class,
+            Megabit::class,
+            Gigabit::class,
+            Terabit::class,
+            Kibibit::class,
+            Mebibit::class,
+            Gibibit::class,
+            Tebibit::class,
+            Kilobyte::class,
+            Megabyte::class,
+            Gigabyte::class,
+            Terabyte::class,
         ],
     ];
 
