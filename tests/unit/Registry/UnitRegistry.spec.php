@@ -82,6 +82,7 @@ class UnitRegistrySpec extends TestCase
             "time",
             "energy",
             "frequency",
+            "digital_storage",
         ];
 
         $this->assertEquals($expected, $actual);
