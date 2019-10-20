@@ -28,9 +28,9 @@ jobs:
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
-            - v1-dependencies-{{ checksum "composer.json" }}
+            - v2-dependencies-{{ checksum "composer.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - v2-dependencies-
 
       - run: composer self-update --stable --no-interaction
       - run: composer install --no-suggest --no-interaction --prefer-dist
@@ -39,7 +39,7 @@ jobs:
       - run: ./cc-test-reporter before-build
 
       - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
+          key: v2-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
 
