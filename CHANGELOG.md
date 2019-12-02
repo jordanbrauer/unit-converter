@@ -1,5 +1,34 @@
 # Change Log
 
+## [v0.8.3](https://github.com/jordanbrauer/unit-converter/tree/v0.8.3) (2019-08-16)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.2...v0.8.3)
+
+**Fixed bugs:**
+
+- Regression after merge \#fix-127-trampled-units [\#139](https://github.com/jordanbrauer/unit-converter/issues/139)
+- Fix regression bug \#139 [\#140](https://github.com/jordanbrauer/unit-converter/pull/140) ([jordanbrauer](https://github.com/jordanbrauer))
+
+**Merged pull requests:**
+
+- Bump js-yaml from 3.12.0 to 3.13.1 [\#138](https://github.com/jordanbrauer/unit-converter/pull/138) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump lodash from 4.17.11 to 4.17.15 [\#137](https://github.com/jordanbrauer/unit-converter/pull/137) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v0.8.2](https://github.com/jordanbrauer/unit-converter/tree/v0.8.2) (2019-07-26)
+[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.1...v0.8.2)
+
+**Fixed bugs:**
+
+- registry tramples units with the same symbol [\#127](https://github.com/jordanbrauer/unit-converter/issues/127)
+
+**Merged pull requests:**
+
+- Circle ci [\#134](https://github.com/jordanbrauer/unit-converter/pull/134) ([jordanbrauer](https://github.com/jordanbrauer))
+- Fix/fuel economy units fixes [\#133](https://github.com/jordanbrauer/unit-converter/pull/133) ([maksimru](https://github.com/maksimru))
+- Fix 127 trampled units [\#132](https://github.com/jordanbrauer/unit-converter/pull/132) ([jordanbrauer](https://github.com/jordanbrauer))
+- raise error for units attempted to be overwritten [\#131](https://github.com/jordanbrauer/unit-converter/pull/131) ([jordanbrauer](https://github.com/jordanbrauer))
+- Primitive units [\#129](https://github.com/jordanbrauer/unit-converter/pull/129) ([jordanbrauer](https://github.com/jordanbrauer))
+- Add common builders for simple and binary calculators [\#126](https://github.com/jordanbrauer/unit-converter/pull/126) ([elliotwms](https://github.com/elliotwms))
+
 ## [v0.8.1](https://github.com/jordanbrauer/unit-converter/tree/v0.8.1) (2018-12-09)
 [Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.0...v0.8.1)
 
@@ -13,9 +42,14 @@
 - Convert to all [\#121](https://github.com/jordanbrauer/unit-converter/pull/121) ([jordanbrauer](https://github.com/jordanbrauer))
 - Refactor calculate [\#116](https://github.com/jordanbrauer/unit-converter/pull/116) ([jordanbrauer](https://github.com/jordanbrauer))
 
+**Fixed bugs:**
+
+- Temperature conversions do not work with BinaryCalculator [\#118](https://github.com/jordanbrauer/unit-converter/issues/118)
+
 **Closed issues:**
 
 - Fix "method\_complexity" issue in src/UnitConverter/UnitConverter.php [\#96](https://github.com/jordanbrauer/unit-converter/issues/96)
+- Performance metrics/benchmarks? [\#77](https://github.com/jordanbrauer/unit-converter/issues/77)
 
 **Merged pull requests:**
 

@@ -35,10 +35,10 @@ It supports the following types of measurement by default (support for more meas
 
 - Area
 - Data Transfer Rates _Coming Soon!_
-- Digital Storage _Coming Soon!_
+- Digital Storage **_New!_**
 - Energy (Power)
-- Frequency **_New!_**
-- Fuel Economy **_New!_**
+- Frequency
+- Fuel Economy
 - Length
 - Mass (Weight)
 - Plane Angle (Rotation)
