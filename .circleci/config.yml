@@ -15,7 +15,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "composer.json" }}
             - v1-dependencies-
-      - run: composer self-update --stable --no-interaction
+      - run: sudo composer self-update --stable --no-interaction
       - run: composer install --no-suggest --no-interaction --prefer-dist
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
       - run: chmod +x ./cc-test-reporter
@@ -37,7 +37,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "composer.json" }}
             - v1-dependencies-
-      - run: composer self-update --stable --no-interaction
+      - run: sudo composer self-update --stable --no-interaction
       - run: composer install --no-suggest --no-interaction --prefer-dist
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
       - run: chmod +x ./cc-test-reporter
@@ -61,7 +61,7 @@ jobs:
             - v2-dependencies-{{ checksum "composer.json" }}
             # fallback to using the latest cache if no exact match is found
             - v2-dependencies-
-      - run: composer self-update --stable --no-interaction
+      - run: sudo composer self-update --stable --no-interaction
       - run: composer install --no-suggest --no-interaction --prefer-dist
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
       - run: chmod +x ./cc-test-reporter
