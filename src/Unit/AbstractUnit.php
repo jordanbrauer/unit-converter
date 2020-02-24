@@ -16,6 +16,9 @@ namespace UnitConverter\Unit;
 
 use UnitConverter\Calculator\Formula\FormulaInterface;
 use UnitConverter\Exception\BadUnit;
+use UnitConverter\Unit\Family\SiMultipleUnit;
+use UnitConverter\Unit\Family\SiBaseUnit;
+use UnitConverter\Unit\Family\SiSubmultipleUnit;
 
 /**
  * This class is the base class for all unit of measurement classes.
@@ -188,17 +191,17 @@ abstract class AbstractUnit implements UnitInterface
 
     public function isMultipleSiUnit(): bool
     {
-        return $this instanceof SiMultipleUnitInterface;
+        return $this instanceof SiMultipleUnit;
     }
 
     public function isSiUnit(): bool
     {
-        return $this instanceof SiBaseUnitInterface;
+        return $this instanceof SiBaseUnit;
     }
 
     public function isSubmultipleSiUnit(): bool
     {
-        return $this instanceof SiSubmultipleUnitInterface;
+        return $this instanceof SiSubmultipleUnit;
     }
 
     public function setBase($base): UnitInterface

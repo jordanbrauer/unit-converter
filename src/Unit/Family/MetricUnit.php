@@ -12,16 +12,16 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Unit;
+namespace UnitConverter\Unit\Family;
 
 /**
- * Interface for any SI multiple units to implement.
+ * Base interface for any metric units to implement.
  *
  * @version 1.0.0
- * @since 0.6.7
+ * @since 0.8.4
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @codeCoverageIgnore
  */
-interface SiMultipleUnitInterface
+interface MetricUnit
 {
 }

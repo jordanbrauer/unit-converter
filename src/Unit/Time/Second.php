@@ -14,7 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Time;
 
-use UnitConverter\Unit\SiBaseUnitInterface;
+use UnitConverter\Unit\Family\SiBaseUnit;
 
 /**
  * Second unit data class.
@@ -23,7 +23,7 @@ use UnitConverter\Unit\SiBaseUnitInterface;
  * @since 0.3.9
  * @author Teun Willems
  */
-class Second extends TimeUnit implements SiBaseUnitInterface
+class Second extends TimeUnit implements SiBaseUnit
 {
     protected $siUnit = true;
 

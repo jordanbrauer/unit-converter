@@ -12,26 +12,16 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Unit\Length;
-
-use UnitConverter\Unit\Family\SiBaseUnit;
+namespace UnitConverter\Unit\Family;
 
 /**
- * Metre data class. All units of Length are based off of Metre.
+ * Base interface for any imperial units to implement.
  *
- * @version 2.0.0
- * @since 0.0.1
+ * @version 1.0.0
+ * @since 0.8.4
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @codeCoverageIgnore
  */
-class Metre extends LengthUnit implements SiBaseUnit
+interface ImperialUnit
 {
-    protected function configure(): void
-    {
-        $this
-            ->setName("metre")
-
-            ->setSymbol("m")
-
-            ->setUnits(1);
-    }
 }
