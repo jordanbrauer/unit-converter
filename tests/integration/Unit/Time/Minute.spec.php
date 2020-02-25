@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use Generator;
+use Iterator;
 use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Time\Day;
 use UnitConverter\Unit\Time\Hour;
@@ -46,7 +47,7 @@ use UnitConverter\UnitConverter;
  */
 class MinuteSpec extends TestCase
 {
-    public function correctConversions(): Generator
+    public function correctConversions(): Iterator
     {
         $m = new Minute(1);
 

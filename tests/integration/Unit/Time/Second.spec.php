@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use Generator;
+use Iterator;
 use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Time\Day;
 use UnitConverter\Unit\Time\Hour;
@@ -55,7 +56,7 @@ class SecondSpec extends TestCase
         $this->assertInternalType("bool", $result);
     }
 
-    public function correctConversions(): Generator
+    public function correctConversions(): Iterator
     {
         $s = new Second(1);
 

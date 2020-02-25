@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
 use Generator;
+use Iterator;
 use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Time\Day;
 use UnitConverter\Unit\Time\Hour;
@@ -94,7 +95,7 @@ class MonthSpec extends TestCase
         }
     }
 
-    public function correctConversions(): Generator
+    public function correctConversions(): Iterator
     {
         $mo = new Month(1);
 

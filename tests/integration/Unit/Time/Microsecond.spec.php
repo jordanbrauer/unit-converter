@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
+use Iterator;
 use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Time\Day;
 use UnitConverter\Unit\Time\Hour;
@@ -25,7 +26,6 @@ use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
 use UnitConverter\Unit\Time\Week;
 use UnitConverter\Unit\Time\Year;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a microsecond is infact, a microsecond.
@@ -56,7 +56,7 @@ class MicrosecondSpec extends TestCase
         $this->assertInternalType("bool", $result);
     }
 
-    public function correctConversions()
+    public function correctConversions(): Iterator
     {
         $us = new Microsecond(1);
 

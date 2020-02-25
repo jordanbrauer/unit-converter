@@ -33,40 +33,40 @@
       </testsuite>
 
       <testsuite name="area">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Area/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Area/</directory>
       </testsuite>
 
       <testsuite name="energy">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Energy/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Energy/</directory>
       </testsuite>
 
       <testsuite name="frequency">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Frequency/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Frequency/</directory>
       </testsuite>
 
       <testsuite name="planeangle">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/PlaneAngle/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/PlaneAngle/</directory>
       </testsuite>
 
       <testsuite name="pressure">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Pressure/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Pressure/</directory>
       </testsuite>
 
       <testsuite name="speed">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Speed/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Speed/</directory>
       </testsuite>
 
       <testsuite name="temperature">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Temperature/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Temperature/</directory>
       </testsuite>
 
       <testsuite name="time">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Time/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Time/</directory>
       </testsuite>
 
       <testsuite name="volume">
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/FuelEconomy/</directory>
-        <directory suffix=".spec.php">tests/integration/UnitConverter/Unit/Volume/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/FuelEconomy/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Volume/</directory>
       </testsuite>
     </testsuites>
 </phpunit>

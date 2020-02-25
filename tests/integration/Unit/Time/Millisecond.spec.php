@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
+use Iterator;
 use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Time\Day;
 use UnitConverter\Unit\Time\Hour;
@@ -55,7 +56,7 @@ class MillisecondSpec extends TestCase
         $this->assertInternalType("bool", $result);
     }
 
-    public function correctConversions()
+    public function correctConversions(): Iterator
     {
         $ms = new Millisecond(1);
 
