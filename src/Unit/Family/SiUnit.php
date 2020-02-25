@@ -22,6 +22,6 @@ namespace UnitConverter\Unit\Family;
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @codeCoverageIgnore
  */
-interface SiUnit
+interface SiUnit extends MetricUnit
 {
 }
