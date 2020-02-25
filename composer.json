@@ -41,14 +41,14 @@
   },
   "autoload": {
     "psr-4": {
-      "UnitConverter\\": "src/UnitConverter/"
+      "UnitConverter\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "UnitConverter\\Tests\\": "tests/",
-      "UnitConverter\\Tests\\Integration\\": "tests/integration/UnitConverter/",
-      "UnitConverter\\Tests\\Unit\\": "tests/unit/UnitConverter/"
+      "UnitConverter\\Tests\\Integration\\": "tests/integration/",
+      "UnitConverter\\Tests\\Unit\\": "tests/unit/"
     }
   }
 }
