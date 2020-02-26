@@ -30,6 +30,6 @@ class MegawattHour extends EnergyUnit
 
             ->setSymbol("MWh")
 
-            ->setUnits(360000000);
+            ->setUnits(3600000000);
     }
 }

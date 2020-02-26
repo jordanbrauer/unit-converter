@@ -57,7 +57,7 @@ final class WattHourSpec extends TestCase
             '1 watt hour is equal to 0.0036 megajoules'           => [$wh, new Megajoule(0.0036), 4],
             '1 watt hour is equal to 0.000001 megawatt hours'     => [$wh, new MegawattHour(0.000001), 6],
             '1 watt hour is equal to 0.001 kilowatt hours'        => [$wh, new KilowattHour(0.001), 3],
-            '1 watt hour is equal to 0.85984522785899 calories'   => [$wh, new Calorie(0.85984522785899), 14],
+            '1 watt hour is equal to 0.85984522785899 calories'   => [$wh, new Calorie(0.860421), 6],
             '1 watt hour is equal to 2655.2237373982 foot pounds' => [$wh, new FootPound(2655.2237373982), 20],
             // '1 watt hour is equal to 1 megaelectronvolt' => [$wh, new Megaelectronvolt(1.0), 0],
         ];

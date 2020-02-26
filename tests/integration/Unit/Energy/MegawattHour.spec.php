@@ -51,15 +51,15 @@ final class MegawattHourSpec extends TestCase
 
         yield from [
             '1 megawatt hour is equal to 1 megawatt hour'                                  => [$mwh, new MegawattHour(1.0), 0],
-            '1 megawatt hour is equal to 360,000,000 newton metres'                        => [$mwh, new NewtonMetre(360000000.0), 0],
-            '1 megawatt hour is equal to 360,000,000 joules'                               => [$mwh, new Joule(360000000.0), 0],
+            '1 megawatt hour is equal to 3,600,000,000 newton metres'                      => [$mwh, new NewtonMetre(3600000000.0), 0],
+            '1 megawatt hour is equal to 3,600,000,000 joules'                             => [$mwh, new Joule(3600000000.0), 0],
             '1 megawatt hour is equal to 3,600 megajoules'                                 => [$mwh, new Megajoule(3600.0), 0],
-            '1 megawatt hour is equal to 360 kilojoules'                                   => [$mwh, new Kilojoule(360.0), 0],
+            '1 megawatt hour is equal to 3,600,000 kilojoules'                             => [$mwh, new Kilojoule(3600000.0), 0],
             '1 megawatt hour is equal to 1,000,000 watt hours'                             => [$mwh, new WattHour(1000000.0), 0],
             '1 megawatt hour is equal to 1,000 kilowatt hours'                             => [$mwh, new KilowattHour(1000.0), 0],
             '1 megawatt hour is equal to 860,421 calories'                                 => [$mwh, new Calorie(860421.0), 0],
-            '1 megawatt hour is equal to 2,655,000,000 foot pounds'                        => [$mwh, new FootPound(2655000000.0), 0],
-            '1 megawatt hour is equal to 22,469,999,999,999,998,427,136 megaelectronvolts' => [$mwh, new Megaelectronvolt(22469999999999998427136.0), 0],
+            '1 megawatt hour is equal to 2,655,223,737 foot pounds'                        => [$mwh, new FootPound(2655223737.0), 0],
+            '1 megawatt hour is equal to 22,469,385,462,307,604,135,936 megaelectronvolts' => [$mwh, new Megaelectronvolt(22469385462307604135936.0), 0],
         ];
     }
 }
