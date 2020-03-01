@@ -14,12 +14,27 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\Hand;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\UnitConverter;
+use Iterator;
+use UnitConverter\Unit\Length\AstronomicalUnit;
+use UnitConverter\Unit\Length\Centimetre;
+use UnitConverter\Unit\Length\Decimetre;
+use UnitConverter\Unit\Length\Foot;
+use UnitConverter\Unit\Length\Inch;
+use UnitConverter\Unit\Length\Kilometre;
+use UnitConverter\Unit\Length\Lightyear;
+use UnitConverter\Unit\Length\Micrometre;
+use UnitConverter\Unit\Length\Mile;
+use UnitConverter\Unit\Length\Millimetre;
+use UnitConverter\Unit\Length\Nanometre;
+use UnitConverter\Unit\Length\Parsec;
+use UnitConverter\Unit\Length\Picometre;
+use UnitConverter\Unit\Length\Yard;
 
 /**
  * Ensure that a hand is a hand.
@@ -38,33 +53,27 @@ use UnitConverter\UnitConverter;
  */
 class HandSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Metre(),
-                new Hand(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $h = new Hand();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1HandIs0decimal1016Metres()
-    {
-        $expected = 0.1016;
-        $actual = $this->converter
-            ->convert(1, 4)
-            ->from("h")
-            ->to("m");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 hand is equal to 0.000000000000679154 astronomical units' => [$h, new AstronomicalUnit(0.000000000000679154), 18],
+            '1 hand is equal to 10.16 centimetres' => [$h, new Centimetre(10.16), 2],
+            '1 hand is equal to 1.016 decimetres' => [$h, new Decimetre(1.016), 3],
+            '1 hand is equal to 0.333333 feet' => [$h, new Foot(0.333333), 6],
+            '1 hand is equal to 1 hand' => [$h, new Hand(1.0), 0],
+            '1 hand is equal to 4 inches' => [$h, new Inch(4.0), 0],
+            '1 hand is equal to 0.0001016 kilometres' => [$h, new Kilometre(0.0001016), 7],
+            '1 hand is equal to 0.0000000000000000107391 lightyears' => [$h, new Lightyear(0.0000000000000000107391), 22],
+            '1 hand is equal to 0.1016 metres' => [$h, new Metre(0.1016), 4],
+            '1 hand is equal to 101,600 micrometres' => [$h, new Micrometre(101600.0), 0],
+            '1 hand is equal to 0.00006313 miles' => [$h, new Mile(0.00006313), 8],
+            '1 hand is equal to 101.6 millimetres' => [$h, new Millimetre(101.6), 1],
+            '1 hand is equal to 101,600,000 nanometres' => [$h, new Nanometre(101600000.0), 0],
+            '1 hand is equal to 0.00000000000000000329263 parsecs' => [$h, new Parsec(0.00000000000000000329263), 23],
+            '1 hand is equal to 101,600,000,000 picometres' => [$h, new Picometre(101600000000.0), 0],
+            '1 hand is equal to 0.111111 yard' => [$h, new Yard(0.111111), 6],
+        ];
     }
 }

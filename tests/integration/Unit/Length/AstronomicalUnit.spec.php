@@ -14,12 +14,27 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Length\AstronomicalUnit;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\UnitConverter;
+use Iterator;
+use UnitConverter\Unit\Length\Centimetre;
+use UnitConverter\Unit\Length\Decimetre;
+use UnitConverter\Unit\Length\Foot;
+use UnitConverter\Unit\Length\Hand;
+use UnitConverter\Unit\Length\Inch;
+use UnitConverter\Unit\Length\Kilometre;
+use UnitConverter\Unit\Length\Lightyear;
+use UnitConverter\Unit\Length\Micrometre;
+use UnitConverter\Unit\Length\Mile;
+use UnitConverter\Unit\Length\Millimetre;
+use UnitConverter\Unit\Length\Nanometre;
+use UnitConverter\Unit\Length\Parsec;
+use UnitConverter\Unit\Length\Picometre;
+use UnitConverter\Unit\Length\Yard;
 
 /**
  * Ensure that an astronomical unit is an astronomical unit.
@@ -38,33 +53,27 @@ use UnitConverter\UnitConverter;
  */
 class AstronomicalUnitSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Metre(),
-                new AstronomicalUnit(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $au = new AstronomicalUnit();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1AstronomicalUnitIs149597870700Metres()
-    {
-        $expected = 149597870700;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("au")
-            ->to("m");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 astronomical unit is equal to 1 astronomical unit' => [$au, new AstronomicalUnit(1.0), 0],
+            '1 astronomical unit is equal to 14,960,000,000,000 centimetres' => [$au, new Centimetre(14960000000000), 0],
+            '1 astronomical unit is equal to 1,496,000,000,000 decimetres' => [$au, new Decimetre(1496000000000), 0],
+            '1 astronomical unit is equal to 490,800,000,000 feet' => [$au, new Foot(490800000000), 0],
+            '1 astronomical unit is equal to 1,472,000,000,000 hands' => [$au, new Hand(1472000000000), 0],
+            '1 astronomical unit is equal to 5,890,000,000,000 inches' => [$au, new Inch(5890000000000), 0],
+            '1 astronomical unit is equal to 149,600,000 kilometres' => [$au, new Kilometre(149600000), 0],
+            '1 astronomical unit is equal to 0.0000158125 lightyears' => [$au, new Lightyear(0.00001581250), 10],
+            '1 astronomical unit is equal to 149,597,870,700 metres' => [$au, new Metre(149597870700.0), 0],
+            '1 astronomical unit is equal to 149,600,000,000,000,000 micrometres' => [$au, new Micrometre(149600000000000000), 0],
+            '1 astronomical unit is equal to 92,960,000 miles' => [$au, new Mile(92960000), 0],
+            '1 astronomical unit is equal to 149,600,000,000,000 millimetres' => [$au, new Millimetre(149600000000000), 0],
+            '1 astronomical unit is equal to 149,600,000,000,000,000,000 nanometres' => [$au, new Nanometre(149600000000000000000), 0],
+            '1 astronomical unit is equal to 0.0000048481 parsecs' => [$au, new Parsec(0.0000048481), 10],
+            '1 astronomical unit is equal to 149,600,000,000,000,008,388,608 picometres' => [$au, new Picometre(149600000000000008388608), 0],
+            '1 astronomical unit is equal to 163,600,000,000 yard' => [$au, new Yard(163600000000), 0],
+        ];
     }
 }
