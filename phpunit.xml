@@ -44,6 +44,10 @@
         <directory suffix=".spec.php">tests/integration/Unit/Frequency/</directory>
       </testsuite>
 
+      <testsuite name="length">
+        <directory suffix=".spec.php">tests/integration/Unit/Length/</directory>
+      </testsuite>
+
       <testsuite name="planeangle">
         <directory suffix=".spec.php">tests/integration/Unit/PlaneAngle/</directory>
       </testsuite>
