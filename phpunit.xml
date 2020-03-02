@@ -36,6 +36,10 @@
         <directory suffix=".spec.php">tests/integration/Unit/Area/</directory>
       </testsuite>
 
+      <testsuite name="storage">
+        <directory suffix=".spec.php">tests/integration/Unit/DigitalStorage/</directory>
+      </testsuite>
+
       <testsuite name="energy">
         <directory suffix=".spec.php">tests/integration/Unit/Energy/</directory>
       </testsuite>
