@@ -14,13 +14,14 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\FuelEconomy;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
 use UnitConverter\UnitConverter;
+use Iterator;
 
 /**
  * @covers UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
@@ -44,76 +45,14 @@ use UnitConverter\UnitConverter;
  */
 class LitrePer100KilometresSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new KilometrePerLitre(),
-                new LitrePer100Kilometres(),
-                new MilesPerGallon(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $l100km = new LitrePer100Kilometres();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert100LitrePer100KilometresIs1KilometrePerLitre()
-    {
-        $expected = 100;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("L/100km")
-            ->to("km/l");
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     */
-    public function assert5LitrePer100KilometresIs1KilometrePerLitre()
-    {
-        $expected = 20;
-        $actual = $this->converter
-            ->convert(5)
-            ->from("L/100km")
-            ->to("km/l");
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     */
-    public function assert5LitrePer100KilometresIs20KilometrePerLitre()
-    {
-        $expected = 20;
-        $actual = $this->converter
-            ->convert(5)
-            ->from("L/100km")
-            ->to("km/l");
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     */
-    public function assert5LitrePer100KilometresIs47MilesPerGallon()
-    {
-        $expected = 47.04;
-        $actual = $this->converter
-            ->convert(5)
-            ->from("L/100km")
-            ->to("mpg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 litre-per-100-kilometres is equal to 235.215 miles-per-gallon' => [$l100km, new MilesPerGallon(235.215), 3],
+            '1 litre-per-100-kilometres is equal to 100 kilometre-per-litre' => [$l100km, new KilometrePerLitre(100.0), 0],
+            '1 litre-per-100-kilometres is equal to 1 litre-per-100-kilometres' => [$l100km, new LitrePer100Kilometres('1'), 0],
+        ];
     }
 }

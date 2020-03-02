@@ -14,13 +14,14 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\FuelEconomy;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
 use UnitConverter\UnitConverter;
+use Iterator;
 
 /**
  *
@@ -47,62 +48,14 @@ use UnitConverter\UnitConverter;
  */
 class MilesPerGallonSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new KilometrePerLitre(),
-                new MilesPerGallon(),
-                new LitrePer100Kilometres(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mpg = new MilesPerGallon();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert10KilometersPerLitreIs23LitrePer100Kilometres()
-    {
-        $expected = 23.52;
-        $actual = $this->converter
-            ->convert(10)
-            ->from("mpg")
-            ->to("L/100km");
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MilesPerGallonIs1KilometrePerLitre()
-    {
-        $expected = 0.43;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("mpg")
-            ->to("km/l");
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MilesPerGallonIs1MilesPerGallon()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("mpg")
-            ->to("mpg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 miles-per-gallon is equal to 1 miles-per-gallon' => [$mpg, new MilesPerGallon('1'), 0],
+            '1 miles-per-gallon is equal to 0.425144 kilometre-per-litre' => [$mpg, new KilometrePerLitre(0.425144), 6],
+            '1 miles-per-gallon is equal to 235.215 litre-per-100-kilometres' => [$mpg, new LitrePer100Kilometres(235.215), 3],
+        ];
     }
 }
