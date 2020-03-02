@@ -14,12 +14,21 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Tonne;
 use UnitConverter\UnitConverter;
+use Iterator;
+use UnitConverter\Unit\Mass\Gram;
+use UnitConverter\Unit\Mass\LongTon;
+use UnitConverter\Unit\Mass\Milligram;
+use UnitConverter\Unit\Mass\Newton;
+use UnitConverter\Unit\Mass\Ounce;
+use UnitConverter\Unit\Mass\Pound;
+use UnitConverter\Unit\Mass\ShortTon;
+use UnitConverter\Unit\Mass\Stone;
 
 /**
  * Ensure that a tonne is infact, a tonne.
@@ -38,33 +47,21 @@ use UnitConverter\UnitConverter;
  */
 class TonneSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kilogram(),
-                new Tonne(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $t = new Tonne();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1TonneIs1000Kilograms()
-    {
-        $expected = 1000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("t")
-            ->to("kg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 tonne is equal to 1,000,000 grams' => [$t, new Gram(1000000.0), 0],
+            '1 tonne is equal to 1,000 kilograms' => [$t, new Kilogram(1000.0), 0],
+            '1 tonne is equal to 0.984206 long tons (imperial tons)' => [$t, new LongTon(0.984206), 6],
+            '1 tonne is equal to 1,000,000,000 milligrams' => [$t, new Milligram(1000000000.0), 0],
+            // '1 tonne is equal to 1.0 newtons' => [$t, new Newton(1.0), 0],
+            '1 tonne is equal to 35,274 ounces' => [$t, new Ounce(35274.0), 0],
+            '1 tonne is equal to 2,204.62 pounds' => [$t, new Pound(2204.62), 2],
+            '1 tonne is equal to 1.10231 short tons (us ton)' => [$t, new ShortTon(1.10231), 5],
+            '1 tonne is equal to 157.473 stones' => [$t, new Stone(157.473), 3],
+            '1 tonne is equal to 1 tonne' => [$t, new Tonne(1.0), 0],
+        ];
     }
 }

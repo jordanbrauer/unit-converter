@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Mass;
 
+use UnitConverter\Calculator\Formula\Mass\Stone\ToMilligrams;
+
 /**
  * Stone data class.
  *
@@ -30,6 +32,10 @@ class Stone extends MassUnit
 
             ->setSymbol("st")
 
-            ->setUnits(6.35029);
+            ->setUnits(6.35029)
+
+            ->addFormulae([
+                'mg' => ToMilligrams::class
+            ]);
     }
 }

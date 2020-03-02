@@ -14,12 +14,21 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\LongTon;
 use UnitConverter\UnitConverter;
+use Iterator;
+use UnitConverter\Unit\Mass\Gram;
+use UnitConverter\Unit\Mass\Milligram;
+use UnitConverter\Unit\Mass\Newton;
+use UnitConverter\Unit\Mass\Ounce;
+use UnitConverter\Unit\Mass\Pound;
+use UnitConverter\Unit\Mass\ShortTon;
+use UnitConverter\Unit\Mass\Stone;
+use UnitConverter\Unit\Mass\Tonne;
 
 /**
  * Ensure that a long ton is infact, a long ton.
@@ -38,33 +47,21 @@ use UnitConverter\UnitConverter;
  */
 class LongTonSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kilogram(),
-                new LongTon(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $wt = new LongTon();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1LongTonIs1016decimal05Kilograms()
-    {
-        $expected = 1016.047;
-        $actual = $this->converter
-            ->convert(1, 3)
-            ->from("w/t")
-            ->to("kg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 long ton is equal to 1,016,000 grams' => [$wt, new Gram(1016000), 0],
+            '1 long ton is equal to 1,016.047 kilograms' => [$wt, new Kilogram(1016.047), 3],
+            '1 long ton is equal to 1 long ton (imperial ton)' => [$wt, new LongTon(1.0), 0],
+            '1 long ton is equal to 1,016,000,000 milligrams' => [$wt, new Milligram(1016000000), 0],
+            // '1 long ton is equal to 9964.01641818352 newtons' => [$wt, new Newton(9964.01641818352), 18],
+            '1 long ton is equal to 35,840 ounces' => [$wt, new Ounce(35840.0), 0],
+            '1 long ton is equal to 2,240 pounds' => [$wt, new Pound(2240.0), 0],
+            '1 long ton is equal to 1.12 short tons (us ton)' => [$wt, new ShortTon(1.12), 2],
+            '1 long ton is equal to 160 stones' => [$wt, new Stone(160.0), 0],
+            '1 long ton is equal to 1.01605 tonnes' => [$wt, new Tonne(1.01605), 5],
+        ];
     }
 }
