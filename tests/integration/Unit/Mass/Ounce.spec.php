@@ -34,6 +34,7 @@ use UnitConverter\Unit\Mass\Tonne;
  * Ensure that a ounce is infact, a ounce.
  *
  * @covers UnitConverter\Unit\Mass\Ounce
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

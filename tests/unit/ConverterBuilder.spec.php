@@ -38,6 +38,19 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\Area\SquareMile
  * @uses UnitConverter\Unit\Area\SquareMillimetre
+ * @uses UnitConverter\Unit\DigitalStorage\Bit
+ * @uses UnitConverter\Unit\DigitalStorage\Gibibit
+ * @uses UnitConverter\Unit\DigitalStorage\Gigabit
+ * @uses UnitConverter\Unit\DigitalStorage\Gigabyte
+ * @uses UnitConverter\Unit\DigitalStorage\Kibibit
+ * @uses UnitConverter\Unit\DigitalStorage\Kilobit
+ * @uses UnitConverter\Unit\DigitalStorage\Kilobyte
+ * @uses UnitConverter\Unit\DigitalStorage\Mebibit
+ * @uses UnitConverter\Unit\DigitalStorage\Megabit
+ * @uses UnitConverter\Unit\DigitalStorage\Megabyte
+ * @uses UnitConverter\Unit\DigitalStorage\Tebibit
+ * @uses UnitConverter\Unit\DigitalStorage\Terabit
+ * @uses UnitConverter\Unit\DigitalStorage\Terabyte
  * @uses UnitConverter\Unit\Energy\Calorie
  * @uses UnitConverter\Unit\Energy\FootPound
  * @uses UnitConverter\Unit\Energy\Joule

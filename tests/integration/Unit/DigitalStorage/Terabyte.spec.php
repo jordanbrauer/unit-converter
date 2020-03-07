@@ -38,6 +38,7 @@ use Iterator;
  * Test that a terabyte is indeed a terabyte.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Terabyte
+ * @uses UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter

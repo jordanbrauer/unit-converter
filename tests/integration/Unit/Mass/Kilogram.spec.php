@@ -34,6 +34,7 @@ use UnitConverter\Unit\Mass\Tonne;
  * Ensure that a kilogram is a kilogram.
  *
  * @covers UnitConverter\Unit\Mass\Kilogram
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator

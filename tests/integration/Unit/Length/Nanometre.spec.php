@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that a nanometre is infact, a nanometre.
  *
  * @covers UnitConverter\Unit\Length\Nanometre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

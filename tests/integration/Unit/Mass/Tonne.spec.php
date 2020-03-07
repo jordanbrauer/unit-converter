@@ -34,6 +34,7 @@ use UnitConverter\Unit\Mass\Stone;
  * Ensure that a tonne is infact, a tonne.
  *
  * @covers UnitConverter\Unit\Mass\Tonne
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

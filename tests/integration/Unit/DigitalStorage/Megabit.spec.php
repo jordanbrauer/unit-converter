@@ -38,6 +38,7 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * Test that a megabit is indeed a megabit.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Megabit
+ * @uses UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter

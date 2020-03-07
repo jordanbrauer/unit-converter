@@ -40,6 +40,7 @@ use Iterator;
  * Ensure that a decimetre is infact, a decimetre.
  *
  * @covers UnitConverter\Unit\Length\Decimetre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

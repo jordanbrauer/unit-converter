@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that a picometre is infact, a picometre.
  *
  * @covers UnitConverter\Unit\Length\Picometre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

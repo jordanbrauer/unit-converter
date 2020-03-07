@@ -34,6 +34,7 @@ use UnitConverter\Unit\Mass\Tonne;
  * Ensure that a gram is infact, a gram.
  *
  * @covers UnitConverter\Unit\Mass\Gram
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

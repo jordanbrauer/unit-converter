@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that an astronomical unit is an astronomical unit.
  *
  * @covers UnitConverter\Unit\Length\AstronomicalUnit
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

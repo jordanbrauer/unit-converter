@@ -31,6 +31,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a joule is infact, a joule.
  *
  * @covers UnitConverter\Unit\Energy\Kilojoule
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Energy\Joule
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that an inch is infact, an inch.
  *
  * @covers UnitConverter\Unit\Length\Inch
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

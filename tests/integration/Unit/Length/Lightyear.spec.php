@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that a lightyear is infact, a lightyear.
  *
  * @covers UnitConverter\Unit\Length\Lightyear
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that a foot is infact, a foot.
  *
  * @covers UnitConverter\Unit\Length\Foot
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

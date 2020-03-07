@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that a centimetre is infact, a centimetre.
  *
  * @covers UnitConverter\Unit\Length\Centimetre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

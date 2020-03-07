@@ -34,6 +34,7 @@ use UnitConverter\Unit\Mass\Tonne;
  * Ensure that a stone is infact, a stone.
  *
  * @covers UnitConverter\Unit\Mass\Stone
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

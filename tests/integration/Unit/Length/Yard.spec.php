@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Picometre;
  * Ensure that a yard is a yard.
  *
  * @covers UnitConverter\Unit\Length\Yard
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

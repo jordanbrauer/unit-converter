@@ -26,6 +26,7 @@ use Iterator;
  * Ensure that a newton is infact, a newton.
  *
  * @covers UnitConverter\Unit\Mass\Newton
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

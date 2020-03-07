@@ -38,6 +38,7 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * Test that a tebibit is indeed a tebibit.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Tebibit
+ * @uses UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter

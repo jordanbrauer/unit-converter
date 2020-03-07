@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Picometre;
  * Ensure that a micrometre is infact, a micrometre.
  *
  * @covers UnitConverter\Unit\Length\Micrometre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

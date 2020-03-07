@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Lightyear;
  * Ensure that a millimetre is infact, a millimetre.
  *
  * @covers UnitConverter\Unit\Length\Millimetre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Length\Metre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

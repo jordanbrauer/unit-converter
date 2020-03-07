@@ -31,6 +31,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a calorie is infact, a calorie.
  *
  * @covers UnitConverter\Unit\Energy\FootPound
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Energy\Joule
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

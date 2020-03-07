@@ -40,6 +40,7 @@ use UnitConverter\Unit\Length\Yard;
  * Ensure that a metre is a metre.
  *
  * @covers UnitConverter\Unit\Length\Metre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator

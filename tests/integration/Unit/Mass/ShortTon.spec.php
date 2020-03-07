@@ -34,6 +34,7 @@ use UnitConverter\Unit\Mass\Tonne;
  * Ensure that a short ton is infact, a short ton.
  *
  * @covers UnitConverter\Unit\Mass\ShortTon
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter

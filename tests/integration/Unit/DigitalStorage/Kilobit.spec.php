@@ -38,6 +38,7 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * Test that a kilobit is indeed a kilobit.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Kilobit
+ * @uses UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter

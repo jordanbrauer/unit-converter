@@ -38,6 +38,7 @@ use Iterator;
  * Test that a gigabit is indeed a gigabit.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Gigabit
+ * @uses UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter

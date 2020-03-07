@@ -38,6 +38,7 @@ use Iterator;
  * Test that a kibibit is indeed a kibibit.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Kibibit
+ * @uses UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter
