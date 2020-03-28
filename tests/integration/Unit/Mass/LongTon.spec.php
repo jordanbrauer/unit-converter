@@ -42,6 +42,8 @@ use UnitConverter\Unit\Mass\Tonne;
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses \UnitConverter\Calculator\Formula\Mass\LongTon\ToGrams
+ * @uses \UnitConverter\Calculator\Formula\Mass\LongTon\ToMilligrams
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection

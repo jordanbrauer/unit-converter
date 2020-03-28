@@ -38,7 +38,7 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * Test that a gibibit is indeed a gibibit.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Gibibit
- * @uses UnitConverter\ConverterBuilder
+ * @uses \UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter
@@ -46,6 +46,10 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * @uses \UnitConverter\Calculator\AbstractCalculator
  * @uses \UnitConverter\Calculator\Formula\AbstractFormula
  * @uses \UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToBits
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToBytes
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToKibibits
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToKilobits
  * @uses \UnitConverter\Registry\UnitRegistry
  * @uses \UnitConverter\Support\ArrayDotNotation
  * @uses \UnitConverter\Support\Collection

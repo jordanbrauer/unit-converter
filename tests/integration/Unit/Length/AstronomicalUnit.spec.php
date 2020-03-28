@@ -48,6 +48,18 @@ use UnitConverter\Unit\Length\Yard;
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToCentimetres
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToDecimetres
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToFeet
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToHands
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToInches
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToKilometres
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToMicrometres
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToMiles
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToMillimetres
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToNanometres
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToPicometres
+ * @uses UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToYards
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection

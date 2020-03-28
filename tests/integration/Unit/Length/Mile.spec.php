@@ -48,6 +48,10 @@ use UnitConverter\Unit\Length\Yard;
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\Length\Mile\ToMicrometres
+ * @uses UnitConverter\Calculator\Formula\Length\Mile\ToMillimetres
+ * @uses UnitConverter\Calculator\Formula\Length\Mile\ToNanometres
+ * @uses UnitConverter\Calculator\Formula\Length\Mile\ToPicometres
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection

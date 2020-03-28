@@ -37,8 +37,8 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
 /**
  * Test that a terabit is indeed a terabit.
  *
- * @covers \UnitConverter\Unit\DigitalStorage\Megabit
- * @uses UnitConverter\ConverterBuilder
+ * @covers \UnitConverter\Unit\DigitalStorage\Terabit
+ * @uses \UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter

@@ -48,6 +48,18 @@ use UnitConverter\Unit\Length\Yard;
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToCentimetres
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToDecimetres
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToFeet
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToHands
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToInches
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToKilometres
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToMicrometres
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToMiles
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToMillimetres
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToNanometres
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToPicometres
+ * @uses \UnitConverter\Calculator\Formula\Length\Parsec\ToYards
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection

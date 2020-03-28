@@ -46,6 +46,8 @@ use Iterator;
  * @uses \UnitConverter\Calculator\AbstractCalculator
  * @uses \UnitConverter\Calculator\Formula\AbstractFormula
  * @uses \UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\DigitalStorage\Terabyte\ToKibibits
+ * * @uses UnitConverter\Calculator\Formula\DigitalStorage\Terabyte\ToMebibits
  * @uses \UnitConverter\Registry\UnitRegistry
  * @uses \UnitConverter\Support\ArrayDotNotation
  * @uses \UnitConverter\Support\Collection

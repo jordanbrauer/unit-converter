@@ -38,7 +38,7 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * Test that a tebibit is indeed a tebibit.
  *
  * @covers \UnitConverter\Unit\DigitalStorage\Tebibit
- * @uses UnitConverter\ConverterBuilder
+ * @uses \UnitConverter\ConverterBuilder
  * @uses \UnitConverter\Unit\DigitalStorage\Bit
  * @uses \UnitConverter\Unit\AbstractUnit
  * @uses \UnitConverter\UnitConverter
@@ -46,6 +46,14 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * @uses \UnitConverter\Calculator\AbstractCalculator
  * @uses \UnitConverter\Calculator\Formula\AbstractFormula
  * @uses \UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToBits
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToBytes
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToGibibits
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToKibibits
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToKilobits
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToKilobytes
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToMebibits
+ * @uses \UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToMegabits
  * @uses \UnitConverter\Registry\UnitRegistry
  * @uses \UnitConverter\Support\ArrayDotNotation
  * @uses \UnitConverter\Support\Collection
