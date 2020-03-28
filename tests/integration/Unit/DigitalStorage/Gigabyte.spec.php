@@ -46,7 +46,7 @@ use UnitConverter\Unit\DigitalStorage\Terabyte;
  * @uses \UnitConverter\Calculator\AbstractCalculator
  * @uses \UnitConverter\Calculator\Formula\AbstractFormula
  * @uses \UnitConverter\Calculator\Formula\UnitConversionFormula
- * @uses \UnitConverter\Registry\UnitRegistrys
+ * @uses \UnitConverter\Registry\UnitRegistry
  * @uses \UnitConverter\Support\ArrayDotNotation
  * @uses \UnitConverter\Support\Collection
  */
