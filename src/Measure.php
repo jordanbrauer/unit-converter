@@ -106,7 +106,9 @@ use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
 use UnitConverter\Unit\Time\Week;
 use UnitConverter\Unit\Time\Year;
+use UnitConverter\Unit\Volume\CubicCentimeter;
 use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\CubicMillimeter;
 use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
@@ -184,6 +186,8 @@ class Measure
         ],
         self::VOLUME => [
             CubicMetre::class,
+            CubicCentimeter::class,
+            CubicMillimeter::class,
             Gallon::class,
             Litre::class,
             Millilitre::class,
