@@ -61,7 +61,7 @@ class InchesOfMercurySpec extends TestCase
     {
         $expected = 3386.38867;
         $actual = $this->converter
-            ->convert(1)
+            ->convert(1, 5)
             ->from("inHg")
             ->to("Pa");
 
