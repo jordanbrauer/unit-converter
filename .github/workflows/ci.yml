@@ -22,6 +22,10 @@ jobs:
           ${{ runner.os }}-php-
     - name: Installation
       if: steps.composer-cache.outputs.cache-hit != 'true'
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.1'
+        extensions: bcmath
       run: composer install --prefer-dist --no-progress --no-suggest
     - name: Prepare Artifacts
       run: tar -cvf vendor.tar vendor
@@ -45,6 +49,10 @@ jobs:
     - name: Unpackage Artifacts
       run: tar -xvf vendor.tar
     - name: Validate
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.1'
+        extensions: bcmath
       run: |
         composer validate
         composer normalize --dry-run
@@ -66,4 +74,8 @@ jobs:
     - name: Unpackage Artifacts
       run: tar -xvf vendor.tar
     - name: Test
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.1'
+        extensions: bcmath
       run: composer test
