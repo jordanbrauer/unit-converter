@@ -14,6 +14,11 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
+use UnitConverter\Calculator\Formula\Length\Mile\ToMicrometres;
+use UnitConverter\Calculator\Formula\Length\Mile\ToMillimetres;
+use UnitConverter\Calculator\Formula\Length\Mile\ToNanometres;
+use UnitConverter\Calculator\Formula\Length\Mile\ToPicometres;
+
 /**
  * Mile data class.
  *
@@ -30,6 +35,13 @@ class Mile extends LengthUnit
 
             ->setSymbol("mi")
 
-            ->setUnits(1609.344);
+            ->setUnits(1609.344)
+
+            ->addFormulae([
+                'um' => ToMicrometres::class,
+                'mm' => ToMillimetres::class,
+                'nm' => ToNanometres::class,
+                'pm' => ToPicometres::class,
+            ]);
     }
 }

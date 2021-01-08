@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Pressure\Atmosphere;
+use UnitConverter\Unit\Pressure\Bar;
+use UnitConverter\Unit\Pressure\Kilopascal;
 use UnitConverter\Unit\Pressure\Megapascal;
+use UnitConverter\Unit\Pressure\Millibar;
 use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
+use UnitConverter\Unit\Pressure\Torr;
 use UnitConverter\UnitConverter;
 
 /**
  * Test that a megapascal is indeed a megapascal.
  *
  * @covers UnitConverter\Unit\Pressure\Megapascal
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Pressure\Pascal
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class MegapascalSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Pascal(),
-                new Megapascal(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mpa = new Megapascal(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MegapascalIs1000000Pascal()
-    {
-        $expected = 1000000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("mPa")
-            ->to("Pa");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 megapascal is equal to 1,000,000 pascal'                    => [$mpa, new Pascal(1000000.0), 0],
+            '1 megapascal is equal to 7500.64 torr'                        => [$mpa, new Torr(7500.64), 2],
+            '1 megapascal is equal to 9.86923 atmosphere'                  => [$mpa, new Atmosphere(9.86923), 5],
+            '1 megapascal is equal to 10,000 millibar'                     => [$mpa, new Millibar(10000.0), 0],
+            '1 megapascal is equal to 1,000 kilopascal'                    => [$mpa, new Kilopascal(1000.0), 0],
+            '1 megapascal is equal to 145.038 pound-force per square inch' => [$mpa, new PoundForcePerSquareInch(145.038), 3],
+            '1 megapascal is equal to 10 bar'                              => [$mpa, new Bar(10.0), 0],
+            '1 megapascal is equal to 1 megapascal'                        => [$mpa, new Megapascal(1.0), 0],
+        ];
     }
 }

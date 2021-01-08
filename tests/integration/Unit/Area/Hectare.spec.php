@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Area\Acre;
 use UnitConverter\Unit\Area\Hectare;
+use UnitConverter\Unit\Area\SquareCentimetre;
+use UnitConverter\Unit\Area\SquareFoot;
+use UnitConverter\Unit\Area\SquareKilometre;
 use UnitConverter\Unit\Area\SquareMetre;
+use UnitConverter\Unit\Area\SquareMile;
+use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a hectare is a hectare.
  *
  * @covers UnitConverter\Unit\Area\Hectare
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class HectareSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new SquareMetre(),
-                new Hectare(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $ha = new Hectare(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1HectareIs10000SquareMetres()
-    {
-        $expected = 10000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("ha")
-            ->to("m2");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 hectare is equal to 10,000,000,000 square millimetres' => [$ha, new SquareMillimetre(10000000000.0), 0],
+            '1 hectare is equal to 100,000,000 square centimetres'    => [$ha, new SquareCentimetre(100000000.0), 0],
+            '1 hectare is equal to 10,000 square metres'              => [$ha, new SquareMetre(10000.0), 0],
+            '1 hectare is equal to 0.00386102 square mile'            => [$ha, new SquareMile(0.00386102), 8],
+            '1 hectare is equal to 0.01 square kilometres'            => [$ha, new SquareKilometre(0.01), 2],
+            '1 hectare is equal to 107,639 square feet'               => [$ha, new SquareFoot(107639.0), 0],
+            '1 hectare is equal to 1 hectare'                         => [$ha, new Hectare(1.0), 0],
+            '1 hectare is equal to 2.47105 acre'                      => [$ha, new Acre(2.47105), 5],
+        ];
     }
 }

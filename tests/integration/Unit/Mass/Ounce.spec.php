@@ -14,17 +14,27 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Ounce;
 use UnitConverter\UnitConverter;
+use Iterator;
+use UnitConverter\Unit\Mass\Gram;
+use UnitConverter\Unit\Mass\LongTon;
+use UnitConverter\Unit\Mass\Milligram;
+use UnitConverter\Unit\Mass\Newton;
+use UnitConverter\Unit\Mass\Pound;
+use UnitConverter\Unit\Mass\ShortTon;
+use UnitConverter\Unit\Mass\Stone;
+use UnitConverter\Unit\Mass\Tonne;
 
 /**
  * Ensure that a ounce is infact, a ounce.
  *
  * @covers UnitConverter\Unit\Mass\Ounce
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +48,21 @@ use UnitConverter\UnitConverter;
  */
 class OunceSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kilogram(),
-                new Ounce(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $oz = new Ounce();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1OunceIs0decimal0283495Kilograms()
-    {
-        $expected = 0.0283495;
-        $actual = $this->converter
-            ->convert(1, 7)
-            ->from("oz")
-            ->to("kg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 ounce is equal to 28.3495 grams' => [$oz, new Gram(28.3495), 4],
+            '1 ounce is equal to 0.0283495 kilograms' => [$oz, new Kilogram(0.0283495), 7],
+            '1 ounce is equal to 0.000027902 long tons (imperial tons)' => [$oz, new LongTon(0.000027902), 9],
+            '1 ounce is equal to 28,349.5 milligrams' => [$oz, new Milligram(28349.5), 1],
+            // '1 ounce is equal to 1.0 newtons' => [$oz, new Newton(1.0), 0],
+            '1 ounce is equal to 1 ounce' => [$oz, new Ounce(1.0), 0],
+            '1 ounce is equal to 0.0625 pounds' => [$oz, new Pound(0.0625), 4],
+            '1 ounce is equal to 0.00003125 short tons (us ton)' => [$oz, new ShortTon(0.00003125), 8],
+            '1 ounce is equal to 0.00446428 stones' => [$oz, new Stone(0.00446428), 8],
+            '1 ounce is equal to 0.00002835 tonnes' => [$oz, new Tonne(0.00002835), 8],
+        ];
     }
 }

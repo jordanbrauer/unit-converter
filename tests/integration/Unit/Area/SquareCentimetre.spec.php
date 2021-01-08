@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Area\Acre;
+use UnitConverter\Unit\Area\Hectare;
 use UnitConverter\Unit\Area\SquareCentimetre;
+use UnitConverter\Unit\Area\SquareFoot;
+use UnitConverter\Unit\Area\SquareKilometre;
 use UnitConverter\Unit\Area\SquareMetre;
+use UnitConverter\Unit\Area\SquareMile;
+use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a square centimetre is a square centimetre.
  *
  * @covers UnitConverter\Unit\Area\SquareCentimetre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class SquareCentimetreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new SquareMetre(),
-                new SquareCentimetre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $cm2 = new SquareCentimetre(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1SquareCentimetreIs0decimal0001SquareMetres()
-    {
-        $expected = 0.0001;
-        $actual = $this->converter
-            ->convert(1, 4)
-            ->from("cm2")
-            ->to("m2");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 square centimetre is equal to 100 square millimetres'         => [$cm2, new SquareMillimetre(100.0), 0],
+            '1 square centimetre is equal to 1 square centimetre'            => [$cm2, new SquareCentimetre(1.0), 0],
+            '1 square centimetre is equal to 0.0001 square metres'           => [$cm2, new SquareMetre(0.0001), 4],
+            '1 square centimetre is equal to 0.000000000038610 square miles' => [$cm2, new SquareMile(0.000000000038610), 15],
+            '1 square centimetre is equal to 0.0000000001 square kilometres' => [$cm2, new SquareKilometre(0.0000000001), 10],
+            '1 square centimetre is equal to 0.00107639 square feet'         => [$cm2, new SquareFoot(0.00107639), 8],
+            '1 square centimetre is equal to 0.00000001 hectare'             => [$cm2, new Hectare(0.00000001), 8],
+            '1 square centimetre is equal to 0.0000000247110 acre'           => [$cm2, new Acre(0.0000000247110), 13],
+        ];
     }
 }

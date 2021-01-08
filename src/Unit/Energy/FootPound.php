@@ -32,6 +32,6 @@ class FootPound extends EnergyUnit
 
             ->setScientificSymbol("ft · lbf")
 
-            ->setUnits(1.35582);
+            ->setUnits(1.3558179483314);
     }
 }

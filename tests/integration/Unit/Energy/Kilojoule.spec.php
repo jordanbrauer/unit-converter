@@ -14,17 +14,24 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Energy\Calorie;
+use UnitConverter\Unit\Energy\FootPound;
 use UnitConverter\Unit\Energy\Joule;
 use UnitConverter\Unit\Energy\Kilojoule;
+use UnitConverter\Unit\Energy\KilowattHour;
+use UnitConverter\Unit\Energy\Megajoule;
+use UnitConverter\Unit\Energy\MegawattHour;
+use UnitConverter\Unit\Energy\NewtonMetre;
+use UnitConverter\Unit\Energy\WattHour;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a joule is infact, a joule.
  *
  * @covers UnitConverter\Unit\Energy\Kilojoule
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Energy\Joule
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +45,21 @@ use UnitConverter\UnitConverter;
  */
 class KilojouleSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Joule(),
-                new Kilojoule(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $kj = new Kilojoule(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1KilojouleIs1000Joules()
-    {
-        $expected = 1000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("kJ")
-            ->to("J");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 kilojoule is equal to 1,000 newton metres'                => [$kj, new NewtonMetre(1000.0), 0],
+            '1 kilojoule is equal to 1,000 joules'                       => [$kj, new Joule(1000.0), 0],
+            '1 kilojoule is equal to 1 kilojoules'                       => [$kj, new Kilojoule(1.0), 0],
+            '1 kilojoule is equal to 0.001 megajoules'                   => [$kj, new Megajoule(0.001), 3],
+            '1 kilojoule is equal to 0.000000277778 megawatt hours'      => [$kj, new MegawattHour(0.000000277778), 12],
+            '1 kilojoule is equal to 0.27777777777778 watt hours'        => [$kj, new WattHour(0.27777777777778), 14],
+            '1 kilojoule is equal to 0.00027777777777778 kilowatt hours' => [$kj, new KilowattHour(0.00027777777777778), 17],
+            '1 kilojoule is equal to 0.239006 calories'                  => [$kj, new Calorie(0.239006), 6],
+            '1 kilojoule is equal to 737.562 foot pounds'                => [$kj, new FootPound(737.562), 3],
+            /* NOTE: this test or conversion is fucked */ // '1 kilojoule is equal to 26,114,419,104,000,000 megaelectronvolts' => [$kj, new Megaelectronvolt(26114419104000000.0), 0],
+        ];
     }
 }

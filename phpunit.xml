@@ -23,23 +23,62 @@
       <testsuite name="fullspec">
         <directory suffix=".spec.php">tests/</directory>
       </testsuite>
-    </testsuites>
 
-    <testsuites>
       <testsuite name="unit">
         <directory suffix=".spec.php">tests/unit/</directory>
       </testsuite>
-    </testsuites>
 
-    <testsuites>
       <testsuite name="integration">
         <directory suffix=".spec.php">tests/integration/</directory>
       </testsuite>
-    </testsuites>
 
-    <testsuites>
-      <testsuite name="errors">
-        <directory suffix=".spec.php">tests/exception/</directory>
+      <testsuite name="area">
+        <directory suffix=".spec.php">tests/integration/Unit/Area/</directory>
+      </testsuite>
+
+      <testsuite name="storage">
+        <directory suffix=".spec.php">tests/integration/Unit/DigitalStorage/</directory>
+      </testsuite>
+
+      <testsuite name="energy">
+        <directory suffix=".spec.php">tests/integration/Unit/Energy/</directory>
+      </testsuite>
+
+      <testsuite name="frequency">
+        <directory suffix=".spec.php">tests/integration/Unit/Frequency/</directory>
+      </testsuite>
+
+      <testsuite name="length">
+        <directory suffix=".spec.php">tests/integration/Unit/Length/</directory>
+      </testsuite>
+
+      <testsuite name="mass">
+        <directory suffix=".spec.php">tests/integration/Unit/Mass/</directory>
+      </testsuite>
+
+      <testsuite name="planeangle">
+        <directory suffix=".spec.php">tests/integration/Unit/PlaneAngle/</directory>
+      </testsuite>
+
+      <testsuite name="pressure">
+        <directory suffix=".spec.php">tests/integration/Unit/Pressure/</directory>
+      </testsuite>
+
+      <testsuite name="speed">
+        <directory suffix=".spec.php">tests/integration/Unit/Speed/</directory>
+      </testsuite>
+
+      <testsuite name="temperature">
+        <directory suffix=".spec.php">tests/integration/Unit/Temperature/</directory>
+      </testsuite>
+
+      <testsuite name="time">
+        <directory suffix=".spec.php">tests/integration/Unit/Time/</directory>
+      </testsuite>
+
+      <testsuite name="volume">
+        <directory suffix=".spec.php">tests/integration/Unit/FuelEconomy/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Volume/</directory>
       </testsuite>
     </testsuites>
 </phpunit>
