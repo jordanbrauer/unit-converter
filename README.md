@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/jordanbrauer/unit-converter/version?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
 [![Latest Unstable Version](https://poser.pugx.org/jordanbrauer/unit-converter/v/unstable?format=flat-square)](//packagist.org/packages/jordanbrauer/unit-converter)
-[![CircleCI](https://img.shields.io/circleci/build/github/jordanbrauer/unit-converter/master?label=tests&style=flat-square)](https://circleci.com/gh/jordanbrauer/unit-converter/tree/master)
+[![CI Workflow](https://img.shields.io/github/workflow/status/jordanbrauer/unit-converter/CI?style=flat-square&label=tests)](https://github.com/jordanbrauer/unit-converter/actions?query=workflow%3ACI)
 [![Code Maintainability](https://img.shields.io/codeclimate/maintainability/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
 [![Code Coverage](https://img.shields.io/codeclimate/coverage/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
 [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter/issues)
