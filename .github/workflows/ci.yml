@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: PHP Installation
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.3'
+        extensions: bcmath
+    - name: Code Checkout
+      uses: actions/checkout@v2
+    - name: Cache
+      id: composer-cache
+      uses: actions/cache@v2
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('src/', 'tests/') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+    - name: Installation
+      if: steps.composer-cache.outputs.cache-hit != 'true'
+      run: composer install --prefer-dist --no-progress --no-suggest
+    - name: Prepare Artifacts
+      run: tar -cvf vendor.tar vendor
+    - name: Archive Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-dist
+        retention-days: 1
+        path: vendor.tar
+
+  analysis:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: PHP Installation
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.3'
+        extensions: bcmath
+    - name: Code Checkout
+      uses: actions/checkout@v2
+    - name: Download Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: test-dist
+    - name: Unpackage Artifacts
+      run: tar -xvf vendor.tar
+    - name: Validate
+      run: |
+        composer validate
+        composer normalize --dry-run
+    # - name: Lint (Codestyle)
+    #   run: composer style -- --dry-run
+    # - name: Static Analysis
+    #   run: composer analyze -- --error-format=github
+
+  tests:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: PHP Installation
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.3'
+        extensions: bcmath
+    - name: Code Checkout
+      uses: actions/checkout@v2
+    - name: Download Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: test-dist
+    - name: Unpackage Artifacts
+      run: tar -xvf vendor.tar
+    - name: Test
+      run: composer test

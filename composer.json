@@ -1,7 +1,7 @@
 {
   "name": "jordanbrauer/unit-converter",
-  "description": "Convert standard units from one to another with this easy to use, lightweight package",
   "type": "component",
+  "description": "Convert standard units from one to another with this easy to use, lightweight package",
   "license": "MIT",
   "authors": [
     {
@@ -9,38 +9,18 @@
       "email": "18744334+jordanbrauer@users.noreply.github.com"
     }
   ],
-  "scripts": {
-    "test": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
-    "test:unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
-    "test:integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
-    "test:area": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=area --color=always",
-    "test:storage": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=storage --color=always",
-    "test:energy": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=energy --color=always",
-    "test:frequency": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=frequency --color=always",
-    "test:length": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=length --color=always",
-    "test:mass": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=mass --color=always",
-    "test:planeangle": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=planeangle --color=always",
-    "test:pressure": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=pressure --color=always",
-    "test:speed": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=speed --color=always",
-    "test:temperature": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=temperature --color=always",
-    "test:time": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=time --color=always",
-    "test:volume": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=volume --color=always",
-    "test:coverage": "vendor/bin/phpunit --coverage-text --configuration=./phpunit.xml --testsuite=fullspec --color=always",
-    "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never",
-    "style": "bin/php-cs-fixer fix --config=.php_cs --show-progress=dots --ansi -v",
-    "report": "vendor/bin/phpmetrics --report-html=report --exclude='.github,.notes,.vscode,bin,docs,node_modules,report,tests,vendor' ."
-  },
   "require": {
     "php": "^7.1",
     "ext-bcmath": "*"
   },
   "require-dev": {
+    "codedungeon/phpunit-result-printer": "^0.19.12",
     "consolidation/robo": "^1.2",
+    "ergebnis/composer-normalize": "^2.13",
+    "phpmetrics/phpmetrics": "^2.4",
     "phpunit/phpunit": "^6.3",
     "symfony/var-dumper": "^3.3",
-    "vlucas/phpdotenv": "^2.4",
-    "codedungeon/phpunit-result-printer": "^0.19.12",
-    "phpmetrics/phpmetrics": "^2.4"
+    "vlucas/phpdotenv": "^2.4"
   },
   "autoload": {
     "psr-4": {
@@ -53,5 +33,29 @@
       "UnitConverter\\Tests\\Integration\\": "tests/integration/",
       "UnitConverter\\Tests\\Unit\\": "tests/unit/"
     }
+  },
+  "scripts": {
+    "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never",
+    "coverage": "vendor/bin/phpunit --coverage-text --configuration=./phpunit.xml --testsuite=fullspec --color=always",
+    "integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
+    "report": "vendor/bin/phpmetrics --report-html=report --exclude='.github,.notes,.vscode,bin,docs,node_modules,report,tests,vendor' .",
+    "style": "bin/php-cs-fixer fix --config=.php_cs --show-progress=dots --ansi -v",
+    "test": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
+    "test:area": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=area --color=always",
+    "test:coverage": "vendor/bin/phpunit --coverage-text --configuration=./phpunit.xml --testsuite=fullspec --color=always",
+    "test:energy": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=energy --color=always",
+    "test:frequency": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=frequency --color=always",
+    "test:integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
+    "test:length": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=length --color=always",
+    "test:mass": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=mass --color=always",
+    "test:planeangle": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=planeangle --color=always",
+    "test:pressure": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=pressure --color=always",
+    "test:speed": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=speed --color=always",
+    "test:storage": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=storage --color=always",
+    "test:temperature": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=temperature --color=always",
+    "test:time": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=time --color=always",
+    "test:unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
+    "test:volume": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=volume --color=always",
+    "unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always"
   }
 }
