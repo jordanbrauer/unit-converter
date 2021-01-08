@@ -14,17 +14,25 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
 use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a hour is infact, a hour.
  *
  * @covers UnitConverter\Unit\Time\Hour
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +46,21 @@ use UnitConverter\UnitConverter;
  */
 class HourSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Hour(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $hr = new Hour(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1HourIs3600Seconds()
-    {
-        $expected = 3600;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("hr")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 hour is equal to 3,600,000,000,000 nanoseconds' => [$hr, new Nanosecond(3600000000000.0), 0],
+            '1 hour is equal to 3,600,000,000 microseconds'    => [$hr, new Microsecond(3600000000.0), 0],
+            '1 hour is equal to 3,600,000 milliseconds'        => [$hr, new Millisecond(3600000.0), 0],
+            '1 hour is equal to 3,600 seconds'                 => [$hr, new Second(3600.0), 0],
+            '1 hour is equal to 60 minutes'                    => [$hr, new Minute(60.0), 0],
+            '1 hour is equal to 1 hours'                       => [$hr, new Hour(1.0), 0],
+            '1 hour is equal to 0.0416667 days'                => [$hr, new Day(0.0416667), 7],
+            '1 hour is equal to 0.00595238 weeks'              => [$hr, new Week(0.00595238), 8],
+            '1 hour is equal to 0.00136986 months'             => [$hr, new Month(0.00136986), 8],
+            '1 hour is equal to 0.000114155 years'             => [$hr, new Year(0.000114155), 9],
+        ];
     }
 }

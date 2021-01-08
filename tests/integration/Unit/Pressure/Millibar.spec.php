@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Pressure\Atmosphere;
+use UnitConverter\Unit\Pressure\Bar;
+use UnitConverter\Unit\Pressure\Kilopascal;
+use UnitConverter\Unit\Pressure\Megapascal;
 use UnitConverter\Unit\Pressure\Millibar;
 use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
+use UnitConverter\Unit\Pressure\Torr;
 use UnitConverter\UnitConverter;
 
 /**
  * Test that a millibar is indeed a millibar.
  *
  * @covers UnitConverter\Unit\Pressure\Millibar
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Pressure\Pascal
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class MillibarSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Pascal(),
-                new Millibar(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $mbar = new Millibar(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MillibarIs100Pascal()
-    {
-        $expected = 100;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("mbar")
-            ->to("Pa");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 millibar is equal to 100 pascal'                            => [$mbar, new Pascal(100.0), 0],
+            '1 millibar is equal to 0.750064 torr'                         => [$mbar, new Torr(0.750064), 6],
+            '1 millibar is equal to 0.000986923 atmosphere'                => [$mbar, new Atmosphere(0.000986923), 9],
+            '1 millibar is equal to 1 millibar'                            => [$mbar, new Millibar(1.0), 0],
+            '1 millibar is equal to 0.1 kilopascal'                        => [$mbar, new Kilopascal(0.1), 1],
+            '1 millibar is equal to 0.0145038 pound-force per square inch' => [$mbar, new PoundForcePerSquareInch(0.0145038), 7],
+            '1 millibar is equal to 0.001 bar'                             => [$mbar, new Bar(0.001), 3],
+            '1 millibar is equal to 0.0001 megapascal'                     => [$mbar, new Megapascal(0.0001), 4],
+        ];
     }
 }

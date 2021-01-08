@@ -14,6 +14,9 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\DigitalStorage;
 
+use UnitConverter\Calculator\Formula\DigitalStorage\Terabyte\ToKibibits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Terabyte\ToMebibits;
+
 /**
  * Terbyte unit data class
  *
@@ -32,6 +35,11 @@ class Terabyte extends DigitalStorageUnit
 
             ->setScientificSymbol("TB")
 
-            ->setUnits(8000000000000);
+            ->setUnits(8000000000000)
+
+            ->addFormulae([
+                'Kib' => ToKibibits::class,
+                'Mib' => ToMebibits::class,
+            ]);
     }
 }

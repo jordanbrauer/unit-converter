@@ -14,17 +14,20 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicMetre;
 use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
+use UnitConverter\Unit\Volume\Millilitre;
+use UnitConverter\Unit\Volume\Pint;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a U.S. gallon is a U.S. gallon.
  *
  * @covers UnitConverter\Unit\Volume\Gallon
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Volume\Litre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -35,36 +38,26 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\ConverterBuilder
+ * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
+ * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
+ * @uses UnitConverter\Unit\Volume\CubicMetre
+ * @uses UnitConverter\Unit\Volume\Millilitre
+ * @uses UnitConverter\Unit\Volume\Pint
  */
-class GallonSpec extends TestCase
+final class GallonSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-                new Gallon(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $gal = new Gallon(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1GallonIs3decimal78541Litres()
-    {
-        $expected = 3.78541;
-        $actual = $this->converter
-            ->convert(1, 5)
-            ->from("gal")
-            ->to("L");
-
-        $this->assertEquals($expected, $actual);
+        yield from [ # NOTE: conversions taken from google unit converter
+            '1 gallon is equal to 0.004 cubic metres' => [$gal, new CubicMetre(0.004), 3],
+            '1 gallon is equal to 1 gallon'           => [$gal, new Gallon(1.0), 0],
+            '1 gallon is equal to 3.79 litres'        => [$gal, new Litre(3.785), 3],
+            '1 gallon is equal to 3785.4 millilitres' => [$gal, new Millilitre(3785.41), 2],
+            '1 gallon is equal to 8 pints'            => [$gal, new Pint(8.0), 0],
+        ];
     }
 }

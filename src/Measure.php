@@ -84,6 +84,8 @@ use UnitConverter\Unit\PlaneAngle\Degree;
 use UnitConverter\Unit\PlaneAngle\Radian;
 use UnitConverter\Unit\Pressure\Atmosphere;
 use UnitConverter\Unit\Pressure\Bar;
+use UnitConverter\Unit\Pressure\Hectopascal;
+use UnitConverter\Unit\Pressure\InchesOfMercury;
 use UnitConverter\Unit\Pressure\Kilopascal;
 use UnitConverter\Unit\Pressure\Megapascal;
 use UnitConverter\Unit\Pressure\Millibar;
@@ -221,6 +223,8 @@ class Measure
         self::PRESSURE => [
             Atmosphere::class,
             Bar::class,
+            Hectopascal::class,
+            InchesOfMercury::class,
             Kilopascal::class,
             Megapascal::class,
             Millibar::class,

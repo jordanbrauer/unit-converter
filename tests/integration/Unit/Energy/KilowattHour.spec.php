@@ -14,17 +14,24 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Energy\Calorie;
+use UnitConverter\Unit\Energy\FootPound;
 use UnitConverter\Unit\Energy\Joule;
+use UnitConverter\Unit\Energy\Kilojoule;
 use UnitConverter\Unit\Energy\KilowattHour;
+use UnitConverter\Unit\Energy\Megajoule;
+use UnitConverter\Unit\Energy\MegawattHour;
+use UnitConverter\Unit\Energy\NewtonMetre;
+use UnitConverter\Unit\Energy\WattHour;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a joule is infact, a joule.
  *
  * @covers UnitConverter\Unit\Energy\KilowattHour
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Energy\Joule
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -36,35 +43,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
-class KilowattHourSpec extends TestCase
+final class KilowattHourSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Joule(),
-                new KilowattHour(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $kj = new KilowattHour(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1KilowattHourIs3600005decimal4468Joules()
-    {
-        $expected = 3600005.4468;
-        $actual = $this->converter
-            ->convert(1, 4)
-            ->from("kW h")
-            ->to("J");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 kilowatt hour is equal to 3,600,000 newton metres' => [$kj, new NewtonMetre(3600000.0), 0],
+            '1 kilowatt hour is equal to 3,600,000 joules'        => [$kj, new Joule(3600000.0), 0],
+            '1 kilowatt hour is equal to 3,600 kilojoules'        => [$kj, new Kilojoule(3600.0), 0],
+            '1 kilowatt hour is equal to 3.6 megajoules'          => [$kj, new Megajoule(3.6), 1],
+            '1 kilowatt hour is equal to 0.001 megawatt hours'    => [$kj, new MegawattHour(0.001), 3],
+            '1 kilowatt hour is equal to 1,000 watt hours'        => [$kj, new WattHour(1000.0), 0],
+            '1 kilowatt hour is equal to 1 kilowatt hours'        => [$kj, new KilowattHour(1.0), 0],
+            '1 kilowatt hour is equal to 860.421 calories'        => [$kj, new Calorie(860.421), 3],
+            '1 kilowatt hour is equal to 2,655,224 foot pounds'   => [$kj, new FootPound(2655224.0), 0],
+            /* NOTE: this test or conversion is fucked */ // '1 kilowatt hour is equal to 26,114,419,104,000,000 megaelectronvolts' => [$kj, new Megaelectronvolt(26114419104000000.0), 0],
+        ];
     }
 }

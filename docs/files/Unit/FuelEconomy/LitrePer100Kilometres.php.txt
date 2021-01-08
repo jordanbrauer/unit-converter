@@ -32,8 +32,8 @@ class LitrePer100Kilometres extends FuelEconomyUnit
             ->setName("litre per 100 kilometres")
             ->setSymbol("L/100km")
             ->addFormulae([
-                'km/l' => ToKilometrePerLitre::class,
-                'mpg' => ToMilesPerGallon::class,
+                'km/l'    => ToKilometrePerLitre::class,
+                'mpg'     => ToMilesPerGallon::class,
                 'L/100km' => NullFormula::class,
             ]);
     }

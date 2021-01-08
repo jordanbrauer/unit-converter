@@ -14,17 +14,18 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Speed;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Speed\KilometrePerHour;
 use UnitConverter\Unit\Speed\MetrePerSecond;
+use UnitConverter\Unit\Speed\MilePerHour;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a kilometre per hour is infact, a kilometre per hour.
  *
  * @covers UnitConverter\Unit\Speed\KilometrePerHour
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Speed\MetrePerSecond
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +39,14 @@ use UnitConverter\UnitConverter;
  */
 class KilometrePerHourSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new MetrePerSecond(),
-                new KilometrePerHour(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $kmh = new KilometrePerHour(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1KilometrePerHourIs0decimal277778MetresPerSecond()
-    {
-        $expected = 0.277778;
-        $actual = $this->converter
-            ->convert(1, 6)
-            ->from("kmph")
-            ->to("mps");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 kilometre per hour is equal to 0.277778 metres per second' => [$kmh, new MetrePerSecond(0.277778), 6],
+            '1 kilometre per hour is equal to 1 kilometre per hour'       => [$kmh, new KilometrePerHour(1.0), 0],
+            '1 kilometre per hour is equal to 0.621371 miles per hour'    => [$kmh, new MilePerHour(0.621372), 6],
+        ];
     }
 }

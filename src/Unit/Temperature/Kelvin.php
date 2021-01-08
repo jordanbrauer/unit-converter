@@ -15,6 +15,10 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit\Temperature;
 
 use UnitConverter\Unit\Family\SiBaseUnit;
+use UnitConverter\Calculator\Formula\NullFormula;
+use UnitConverter\Calculator\Formula\Temperature\Kelvin\ToCelsius;
+use UnitConverter\Calculator\Formula\Temperature\Kelvin\ToFahrenheit;
+use UnitConverter\Unit\SiBaseUnitInterface;
 
 /**
  * Kelvin unit data class.
@@ -34,6 +38,12 @@ class Kelvin extends TemperatureUnit implements SiBaseUnit
 
             ->setScientificSymbol("K")
 
-            ->setUnits(1);
+            ->setUnits(1)
+
+            ->addFormulae([
+                'K' => NullFormula::class,
+                'F' => ToFahrenheit::class,
+                'C' => ToCelsius::class,
+            ]); # 🐓 🍗 secret blend of herbs & spices?
     }
 }
