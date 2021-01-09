@@ -14,9 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Temperature;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Temperature\Celsius;
 use UnitConverter\Unit\Temperature\Fahrenheit;
 use UnitConverter\Unit\Temperature\Kelvin;
@@ -26,6 +25,7 @@ use UnitConverter\UnitConverter;
  * Ensure that Clesius is infact Clesius.
  *
  * @covers UnitConverter\Unit\Temperature\Celsius
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Temperature\Fahrenheit
  * @uses UnitConverter\Unit\Temperature\Kelvin
  * @uses UnitConverter\Unit\AbstractUnit
@@ -43,62 +43,14 @@ use UnitConverter\UnitConverter;
  */
 class CelsiusSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Celsius(),
-                new Fahrenheit(),
-                new Kelvin(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $c = new Celsius(0);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert0CelsiusIs273decimal15Kelvin()
-    {
-        $expected = 273.15;
-        $actual = $this->converter
-            ->convert(0)
-            ->from("C")
-            ->to("K");
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     */
-    public function assert0CelsiusIs32Fahrenheit()
-    {
-        $expected = 32;
-        $actual = $this->converter
-            ->convert(0)
-            ->from("C")
-            ->to("F");
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1CelsiusIs1Celsius()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("C")
-            ->to("C");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '0 Celsius is equal to 273.15 Kelvin' => [$c, new Kelvin(273.15), 2],
+            '0 Celsius is equal to 32 Fahrenheit' => [$c, new Fahrenheit(32.0), 0],
+            '1 Celsius is equal to 1.0 Celsius'   => [new Celsius(1), new Celsius('1'), 0],
+        ];
     }
 }

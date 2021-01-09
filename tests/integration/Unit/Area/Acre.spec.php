@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Area\Acre;
+use UnitConverter\Unit\Area\Hectare;
+use UnitConverter\Unit\Area\SquareCentimetre;
+use UnitConverter\Unit\Area\SquareFoot;
+use UnitConverter\Unit\Area\SquareKilometre;
 use UnitConverter\Unit\Area\SquareMetre;
+use UnitConverter\Unit\Area\SquareMile;
+use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that an acre is an acre.
  *
  * @covers UnitConverter\Unit\Area\Acre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class AcreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new SquareMetre(),
-                new Acre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $acre = new Acre(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1AcreIs4046decimal86SquareMetres()
-    {
-        $expected = 4046.86;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("acre")
-            ->to("m2");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 acre is equal to 4,046,860,000 square millimetres' => [$acre, new SquareMillimetre(4046860000.0), 0],
+            '1 acre is equal to 40,468,600 square centimetres'    => [$acre, new SquareCentimetre(40468600.0), 0],
+            '1 acre is equal to 4,046.86 square metres'           => [$acre, new SquareMetre(4046.86), 2],
+            '1 acre is equal to 0.0015625 square mile'            => [$acre, new SquareMile(0.0015625), 7],
+            '1 acre is equal to 0.00404686 square kilometres'     => [$acre, new SquareKilometre(0.00404686), 8],
+            '1 acre is equal to 43,560 square feet'               => [$acre, new SquareFoot(43560.0), 0],
+            '1 acre is equal to 0.404686 hectare'                 => [$acre, new Hectare(0.404686), 6],
+            '1 acre is equal to 1 acre'                           => [$acre, new Acre(1.0), 0],
+        ];
     }
 }

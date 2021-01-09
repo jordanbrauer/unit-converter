@@ -24,12 +24,11 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  */
 class ToKilometrePerLitre extends AbstractFormula
 {
-
-    const MAGIC_NUMBER = 0.425144;
-
     const FORMULA_STRING = 'km/l = 0.425144 * mpg';
 
     const FORMULA_TEMPLATE = '%s km/l = 0.425144 * %smpg';
+
+    const MAGIC_NUMBER = 0.425144;
 
     /**
      * {@inheritDoc}

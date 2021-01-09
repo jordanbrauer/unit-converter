@@ -14,9 +14,10 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Temperature;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Temperature\Celsius;
+use UnitConverter\Unit\Temperature\Fahrenheit;
 use UnitConverter\Unit\Temperature\Kelvin;
 use UnitConverter\UnitConverter;
 
@@ -24,47 +25,22 @@ use UnitConverter\UnitConverter;
  * Ensure that Kelvin is Kelvin
  *
  * @covers UnitConverter\Unit\Temperature\Kelvin
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
+ * @uses UnitConverter\Calculator\Formula\NullFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\Temperature\Kelvin\ToFahrenheit
+ * @uses UnitConverter\Calculator\Formula\Temperature\Kelvin\ToCelsius
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
 class KelvinSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kelvin(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1KelvinIs1Kelvin()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("K")
-            ->to("K");
-
-        $this->assertEquals($expected, $actual);
-    }
-
     /**
      * @test
      */
@@ -73,5 +49,16 @@ class KelvinSpec extends TestCase
         $result = (new Kelvin())->isSiUnit();
         $this->assertTrue($result);
         $this->assertInternalType("bool", $result);
+    }
+
+    public function correctConversions(): Iterator
+    {
+        $k = new Kelvin(1);
+
+        yield from [
+            '1 Kelvin is equal to 1 Kelvin'           => [$k, new Kelvin('1'), 0],
+            '1 Kelvin is equal to -457.87 Fahrenheit' => [$k, new Fahrenheit(-457.87), 2],
+            '1 Kelvin is equal to -272.15 Celsius'    => [$k, new Celsius(-272.15), 2],
+        ];
     }
 }

@@ -14,17 +14,19 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
-use UnitConverter\UnitConverter;
+use UnitConverter\Unit\Volume\Millilitre;
+use UnitConverter\Unit\Volume\Pint;
 
 /**
  * Ensure that a cubic metre is a metre that has been cubed.
  *
  * @covers UnitConverter\Unit\Volume\CubicMetre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Volume\Litre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -35,36 +37,26 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\ConverterBuilder
+ * @uses UnitConverter\Unit\FuelEconomy\KilometrePerLitre
+ * @uses UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
+ * @uses UnitConverter\Unit\FuelEconomy\MilesPerGallon
+ * @uses UnitConverter\Unit\Volume\Gallon
+ * @uses UnitConverter\Unit\Volume\Millilitre
+ * @uses UnitConverter\Unit\Volume\Pint
  */
-class CubicMetreSpec extends TestCase
+final class CubicMetreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-                new CubicMetre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $m3 = new CubicMetre(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1CubicMetreIs1000Litres()
-    {
-        $expected = 1000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("m3")
-            ->to("L");
-
-        $this->assertEquals($expected, $actual);
+        yield from [ # NOTE: conversions taken from google unit converter
+            '1 cubic metre is equal to 1 cubic metre'            => [$m3, new CubicMetre(1.0), 0],
+            '1 cubic metre is equal to 264.17 US liquid gallons' => [$m3, new Gallon(264.172), 3],
+            '1 cubic metre is equal to 1000 litres'              => [$m3, new Litre(1000.0), 0],
+            '1 cubic metre is equal to 1000000 millilitres'      => [$m3, new Millilitre(1000000.0), 0],
+            '1 cubic metre is equal to 2113.38 US liquid pints'  => [$m3, new Pint(2113.38), 2],
+        ];
     }
 }

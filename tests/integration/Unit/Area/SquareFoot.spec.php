@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Area;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Area\Acre;
+use UnitConverter\Unit\Area\Hectare;
+use UnitConverter\Unit\Area\SquareCentimetre;
 use UnitConverter\Unit\Area\SquareFoot;
+use UnitConverter\Unit\Area\SquareKilometre;
 use UnitConverter\Unit\Area\SquareMetre;
+use UnitConverter\Unit\Area\SquareMile;
+use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a square foot is a square foot.
  *
  * @covers UnitConverter\Unit\Area\SquareFoot
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Area\SquareMetre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class SquareFootSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new SquareMetre(),
-                new SquareFoot(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $ft2 = new SquareFoot(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1SquareFootIs0decimal092903SquareMetres()
-    {
-        $expected = 0.092903;
-        $actual = $this->converter
-            ->convert(1, 6)
-            ->from("ft2")
-            ->to("m2");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 square foot is equal to 92903 square millimetres'          => [$ft2, new SquareMillimetre(92903.0), 0],
+            '1 square foot is equal to 929.03 square centimetre'          => [$ft2, new SquareCentimetre(929.03), 2],
+            '1 square foot is equal to 0.092903 square metres'            => [$ft2, new SquareMetre(0.092903), 6],
+            '1 square foot is equal to 0.000000035870 square miles'       => [$ft2, new SquareMile(0.000000035870), 12],
+            '1 square foot is equal to 0.0000000929030 square kilometres' => [$ft2, new SquareKilometre(0.0000000929030), 13],
+            '1 square foot is equal to 1 square foot'                     => [$ft2, new SquareFoot(1.0), 0],
+            '1 square foot is equal to 0.00000929030 hectare'             => [$ft2, new Hectare(0.00000929030), 11],
+            '1 square foot is equal to 0.0000229570 acre'                 => [$ft2, new Acre(0.000022957), 9],
+        ];
     }
 }

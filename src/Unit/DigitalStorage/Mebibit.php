@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\DigitalStorage;
 
+use UnitConverter\Calculator\Formula\DigitalStorage\Mebibit\ToBits;
+
 /**
  * Mebibit unit data class
  *
@@ -32,6 +34,10 @@ class Mebibit extends DigitalStorageUnit
 
             ->setScientificSymbol("Mib")
 
-            ->setUnits(1048576);
+            ->setUnits(1048576)
+
+            ->addFormulae([
+                'b' => ToBits::class,
+            ]);
     }
 }

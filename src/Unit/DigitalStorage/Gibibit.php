@@ -14,6 +14,11 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\DigitalStorage;
 
+use UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToBits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToBytes;
+use UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToKibibits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Gibibit\ToKilobits;
+
 /**
  * Gibibit unit data class
  *
@@ -26,12 +31,19 @@ class Gibibit extends DigitalStorageUnit
     protected function configure(): void
     {
         $this
-            ->setName("mebibit")
+            ->setName("gibibit")
 
             ->setSymbol("Gib")
 
             ->setScientificSymbol("Gib")
 
-            ->setUnits(1073741824);
+            ->setUnits(1073741824)
+
+            ->addFormulae([
+                'b' => ToBits::class,
+                'B' => ToBytes::class,
+                'Kib' => ToKibibits::class,
+                'kb' => ToKilobits::class,
+            ]);
     }
 }

@@ -14,17 +14,27 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use PHPUnit\Framework\TestCase;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Pound;
 use UnitConverter\UnitConverter;
+use Iterator;
+use UnitConverter\Unit\Mass\Gram;
+use UnitConverter\Unit\Mass\LongTon;
+use UnitConverter\Unit\Mass\Milligram;
+use UnitConverter\Unit\Mass\Newton;
+use UnitConverter\Unit\Mass\Ounce;
+use UnitConverter\Unit\Mass\ShortTon;
+use UnitConverter\Unit\Mass\Stone;
+use UnitConverter\Unit\Mass\Tonne;
 
 /**
  * Ensure that a pound is infact, a pound.
  *
  * @covers UnitConverter\Unit\Mass\Pound
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +48,21 @@ use UnitConverter\UnitConverter;
  */
 class PoundSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kilogram(),
-                new Pound(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $lb = new Pound();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1PoundIs0decimal453592Kilograms()
-    {
-        $expected = 0.453592;
-        $actual = $this->converter
-            ->convert(1, 6)
-            ->from("lb")
-            ->to("kg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 pound is equal to 453.592 grams' => [$lb, new Gram(453.592), 3],
+            '1 pound is equal to 0.453592 kilograms' => [$lb, new Kilogram(0.453592), 6],
+            '1 pound is equal to 0.000446428 long tons (imperial tons)' => [$lb, new LongTon(0.000446428), 9],
+            '1 pound is equal to 453,592 milligrams' => [$lb, new Milligram(453592.0), 0],
+            // '1 pound is equal to 1.0 newtons' => [$lb, new Newton(1.0), 0],
+            '1 pound is equal to 16 ounces' => [$lb, new Ounce(16.0), 0],
+            '1 pound is equal to 1 pound' => [$lb, new Pound(1.0), 0],
+            '1 pound is equal to 0.0005 short tons (us ton)' => [$lb, new ShortTon(0.0005), 4],
+            '1 pound is equal to 0.0714285 stones' => [$lb, new Stone(0.0714285), 7],
+            '1 pound is equal to 0.000453592 tonnes' => [$lb, new Tonne(0.000453592), 9],
+        ];
     }
 }

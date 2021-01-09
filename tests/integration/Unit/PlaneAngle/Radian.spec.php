@@ -14,9 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\PlaneAngle;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\PlaneAngle\Degree;
 use UnitConverter\Unit\PlaneAngle\Radian;
 use UnitConverter\UnitConverter;
@@ -25,6 +24,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a radian is infact, a radian.
  *
  * @covers UnitConverter\Unit\PlaneAngle\Radian
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\PlaneAngle\Degree
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +38,13 @@ use UnitConverter\UnitConverter;
  */
 class RadianSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Degree(),
-                new Radian(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $rad = new Radian(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1RadianIs57decimal2958Degrees()
-    {
-        $expected = 57.2958;
-        $actual = $this->converter
-            ->convert(1, 4)
-            ->from("rad")
-            ->to("deg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 radian is equal to 1 radian'        => [$rad, new Radian(1.0), 0],
+            '1 radian is equal to 57.2958 degrees' => [$rad, new Degree(57.2958), 4],
+        ];
     }
 }

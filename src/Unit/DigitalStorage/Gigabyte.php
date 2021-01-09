@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\DigitalStorage;
 
+use UnitConverter\Calculator\Formula\DigitalStorage\Gigabyte\ToKibibits;
+
 /**
  * Gigabyte unit data class
  *
@@ -32,6 +34,10 @@ class Gigabyte extends DigitalStorageUnit
 
             ->setScientificSymbol("GB")
 
-            ->setUnits(8000000000);
+            ->setUnits(8000000000)
+
+            ->addFormulae([
+                'Kib' => ToKibibits::class,
+            ]);
     }
 }

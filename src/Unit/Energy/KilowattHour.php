@@ -32,6 +32,6 @@ class KilowattHour extends EnergyUnit
 
             ->setScientificSymbol("kW · h")
 
-            ->setUnits(3600005.4468);
+            ->setUnits(3600000);
     }
 }

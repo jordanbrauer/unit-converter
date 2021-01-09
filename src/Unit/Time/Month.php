@@ -66,6 +66,6 @@ class Month extends TimeUnit
 
             ->setSymbol("mo")
 
-            ->setUnits(2678400);
+            ->setUnits(2628000);
     }
 }

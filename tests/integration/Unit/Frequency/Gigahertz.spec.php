@@ -14,17 +14,21 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Frequency;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Frequency\Gigahertz;
 use UnitConverter\Unit\Frequency\Hertz;
+use UnitConverter\Unit\Frequency\Kilohertz;
+use UnitConverter\Unit\Frequency\Megahertz;
+use UnitConverter\Unit\Frequency\Millihertz;
+use UnitConverter\Unit\Frequency\Terahertz;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a gigahertz is infact, a gigahertz.
  *
  * @covers UnitConverter\Unit\Frequency\Gigahertz
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Frequency\Hertz
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +42,17 @@ use UnitConverter\UnitConverter;
  */
 class GigahertzSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Hertz(),
-                new Gigahertz(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $ghz = new Gigahertz(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1GigahertzIs1000Hertzs()
-    {
-        $expected = 1000000000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("GHz")
-            ->to("Hz");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 gigahertz is equal to 1,000,000,000,000 millihertz' => [$ghz, new Millihertz(1000000000000.0), 0],
+            '1 gigahertz is equal to 1,000,000,000 hertz'          => [$ghz, new Hertz(1000000000.0), 0],
+            '1 gigahertz is equal to 1,000,000 kilohertz'          => [$ghz, new Kilohertz(1000000.0), 0],
+            '1 gigahertz is equal to 1,000 megahertz'              => [$ghz, new Megahertz(1000.0), 0],
+            '1 gigahertz is equal to 1 gigahertz'                  => [$ghz, new Gigahertz(1.0), 0],
+            '1 gigahertz is equal to 0.001 terahertz'              => [$ghz, new Terahertz(0.001), 3],
+        ];
     }
 }

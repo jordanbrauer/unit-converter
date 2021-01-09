@@ -14,10 +14,15 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Pressure\Atmosphere;
+use UnitConverter\Unit\Pressure\Bar;
+use UnitConverter\Unit\Pressure\Kilopascal;
+use UnitConverter\Unit\Pressure\Megapascal;
+use UnitConverter\Unit\Pressure\Millibar;
 use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
 use UnitConverter\Unit\Pressure\Torr;
 use UnitConverter\UnitConverter;
 
@@ -25,6 +30,7 @@ use UnitConverter\UnitConverter;
  * Test that a Torr is indeed a Torr.
  *
  * @covers UnitConverter\Unit\Pressure\Torr
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Pressure\Pascal
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class TorrSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Pascal(),
-                new Torr(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $psi = new Torr(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1TorrIs133decimal322Pascal()
-    {
-        $expected = 133.322;
-        $actual = $this->converter
-            ->convert(1, 3)
-            ->from("Torr")
-            ->to("Pa");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 torr is equal to 133.322 pascal'                        => [$psi, new Pascal(133.322), 3],
+            '1 torr is equal to 1 torr'                                => [$psi, new Torr(1.0), 0],
+            '1 torr is equal to 0.00131578583768696 atmosphere'        => [$psi, new Atmosphere(0.00131578583768696), 17],
+            '1 torr is equal to 1.33322 millibar'                      => [$psi, new Millibar(1.33322), 5],
+            '1 torr is equal to 0.133322 kilopascal'                   => [$psi, new Kilopascal(0.133322), 6],
+            '1 torr is equal to 0.0193368 pound-force per square inch' => [$psi, new PoundForcePerSquareInch(0.019337), 6],
+            '1 torr is equal to 0.00133322 bar'                        => [$psi, new Bar(0.00133322), 8],
+            '1 torr is equal to 0.000133322 megapascal'                => [$psi, new Megapascal(0.000133322), 9],
+        ];
     }
 }
