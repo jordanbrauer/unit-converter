@@ -18,7 +18,7 @@ use OutOfRangeException;
 use UnitConverter\Calculator\Formula\FormulaInterface;
 use UnitConverter\Exception\BadUnit;
 use UnitConverter\Unit\Family\SiMultipleUnit;
-use UnitConverter\Unit\Family\SiBaseUnit;
+use UnitConverter\Unit\Family\SiUnit;
 use UnitConverter\Unit\Family\SiSubmultipleUnit;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
 
@@ -210,7 +210,7 @@ abstract class AbstractUnit implements UnitInterface
 
     public function isSiUnit(): bool
     {
-        return $this instanceof SiBaseUnit;
+        return $this instanceof SiUnit;
     }
 
     public function isSubmultipleSiUnit(): bool
