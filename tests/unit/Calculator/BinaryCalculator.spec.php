@@ -68,6 +68,8 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertModulusMethodProperlyReturnsTheRemainderOfDivision()
     {
+        $this->calculator->setPrecision(0);
+
         $expected = "1";
         $actual = $this->calculator->mod("5", "2");
 
@@ -82,6 +84,8 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertMultiplyMethodProperlyMultipliesTwoNumbers()
     {
+        $this->calculator->setPrecision(0);
+
         $expected = "4";
         $actual = $this->calculator->mul("2", "2");
 
@@ -96,6 +100,8 @@ class BinaryCalculatorSpec extends TestCase
      */
     public function assertPowerMethodRaisesBaseNumberToPowerExponent()
     {
+        $this->calculator->setPrecision(0);
+
         $expected = "100";
         $actual = $this->calculator->pow("10", "2");
 

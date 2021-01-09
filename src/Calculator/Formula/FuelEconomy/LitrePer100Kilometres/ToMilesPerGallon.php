@@ -24,12 +24,11 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
  */
 class ToMilesPerGallon extends AbstractFormula
 {
-
-    const MAGIC_NUMBER = 235.215;
-
     const FORMULA_STRING = 'mpg = 235.215 / L/100km';
 
     const FORMULA_TEMPLATE = '%s mpg = 235.215 / %sL/100km';
+
+    const MAGIC_NUMBER = 235.215;
 
     /**
      * {@inheritDoc}
