@@ -12,27 +12,16 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Unit\Length;
-
-use UnitConverter\Unit\Family\SiSubmultipleUnit;
+namespace UnitConverter\Unit\Family;
 
 /**
- * Picometre data class.
+ * Base interface for any imperial units to implement.
  *
- * @version 2.0.0
- * @since 0.0.1
+ * @version 1.0.0
+ * @since 0.8.4
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
+ * @codeCoverageIgnore
  */
-class Picometre extends LengthUnit implements SiSubmultipleUnit
+interface ImperialUnit
 {
-    protected function configure(): void
-    {
-        $this
-            ->setName("picometre")
-
-            ->setSymbol("pm")
-
-            # 1.0E-12
-            ->setUnits(0.000000000001);
-    }
 }

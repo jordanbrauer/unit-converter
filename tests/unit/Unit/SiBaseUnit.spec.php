@@ -18,19 +18,19 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;
 use UnitConverter\Unit\Length\Metre;
-use UnitConverter\Unit\SiBaseUnitInterface;
+use UnitConverter\Unit\Family\SiUnit;
 
 /**
  * @coversDefaultClass UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\AbstractUnit
- * @uses UnitConverter\Unit\SiBaseUnitInterface
+ * @uses UnitConverter\Unit\Family\SiUnit
  * @uses UnitConverter\Unit\Length\Inch
  */
-class SiBaseUnitSpec extends TestCase
+class SiUnitSpec extends TestCase
 {
     protected function setUp()
     {
-        $this->unit = new class() extends AbstractUnit implements SiBaseUnitInterface {
+        $this->unit = new class() extends AbstractUnit implements SiUnit {
             protected $name = "saiyan power";
 
             protected $symbol = "sP";

@@ -14,10 +14,10 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Temperature;
 
+use UnitConverter\Unit\Family\SiUnit;
 use UnitConverter\Calculator\Formula\NullFormula;
 use UnitConverter\Calculator\Formula\Temperature\Kelvin\ToCelsius;
 use UnitConverter\Calculator\Formula\Temperature\Kelvin\ToFahrenheit;
-use UnitConverter\Unit\SiBaseUnitInterface;
 
 /**
  * Kelvin unit data class.
@@ -26,7 +26,7 @@ use UnitConverter\Unit\SiBaseUnitInterface;
  * @since 0.0.1
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  */
-class Kelvin extends TemperatureUnit implements SiBaseUnitInterface
+class Kelvin extends TemperatureUnit implements SiUnit
 {
     protected function configure(): void
     {

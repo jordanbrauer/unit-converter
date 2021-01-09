@@ -12,7 +12,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Unit;
+namespace UnitConverter\Unit\Family;
 
 /**
  * Interface for any SI submultiple units to implement.
@@ -22,6 +22,6 @@ namespace UnitConverter\Unit;
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @codeCoverageIgnore
  */
-interface SiSubmultipleUnitInterface
+interface SiSubmultipleUnit extends SiUnit
 {
 }

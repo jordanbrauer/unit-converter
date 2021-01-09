@@ -14,7 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Mass;
 
-use UnitConverter\Unit\SiSubmultipleUnitInterface;
+use UnitConverter\Unit\Family\SiSubmultipleUnit;
 
 /**
  * Milligram data class.
@@ -23,7 +23,7 @@ use UnitConverter\Unit\SiSubmultipleUnitInterface;
  * @since 0.0.1
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  */
-class Milligram extends MassUnit implements SiSubmultipleUnitInterface
+class Milligram extends MassUnit implements SiSubmultipleUnit
 {
     protected function configure(): void
     {
