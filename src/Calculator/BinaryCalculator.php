@@ -67,7 +67,7 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcadd($leftOperand, $rightOperand);
+        return bcadd(self::operand($leftOperand), self::operand($rightOperand));
     }
 
     /**
@@ -85,7 +85,7 @@ class BinaryCalculator extends AbstractCalculator
             $divisor,
         );
 
-        return bcdiv($dividend, $divisor);
+        return bcdiv(self::operand($dividend), self::operand($divisor));
     }
 
     /**
@@ -103,7 +103,7 @@ class BinaryCalculator extends AbstractCalculator
             $modulus,
         );
 
-        return bcmod($dividend, $modulus);
+        return bcmod(self::operand($dividend), self::operand($modulus));
     }
 
     /**
@@ -120,7 +120,7 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcmul($leftOperand, $rightOperand);
+        return bcmul(self::operand($leftOperand), self::operand($rightOperand));
     }
 
     /**
@@ -138,7 +138,7 @@ class BinaryCalculator extends AbstractCalculator
             $exponent,
         );
 
-        return bcpow($base, $exponent);
+        return bcpow(self::operand($base), self::operand($exponent));
     }
 
     /**
@@ -181,6 +181,45 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcsub($leftOperand, $rightOperand);
+        return bcsub(self::operand($leftOperand), self::operand($rightOperand));
+    }
+
+    /**
+     * Sanitize operands for use with BC math.
+     *
+     * @param string $value The operand value part of the calculation
+     * @return string
+     */
+    private static function operand($value): string
+    {
+        return (self::isScientific($value))
+            ? self::expandScientific($value)
+            : $value;
+    }
+
+    /**
+     * Check if the given number is scientific notation.
+     *
+     * @param int|string|float $operand The value to check for scientific-ness
+     * @return bool
+     */
+    private static function isScientific($operand): bool
+    {
+        return is_numeric($operand)
+            and (false !== stristr($operand, 'e') or false !== stristr($operand, 'E-'));
+    }
+
+    /**
+     * Expand a scientific notation number to it's whole form as a string.
+     *
+     * @param string $operand The scientifix number to be expanded.
+     * @return string
+     */
+    private static function expandScientific(string $operand): string
+    {
+        $precision = (false === strstr($operand, 'e')) ? (explode('E-', $operand)[1] ?? 0) : 0;
+        $type = ($precision > 0) ? 'f' : 'd';
+
+        return sprintf(sprintf('%%.%d%s', $precision, $type), $operand);
     }
 }
