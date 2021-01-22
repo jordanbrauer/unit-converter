@@ -8,6 +8,7 @@ report/
 
 ### FriendsOfPHP ###
 .php_cs.cache
+.phpdoc/
 
 # Created by https://www.gitignore.io/api/git,vim,node,linux,macos,emacs,windows,composer,phpstorm,sublimetext,phpstorm+all,phpstorm+iml,visualstudiocode
 
