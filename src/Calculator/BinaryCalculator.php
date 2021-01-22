@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
+use RuntimeException;
+
 /**
  * A concrete calculator calss that uses the bcmath library
  * to perform mathematical operations.
@@ -27,6 +29,25 @@ namespace UnitConverter\Calculator;
  */
 class BinaryCalculator extends AbstractCalculator
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function __construct(int $precision = null, int $roundingMode = null)
+    {
+        if (extension_loaded('bcmath')) {
+            parent::__construct($precision, $roundingMode);
+
+            return;
+        }
+
+        $fqcn = explode('\\', static::class);
+
+        throw new RuntimeException(sprintf(
+            'Unable to construct a %s due to missing bcmath library. Please check your PHP extensions.',
+            end($fqcn),
+        ));
+    }
+
     /**
      * {@inheritDoc}
      */
