@@ -243,6 +243,15 @@ abstract class AbstractCalculator implements CalculatorInterface
      */
     public function round($value, int $precision = null)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            static::SCALAR,
+            $value,
+        );
+
         return round(
             $value,
             ($precision ?? $this->getPrecision()),

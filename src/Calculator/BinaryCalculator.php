@@ -32,6 +32,11 @@ class BinaryCalculator extends AbstractCalculator
     /**
      * {@inheritDoc}
      */
+    protected const SCALAR = 'string';
+
+    /**
+     * {@inheritDoc}
+     */
     public function __construct(int $precision = null, int $roundingMode = null)
     {
         if (extension_loaded('bcmath')) {
@@ -53,6 +58,15 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function add($leftOperand, $rightOperand)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand) and is_string($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            ...func_get_args(), // IDEA: make method arguments variadic instead
+        );
+
         return bcadd($leftOperand, $rightOperand);
     }
 
@@ -61,6 +75,16 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function div($dividend, $divisor)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand) and is_string($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            $dividend,
+            $divisor,
+        );
+
         return bcdiv($dividend, $divisor);
     }
 
@@ -69,6 +93,16 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function mod($dividend, $modulus)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand) and is_string($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            $dividend,
+            $modulus,
+        );
+
         return bcmod($dividend, $modulus);
     }
 
@@ -77,6 +111,15 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function mul($leftOperand, $rightOperand)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand) and is_string($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            ...func_get_args(), // IDEA: make method arguments variadic instead
+        );
+
         return bcmul($leftOperand, $rightOperand);
     }
 
@@ -85,6 +128,16 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function pow($base, $exponent)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand) and is_string($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            $base,
+            $exponent,
+        );
+
         return bcpow($base, $exponent);
     }
 
@@ -119,6 +172,15 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function sub($leftOperand, $rightOperand)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand) and is_string($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            ...func_get_args(), // IDEA: make method arguments variadic instead
+        );
+
         return bcsub($leftOperand, $rightOperand);
     }
 }
