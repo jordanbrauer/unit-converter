@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
+use Closure;
+use TypeError;
 use UnitConverter\Calculator\Formula\FormulaInterface;
 
 /**
@@ -68,6 +70,12 @@ abstract class AbstractCalculator implements CalculatorInterface
      * @const int ROUND_HALF_UP
      */
     const ROUND_HALF_UP = PHP_ROUND_HALF_UP;
+
+    /**
+     * String value representation of the allowed scalar type(s) for the
+     * calculator's inputs.
+     */
+    protected const SCALAR = 'int|float|string';
 
     /**
      * A non-persitent stack of events for the current calculator's calculations
@@ -276,6 +284,36 @@ abstract class AbstractCalculator implements CalculatorInterface
     public function subtract(...$params)
     {
         return $this->sub(...$params);
+    }
+
+    /**
+     * Throw a type error if the given closure does not evaluate to true for one
+     * of given values. The name of the method and allowed type string are used
+     * to create an error message.
+     *
+     * @param Closure $assert Type check that must return true, otherwise an error is thrown
+     * @param string $method The name of the method that is calling this method, used for error message
+     * @param string $allowed The allowed type of the value, used for error message
+     * @param mixed ...$value One or more values to test with the given closure
+     * @return void
+     * @throws TypeError When the given closure does not return true
+     */
+    protected static function invariant(Closure $assert, string $method, string $allowed, ...$value): void
+    {
+        foreach ($value as $position => $arg) {
+            if ($assert($arg)) {
+                continue;
+            }
+
+            throw new TypeError(sprintf(
+                'Argument %d passed to %s::%s must be of the type %s, %s given',
+                1 + $position,
+                static::class,
+                $method,
+                $allowed,
+                gettype($arg),
+            ));
+        }
     }
 
     /**
