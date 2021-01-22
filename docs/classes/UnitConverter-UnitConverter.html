@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js" integrity="sha256-0vuk8LXoyrmCjp1f0O300qo1M75ZQyhH9X3J6d+scmk=" crossorigin="anonymous"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+    
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                                <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/unitconverter.html"><abbr title="\UnitConverter">UnitConverter</abbr></a></h4>
+                <ul class="phpdocumentor-list">
+                                            <li><a href="namespaces/unitconverter-calculator.html"><abbr title="\UnitConverter\Calculator">Calculator</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-exception.html"><abbr title="\UnitConverter\Exception">Exception</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-registry.html"><abbr title="\UnitConverter\Registry">Registry</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-support.html"><abbr title="\UnitConverter\Support">Support</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-unit.html"><abbr title="\UnitConverter\Unit">Unit</abbr></a></li>
+                                    </ul>
+                        </section>
+
+    
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/unitconverter.html">UnitConverter</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    UnitConverter
+
+    
+    
+            <span class="phpdocumentor-element__implements">
+            implements
+                            <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>                    </span>
+    
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+</aside>
+
+            <p class="phpdocumentor-summary">The actual unit converter object. Extend this object
+if you would like to implement your own custom converter.</p>
+
+    <section class="phpdocumentor-description"></section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">version</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">0.0.1</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Jordan Brauer <a href="mailto:18744334+jordanbrauer@users.noreply.github.com">18744334+jordanbrauer@users.noreply.github.com</a></p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+
+
+
+<h3 id="interfaces_class_traits">
+    Interfaces, Classes and Traits
+    <a href="#interfaces_class_traits" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></dt>
+        <dd>The interface for any and all unit converter classes.</dd>
+    
+    
+    </dl>
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-UnitConverter.html#constant_CONVERSION_HASH_LENGTH">CONVERSION_HASH_LENGTH</a>
+    <span>
+        &nbsp;= [0, 7]                    </span>
+</dt>
+<dd></dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_calculator">$calculator</a>
+    <span>
+                &nbsp;: <a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a>            </span>
+</dt>
+<dd>The converters internal calculator used to handle mathematical operations</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_convert">$convert</a>
+    <span>
+                &nbsp;: float            </span>
+</dt>
+<dd>The value being converted.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_from">$from</a>
+    <span>
+                &nbsp;: string            </span>
+</dt>
+<dd>The unit of measure being converted **from**.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_log">$log</a>
+    <span>
+                &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>The log of events for the current conversion calculations</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_loggingEnabled">$loggingEnabled</a>
+    <span>
+                &nbsp;: bool            </span>
+</dt>
+<dd>Are conversions going to be logged?</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_precision">$precision</a>
+    <span>
+                &nbsp;: int            </span>
+</dt>
+<dd>The decimal precision to be calculated</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_registry">$registry</a>
+    <span>
+                &nbsp;: <a href="classes/UnitConverter-Registry-UnitRegistryInterface.html"><abbr title="\UnitConverter\Registry\UnitRegistryInterface">UnitRegistryInterface</abbr></a>            </span>
+</dt>
+<dd>The registry that the unit converter accesses available units from</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/UnitConverter-UnitConverter.html#property_to">$to</a>
+    <span>
+                &nbsp;: string            </span>
+</dt>
+<dd>The unit of measure being converted **to**.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/UnitConverter-UnitConverter.html#property_hash">$hash</a>
+    <span>
+                &nbsp;: string            </span>
+</dt>
+<dd>The current conversions unique hash.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/UnitConverter-UnitConverter.html#property_types">$types</a>
+    <span>
+                &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>A static array of supported scalar types for a unit&#039;s value.</dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method___construct">__construct()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Public constructor function for the UnitConverter class.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_all">all()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Convert a unit to all other possible units of measurement. The results will
+be an associative array in the form of `symbol =&gt; conversion`.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_binary">binary()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Returns a unit converter set up for binary use cases</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_calculatorExists">calculatorExists()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Determine whether or not the converter has an active calculator.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_convert">convert()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Set the unit converters&#039; value to be converted. This method is the first
+method to be called in the chain of conversion methods.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_createBuilder">createBuilder()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-ConverterBuilder.html"><abbr title="\UnitConverter\ConverterBuilder">ConverterBuilder</abbr></a>    </span>
+</dt>
+<dd>Returns a builder object for quickly scaffolding out a new converter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_default">default()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Returns a unit converter set up for common use cases</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_disableConversionLog">disableConversionLog()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Disables the logging of conversions &amp; their order of operations.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_enableConversionLog">enableConversionLog()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Enables the logging of conversions &amp; their order of operations.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_from">from()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Set the unit converters&#039; unit to be converted **from**. This method is the
+second to be called in the chain of conversion methods.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_getCalculator">getCalculator()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a>    </span>
+</dt>
+<dd>Return the current calculator instance for the unit converter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_getConversionLog">getConversionLog()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return an array, containing a list of events in the order they occured for
+the current calculation.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_getRegistry">getRegistry()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-Registry-UnitRegistryInterface.html"><abbr title="\UnitConverter\Registry\UnitRegistryInterface">UnitRegistryInterface</abbr></a>    </span>
+</dt>
+<dd>Return the current registry instance for the unit converter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_registryExists">registryExists()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Determine whether or not the converter has an active registry.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_setCalculator">setCalculator()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Set the unit converter calculator to perform mathematical operations with.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_setRegistry">setRegistry()</a>
+    <span>
+                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+</dt>
+<dd>Set the unit converter registry for storing units of measure to convert values with.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_to">to()</a>
+    <span>
+                        &nbsp;: int|float|string    </span>
+</dt>
+<dd>Set the unit converters&#039; unit to be converted **to**. This method is the
+third to be called in the chain of conversion methods.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_whichCalculator">whichCalculator()</a>
+    <span>
+                        &nbsp;: null|string    </span>
+</dt>
+<dd>Determine which calculator is currently being used</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/UnitConverter-UnitConverter.html#method_conversionExists">conversionExists()</a>
+    <span>
+                        &nbsp;: bool    </span>
+</dt>
+<dd>Generates a conversion hash for the current set of parameters &amp; checks if
+it matches any previous conversions. If logging is disabled, a conversion
+hash **will not** be generated &amp; the check will not be made.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/UnitConverter-UnitConverter.html#method_generateConversionHash">generateConversionHash()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Sets &amp; returns a unique md5 hash of the current conversion.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/UnitConverter-UnitConverter.html#method_getConversionHash">getConversionHash()</a>
+    <span>
+                        &nbsp;: null|string    </span>
+</dt>
+<dd>Return a unique md5 hash of the current conversion.</dd>
+
+        </dl>
+
+
+
+        
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/UnitConverter-UnitConverter.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CONVERSION_HASH_LENGTH">
+        CONVERSION_HASH_LENGTH
+        <a href="classes/UnitConverter-UnitConverter.html#constant_CONVERSION_HASH_LENGTH" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CONVERSION_HASH_LENGTH</span>
+    = <span class="phpdocumentor-signature__default-value">[0, 7]</span>
+</code>
+
+
+    
+    
+
+</article>
+            </section>
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/UnitConverter-UnitConverter.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_calculator">
+        $calculator
+        <a href="classes/UnitConverter-UnitConverter.html#property_calculator" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">48</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The converters internal calculator used to handle mathematical operations</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$calculator</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_convert">
+        $convert
+        <a href="classes/UnitConverter-UnitConverter.html#property_convert" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The value being converted.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">float</span>
+    <span class="phpdocumentor-signature__name">$convert</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_from">
+        $from
+        <a href="classes/UnitConverter-UnitConverter.html#property_from" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">62</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The unit of measure being converted **from**.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$from</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_log">
+        $log
+        <a href="classes/UnitConverter-UnitConverter.html#property_log" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The log of events for the current conversion calculations</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$log</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_loggingEnabled">
+        $loggingEnabled
+        <a href="classes/UnitConverter-UnitConverter.html#property_loggingEnabled" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Are conversions going to be logged?</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$loggingEnabled</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_precision">
+        $precision
+        <a href="classes/UnitConverter-UnitConverter.html#property_precision" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">83</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The decimal precision to be calculated</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$precision</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_registry">
+        $registry
+        <a href="classes/UnitConverter-UnitConverter.html#property_registry" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">90</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The registry that the unit converter accesses available units from</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/UnitConverter-Registry-UnitRegistryInterface.html"><abbr title="\UnitConverter\Registry\UnitRegistryInterface">UnitRegistryInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$registry</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_to">
+        $to
+        <a href="classes/UnitConverter-UnitConverter.html#property_to" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">97</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The unit of measure being converted **to**.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$to</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_hash">
+        $hash
+        <a href="classes/UnitConverter-UnitConverter.html#property_hash" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">104</span>
+</aside>
+
+        <p class="phpdocumentor-summary">The current conversions unique hash.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$hash</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_types">
+        $types
+        <a href="classes/UnitConverter-UnitConverter.html#property_types" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+</aside>
+
+        <p class="phpdocumentor-summary">A static array of supported scalar types for a unit&#039;s value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$types</span>
+     = <span class="phpdocumentor-signature__default-value">[&quot;int&quot;, &quot;float&quot;, &quot;string&quot;]</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/UnitConverter-UnitConverter.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/UnitConverter-UnitConverter.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">112</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Public constructor function for the UnitConverter class.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/UnitConverter-Unit-UnitInterface.html"><abbr title="\UnitConverter\Unit\UnitInterface">UnitInterface</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$registry</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$calculator</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$registry</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/UnitConverter-Unit-UnitInterface.html"><abbr title="\UnitConverter\Unit\UnitInterface">UnitInterface</abbr></a>&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A two-dimensional array of UnitInterface objects.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$calculator</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The calculator that the converter will use to perform mathematical operations.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_all">
+        all()
+        <a href="classes/UnitConverter-UnitConverter.html#method_all" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">164</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Convert a unit to all other possible units of measurement. The results will
+be an associative array in the form of `symbol =&gt; conversion`.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">all</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_binary">
+        binary()
+        <a href="classes/UnitConverter-UnitConverter.html#method_binary" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">125</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns a unit converter set up for binary use cases</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">binary</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_calculatorExists">
+        calculatorExists()
+        <a href="classes/UnitConverter-UnitConverter.html#method_calculatorExists" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">184</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Determine whether or not the converter has an active calculator.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">calculatorExists</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_convert">
+        convert()
+        <a href="classes/UnitConverter-UnitConverter.html#method_convert" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">192</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set the unit converters&#039; value to be converted. This method is the first
+method to be called in the chain of conversion methods.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">convert</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$precision</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The numerical value being converted.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$precision</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The decimal precision to be rounded to</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_createBuilder">
+        createBuilder()
+        <a href="classes/UnitConverter-UnitConverter.html#method_createBuilder" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">139</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns a builder object for quickly scaffolding out a new converter.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">createBuilder</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-ConverterBuilder.html"><abbr title="\UnitConverter\ConverterBuilder">ConverterBuilder</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-ConverterBuilder.html"><abbr title="\UnitConverter\ConverterBuilder">ConverterBuilder</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_default">
+        default()
+        <a href="classes/UnitConverter-UnitConverter.html#method_default" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns a unit converter set up for common use cases</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">default</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_disableConversionLog">
+        disableConversionLog()
+        <a href="classes/UnitConverter-UnitConverter.html#method_disableConversionLog" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">206</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Disables the logging of conversions &amp; their order of operations.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">disableConversionLog</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_enableConversionLog">
+        enableConversionLog()
+        <a href="classes/UnitConverter-UnitConverter.html#method_enableConversionLog" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">219</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Enables the logging of conversions &amp; their order of operations.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">enableConversionLog</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_from">
+        from()
+        <a href="classes/UnitConverter-UnitConverter.html#method_from" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">229</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set the unit converters&#039; unit to be converted **from**. This method is the
+second to be called in the chain of conversion methods.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">from</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$unit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$unit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The unit being conerted <strong>from</strong>. The unit must first be registered to the UnitRegistry.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCalculator">
+        getCalculator()
+        <a href="classes/UnitConverter-UnitConverter.html#method_getCalculator" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">241</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return the current calculator instance for the unit converter.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getCalculator</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getConversionLog">
+        getConversionLog()
+        <a href="classes/UnitConverter-UnitConverter.html#method_getConversionLog" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">253</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return an array, containing a list of events in the order they occured for
+the current calculation.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getConversionLog</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRegistry">
+        getRegistry()
+        <a href="classes/UnitConverter-UnitConverter.html#method_getRegistry" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">263</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return the current registry instance for the unit converter.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getRegistry</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-Registry-UnitRegistryInterface.html"><abbr title="\UnitConverter\Registry\UnitRegistryInterface">UnitRegistryInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-Registry-UnitRegistryInterface.html"><abbr title="\UnitConverter\Registry\UnitRegistryInterface">UnitRegistryInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_registryExists">
+        registryExists()
+        <a href="classes/UnitConverter-UnitConverter.html#method_registryExists" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">274</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Determine whether or not the converter has an active registry.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">registryExists</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setCalculator">
+        setCalculator()
+        <a href="classes/UnitConverter-UnitConverter.html#method_setCalculator" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">286</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set the unit converter calculator to perform mathematical operations with.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setCalculator</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$calculator</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$calculator</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/UnitConverter-Calculator-CalculatorInterface.html"><abbr title="\UnitConverter\Calculator\CalculatorInterface">CalculatorInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An instance of a CalculatorInterface</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setRegistry">
+        setRegistry()
+        <a href="classes/UnitConverter-UnitConverter.html#method_setRegistry" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">300</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set the unit converter registry for storing units of measure to convert values with.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">setRegistry</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/UnitConverter-Registry-UnitRegistryInterface.html"><abbr title="\UnitConverter\Registry\UnitRegistryInterface">UnitRegistryInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$registry</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$registry</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/UnitConverter-Registry-UnitRegistryInterface.html"><abbr title="\UnitConverter\Registry\UnitRegistryInterface">UnitRegistryInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An instance of UnitRegistry.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_to">
+        to()
+        <a href="classes/UnitConverter-UnitConverter.html#method_to" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">310</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Set the unit converters&#039; unit to be converted **to**. This method is the
+third to be called in the chain of conversion methods.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">to</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$unit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|float|string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$unit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The unit being converted <strong>to</strong>. The unit must first be registered to the UnitRegistry.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int|float|string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_whichCalculator">
+        whichCalculator()
+        <a href="classes/UnitConverter-UnitConverter.html#method_whichCalculator" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">323</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Determine which calculator is currently being used</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">whichCalculator</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">null|string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_conversionExists">
+        conversionExists()
+        <a href="classes/UnitConverter-UnitConverter.html#method_conversionExists" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">442</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Generates a conversion hash for the current set of parameters &amp; checks if
+it matches any previous conversions. If logging is disabled, a conversion
+hash **will not** be generated &amp; the check will not be made.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">conversionExists</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_generateConversionHash">
+        generateConversionHash()
+        <a href="classes/UnitConverter-UnitConverter.html#method_generateConversionHash" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">453</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Sets &amp; returns a unique md5 hash of the current conversion.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">generateConversionHash</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getConversionHash">
+        getConversionHash()
+        <a href="classes/UnitConverter-UnitConverter.html#method_getConversionHash" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">470</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return a unique md5 hash of the current conversion.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">getConversionHash</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">null|string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+            </section>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/UnitConverter-UnitConverter.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+</body>
+</html>
