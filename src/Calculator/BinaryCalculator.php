@@ -67,7 +67,10 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcadd(self::operand($leftOperand), self::operand($rightOperand));
+        return self::product(bcadd(
+            self::operand($leftOperand),
+            self::operand($rightOperand),
+        ));
     }
 
     /**
@@ -85,7 +88,10 @@ class BinaryCalculator extends AbstractCalculator
             $divisor,
         );
 
-        return bcdiv(self::operand($dividend), self::operand($divisor));
+        return self::product(bcdiv(
+            self::operand($dividend),
+            self::operand($divisor),
+        ));
     }
 
     /**
@@ -103,7 +109,10 @@ class BinaryCalculator extends AbstractCalculator
             $modulus,
         );
 
-        return bcmod(self::operand($dividend), self::operand($modulus));
+        return self::product(bcmod(
+            self::operand($dividend),
+            self::operand($modulus)),
+        );
     }
 
     /**
@@ -120,7 +129,10 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcmul(self::operand($leftOperand), self::operand($rightOperand));
+        return self::product(bcmul(
+            self::operand($leftOperand),
+            self::operand($rightOperand),
+        ));
     }
 
     /**
@@ -138,7 +150,10 @@ class BinaryCalculator extends AbstractCalculator
             $exponent,
         );
 
-        return bcpow(self::operand($base), self::operand($exponent));
+        return self::product(bcpow(
+            self::operand($base),
+            self::operand($exponent),
+        ));
     }
 
     /**
@@ -149,7 +164,9 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function round($value, int $precision = null)
     {
-        return self::operand((string) parent::round($value, $precision));
+        return self::product(self::operand(
+            (string) parent::round($value, $precision),
+        ));
     }
 
     /**
@@ -181,7 +198,21 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcsub(self::operand($leftOperand), self::operand($rightOperand));
+        return self::product(bcsub(
+            self::operand($leftOperand),
+            self::operand($rightOperand),
+        ));
+    }
+
+    /**
+     * Produce a valid calculation result, ensuring no trailing zeros.
+     *
+     * @param string $value The value to denormalize
+     * @return string
+     */
+    private static function product(string $value): string
+    {
+        return rtrim($value, '0.,');
     }
 
     /**
@@ -222,7 +253,7 @@ class BinaryCalculator extends AbstractCalculator
         $segments = explode('E', $operand);
         $exponent = end($segments);
         $format = static function ($operand, int $precision = 0): string {
-            return number_format((float) $operand, $precision, '.', '');
+            return self::product(number_format((float) $operand, $precision, '.', ''));
         };
 
         if ('+' === substr($exponent, 0, 1)) {
