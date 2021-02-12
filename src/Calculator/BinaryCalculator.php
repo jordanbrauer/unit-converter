@@ -149,7 +149,7 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function round($value, int $precision = null)
     {
-        return (string) parent::round($value, $precision);
+        return self::operand((string) parent::round($value, $precision));
     }
 
     /**
@@ -192,8 +192,10 @@ class BinaryCalculator extends AbstractCalculator
      */
     private static function operand($value): string
     {
-        return (self::isScientific($value))
-            ? self::expandScientific($value)
+        $normalized = strtoupper($value);
+
+        return (self::isScientific($normalized))
+            ? self::expandScientific($normalized)
             : $value;
     }
 
@@ -206,7 +208,7 @@ class BinaryCalculator extends AbstractCalculator
     private static function isScientific($operand): bool
     {
         return is_numeric($operand)
-            and (false !== stristr($operand, 'e') or false !== stristr($operand, 'E-'));
+            and (false !== stristr($operand, 'E-') or false !== stristr($operand, 'E+'));
     }
 
     /**
@@ -217,9 +219,19 @@ class BinaryCalculator extends AbstractCalculator
      */
     private static function expandScientific(string $operand): string
     {
-        $precision = (false === strstr($operand, 'e')) ? (explode('E-', $operand)[1] ?? 0) : 0;
-        $type = ($precision > 0) ? 'f' : 'd';
+        $segments = explode('E', $operand);
+        $exponent = end($segments);
+        $format = static function ($operand, int $precision = 0): string {
+            return number_format((float) $operand, $precision, '.', '');
+        };
 
-        return sprintf(sprintf('%%.%d%s', $precision, $type), $operand);
+        if ('+' === substr($exponent, 0, 1)) {
+            return $format($operand);
+        }
+
+        return $format($operand, array_sum([
+            (int) substr($exponent, 1),
+            strlen(str_replace('.', '', reset($segments))),
+        ]));
     }
 }
