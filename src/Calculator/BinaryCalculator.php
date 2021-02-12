@@ -67,7 +67,10 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcadd($leftOperand, $rightOperand);
+        return self::product(bcadd(
+            self::operand($leftOperand),
+            self::operand($rightOperand),
+        ));
     }
 
     /**
@@ -85,7 +88,10 @@ class BinaryCalculator extends AbstractCalculator
             $divisor,
         );
 
-        return bcdiv($dividend, $divisor);
+        return self::product(bcdiv(
+            self::operand($dividend),
+            self::operand($divisor),
+        ));
     }
 
     /**
@@ -103,7 +109,10 @@ class BinaryCalculator extends AbstractCalculator
             $modulus,
         );
 
-        return bcmod($dividend, $modulus);
+        return self::product(bcmod(
+            self::operand($dividend),
+            self::operand($modulus)),
+        );
     }
 
     /**
@@ -120,7 +129,10 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcmul($leftOperand, $rightOperand);
+        return self::product(bcmul(
+            self::operand($leftOperand),
+            self::operand($rightOperand),
+        ));
     }
 
     /**
@@ -138,7 +150,10 @@ class BinaryCalculator extends AbstractCalculator
             $exponent,
         );
 
-        return bcpow($base, $exponent);
+        return self::product(bcpow(
+            self::operand($base),
+            self::operand($exponent),
+        ));
     }
 
     /**
@@ -149,7 +164,9 @@ class BinaryCalculator extends AbstractCalculator
      */
     public function round($value, int $precision = null)
     {
-        return (string) parent::round($value, $precision);
+        return self::product(self::operand(
+            (string) parent::round($value, $precision),
+        ));
     }
 
     /**
@@ -181,6 +198,71 @@ class BinaryCalculator extends AbstractCalculator
             ...func_get_args(), // IDEA: make method arguments variadic instead
         );
 
-        return bcsub($leftOperand, $rightOperand);
+        return self::product(bcsub(
+            self::operand($leftOperand),
+            self::operand($rightOperand),
+        ));
+    }
+
+    /**
+     * Produce a valid calculation result, ensuring no trailing zeros.
+     *
+     * @param string $value The value to denormalize
+     * @return string
+     */
+    private static function product(string $value): string
+    {
+        return (false !== stristr($value, '.')) ? rtrim($value, '0.,') : $value;
+    }
+
+    /**
+     * Sanitize operands for use with BC math.
+     *
+     * @param string $value The operand value part of the calculation
+     * @return string
+     */
+    private static function operand($value): string
+    {
+        $normalized = strtoupper($value);
+
+        return (self::isScientific($normalized))
+            ? self::expandScientific($normalized)
+            : $value;
+    }
+
+    /**
+     * Check if the given number is scientific notation.
+     *
+     * @param int|string|float $operand The value to check for scientific-ness
+     * @return bool
+     */
+    private static function isScientific($operand): bool
+    {
+        return is_numeric($operand)
+            and (false !== stristr($operand, 'E-') or false !== stristr($operand, 'E+'));
+    }
+
+    /**
+     * Expand a scientific notation number to it's whole form as a string.
+     *
+     * @param string $operand The scientifix number to be expanded.
+     * @return string
+     */
+    private static function expandScientific(string $operand): string
+    {
+        $segments = explode('E', $operand);
+        $exponent = end($segments);
+        $format = static function ($operand, int $precision = 0): string {
+            return self::product(number_format((float) $operand, $precision, '.', ''));
+        };
+
+        if ('+' === substr($exponent, 0, 1)) {
+            return $format($operand);
+        }
+
+        return $format($operand, array_sum([
+            (int) substr($exponent, 1),
+            strlen(str_replace('.', '', reset($segments))),
+        ]));
     }
 }
