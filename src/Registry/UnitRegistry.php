@@ -32,7 +32,7 @@ use UnitConverter\Unit\UnitInterface;
 class UnitRegistry implements UnitRegistryInterface
 {
     /**
-     * @var array $store A two-dimensional array containing available types of measuerment that each contain their available units of measure.
+     * @var Collection $store A two-dimensional array containing available types of measuerment that each contain their available units of measure.
      */
     protected $store;
 

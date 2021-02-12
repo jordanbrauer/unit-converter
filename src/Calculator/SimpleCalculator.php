@@ -35,6 +35,15 @@ class SimpleCalculator extends AbstractCalculator
      */
     public function add($leftOperand, $rightOperand)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            ...func_get_args(), // IDEA: make method arguments variadic instead
+        );
+
         return $leftOperand + $rightOperand;
     }
 
@@ -43,6 +52,16 @@ class SimpleCalculator extends AbstractCalculator
      */
     public function div($dividend, $divisor)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            $dividend,
+            $divisor,
+        );
+
         return $dividend / $divisor;
     }
 
@@ -51,6 +70,16 @@ class SimpleCalculator extends AbstractCalculator
      */
     public function mod($dividend, $modulus)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            $dividend,
+            $modulus,
+        );
+
         return $dividend % $modulus;
     }
 
@@ -59,6 +88,15 @@ class SimpleCalculator extends AbstractCalculator
      */
     public function mul($leftOperand, $rightOperand)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            ...func_get_args(), // IDEA: make method arguments variadic instead
+        );
+
         return $leftOperand * $rightOperand;
     }
 
@@ -67,6 +105,16 @@ class SimpleCalculator extends AbstractCalculator
      */
     public function pow($base, $exponent)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            $base,
+            $exponent,
+        );
+
         return pow($base, $exponent);
     }
 
@@ -75,6 +123,15 @@ class SimpleCalculator extends AbstractCalculator
      */
     public function sub($leftOperand, $rightOperand)
     {
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            self::SCALAR,
+            ...func_get_args(), // IDEA: make method arguments variadic instead
+        );
+
         return $leftOperand - $rightOperand;
     }
 }
