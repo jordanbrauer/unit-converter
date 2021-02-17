@@ -28,7 +28,7 @@ final class ToMilligrams extends AbstractFormula
 {
     const FORMULA_STRING = 'mg = w/t × 1.016e+9';
 
-    const FORMULA_TEMPLATE = '%mg = %sw/t × 1.016e+9';
+    const FORMULA_TEMPLATE = 'mg = %sw/t × 1.016e+9';
 
     /**
      * {@inheritDoc}

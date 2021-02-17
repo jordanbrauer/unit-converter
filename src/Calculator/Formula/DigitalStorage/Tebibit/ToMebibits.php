@@ -28,7 +28,7 @@ final class ToMebibits extends AbstractFormula
 {
     const FORMULA_STRING = 'Mib = Tib × 1.049e+6';
 
-    const FORMULA_TEMPLATE = '%Mib = %sTib × 1.049e+6';
+    const FORMULA_TEMPLATE = 'Mib = %sTib × 1.049e+6';
 
     /**
      * {@inheritDoc}

@@ -28,7 +28,7 @@ final class ToKilobits extends AbstractFormula
 {
     const FORMULA_STRING = 'kb = Gib × 1.074e+6';
 
-    const FORMULA_TEMPLATE = '%kb = %sGib × 1.074e+6';
+    const FORMULA_TEMPLATE = 'kb = %sGib × 1.074e+6';
 
     /**
      * {@inheritDoc}

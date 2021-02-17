@@ -28,7 +28,7 @@ final class ToBits extends AbstractFormula
 {
     const FORMULA_STRING = 'b = Tib × 1.1e+12';
 
-    const FORMULA_TEMPLATE = '%b = %sTib × 1.1e+12';
+    const FORMULA_TEMPLATE = 'b = %sTib × 1.1e+12';
 
     /**
      * {@inheritDoc}
