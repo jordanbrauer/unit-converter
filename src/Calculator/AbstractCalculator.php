@@ -253,7 +253,7 @@ abstract class AbstractCalculator implements CalculatorInterface
         );
 
         return round(
-            $value,
+            (float) $value,
             ($precision ?? $this->getPrecision()),
             $this->getRoundingMode()
         );
