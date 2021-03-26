@@ -83,6 +83,7 @@ class UnitRegistrySpec extends TestCase
             "energy",
             "frequency",
             "digital_storage",
+            "fuel_economy",
         ];
 
         $this->assertEquals($expected, $actual);
