@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [v0.8.6](https://github.com/jordanbrauer/unit-converter/compare/v0.8.5...vv0.8.6) (2021-03-26)
+
+
+### Features
+
+* Replace Robofile with Makefile (#170) ([1f7e63](https://github.com/jordanbrauer/unit-converter/commit/1f7e6350c73846d6f9d28ca5deece3b5c942b4b4))
+
+---
+
 ## [v0.8.5](https://github.com/jordanbrauer/unit-converter/compare/v0.8.4...vv0.8.5) (2021-03-25)
 
 

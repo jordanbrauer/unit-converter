@@ -38,16 +38,18 @@ docs: $(wildcard src/*.php) $(wildcard src/**/*.php) ## Generate a new set of do
 	@/usr/bin/php -f bin/phpdoc -- -d ./src -t ./docs
 	@touch docs
 
-release: analysis docs changelog ## Release the version as defined in .version config
-	# git add -am "chore(release): $(VERSION)"
-	# git tag $(VERSION)
-	# git push origin $(VERSION)
-	# curl -X DELETE \
+release: analysis docs ## Release the version as defined in .version config
+	@git tag $(VERSION)
+	@$(MAKE) changelog
+	@git tag -d $(VERSION)
+	@git commit -am "chore(release): $(VERSION)"
+	#@git push origin $(VERSION)
+	#@curl -X DELETE \
 		-i $(GITHUB_API_URL)/repos/$(GITHUB_USERNAME)/$(GITHUB_REPOSITORY)/git/refs/tags/$(VERSION) \
 		-u $(GITHUB_USERNAME):$(GITHUB_OAUTH_TOKEN)
-	# git tag -d $(VERSION)
-	# git tag $(VERSION)	
-	# git push origin $(VERSION)
+	#@git commit -am "chore(changelog): $(VERSION)"
+	@git tag $(VERSION)
+	@git push origin $(VERSION)
 
 style: vendor ## Format the source code and other documents in the repository
 	@composer normalize
