@@ -29,5 +29,5 @@ abstract class FuelEconomyUnit extends AbstractUnit
 {
     protected $base = KilometrePerLitre::class;
 
-    protected $unitOf = Measure::VOLUME;
+    protected $unitOf = Measure::FUEL_ECONOMY;
 }

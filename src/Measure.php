@@ -133,6 +133,8 @@ class Measure
 
     const FREQUENCY = 'frequency';
 
+    const FUEL_ECONOMY = 'fuel_economy';
+
     const LENGTH = "length";
 
     const MASS = "mass";
@@ -190,9 +192,6 @@ class Measure
             Litre::class,
             Millilitre::class,
             Pint::class,
-            KilometrePerLitre::class,
-            LitrePer100Kilometres::class,
-            MilesPerGallon::class,
         ],
         self::MASS => [
             Gram::class,
@@ -278,6 +277,11 @@ class Measure
             Megabyte::class,
             Gigabyte::class,
             Terabyte::class,
+        ],
+        self::FUEL_ECONOMY => [
+            KilometrePerLitre::class,
+            LitrePer100Kilometres::class,
+            MilesPerGallon::class,
         ],
     ];
 
