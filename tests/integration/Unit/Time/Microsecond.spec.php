@@ -53,7 +53,7 @@ class MicrosecondSpec extends TestCase
         $result = (new Microsecond())->isSubmultipleSiUnit();
 
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 
     public function correctConversions(): Iterator

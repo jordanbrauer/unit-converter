@@ -73,6 +73,6 @@ class MilligramSpec extends TestCase
     {
         $result = (new Milligram())->isSubmultipleSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 }

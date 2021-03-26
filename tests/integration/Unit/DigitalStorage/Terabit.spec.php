@@ -59,7 +59,7 @@ class TerabitSpec extends TestCase
 
         yield from [
             '1 terabit is equal to 1,000,000,000,000 bits' => [$tb, new Bit(1000000000000.0), 0],
-            '1 terabit is equal to 125,000,000,000 bytes' => [$tb, new Byte(125000000000.0), 0.],
+            '1 terabit is equal to 125,000,000,000 bytes' => [$tb, new Byte(125000000000.0), 0],
             '1 terabit is equal to 931.323 gibibits' => [$tb, new Gibibit(931.323), 3],
             '1 terabit is equal to 1,000 gigabits' => [$tb, new Gigabit(1000.0), 0],
             '1 terabit is equal to 125 gigabytes' => [$tb, new Gigabyte(125.0), 0],

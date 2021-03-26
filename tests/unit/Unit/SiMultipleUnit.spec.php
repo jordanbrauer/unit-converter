@@ -28,7 +28,7 @@ use UnitConverter\Unit\Family\SiMultipleUnit;
  */
 class SiMultipleUnitSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->unit = new class() extends AbstractUnit implements SiMultipleUnit {
             protected $name = "saiyan power";
@@ -45,7 +45,7 @@ class SiMultipleUnitSpec extends TestCase
         };
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->unit);
     }
@@ -58,6 +58,6 @@ class SiMultipleUnitSpec extends TestCase
     {
         $result = $this->unit->isMultipleSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 }

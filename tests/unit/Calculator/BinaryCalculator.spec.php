@@ -25,12 +25,12 @@ use TypeError;
  */
 class BinaryCalculatorSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->calculator = new BinaryCalculator();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->calculator);
     }
@@ -46,7 +46,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -60,7 +60,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -76,7 +76,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -92,7 +92,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -108,7 +108,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -122,7 +122,7 @@ class BinaryCalculatorSpec extends TestCase
         $actual = $this->calculator->round("2.54", 1);
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -136,7 +136,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**

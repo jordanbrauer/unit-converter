@@ -48,7 +48,7 @@ class KelvinSpec extends TestCase
     {
         $result = (new Kelvin())->isSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 
     public function correctConversions(): Iterator

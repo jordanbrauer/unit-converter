@@ -43,7 +43,7 @@ class AbstractUnitSpec extends TestCase
 {
     const RESULT_SAIYAN_POWER_TO_INCHES = 354370.08;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->registryKey = Measure::LENGTH.".sP";
         $this->unit = new class() extends AbstractUnit {
@@ -61,7 +61,7 @@ class AbstractUnitSpec extends TestCase
         };
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->registryKey, $this->unit);
     }
@@ -122,7 +122,7 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getBase();
 
         $this->assertInstanceOf(Inch::class, $actual);
-        $this->assertInternalType("object", $actual);
+        $this->assertIsObject($actual);
     }
 
     /**
@@ -136,7 +136,7 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getName();
 
         $this->assertEquals("test set", $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -148,7 +148,7 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getRegistryKey();
 
         $this->assertEquals($this->registryKey, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -162,7 +162,7 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getScientificSymbol();
 
         $this->assertEquals("ft³", $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -176,7 +176,7 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getSymbol();
 
         $this->assertEquals("tS", $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -220,7 +220,7 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getUnitOf();
 
         $this->assertEquals(Measure::ENERGY, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -234,7 +234,7 @@ class AbstractUnitSpec extends TestCase
         $actual = $this->unit->getUnits();
 
         $this->assertEquals(69, $actual);
-        $this->assertInternalType("float", $actual);
+        $this->assertIsFloat($actual);
     }
 
     /**
@@ -247,7 +247,7 @@ class AbstractUnitSpec extends TestCase
     {
         $default = $this->unit->getValue();
 
-        $this->assertInternalType("integer", $default);
+        $this->assertIsInt($default);
         $this->assertEquals(1, $default);
         $this->assertSame(1, $default);
 
@@ -255,7 +255,7 @@ class AbstractUnitSpec extends TestCase
 
         $actual = $this->unit->getValue();
 
-        $this->assertInternalType("integer", $actual);
+        $this->assertIsInt($actual);
         $this->assertNotEquals($default, $actual);
         $this->assertEquals(69, $actual);
         $this->assertSame(69, $actual);
@@ -269,7 +269,7 @@ class AbstractUnitSpec extends TestCase
     {
         $result = $this->unit->isMultipleSiUnit();
         $this->assertFalse($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 
     /**
@@ -280,7 +280,7 @@ class AbstractUnitSpec extends TestCase
     {
         $result = $this->unit->isSubmultipleSiUnit();
         $this->assertFalse($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 
     /**
@@ -291,7 +291,7 @@ class AbstractUnitSpec extends TestCase
     {
         $result = $this->unit->isSiUnit();
         $this->assertFalse($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 
     /**
@@ -314,7 +314,7 @@ class AbstractUnitSpec extends TestCase
         $expected = 9001.0;
         $actual = $this->unit->as(new Metre());
 
-        $this->assertInternalType("float", $actual);
+        $this->assertIsFloat($actual);
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
     }
@@ -329,7 +329,7 @@ class AbstractUnitSpec extends TestCase
         $expected = (string) self::RESULT_SAIYAN_POWER_TO_INCHES;
         $actual = $this->unit->as(new Inch(), 2, true);
 
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
     }
@@ -344,7 +344,7 @@ class AbstractUnitSpec extends TestCase
         $expected = self::RESULT_SAIYAN_POWER_TO_INCHES;
         $actual = $this->unit->as(new Inch(1), 2);
 
-        $this->assertInternalType("float", $actual);
+        $this->assertIsFloat($actual);
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
     }
