@@ -16,11 +16,11 @@ namespace UnitConverter\Unit;
 
 use OutOfRangeException;
 use UnitConverter\Calculator\Formula\FormulaInterface;
+use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadUnit;
 use UnitConverter\Unit\Family\SiMultipleUnit;
-use UnitConverter\Unit\Family\SiUnit;
 use UnitConverter\Unit\Family\SiSubmultipleUnit;
-use UnitConverter\Calculator\Formula\UnitConversionFormula;
+use UnitConverter\Unit\Family\SiUnit;
 
 /**
  * This class is the base class for all unit of measurement classes.

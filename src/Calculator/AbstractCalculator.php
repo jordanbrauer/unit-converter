@@ -127,6 +127,56 @@ abstract class AbstractCalculator implements CalculatorInterface
     abstract public function div($dividend, $divisor);
 
     /**
+     * {@inheritDoc}
+     */
+    abstract public function mod($dividend, $modulus);
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function mul($leftOperand, $rightOperand);
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function pow($base, $exponent);
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function sub($leftOperand, $rightOperand);
+
+    /**
+     * Throw a type error if the given closure does not evaluate to true for one
+     * of given values. The name of the method and allowed type string are used
+     * to create an error message.
+     *
+     * @param Closure $assert Type check that must return true, otherwise an error is thrown
+     * @param string $method The name of the method that is calling this method, used for error message
+     * @param string $allowed The allowed type of the value, used for error message
+     * @param mixed ...$value One or more values to test with the given closure
+     * @return void
+     * @throws TypeError When the given closure does not return true
+     */
+    protected static function invariant(Closure $assert, string $method, string $allowed, ...$value): void
+    {
+        foreach ($value as $position => $arg) {
+            if ($assert($arg)) {
+                continue;
+            }
+
+            throw new TypeError(sprintf(
+                'Argument %d passed to %s::%s must be of the type %s, %s given',
+                1 + $position,
+                static::class,
+                $method,
+                $allowed,
+                gettype($arg),
+            ));
+        }
+    }
+
+    /**
      * Syntacital sugar wrapper method for div.
      *
      * @api
@@ -191,11 +241,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     }
 
     /**
-     * {@inheritDoc}
-     */
-    abstract public function mod($dividend, $modulus);
-
-    /**
      * Syntacital sugar wrapper method for mod
      *
      * @api
@@ -207,11 +252,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     }
 
     /**
-     * {@inheritDoc}
-     */
-    abstract public function mul($leftOperand, $rightOperand);
-
-    /**
      * Syntacital sugar wrapper method for mul
      *
      * @api
@@ -221,11 +261,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     {
         return $this->mul(...$params);
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    abstract public function pow($base, $exponent);
 
     /**
      * Syntacital sugar wrapper method for pow
@@ -280,11 +315,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     }
 
     /**
-     * {@inheritDoc}
-     */
-    abstract public function sub($leftOperand, $rightOperand);
-
-    /**
      * Syntacital sugar wrapper method for sub
      *
      * @api
@@ -293,36 +323,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     public function subtract(...$params)
     {
         return $this->sub(...$params);
-    }
-
-    /**
-     * Throw a type error if the given closure does not evaluate to true for one
-     * of given values. The name of the method and allowed type string are used
-     * to create an error message.
-     *
-     * @param Closure $assert Type check that must return true, otherwise an error is thrown
-     * @param string $method The name of the method that is calling this method, used for error message
-     * @param string $allowed The allowed type of the value, used for error message
-     * @param mixed ...$value One or more values to test with the given closure
-     * @return void
-     * @throws TypeError When the given closure does not return true
-     */
-    protected static function invariant(Closure $assert, string $method, string $allowed, ...$value): void
-    {
-        foreach ($value as $position => $arg) {
-            if ($assert($arg)) {
-                continue;
-            }
-
-            throw new TypeError(sprintf(
-                'Argument %d passed to %s::%s must be of the type %s, %s given',
-                1 + $position,
-                static::class,
-                $method,
-                $allowed,
-                gettype($arg),
-            ));
-        }
     }
 
     /**

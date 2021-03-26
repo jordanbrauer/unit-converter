@@ -14,7 +14,6 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use Generator;
 use Iterator;
 use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Time\Day;

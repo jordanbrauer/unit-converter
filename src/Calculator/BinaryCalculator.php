@@ -54,6 +54,68 @@ class BinaryCalculator extends AbstractCalculator
     }
 
     /**
+     * Expand a scientific notation number to it's whole form as a string.
+     *
+     * @param string $operand The scientifix number to be expanded.
+     * @return string
+     */
+    private static function expandScientific(string $operand): string
+    {
+        $segments = explode('E', $operand);
+        $exponent = end($segments);
+        $format = static function ($operand, int $precision = 0): string {
+            return self::product(number_format((float) $operand, $precision, '.', ''));
+        };
+
+        if ('+' === substr($exponent, 0, 1)) {
+            return $format($operand);
+        }
+
+        return $format($operand, array_sum([
+            (int) substr($exponent, 1),
+            strlen(str_replace('.', '', reset($segments))),
+        ]));
+    }
+
+    /**
+     * Check if the given number is scientific notation.
+     *
+     * @param int|string|float $operand The value to check for scientific-ness
+     * @return bool
+     */
+    private static function isScientific($operand): bool
+    {
+        return is_numeric($operand)
+            and (false !== stristr($operand, 'E-') or false !== stristr($operand, 'E+'));
+    }
+
+    /**
+     * Sanitize operands for use with BC math.
+     *
+     * @param string $value The operand value part of the calculation
+     * @return string
+     */
+    private static function operand($value): string
+    {
+        $normalized = strtoupper($value);
+
+        return (self::isScientific($normalized))
+            ? self::expandScientific($normalized)
+            : $value;
+    }
+
+    /**
+     * Produce a valid calculation result, ensuring no trailing zeros.
+     *
+     * @param string $value The value to denormalize
+     * @return string
+     */
+    private static function product(string $value): string
+    {
+        return (false !== stristr($value, '.')) ? rtrim($value, '0.,') : $value;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function add($leftOperand, $rightOperand)
@@ -109,9 +171,11 @@ class BinaryCalculator extends AbstractCalculator
             $modulus,
         );
 
-        return self::product(bcmod(
+        return self::product(
+            bcmod(
             self::operand($dividend),
-            self::operand($modulus)),
+            self::operand($modulus)
+        ),
         );
     }
 
@@ -202,67 +266,5 @@ class BinaryCalculator extends AbstractCalculator
             self::operand($leftOperand),
             self::operand($rightOperand),
         ));
-    }
-
-    /**
-     * Produce a valid calculation result, ensuring no trailing zeros.
-     *
-     * @param string $value The value to denormalize
-     * @return string
-     */
-    private static function product(string $value): string
-    {
-        return (false !== stristr($value, '.')) ? rtrim($value, '0.,') : $value;
-    }
-
-    /**
-     * Sanitize operands for use with BC math.
-     *
-     * @param string $value The operand value part of the calculation
-     * @return string
-     */
-    private static function operand($value): string
-    {
-        $normalized = strtoupper($value);
-
-        return (self::isScientific($normalized))
-            ? self::expandScientific($normalized)
-            : $value;
-    }
-
-    /**
-     * Check if the given number is scientific notation.
-     *
-     * @param int|string|float $operand The value to check for scientific-ness
-     * @return bool
-     */
-    private static function isScientific($operand): bool
-    {
-        return is_numeric($operand)
-            and (false !== stristr($operand, 'E-') or false !== stristr($operand, 'E+'));
-    }
-
-    /**
-     * Expand a scientific notation number to it's whole form as a string.
-     *
-     * @param string $operand The scientifix number to be expanded.
-     * @return string
-     */
-    private static function expandScientific(string $operand): string
-    {
-        $segments = explode('E', $operand);
-        $exponent = end($segments);
-        $format = static function ($operand, int $precision = 0): string {
-            return self::product(number_format((float) $operand, $precision, '.', ''));
-        };
-
-        if ('+' === substr($exponent, 0, 1)) {
-            return $format($operand);
-        }
-
-        return $format($operand, array_sum([
-            (int) substr($exponent, 1),
-            strlen(str_replace('.', '', reset($segments))),
-        ]));
     }
 }

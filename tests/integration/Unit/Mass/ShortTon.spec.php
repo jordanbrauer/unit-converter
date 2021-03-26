@@ -14,21 +14,19 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use UnitConverter\Tests\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Mass\Kilogram;
-use UnitConverter\Unit\Mass\ShortTon;
-use UnitConverter\UnitConverter;
 use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Mass\Gram;
+use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\LongTon;
 use UnitConverter\Unit\Mass\Milligram;
 use UnitConverter\Unit\Mass\Newton;
 use UnitConverter\Unit\Mass\Ounce;
 use UnitConverter\Unit\Mass\Pound;
+use UnitConverter\Unit\Mass\ShortTon;
 use UnitConverter\Unit\Mass\Stone;
 use UnitConverter\Unit\Mass\Tonne;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a short ton is infact, a short ton.
@@ -54,16 +52,16 @@ class ShortTonSpec extends TestCase
         $ton = new ShortTon();
 
         yield from [
-            '1 short tone (us ton) is equal to 907,185 grams' => [$ton, new Gram(907185.0), 0],
-            '1 short tone (us ton) is equal to 907.1847 kilograms' => [$ton, new Kilogram(907.1847), 4],
+            '1 short tone (us ton) is equal to 907,185 grams'                      => [$ton, new Gram(907185.0), 0],
+            '1 short tone (us ton) is equal to 907.1847 kilograms'                 => [$ton, new Kilogram(907.1847), 4],
             '1 short tone (us ton) is equal to 0.892857 long tons (imperial tons)' => [$ton, new LongTon(0.892857), 6],
-            '1 short tone (us ton) is equal to 907,200,000 milligrams' => [$ton, new Milligram(907200000), 0],
+            '1 short tone (us ton) is equal to 907,200,000 milligrams'             => [$ton, new Milligram(907200000), 0],
             // '1 short tone (us ton) is equal to 1.0 newtons' => [$ton, new Newton(1.0), 0],
-            '1 short tone (us ton) is equal to 32,000 ounces' => [$ton, new Ounce(32000.0), 0],
-            '1 short tone (us ton) is equal to 2,000 pounds' => [$ton, new Pound(2000.0), 0],
+            '1 short tone (us ton) is equal to 32,000 ounces'        => [$ton, new Ounce(32000.0), 0],
+            '1 short tone (us ton) is equal to 2,000 pounds'         => [$ton, new Pound(2000.0), 0],
             '1 short tone (us ton) is equal to 1 short ton (us ton)' => [$ton, new ShortTon(1.0), 0],
-            '1 short tone (us ton) is equal to 142.857 stones' => [$ton, new Stone(142.857), 3],
-            '1 short tone (us ton) is equal to 0.907185 tonnes' => [$ton, new Tonne(0.907185), 6],
+            '1 short tone (us ton) is equal to 142.857 stones'       => [$ton, new Stone(142.857), 3],
+            '1 short tone (us ton) is equal to 0.907185 tonnes'      => [$ton, new Tonne(0.907185), 6],
         ];
     }
 }

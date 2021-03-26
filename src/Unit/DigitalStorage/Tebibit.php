@@ -44,14 +44,14 @@ class Tebibit extends DigitalStorageUnit
             ->setUnits(1099511627776)
 
             ->addFormulae([
-                'b' => ToBits::class,
-                'B' => ToBytes::class,
-                'Gb' => ToGibibits::class,
+                'b'   => ToBits::class,
+                'B'   => ToBytes::class,
+                'Gb'  => ToGibibits::class,
                 'Kib' => ToKibibits::class,
-                'kb' => ToKilobits::class,
-                'kB' => ToKilobytes::class,
+                'kb'  => ToKilobits::class,
+                'kB'  => ToKilobytes::class,
                 'Mib' => ToMebibits::class,
-                'Mb' => ToMegabits::class,
+                'Mb'  => ToMegabits::class,
             ]);
     }
 }

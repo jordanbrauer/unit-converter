@@ -36,6 +36,8 @@ abstract class TestCase extends PHPUnitTestCase
         unset($this->builder);
     }
 
+    abstract public function correctConversions(): Iterator;
+
     /**
      * @test
      * @dataProvider correctConversions
@@ -56,6 +58,4 @@ abstract class TestCase extends PHPUnitTestCase
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
     }
-
-    abstract public function correctConversions(): Iterator;
 }

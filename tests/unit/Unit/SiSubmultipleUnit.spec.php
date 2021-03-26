@@ -17,8 +17,8 @@ namespace UnitConverter\Tests\Unit\Unit;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;
-use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Family\SiSubmultipleUnit;
+use UnitConverter\Unit\Length\Metre;
 
 /**
  * @coversDefaultClass UnitConverter\Unit\AbstractUnit

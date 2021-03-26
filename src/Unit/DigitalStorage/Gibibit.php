@@ -40,10 +40,10 @@ class Gibibit extends DigitalStorageUnit
             ->setUnits(1073741824)
 
             ->addFormulae([
-                'b' => ToBits::class,
-                'B' => ToBytes::class,
+                'b'   => ToBits::class,
+                'B'   => ToBytes::class,
                 'Kib' => ToKibibits::class,
-                'kb' => ToKilobits::class,
+                'kb'  => ToKilobits::class,
             ]);
     }
 }

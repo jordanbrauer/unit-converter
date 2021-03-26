@@ -14,13 +14,11 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
+use Iterator;
 use UnitConverter\Tests\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Newton;
 use UnitConverter\UnitConverter;
-use Iterator;
 
 /**
  * Ensure that a newton is infact, a newton.

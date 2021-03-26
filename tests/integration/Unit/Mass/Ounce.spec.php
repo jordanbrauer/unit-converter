@@ -14,21 +14,19 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use UnitConverter\Tests\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Mass\Kilogram;
-use UnitConverter\Unit\Mass\Ounce;
-use UnitConverter\UnitConverter;
 use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Mass\Gram;
+use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\LongTon;
 use UnitConverter\Unit\Mass\Milligram;
 use UnitConverter\Unit\Mass\Newton;
+use UnitConverter\Unit\Mass\Ounce;
 use UnitConverter\Unit\Mass\Pound;
 use UnitConverter\Unit\Mass\ShortTon;
 use UnitConverter\Unit\Mass\Stone;
 use UnitConverter\Unit\Mass\Tonne;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a ounce is infact, a ounce.
@@ -53,16 +51,16 @@ class OunceSpec extends TestCase
         $oz = new Ounce();
 
         yield from [
-            '1 ounce is equal to 28.3495 grams' => [$oz, new Gram(28.3495), 4],
-            '1 ounce is equal to 0.0283495 kilograms' => [$oz, new Kilogram(0.0283495), 7],
+            '1 ounce is equal to 28.3495 grams'                         => [$oz, new Gram(28.3495), 4],
+            '1 ounce is equal to 0.0283495 kilograms'                   => [$oz, new Kilogram(0.0283495), 7],
             '1 ounce is equal to 0.000027902 long tons (imperial tons)' => [$oz, new LongTon(0.000027902), 9],
-            '1 ounce is equal to 28,349.5 milligrams' => [$oz, new Milligram(28349.5), 1],
+            '1 ounce is equal to 28,349.5 milligrams'                   => [$oz, new Milligram(28349.5), 1],
             // '1 ounce is equal to 1.0 newtons' => [$oz, new Newton(1.0), 0],
-            '1 ounce is equal to 1 ounce' => [$oz, new Ounce(1.0), 0],
-            '1 ounce is equal to 0.0625 pounds' => [$oz, new Pound(0.0625), 4],
+            '1 ounce is equal to 1 ounce'                        => [$oz, new Ounce(1.0), 0],
+            '1 ounce is equal to 0.0625 pounds'                  => [$oz, new Pound(0.0625), 4],
             '1 ounce is equal to 0.00003125 short tons (us ton)' => [$oz, new ShortTon(0.00003125), 8],
-            '1 ounce is equal to 0.00446428 stones' => [$oz, new Stone(0.00446428), 8],
-            '1 ounce is equal to 0.00002835 tonnes' => [$oz, new Tonne(0.00002835), 8],
+            '1 ounce is equal to 0.00446428 stones'              => [$oz, new Stone(0.00446428), 8],
+            '1 ounce is equal to 0.00002835 tonnes'              => [$oz, new Tonne(0.00002835), 8],
         ];
     }
 }

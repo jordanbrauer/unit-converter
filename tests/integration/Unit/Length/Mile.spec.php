@@ -14,13 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Length;
 
-use UnitConverter\Tests\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\Length\Metre;
-use UnitConverter\Unit\Length\Mile;
-use UnitConverter\UnitConverter;
 use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Length\AstronomicalUnit;
 use UnitConverter\Unit\Length\Centimetre;
 use UnitConverter\Unit\Length\Decimetre;
@@ -29,12 +24,15 @@ use UnitConverter\Unit\Length\Hand;
 use UnitConverter\Unit\Length\Inch;
 use UnitConverter\Unit\Length\Kilometre;
 use UnitConverter\Unit\Length\Lightyear;
+use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Micrometre;
+use UnitConverter\Unit\Length\Mile;
 use UnitConverter\Unit\Length\Millimetre;
 use UnitConverter\Unit\Length\Nanometre;
 use UnitConverter\Unit\Length\Parsec;
 use UnitConverter\Unit\Length\Picometre;
 use UnitConverter\Unit\Length\Yard;
+use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a mile is infact, a mile.
@@ -64,21 +62,21 @@ class MileSpec extends TestCase
 
         yield from [
             '1 mile is equal to 0.0000000107578 astronomical units' => [$mi, new AstronomicalUnit(0.0000000107578), 13],
-            '1 mile is equal to 160,934 centimetres' => [$mi, new Centimetre(160934.0), 0],
-            '1 mile is equal to 16,093.4 decimetres' => [$mi, new Decimetre(16093.4), 1],
-            '1 mile is equal to 5,280 feet' => [$mi, new Foot(5280.0), 0],
-            '1 mile is equal to 15,840 hands' => [$mi, new Hand(15840.0), 0],
-            '1 mile is equal to 63,360 inches' => [$mi, new Inch(63360.0), 0],
-            '1 mile is equal to 1.60934 kilometres' => [$mi, new Kilometre(1.60934), 5],
-            '1 mile is equal to 0.000000000000170108 lightyears' => [$mi, new Lightyear(0.000000000000170108), 18],
-            '1 mile is equal to 1,609.344 metres' => [$mi, new Metre(1609.344), 3],
-            '1 mile is equal to 1,609,000,000 micrometres' => [$mi, new Micrometre(1609000000), 0],
-            '1 mile is equal to 1 mile' => [$mi, new Mile(1.0), 0],
-            '1 mile is equal to 1,609,000 millimetres' => [$mi, new Millimetre(1609000), 0],
-            '1 mile is equal to 1,609,000,000,000 nanometres' => [$mi, new Nanometre(1609000000000), 0],
-            '1 mile is equal to 0.0000000000000521553 parsecs' => [$mi, new Parsec(0.0000000000000521553), 19],
-            '1 mile is equal to 1,609,000,000,000,000 picometres' => [$mi, new Picometre(1609000000000000), 0],
-            '1 mile is equal to 1,760 yard' => [$mi, new Yard(1760.0), 0],
+            '1 mile is equal to 160,934 centimetres'                => [$mi, new Centimetre(160934.0), 0],
+            '1 mile is equal to 16,093.4 decimetres'                => [$mi, new Decimetre(16093.4), 1],
+            '1 mile is equal to 5,280 feet'                         => [$mi, new Foot(5280.0), 0],
+            '1 mile is equal to 15,840 hands'                       => [$mi, new Hand(15840.0), 0],
+            '1 mile is equal to 63,360 inches'                      => [$mi, new Inch(63360.0), 0],
+            '1 mile is equal to 1.60934 kilometres'                 => [$mi, new Kilometre(1.60934), 5],
+            '1 mile is equal to 0.000000000000170108 lightyears'    => [$mi, new Lightyear(0.000000000000170108), 18],
+            '1 mile is equal to 1,609.344 metres'                   => [$mi, new Metre(1609.344), 3],
+            '1 mile is equal to 1,609,000,000 micrometres'          => [$mi, new Micrometre(1609000000), 0],
+            '1 mile is equal to 1 mile'                             => [$mi, new Mile(1.0), 0],
+            '1 mile is equal to 1,609,000 millimetres'              => [$mi, new Millimetre(1609000), 0],
+            '1 mile is equal to 1,609,000,000,000 nanometres'       => [$mi, new Nanometre(1609000000000), 0],
+            '1 mile is equal to 0.0000000000000521553 parsecs'      => [$mi, new Parsec(0.0000000000000521553), 19],
+            '1 mile is equal to 1,609,000,000,000,000 picometres'   => [$mi, new Picometre(1609000000000000), 0],
+            '1 mile is equal to 1,760 yard'                         => [$mi, new Yard(1760.0), 0],
         ];
     }
 }
