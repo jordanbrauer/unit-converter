@@ -42,6 +42,12 @@ release: analysis docs changelog ## Release the version as defined in .version c
 	# git add -am "chore(release): $(VERSION)"
 	# git tag $(VERSION)
 	# git push origin $(VERSION)
+	# curl -X DELETE \
+		-i $(GITHUB_API_URL)/repos/$(GITHUB_USERNAME)/$(GITHUB_REPOSITORY)/git/refs/tags/$(VERSION) \
+		-u $(GITHUB_USERNAME):$(GITHUB_OAUTH_TOKEN)
+	# git tag -d $(VERSION)
+	# git tag $(VERSION)	
+	# git push origin $(VERSION)
 
 style: vendor ## Format the source code and other documents in the repository
 	@composer normalize
