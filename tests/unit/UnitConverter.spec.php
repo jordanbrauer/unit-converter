@@ -53,7 +53,7 @@ use UnitConverter\UnitConverter;
  */
 class UnitConverterSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->converter = UnitConverter::createBuilder()
             ->addRegistryFor(Measure::LENGTH)
@@ -61,7 +61,7 @@ class UnitConverterSpec extends TestCase
             ->build();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->converter);
     }
@@ -82,7 +82,7 @@ class UnitConverterSpec extends TestCase
             ->to("cm");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("float", $actual);
+        $this->assertIsFloat($actual);
     }
 
     /**
@@ -129,7 +129,7 @@ class UnitConverterSpec extends TestCase
     {
         $class = $this->converter->whichCalculator();
 
-        $this->assertInternalType('string', $class);
+        $this->assertIsString($class);
         $this->assertNotEmpty($class);
         $this->assertInstanceOf(SimpleCalculator::class, (new $class()));
     }
@@ -146,7 +146,7 @@ class UnitConverterSpec extends TestCase
         $possibleConversions = $this->getPossibleConversionsFor($measurement, $symbol);
         $results = $this->converter->convert(180)->from($symbol)->all();
 
-        $this->assertInternalType('array', $results);
+        $this->assertIsArray($results);
         $this->assertNotEmpty($results);
         $this->assertEquals(count($possibleConversions), count($results));
 

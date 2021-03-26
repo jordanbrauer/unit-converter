@@ -130,12 +130,12 @@ use UnitConverter\UnitConverter;
  */
 class ConverterBuilderSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->builder = new ConverterBuilder();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->builder);
     }

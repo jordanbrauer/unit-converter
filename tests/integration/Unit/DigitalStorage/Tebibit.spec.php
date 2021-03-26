@@ -66,7 +66,7 @@ class TebibitSpec extends TestCase
 
         yield from [
             '1 tebibit is equal to 1,100,000,000,000 bits' => [$tib, new Bit(1100000000000), 0],
-            '1 tebibit is equal to 137,400,000,000 bytes' => [$tib, new Byte(137400000000), 0.],
+            '1 tebibit is equal to 137,400,000,000 bytes' => [$tib, new Byte(137400000000), 0],
             '1 tebibit is equal to 1,024 gibibits' => [$tib, new Gibibit(1024.0), 0],
             '1 tebibit is equal to 1099.51 gigabits' => [$tib, new Gigabit(1099.51), 2],
             '1 tebibit is equal to 137.439 gigabytes' => [$tib, new Gigabyte(137.439), 3],

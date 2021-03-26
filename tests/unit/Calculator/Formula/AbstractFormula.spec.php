@@ -32,7 +32,7 @@ use UnitConverter\Unit\Length\Inch;
  */
 final class AbstractFormulaSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->formula = new class(new SimpleCalculator()) extends AbstractFormula {
             const FORMULA_TEMPLATE = '%s';
@@ -59,7 +59,7 @@ final class AbstractFormulaSpec extends TestCase
         $this->value = 1;
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset(
             $this->formula,

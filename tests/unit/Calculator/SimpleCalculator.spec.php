@@ -25,12 +25,12 @@ use UnitConverter\Calculator\SimpleCalculator;
  */
 class SimpleCalculatorSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->calculator = new SimpleCalculator();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->calculator);
     }
@@ -45,7 +45,7 @@ class SimpleCalculatorSpec extends TestCase
         $actual = $this->calculator->add("2.5", "2.5");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("float", $actual);
+        $this->assertIsFloat($actual);
     }
 
     /**
@@ -58,7 +58,7 @@ class SimpleCalculatorSpec extends TestCase
         $actual = $this->calculator->div("4", "2");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("int", $actual);
+        $this->assertIsInt($actual);
     }
 
     /**
@@ -71,7 +71,7 @@ class SimpleCalculatorSpec extends TestCase
         $actual = $this->calculator->mod("5", "2");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("int", $actual);
+        $this->assertIsInt($actual);
     }
 
     /**
@@ -84,7 +84,7 @@ class SimpleCalculatorSpec extends TestCase
         $actual = $this->calculator->mul("2", "2");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("int", $actual);
+        $this->assertIsInt($actual);
     }
 
     /**
@@ -97,7 +97,7 @@ class SimpleCalculatorSpec extends TestCase
         $actual = $this->calculator->pow("10", "2");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("int", $actual);
+        $this->assertIsInt($actual);
     }
 
     /**
@@ -110,7 +110,7 @@ class SimpleCalculatorSpec extends TestCase
         $actual = $this->calculator->sub("5", "2.5");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("float", $actual);
+        $this->assertIsFloat($actual);
     }
 
     /**
