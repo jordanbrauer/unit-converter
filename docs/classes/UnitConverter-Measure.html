@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js" integrity="sha256-0vuk8LXoyrmCjp1f0O300qo1M75ZQyhH9X3J6d+scmk=" crossorigin="anonymous"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">Documentation</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+    
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                                <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/unitconverter.html"><abbr title="\UnitConverter">UnitConverter</abbr></a></h4>
+                <ul class="phpdocumentor-list">
+                                            <li><a href="namespaces/unitconverter-calculator.html"><abbr title="\UnitConverter\Calculator">Calculator</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-exception.html"><abbr title="\UnitConverter\Exception">Exception</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-registry.html"><abbr title="\UnitConverter\Registry">Registry</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-support.html"><abbr title="\UnitConverter\Support">Support</abbr></a></li>
+                                            <li><a href="namespaces/unitconverter-unit.html"><abbr title="\UnitConverter\Unit">Unit</abbr></a></li>
+                                    </ul>
+                        </section>
+
+    
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/unitconverter.html">UnitConverter</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    Measure
+
+    
+    
+    
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
+</aside>
+
+            <p class="phpdocumentor-summary">A static class containing constants that define the available
+default types of measurements &amp; the units they govern.</p>
+
+    <section class="phpdocumentor-description"></section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">version</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">0.0.1</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Jordan Brauer <a href="mailto:18744334+jordanbrauer@users.noreply.github.com">18744334+jordanbrauer@users.noreply.github.com</a></p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">codeCoverageIgnore</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                        </dl>
+
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_AREA">AREA</a>
+    <span>
+        &nbsp;= &quot;area&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_DIGITAL_STORAGE">DIGITAL_STORAGE</a>
+    <span>
+        &nbsp;= &quot;digital_storage&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_ENERGY">ENERGY</a>
+    <span>
+        &nbsp;= &quot;energy&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_FREQUENCY">FREQUENCY</a>
+    <span>
+        &nbsp;= &#039;frequency&#039;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_FUEL_ECONOMY">FUEL_ECONOMY</a>
+    <span>
+        &nbsp;= &#039;fuel_economy&#039;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_LENGTH">LENGTH</a>
+    <span>
+        &nbsp;= &quot;length&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_MASS">MASS</a>
+    <span>
+        &nbsp;= &quot;mass&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_PLANE_ANGLE">PLANE_ANGLE</a>
+    <span>
+        &nbsp;= &quot;plane_angle&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_PRESSURE">PRESSURE</a>
+    <span>
+        &nbsp;= &quot;pressure&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_SPEED">SPEED</a>
+    <span>
+        &nbsp;= &quot;speed&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_TEMPERATURE">TEMPERATURE</a>
+    <span>
+        &nbsp;= &quot;temperature&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_TIME">TIME</a>
+    <span>
+        &nbsp;= &quot;time&quot;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/UnitConverter-Measure.html#constant_VOLUME">VOLUME</a>
+    <span>
+        &nbsp;= &quot;volume&quot;                    </span>
+</dt>
+<dd></dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/UnitConverter-Measure.html#property_defaultMeasurements">$defaultMeasurements</a>
+    <span>
+                &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>An array containing a list of default measurement types that are
+supported, and the unit classes they govern.</dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-Measure.html#method_getDefaultMeasurements">getDefaultMeasurements()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return a list of all default supported measurement types. These types
+govern unit&#039;s of measurement.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-Measure.html#method_getDefaultUnitsFor">getDefaultUnitsFor()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return a list of all default supported units for a given type of
+measurement.</dd>
+
+        </dl>
+
+
+
+        
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/UnitConverter-Measure.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_AREA">
+        AREA
+        <a href="classes/UnitConverter-Measure.html#constant_AREA" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">128</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">AREA</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;area&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DIGITAL_STORAGE">
+        DIGITAL_STORAGE
+        <a href="classes/UnitConverter-Measure.html#constant_DIGITAL_STORAGE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">130</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DIGITAL_STORAGE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;digital_storage&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ENERGY">
+        ENERGY
+        <a href="classes/UnitConverter-Measure.html#constant_ENERGY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">132</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ENERGY</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;energy&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FREQUENCY">
+        FREQUENCY
+        <a href="classes/UnitConverter-Measure.html#constant_FREQUENCY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">134</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FREQUENCY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;frequency&#039;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FUEL_ECONOMY">
+        FUEL_ECONOMY
+        <a href="classes/UnitConverter-Measure.html#constant_FUEL_ECONOMY" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">136</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FUEL_ECONOMY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;fuel_economy&#039;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LENGTH">
+        LENGTH
+        <a href="classes/UnitConverter-Measure.html#constant_LENGTH" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">138</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LENGTH</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;length&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MASS">
+        MASS
+        <a href="classes/UnitConverter-Measure.html#constant_MASS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">140</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MASS</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;mass&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PLANE_ANGLE">
+        PLANE_ANGLE
+        <a href="classes/UnitConverter-Measure.html#constant_PLANE_ANGLE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">142</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PLANE_ANGLE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;plane_angle&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PRESSURE">
+        PRESSURE
+        <a href="classes/UnitConverter-Measure.html#constant_PRESSURE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">144</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PRESSURE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;pressure&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SPEED">
+        SPEED
+        <a href="classes/UnitConverter-Measure.html#constant_SPEED" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">146</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SPEED</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;speed&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TEMPERATURE">
+        TEMPERATURE
+        <a href="classes/UnitConverter-Measure.html#constant_TEMPERATURE" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">148</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TEMPERATURE</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;temperature&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TIME">
+        TIME
+        <a href="classes/UnitConverter-Measure.html#constant_TIME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TIME</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;time&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_VOLUME">
+        VOLUME
+        <a href="classes/UnitConverter-Measure.html#constant_VOLUME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">152</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">VOLUME</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;volume&quot;</span>
+</code>
+
+
+    
+    
+
+</article>
+            </section>
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/UnitConverter-Measure.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_defaultMeasurements">
+        $defaultMeasurements
+        <a href="classes/UnitConverter-Measure.html#property_defaultMeasurements" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">160</span>
+</aside>
+
+        <p class="phpdocumentor-summary">An array containing a list of default measurement types that are
+supported, and the unit classes they govern.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$defaultMeasurements</span>
+     = <span class="phpdocumentor-signature__default-value">[self::LENGTH =&gt; [UnitConverterUnitLengthAstronomicalUnit::class, UnitConverterUnitLengthCentimetre::class, UnitConverterUnitLengthDecimetre::class, UnitConverterUnitLengthFoot::class, UnitConverterUnitLengthHand::class, UnitConverterUnitLengthInch::class, UnitConverterUnitLengthKilometre::class, UnitConverterUnitLengthLightyear::class, UnitConverterUnitLengthMetre::class, UnitConverterUnitLengthMicrometre::class, UnitConverterUnitLengthMile::class, UnitConverterUnitLengthMillimetre::class, UnitConverterUnitLengthNanometre::class, UnitConverterUnitLengthParsec::class, UnitConverterUnitLengthPicometre::class, UnitConverterUnitLengthYard::class], self::AREA =&gt; [UnitConverterUnitAreaAcre::class, UnitConverterUnitAreaHectare::class, UnitConverterUnitAreaSquareCentimetre::class, UnitConverterUnitAreaSquareFoot::class, UnitConverterUnitAreaSquareKilometre::class, UnitConverterUnitAreaSquareMetre::class, UnitConverterUnitAreaSquareMile::class, UnitConverterUnitAreaSquareMillimetre::class], self::VOLUME =&gt; [UnitConverterUnitVolumeCubicMetre::class, UnitConverterUnitVolumeGallon::class, UnitConverterUnitVolumeLitre::class, UnitConverterUnitVolumeMillilitre::class, UnitConverterUnitVolumePint::class], self::MASS =&gt; [UnitConverterUnitMassGram::class, UnitConverterUnitMassKilogram::class, UnitConverterUnitMassLongTon::class, UnitConverterUnitMassMilligram::class, UnitConverterUnitMassNewton::class, UnitConverterUnitMassOunce::class, UnitConverterUnitMassPound::class, UnitConverterUnitMassShortTon::class, UnitConverterUnitMassStone::class, UnitConverterUnitMassTonne::class], self::SPEED =&gt; [UnitConverterUnitSpeedKilometrePerHour::class, UnitConverterUnitSpeedMetrePerSecond::class, UnitConverterUnitSpeedMilePerHour::class], self::PLANE_ANGLE =&gt; [UnitConverterUnitPlaneAngleDegree::class, UnitConverterUnitPlaneAngleRadian::class], self::TEMPERATURE =&gt; [UnitConverterUnitTemperatureCelsius::class, UnitConverterUnitTemperatureFahrenheit::class, UnitConverterUnitTemperatureKelvin::class], self::PRESSURE =&gt; [UnitConverterUnitPressureAtmosphere::class, UnitConverterUnitPressureBar::class, UnitConverterUnitPressureHectopascal::class, UnitConverterUnitPressureInchesOfMercury::class, UnitConverterUnitPressureKilopascal::class, UnitConverterUnitPressureMegapascal::class, UnitConverterUnitPressureMillibar::class, UnitConverterUnitPressurePascal::class, UnitConverterUnitPressurePoundForcePerSquareInch::class, UnitConverterUnitPressureTorr::class], self::TIME =&gt; [UnitConverterUnitTimeDay::class, UnitConverterUnitTimeHour::class, UnitConverterUnitTimeMicrosecond::class, UnitConverterUnitTimeMillisecond::class, UnitConverterUnitTimeMinute::class, UnitConverterUnitTimeMonth::class, UnitConverterUnitTimeNanosecond::class, UnitConverterUnitTimeSecond::class, UnitConverterUnitTimeWeek::class, UnitConverterUnitTimeYear::class], self::ENERGY =&gt; [UnitConverterUnitEnergyCalorie::class, UnitConverterUnitEnergyFootPound::class, UnitConverterUnitEnergyJoule::class, UnitConverterUnitEnergyKilojoule::class, UnitConverterUnitEnergyKilowattHour::class, UnitConverterUnitEnergyMegaelectronvolt::class, UnitConverterUnitEnergyMegajoule::class, UnitConverterUnitEnergyMegawattHour::class, UnitConverterUnitEnergyNewtonMetre::class, UnitConverterUnitEnergyWattHour::class], self::FREQUENCY =&gt; [UnitConverterUnitFrequencyHertz::class, UnitConverterUnitFrequencyKilohertz::class, UnitConverterUnitFrequencyMegahertz::class, UnitConverterUnitFrequencyGigahertz::class, UnitConverterUnitFrequencyTerahertz::class, UnitConverterUnitFrequencyMillihertz::class], self::DIGITAL_STORAGE =&gt; [UnitConverterUnitDigitalStorageBit::class, UnitConverterUnitDigitalStorageKilobit::class, UnitConverterUnitDigitalStorageMegabit::class, UnitConverterUnitDigitalStorageGigabit::class, UnitConverterUnitDigitalStorageTerabit::class, UnitConverterUnitDigitalStorageKibibit::class, UnitConverterUnitDigitalStorageMebibit::class, UnitConverterUnitDigitalStorageGibibit::class, UnitConverterUnitDigitalStorageTebibit::class, UnitConverterUnitDigitalStorageKilobyte::class, UnitConverterUnitDigitalStorageMegabyte::class, UnitConverterUnitDigitalStorageGigabyte::class, UnitConverterUnitDigitalStorageTerabyte::class], self::FUEL_ECONOMY =&gt; [UnitConverterUnitFuelEconomyKilometrePerLitre::class, UnitConverterUnitFuelEconomyLitrePer100Kilometres::class, UnitConverterUnitFuelEconomyMilesPerGallon::class]]</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/UnitConverter-Measure.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDefaultMeasurements">
+        getDefaultMeasurements()
+        <a href="classes/UnitConverter-Measure.html#method_getDefaultMeasurements" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">294</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return a list of all default supported measurement types. These types
+govern unit&#039;s of measurement.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getDefaultMeasurements</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDefaultUnitsFor">
+        getDefaultUnitsFor()
+        <a href="classes/UnitConverter-Measure.html#method_getDefaultUnitsFor" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Measure.php"><a href="files/src-measure.html"><abbr title="src/Measure.php">Measure.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">306</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Return a list of all default supported units for a given type of
+measurement.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getDefaultUnitsFor</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$measurement</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$measurement</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The measurement type to retrieve units for.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+            </section>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/UnitConverter-Measure.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+</body>
+</html>
