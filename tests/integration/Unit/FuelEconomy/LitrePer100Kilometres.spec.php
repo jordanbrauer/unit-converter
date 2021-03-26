@@ -14,14 +14,12 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\FuelEconomy;
 
+use Iterator;
 use UnitConverter\Tests\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
 use UnitConverter\UnitConverter;
-use Iterator;
 
 /**
  * @covers UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres
@@ -51,8 +49,8 @@ class LitrePer100KilometresSpec extends TestCase
         $l100km = new LitrePer100Kilometres();
 
         yield from [
-            '1 litre-per-100-kilometres is equal to 235.215 miles-per-gallon' => [$l100km, new MilesPerGallon(235.215), 3],
-            '1 litre-per-100-kilometres is equal to 100 kilometre-per-litre' => [$l100km, new KilometrePerLitre(100.0), 0],
+            '1 litre-per-100-kilometres is equal to 235.215 miles-per-gallon'   => [$l100km, new MilesPerGallon(235.215), 3],
+            '1 litre-per-100-kilometres is equal to 100 kilometre-per-litre'    => [$l100km, new KilometrePerLitre(100.0), 0],
             '1 litre-per-100-kilometres is equal to 1 litre-per-100-kilometres' => [$l100km, new LitrePer100Kilometres('1'), 0],
         ];
     }

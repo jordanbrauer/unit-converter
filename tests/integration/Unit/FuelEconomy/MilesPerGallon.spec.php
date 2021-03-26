@@ -14,14 +14,12 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\FuelEconomy;
 
+use Iterator;
 use UnitConverter\Tests\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\Unit\FuelEconomy\KilometrePerLitre;
 use UnitConverter\Unit\FuelEconomy\LitrePer100Kilometres;
 use UnitConverter\Unit\FuelEconomy\MilesPerGallon;
 use UnitConverter\UnitConverter;
-use Iterator;
 
 /**
  *
@@ -53,8 +51,8 @@ class MilesPerGallonSpec extends TestCase
         $mpg = new MilesPerGallon();
 
         yield from [
-            '1 miles-per-gallon is equal to 1 miles-per-gallon' => [$mpg, new MilesPerGallon('1'), 0],
-            '1 miles-per-gallon is equal to 0.425144 kilometre-per-litre' => [$mpg, new KilometrePerLitre(0.425144), 6],
+            '1 miles-per-gallon is equal to 1 miles-per-gallon'               => [$mpg, new MilesPerGallon('1'), 0],
+            '1 miles-per-gallon is equal to 0.425144 kilometre-per-litre'     => [$mpg, new KilometrePerLitre(0.425144), 6],
             '1 miles-per-gallon is equal to 235.215 litre-per-100-kilometres' => [$mpg, new LitrePer100Kilometres(235.215), 3],
         ];
     }

@@ -35,7 +35,7 @@ class Stone extends MassUnit
             ->setUnits(6.35029)
 
             ->addFormulae([
-                'mg' => ToMilligrams::class
+                'mg' => ToMilligrams::class,
             ]);
     }
 }

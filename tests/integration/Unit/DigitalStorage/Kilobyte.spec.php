@@ -14,25 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\DigitalStorage;
 
-use UnitConverter\Tests\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
-use UnitConverter\Unit\DigitalStorage\Bit;
-use UnitConverter\Unit\DigitalStorage\Kilobyte;
-use UnitConverter\UnitConverter;
 use Iterator;
-use UnitConverter\Unit\DigitalStorage\Kilobit;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\DigitalStorage\Bit;
 use UnitConverter\Unit\DigitalStorage\Byte;
 use UnitConverter\Unit\DigitalStorage\Gibibit;
 use UnitConverter\Unit\DigitalStorage\Gigabit;
 use UnitConverter\Unit\DigitalStorage\Gigabyte;
 use UnitConverter\Unit\DigitalStorage\Kibibit;
+use UnitConverter\Unit\DigitalStorage\Kilobit;
+use UnitConverter\Unit\DigitalStorage\Kilobyte;
 use UnitConverter\Unit\DigitalStorage\Mebibit;
 use UnitConverter\Unit\DigitalStorage\Megabit;
 use UnitConverter\Unit\DigitalStorage\Megabyte;
 use UnitConverter\Unit\DigitalStorage\Tebibit;
 use UnitConverter\Unit\DigitalStorage\Terabit;
 use UnitConverter\Unit\DigitalStorage\Terabyte;
+use UnitConverter\UnitConverter;
 
 /**
  * Test that a kilobyte is indeed a kilobyte.
@@ -57,20 +55,20 @@ class KilobyteSpec extends TestCase
         $kb = new Kilobyte();
 
         yield from [
-            '1 kilobyte is equal to 8,000 bits' => [$kb, new Bit(8000.0), 0],
-            '1 kilobyte is equal to 1,000 bytes' => [$kb, new Byte(1000.0), 0],
-            '1 kilobyte is equal to 0.0000074506 gibibits' => [$kb, new Gibibit(0.0000074506), 10],
-            '1 kilobyte is equal to 0.000008 gigabits' => [$kb, new Gigabit(0.000008), 6],
-            '1 kilobyte is equal to 0.000001 gigabytes' => [$kb, new Gigabyte(0.000001), 6],
-            '1 kilobyte is equal to 7.8125 kibibits' => [$kb, new Kibibit(7.8125), 4],
-            '1 kilobyte is equal to 8 kilobits' => [$kb, new Kilobit(8.0), 0],
-            '1 kilobyte is equal to 1 kilobytes' => [$kb, new Kilobyte(1.0), 0],
-            '1 kilobyte is equal to 0.00762939 mebibits' => [$kb, new Mebibit(0.00762939), 8],
-            '1 kilobyte is equal to 0.008 megabits' => [$kb, new Megabit(0.008), 3],
-            '1 kilobyte is equal to 0.001 megabytes' => [$kb, new Megabyte(0.001), 3],
+            '1 kilobyte is equal to 8,000 bits'              => [$kb, new Bit(8000.0), 0],
+            '1 kilobyte is equal to 1,000 bytes'             => [$kb, new Byte(1000.0), 0],
+            '1 kilobyte is equal to 0.0000074506 gibibits'   => [$kb, new Gibibit(0.0000074506), 10],
+            '1 kilobyte is equal to 0.000008 gigabits'       => [$kb, new Gigabit(0.000008), 6],
+            '1 kilobyte is equal to 0.000001 gigabytes'      => [$kb, new Gigabyte(0.000001), 6],
+            '1 kilobyte is equal to 7.8125 kibibits'         => [$kb, new Kibibit(7.8125), 4],
+            '1 kilobyte is equal to 8 kilobits'              => [$kb, new Kilobit(8.0), 0],
+            '1 kilobyte is equal to 1 kilobytes'             => [$kb, new Kilobyte(1.0), 0],
+            '1 kilobyte is equal to 0.00762939 mebibits'     => [$kb, new Mebibit(0.00762939), 8],
+            '1 kilobyte is equal to 0.008 megabits'          => [$kb, new Megabit(0.008), 3],
+            '1 kilobyte is equal to 0.001 megabytes'         => [$kb, new Megabyte(0.001), 3],
             '1 kilobyte is equal to 0.000000007276 tebibits' => [$kb, new Tebibit(0.000000007276), 12],
-            '1 kilobyte is equal to 0.000000008 terabits' => [$kb, new Terabit(0.000000008), 9],
-            '1 kilobyte is equal to 0.000000001 terabytes' => [$kb, new Terabyte(0.000000001), 9],
+            '1 kilobyte is equal to 0.000000008 terabits'    => [$kb, new Terabit(0.000000008), 9],
+            '1 kilobyte is equal to 0.000000001 terabytes'   => [$kb, new Terabyte(0.000000001), 9],
         ];
     }
 }

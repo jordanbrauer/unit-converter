@@ -36,7 +36,7 @@ class LongTon extends MassUnit
             ->setUnits(1016.047)
 
             ->addFormulae([
-                'g' => ToGrams::class,
+                'g'  => ToGrams::class,
                 'mg' => ToMilligrams::class,
             ]);
     }

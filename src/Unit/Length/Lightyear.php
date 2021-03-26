@@ -51,7 +51,7 @@ class Lightyear extends LengthUnit
                 'cm' => ToCentimetres::class,
                 'dm' => ToDecimetres::class,
                 'ft' => ToFeet::class,
-                'h' => ToHands::class,
+                'h'  => ToHands::class,
                 'in' => ToInches::class,
                 'km' => ToKilometres::class,
                 'um' => ToMicrometres::class,
