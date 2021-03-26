@@ -15,7 +15,7 @@ analysis: vendor ## Analyze the source code and manifest document(s)
 	@composer validate
 	@composer normalize --dry-run
 	@bin/phpcs fix --config=.php_cs --show-progress=dots --ansi -vvv --dry-run
-	@./vendor/bin/phpinsights --no-interaction \
+	@vendor/bin/phpinsights --no-interaction \
 		--min-quality=70 \
 		--min-complexity=90 \
 		--min-architecture=70 \
@@ -41,14 +41,15 @@ docs: $(wildcard src/*.php) $(wildcard src/**/*.php) ## Generate a new set of do
 release: analysis docs changelog ## Release the version as defined in .version config
 	# git add -am "chore(release): $(VERSION)"
 	# git tag $(VERSION)
+	# git push origin $(VERSION)
 
 style: vendor ## Format the source code and other documents in the repository
 	@composer normalize
 	@bin/phpcs fix --config=.php_cs --show-progress=dots --ansi -vvv
 
 test: vendor ## Run tests
-	@vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always
-	#@./vendor/bin/pest --configuration=phpunit.xml --color=always
+	#@vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always
+	@vendor/bin/pest --configuration=phpunit.xml --color=always
 
 vendor: composer.json ## Install vendor dependencies
 	@composer install --optimize-autoloader --no-suggest --ignore-platform-reqs
