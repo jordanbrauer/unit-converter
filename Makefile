@@ -23,11 +23,13 @@ analysis: vendor ## Analyze the source code and manifest document(s)
 
 changelog: $(changelog) ## Generate a new changelog for versions defined in .version config
 $(changelog): vendor .version
+	@git tag $(VERSION)
 	@/usr/bin/php -f vendor/bin/conventional-changelog -- \
 		--history \
 		--from-tag="$(VERSION_INITIAL)" \
 		--to-tag="$(VERSION_LATEST)" \
 		--ver="$(VERSION)"
+	@git tag -d $(VERSION)
 	@touch $(changelog)
 
 coverage: vendor ## Generate a coverage report from the tests for CI/CD
@@ -38,16 +40,8 @@ docs: $(wildcard src/*.php) $(wildcard src/**/*.php) ## Generate a new set of do
 	@/usr/bin/php -f bin/phpdoc -- -d ./src -t ./docs
 	@touch docs
 
-release: analysis docs ## Release the version as defined in .version config
-	@git tag $(VERSION)
-	@$(MAKE) changelog
-	@git tag -d $(VERSION)
+release: analysis docs changelog ## Release the version as defined in .version config
 	@git commit -am "chore(release): $(VERSION)"
-	#@git push origin $(VERSION)
-	#@curl -X DELETE \
-		-i $(GITHUB_API_URL)/repos/$(GITHUB_USERNAME)/$(GITHUB_REPOSITORY)/git/refs/tags/$(VERSION) \
-		-u $(GITHUB_USERNAME):$(GITHUB_OAUTH_TOKEN)
-	#@git commit -am "chore(changelog): $(VERSION)"
 	@git tag $(VERSION)
 	@git push origin $(VERSION)
 	@git push
