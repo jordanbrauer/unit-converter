@@ -81,4 +81,5 @@ jobs:
     - name: Unpackage Artifacts
       run: tar -xvf vendor.tar
     - name: Test
-      run: composer test
+      run: vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always
+
