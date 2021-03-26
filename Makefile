@@ -50,6 +50,7 @@ release: analysis docs ## Release the version as defined in .version config
 	#@git commit -am "chore(changelog): $(VERSION)"
 	@git tag $(VERSION)
 	@git push origin $(VERSION)
+	@git push
 
 style: vendor ## Format the source code and other documents in the repository
 	@composer normalize
