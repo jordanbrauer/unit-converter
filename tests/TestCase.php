@@ -26,12 +26,12 @@ abstract class TestCase extends PHPUnitTestCase
      */
     protected $builder;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->builder = UnitConverter::createBuilder();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->builder);
     }

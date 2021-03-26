@@ -85,6 +85,6 @@ class PicometreSpec extends TestCase
     {
         $result = (new Picometre())->isSubmultipleSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 }

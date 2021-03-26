@@ -30,7 +30,7 @@ use UnitConverter\Unit\Length\Inch;
  */
 final class UnitConversionFormulaSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->formula = new UnitConversionFormula(new SimpleCalculator());
         $this->fromUnits = (new Inch())->getUnits();
@@ -38,7 +38,7 @@ final class UnitConversionFormulaSpec extends TestCase
         $this->value = 1;
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset(
             $this->formula,

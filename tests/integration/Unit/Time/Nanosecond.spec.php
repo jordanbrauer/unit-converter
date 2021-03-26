@@ -54,7 +54,7 @@ class NanosecondSpec extends TestCase
     {
         $result = (new Nanosecond())->isSubmultipleSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 
     public function correctConversions(): Iterator

@@ -23,14 +23,14 @@ use UnitConverter\Support\ArrayDotNotation;
  */
 class ArrayDotNotationSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->fake = new class() {
             use ArrayDotNotation;
         };
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->fake);
     }

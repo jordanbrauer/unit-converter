@@ -128,7 +128,7 @@ class CollectionSpec extends TestCase
 
         $keys = $c->keys();
         $this->assertEquals(['foo', 'bar', 'baz'], $keys);
-        $this->assertInternalType('array', $keys);
+        $this->assertIsArray($keys);
     }
 
     /**
@@ -157,9 +157,9 @@ class CollectionSpec extends TestCase
         for ($i = 0; $i < count($c); $i++) {
             $value = $c[$i];
             if (($value % 2) >= 1) {
-                $this->assertInternalType('string', $value);
+                $this->assertIsString($value);
             } else {
-                $this->assertInternalType('integer', $value);
+                $this->assertIsInt($value);
             }
         }
 
@@ -169,8 +169,8 @@ class CollectionSpec extends TestCase
 
         $this->assertFalse(empty($intData));
         foreach ($intData as $value) {
-            $this->assertNotInternalType('string', $value);
-            $this->assertInternalType('int', $value);
+            $this->assertIsNotString($value);
+            $this->assertIsInt($value);
         }
     }
 
@@ -198,8 +198,8 @@ class CollectionSpec extends TestCase
         $c = new Collection($strData);
 
         foreach ($strData as $data) {
-            $this->assertInternalType('string', $data);
-            $this->assertNotInternalType('int', $data);
+            $this->assertIsString($data);
+            $this->assertIsNotInt($data);
         }
 
         $intData = $c->map(function ($value) {
@@ -207,8 +207,8 @@ class CollectionSpec extends TestCase
         });
 
         foreach ($intData as $data) {
-            $this->assertInternalType('int', $data);
-            $this->assertNotInternalType('string', $data);
+            $this->assertIsInt($data);
+            $this->assertIsNotString($data);
         }
     }
 
