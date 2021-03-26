@@ -28,7 +28,7 @@ final class ToMegabits extends AbstractFormula
 {
     const FORMULA_STRING = 'Mb = Tib × 1.1e+6';
 
-    const FORMULA_TEMPLATE = '%Mb = %sTib × 1.1e+6';
+    const FORMULA_TEMPLATE = 'Mb = %sTib × 1.1e+6';
 
     /**
      * {@inheritDoc}

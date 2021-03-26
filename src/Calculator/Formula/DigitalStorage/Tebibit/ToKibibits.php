@@ -28,7 +28,7 @@ final class ToKibibits extends AbstractFormula
 {
     const FORMULA_STRING = 'Kib = Tib × 1.074e+9';
 
-    const FORMULA_TEMPLATE = '%Kib = %sTib × 1.074e+9';
+    const FORMULA_TEMPLATE = 'Kib = %sTib × 1.074e+9';
 
     /**
      * {@inheritDoc}

@@ -28,7 +28,7 @@ final class ToBytes extends AbstractFormula
 {
     const FORMULA_STRING = 'B = Tib × 1.374e+11';
 
-    const FORMULA_TEMPLATE = '%B = %sTib × 1.374e+11';
+    const FORMULA_TEMPLATE = 'B = %sTib × 1.374e+11';
 
     /**
      * {@inheritDoc}

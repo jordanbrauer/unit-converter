@@ -28,7 +28,7 @@ final class ToGrams extends AbstractFormula
 {
     const FORMULA_STRING = 'g = w/t × 1.016e+6';
 
-    const FORMULA_TEMPLATE = '%g = %sw/t × 1.016e+6';
+    const FORMULA_TEMPLATE = 'g = %sw/t × 1.016e+6';
 
     /**
      * {@inheritDoc}

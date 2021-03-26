@@ -28,7 +28,7 @@ final class ToGibibits extends AbstractFormula
 {
     const FORMULA_STRING = 'Gib = Tib × 1099.51';
 
-    const FORMULA_TEMPLATE = '%Gib = %sTib × 1099.51';
+    const FORMULA_TEMPLATE = 'Gib = %sTib × 1099.51';
 
     /**
      * {@inheritDoc}
