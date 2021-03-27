@@ -40,6 +40,9 @@ docs: $(wildcard src/*.php) $(wildcard src/**/*.php) ## Generate a new set of do
 	@/usr/bin/php -f bin/phpdoc -- -d ./src -t ./docs
 	@touch docs
 
+lock: vendor
+	@composer update --lock --ignore-platform-reqs
+
 release: analysis docs changelog ## Release the version as defined in .version config
 	@git commit -am "chore(release): $(VERSION)"
 	@git tag $(VERSION)
