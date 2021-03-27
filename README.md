@@ -119,7 +119,16 @@ if ($isOverSpeedLimit($capturedSpeed)) { # (bool) true
 }
 ```
 
-## Documentation
+#### Conversion Results as Words
+
+Sometimes you might need localization support for values. This component makes that a breeze by making using the `intl` extension. Simply opt for using the `spellout` method in lieu of `to`. You may also provide an optional locale as the second parameter to translate.
+
+```php
+$converter->convert(1)->from('in')->spellout('cm');       # (string) two point five four
+$converter->convert(1)->from('in')->spellout('cm', 'fr'); # (string) deux virgule cinq quatre
+```
+
+## 4. Documentation
 
 There are two kinds of in-depth documentation for this project: user & API documentation. Use whichever one you need to help answer your questions!
 

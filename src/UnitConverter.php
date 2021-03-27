@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace UnitConverter;
 
+use NumberFormatter;
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
@@ -187,7 +188,7 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @return static
      */
     public function convert($value, int $precision = null): UnitConverterInterface
     {
@@ -224,7 +225,7 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @return static
      */
     public function from(string $unit): UnitConverterInterface
     {
@@ -302,6 +303,24 @@ class UnitConverter implements UnitConverterInterface
         $this->registry = $registry;
 
         return $this;
+    }
+
+    /**
+     * Like `to`, but will present the conversion result as words instead of a numeric value.
+     *
+     * @param string $unit The unit being converted **to**. The unit must first be registered to the UnitRegistry.
+     * @param string $locale The locale to translate the number with. Defaults to Canadian English
+     * @return string
+     * @see to
+     */
+    public function spellout(string $unit, string $locale = 'en_CA'): string
+    {
+        if (!extension_loaded('intl')) {
+            throw new RuntimeException('Unable to spellout a conversion due to missing intl library. Please check your PHP extensions.');
+        }
+
+        return (new NumberFormatter($locale, NumberFormatter::SPELLOUT))
+            ->format($this->to($unit));
     }
 
     /**

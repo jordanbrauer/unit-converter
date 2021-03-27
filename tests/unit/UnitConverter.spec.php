@@ -87,6 +87,18 @@ class UnitConverterSpec extends TestCase
 
     /**
      * @test
+     * @covers ::spellout
+     */
+    public function assertConversionsCanBeSpelledOut(): void
+    {
+        $this->assertEquals(
+            'two point five four',
+            $this->converter->convert(1)->from('in')->spellout('cm'),
+        );
+    }
+
+    /**
+     * @test
      * @covers UnitConverter\Exception\BadRegistry
      */
     public function assertConversionThrowsUnknownBadRegistryExceptionsAtUnknownUnits()
