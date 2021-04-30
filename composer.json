@@ -2,6 +2,7 @@
     "name": "jordanbrauer/unit-converter",
     "type": "component",
     "description": "Convert standard units from one to another with this easy to use, lightweight package",
+    "version": "0.8.7",
     "license": "MIT",
     "authors": [
         {
@@ -33,6 +34,5 @@
             "UnitConverter\\Tests\\Integration\\": "tests/integration/",
             "UnitConverter\\Tests\\Unit\\": "tests/unit/"
         }
-    },
-    "version": "0.8.7"
+    }
 }
