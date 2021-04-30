@@ -95,7 +95,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 </aside>
 
             <p class="phpdocumentor-summary">The actual unit converter object. Extend this object
@@ -269,7 +269,7 @@ be an associative array in the form of `symbol =&gt; conversion`.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/UnitConverter-UnitConverter.html#method_convert">convert()</a>
     <span>
-                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+                        &nbsp;: static    </span>
 </dt>
 <dd>Set the unit converters&#039; value to be converted. This method is the first
 method to be called in the chain of conversion methods.</dd>
@@ -305,7 +305,7 @@ method to be called in the chain of conversion methods.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/UnitConverter-UnitConverter.html#method_from">from()</a>
     <span>
-                        &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
+                        &nbsp;: static    </span>
 </dt>
 <dd>Set the unit converters&#039; unit to be converted **from**. This method is the
 second to be called in the chain of conversion methods.</dd>
@@ -352,6 +352,13 @@ the current calculation.</dd>
                         &nbsp;: <a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a>    </span>
 </dt>
 <dd>Set the unit converter registry for storing units of measure to convert values with.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/UnitConverter-UnitConverter.html#method_spellout">spellout()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Like `to`, but will present the conversion result as words instead of a numeric value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/UnitConverter-UnitConverter.html#method_to">to()</a>
@@ -410,7 +417,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 </aside>
 
     
@@ -450,7 +457,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 </aside>
 
         <p class="phpdocumentor-summary">The converters internal calculator used to handle mathematical operations</p>
@@ -482,7 +489,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 </aside>
 
         <p class="phpdocumentor-summary">The value being converted.</p>
@@ -514,7 +521,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 </aside>
 
         <p class="phpdocumentor-summary">The unit of measure being converted **from**.</p>
@@ -546,7 +553,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 </aside>
 
         <p class="phpdocumentor-summary">The log of events for the current conversion calculations</p>
@@ -578,7 +585,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 </aside>
 
         <p class="phpdocumentor-summary">Are conversions going to be logged?</p>
@@ -610,7 +617,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 </aside>
 
         <p class="phpdocumentor-summary">The decimal precision to be calculated</p>
@@ -642,7 +649,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 </aside>
 
         <p class="phpdocumentor-summary">The registry that the unit converter accesses available units from</p>
@@ -674,7 +681,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 </aside>
 
         <p class="phpdocumentor-summary">The unit of measure being converted **to**.</p>
@@ -706,7 +713,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 </aside>
 
         <p class="phpdocumentor-summary">The current conversions unique hash.</p>
@@ -738,7 +745,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 </aside>
 
         <p class="phpdocumentor-summary">A static array of supported scalar types for a unit&#039;s value.</p>
@@ -774,7 +781,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 </aside>
 
         <p class="phpdocumentor-summary">Public constructor function for the UnitConverter class.</p>
@@ -829,7 +836,7 @@ hash **will not** be generated &amp; the check will not be made.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">164</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 </aside>
 
         <p class="phpdocumentor-summary">Convert a unit to all other possible units of measurement. The results will
@@ -864,7 +871,7 @@ be an associative array in the form of `symbol =&gt; conversion`.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns a unit converter set up for binary use cases</p>
@@ -898,7 +905,7 @@ be an associative array in the form of `symbol =&gt; conversion`.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">184</span>
+    <span class="phpdocumentor-element-found-in__line">185</span>
 </aside>
 
         <p class="phpdocumentor-summary">Determine whether or not the converter has an active calculator.</p>
@@ -932,7 +939,7 @@ be an associative array in the form of `symbol =&gt; conversion`.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">192</span>
+    <span class="phpdocumentor-element-found-in__line">193</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set the unit converters&#039; value to be converted. This method is the first
@@ -940,7 +947,7 @@ method to be called in the chain of conversion methods.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">convert</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$precision</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">convert</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$precision</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -969,7 +976,7 @@ method to be called in the chain of conversion methods.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">static</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -988,7 +995,7 @@ method to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns a builder object for quickly scaffolding out a new converter.</p>
@@ -1022,7 +1029,7 @@ method to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns a unit converter set up for common use cases</p>
@@ -1056,7 +1063,7 @@ method to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">207</span>
 </aside>
 
         <p class="phpdocumentor-summary">Disables the logging of conversions &amp; their order of operations.</p>
@@ -1090,7 +1097,7 @@ method to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">219</span>
+    <span class="phpdocumentor-element-found-in__line">220</span>
 </aside>
 
         <p class="phpdocumentor-summary">Enables the logging of conversions &amp; their order of operations.</p>
@@ -1124,7 +1131,7 @@ method to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set the unit converters&#039; unit to be converted **from**. This method is the
@@ -1132,7 +1139,7 @@ second to be called in the chain of conversion methods.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">from</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$unit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">from</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$unit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -1152,7 +1159,7 @@ second to be called in the chain of conversion methods.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/UnitConverter-UnitConverterInterface.html"><abbr title="\UnitConverter\UnitConverterInterface">UnitConverterInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">static</span>
             &mdash;
             <section class="phpdocumentor-description"></section>
 
@@ -1171,7 +1178,7 @@ second to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">241</span>
+    <span class="phpdocumentor-element-found-in__line">242</span>
 </aside>
 
         <p class="phpdocumentor-summary">Return the current calculator instance for the unit converter.</p>
@@ -1205,7 +1212,7 @@ second to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">254</span>
 </aside>
 
         <p class="phpdocumentor-summary">Return an array, containing a list of events in the order they occured for
@@ -1240,7 +1247,7 @@ the current calculation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">264</span>
 </aside>
 
         <p class="phpdocumentor-summary">Return the current registry instance for the unit converter.</p>
@@ -1274,7 +1281,7 @@ the current calculation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">274</span>
+    <span class="phpdocumentor-element-found-in__line">275</span>
 </aside>
 
         <p class="phpdocumentor-summary">Determine whether or not the converter has an active registry.</p>
@@ -1308,7 +1315,7 @@ the current calculation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">286</span>
+    <span class="phpdocumentor-element-found-in__line">287</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set the unit converter calculator to perform mathematical operations with.</p>
@@ -1354,7 +1361,7 @@ the current calculation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">300</span>
+    <span class="phpdocumentor-element-found-in__line">301</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set the unit converter registry for storing units of measure to convert values with.</p>
@@ -1393,6 +1400,76 @@ the current calculation.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_spellout">
+        spellout()
+        <a href="classes/UnitConverter-UnitConverter.html#method_spellout" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">316</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Like `to`, but will present the conversion result as words instead of a numeric value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">spellout</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$unit</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$locale</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;en_CA&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$unit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The unit being converted <strong>to</strong>. The unit must first be registered to the UnitRegistry.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$locale</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;en_CA&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The locale to translate the number with. Defaults to Canadian English</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\UnitConverter\to">to</abbr></span>
+                                        
+                                                 <section class="phpdocumentor-description"></section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"></section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_to">
         to()
         <a href="classes/UnitConverter-UnitConverter.html#method_to" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1400,7 +1477,7 @@ the current calculation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">310</span>
+    <span class="phpdocumentor-element-found-in__line">329</span>
 </aside>
 
         <p class="phpdocumentor-summary">Set the unit converters&#039; unit to be converted **to**. This method is the
@@ -1447,7 +1524,7 @@ third to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">323</span>
+    <span class="phpdocumentor-element-found-in__line">342</span>
 </aside>
 
         <p class="phpdocumentor-summary">Determine which calculator is currently being used</p>
@@ -1481,7 +1558,7 @@ third to be called in the chain of conversion methods.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">442</span>
+    <span class="phpdocumentor-element-found-in__line">461</span>
 </aside>
 
         <p class="phpdocumentor-summary">Generates a conversion hash for the current set of parameters &amp; checks if
@@ -1517,7 +1594,7 @@ hash **will not** be generated &amp; the check will not be made.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">453</span>
+    <span class="phpdocumentor-element-found-in__line">472</span>
 </aside>
 
         <p class="phpdocumentor-summary">Sets &amp; returns a unique md5 hash of the current conversion.</p>
@@ -1551,7 +1628,7 @@ hash **will not** be generated &amp; the check will not be made.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/UnitConverter.php"><a href="files/src-unitconverter.html"><abbr title="src/UnitConverter.php">UnitConverter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">470</span>
+    <span class="phpdocumentor-element-found-in__line">489</span>
 </aside>
 
         <p class="phpdocumentor-summary">Return a unique md5 hash of the current conversion.</p>

@@ -33,5 +33,6 @@
             "UnitConverter\\Tests\\Integration\\": "tests/integration/",
             "UnitConverter\\Tests\\Unit\\": "tests/unit/"
         }
-    }
+    },
+    "version": "0.8.7"
 }

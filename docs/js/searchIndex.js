@@ -21,6 +21,31 @@ Search.appendIndex(
             "summary": "Divide\u0020two\u0020arbitrary\u0020precision\u0020numbers",
             "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_div"
         },                {
+            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Amod\u0028\u0029",
+            "name": "mod",
+            "summary": "Get\u0020modulus\u0020of\u0020an\u0020arbitrary\u0020precision\u0020number",
+            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_mod"
+        },                {
+            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Amul\u0028\u0029",
+            "name": "mul",
+            "summary": "Multiply\u0020two\u0020arbitrary\u0020precision\u0020numbers",
+            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_mul"
+        },                {
+            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Apow\u0028\u0029",
+            "name": "pow",
+            "summary": "Raise\u0020an\u0020arbitrary\u0020precision\u0020number\u0020to\u0020another",
+            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_pow"
+        },                {
+            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Asub\u0028\u0029",
+            "name": "sub",
+            "summary": "Subtract\u0020one\u0020arbitrary\u0020precision\u0020number\u0020from\u0020another",
+            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_sub"
+        },                {
+            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Ainvariant\u0028\u0029",
+            "name": "invariant",
+            "summary": "Throw\u0020a\u0020type\u0020error\u0020if\u0020the\u0020given\u0020closure\u0020does\u0020not\u0020evaluate\u0020to\u0020true\u0020for\u0020one\nof\u0020given\u0020values.\u0020The\u0020name\u0020of\u0020the\u0020method\u0020and\u0020allowed\u0020type\u0020string\u0020are\u0020used\nto\u0020create\u0020an\u0020error\u0020message.",
+            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_invariant"
+        },                {
             "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Adivide\u0028\u0029",
             "name": "divide",
             "summary": "Syntacital\u0020sugar\u0020wrapper\u0020method\u0020for\u0020div.",
@@ -46,30 +71,15 @@ Search.appendIndex(
             "summary": "Return\u0020the\u0020current\u0020rounding\u0020mode",
             "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_getRoundingMode"
         },                {
-            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Amod\u0028\u0029",
-            "name": "mod",
-            "summary": "Get\u0020modulus\u0020of\u0020an\u0020arbitrary\u0020precision\u0020number",
-            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_mod"
-        },                {
             "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Amodulus\u0028\u0029",
             "name": "modulus",
             "summary": "Syntacital\u0020sugar\u0020wrapper\u0020method\u0020for\u0020mod",
             "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_modulus"
         },                {
-            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Amul\u0028\u0029",
-            "name": "mul",
-            "summary": "Multiply\u0020two\u0020arbitrary\u0020precision\u0020numbers",
-            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_mul"
-        },                {
             "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Amultiply\u0028\u0029",
             "name": "multiply",
             "summary": "Syntacital\u0020sugar\u0020wrapper\u0020method\u0020for\u0020mul",
             "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_multiply"
-        },                {
-            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Apow\u0028\u0029",
-            "name": "pow",
-            "summary": "Raise\u0020an\u0020arbitrary\u0020precision\u0020number\u0020to\u0020another",
-            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_pow"
         },                {
             "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Apower\u0028\u0029",
             "name": "power",
@@ -91,20 +101,10 @@ Search.appendIndex(
             "summary": "Use\u0020one\u0020of\u0020the\u0020PHP_ROUND_HALF_\u002A\u0020constants\u0020to\u0020specify\nthe\u0020mode\u0020in\u0020which\u0020rounding\u0020occurs.",
             "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_setRoundingMode"
         },                {
-            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Asub\u0028\u0029",
-            "name": "sub",
-            "summary": "Subtract\u0020one\u0020arbitrary\u0020precision\u0020number\u0020from\u0020another",
-            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_sub"
-        },                {
             "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Asubtract\u0028\u0029",
             "name": "subtract",
             "summary": "Syntacital\u0020sugar\u0020wrapper\u0020method\u0020for\u0020sub",
             "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_subtract"
-        },                {
-            "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Ainvariant\u0028\u0029",
-            "name": "invariant",
-            "summary": "Throw\u0020a\u0020type\u0020error\u0020if\u0020the\u0020given\u0020closure\u0020does\u0020not\u0020evaluate\u0020to\u0020true\u0020for\u0020one\nof\u0020given\u0020values.\u0020The\u0020name\u0020of\u0020the\u0020method\u0020and\u0020allowed\u0020type\u0020string\u0020are\u0020used\nto\u0020create\u0020an\u0020error\u0020message.",
-            "url": "classes/UnitConverter-Calculator-AbstractCalculator.html#method_invariant"
         },                {
             "fqsen": "\\UnitConverter\\Calculator\\AbstractCalculator\u003A\u003Ainit\u0028\u0029",
             "name": "init",
@@ -171,6 +171,26 @@ Search.appendIndex(
             "summary": "Public\u0020constructor\u0020for\u0020the\u0020unit\u0020converter\u0020calculator.\u0020For\u0020a\u0020list\u0020of\nvalid\u0020\u0024roundingMode\u0020arguments,\u0020see\u0020the\u0020PHP_ROUND_HALF_\u002A\u0020constants.",
             "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method___construct"
         },                {
+            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003AexpandScientific\u0028\u0029",
+            "name": "expandScientific",
+            "summary": "Expand\u0020a\u0020scientific\u0020notation\u0020number\u0020to\u0020it\u0027s\u0020whole\u0020form\u0020as\u0020a\u0020string.",
+            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_expandScientific"
+        },                {
+            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003AisScientific\u0028\u0029",
+            "name": "isScientific",
+            "summary": "Check\u0020if\u0020the\u0020given\u0020number\u0020is\u0020scientific\u0020notation.",
+            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_isScientific"
+        },                {
+            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003Aoperand\u0028\u0029",
+            "name": "operand",
+            "summary": "Sanitize\u0020operands\u0020for\u0020use\u0020with\u0020BC\u0020math.",
+            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_operand"
+        },                {
+            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003Aproduct\u0028\u0029",
+            "name": "product",
+            "summary": "Produce\u0020a\u0020valid\u0020calculation\u0020result,\u0020ensuring\u0020no\u0020trailing\u0020zeros.",
+            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_product"
+        },                {
             "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "Add\u0020two\u0020arbitrary\u0020precision\u0020numbers",
@@ -210,26 +230,6 @@ Search.appendIndex(
             "name": "sub",
             "summary": "Subtract\u0020one\u0020arbitrary\u0020precision\u0020number\u0020from\u0020another",
             "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_sub"
-        },                {
-            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003Aproduct\u0028\u0029",
-            "name": "product",
-            "summary": "Produce\u0020a\u0020valid\u0020calculation\u0020result,\u0020ensuring\u0020no\u0020trailing\u0020zeros.",
-            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_product"
-        },                {
-            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003Aoperand\u0028\u0029",
-            "name": "operand",
-            "summary": "Sanitize\u0020operands\u0020for\u0020use\u0020with\u0020BC\u0020math.",
-            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_operand"
-        },                {
-            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003AisScientific\u0028\u0029",
-            "name": "isScientific",
-            "summary": "Check\u0020if\u0020the\u0020given\u0020number\u0020is\u0020scientific\u0020notation.",
-            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_isScientific"
-        },                {
-            "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003AexpandScientific\u0028\u0029",
-            "name": "expandScientific",
-            "summary": "Expand\u0020a\u0020scientific\u0020notation\u0020number\u0020to\u0020it\u0027s\u0020whole\u0020form\u0020as\u0020a\u0020string.",
-            "url": "classes/UnitConverter-Calculator-BinaryCalculator.html#method_expandScientific"
         },                {
             "fqsen": "\\UnitConverter\\Calculator\\BinaryCalculator\u003A\u003ASCALAR",
             "name": "SCALAR",
@@ -3970,6 +3970,11 @@ Search.appendIndex(
             "name": "setRegistry",
             "summary": "Set\u0020the\u0020unit\u0020converter\u0020registry\u0020for\u0020storing\u0020units\u0020of\u0020measure\u0020to\u0020convert\u0020values\u0020with.",
             "url": "classes/UnitConverter-UnitConverter.html#method_setRegistry"
+        },                {
+            "fqsen": "\\UnitConverter\\UnitConverter\u003A\u003Aspellout\u0028\u0029",
+            "name": "spellout",
+            "summary": "Like\u0020\u0060to\u0060,\u0020but\u0020will\u0020present\u0020the\u0020conversion\u0020result\u0020as\u0020words\u0020instead\u0020of\u0020a\u0020numeric\u0020value.",
+            "url": "classes/UnitConverter-UnitConverter.html#method_spellout"
         },                {
             "fqsen": "\\UnitConverter\\UnitConverter\u003A\u003A\u0024to",
             "name": "to",
