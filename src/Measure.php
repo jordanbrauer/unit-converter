@@ -23,6 +23,7 @@ use UnitConverter\Unit\Area\SquareMetre;
 use UnitConverter\Unit\Area\SquareMile;
 use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\Unit\DigitalStorage\Bit;
+use UnitConverter\Unit\DigitalStorage\Byte;
 use UnitConverter\Unit\DigitalStorage\Gibibit;
 use UnitConverter\Unit\DigitalStorage\Gigabit;
 use UnitConverter\Unit\DigitalStorage\Gigabyte;
@@ -265,6 +266,7 @@ class Measure
         ],
         self::DIGITAL_STORAGE => [
             Bit::class,
+            Byte::class,
             Kilobit::class,
             Megabit::class,
             Gigabit::class,
