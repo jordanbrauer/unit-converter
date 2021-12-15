@@ -4,82 +4,101 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: PHP Installation
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        extensions: bcmath
-    - name: Code Checkout
-      uses: actions/checkout@v2
-    - name: Cache
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('src/', 'tests/') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-    - name: Installation
-      if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest
-    - name: Prepare Artifacts
-      run: tar -cvf vendor.tar vendor
-    - name: Archive Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: test-dist
-        retention-days: 1
-        path: vendor.tar
-
   analysis:
-    runs-on: ubuntu-latest
-    needs: build
+    strategy:
+      matrix:
+        dependencies:
+          - "locked"
+        php-version:
+          - "7.4"
+        operating-system:
+          - "ubuntu-latest"
+
+    runs-on: ${{ matrix.operating-system }}
     steps:
-    - name: PHP Installation
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        extensions: bcmath
-    - name: Code Checkout
-      uses: actions/checkout@v2
-    - name: Download Artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: test-dist
-    - name: Unpackage Artifacts
-      run: tar -xvf vendor.tar
-    - name: Validate
-      run: |
-        composer validate
-        composer normalize --dry-run
-    # - name: Lint (Codestyle)
-    #   run: composer style -- --dry-run
-    # - name: Static Analysis
-    #   run: composer analyze -- --error-format=github
+      - name: PHP Installation
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ matrix.php-version }}"
+          extensions: bcmath
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: "Cache dependencies"
+        uses: "actions/cache@v2"
+        with:
+          path: |
+            ~/.composer/cache
+            vendor
+          key: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
+          restore-keys: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
+
+      - name: "Install lowest dependencies"
+        if: ${{ matrix.dependencies == 'lowest' }}
+        run: "composer update --prefer-lowest --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
+
+      - name: "Install highest dependencies"
+        if: ${{ matrix.dependencies == 'highest' }}
+        run: "composer update --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
+
+      - name: "Install locked dependencies"
+        if: ${{ matrix.dependencies == 'locked' }}
+        run: "composer install --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
+
+      - name: Validate
+        run: |
+          composer validate
+          composer normalize --dry-run
 
   tests:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: PHP Installation
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        extensions: bcmath
-    - name: Code Checkout
-      uses: actions/checkout@v2
-    - name: Download Artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: test-dist
-    - name: Unpackage Artifacts
-      run: tar -xvf vendor.tar
-    - name: Test
-      run: vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always
+    strategy:
+      matrix:
+        dependencies:
+          - "lowest"
+          - "highest"
+          - "locked"
+        php-version:
+          - "7.4"
+          - "8.0"
+          - "8.1"
+        operating-system:
+          - "ubuntu-latest"
 
+    runs-on: ${{ matrix.operating-system }}
+
+    steps:
+      - name: PHP Installation
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "${{ matrix.php-version }}"
+          extensions: bcmath
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: "Cache dependencies"
+        uses: "actions/cache@v2"
+        with:
+          path: |
+            ~/.composer/cache
+            vendor
+          key: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
+          restore-keys: "php-${{ matrix.php-version }}-${{ matrix.dependencies }}"
+
+      - name: "Install lowest dependencies"
+        if: ${{ matrix.dependencies == 'lowest' }}
+        run: "composer update --prefer-lowest --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
+
+      - name: "Install highest dependencies"
+        if: ${{ matrix.dependencies == 'highest' }}
+        run: "composer update --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
+
+      - name: "Install locked dependencies"
+        if: ${{ matrix.dependencies == 'locked' }}
+        run: "composer install --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
+
+      - name: Test
+        run: vendor/bin/phpunit

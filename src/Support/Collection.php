@@ -171,6 +171,7 @@ final class Collection implements ArrayAccess, Countable, IteratorAggregate, Jso
      * @param mixed $offset
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->store[$offset];
