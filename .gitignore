@@ -15,7 +15,6 @@ report/
 
 ### Composer ###
 composer.phar
-/composer.lock
 /vendor/
 coverage.txt
 clover.xml
