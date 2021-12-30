@@ -32,5 +32,11 @@
             "UnitConverter\\Tests\\Integration\\": "tests/integration/",
             "UnitConverter\\Tests\\Unit\\": "tests/unit/"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "ergebnis/composer-normalize": true
+        }
     }
 }
