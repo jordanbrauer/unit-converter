@@ -19,6 +19,7 @@ use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadConverter;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Registry\UnitRegistryInterface;
 use UnitConverter\Unit\UnitInterface;
 
@@ -357,6 +358,10 @@ class UnitConverter implements UnitConverterInterface
     {
         if (!$this->calculatorExists()) {
             throw BadConverter::missingCalculator();
+        }
+
+        if ($this->from->getUnitOf() !== $this->to->getUnitOf()) {
+            throw BadUnit::conversion($this->from, $this->to);
         }
 
         if ($this->conversionExists()) {
