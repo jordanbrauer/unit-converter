@@ -16,7 +16,9 @@ namespace UnitConverter\Tests\Integration\Unit\Volume;
 
 use Iterator;
 use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicCentimetre;
 use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\CubicMillimetre;
 use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
@@ -44,6 +46,8 @@ use UnitConverter\Unit\Volume\Pint;
  * @uses UnitConverter\Unit\Volume\Gallon
  * @uses UnitConverter\Unit\Volume\Millilitre
  * @uses UnitConverter\Unit\Volume\Pint
+ * @uses UnitConverter\Unit\Volume\CubicCentimetre
+ * @uses UnitConverter\Unit\Volume\CubicMillimetre
  */
 final class CubicMetreSpec extends TestCase
 {
@@ -52,11 +56,13 @@ final class CubicMetreSpec extends TestCase
         $m3 = new CubicMetre(1);
 
         yield from [ # NOTE: conversions taken from google unit converter
-            '1 cubic metre is equal to 1 cubic metre'            => [$m3, new CubicMetre(1.0), 0],
-            '1 cubic metre is equal to 264.17 US liquid gallons' => [$m3, new Gallon(264.172), 3],
-            '1 cubic metre is equal to 1000 litres'              => [$m3, new Litre(1000.0), 0],
-            '1 cubic metre is equal to 1000000 millilitres'      => [$m3, new Millilitre(1000000.0), 0],
-            '1 cubic metre is equal to 2113.38 US liquid pints'  => [$m3, new Pint(2113.38), 2],
+            '1 cubic metre is equal to 1 cubic metre'                 => [$m3, new CubicMetre(1.0), 0],
+            '1 cubic metre is equal to 264.17 US liquid gallons'      => [$m3, new Gallon(264.172), 3],
+            '1 cubic metre is equal to 1000 litres'                   => [$m3, new Litre(1000.0), 0],
+            '1 cubic metre is equal to 1000000 millilitres'           => [$m3, new Millilitre(1000000.0), 0],
+            '1 cubic metre is equal to 2113.38 US liquid pints'       => [$m3, new Pint(2113.38), 2],
+            '1 cubic metre is equal to 1000000 cubic centimetres'     => [$m3, new CubicCentimetre(1000000.0), 0],
+            '1 cubic metre is equal to 1000000000 cubic millilitres'  => [$m3, new CubicMillimetre(1000000000.0), 0],
         ];
     }
 }

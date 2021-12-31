@@ -16,12 +16,13 @@ namespace UnitConverter\Tests\Integration\Unit\Volume;
 
 use Iterator;
 use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicCentimetre;
 use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\CubicMillimetre;
 use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
 use UnitConverter\Unit\Volume\Pint;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a U.S. gallon is a U.S. gallon.
@@ -45,6 +46,8 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Unit\Volume\CubicMetre
  * @uses UnitConverter\Unit\Volume\Millilitre
  * @uses UnitConverter\Unit\Volume\Pint
+ * @uses UnitConverter\Unit\Volume\CubicCentimetre
+ * @uses UnitConverter\Unit\Volume\CubicMillimetre
  */
 final class GallonSpec extends TestCase
 {
@@ -53,11 +56,13 @@ final class GallonSpec extends TestCase
         $gal = new Gallon(1);
 
         yield from [ # NOTE: conversions taken from google unit converter
-            '1 gallon is equal to 0.004 cubic metres' => [$gal, new CubicMetre(0.004), 3],
-            '1 gallon is equal to 1 gallon'           => [$gal, new Gallon(1.0), 0],
-            '1 gallon is equal to 3.79 litres'        => [$gal, new Litre(3.785), 3],
-            '1 gallon is equal to 3785.4 millilitres' => [$gal, new Millilitre(3785.41), 2],
-            '1 gallon is equal to 8 pints'            => [$gal, new Pint(8.0), 0],
+            '1 gallon is equal to 0.004 cubic metres'                   => [$gal, new CubicMetre(0.004), 3],
+            '1 gallon is equal to 1 gallon'                             => [$gal, new Gallon(1.0), 0],
+            '1 gallon is equal to 3.79 litres'                          => [$gal, new Litre(3.785), 3],
+            '1 gallon is equal to 3785.4 millilitres'                   => [$gal, new Millilitre(3785.41), 2],
+            '1 gallon is equal to 8 pints'                              => [$gal, new Pint(8.0), 0],
+            '1 gallon is equal to 3785.41 cubic centimetres'            => [$gal, new CubicCentimetre(3785.41), 2],
+            '1 gallon is equal to 3785410 cubic millilitres'            => [$gal, new CubicMillimetre(3785410.0), 0],
         ];
     }
 }

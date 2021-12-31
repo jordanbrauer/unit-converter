@@ -16,12 +16,13 @@ namespace UnitConverter\Tests\Integration\Unit\Volume;
 
 use Iterator;
 use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicCentimetre;
 use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\CubicMillimetre;
 use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
 use UnitConverter\Unit\Volume\Pint;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a pint is a pint.
@@ -38,6 +39,8 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Unit\Volume\CubicMillimetre
  */
 class PintSpec extends TestCase
 {
@@ -46,11 +49,13 @@ class PintSpec extends TestCase
         $pt = new Pint(1);
 
         yield from [
-            '1 pint is equal to 0.000473176 cubic metres' => [$pt, new CubicMetre(0.000473176), 9],
-            '1 pint is equal to 0.125 gallons'            => [$pt, new Gallon(0.125), 3],
-            '1 pint is equal to 0.473176 litres'          => [$pt, new Litre(0.473176), 6],
-            '1 pint is equal to 473.176 millilitre'       => [$pt, new Millilitre(473.176), 3],
-            '1 pint is equal to 1 pint'                   => [$pt, new Pint(1.0), 0],
+            '1 pint is equal to 0.000473176 cubic metres'                   => [$pt, new CubicMetre(0.000473176), 9],
+            '1 pint is equal to 0.125 gallons'                              => [$pt, new Gallon(0.125), 3],
+            '1 pint is equal to 0.473176 litres'                            => [$pt, new Litre(0.473176), 6],
+            '1 pint is equal to 473.176 millilitre'                         => [$pt, new Millilitre(473.176), 3],
+            '1 pint is equal to 1 pint'                                     => [$pt, new Pint(1.0), 0],
+            '1 pint is equal to 473176 cubic millimetres'                   => [$pt, new CubicMillimetre(473176.0), 0],
+            '1 pint is equal to 473176 cubic centimetres'                   => [$pt, new CubicCentimetre(473.176), 3],
         ];
     }
 }

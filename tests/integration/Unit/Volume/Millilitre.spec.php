@@ -16,12 +16,13 @@ namespace UnitConverter\Tests\Integration\Unit\Volume;
 
 use Iterator;
 use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicCentimetre;
 use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\CubicMillimetre;
 use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
 use UnitConverter\Unit\Volume\Pint;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a millilitre is a millilitre.
@@ -38,6 +39,8 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
+ * @uses UnitConverter\Unit\Volume\CubicMillimetre
+ * @uses UnitConverter\Unit\Volume\CubicCentimetre
  */
 class MillilitreSpec extends TestCase
 {
@@ -46,11 +49,13 @@ class MillilitreSpec extends TestCase
         $ml = new Millilitre(1);
 
         yield from [
-            '1 millilitre is 1,000,000 cubic metres' => [$ml, new CubicMetre(0.000001), 6],
-            '1 millilitre is 0.000264172 gallons'    => [$ml, new Gallon(0.000264172), 9],
-            '1 millilitre is 0.001 litres'           => [$ml, new Litre(0.001), 3],
-            '1 millilitre is 1 millilitre'           => [$ml, new Millilitre(1.0), 0],
-            '1 millilitre is 0.00211338 pints'       => [$ml, new Pint(0.00211338), 8],
+            '1 millilitre is 1,000,000 cubic metres'      => [$ml, new CubicMetre(0.000001), 6],
+            '1 millilitre is 0.000264172 gallons'         => [$ml, new Gallon(0.000264172), 9],
+            '1 millilitre is 0.001 litres'                => [$ml, new Litre(0.001), 3],
+            '1 millilitre is 1 millilitre'                => [$ml, new Millilitre(1.0), 0],
+            '1 millilitre is 0.00211338 pints'            => [$ml, new Pint(0.00211338), 8],
+            '1 millilitre is 1 cubic centimetre'          => [$ml, new CubicCentimetre(1.0), 0],
+            '1 millilitre is 1000 cubic millimetre'       => [$ml, new CubicMillimetre(1000.0), 0],
         ];
     }
 }
