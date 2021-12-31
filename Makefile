@@ -14,12 +14,12 @@ help: ## Show this help message
 analysis: vendor ## Analyze the source code and manifest document(s)
 	@composer validate
 	@composer normalize --dry-run
-	@bin/phpcs fix --config=.php_cs --show-progress=dots --ansi -vvv --dry-run
-	@vendor/bin/phpinsights --no-interaction \
-		--min-quality=70 \
-		--min-complexity=90 \
-		--min-architecture=70 \
-		--min-style=90
+	@PHP_CS_FIXER_IGNORE_ENV=1 bin/phpcs fix --config=.php_cs --show-progress=dots --ansi -vvv --dry-run
+	# @vendor/bin/phpinsights --no-interaction \
+	# 	--min-quality=70 \
+	# 	--min-complexity=90 \
+	# 	--min-architecture=70 \
+	# 	--min-style=90
 
 changelog: $(changelog) ## Generate a new changelog for versions defined in .version config
 $(changelog): vendor .version
