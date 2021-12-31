@@ -55,7 +55,7 @@ style: vendor ## Format the source code and other documents in the repository
 
 test: vendor ## Run tests
 	#@vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always
-	@vendor/bin/pest --configuration=phpunit.xml --color=always
+	@vendor/bin/pest
 
 vendor: composer.json ## Install vendor dependencies
 	@composer install --optimize-autoloader --no-suggest --ignore-platform-reqs
