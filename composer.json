@@ -17,7 +17,6 @@
     "require-dev": {
         "ergebnis/composer-normalize": "^2.13",
         "marcocesarato/php-conventional-changelog": "^1.10",
-        "nunomaduro/phpinsights": "^1.14",
         "pestphp/pest": "^1.0",
         "phpunit/phpunit": "^9.5",
         "symfony/var-dumper": "^3.3"
