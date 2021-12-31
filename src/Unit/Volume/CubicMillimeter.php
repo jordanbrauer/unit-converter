@@ -21,7 +21,7 @@ namespace UnitConverter\Unit\Volume;
  * @since 0.0.1
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  */
-class CubicMillimeter extends VolumeUnit
+class CubicMillimetre extends VolumeUnit
 {
     protected function configure(): void
     {
