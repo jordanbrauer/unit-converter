@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Tests\Unit\Calculator;
 
 use PHPUnit\Framework\TestCase;
+use TypeError;
 use UnitConverter\Calculator\BinaryCalculator;
 
 /**
@@ -24,12 +25,12 @@ use UnitConverter\Calculator\BinaryCalculator;
  */
 class BinaryCalculatorSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->calculator = new BinaryCalculator();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->calculator);
     }
@@ -45,7 +46,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -59,7 +60,77 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
+    }
+
+    /**
+     * @test
+     * @covers ::add
+     */
+    public function assertErrorIsThrownForInvalidAdditionTypeInput()
+    {
+        $this->expectException(TypeError::class);
+        $this->calculator->add('asdf', 'asdf');
+    }
+
+    /**
+     * @test
+     * @covers ::div
+     */
+    public function assertErrorIsThrownForInvalidDivisionTypeInput()
+    {
+        $this->expectException(TypeError::class);
+        $this->calculator->div('asdf', 'asdf');
+    }
+
+    /**
+     * @test
+     * @covers ::mod
+     */
+    public function assertErrorIsThrownForInvalidModulusTypeInput()
+    {
+        $this->expectException(TypeError::class);
+        $this->calculator->mod('asdf', 'asdf');
+    }
+
+    /**
+     * @test
+     * @covers ::mul
+     */
+    public function assertErrorIsThrownForInvalidMultiplicationTypeInput()
+    {
+        $this->expectException(TypeError::class);
+        $this->calculator->mul('asdf', 'asdf');
+    }
+
+    /**
+     * @test
+     * @covers ::pow
+     */
+    public function assertErrorIsThrownForInvalidPowerTypeInput()
+    {
+        $this->expectException(TypeError::class);
+        $this->calculator->pow('asdf', 'asdf');
+    }
+
+    /**
+     * @test
+     * @covers ::round
+     */
+    public function assertErrorIsThrownForInvalidRoundingTypeInput()
+    {
+        $this->expectException(TypeError::class);
+        $this->calculator->round('asdf.34');
+    }
+
+    /**
+     * @test
+     * @covers ::sub
+     */
+    public function assertErrorIsThrownForInvalidSubtractionTypeInput()
+    {
+        $this->expectException(TypeError::class);
+        $this->calculator->sub('asdf', 'asdf');
     }
 
     /**
@@ -75,7 +146,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -91,7 +162,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -107,7 +178,7 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -121,7 +192,7 @@ class BinaryCalculatorSpec extends TestCase
         $actual = $this->calculator->round("2.54", 1);
         $this->assertEquals($expected, $actual);
         $this->assertSame($expected, $actual);
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 
     /**
@@ -135,6 +206,6 @@ class BinaryCalculatorSpec extends TestCase
 
         $this->assertEquals($expected, $actual);
         // $this->assertSame($expected, $actual); # TODO: figure rounding issues – #54
-        $this->assertInternalType("string", $actual);
+        $this->assertIsString($actual);
     }
 }

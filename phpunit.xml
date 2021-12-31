@@ -1,45 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/6.3/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
-         printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer"
          forceCoversAnnotation="true"
          beStrictAboutCoversAnnotation="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTodoAnnotatedTests="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
+         convertDeprecationsToExceptions="true"
          verbose="true"
          colors="true"
          >
-    <filter>
-      <whitelist processUncoveredFilesFromWhitelist="true">
+    <coverage>
+      <include>
         <directory suffix=".php">src/</directory>
-      </whitelist>
-    </filter>
+      </include>
+    </coverage>
 
     <testsuites>
       <testsuite name="fullspec">
         <directory suffix=".spec.php">tests/</directory>
       </testsuite>
-    </testsuites>
 
-    <testsuites>
       <testsuite name="unit">
         <directory suffix=".spec.php">tests/unit/</directory>
       </testsuite>
-    </testsuites>
 
-    <testsuites>
       <testsuite name="integration">
         <directory suffix=".spec.php">tests/integration/</directory>
       </testsuite>
-    </testsuites>
 
-    <testsuites>
-      <testsuite name="errors">
-        <directory suffix=".spec.php">tests/exception/</directory>
+      <testsuite name="area">
+        <directory suffix=".spec.php">tests/integration/Unit/Area/</directory>
+      </testsuite>
+
+      <testsuite name="storage">
+        <directory suffix=".spec.php">tests/integration/Unit/DigitalStorage/</directory>
+      </testsuite>
+
+      <testsuite name="energy">
+        <directory suffix=".spec.php">tests/integration/Unit/Energy/</directory>
+      </testsuite>
+
+      <testsuite name="frequency">
+        <directory suffix=".spec.php">tests/integration/Unit/Frequency/</directory>
+      </testsuite>
+
+      <testsuite name="length">
+        <directory suffix=".spec.php">tests/integration/Unit/Length/</directory>
+      </testsuite>
+
+      <testsuite name="mass">
+        <directory suffix=".spec.php">tests/integration/Unit/Mass/</directory>
+      </testsuite>
+
+      <testsuite name="planeangle">
+        <directory suffix=".spec.php">tests/integration/Unit/PlaneAngle/</directory>
+      </testsuite>
+
+      <testsuite name="pressure">
+        <directory suffix=".spec.php">tests/integration/Unit/Pressure/</directory>
+      </testsuite>
+
+      <testsuite name="speed">
+        <directory suffix=".spec.php">tests/integration/Unit/Speed/</directory>
+      </testsuite>
+
+      <testsuite name="temperature">
+        <directory suffix=".spec.php">tests/integration/Unit/Temperature/</directory>
+      </testsuite>
+
+      <testsuite name="time">
+        <directory suffix=".spec.php">tests/integration/Unit/Time/</directory>
+      </testsuite>
+
+      <testsuite name="volume">
+        <directory suffix=".spec.php">tests/integration/Unit/FuelEconomy/</directory>
+        <directory suffix=".spec.php">tests/integration/Unit/Volume/</directory>
       </testsuite>
     </testsuites>
 </phpunit>

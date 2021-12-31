@@ -14,17 +14,25 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Energy\Calorie;
+use UnitConverter\Unit\Energy\FootPound;
 use UnitConverter\Unit\Energy\Joule;
+use UnitConverter\Unit\Energy\Kilojoule;
+use UnitConverter\Unit\Energy\KilowattHour;
+use UnitConverter\Unit\Energy\Megaelectronvolt;
+use UnitConverter\Unit\Energy\Megajoule;
+use UnitConverter\Unit\Energy\MegawattHour;
+use UnitConverter\Unit\Energy\NewtonMetre;
+use UnitConverter\Unit\Energy\WattHour;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a calorie is infact, a calorie.
  *
  * @covers UnitConverter\Unit\Energy\Calorie
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Energy\Joule
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +46,21 @@ use UnitConverter\UnitConverter;
  */
 class CalorieSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Joule(),
-                new Calorie(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $cal = new Calorie(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1CalorieIs4184Joules()
-    {
-        $expected = 4184;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("cal")
-            ->to("J");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 calorie is equal to 1 calorie'                 => [$cal, new Calorie(1.0), 0],
+            '1 calorie is equal to 3085.96 foot pounds'       => [$cal, new FootPound(3085.96), 2],
+            '1 calorie is equal to 4184 joules'               => [$cal, new Joule(4184.0), 0],
+            '1 calorie is equal to 4.184 kilojoules'          => [$cal, new Kilojoule(4.184), 3],
+            '1 calorie is equal to 0.00116222 kilowatt hours' => [$cal, new KilowattHour(0.00116222), 8],
+            /* NOTE: this test or conversion is fucked */ // '1 calorie is equal to 26,114,419,104,000,000 megaelectronvolts' => [$cal, new Megaelectronvolt(26114419104000000.0), 0],
+            '1 calorie is equal to 0.004184 megajoules'          => [$cal, new Megajoule(0.004184), 6],
+            '1 calorie is equal to 0.00000116222 megawatt hours' => [$cal, new MegawattHour(0.00000116222), 11],
+            '1 calorie is equal to 4,184 newton metres'          => [$cal, new NewtonMetre(4184.0), 0],
+            '1 calorie is equal to 1.16222 watt hours'           => [$cal, new WattHour(1.16222), 5],
+        ];
     }
 }

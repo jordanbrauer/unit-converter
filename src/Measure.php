@@ -23,6 +23,7 @@ use UnitConverter\Unit\Area\SquareMetre;
 use UnitConverter\Unit\Area\SquareMile;
 use UnitConverter\Unit\Area\SquareMillimetre;
 use UnitConverter\Unit\DigitalStorage\Bit;
+use UnitConverter\Unit\DigitalStorage\Byte;
 use UnitConverter\Unit\DigitalStorage\Gibibit;
 use UnitConverter\Unit\DigitalStorage\Gigabit;
 use UnitConverter\Unit\DigitalStorage\Gigabyte;
@@ -84,6 +85,8 @@ use UnitConverter\Unit\PlaneAngle\Degree;
 use UnitConverter\Unit\PlaneAngle\Radian;
 use UnitConverter\Unit\Pressure\Atmosphere;
 use UnitConverter\Unit\Pressure\Bar;
+use UnitConverter\Unit\Pressure\Hectopascal;
+use UnitConverter\Unit\Pressure\InchesOfMercury;
 use UnitConverter\Unit\Pressure\Kilopascal;
 use UnitConverter\Unit\Pressure\Megapascal;
 use UnitConverter\Unit\Pressure\Millibar;
@@ -132,6 +135,8 @@ class Measure
     const ENERGY = "energy";
 
     const FREQUENCY = 'frequency';
+
+    const FUEL_ECONOMY = 'fuel_economy';
 
     const LENGTH = "length";
 
@@ -192,9 +197,6 @@ class Measure
             Litre::class,
             Millilitre::class,
             Pint::class,
-            KilometrePerLitre::class,
-            LitrePer100Kilometres::class,
-            MilesPerGallon::class,
         ],
         self::MASS => [
             Gram::class,
@@ -225,6 +227,8 @@ class Measure
         self::PRESSURE => [
             Atmosphere::class,
             Bar::class,
+            Hectopascal::class,
+            InchesOfMercury::class,
             Kilopascal::class,
             Megapascal::class,
             Millibar::class,
@@ -266,6 +270,7 @@ class Measure
         ],
         self::DIGITAL_STORAGE => [
             Bit::class,
+            Byte::class,
             Kilobit::class,
             Megabit::class,
             Gigabit::class,
@@ -278,6 +283,11 @@ class Measure
             Megabyte::class,
             Gigabyte::class,
             Terabyte::class,
+        ],
+        self::FUEL_ECONOMY => [
+            KilometrePerLitre::class,
+            LitrePer100Kilometres::class,
+            MilesPerGallon::class,
         ],
     ];
 

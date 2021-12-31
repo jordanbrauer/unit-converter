@@ -14,6 +14,15 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\DigitalStorage;
 
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToBits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToBytes;
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToGibibits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToKibibits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToKilobits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToKilobytes;
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToMebibits;
+use UnitConverter\Calculator\Formula\DigitalStorage\Tebibit\ToMegabits;
+
 /**
  * Tebibit unit data class
  *
@@ -32,6 +41,17 @@ class Tebibit extends DigitalStorageUnit
 
             ->setScientificSymbol("Tib")
 
-            ->setUnits(1099511627776);
+            ->setUnits(1099511627776)
+
+            ->addFormulae([
+                'b'   => ToBits::class,
+                'B'   => ToBytes::class,
+                'Gb'  => ToGibibits::class,
+                'Kib' => ToKibibits::class,
+                'kb'  => ToKilobits::class,
+                'kB'  => ToKilobytes::class,
+                'Mib' => ToMebibits::class,
+                'Mb'  => ToMegabits::class,
+            ]);
     }
 }

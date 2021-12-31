@@ -83,7 +83,7 @@ class ConverterBuilder
      * Seeds the converter's registry with a user-defined subset of units.
      *
      * @api
-     * @param UnitInterface[] $units An array of units to add to the registry.
+     * @param Unit\UnitInterface[] $units An array of units to add to the registry.
      * @return self
      */
     public function addRegistryWith(array $units = [])

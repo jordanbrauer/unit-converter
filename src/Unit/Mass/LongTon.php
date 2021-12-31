@@ -14,6 +14,9 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Mass;
 
+use UnitConverter\Calculator\Formula\Mass\LongTon\ToGrams;
+use UnitConverter\Calculator\Formula\Mass\LongTon\ToMilligrams;
+
 /**
  * Long ton (U.K.) data class. Also known as 'weight ton', or 'gross ton'.
  *
@@ -30,6 +33,11 @@ class LongTon extends MassUnit
 
             ->setSymbol("w/t") # NOTE: A long ton is also referred to as "weight ton (W/T)"
 
-            ->setUnits(1016.047);
+            ->setUnits(1016.047)
+
+            ->addFormulae([
+                'g'  => ToGrams::class,
+                'mg' => ToMilligrams::class,
+            ]);
     }
 }

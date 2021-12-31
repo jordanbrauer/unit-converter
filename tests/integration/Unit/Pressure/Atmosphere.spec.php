@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Pressure\Atmosphere;
+use UnitConverter\Unit\Pressure\Bar;
+use UnitConverter\Unit\Pressure\Kilopascal;
+use UnitConverter\Unit\Pressure\Megapascal;
+use UnitConverter\Unit\Pressure\Millibar;
 use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
+use UnitConverter\Unit\Pressure\Torr;
 use UnitConverter\UnitConverter;
 
 /**
  * Test that an atmosphere is indeed an atmosphere.
  *
  * @covers UnitConverter\Unit\Pressure\Atmosphere
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Pressure\Pascal
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class AtmosphereSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Pascal(),
-                new Atmosphere(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $atm = new Atmosphere(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1AtmosphereIs101325Pascal()
-    {
-        $expected = 101325;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("atm")
-            ->to("Pa");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 atmosphere is equal to 101,325 pascal'                      => [$atm, new Pascal(101325.0), 0],
+            '1 atmosphere is equal to 760 torr'                            => [$atm, new Torr(760.0), 0],
+            '1 atmosphere is equal to 1 atmosphere'                        => [$atm, new Atmosphere(1.0), 0],
+            '1 atmosphere is equal to 1013.25 millibar'                    => [$atm, new Millibar(1013.25), 2],
+            '1 atmosphere is equal to 101.325 kilopascal'                  => [$atm, new Kilopascal(101.325), 3],
+            '1 atmosphere is equal to 14.6959 pound-force per square inch' => [$atm, new PoundForcePerSquareInch(14.6959), 4],
+            '1 atmosphere is equal to 1.01325 bar'                         => [$atm, new Bar(1.01325), 5],
+            '1 atmosphere is equal to 0.101325 megapascal'                 => [$atm, new Megapascal(0.101325), 6],
+        ];
     }
 }

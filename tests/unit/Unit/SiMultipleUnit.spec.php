@@ -17,20 +17,20 @@ namespace UnitConverter\Tests\Unit\Unit;
 use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;
+use UnitConverter\Unit\Family\SiMultipleUnit;
 use UnitConverter\Unit\Length\Metre;
-use UnitConverter\Unit\SiMultipleUnitInterface;
 
 /**
  * @coversDefaultClass UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\Unit\AbstractUnit
- * @uses UnitConverter\Unit\SiMultipleUnitInterface
+ * @uses UnitConverter\Unit\Family\SiMultipleUnit
  * @uses UnitConverter\Unit\Length\Inch
  */
 class SiMultipleUnitSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
-        $this->unit = new class() extends AbstractUnit implements SiMultipleUnitInterface {
+        $this->unit = new class() extends AbstractUnit implements SiMultipleUnit {
             protected $name = "saiyan power";
 
             protected $symbol = "sP";
@@ -45,7 +45,7 @@ class SiMultipleUnitSpec extends TestCase
         };
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->unit);
     }
@@ -58,6 +58,6 @@ class SiMultipleUnitSpec extends TestCase
     {
         $result = $this->unit->isMultipleSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
     }
 }

@@ -14,17 +14,23 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Pressure;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Pressure\Atmosphere;
 use UnitConverter\Unit\Pressure\Bar;
+use UnitConverter\Unit\Pressure\Kilopascal;
+use UnitConverter\Unit\Pressure\Megapascal;
+use UnitConverter\Unit\Pressure\Millibar;
 use UnitConverter\Unit\Pressure\Pascal;
+use UnitConverter\Unit\Pressure\PoundForcePerSquareInch;
+use UnitConverter\Unit\Pressure\Torr;
 use UnitConverter\UnitConverter;
 
 /**
  * Test that a bar is indeed a bar.
  *
  * @covers UnitConverter\Unit\Pressure\Bar
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Pressure\Pascal
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +44,19 @@ use UnitConverter\UnitConverter;
  */
 class BarSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Pascal(),
-                new Bar(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $bar = new Bar(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1BarIs100000Pascal()
-    {
-        $expected = 100000;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("bar")
-            ->to("Pa");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 bar is equal to 100,000 pascal'                      => [$bar, new Pascal(100000.0), 0],
+            '1 bar is equal to 750.064 torr'                        => [$bar, new Torr(750.064), 3],
+            '1 bar is equal to 0.986923 atmosphere'                 => [$bar, new Atmosphere(0.986923), 6],
+            '1 bar is equal to 1,000 millibar'                      => [$bar, new Millibar(1000.0), 0],
+            '1 bar is equal to 100 kilopascal'                      => [$bar, new Kilopascal(100.0), 0],
+            '1 bar is equal to 14.5038 pound-force per square inch' => [$bar, new PoundForcePerSquareInch(14.5038), 4],
+            '1 bar is equal to 1 bar'                               => [$bar, new Bar(1.0), 0],
+            '1 bar is equal to 0.1 megapascal'                      => [$bar, new Megapascal(0.1), 1],
+        ];
     }
 }

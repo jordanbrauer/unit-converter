@@ -38,7 +38,7 @@ use UnitConverter\Unit\UnitInterface;
  */
 class UnitRegistrySpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->registry = new UnitRegistry([
             new Centimetre(),
@@ -46,7 +46,7 @@ class UnitRegistrySpec extends TestCase
         ]);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->registry);
     }
@@ -83,10 +83,11 @@ class UnitRegistrySpec extends TestCase
             "energy",
             "frequency",
             "digital_storage",
+            "fuel_economy",
         ];
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("array", $actual);
+        $this->assertIsArray($actual);
         $this->assertTrue((count($actual) > 0));
     }
 
@@ -103,7 +104,7 @@ class UnitRegistrySpec extends TestCase
         ];
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("array", $actual);
+        $this->assertIsArray($actual);
         $this->assertTrue((count($actual) > 0));
     }
 

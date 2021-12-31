@@ -14,16 +14,25 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a second is infact, a second.
  *
  * @covers UnitConverter\Unit\Time\Second
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
  * @uses UnitConverter\Calculator\SimpleCalculator
@@ -36,35 +45,6 @@ use UnitConverter\UnitConverter;
  */
 class SecondSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1SecondIs1Second()
-    {
-        $expected = 1;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("s")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
-    }
-
     /**
      * @test
      */
@@ -72,6 +52,24 @@ class SecondSpec extends TestCase
     {
         $result = (new Second())->isSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
+    }
+
+    public function correctConversions(): Iterator
+    {
+        $s = new Second(1);
+
+        yield from [
+            '1 seconds is equal to 1,000,000,000 nanoseconds' => [$s, new Nanosecond(1000000000.0), 0],
+            '1 seconds is equal to 1,000,000 microseconds'    => [$s, new Microsecond(1000000.0), 0],
+            '1 seconds is equal to 1,000 milliseconds'        => [$s, new Millisecond(1000.0), 0],
+            '1 seconds is equal to 1 seconds'                 => [$s, new Second(1.0), 0],
+            '1 seconds is equal to 0.0166667 minutes'         => [$s, new Minute(0.0166667), 7],
+            '1 seconds is equal to 0.000277778 hours'         => [$s, new Hour(0.000277778), 9],
+            '1 seconds is equal to 0.000011574 days'          => [$s, new Day(0.000011574), 9],
+            '1 seconds is equal to 0.0000016534 weeks'        => [$s, new Week(0.0000016534), 10],
+            '1 seconds is equal to 0.00000038052 month'       => [$s, new Month(0.00000038052), 11],
+            '1 seconds is equal to 0.00000003171 years'       => [$s, new Year(0.00000003171), 11],
+        ];
     }
 }

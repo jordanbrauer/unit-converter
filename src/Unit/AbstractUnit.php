@@ -14,8 +14,13 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit;
 
+use OutOfRangeException;
 use UnitConverter\Calculator\Formula\FormulaInterface;
+use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadUnit;
+use UnitConverter\Unit\Family\SiMultipleUnit;
+use UnitConverter\Unit\Family\SiSubmultipleUnit;
+use UnitConverter\Unit\Family\SiUnit;
 
 /**
  * This class is the base class for all unit of measurement classes.
@@ -27,6 +32,8 @@ use UnitConverter\Exception\BadUnit;
  */
 abstract class AbstractUnit implements UnitInterface
 {
+    private const RESERVED_FORMULA = '*';
+
     /**
      * @var string|UnitInterface $base The units' base unit classname.
      */
@@ -77,7 +84,9 @@ abstract class AbstractUnit implements UnitInterface
     public function __construct($value = 1)
     {
         $this->value = $value;
-        $this->formulae = [];
+        $this->formulae = [
+            self::RESERVED_FORMULA => UnitConversionFormula::class,
+        ];
 
         $this->configure();
     }
@@ -94,6 +103,10 @@ abstract class AbstractUnit implements UnitInterface
 
     public function addFormula(string $symbol, string $class): void
     {
+        if (self::RESERVED_FORMULA === $symbol) {
+            throw new OutOfRangeException('Cannot set formula at index `*` for '.$class);
+        }
+
         $this->formulae[$symbol] = $class;
     }
 
@@ -120,7 +133,7 @@ abstract class AbstractUnit implements UnitInterface
             ->{'add'.(($binary) ? 'Binary' : 'Simple').'Calculator'}() # ¯\_(ツ)_/¯
             ->addRegistryWith(array_unique([$this, $unit]))
             ->build()
-            // ->disableConversionLog() # TODO: when this returns interface, uncomment!
+            ->disableConversionLog()
             ->convert((string) $this->getValue(), $precision)
             ->from($this->getSymbol())
             ->to($unit->getSymbol());
@@ -144,11 +157,15 @@ abstract class AbstractUnit implements UnitInterface
 
         $symbol = $to->getSymbol();
 
-        if (!array_key_exists($symbol, $this->formulae)) {
-            throw BadUnit::formula($symbol);
+        if (array_key_exists($symbol, $this->formulae)) {
+            return new $this->formulae[$symbol]();
         }
 
-        return new $this->formulae[$symbol]();
+        if (array_key_exists(self::RESERVED_FORMULA, $this->formulae)) {
+            return new $this->formulae[self::RESERVED_FORMULA]();
+        }
+
+        throw BadUnit::formula($symbol);
     }
 
     public function getName(): ?string
@@ -188,17 +205,17 @@ abstract class AbstractUnit implements UnitInterface
 
     public function isMultipleSiUnit(): bool
     {
-        return $this instanceof SiMultipleUnitInterface;
+        return $this instanceof SiMultipleUnit;
     }
 
     public function isSiUnit(): bool
     {
-        return $this instanceof SiBaseUnitInterface;
+        return $this instanceof SiUnit;
     }
 
     public function isSubmultipleSiUnit(): bool
     {
-        return $this instanceof SiSubmultipleUnitInterface;
+        return $this instanceof SiSubmultipleUnit;
     }
 
     public function setBase($base): UnitInterface

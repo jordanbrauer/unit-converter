@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Exception;
 
 use Exception;
+use UnitConverter\Unit\UnitInterface;
 
 /**
  * Exception to be thrown when a bad unit of measurement is encountered.
@@ -25,9 +26,29 @@ use Exception;
  */
 final class BadUnit extends Exception
 {
+    const ERROR_CONVERTING = 4;
+
     const ERROR_SCALAR_TYPE = 2;
 
     const ERROR_SELF_CONVERSION_FORMULA = 3;
+
+    /**
+     * Throw a new exception for a bad unit conversion attempt.
+     */
+    public static function conversion(UnitInterface $from, UnitInterface $to, Exception $previous = null): Exception
+    {
+        return new self(
+            sprintf(
+                "Unable to convert from %s (%s) to %s (%s)",
+                $from->getUnitOf(),
+                $from->getScientificSymbol(),
+                $to->getUnitOf(),
+                $to->getScientificSymbol()
+            ),
+            self::ERROR_CONVERTING,
+            $previous
+        );
+    }
 
     /**
      * Throw a new exception for an un unkown self conversioin unit formula.

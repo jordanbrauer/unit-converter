@@ -14,6 +14,19 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToCentimetres;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToDecimetres;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToFeet;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToHands;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToInches;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToKilometres;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToMicrometres;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToMiles;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToMillimetres;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToNanometres;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToPicometres;
+use UnitConverter\Calculator\Formula\Length\AstronomicalUnit\ToYards;
+
 /**
  * AstronomicalUnit data class.
  *
@@ -30,6 +43,21 @@ class AstronomicalUnit extends LengthUnit
 
             ->setSymbol("au")
 
-            ->setUnits(149597870700);
+            ->setUnits(149597870700)
+
+            ->addFormulae([
+                'cm' => ToCentimetres::class,
+                'dm' => ToDecimetres::class,
+                'ft' => ToFeet::class,
+                'h'  => ToHands::class,
+                'in' => ToInches::class,
+                'km' => ToKilometres::class,
+                'um' => ToMicrometres::class,
+                'mi' => ToMiles::class,
+                'mm' => ToMillimetres::class,
+                'nm' => ToNanometres::class,
+                'pm' => ToPicometres::class,
+                'yd' => ToYards::class,
+            ]);
     }
 }

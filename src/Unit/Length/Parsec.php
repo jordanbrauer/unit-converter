@@ -14,6 +14,19 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Length;
 
+use UnitConverter\Calculator\Formula\Length\Parsec\ToCentimetres;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToDecimetres;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToFeet;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToHands;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToInches;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToKilometres;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToMicrometres;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToMiles;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToMillimetres;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToNanometres;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToPicometres;
+use UnitConverter\Calculator\Formula\Length\Parsec\ToYards;
+
 /**
  * Parsec data class.
  *
@@ -33,6 +46,21 @@ class Parsec extends LengthUnit
             # Metric (SI) Units = 3.0857×1016 m
             # – OR – ~31 petametres
             # 3.08567758149E+16
-            ->setUnits(30856775814913672.789139379577965);
+            ->setUnits(30856775814913672.789139379577965)
+
+            ->addFormulae([
+                'cm' => ToCentimetres::class,
+                'dm' => ToDecimetres::class,
+                'ft' => ToFeet::class,
+                'h'  => ToHands::class,
+                'in' => ToInches::class,
+                'km' => ToKilometres::class,
+                'um' => ToMicrometres::class,
+                'mi' => ToMiles::class,
+                'mm' => ToMillimetres::class,
+                'nm' => ToNanometres::class,
+                'pm' => ToPicometres::class,
+                'yd' => ToYards::class,
+            ]);
     }
 }

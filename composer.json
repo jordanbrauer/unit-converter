@@ -1,44 +1,42 @@
 {
-  "name": "jordanbrauer/unit-converter",
-  "description": "Convert standard units from one to another with this easy to use, lightweight package",
-  "type": "component",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "jordanbrauer",
-      "email": "18744334+jordanbrauer@users.noreply.github.com"
+    "name": "jordanbrauer/unit-converter",
+    "description": "Convert standard units from one to another with this easy to use, lightweight package",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "jordanbrauer",
+            "email": "18744334+jordanbrauer@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3 || ~8.0.0 || ~8.1.0",
+        "ext-bcmath": "*",
+        "ext-intl": "*"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.13",
+        "marcocesarato/php-conventional-changelog": "^1.13",
+        "pestphp/pest": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "symfony/var-dumper": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "UnitConverter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "UnitConverter\\Tests\\": "tests/",
+            "UnitConverter\\Tests\\Integration\\": "tests/integration/",
+            "UnitConverter\\Tests\\Unit\\": "tests/unit/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true
+        }
     }
-  ],
-  "scripts": {
-    "test": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always",
-    "unit": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=unit --color=always",
-    "integration": "vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=integration --color=always",
-    "coverage": "vendor/bin/phpunit --coverage-text --configuration=./phpunit.xml --testsuite=fullspec --color=always",
-    "clover": "phpunit --coverage-clover=./clover.xml --configuration=./phpunit.xml --testsuite=fullspec --color=never",
-    "style": "bin/php-cs-fixer fix --config=.php_cs --show-progress=dots --ansi -v",
-    "report": "vendor/bin/phpmetrics --report-html=report --exclude='.github,.notes,.vscode,bin,docs,node_modules,report,tests,vendor' ."
-  },
-  "require": {
-    "php": "^7.1",
-    "ext-bcmath": "*"
-  },
-  "require-dev": {
-    "consolidation/robo": "^1.2",
-    "phpunit/phpunit": "^6.3",
-    "symfony/var-dumper": "^3.3",
-    "vlucas/phpdotenv": "^2.4",
-    "codedungeon/phpunit-result-printer": "^0.19.12",
-    "phpmetrics/phpmetrics": "^2.4"
-  },
-  "autoload": {
-    "psr-4": {
-      "UnitConverter\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "UnitConverter\\Tests\\Integration\\": "tests/integration/",
-      "UnitConverter\\Tests\\Unit\\": "tests/unit/"
-    }
-  }
 }

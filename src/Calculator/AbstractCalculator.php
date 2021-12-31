@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Calculator;
 
+use Closure;
+use TypeError;
 use UnitConverter\Calculator\Formula\FormulaInterface;
 
 /**
@@ -70,6 +72,12 @@ abstract class AbstractCalculator implements CalculatorInterface
     const ROUND_HALF_UP = PHP_ROUND_HALF_UP;
 
     /**
+     * String value representation of the allowed scalar type(s) for the
+     * calculator's inputs.
+     */
+    protected const SCALAR = 'int|float|string';
+
+    /**
      * A non-persitent stack of events for the current calculator's calculations
      *
      * @var array $history
@@ -117,6 +125,56 @@ abstract class AbstractCalculator implements CalculatorInterface
      * {@inheritDoc}
      */
     abstract public function div($dividend, $divisor);
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function mod($dividend, $modulus);
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function mul($leftOperand, $rightOperand);
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function pow($base, $exponent);
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function sub($leftOperand, $rightOperand);
+
+    /**
+     * Throw a type error if the given closure does not evaluate to true for one
+     * of given values. The name of the method and allowed type string are used
+     * to create an error message.
+     *
+     * @param Closure $assert Type check that must return true, otherwise an error is thrown
+     * @param string $method The name of the method that is calling this method, used for error message
+     * @param string $allowed The allowed type of the value, used for error message
+     * @param mixed ...$value One or more values to test with the given closure
+     * @return void
+     * @throws TypeError When the given closure does not return true
+     */
+    protected static function invariant(Closure $assert, string $method, string $allowed, ...$value): void
+    {
+        foreach ($value as $position => $arg) {
+            if ($assert($arg)) {
+                continue;
+            }
+
+            throw new TypeError(sprintf(
+                'Argument %d passed to %s::%s must be of the type %s, %s given',
+                1 + $position,
+                static::class,
+                $method,
+                $allowed,
+                gettype($arg),
+            ));
+        }
+    }
 
     /**
      * Syntacital sugar wrapper method for div.
@@ -183,11 +241,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     }
 
     /**
-     * {@inheritDoc}
-     */
-    abstract public function mod($dividend, $modulus);
-
-    /**
      * Syntacital sugar wrapper method for mod
      *
      * @api
@@ -199,11 +252,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     }
 
     /**
-     * {@inheritDoc}
-     */
-    abstract public function mul($leftOperand, $rightOperand);
-
-    /**
      * Syntacital sugar wrapper method for mul
      *
      * @api
@@ -213,11 +261,6 @@ abstract class AbstractCalculator implements CalculatorInterface
     {
         return $this->mul(...$params);
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    abstract public function pow($base, $exponent);
 
     /**
      * Syntacital sugar wrapper method for pow
@@ -235,8 +278,17 @@ abstract class AbstractCalculator implements CalculatorInterface
      */
     public function round($value, int $precision = null)
     {
-        return round(
+        self::invariant(
+            static function ($operand): bool {
+                return is_numeric($operand);
+            },
+            __FUNCTION__,
+            static::SCALAR,
             $value,
+        );
+
+        return round(
+            (float) $value,
             ($precision ?? $this->getPrecision()),
             $this->getRoundingMode()
         );
@@ -261,11 +313,6 @@ abstract class AbstractCalculator implements CalculatorInterface
 
         return $this;
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    abstract public function sub($leftOperand, $rightOperand);
 
     /**
      * Syntacital sugar wrapper method for sub

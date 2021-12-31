@@ -14,10 +14,13 @@ declare(strict_types = 1);
 
 namespace UnitConverter;
 
+use NumberFormatter;
+use RuntimeException;
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadConverter;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Registry\UnitRegistryInterface;
 use UnitConverter\Unit\UnitInterface;
 
@@ -57,7 +60,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * The unit of measure being converted **from**.
      *
-     * @var string $from
+     * @var UnitInterface $from
      */
     protected $from;
 
@@ -92,7 +95,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * The unit of measure being converted **to**.
      *
-     * @var string $to
+     * @var UnitInterface $to
      */
     protected $to;
 
@@ -187,7 +190,7 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @return static
      */
     public function convert($value, int $precision = null): UnitConverterInterface
     {
@@ -224,7 +227,7 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
-     * {@inheritDoc}
+     * @return static
      */
     public function from(string $unit): UnitConverterInterface
     {
@@ -305,6 +308,24 @@ class UnitConverter implements UnitConverterInterface
     }
 
     /**
+     * Like `to`, but will present the conversion result as words instead of a numeric value.
+     *
+     * @param string $unit The unit being converted **to**. The unit must first be registered to the UnitRegistry.
+     * @param string $locale The locale to translate the number with. Defaults to Canadian English
+     * @return string
+     * @see to
+     */
+    public function spellout(string $unit, string $locale = 'en_CA'): string
+    {
+        if (!extension_loaded('intl')) {
+            throw new RuntimeException('Unable to spellout a conversion due to missing intl library. Please check your PHP extensions.');
+        }
+
+        return (new NumberFormatter($locale, NumberFormatter::SPELLOUT))
+            ->format($this->to($unit));
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function to(string $unit)
@@ -338,6 +359,10 @@ class UnitConverter implements UnitConverterInterface
     {
         if (!$this->calculatorExists()) {
             throw BadConverter::missingCalculator();
+        }
+
+        if ($this->from->getUnitOf() !== $this->to->getUnitOf()) {
+            throw BadUnit::conversion($this->from, $this->to);
         }
 
         if ($this->conversionExists()) {

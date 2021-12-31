@@ -14,17 +14,25 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Mass\Gram;
 use UnitConverter\Unit\Mass\Kilogram;
+use UnitConverter\Unit\Mass\LongTon;
+use UnitConverter\Unit\Mass\Milligram;
+use UnitConverter\Unit\Mass\Newton;
+use UnitConverter\Unit\Mass\Ounce;
+use UnitConverter\Unit\Mass\Pound;
+use UnitConverter\Unit\Mass\ShortTon;
 use UnitConverter\Unit\Mass\Stone;
+use UnitConverter\Unit\Mass\Tonne;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a stone is infact, a stone.
  *
  * @covers UnitConverter\Unit\Mass\Stone
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -32,39 +40,28 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Calculator\AbstractCalculator
  * @uses UnitConverter\Calculator\Formula\AbstractFormula
  * @uses UnitConverter\Calculator\Formula\UnitConversionFormula
+ * @uses UnitConverter\Calculator\Formula\Mass\Stone\ToMilligrams
  * @uses UnitConverter\Registry\UnitRegistry
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
 class StoneSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kilogram(),
-                new Stone(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $st = new Stone();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1StoneIs6decimal35029Kilograms()
-    {
-        $expected = 6.35029;
-        $actual = $this->converter
-            ->convert(1, 5)
-            ->from("st")
-            ->to("kg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 stone is equal to 6,350.29 grams'                    => [$st, new Gram(6350.29), 2],
+            '1 stone is equal to 6.35029 kilograms'                 => [$st, new Kilogram(6.35029), 5],
+            '1 stone is equal to 0.00625 long tons (imperial tons)' => [$st, new LongTon(0.00625), 5],
+            '1 stone is equal to 6,350,000 milligrams'              => [$st, new Milligram(6350000), 0],
+            // '1 stone is equal to 1.0 newtons' => [$st, new Newton(1.0), 0],
+            '1 stone is equal to 224 ounces'                => [$st, new Ounce(224.0), 0],
+            '1 stone is equal to 14 pounds'                 => [$st, new Pound(14.0), 0],
+            '1 stone is equal to 0.007 short tons (us ton)' => [$st, new ShortTon(0.007), 3],
+            '1 stone is equal to 1 stone'                   => [$st, new Stone(1.0), 0],
+            '1 stone is equal to 0.00635029 tonnes'         => [$st, new Tonne(0.00635029), 8],
+        ];
     }
 }

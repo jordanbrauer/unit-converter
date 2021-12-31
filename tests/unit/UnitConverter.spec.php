@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\ConverterBuilder;
 use UnitConverter\Exception\BadRegistry;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Measure;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\UnitConverter;
@@ -53,7 +54,7 @@ use UnitConverter\UnitConverter;
  */
 class UnitConverterSpec extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->converter = UnitConverter::createBuilder()
             ->addRegistryFor(Measure::LENGTH)
@@ -61,7 +62,7 @@ class UnitConverterSpec extends TestCase
             ->build();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($this->converter);
     }
@@ -82,7 +83,34 @@ class UnitConverterSpec extends TestCase
             ->to("cm");
 
         $this->assertEquals($expected, $actual);
-        $this->assertInternalType("float", $actual);
+        $this->assertIsFloat($actual);
+    }
+
+    /**
+     * @test
+     * @covers ::spellout
+     */
+    public function assertConversionsCanBeSpelledOut(): void
+    {
+        $this->assertEquals(
+            'two point five four',
+            $this->converter->convert(1)->from('in')->spellout('cm'),
+        );
+    }
+
+    /**
+     * @test
+     * @covers UnitConverter\Exception\BadUnit
+     */
+    public function assertConversionThrowsForCrossMeasurements(): void
+    {
+        $this->expectException(BadUnit::class);
+        $this->expectExceptionCode(BadUnit::ERROR_CONVERTING);
+
+        UnitConverter::default()
+            ->convert(1)
+            ->from('cm')
+            ->to('F');
     }
 
     /**
@@ -129,7 +157,7 @@ class UnitConverterSpec extends TestCase
     {
         $class = $this->converter->whichCalculator();
 
-        $this->assertInternalType('string', $class);
+        $this->assertIsString($class);
         $this->assertNotEmpty($class);
         $this->assertInstanceOf(SimpleCalculator::class, (new $class()));
     }
@@ -146,7 +174,7 @@ class UnitConverterSpec extends TestCase
         $possibleConversions = $this->getPossibleConversionsFor($measurement, $symbol);
         $results = $this->converter->convert(180)->from($symbol)->all();
 
-        $this->assertInternalType('array', $results);
+        $this->assertIsArray($results);
         $this->assertNotEmpty($results);
         $this->assertEquals(count($possibleConversions), count($results));
 

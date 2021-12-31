@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Unit\Mass;
 
+use UnitConverter\Calculator\Formula\Mass\ShortTon\ToMilligrams;
+
 /**
  * Short ton data class. Also known as 'net ton', or 'U.S. ton'
  *
@@ -30,6 +32,10 @@ class ShortTon extends MassUnit
 
             ->setSymbol("ton")
 
-            ->setUnits(907.1847);
+            ->setUnits(907.1847)
+
+            ->addFormulae([
+                'mg' => ToMilligrams::class,
+            ]);
     }
 }

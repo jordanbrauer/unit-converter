@@ -14,9 +14,8 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Mass;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
 use UnitConverter\Unit\Mass\Kilogram;
 use UnitConverter\Unit\Mass\Newton;
 use UnitConverter\UnitConverter;
@@ -25,6 +24,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a newton is infact, a newton.
  *
  * @covers UnitConverter\Unit\Mass\Newton
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Mass\Kilogram
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +38,21 @@ use UnitConverter\UnitConverter;
  */
 class NewtonSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Kilogram(),
-                new Newton(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $n = new Newton();
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1NewtonIs9decimal80665002863885Kilograms()
-    {
-        $expected = 9.80665002863885;
-        $actual = $this->converter
-            ->convert(1, 14)
-            ->from("N")
-            ->to("kg");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            // '1 __ is equal to 1.0 grams' => [$n, new Gram(1.0), 0],
+            '1 newton is equal to 9.80665002863885 kilograms' => [$n, new Kilogram(9.80665002863885), 14],
+            // '1 __ is equal to 1.0 long tons (imperial tons)' => [$n, new LongTon(1.0), 0],
+            // '1 __ is equal to 1.0 milligrams' => [$n, new Milligram(1.0), 0],
+            '1 newton is equal to 1 newton' => [$n, new Newton(1.0), 0],
+            // '1 __ is equal to 1.0 ounces' => [$n, new Ounce(1.0), 0],
+            // '1 __ is equal to 1.0 pounds' => [$n, new Pound(1.0), 0],
+            // '1 __ is equal to 1.0 short tons (us ton)' => [$n, new ShortTon(1.0), 0],
+            // '1 __ is equal to 1.0 stones' => [$n, new Stone(1.0), 0],
+            // '1 __ is equal to 1.0 tonnes' => [$n, new Tonne(1.0), 0],
+        ];
     }
 }

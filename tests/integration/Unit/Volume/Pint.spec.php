@@ -14,10 +14,12 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
+use UnitConverter\Unit\Volume\Millilitre;
 use UnitConverter\Unit\Volume\Pint;
 use UnitConverter\UnitConverter;
 
@@ -25,6 +27,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a pint is a pint.
  *
  * @covers UnitConverter\Unit\Volume\Pint
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Volume\Litre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +41,16 @@ use UnitConverter\UnitConverter;
  */
 class PintSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-                new Pint(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $pt = new Pint(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1PintIs0decimal473176Litres()
-    {
-        $expected = 0.473176;
-        $actual = $this->converter
-            ->convert(1, 6)
-            ->from("pt")
-            ->to("L");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 pint is equal to 0.000473176 cubic metres' => [$pt, new CubicMetre(0.000473176), 9],
+            '1 pint is equal to 0.125 gallons'            => [$pt, new Gallon(0.125), 3],
+            '1 pint is equal to 0.473176 litres'          => [$pt, new Litre(0.473176), 6],
+            '1 pint is equal to 473.176 millilitre'       => [$pt, new Millilitre(473.176), 3],
+            '1 pint is equal to 1 pint'                   => [$pt, new Pint(1.0), 0],
+        ];
     }
 }

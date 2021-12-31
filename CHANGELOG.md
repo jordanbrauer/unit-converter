@@ -1,294 +1,211 @@
-# Change Log
+<!--- BEGIN HEADER -->
+# Changelog
 
-## [v0.8.3](https://github.com/jordanbrauer/unit-converter/tree/v0.8.3) (2019-08-16)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.2...v0.8.3)
+All notable changes to this project will be documented in this file.
+<!--- END HEADER -->
 
-**Fixed bugs:**
+## [v0.8.7](https://github.com/jordanbrauer/unit-converter/compare/v0.8.6...vv0.8.7) (2021-04-08)
 
-- Regression after merge \#fix-127-trampled-units [\#139](https://github.com/jordanbrauer/unit-converter/issues/139)
-- Fix regression bug \#139 [\#140](https://github.com/jordanbrauer/unit-converter/pull/140) ([jordanbrauer](https://github.com/jordanbrauer))
 
-**Merged pull requests:**
+### Features
 
-- Bump js-yaml from 3.12.0 to 3.13.1 [\#138](https://github.com/jordanbrauer/unit-converter/pull/138) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump lodash from 4.17.11 to 4.17.15 [\#137](https://github.com/jordanbrauer/unit-converter/pull/137) ([dependabot[bot]](https://github.com/apps/dependabot))
+* Add lock recipe ([3ccd33](https://github.com/jordanbrauer/unit-converter/commit/3ccd3387ddd0fc9f02cdaba0ce2d9051c0aa1528))
+* Add method to spell conversion result(s) out in words (#171) ([ce303f](https://github.com/jordanbrauer/unit-converter/commit/ce303fbda7dd552e8e8ed22ddc50ec25be03e6d7))
 
-## [v0.8.2](https://github.com/jordanbrauer/unit-converter/tree/v0.8.2) (2019-07-26)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.1...v0.8.2)
+### Bug Fixes
 
-**Fixed bugs:**
+* Also push branch after the tag ([af2b44](https://github.com/jordanbrauer/unit-converter/commit/af2b44270cce9c69946f3e2112dc109bcbf7eaa2))
 
-- registry tramples units with the same symbol [\#127](https://github.com/jordanbrauer/unit-converter/issues/127)
+---
 
-**Merged pull requests:**
+## [v0.8.6](https://github.com/jordanbrauer/unit-converter/compare/v0.8.5...vv0.8.6) (2021-03-26)
 
-- Circle ci [\#134](https://github.com/jordanbrauer/unit-converter/pull/134) ([jordanbrauer](https://github.com/jordanbrauer))
-- Fix/fuel economy units fixes [\#133](https://github.com/jordanbrauer/unit-converter/pull/133) ([maksimru](https://github.com/maksimru))
-- Fix 127 trampled units [\#132](https://github.com/jordanbrauer/unit-converter/pull/132) ([jordanbrauer](https://github.com/jordanbrauer))
-- raise error for units attempted to be overwritten [\#131](https://github.com/jordanbrauer/unit-converter/pull/131) ([jordanbrauer](https://github.com/jordanbrauer))
-- Primitive units [\#129](https://github.com/jordanbrauer/unit-converter/pull/129) ([jordanbrauer](https://github.com/jordanbrauer))
-- Add common builders for simple and binary calculators [\#126](https://github.com/jordanbrauer/unit-converter/pull/126) ([elliotwms](https://github.com/elliotwms))
 
-## [v0.8.1](https://github.com/jordanbrauer/unit-converter/tree/v0.8.1) (2018-12-09)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.8.0...v0.8.1)
+### Features
 
-**Implemented enhancements:**
+* Replace Robofile with Makefile (#170) ([1f7e63](https://github.com/jordanbrauer/unit-converter/commit/1f7e6350c73846d6f9d28ca5deece3b5c942b4b4))
 
-- Convert a unit to all other possible units of measurement. [\#119](https://github.com/jordanbrauer/unit-converter/issues/119)
-- Add support for units of measurement, Fuel Economy [\#42](https://github.com/jordanbrauer/unit-converter/issues/42)
-- Add support for units of measurement, Frequency [\#41](https://github.com/jordanbrauer/unit-converter/issues/41)
-- Expose api [\#124](https://github.com/jordanbrauer/unit-converter/pull/124) ([jordanbrauer](https://github.com/jordanbrauer))
-- Add support for units of measurement, Frequency [\#123](https://github.com/jordanbrauer/unit-converter/pull/123) ([jmauerhan](https://github.com/jmauerhan))
-- Convert to all [\#121](https://github.com/jordanbrauer/unit-converter/pull/121) ([jordanbrauer](https://github.com/jordanbrauer))
-- Refactor calculate [\#116](https://github.com/jordanbrauer/unit-converter/pull/116) ([jordanbrauer](https://github.com/jordanbrauer))
+---
 
-**Fixed bugs:**
+## [v0.8.5](https://github.com/jordanbrauer/unit-converter/compare/v0.8.4...vv0.8.5) (2021-03-25)
 
-- Temperature conversions do not work with BinaryCalculator [\#118](https://github.com/jordanbrauer/unit-converter/issues/118)
 
-**Closed issues:**
+---
 
-- Fix "method\_complexity" issue in src/UnitConverter/UnitConverter.php [\#96](https://github.com/jordanbrauer/unit-converter/issues/96)
-- Performance metrics/benchmarks? [\#77](https://github.com/jordanbrauer/unit-converter/issues/77)
+## [v0.8.4](https://github.com/jordanbrauer/unit-converter/compare/v0.8.3...vv0.8.4) (2020-04-27)
 
-**Merged pull requests:**
 
-- add php metrics library for static code analysis [\#125](https://github.com/jordanbrauer/unit-converter/pull/125) ([jordanbrauer](https://github.com/jordanbrauer))
-- \#42 : Add support for units of measurement, Fuel Economy  \(\#1\) [\#117](https://github.com/jordanbrauer/unit-converter/pull/117) ([Progi1984](https://github.com/Progi1984))
+---
 
-## [v0.8.0](https://github.com/jordanbrauer/unit-converter/tree/v0.8.0) (2018-08-06)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.7.1...v0.8.0)
+## [v0.8.3](https://github.com/jordanbrauer/unit-converter/compare/v0.8.2...vv0.8.3) (2019-08-16)
 
-**Implemented enhancements:**
 
-- Array dot notation for Collection [\#100](https://github.com/jordanbrauer/unit-converter/issues/100)
-- Array dot notation [\#102](https://github.com/jordanbrauer/unit-converter/pull/102) ([jordanbrauer](https://github.com/jordanbrauer))
+---
 
-**Fixed bugs:**
+## [v0.8.2](https://github.com/jordanbrauer/unit-converter/compare/v0.8.1...vv0.8.2) (2019-07-25)
 
-- \[7.0.1\]\[FatalErrorException\] BinaryCalculator::round must be compatible with UnitConverter\Calculator\AbstractCalculator::round [\#115](https://github.com/jordanbrauer/unit-converter/issues/115)
-- Self-converting units \(such as temperature\) are not logged [\#105](https://github.com/jordanbrauer/unit-converter/issues/105)
 
-**Closed issues:**
+---
 
-- Fix "method\_lines" issue in src/UnitConverter/ConverterBuilder.php [\#113](https://github.com/jordanbrauer/unit-converter/issues/113)
-- missing the createBuilder method when installing through composer [\#107](https://github.com/jordanbrauer/unit-converter/issues/107)
-- Add PHP CS Fixer to project [\#101](https://github.com/jordanbrauer/unit-converter/issues/101)
-- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#97](https://github.com/jordanbrauer/unit-converter/issues/97)
+## [v0.8.1](https://github.com/jordanbrauer/unit-converter/compare/v0.8.0...vv0.8.1) (2018-12-09)
 
-**Merged pull requests:**
 
-- Fix method lines [\#114](https://github.com/jordanbrauer/unit-converter/pull/114) ([jordanbrauer](https://github.com/jordanbrauer))
-- Fix self conversion logs [\#112](https://github.com/jordanbrauer/unit-converter/pull/112) ([jordanbrauer](https://github.com/jordanbrauer))
-- Improved exceptions [\#110](https://github.com/jordanbrauer/unit-converter/pull/110) ([jordanbrauer](https://github.com/jordanbrauer))
-- Readme badges [\#109](https://github.com/jordanbrauer/unit-converter/pull/109) ([jordanbrauer](https://github.com/jordanbrauer))
-- Php cs fixer [\#108](https://github.com/jordanbrauer/unit-converter/pull/108) ([jordanbrauer](https://github.com/jordanbrauer))
+---
 
-## [v0.7.1](https://github.com/jordanbrauer/unit-converter/tree/v0.7.1) (2018-08-03)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.7.0...v0.7.1)
+## [v0.8.0](https://github.com/jordanbrauer/unit-converter/compare/v0.7.1...vv0.8.0) (2018-08-06)
 
-**Implemented enhancements:**
 
-- List all suported units [\#98](https://github.com/jordanbrauer/unit-converter/issues/98)
+---
 
-**Closed issues:**
+## [v0.7.1](https://github.com/jordanbrauer/unit-converter/compare/v0.7.0...vv0.7.1) (2018-08-03)
 
-- Instantiate registry with all units [\#99](https://github.com/jordanbrauer/unit-converter/issues/99)
 
-**Merged pull requests:**
+---
 
-- Add coverage annotation to exceptions [\#106](https://github.com/jordanbrauer/unit-converter/pull/106) ([jordanbrauer](https://github.com/jordanbrauer))
-- Converter builder and fully loaded registry [\#104](https://github.com/jordanbrauer/unit-converter/pull/104) ([proualexandre](https://github.com/proualexandre))
+## [v0.7.0](https://github.com/jordanbrauer/unit-converter/compare/v0.6.7...vv0.7.0) (2018-05-06)
 
-## [v0.7.0](https://github.com/jordanbrauer/unit-converter/tree/v0.7.0) (2018-05-07)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.7...v0.7.0)
 
-**Implemented enhancements:**
+---
 
-- Add methods to Time units for determining leaps [\#70](https://github.com/jordanbrauer/unit-converter/issues/70)
-- Introduce a debugging method with nice output [\#69](https://github.com/jordanbrauer/unit-converter/issues/69)
-- Implement new Unit property "siUnit" to indicate the units SI acceptance [\#60](https://github.com/jordanbrauer/unit-converter/issues/60)
-- Si units [\#86](https://github.com/jordanbrauer/unit-converter/pull/86) ([jordanbrauer](https://github.com/jordanbrauer))
+## [v0.6.7](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...vv0.6.7) (2018-05-05)
 
-**Closed issues:**
 
-- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#94](https://github.com/jordanbrauer/unit-converter/issues/94)
-- Fix "method\_lines" issue in src/UnitConverter/UnitConverter.php [\#93](https://github.com/jordanbrauer/unit-converter/issues/93)
-- Fix "method\_complexity" issue in src/UnitConverter/UnitConverter.php [\#92](https://github.com/jordanbrauer/unit-converter/issues/92)
-- Update README to have more information for setup/usage.  [\#68](https://github.com/jordanbrauer/unit-converter/issues/68)
-- Implement a better release workflow [\#58](https://github.com/jordanbrauer/unit-converter/issues/58)
-- Fix "method\_lines" issue in src/UnitConverter/Unit/Temperature/Fahrenheit.php [\#57](https://github.com/jordanbrauer/unit-converter/issues/57)
-- Fix "argument\_count" issue in src/UnitConverter/UnitConverter.php [\#56](https://github.com/jordanbrauer/unit-converter/issues/56)
-- Enforce a standard such as SI for unit of measure notations \(symbols\) [\#45](https://github.com/jordanbrauer/unit-converter/issues/45)
+---
 
-**Merged pull requests:**
+## [v0.6.2-rc](https://github.com/jordanbrauer/unit-converter/compare/v0.6.1...vv0.6.2-rc) (2018-05-05)
 
-- reduce lines in calculate method \(closes \#57\) [\#95](https://github.com/jordanbrauer/unit-converter/pull/95) ([jordanbrauer](https://github.com/jordanbrauer))
-- Repo files [\#91](https://github.com/jordanbrauer/unit-converter/pull/91) ([jordanbrauer](https://github.com/jordanbrauer))
-- Temporarily use vanilla codeclimate badges due to shields.io bug [\#90](https://github.com/jordanbrauer/unit-converter/pull/90) ([jordanbrauer](https://github.com/jordanbrauer))
-- Debugging tools [\#89](https://github.com/jordanbrauer/unit-converter/pull/89) ([jordanbrauer](https://github.com/jordanbrauer))
-- Time helpers [\#88](https://github.com/jordanbrauer/unit-converter/pull/88) ([jordanbrauer](https://github.com/jordanbrauer))
 
-## [v0.6.7](https://github.com/jordanbrauer/unit-converter/tree/v0.6.7) (2018-05-06)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...v0.6.7)
+---
 
-**Merged pull requests:**
+## [v0.6.1](https://github.com/jordanbrauer/unit-converter/compare/v0.6.0...vv0.6.1) (2018-05-05)
 
-- Release fixes [\#83](https://github.com/jordanbrauer/unit-converter/pull/83) ([jordanbrauer](https://github.com/jordanbrauer))
 
-## [v0.6.2-rc](https://github.com/jordanbrauer/unit-converter/tree/v0.6.2-rc) (2018-05-06)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.1...v0.6.2-rc)
+### Bug Fixes
 
-**Fixed bugs:**
+* Commit message missing version tag ([4d8cdf](https://github.com/jordanbrauer/unit-converter/commit/4d8cdf1b6b096d2cf266dd8d337d855d56db9e17), [ed88b2](https://github.com/jordanbrauer/unit-converter/commit/ed88b203305ff08913990d36819e99d0ca6fb33c))
+* Remove deprecated composer version key ([013ead](https://github.com/jordanbrauer/unit-converter/commit/013ead47f049f954cb4cc3146663b1cdcc385d49), [b683b7](https://github.com/jordanbrauer/unit-converter/commit/b683b793c252b97bb32a72de8a45d4cdb8c002e4))
 
-- Upgrades to support a pre-release tag [\#82](https://github.com/jordanbrauer/unit-converter/pull/82) ([jordanbrauer](https://github.com/jordanbrauer))
+---
 
-## [v0.6.1](https://github.com/jordanbrauer/unit-converter/tree/v0.6.1) (2018-05-06)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.6.0...v0.6.1)
+## [v0.6.0](https://github.com/jordanbrauer/unit-converter/compare/v0.5.1...vv0.6.0) (2018-02-03)
 
-**Implemented enhancements:**
 
-- Add collection class for unit registry [\#75](https://github.com/jordanbrauer/unit-converter/issues/75)
-- Develop – Minor version change [\#81](https://github.com/jordanbrauer/unit-converter/pull/81) ([jordanbrauer](https://github.com/jordanbrauer))
-- Robofile taskrunner [\#80](https://github.com/jordanbrauer/unit-converter/pull/80) ([jordanbrauer](https://github.com/jordanbrauer))
-- Robofile taskrunner [\#78](https://github.com/jordanbrauer/unit-converter/pull/78) ([jordanbrauer](https://github.com/jordanbrauer))
+### Bug Fixes
 
-**Fixed bugs:**
+* Typo ([7687d1](https://github.com/jordanbrauer/unit-converter/commit/7687d1a5747b65d6bce3a6e8359045fbc5c54e6e))
 
-- BinaryCalculator requires UnitConverter to pass string values instead of int/float values  [\#54](https://github.com/jordanbrauer/unit-converter/issues/54)
+---
 
-**Closed issues:**
+## [v0.5.1](https://github.com/jordanbrauer/unit-converter/compare/v0.5.0...vv0.5.1) (2017-11-14)
 
-- Code style updates [\#67](https://github.com/jordanbrauer/unit-converter/issues/67)
 
-**Merged pull requests:**
+### Bug Fixes
+
+* Bump versions of classes that had breaking changes (name change) ([f0ce4c](https://github.com/jordanbrauer/unit-converter/commit/f0ce4c56514faf20c23e1d211a521cfafa9d04ea))
+* Drop "UK" from long ton class name ([da92f8](https://github.com/jordanbrauer/unit-converter/commit/da92f8cadb023040918336531379ca7ddaa0053e))
+* Drop "US" from short ton class name ([7a0c5c](https://github.com/jordanbrauer/unit-converter/commit/7a0c5c823cb58ec060fde40e0db52be8c55e8b3f))
+* Formatting ([da807e](https://github.com/jordanbrauer/unit-converter/commit/da807e6420710d3ef4104a3e971284e61f5b4ac3))
+* Remove unneccesary scientific symbol setters ([6247a6](https://github.com/jordanbrauer/unit-converter/commit/6247a6e48f849b5614e8f5643b176ef1c02d927d))
+* Spelling of area unit classes ([3fce07](https://github.com/jordanbrauer/unit-converter/commit/3fce071d6b635103f04307215a3afb951fb6ddb5))
+* Spelling of length units ([5929e8](https://github.com/jordanbrauer/unit-converter/commit/5929e86e48f11855ae0f53adb575ee53aaaf2256))
+* Spelling of millilitre unit class ([6b4ee9](https://github.com/jordanbrauer/unit-converter/commit/6b4ee9ccfc376d807afdd6c1979e59eb9098abd9))
+* Test docblock descriptions ([730a21](https://github.com/jordanbrauer/unit-converter/commit/730a217af07d40eb1e6ee2bbc1af97f2374cce6d))
+
+---
+
+## [v0.5.0](https://github.com/jordanbrauer/unit-converter/compare/v0.4.1...vv0.5.0) (2017-11-13)
+
+
+---
+
+## [v0.4.1](https://github.com/jordanbrauer/unit-converter/compare/v0.4.0...vv0.4.1) (2017-11-11)
+
+
+---
+
+## [v0.4.0](https://github.com/jordanbrauer/unit-converter/compare/v0.3.9-beta...vv0.4.0) (2017-11-11)
+
+
+### Bug Fixes
+
+* Add missing Time unit in list of supported units ([0e370f](https://github.com/jordanbrauer/unit-converter/commit/0e370f320fed91fe0b0e4a11809661da6a7144db))
+
+---
+
+## [v0.3.9-beta](https://github.com/jordanbrauer/unit-converter/compare/6fc1d0a4faface380dded5ec94c3de3fb5ea7224...vv0.3.9-beta) (2017-10-10)
+
+
+### Features
+
+* Add a few default length units. meter is base for all length units ([73f9ee](https://github.com/jordanbrauer/unit-converter/commit/73f9ee4e2a006a2ef9764a7943c437372bd531d7))
+* Add base temperature unit class ([95004a](https://github.com/jordanbrauer/unit-converter/commit/95004ab075d8444043e833037d09b72ccafc1c30))
+* Add base volume unit class + integration test ([620028](https://github.com/jordanbrauer/unit-converter/commit/6200283806160ce93d7a215282dfbc5ea0975aab))
+* Add basic energy units ([ca4f10](https://github.com/jordanbrauer/unit-converter/commit/ca4f108f9de85aa1fd56f0d24b790c0658aea98f))
+* Add dev dependency phpdocumentor ^2.9 ([125d33](https://github.com/jordanbrauer/unit-converter/commit/125d33346cd4f33061552e9f75af3929fdd63109))
+* Add dev dependency phpunit ^6.3 ([28810e](https://github.com/jordanbrauer/unit-converter/commit/28810ef2e66f6a5eb9df0ee5b38f1746b7eb18ac))
+* Add integration test for temp' units - damn °C <-> °F conversions ([b0f2bd](https://github.com/jordanbrauer/unit-converter/commit/b0f2bd86f1782e7b81a1475d03d6a96ffb0c42be))
+* Add kelvin temperature unit ([9737c4](https://github.com/jordanbrauer/unit-converter/commit/9737c4b4432cdbe9b0742e94bcb1d43546fa9ae7))
+* Add package specific error exception classes - closes #2 ([10efbd](https://github.com/jordanbrauer/unit-converter/commit/10efbdea1ee0ef97aca53fbe7b2e7f28cf3fb859))
+* Add speed base unit ([b25d5c](https://github.com/jordanbrauer/unit-converter/commit/b25d5cdd37b174fb59c1c9739d0580727cb87963))
+* Add support for acre units ([56b178](https://github.com/jordanbrauer/unit-converter/commit/56b178a2b93dbd03c4576133190ef7ac511b7122))
+* Add support for basic pressure units w/ single integration test ([ae9120](https://github.com/jordanbrauer/unit-converter/commit/ae912084f44678143258a0667733c3e4f9970308))
+* Add support for celsius ([7c1a88](https://github.com/jordanbrauer/unit-converter/commit/7c1a88addfd5fc1baa6712eda396ddd94137fbe5))
+* Add support for cubic metre units ([785511](https://github.com/jordanbrauer/unit-converter/commit/7855114aaa34b99d4fd96c89b8e49fb05d765109))
+* Add support for degree plane angle units ([71f575](https://github.com/jordanbrauer/unit-converter/commit/71f575c1d2cbb5091c77c19081873835a0db4be3))
+* Add support for fahrenheit units ([969a12](https://github.com/jordanbrauer/unit-converter/commit/969a12f212303fd59468ebb64f0065ba985b9b21))
+* Add support for hectare units ([5ba851](https://github.com/jordanbrauer/unit-converter/commit/5ba851283164f558b3aa99d78ebbd88790528f49))
+* Add support for kilometer per hour units ([0d4d4d](https://github.com/jordanbrauer/unit-converter/commit/0d4d4daeab75cb06c6d711f8982b2d910bfb9ab6))
+* Add support for litre units ([b393d2](https://github.com/jordanbrauer/unit-converter/commit/b393d2691c1f633f23d7575d1771598b7f9b0e5f))
+* Add support for metre per second units ([916954](https://github.com/jordanbrauer/unit-converter/commit/9169540369340a97571db8aba07a85cbea6edf24))
+* Add support for miles per hour units ([8a6149](https://github.com/jordanbrauer/unit-converter/commit/8a614907a8b55c9dbf0d4c70ad9b7cbda5c4cdb4))
+* Add support for mililitre units ([275274](https://github.com/jordanbrauer/unit-converter/commit/275274eb834e27c8394678aa0fcb01fc01a9fd40))
+* Add support for radian units ([42630a](https://github.com/jordanbrauer/unit-converter/commit/42630ac5ba816b09b9f757b93c850e1395381bc7))
+* Add support for square centimeter units ([2d0664](https://github.com/jordanbrauer/unit-converter/commit/2d06642412ecd5fde3c0a3940956c05ebe9ffa8c))
+* Add support for square foot units ([2a6bde](https://github.com/jordanbrauer/unit-converter/commit/2a6bdea6ec181779e0ee8ac0422b01e7ecd7e531))
+* Add support for square kilometer units ([e7dcd5](https://github.com/jordanbrauer/unit-converter/commit/e7dcd545e0432e3d522659e0531a7d3588e3fe9c))
+* Add support for square mile units ([f0cc44](https://github.com/jordanbrauer/unit-converter/commit/f0cc443bb5206583b9c3e582eada18c10b0f1a64))
+* Add support for square millimeter units ([c9cbec](https://github.com/jordanbrauer/unit-converter/commit/c9cbeca7478391d587bc13d0cabc5ab9147523f3))
+* Add support for US Liquid gallon units ([0a0b22](https://github.com/jordanbrauer/unit-converter/commit/0a0b2247c17b66d631f24e1f0690414c2475d6c3))
+* Add support for US liquid pint units ([92ee04](https://github.com/jordanbrauer/unit-converter/commit/92ee043de8fe50555f23e8f2d69ca5c143008bd0))
+* Add switch for conditional calculations based upon temp' unit ([79e72a](https://github.com/jordanbrauer/unit-converter/commit/79e72aa26dbbe8aa38373c22cc3acf1fa0467f4e))
+* Add symfony/var-dumper dev dependency ([f83ddb](https://github.com/jordanbrauer/unit-converter/commit/f83ddbc41d4bbea030e21b1351a136931c83028e))
+* Add the base plane angle unit for all plane angle units ([65eea0](https://github.com/jordanbrauer/unit-converter/commit/65eea02e8d46fb55dbc0c06a1ca7e4b57cd66363))
+* Add unit converter class to actually convert values from/to units ([3a84d0](https://github.com/jordanbrauer/unit-converter/commit/3a84d07aab1f808a6f82a515228c1903d06e980e))
+* Base Area unit class ([d57233](https://github.com/jordanbrauer/unit-converter/commit/d57233d90f1ba703030bb0e62564c37ea3157dd6))
+* Convert() method to expose calculate() - allows for complex calcs ([0be9e8](https://github.com/jordanbrauer/unit-converter/commit/0be9e8e78586893a3e1a95962337c495af0d0ca0))
+* Interface and unit tests for the abstract Unit of measure class ([41a2b9](https://github.com/jordanbrauer/unit-converter/commit/41a2b923afb833017156371b074207097435438c))
+* List of default measurements via class constants ([a6f639](https://github.com/jordanbrauer/unit-converter/commit/a6f63950c990445df571df70092c6988eedabfea))
+* Phpunit configuration file ([429967](https://github.com/jordanbrauer/unit-converter/commit/429967968f11ecafe9a96513d9796bdab32f1db3))
+* Square meter units support. ([020330](https://github.com/jordanbrauer/unit-converter/commit/0203302b1365017d65202d389feec80dace39385))
+* Support conversion to Astronomical Units ([e85984](https://github.com/jordanbrauer/unit-converter/commit/e85984c10ecb07d0fd35fd4a285b8f198995e66e))
+* Support conversion to Decimeters ([3fc8d0](https://github.com/jordanbrauer/unit-converter/commit/3fc8d057b3cad6eec0f5f46175d245cf590a058b))
+* Support conversion to Feet ([fa2dc1](https://github.com/jordanbrauer/unit-converter/commit/fa2dc156bf97126eab9a71e18b781664fd1fa2f2))
+* Support conversion to Hands ([557d42](https://github.com/jordanbrauer/unit-converter/commit/557d426b95e94fc2eb460b1311ebf23877f163d4))
+* Support conversion to Kilometers ([aec822](https://github.com/jordanbrauer/unit-converter/commit/aec822907747e8f59a291f13a085e92092b2f15a))
+* Support conversion to Lightyears ([cf453c](https://github.com/jordanbrauer/unit-converter/commit/cf453c6c99ea431ab2cf3b049ea6c5268d78d574))
+* Support conversion to Micrometers ([0a1295](https://github.com/jordanbrauer/unit-converter/commit/0a1295350acd55ee2a59bef746a36ee6674c24ab))
+* Support conversion to Miles ([b37712](https://github.com/jordanbrauer/unit-converter/commit/b377122684f9b1717ce535b712ed63e438042f33))
+* Support conversion to Nanometers ([c9499c](https://github.com/jordanbrauer/unit-converter/commit/c9499c872bf92f626dfca723d562c6bab3cf5831))
+* Support conversion to Parsecs ([9dd754](https://github.com/jordanbrauer/unit-converter/commit/9dd7546f083c179ab76d74b857fe1af981ef1d97))
+* Support conversion to Picometers ([5ca7f5](https://github.com/jordanbrauer/unit-converter/commit/5ca7f5cdaf53e4675f532351210a5b400ae59604))
+* Support conversion to Yards ([d1196f](https://github.com/jordanbrauer/unit-converter/commit/d1196f67d80dd8ea6f51c725a45f9b87556a5140))
+* Unit registry class to store and retrieve supported units to/from ([4e241a](https://github.com/jordanbrauer/unit-converter/commit/4e241a1b5b0787b88ea8f55da378c1818225c1de))
+
+### Bug Fixes
+
+* Accidently had all classes be abstract ([a1dd98](https://github.com/jordanbrauer/unit-converter/commit/a1dd98c246da0fb3577de66f89c1e219e31d045c))
+* Add dump of conversion var for example file ([253813](https://github.com/jordanbrauer/unit-converter/commit/253813816ec379282cebd6815b77479c42814d27))
+* All units now use configure() method to configure data ([1bc90b](https://github.com/jordanbrauer/unit-converter/commit/1bc90be6b11e2d733975b706697b2943c4755141))
+* Configure method definition ([164746](https://github.com/jordanbrauer/unit-converter/commit/164746005c7ab943a2c83c9625f49239950fad03))
+* Docblock ([f870e2](https://github.com/jordanbrauer/unit-converter/commit/f870e2ca53e8d2ac61f44f246c06a400db1c2c09))
+* Improper namespace ([653256](https://github.com/jordanbrauer/unit-converter/commit/65325600786aa410dc3b9665c9b8b1d4ec97305a))
+* Included missing base LengthUnit file ([75c534](https://github.com/jordanbrauer/unit-converter/commit/75c53423f6a7d040653f9107a07519ebb04f9b5c))
+* Made LengthUnit abstract to prevent instantiation ([20297c](https://github.com/jordanbrauer/unit-converter/commit/20297c24eae9fdd0b3e65a47064978c728f55eb8))
+* Misnamed test file ([fd4656](https://github.com/jordanbrauer/unit-converter/commit/fd4656d9256f92be7446f904d53a5485176dfa93))
+* Name spelling ([5be4fe](https://github.com/jordanbrauer/unit-converter/commit/5be4fe397a70ef734de8443e6a7203a304f9135a))
+* Returned getter to being just that; a getter. ([08d9a8](https://github.com/jordanbrauer/unit-converter/commit/08d9a81fb182ad6c696541f4790a55853be6b210))
+* Swap units of miles and kilometres per hour ([055417](https://github.com/jordanbrauer/unit-converter/commit/055417b04f44d5bb7b443aab9e28438145b1fc91))
+* Using new ::configure() method over explicit value definitions ([35fadf](https://github.com/jordanbrauer/unit-converter/commit/35fadfc6d66dc88b58205567c0d3cf3bf74292b6))
+
+---
 
-- Revert "Robofile taskrunner" [\#79](https://github.com/jordanbrauer/unit-converter/pull/79) ([jordanbrauer](https://github.com/jordanbrauer))
-- Unit collection [\#76](https://github.com/jordanbrauer/unit-converter/pull/76) ([jordanbrauer](https://github.com/jordanbrauer))
-- Update: outdated readme info & add new info [\#74](https://github.com/jordanbrauer/unit-converter/pull/74) ([jordanbrauer](https://github.com/jordanbrauer))
-- Fix code styles [\#71](https://github.com/jordanbrauer/unit-converter/pull/71) ([jordanbrauer](https://github.com/jordanbrauer))
-
-## [v0.6.0](https://github.com/jordanbrauer/unit-converter/tree/v0.6.0) (2018-02-04)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.1...v0.6.0)
-
-**Closed issues:**
-
-- Need a New Pull Request template [\#62](https://github.com/jordanbrauer/unit-converter/issues/62)
-- Need a New Issue template [\#61](https://github.com/jordanbrauer/unit-converter/issues/61)
-
-**Merged pull requests:**
-
-- Release 0.6.0 [\#66](https://github.com/jordanbrauer/unit-converter/pull/66) ([jordanbrauer](https://github.com/jordanbrauer))
-- Fix binary calc [\#64](https://github.com/jordanbrauer/unit-converter/pull/64) ([jordanbrauer](https://github.com/jordanbrauer))
-- GitHub templates [\#63](https://github.com/jordanbrauer/unit-converter/pull/63) ([jordanbrauer](https://github.com/jordanbrauer))
-
-## [v0.5.1](https://github.com/jordanbrauer/unit-converter/tree/v0.5.1) (2017-11-14)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.5.0...v0.5.1)
-
-**Closed issues:**
-
-- Add missing unit of measurement integration tests  [\#59](https://github.com/jordanbrauer/unit-converter/issues/59)
-
-## [v0.5.0](https://github.com/jordanbrauer/unit-converter/tree/v0.5.0) (2017-11-13)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.4.1...v0.5.0)
-
-**Implemented enhancements:**
-
-- Dev documentation for API + examples [\#43](https://github.com/jordanbrauer/unit-converter/issues/43)
-- Include the use of bcmath for floating point precision [\#12](https://github.com/jordanbrauer/unit-converter/issues/12)
--  Feat: implement calculator into unit converter & unit calculate methods [\#53](https://github.com/jordanbrauer/unit-converter/pull/53) ([jordanbrauer](https://github.com/jordanbrauer))
-- Feat: add explicit calculator classes to handle all math related operations [\#52](https://github.com/jordanbrauer/unit-converter/pull/52) ([jordanbrauer](https://github.com/jordanbrauer))
-
-**Closed issues:**
-
-- Need a Changelog of sorts [\#28](https://github.com/jordanbrauer/unit-converter/issues/28)
-
-**Merged pull requests:**
-
-- Upgrade: pull in development changes [\#55](https://github.com/jordanbrauer/unit-converter/pull/55) ([jordanbrauer](https://github.com/jordanbrauer))
-
-## [v0.4.1](https://github.com/jordanbrauer/unit-converter/tree/v0.4.1) (2017-11-12)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.4.0...v0.4.1)
-
-**Implemented enhancements:**
-
-- Feat: add changelog [\#49](https://github.com/jordanbrauer/unit-converter/pull/49) ([jordanbrauer](https://github.com/jordanbrauer))
-
-**Closed issues:**
-
-- Need a Contributing Guide [\#27](https://github.com/jordanbrauer/unit-converter/issues/27)
-- Basic units of measurement for Energy \(Power\) [\#11](https://github.com/jordanbrauer/unit-converter/issues/11)
-- Basic units of measurement for Pressure [\#9](https://github.com/jordanbrauer/unit-converter/issues/9)
-- Basic units of measurement for Weight \(Mass\) [\#5](https://github.com/jordanbrauer/unit-converter/issues/5)
-
-**Merged pull requests:**
-
-- Documentation Fixes & Improvements [\#51](https://github.com/jordanbrauer/unit-converter/pull/51) ([jordanbrauer](https://github.com/jordanbrauer))
-- Fix: api docs [\#50](https://github.com/jordanbrauer/unit-converter/pull/50) ([jordanbrauer](https://github.com/jordanbrauer))
-
-## [v0.4.0](https://github.com/jordanbrauer/unit-converter/tree/v0.4.0) (2017-11-12)
-[Full Changelog](https://github.com/jordanbrauer/unit-converter/compare/v0.3.9-beta...v0.4.0)
-
-**Implemented enhancements:**
-
-- Add new unit property, "scientificSymbol" for special unicode character symbols [\#46](https://github.com/jordanbrauer/unit-converter/issues/46)
-- Hacktoberfest Development [\#48](https://github.com/jordanbrauer/unit-converter/pull/48) ([jordanbrauer](https://github.com/jordanbrauer))
-- Scientific Symbol Added [\#47](https://github.com/jordanbrauer/unit-converter/pull/47) ([luchianenco](https://github.com/luchianenco))
-- Added last weight measures [\#37](https://github.com/jordanbrauer/unit-converter/pull/37) ([teunw](https://github.com/teunw))
-- Added time measurements [\#35](https://github.com/jordanbrauer/unit-converter/pull/35) ([teunw](https://github.com/teunw))
-- Added millibar as pressure unit [\#34](https://github.com/jordanbrauer/unit-converter/pull/34) ([teunw](https://github.com/teunw))
-- Adding energy units [\#33](https://github.com/jordanbrauer/unit-converter/pull/33) ([andrewboerema](https://github.com/andrewboerema))
-- Implement Kilopascal and Megapascal and write tests [\#29](https://github.com/jordanbrauer/unit-converter/pull/29) ([arubacao](https://github.com/arubacao))
-
-**Fixed bugs:**
-
-- Fix: add missing self conversions for temperature units [\#31](https://github.com/jordanbrauer/unit-converter/pull/31) ([jordanbrauer](https://github.com/jordanbrauer))
-- remove composer.lock from repo and add it to .gitignore [\#30](https://github.com/jordanbrauer/unit-converter/pull/30) ([arubacao](https://github.com/arubacao))
-
-**Closed issues:**
-
-- Basic units of measurement for Time [\#10](https://github.com/jordanbrauer/unit-converter/issues/10)
-- Basic units of measurement for Temperature [\#8](https://github.com/jordanbrauer/unit-converter/issues/8)
-- Basic units of measurement for Speed [\#6](https://github.com/jordanbrauer/unit-converter/issues/6)
-- Basic units of measurement for Volume [\#4](https://github.com/jordanbrauer/unit-converter/issues/4)
-
-**Merged pull requests:**
-
-- Add first set of dev docs [\#44](https://github.com/jordanbrauer/unit-converter/pull/44) ([jordanbrauer](https://github.com/jordanbrauer))
-- Feat: add simple contributing guide for now \(\#27\) [\#36](https://github.com/jordanbrauer/unit-converter/pull/36) ([jordanbrauer](https://github.com/jordanbrauer))
-- Feature/improve travis file [\#32](https://github.com/jordanbrauer/unit-converter/pull/32) ([arubacao](https://github.com/arubacao))
-
-## [v0.3.9-beta](https://github.com/jordanbrauer/unit-converter/tree/v0.3.9-beta) (2017-10-11)
-**Implemented enhancements:**
-
-- Feat: add basic energy units [\#25](https://github.com/jordanbrauer/unit-converter/pull/25) ([jordanbrauer](https://github.com/jordanbrauer))
-- Units pressure [\#22](https://github.com/jordanbrauer/unit-converter/pull/22) ([jordanbrauer](https://github.com/jordanbrauer))
-- Units volume [\#21](https://github.com/jordanbrauer/unit-converter/pull/21) ([jordanbrauer](https://github.com/jordanbrauer))
-- Add support for units of temperature [\#18](https://github.com/jordanbrauer/unit-converter/pull/18) ([jordanbrauer](https://github.com/jordanbrauer))
-- Add support for units of speed [\#17](https://github.com/jordanbrauer/unit-converter/pull/17) ([jordanbrauer](https://github.com/jordanbrauer))
-- Support for Plane Angle units [\#16](https://github.com/jordanbrauer/unit-converter/pull/16) ([jordanbrauer](https://github.com/jordanbrauer))
-- Added package specific exception classes to handle uncaught exceptions [\#15](https://github.com/jordanbrauer/unit-converter/pull/15) ([jordanbrauer](https://github.com/jordanbrauer))
-- Add support for Area units of measure [\#13](https://github.com/jordanbrauer/unit-converter/pull/13) ([jordanbrauer](https://github.com/jordanbrauer))
-
-**Fixed bugs:**
-
-- Fix calc method [\#20](https://github.com/jordanbrauer/unit-converter/pull/20) ([jordanbrauer](https://github.com/jordanbrauer))
-- Fix: all units now use configure\(\) method to configure data [\#19](https://github.com/jordanbrauer/unit-converter/pull/19) ([jordanbrauer](https://github.com/jordanbrauer))
-- Fix: accidently had all classes be abstract [\#14](https://github.com/jordanbrauer/unit-converter/pull/14) ([jordanbrauer](https://github.com/jordanbrauer))
-
-**Closed issues:**
-
-- Basics units of measurement for Rotation [\#7](https://github.com/jordanbrauer/unit-converter/issues/7)
-- Basic units of measurement for Area [\#3](https://github.com/jordanbrauer/unit-converter/issues/3)
-- Custom ErrorException classes would be nice [\#2](https://github.com/jordanbrauer/unit-converter/issues/2)
-
-**Merged pull requests:**
-
-- Base working package [\#26](https://github.com/jordanbrauer/unit-converter/pull/26) ([jordanbrauer](https://github.com/jordanbrauer))
-- Revert "Units energy" [\#24](https://github.com/jordanbrauer/unit-converter/pull/24) ([jordanbrauer](https://github.com/jordanbrauer))
-- Units energy [\#23](https://github.com/jordanbrauer/unit-converter/pull/23) ([jordanbrauer](https://github.com/jordanbrauer))
-- MVP version of component [\#1](https://github.com/jordanbrauer/unit-converter/pull/1) ([jordanbrauer](https://github.com/jordanbrauer))
-
-
-
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*

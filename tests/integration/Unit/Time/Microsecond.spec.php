@@ -14,17 +14,24 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
 use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
-use UnitConverter\UnitConverter;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 
 /**
  * Ensure that a microsecond is infact, a microsecond.
  *
  * @covers UnitConverter\Unit\Time\Microsecond
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,43 +45,32 @@ use UnitConverter\UnitConverter;
  */
 class MicrosecondSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Microsecond(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MicrosecondIs0decimal000001Seconds()
-    {
-        $expected = 0.000001;
-        $actual = $this->converter
-            ->convert(1, 6)
-            ->from("us")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
-    }
-
     /**
      * @test
      */
     public function assertThatAMicrosecondIsASubmultipleSIUnit()
     {
         $result = (new Microsecond())->isSubmultipleSiUnit();
+
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
+    }
+
+    public function correctConversions(): Iterator
+    {
+        $us = new Microsecond(1);
+
+        yield from [
+            '1 microsecond is equal to 1,000 nanoseconds'           => [$us, new Nanosecond(1000.0), 0],
+            '1 microsecond is equal to 1 microseconds'              => [$us, new Microsecond(1.0), 0],
+            '1 microsecond is equal to 0.001 milliseconds'          => [$us, new Millisecond(0.001), 3],
+            '1 microsecond is equal to 0.000001 seconds'            => [$us, new Second(0.000001), 6],
+            '1 microsecond is equal to 0.0000000166670 minutes'     => [$us, new Minute(0.0000000166670), 13],
+            '1 microsecond is equal to 0.000000000277780 hours'     => [$us, new Hour(0.000000000277780), 15],
+            '1 microsecond is equal to 0.0000000000115740 days'     => [$us, new Day(0.0000000000115740), 16],
+            '1 microsecond is equal to 0.00000000000165340 weeks'   => [$us, new Week(0.00000000000165340), 17],
+            '1 microsecond is equal to 0.000000000000380520 months' => [$us, new Month(0.000000000000380520), 18],
+            '1 microsecond is equal to 0.00000000000003171 years'   => [$us, new Year(0.00000000000003171), 17],
+        ];
     }
 }

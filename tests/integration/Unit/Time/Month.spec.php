@@ -14,17 +14,25 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
 use UnitConverter\Unit\Time\Month;
+use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a month is infact, a month.
  *
  * @covers UnitConverter\Unit\Time\Month
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,36 +46,6 @@ use UnitConverter\UnitConverter;
  */
 class MonthSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Month(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MonthIs2678400Seconds()
-    {
-        $expected = 2678400;
-        $actual = $this->converter
-            ->convert(1)
-            ->from("mo")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
-    }
-
     /**
      * @test
      * @return void
@@ -114,5 +92,23 @@ class MonthSpec extends TestCase
             $this->assertFalse(Month::hasNumberOfDays($month, 30));
             $this->assertFalse(Month::hasNumberOfDays($month, 31));
         }
+    }
+
+    public function correctConversions(): Iterator
+    {
+        $mo = new Month(1);
+
+        yield from [
+            '1 month is equal to 2,628,000,000,000,000 nanoseconds' => [$mo, new Nanosecond(2628000000000000.0), 0],
+            '1 month is equal to 2,628,000,000,000 microseconds'    => [$mo, new Microsecond(2628000000000.0), 0],
+            '1 month is equal to 2,628,000,000 milliseconds'        => [$mo, new Millisecond(2628000000.0), 0],
+            '1 month is equal to 2,628,000 seconds'                 => [$mo, new Second(2628000.0), 0],
+            '1 month is equal to 43800 minutes'                     => [$mo, new Minute(43800.0), 0],
+            '1 month is equal to 730.001 hours'                     => [$mo, new Hour(730.0), 0],
+            '1 month is equal to 30.4167 days'                      => [$mo, new Day(30.4167), 4],
+            '1 month is equal to 4.34524 weeks'                     => [$mo, new Week(4.34524), 5],
+            '1 month is equal to 1 month'                           => [$mo, new Month(1.0), 0],
+            '1 month is equal to 0.083333 years'                    => [$mo, new Year(0.083333), 6],
+        ];
     }
 }

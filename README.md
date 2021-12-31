@@ -1,20 +1,17 @@
 # Unit Converter
 
-[![Latest Stable Version](https://poser.pugx.org/jordanbrauer/unit-converter/version?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
+[![Latest Stable Version](https://img.shields.io/packagist/v/jordanbrauer/unit-converter?color=257ec2&label=stable&style=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
 [![Latest Unstable Version](https://poser.pugx.org/jordanbrauer/unit-converter/v/unstable?format=flat-square)](//packagist.org/packages/jordanbrauer/unit-converter)
-[![CircleCI](https://img.shields.io/circleci/build/github/jordanbrauer/unit-converter/master?label=tests&style=flat-square)](https://circleci.com/gh/jordanbrauer/unit-converter/tree/master)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/unit-converter?color=8892be&style=flat-square)](https://secure.php.net/releases/)
+[![composer.lock available](https://poser.pugx.org/jordanbrauer/unit-converter/composerlock?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
+[![license](https://img.shields.io/github/license/jordanbrauer/unit-converter.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter/blob/master/LICENSE)
+
+[![CI Workflow](https://img.shields.io/github/workflow/status/jordanbrauer/unit-converter/CI?style=flat-square&label=tests)](https://github.com/jordanbrauer/unit-converter/actions?query=workflow%3ACI)
 [![Code Maintainability](https://img.shields.io/codeclimate/maintainability/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
 [![Code Coverage](https://img.shields.io/codeclimate/coverage/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
 [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter/issues)
-
-<!-- [![Maintainability](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/maintainability)](https://codeclimate.com/github/jordanbrauer/unit-converter/maintainability) -->
-<!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/0b4639967df0b1578734/test_coverage)](https://codeclimate.com/github/jordanbrauer/unit-converter/test_coverage) -->
-
-[![Maintenance](https://img.shields.io/maintenance/yes/2020.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
+[![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
 [![Packagist](https://img.shields.io/packagist/dt/jordanbrauer/unit-converter.svg?style=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/jordanbrauer/unit-converter.svg?style=flat-square)](https://secure.php.net/releases/)
-[![composer.lock available](https://poser.pugx.org/jordanbrauer/unit-converter/composerlock?format=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
-[![license](https://img.shields.io/github/license/jordanbrauer/unit-converter.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter/blob/master/LICENSE)
 
 <br />
 
@@ -122,7 +119,16 @@ if ($isOverSpeedLimit($capturedSpeed)) { # (bool) true
 }
 ```
 
-## Documentation
+#### Conversion Results as Words
+
+Sometimes you might need localization support for values. This component makes that a breeze by making using the `intl` extension. Simply opt for using the `spellout` method in lieu of `to`. You may also provide an optional locale as the second parameter to translate.
+
+```php
+$converter->convert(1)->from('in')->spellout('cm');       # (string) two point five four
+$converter->convert(1)->from('in')->spellout('cm', 'fr'); # (string) deux virgule cinq quatre
+```
+
+## 4. Documentation
 
 There are two kinds of in-depth documentation for this project: user & API documentation. Use whichever one you need to help answer your questions!
 

@@ -14,10 +14,17 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Energy;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Energy\Calorie;
+use UnitConverter\Unit\Energy\FootPound;
 use UnitConverter\Unit\Energy\Joule;
+use UnitConverter\Unit\Energy\Kilojoule;
+use UnitConverter\Unit\Energy\KilowattHour;
+use UnitConverter\Unit\Energy\Megaelectronvolt;
+use UnitConverter\Unit\Energy\Megajoule;
+use UnitConverter\Unit\Energy\MegawattHour;
+use UnitConverter\Unit\Energy\NewtonMetre;
 use UnitConverter\Unit\Energy\WattHour;
 use UnitConverter\UnitConverter;
 
@@ -25,6 +32,7 @@ use UnitConverter\UnitConverter;
  * Ensure that a joule is infact, a joule.
  *
  * @covers UnitConverter\Unit\Energy\WattHour
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Energy\Joule
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -36,35 +44,23 @@ use UnitConverter\UnitConverter;
  * @uses UnitConverter\Support\ArrayDotNotation
  * @uses UnitConverter\Support\Collection
  */
-class WattHourSpec extends TestCase
+final class WattHourSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Joule(),
-                new WattHour(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $wh = new WattHour(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1WattHourIs3600decimal0054468Joules()
-    {
-        $expected = 3600.0054468;
-        $actual = $this->converter
-            ->convert(1, 7)
-            ->from("Wh")
-            ->to("J");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 watt hour is equal to 1 watt hour'                 => [$wh, new WattHour(1.0), 0],
+            '1 watt hour is equal to 3,600 newton metres'         => [$wh, new NewtonMetre(3600.0), 0],
+            '1 watt hour is equal to 3,600 joules'                => [$wh, new Joule(3600.0), 0],
+            '1 watt hour is equal to 3.6 kilojoules'              => [$wh, new Kilojoule(3.6), 1],
+            '1 watt hour is equal to 0.0036 megajoules'           => [$wh, new Megajoule(0.0036), 4],
+            '1 watt hour is equal to 0.000001 megawatt hours'     => [$wh, new MegawattHour(0.000001), 6],
+            '1 watt hour is equal to 0.001 kilowatt hours'        => [$wh, new KilowattHour(0.001), 3],
+            '1 watt hour is equal to 0.85984522785899 calories'   => [$wh, new Calorie(0.860421), 6],
+            '1 watt hour is equal to 2655.2237373982 foot pounds' => [$wh, new FootPound(2655.2237373982), 20],
+            // '1 watt hour is equal to 1 megaelectronvolt' => [$wh, new Megaelectronvolt(1.0), 0],
+        ];
     }
 }

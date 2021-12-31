@@ -14,17 +14,25 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Time;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Time\Day;
+use UnitConverter\Unit\Time\Hour;
+use UnitConverter\Unit\Time\Microsecond;
+use UnitConverter\Unit\Time\Millisecond;
+use UnitConverter\Unit\Time\Minute;
+use UnitConverter\Unit\Time\Month;
 use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
+use UnitConverter\Unit\Time\Week;
+use UnitConverter\Unit\Time\Year;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a nanosecond is infact, a nanosecond.
  *
  * @covers UnitConverter\Unit\Time\Nanosecond
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Time\Second
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,36 +46,6 @@ use UnitConverter\UnitConverter;
  */
 class NanosecondSpec extends TestCase
 {
-    protected function setUp()
-    {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Second(),
-                new Nanosecond(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
-
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1NanosecondIs0decimal000000001Seconds()
-    {
-        $expected = 0.000000001;
-        $actual = $this->converter
-            ->convert(1, 9)
-            ->from("ns")
-            ->to("s");
-
-        $this->assertEquals($expected, $actual);
-    }
-
     /**
      * @test
      */
@@ -75,6 +53,24 @@ class NanosecondSpec extends TestCase
     {
         $result = (new Nanosecond())->isSubmultipleSiUnit();
         $this->assertTrue($result);
-        $this->assertInternalType("bool", $result);
+        $this->assertIsBool($result);
+    }
+
+    public function correctConversions(): Iterator
+    {
+        $ns = new Nanosecond(1);
+
+        yield from [
+            '1 nanoseconds is equal to 1 nanoseconds'                => [$ns, new Nanosecond(1.0), 0],
+            '1 nanoseconds is equal to 0.001 microseconds'           => [$ns, new Microsecond(0.001), 3],
+            '1 nanoseconds is equal to 0.000001 milliseconds'        => [$ns, new Millisecond(0.000001), 6],
+            '1 nanoseconds is equal to 0.000000001 seconds'          => [$ns, new Second(0.000000001), 9],
+            '1 nanoseconds is equal to 0.000000000016667 minutes'    => [$ns, new Minute(0.000000000016667), 15],
+            '1 nanoseconds is equal to 0.00000000000027778 hours'    => [$ns, new Hour(0.00000000000027778), 17],
+            '1 nanoseconds is equal to 0.000000000000011574 days'    => [$ns, new Day(0.000000000000011574), 18],
+            '1 nanoseconds is equal to 0.0000000000000016534 weeks'  => [$ns, new Week(0.0000000000000016534), 19],
+            '1 nanoseconds is equal to 0.00000000000000038052 month' => [$ns, new Month(0.00000000000000038052), 20],
+            '1 nanoseconds is equal to 0.00000000000000003171 years' => [$ns, new Year(0.00000000000000003171), 20],
+        ];
     }
 }

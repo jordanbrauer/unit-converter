@@ -27,6 +27,12 @@ use UnitConverter\Calculator\Formula\AbstractFormula;
 abstract class TemperatureFormula extends AbstractFormula
 {
     /**
+     * The value of absolute zero degrees Celsius in Kelvin. Useful for
+     * converting Kelvin values.
+     */
+    const ZERO_C_TO_K = 273.15;
+
+    /**
      * A common method for fahrenheit conversions.
      *
      * @param int|float|string $value

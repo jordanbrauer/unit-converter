@@ -14,17 +14,20 @@ declare(strict_types = 1);
 
 namespace UnitConverter\Tests\Integration\Unit\Volume;
 
-use PHPUnit\Framework\TestCase;
-use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Registry\UnitRegistry;
+use Iterator;
+use UnitConverter\Tests\TestCase;
+use UnitConverter\Unit\Volume\CubicMetre;
+use UnitConverter\Unit\Volume\Gallon;
 use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
+use UnitConverter\Unit\Volume\Pint;
 use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a millilitre is a millilitre.
  *
  * @covers UnitConverter\Unit\Volume\Millilitre
+ * @uses UnitConverter\ConverterBuilder
  * @uses UnitConverter\Unit\Volume\Litre
  * @uses UnitConverter\Unit\AbstractUnit
  * @uses UnitConverter\UnitConverter
@@ -38,33 +41,16 @@ use UnitConverter\UnitConverter;
  */
 class MillilitreSpec extends TestCase
 {
-    protected function setUp()
+    public function correctConversions(): Iterator
     {
-        $this->converter = new UnitConverter(
-            new UnitRegistry([
-                new Litre(),
-                new Millilitre(),
-            ]),
-            new SimpleCalculator()
-        );
-    }
+        $ml = new Millilitre(1);
 
-    protected function tearDown()
-    {
-        unset($this->converter);
-    }
-
-    /**
-     * @test
-     */
-    public function assert1MillilitreIs0decimal001Litres()
-    {
-        $expected = 0.001;
-        $actual = $this->converter
-            ->convert(1, 3)
-            ->from("mL")
-            ->to("L");
-
-        $this->assertEquals($expected, $actual);
+        yield from [
+            '1 millilitre is 1,000,000 cubic metres' => [$ml, new CubicMetre(0.000001), 6],
+            '1 millilitre is 0.000264172 gallons'    => [$ml, new Gallon(0.000264172), 9],
+            '1 millilitre is 0.001 litres'           => [$ml, new Litre(0.001), 3],
+            '1 millilitre is 1 millilitre'           => [$ml, new Millilitre(1.0), 0],
+            '1 millilitre is 0.00211338 pints'       => [$ml, new Pint(0.00211338), 8],
+        ];
     }
 }

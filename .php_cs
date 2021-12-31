@@ -339,7 +339,7 @@ return PhpCsFixer\Config::create()
       'function_declaration' => [
         'closure_function_spacing' => 'one',
       ],
-      'function_typehint_space' => true,
+      // 'function_typehint_space' => true,
       'no_spaces_after_function_name' => true,
 
       /*
