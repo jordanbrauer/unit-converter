@@ -4,6 +4,7 @@
 /bin export-ignore
 /docs export-ignore
 /tests export-ignore
+composer.lock
 .codeclimate.yml export-ignore
 .editorconfig export-ignore
 .env.example export-ignore

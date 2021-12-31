@@ -1,8 +1,8 @@
 {
     "name": "jordanbrauer/unit-converter",
-    "type": "component",
     "description": "Convert standard units from one to another with this easy to use, lightweight package",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "jordanbrauer",
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.1 || ^8.0",
+        "php": "^7.3 || ~8.0.0 || ~8.1.0",
         "ext-bcmath": "*",
         "ext-intl": "*"
     },
@@ -32,6 +32,12 @@
             "UnitConverter\\Tests\\": "tests/",
             "UnitConverter\\Tests\\Integration\\": "tests/integration/",
             "UnitConverter\\Tests\\Unit\\": "tests/unit/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true
         }
     }
 }

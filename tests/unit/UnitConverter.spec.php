@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
 use UnitConverter\Calculator\SimpleCalculator;
 use UnitConverter\ConverterBuilder;
 use UnitConverter\Exception\BadRegistry;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Measure;
 use UnitConverter\Registry\UnitRegistry;
 use UnitConverter\UnitConverter;
@@ -95,6 +96,21 @@ class UnitConverterSpec extends TestCase
             'two point five four',
             $this->converter->convert(1)->from('in')->spellout('cm'),
         );
+    }
+
+    /**
+     * @test
+     * @covers UnitConverter\Exception\BadUnit
+     */
+    public function assertConversionThrowsForCrossMeasurements(): void
+    {
+        $this->expectException(BadUnit::class);
+        $this->expectExceptionCode(BadUnit::ERROR_CONVERTING);
+
+        UnitConverter::default()
+            ->convert(1)
+            ->from('cm')
+            ->to('F');
     }
 
     /**

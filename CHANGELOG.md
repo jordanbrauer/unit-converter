@@ -4,6 +4,20 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [v0.8.7](https://github.com/jordanbrauer/unit-converter/compare/v0.8.6...vv0.8.7) (2021-04-08)
+
+
+### Features
+
+* Add lock recipe ([3ccd33](https://github.com/jordanbrauer/unit-converter/commit/3ccd3387ddd0fc9f02cdaba0ce2d9051c0aa1528))
+* Add method to spell conversion result(s) out in words (#171) ([ce303f](https://github.com/jordanbrauer/unit-converter/commit/ce303fbda7dd552e8e8ed22ddc50ec25be03e6d7))
+
+### Bug Fixes
+
+* Also push branch after the tag ([af2b44](https://github.com/jordanbrauer/unit-converter/commit/af2b44270cce9c69946f3e2112dc109bcbf7eaa2))
+
+---
+
 ## [v0.8.6](https://github.com/jordanbrauer/unit-converter/compare/v0.8.5...vv0.8.6) (2021-03-26)
 
 
@@ -68,8 +82,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-* Commit message missing version tag ([ed88b2](https://github.com/jordanbrauer/unit-converter/commit/ed88b203305ff08913990d36819e99d0ca6fb33c), [4d8cdf](https://github.com/jordanbrauer/unit-converter/commit/4d8cdf1b6b096d2cf266dd8d337d855d56db9e17))
-* Remove deprecated composer version key ([b683b7](https://github.com/jordanbrauer/unit-converter/commit/b683b793c252b97bb32a72de8a45d4cdb8c002e4), [013ead](https://github.com/jordanbrauer/unit-converter/commit/013ead47f049f954cb4cc3146663b1cdcc385d49))
+* Commit message missing version tag ([4d8cdf](https://github.com/jordanbrauer/unit-converter/commit/4d8cdf1b6b096d2cf266dd8d337d855d56db9e17), [ed88b2](https://github.com/jordanbrauer/unit-converter/commit/ed88b203305ff08913990d36819e99d0ca6fb33c))
+* Remove deprecated composer version key ([013ead](https://github.com/jordanbrauer/unit-converter/commit/013ead47f049f954cb4cc3146663b1cdcc385d49), [b683b7](https://github.com/jordanbrauer/unit-converter/commit/b683b793c252b97bb32a72de8a45d4cdb8c002e4))
 
 ---
 

@@ -15,10 +15,12 @@ declare(strict_types = 1);
 namespace UnitConverter;
 
 use NumberFormatter;
+use RuntimeException;
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadConverter;
+use UnitConverter\Exception\BadUnit;
 use UnitConverter\Registry\UnitRegistryInterface;
 use UnitConverter\Unit\UnitInterface;
 
@@ -58,7 +60,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * The unit of measure being converted **from**.
      *
-     * @var string $from
+     * @var UnitInterface $from
      */
     protected $from;
 
@@ -93,7 +95,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * The unit of measure being converted **to**.
      *
-     * @var string $to
+     * @var UnitInterface $to
      */
     protected $to;
 
@@ -357,6 +359,10 @@ class UnitConverter implements UnitConverterInterface
     {
         if (!$this->calculatorExists()) {
             throw BadConverter::missingCalculator();
+        }
+
+        if ($this->from->getUnitOf() !== $this->to->getUnitOf()) {
+            throw BadUnit::conversion($this->from, $this->to);
         }
 
         if ($this->conversionExists()) {
