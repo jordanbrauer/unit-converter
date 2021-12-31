@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter;
 
 use NumberFormatter;
+use RuntimeException;
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
@@ -58,7 +59,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * The unit of measure being converted **from**.
      *
-     * @var string $from
+     * @var UnitInterface $from
      */
     protected $from;
 
@@ -93,7 +94,7 @@ class UnitConverter implements UnitConverterInterface
     /**
      * The unit of measure being converted **to**.
      *
-     * @var string $to
+     * @var UnitInterface $to
      */
     protected $to;
 

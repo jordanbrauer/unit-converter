@@ -173,9 +173,9 @@ class BinaryCalculator extends AbstractCalculator
 
         return self::product(
             bcmod(
-            self::operand($dividend),
-            self::operand($modulus)
-        ),
+                self::operand($dividend),
+                self::operand($modulus)
+            ),
         );
     }
 

@@ -51,7 +51,7 @@ release: analysis docs changelog ## Release the version as defined in .version c
 
 style: vendor ## Format the source code and other documents in the repository
 	@composer normalize
-	@bin/phpcs fix --config=.php_cs --show-progress=dots --ansi -vvv
+	@PHP_CS_FIXER_IGNORE_ENV=1 bin/phpcs fix --config=.php_cs --show-progress=dots --ansi -vvv
 
 test: vendor ## Run tests
 	#@vendor/bin/phpunit --configuration=./phpunit.xml --testsuite=fullspec --color=always
