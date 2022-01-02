@@ -262,7 +262,7 @@ class UnitConverterSpec extends TestCase
      * @param string $symbol
      * @return array
      */
-    private function getPossibleConversionsFor(string $measurement, string $symbol): array
+    private function getPossibleConversionsFor(Measure $measurement, string $symbol): array
     {
         return array_filter(array_map(function ($class) use ($symbol) {
             $possibleConversion = (new $class())->getSymbol();

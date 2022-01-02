@@ -7,8 +7,8 @@ namespace UnitConverter;
 use UnitConverter\Calculator\BinaryCalculator;
 use UnitConverter\Calculator\CalculatorInterface;
 use UnitConverter\Calculator\SimpleCalculator;
-use UnitConverter\Exception\BadMeasurement;
 use UnitConverter\Registry\UnitRegistry;
+use UnitConverter\Unit\UnitInterface;
 
 class ConverterBuilder
 {
@@ -34,7 +34,7 @@ class ConverterBuilder
      */
     public function __construct()
     {
-        $this->defaultMeasurements = Measure::getDefaultMeasurements();
+        $this->defaultMeasurements = Measure::cases();
     }
 
     /**
@@ -69,10 +69,10 @@ class ConverterBuilder
      * type that are provided with this package.
      *
      * @api
-     * @param string $measurement The type of measurement to seed units for.
+     * @param Measure $measurement The type of measurement to seed units for.
      * @return self
      */
-    public function addRegistryFor(string $measurement)
+    public function addRegistryFor(Measure $measurement)
     {
         $this->registry = new UnitRegistry($this->instantiateAllUnitsFor($measurement));
 
@@ -123,13 +123,14 @@ class ConverterBuilder
      * Retrieve instances of all units.
      *
      * @internal
-     * @return array
+     * @return UnitInterface[]
      */
     private function instantiateAllUnits()
     {
-        $measurements = array_map(function (string $measurement) {
-            return $this->instantiateAllUnitsFor($measurement);
-        }, $this->defaultMeasurements);
+        $measurements = array_map(
+            fn (Measure $measurement): array => $this->instantiateAllUnitsFor($measurement),
+            $this->defaultMeasurements,
+        );
 
         return array_merge(...$measurements);
     }
@@ -138,17 +139,13 @@ class ConverterBuilder
      * Retrieve instances of all units for a given measurement type.
      *
      * @internal
-     * @param string $measurement
-     * @return array
+     * @return UnitInterface[]
      */
-    private function instantiateAllUnitsFor(string $measurement): array
+    private function instantiateAllUnitsFor(Measure $measurement): array
     {
-        if (!in_array($measurement, $this->defaultMeasurements)) {
-            throw BadMeasurement::unknown($measurement);
-        }
-
-        return array_map(function ($class) {
-            return new $class();
-        }, Measure::getDefaultUnitsFor($measurement));
+        return array_map(
+            static fn (string $fqcn): UnitInterface => new $fqcn(),
+            $measurement->units()
+        );
     }
 }

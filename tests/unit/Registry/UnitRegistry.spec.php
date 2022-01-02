@@ -24,6 +24,7 @@ use UnitConverter\Unit\Length\Inch;
 use UnitConverter\Unit\Length\Metre;
 use UnitConverter\Unit\Length\Millimetre;
 use UnitConverter\Unit\UnitInterface;
+use UnitConverter\Measure;
 
 /**
  * @coversDefaultClass UnitConverter\Registry\UnitRegistry
@@ -86,9 +87,11 @@ class UnitRegistrySpec extends TestCase
             "fuel_economy",
         ];
 
-        $this->assertEquals($expected, $actual);
         $this->assertIsArray($actual);
         $this->assertTrue((count($actual) > 0));
+        shuffle($expected);
+        shuffle($actual);
+        $this->assertEqualsCanonicalizing($expected, $actual);
     }
 
     /**
@@ -116,28 +119,6 @@ class UnitRegistrySpec extends TestCase
     {
         $this->assertTrue($this->registry->isMeasurementRegistered("length"));
         $this->assertFalse($this->registry->isMeasurementRegistered("saiyanPower"));
-    }
-
-    /**
-     * @test
-     * @covers UnitConverter\Exception\BadMeasurement
-     */
-    public function assertRegisteringUnitsUnderUnknownMeasurementsThrowsBadMeasurementException()
-    {
-        $this->expectException(BadMeasurement::class);
-        $this->expectExceptionCode(BadMeasurement::ERROR_UNKNOWN_MEASUREMENT);
-
-        $this->registry->registerUnit(new class() extends AbstractUnit {
-            protected function configure(): void
-            {
-                $this
-                    ->setName("testtt")
-                    ->setSymbol("Tst")
-                    ->setUnitOf("NO EXIST LOL")
-                    ->setBase(self::class)
-                    ->setUnits(1);
-            }
-        });
     }
 
     /**
@@ -176,7 +157,7 @@ class UnitRegistrySpec extends TestCase
                 $this
                     ->setName("saiyanPower")
                     ->setSymbol("sP")
-                    ->setUnitOf("energy")
+                    ->setUnitOf(Measure::ENERGY)
                     ->setBase(self::class)
                     ->setUnits(9001);
             }

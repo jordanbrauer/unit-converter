@@ -117,200 +117,226 @@ use UnitConverter\Unit\Volume\Litre;
 use UnitConverter\Unit\Volume\Millilitre;
 use UnitConverter\Unit\Volume\Pint;
 
+
 /**
- * A static class containing constants that define the available
- * default types of measurements & the units they govern.
+ * Governing bodies for a group of units.
  *
- * @version 1.0.0
+ * @version 2.0.0
  * @since 0.0.1
  * @author Jordan Brauer <18744334+jordanbrauer@users.noreply.github.com>
  * @codeCoverageIgnore
  */
-class Measure
+enum Measure: string
 {
-    const AREA = "area";
-
-    const DIGITAL_STORAGE = "digital_storage";
-
-    const ENERGY = "energy";
-
-    const FREQUENCY = 'frequency';
-
-    const FUEL_ECONOMY = 'fuel_economy';
-
-    const LENGTH = "length";
-
-    const MASS = "mass";
-
-    const PLANE_ANGLE = "plane_angle";
-
-    const PRESSURE = "pressure";
-
-    const SPEED = "speed";
-
-    const TEMPERATURE = "temperature";
-
-    const TIME = "time";
-
-    const VOLUME = "volume";
+    /**
+     * The geometric quantity of any given two-dimensional region, shape, or
+     * lanar lamina.
+     */
+    case AREA = 'area';
 
     /**
-     * An array containing a list of default measurement types that are
-     * supported, and the unit classes they govern.
-     *
-     * @var array
+     * The measurement of information stored on a piece of hardware or physical device.
      */
-    private static $defaultMeasurements = [
-        self::LENGTH => [
-            AstronomicalUnit::class,
-            Centimetre::class,
-            Decimetre::class,
-            Foot::class,
-            Hand::class,
-            Inch::class,
-            Kilometre::class,
-            Lightyear::class,
-            Metre::class,
-            Micrometre::class,
-            Mile::class,
-            Millimetre::class,
-            Nanometre::class,
-            Parsec::class,
-            Picometre::class,
-            Yard::class,
-        ],
-        self::AREA => [
-            Acre::class,
-            Hectare::class,
-            SquareCentimetre::class,
-            SquareFoot::class,
-            SquareKilometre::class,
-            SquareMetre::class,
-            SquareMile::class,
-            SquareMillimetre::class,
-        ],
-        self::VOLUME => [
-            CubicMetre::class,
-            CubicCentimetre::class,
-            CubicMillimetre::class,
-            Gallon::class,
-            Litre::class,
-            Millilitre::class,
-            Pint::class,
-        ],
-        self::MASS => [
-            Gram::class,
-            Kilogram::class,
-            LongTon::class,
-            Milligram::class,
-            Newton::class,
-            Ounce::class,
-            Pound::class,
-            ShortTon::class,
-            Stone::class,
-            Tonne::class,
-        ],
-        self::SPEED => [
-            KilometrePerHour::class,
-            MetrePerSecond::class,
-            MilePerHour::class,
-        ],
-        self::PLANE_ANGLE => [
-            Degree::class,
-            Radian::class,
-        ],
-        self::TEMPERATURE => [
-            Celsius::class,
-            Fahrenheit::class,
-            Kelvin::class,
-        ],
-        self::PRESSURE => [
-            Atmosphere::class,
-            Bar::class,
-            Hectopascal::class,
-            InchesOfMercury::class,
-            Kilopascal::class,
-            Megapascal::class,
-            Millibar::class,
-            Pascal::class,
-            PoundForcePerSquareInch::class,
-            Torr::class,
-        ],
-        self::TIME => [
-            Day::class,
-            Hour::class,
-            Microsecond::class,
-            Millisecond::class,
-            Minute::class,
-            Month::class,
-            Nanosecond::class,
-            Second::class,
-            Week::class,
-            Year::class,
-        ],
-        self::ENERGY => [
-            Calorie::class,
-            FootPound::class,
-            Joule::class,
-            Kilojoule::class,
-            KilowattHour::class,
-            Megaelectronvolt::class,
-            Megajoule::class,
-            MegawattHour::class,
-            NewtonMetre::class,
-            WattHour::class,
-        ],
-        self::FREQUENCY => [
-            Hertz::class,
-            Kilohertz::class,
-            Megahertz::class,
-            Gigahertz::class,
-            Terahertz::class,
-            Millihertz::class,
-        ],
-        self::DIGITAL_STORAGE => [
-            Bit::class,
-            Byte::class,
-            Kilobit::class,
-            Megabit::class,
-            Gigabit::class,
-            Terabit::class,
-            Kibibit::class,
-            Mebibit::class,
-            Gibibit::class,
-            Tebibit::class,
-            Kilobyte::class,
-            Megabyte::class,
-            Gigabyte::class,
-            Terabyte::class,
-        ],
-        self::FUEL_ECONOMY => [
-            KilometrePerLitre::class,
-            LitrePer100Kilometres::class,
-            MilesPerGallon::class,
-        ],
-    ];
+    case DIGITAL_STORAGE = 'digital_storage';
+
+    case ENERGY = 'energy';
+
+    case FREQUENCY = 'frequency';
+
+    case FUEL_ECONOMY = 'fuel_economy';
+
+    case LENGTH = 'length';
 
     /**
-     * Return a list of all default supported measurement types. These types
-     * govern unit's of measurement.
-     *
-     * @return array
+     * The quantity of matter in a physical body. It is also a measure of the body's inertia, the
+     * resistance to acceleration (change of velocity) when a net force is applied.
      */
-    public static function getDefaultMeasurements(): array
+    case MASS = 'mass';
+
+    case PLANE_ANGLE = 'plane_angle';
+
+    case PRESSURE = 'pressure';
+
+    case SPEED = 'speed';
+
+    case TEMPERATURE = 'temperature';
+
+    /**
+     * The measurement of the continued sequence of existence and events that occurs in an apparently
+     * irreversible succession from the past, through the present, into the future.
+     */
+    case TIME = 'time';
+
+    /**
+     * The measurement of three-dimensional space enclosed by a closed surface.
+     */
+    case VOLUME = 'volume';
+
+    /**
+     * @deprecated This method will be removed in a later version. Use the enum instance method `units` instead.
+     */
+    public static function getDefaultUnitsFor(string|Measure $measurement): array
     {
-        return array_keys(static::$defaultMeasurements) ?? [];
+        return (\is_string($measurement) ? self::from($measurement) : $measurement)->units();
     }
 
     /**
-     * Return a list of all default supported units for a given type of
-     * measurement.
-     *
-     * @param string $measurement The measurement type to retrieve units for.
-     * @return array
+     * @deprecated This method will be removed in a later version. Use the static method `all` instead.
      */
-    public static function getDefaultUnitsFor(string $measurement): array
+    public static function getDefaultMeasurements(): array
     {
-        return static::$defaultMeasurements[$measurement] ?? [];
+        return self::all();
+    }
+
+    /**
+     * A list containing the names of all measurements.
+     *
+     * @return string[]
+     */
+    public static function all(): array
+    {
+        return array_map(
+            static fn (self $measure): string => $measure->value,
+            self::cases()
+        );
+    }
+
+    /**
+     * A list containing the FQCN of every known unit governed by the measurement.
+     *
+     * @return string[]
+     */
+    public function units(): array
+    {
+        return match ($this) {
+            self::LENGTH => [
+                AstronomicalUnit::class,
+                Centimetre::class,
+                Decimetre::class,
+                Foot::class,
+                Hand::class,
+                Inch::class,
+                Kilometre::class,
+                Lightyear::class,
+                Metre::class,
+                Micrometre::class,
+                Mile::class,
+                Millimetre::class,
+                Nanometre::class,
+                Parsec::class,
+                Picometre::class,
+                Yard::class,
+            ],
+            self::AREA => [
+                Acre::class,
+                Hectare::class,
+                SquareCentimetre::class,
+                SquareFoot::class,
+                SquareKilometre::class,
+                SquareMetre::class,
+                SquareMile::class,
+                SquareMillimetre::class,
+            ],
+            self::VOLUME => [
+                CubicMetre::class,
+                CubicCentimetre::class,
+                CubicMillimetre::class,
+                Gallon::class,
+                Litre::class,
+                Millilitre::class,
+                Pint::class,
+            ],
+            self::MASS => [
+                Gram::class,
+                Kilogram::class,
+                LongTon::class,
+                Milligram::class,
+                Newton::class,
+                Ounce::class,
+                Pound::class,
+                ShortTon::class,
+                Stone::class,
+                Tonne::class,
+            ],
+            self::SPEED => [
+                KilometrePerHour::class,
+                MetrePerSecond::class,
+                MilePerHour::class,
+            ],
+            self::PLANE_ANGLE => [
+                Degree::class,
+                Radian::class,
+            ],
+            self::TEMPERATURE => [
+                Celsius::class,
+                Fahrenheit::class,
+                Kelvin::class,
+            ],
+            self::PRESSURE => [
+                Atmosphere::class,
+                Bar::class,
+                Hectopascal::class,
+                InchesOfMercury::class,
+                Kilopascal::class,
+                Megapascal::class,
+                Millibar::class,
+                Pascal::class,
+                PoundForcePerSquareInch::class,
+                Torr::class,
+            ],
+            self::TIME => [
+                Day::class,
+                Hour::class,
+                Microsecond::class,
+                Millisecond::class,
+                Minute::class,
+                Month::class,
+                Nanosecond::class,
+                Second::class,
+                Week::class,
+                Year::class,
+            ],
+            self::ENERGY => [
+                Calorie::class,
+                FootPound::class,
+                Joule::class,
+                Kilojoule::class,
+                KilowattHour::class,
+                Megaelectronvolt::class,
+                Megajoule::class,
+                MegawattHour::class,
+                NewtonMetre::class,
+                WattHour::class,
+            ],
+            self::FREQUENCY => [
+                Hertz::class,
+                Kilohertz::class,
+                Megahertz::class,
+                Gigahertz::class,
+                Terahertz::class,
+                Millihertz::class,
+            ],
+            self::DIGITAL_STORAGE => [
+                Bit::class,
+                Byte::class,
+                Kilobit::class,
+                Megabit::class,
+                Gigabit::class,
+                Terabit::class,
+                Kibibit::class,
+                Mebibit::class,
+                Gibibit::class,
+                Tebibit::class,
+                Kilobyte::class,
+                Megabyte::class,
+                Gigabyte::class,
+                Terabyte::class,
+            ],
+            self::FUEL_ECONOMY => [
+                KilometrePerLitre::class,
+                LitrePer100Kilometres::class,
+                MilesPerGallon::class,
+            ],
+        };
     }
 }

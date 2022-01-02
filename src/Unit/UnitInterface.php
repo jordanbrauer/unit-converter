@@ -15,6 +15,7 @@ declare(strict_types = 1);
 namespace UnitConverter\Unit;
 
 use UnitConverter\Calculator\Formula\FormulaInterface;
+use UnitConverter\Measure;
 
 /**
  * Interface for the unit of measurement abstract class.
@@ -172,10 +173,10 @@ interface UnitInterface
     /**
      * Sets the type of measurement that this unit is measuring.
      *
-     * @param string $unitOf The value to be set as the units governing unit
+     * @param Measure $unitOf The value to be set as the units governing unit
      * @return UnitInterface
      */
-    public function setUnitOf(string $unitOf): UnitInterface;
+    public function setUnitOf(Measure $unitOf): UnitInterface;
 
     /**
      * Sets the amount of base units required to make up 1 of the unit.
