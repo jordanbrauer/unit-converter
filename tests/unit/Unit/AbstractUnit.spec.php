@@ -45,7 +45,7 @@ class AbstractUnitSpec extends TestCase
 
     protected function setUp(): void
     {
-        $this->registryKey = Measure::LENGTH.".sP";
+        $this->registryKey = Measure::LENGTH->value.".sP";
         $this->unit = new class() extends AbstractUnit {
             protected $name = "saiyan power";
 
@@ -217,10 +217,10 @@ class AbstractUnitSpec extends TestCase
     public function assertGetUnitOfSetUnitOfMethodsCanReadAndWriteToUnitUnitOf()
     {
         $this->unit->setUnitOf(Measure::ENERGY);
-        $actual = $this->unit->getUnitOf();
+        $actual = Measure::from($this->unit->getUnitOf());
 
         $this->assertEquals(Measure::ENERGY, $actual);
-        $this->assertIsString($actual);
+        $this->assertInstanceOf(Measure::class, $actual);
     }
 
     /**

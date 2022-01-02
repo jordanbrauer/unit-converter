@@ -18,6 +18,7 @@ use OutOfRangeException;
 use UnitConverter\Calculator\Formula\FormulaInterface;
 use UnitConverter\Calculator\Formula\UnitConversionFormula;
 use UnitConverter\Exception\BadUnit;
+use UnitConverter\Measure;
 use UnitConverter\Unit\Family\SiMultipleUnit;
 use UnitConverter\Unit\Family\SiSubmultipleUnit;
 use UnitConverter\Unit\Family\SiUnit;
@@ -62,7 +63,7 @@ abstract class AbstractUnit implements UnitInterface
     protected $symbol;
 
     /**
-     * @var string $unitOf What is this unit measuring? Length, temperatutre, etc.
+     * @var Measure $unitOf What is this unit measuring? Length, temperatutre, etc.
      */
     protected $unitOf;
 
@@ -175,7 +176,7 @@ abstract class AbstractUnit implements UnitInterface
 
     public function getRegistryKey(): ?string
     {
-        return $this->unitOf.'.'.$this->symbol;
+        return $this->unitOf->value.'.'.$this->symbol;
     }
 
     public function getScientificSymbol(): ?string
@@ -190,7 +191,7 @@ abstract class AbstractUnit implements UnitInterface
 
     public function getUnitOf(): ?string
     {
-        return $this->unitOf;
+        return $this->unitOf->value;
     }
 
     public function getUnits(): ?float
@@ -246,7 +247,7 @@ abstract class AbstractUnit implements UnitInterface
         return $this;
     }
 
-    public function setUnitOf(string $unitOf): UnitInterface
+    public function setUnitOf(Measure $unitOf): UnitInterface
     {
         $this->unitOf = $unitOf;
 
