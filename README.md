@@ -10,7 +10,7 @@
 [![Code Maintainability](https://img.shields.io/codeclimate/maintainability/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
 [![Code Coverage](https://img.shields.io/codeclimate/coverage/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter)
 [![Technical Debt](https://img.shields.io/codeclimate/tech-debt/jordanbrauer/unit-converter.svg?style=flat-square)](https://codeclimate.com/github/jordanbrauer/unit-converter/issues)
-[![Maintenance](https://img.shields.io/maintenance/yes/2021.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
+[![Maintenance](https://img.shields.io/maintenance/yes/2022.svg?style=flat-square)](https://github.com/jordanbrauer/unit-converter)
 [![Packagist](https://img.shields.io/packagist/dt/jordanbrauer/unit-converter.svg?style=flat-square)](https://packagist.org/packages/jordanbrauer/unit-converter)
 
 <br />
