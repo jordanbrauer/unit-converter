@@ -19,10 +19,15 @@ use UnitConverter\Unit\Length\Metre;
 
 $unit = new class() extends AbstractUnit implements SiSubmultipleUnit {
     protected $base = Metre::class;
+
     protected $name = "saiyan power";
+
     protected $scientificsymbol = "ω·m";
+
     protected $symbol = "sp";
+
     protected $unitof = Measure::LENGTH;
+
     protected $units = 9001;
 };
 

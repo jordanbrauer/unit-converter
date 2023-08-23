@@ -18,11 +18,16 @@ use UnitConverter\Unit\Family\SiMultipleUnit;
 use UnitConverter\Unit\Length\Metre;
 
 $unit = new class() extends AbstractUnit implements SiMultipleUnit {
-    protected $name = "saiyan power";
-    protected $symbol = "sP";
-    protected $scientificSymbol = "Ω·m";
-    protected $unitOf = Measure::LENGTH;
     protected $base = Metre::class;
+
+    protected $name = "saiyan power";
+
+    protected $scientificSymbol = "Ω·m";
+
+    protected $symbol = "sP";
+
+    protected $unitOf = Measure::LENGTH;
+
     protected $units = 9001;
 };
 

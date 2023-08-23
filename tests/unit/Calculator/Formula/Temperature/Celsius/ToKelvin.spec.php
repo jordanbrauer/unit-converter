@@ -30,6 +30,8 @@ use UnitConverter\Unit\Length\Inch;
  */
 final class ToKelvinSpec extends TestCase
 {
+    public $calculator = null;
+
     public $formula = null;
 
     public $fromUnits = null;
@@ -37,8 +39,6 @@ final class ToKelvinSpec extends TestCase
     public $toUnits = null;
 
     public $value = null;
-
-    public $calculator = null;
 
     protected function setUp(): void
     {

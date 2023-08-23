@@ -30,9 +30,9 @@ use UnitConverter\UnitConverter;
  */
 class CalculatorResultsSpec extends TestCase
 {
-    public $simpleConverter = null;
-
     public $binaryConverter = null;
+
+    public $simpleConverter = null;
 
     protected function setUp(): void
     {
