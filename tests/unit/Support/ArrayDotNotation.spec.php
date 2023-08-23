@@ -23,6 +23,8 @@ use UnitConverter\Support\ArrayDotNotation;
  */
 class ArrayDotNotationSpec extends TestCase
 {
+    public $fake = null;
+
     protected function setUp(): void
     {
         $this->fake = new class() {

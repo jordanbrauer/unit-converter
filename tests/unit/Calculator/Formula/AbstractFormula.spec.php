@@ -32,6 +32,14 @@ use UnitConverter\Unit\Length\Inch;
  */
 final class AbstractFormulaSpec extends TestCase
 {
+    public $formula = null;
+
+    public $fromUnits = null;
+
+    public $toUnits = null;
+
+    public $value = null;
+
     protected function setUp(): void
     {
         $this->formula = new class(new SimpleCalculator()) extends AbstractFormula {

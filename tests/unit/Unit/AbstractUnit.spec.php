@@ -43,6 +43,10 @@ class AbstractUnitSpec extends TestCase
 {
     const RESULT_SAIYAN_POWER_TO_INCHES = 354370.08;
 
+    public $registryKey = null;
+
+    public $unit = null;
+
     protected function setUp(): void
     {
         $this->registryKey = Measure::LENGTH.".sP";

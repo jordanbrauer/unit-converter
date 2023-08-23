@@ -38,6 +38,8 @@ use UnitConverter\UnitConverter;
  */
 class InchesOfMercurySpec extends TestCase
 {
+    public $converter = null;
+
     protected function setUp(): void
     {
         $this->converter = new UnitConverter(

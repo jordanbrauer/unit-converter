@@ -30,6 +30,16 @@ use UnitConverter\Unit\Length\Inch;
  */
 final class ToCelsiusSpec extends TestCase
 {
+    public $formula = null;
+
+    public $fromUnits = null;
+
+    public $toUnits = null;
+
+    public $value = null;
+
+    public $calculator = null;
+
     protected function setUp(): void
     {
         $this->calculator = new SimpleCalculator();

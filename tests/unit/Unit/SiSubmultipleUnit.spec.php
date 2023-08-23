@@ -12,52 +12,21 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace UnitConverter\Tests\Unit\Unit;
-
-use PHPUnit\Framework\TestCase;
 use UnitConverter\Measure;
 use UnitConverter\Unit\AbstractUnit;
 use UnitConverter\Unit\Family\SiSubmultipleUnit;
 use UnitConverter\Unit\Length\Metre;
 
-/**
- * @coversDefaultClass UnitConverter\Unit\AbstractUnit
- * @uses UnitConverter\Unit\AbstractUnit
- * @uses UnitConverter\Unit\Family\SiSubmultipleUnit
- * @uses UnitConverter\Unit\Length\Inch
- */
-class SiSubmultipleUnitSpec extends TestCase
-{
-    protected function setUp(): void
-    {
-        $this->unit = new class() extends AbstractUnit implements SiSubmultipleUnit {
-            protected $name = "saiyan power";
+$unit = new class() extends AbstractUnit implements SiSubmultipleUnit {
+    protected $base = Metre::class;
+    protected $name = "saiyan power";
+    protected $scientificsymbol = "ω·m";
+    protected $symbol = "sp";
+    protected $unitof = Measure::LENGTH;
+    protected $units = 9001;
+};
 
-            protected $symbol = "sP";
-
-            protected $scientificSymbol = "Ω·m";
-
-            protected $unitOf = Measure::LENGTH;
-
-            protected $base = Metre::class;
-
-            protected $units = 9001;
-        };
-    }
-
-    protected function tearDown(): void
-    {
-        unset($this->unit);
-    }
-
-    /**
-     * @test
-     * @covers ::isMultipleSiUnit
-     */
-    public function assertSiSubmultipleUnitsAreSiBaseUnitsWhenChecking()
-    {
-        $result = $this->unit->isSubmultipleSiUnit();
-        $this->assertTrue($result);
-        $this->assertIsBool($result);
-    }
-}
+test('SI submultiple units are SI base units')
+    ->expect($unit)
+    ->isSubmultipleSiUnit()
+    ->toBeTrue();

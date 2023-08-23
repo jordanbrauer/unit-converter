@@ -25,6 +25,8 @@ use UnitConverter\Calculator\SimpleCalculator;
  */
 class SimpleCalculatorSpec extends TestCase
 {
+    public $calculator = null;
+
     protected function setUp(): void
     {
         $this->calculator = new SimpleCalculator();
