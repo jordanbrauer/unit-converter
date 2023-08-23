@@ -4,8 +4,21 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
-## [v0.8.7](https://github.com/jordanbrauer/unit-converter/compare/v0.8.6...vv0.8.7) (2021-04-08)
+## [0.9.0](https://github.com/jordanbrauer/unit-converter/compare/v0.8.8...v0.9.0) (2023-08-23)
 
+### Bug Fixes
+
+* Add environment variable to analysis check ([521dd3](https://github.com/jordanbrauer/unit-converter/commit/521dd3da1efd389e27f6cb32605a1120e66d52f2))
+
+
+---
+
+## [0.8.8](https://github.com/jordanbrauer/unit-converter/compare/v0.8.7...v0.8.8) (2021-12-29)
+
+
+---
+
+## [0.8.7](https://github.com/jordanbrauer/unit-converter/compare/v0.8.6...v0.8.7) (2021-04-29)
 
 ### Features
 
@@ -16,88 +29,88 @@ All notable changes to this project will be documented in this file.
 
 * Also push branch after the tag ([af2b44](https://github.com/jordanbrauer/unit-converter/commit/af2b44270cce9c69946f3e2112dc109bcbf7eaa2))
 
+
 ---
 
-## [v0.8.6](https://github.com/jordanbrauer/unit-converter/compare/v0.8.5...vv0.8.6) (2021-03-26)
-
+## [0.8.6](https://github.com/jordanbrauer/unit-converter/compare/v0.8.5...v0.8.6) (2021-03-26)
 
 ### Features
 
 * Replace Robofile with Makefile (#170) ([1f7e63](https://github.com/jordanbrauer/unit-converter/commit/1f7e6350c73846d6f9d28ca5deece3b5c942b4b4))
 
----
-
-## [v0.8.5](https://github.com/jordanbrauer/unit-converter/compare/v0.8.4...vv0.8.5) (2021-03-25)
-
 
 ---
 
-## [v0.8.4](https://github.com/jordanbrauer/unit-converter/compare/v0.8.3...vv0.8.4) (2020-04-27)
+## [0.8.5](https://github.com/jordanbrauer/unit-converter/compare/v0.8.4...v0.8.5) (2021-03-25)
 
 
 ---
 
-## [v0.8.3](https://github.com/jordanbrauer/unit-converter/compare/v0.8.2...vv0.8.3) (2019-08-16)
+## [0.8.4](https://github.com/jordanbrauer/unit-converter/compare/v0.8.3...v0.8.4) (2020-04-27)
 
 
 ---
 
-## [v0.8.2](https://github.com/jordanbrauer/unit-converter/compare/v0.8.1...vv0.8.2) (2019-07-25)
+## [0.8.3](https://github.com/jordanbrauer/unit-converter/compare/v0.8.2...v0.8.3) (2019-08-16)
 
 
 ---
 
-## [v0.8.1](https://github.com/jordanbrauer/unit-converter/compare/v0.8.0...vv0.8.1) (2018-12-09)
+## [0.8.2](https://github.com/jordanbrauer/unit-converter/compare/v0.8.1...v0.8.2) (2019-07-25)
 
 
 ---
 
-## [v0.8.0](https://github.com/jordanbrauer/unit-converter/compare/v0.7.1...vv0.8.0) (2018-08-06)
+## [0.8.1](https://github.com/jordanbrauer/unit-converter/compare/v0.8.0...v0.8.1) (2018-12-09)
 
 
 ---
 
-## [v0.7.1](https://github.com/jordanbrauer/unit-converter/compare/v0.7.0...vv0.7.1) (2018-08-03)
+## [0.8.0](https://github.com/jordanbrauer/unit-converter/compare/v0.7.1...v0.8.0) (2018-08-06)
 
 
 ---
 
-## [v0.7.0](https://github.com/jordanbrauer/unit-converter/compare/v0.6.7...vv0.7.0) (2018-05-06)
+## [0.7.1](https://github.com/jordanbrauer/unit-converter/compare/v0.7.0...v0.7.1) (2018-08-03)
 
 
 ---
 
-## [v0.6.7](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...vv0.6.7) (2018-05-05)
+## [0.7.0](https://github.com/jordanbrauer/unit-converter/compare/v0.6.7...v0.7.0) (2018-05-06)
 
 
 ---
 
-## [v0.6.2-rc](https://github.com/jordanbrauer/unit-converter/compare/v0.6.1...vv0.6.2-rc) (2018-05-05)
+## [0.6.7](https://github.com/jordanbrauer/unit-converter/compare/v0.6.2-rc...v0.6.7) (2018-05-05)
 
 
 ---
 
-## [v0.6.1](https://github.com/jordanbrauer/unit-converter/compare/v0.6.0...vv0.6.1) (2018-05-05)
+## [0.6.2-rc](https://github.com/jordanbrauer/unit-converter/compare/v0.6.1...v0.6.2-rc) (2018-05-05)
 
+
+---
+
+## [0.6.1](https://github.com/jordanbrauer/unit-converter/compare/v0.6.0...v0.6.1) (2018-05-05)
 
 ### Bug Fixes
 
 * Commit message missing version tag ([4d8cdf](https://github.com/jordanbrauer/unit-converter/commit/4d8cdf1b6b096d2cf266dd8d337d855d56db9e17), [ed88b2](https://github.com/jordanbrauer/unit-converter/commit/ed88b203305ff08913990d36819e99d0ca6fb33c))
 * Remove deprecated composer version key ([013ead](https://github.com/jordanbrauer/unit-converter/commit/013ead47f049f954cb4cc3146663b1cdcc385d49), [b683b7](https://github.com/jordanbrauer/unit-converter/commit/b683b793c252b97bb32a72de8a45d4cdb8c002e4))
 
+
 ---
 
-## [v0.6.0](https://github.com/jordanbrauer/unit-converter/compare/v0.5.1...vv0.6.0) (2018-02-03)
-
+## [0.6.0](https://github.com/jordanbrauer/unit-converter/compare/v0.5.1...v0.6.0) (2018-02-03)
 
 ### Bug Fixes
 
 * Typo ([7687d1](https://github.com/jordanbrauer/unit-converter/commit/7687d1a5747b65d6bce3a6e8359045fbc5c54e6e))
 
+
 ---
 
-## [v0.5.1](https://github.com/jordanbrauer/unit-converter/compare/v0.5.0...vv0.5.1) (2017-11-14)
-
+## [0.5.1](https://github.com/jordanbrauer/unit-converter/compare/v0.5.0...v0.5.1) (2017-11-14)
 
 ### Bug Fixes
 
@@ -111,29 +124,29 @@ All notable changes to this project will be documented in this file.
 * Spelling of millilitre unit class ([6b4ee9](https://github.com/jordanbrauer/unit-converter/commit/6b4ee9ccfc376d807afdd6c1979e59eb9098abd9))
 * Test docblock descriptions ([730a21](https://github.com/jordanbrauer/unit-converter/commit/730a217af07d40eb1e6ee2bbc1af97f2374cce6d))
 
----
-
-## [v0.5.0](https://github.com/jordanbrauer/unit-converter/compare/v0.4.1...vv0.5.0) (2017-11-13)
-
 
 ---
 
-## [v0.4.1](https://github.com/jordanbrauer/unit-converter/compare/v0.4.0...vv0.4.1) (2017-11-11)
+## [0.5.0](https://github.com/jordanbrauer/unit-converter/compare/v0.4.1...v0.5.0) (2017-11-13)
 
 
 ---
 
-## [v0.4.0](https://github.com/jordanbrauer/unit-converter/compare/v0.3.9-beta...vv0.4.0) (2017-11-11)
+## [0.4.1](https://github.com/jordanbrauer/unit-converter/compare/v0.4.0...v0.4.1) (2017-11-11)
 
+
+---
+
+## [0.4.0](https://github.com/jordanbrauer/unit-converter/compare/v0.3.9-beta...v0.4.0) (2017-11-11)
 
 ### Bug Fixes
 
 * Add missing Time unit in list of supported units ([0e370f](https://github.com/jordanbrauer/unit-converter/commit/0e370f320fed91fe0b0e4a11809661da6a7144db))
 
+
 ---
 
-## [v0.3.9-beta](https://github.com/jordanbrauer/unit-converter/compare/6fc1d0a4faface380dded5ec94c3de3fb5ea7224...vv0.3.9-beta) (2017-10-10)
-
+## [0.3.9-beta](https://github.com/jordanbrauer/unit-converter/compare/6fc1d0a4faface380dded5ec94c3de3fb5ea7224...v0.3.9-beta) (2017-10-10)
 
 ### Features
 
@@ -206,6 +219,7 @@ All notable changes to this project will be documented in this file.
 * Returned getter to being just that; a getter. ([08d9a8](https://github.com/jordanbrauer/unit-converter/commit/08d9a81fb182ad6c696541f4790a55853be6b210))
 * Swap units of miles and kilometres per hour ([055417](https://github.com/jordanbrauer/unit-converter/commit/055417b04f44d5bb7b443aab9e28438145b1fc91))
 * Using new ::configure() method over explicit value definitions ([35fadf](https://github.com/jordanbrauer/unit-converter/commit/35fadfc6d66dc88b58205567c0d3cf3bf74292b6))
+
 
 ---
 

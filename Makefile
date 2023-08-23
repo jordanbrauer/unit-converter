@@ -24,7 +24,7 @@ analysis: vendor ## Analyze the source code and manifest document(s)
 changelog: $(changelog) ## Generate a new changelog for versions defined in .version config
 $(changelog): vendor .version
 	@git tag $(VERSION)
-	@/usr/bin/php -f vendor/bin/conventional-changelog -- \
+	@php -f vendor/bin/conventional-changelog -- \
 		--history \
 		--from-tag="$(VERSION_INITIAL)" \
 		--to-tag="$(VERSION_LATEST)" \
@@ -43,7 +43,7 @@ docs: $(wildcard src/*.php) $(wildcard src/**/*.php) ## Generate a new set of do
 lock: vendor
 	@composer update --lock --ignore-platform-reqs
 
-release: analysis docs changelog ## Release the version as defined in .version config
+release: analysis changelog ## Release the version as defined in .version config
 	@git commit -am "chore(release): $(VERSION)"
 	@git tag $(VERSION)
 	@git push origin $(VERSION)
