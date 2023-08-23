@@ -17,8 +17,7 @@
   "require-dev": {
     "ergebnis/composer-normalize": "^2.28.3",
     "marcocesarato/php-conventional-changelog": "^1.13",
-    "pestphp/pest": "^1.0",
-    "phpunit/phpunit": "^9.5",
+    "pestphp/pest": "v1.23.1",
     "symfony/var-dumper": "^3.3"
   },
   "autoload": {
