@@ -15,7 +15,7 @@
     "ext-intl": "*"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "^2.28.3",
+    "ergebnis/composer-normalize": "2.20.0",
     "marcocesarato/php-conventional-changelog": "^1.13",
     "pestphp/pest": "v1.23.1",
     "symfony/var-dumper": "^3.3"
