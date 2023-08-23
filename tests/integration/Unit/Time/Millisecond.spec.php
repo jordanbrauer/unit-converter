@@ -61,16 +61,16 @@ class MillisecondSpec extends TestCase
         $ms = new Millisecond(1);
 
         yield from [
-            '1 millisecond is equal to 1,000,000 nanoseconds'    => [$ms, new Nanosecond(1000000.0), 0],
-            '1 millisecond is equal to 1,000 microseconds'       => [$ms, new Microsecond(1000.0), 0],
-            '1 millisecond is equal to 1 milliseconds'           => [$ms, new Millisecond(1.0), 0],
-            '1 millisecond is equal to 0.001 seconds'            => [$ms, new Second(0.001), 3],
-            '1 millisecond is equal to 0.000016667 minutes'      => [$ms, new Minute(0.000016667), 9],
-            '1 millisecond is equal to 0.00000027778 hours'      => [$ms, new Hour(0.00000027778), 12],
-            '1 millisecond is equal to 0.0000000115740 days'     => [$ms, new Day(0.0000000115740), 13],
-            '1 millisecond is equal to 0.00000000165340 weeks'   => [$ms, new Week(0.00000000165340), 14],
-            '1 millisecond is equal to 0.000000000380520 months' => [$ms, new Month(0.000000000380520), 15],
-            '1 millisecond is equal to 0.000000000031710 years'  => [$ms, new Year(0.000000000031710), 15],
+            '1 millisecond is equal to 1,000,000 nanoseconds'     => [$ms, new Nanosecond(1000000.0), 0],
+            '1 millisecond is equal to 1,000 microseconds'        => [$ms, new Microsecond(1000.0), 0],
+            '1 millisecond is equal to 1 milliseconds'            => [$ms, new Millisecond(1.0), 0],
+            '1 millisecond is equal to 0.001 seconds'             => [$ms, new Second(0.001), 3],
+            '1 millisecond is equal to 0.000016667 minutes'       => [$ms, new Minute(0.000016667), 9],
+            '1 millisecond is equal to 0.000000277778 hours'      => [$ms, new Hour(0.000000277778), 12],
+            '1 millisecond is equal to 0.000000011574 days'       => [$ms, new Day(0.000000011574), 12],
+            '1 millisecond is equal to 0.0000000016534 weeks'     => [$ms, new Week(0.0000000016534), 13],
+            '1 millisecond is equal to 0.00000000038052 months'   => [$ms, new Month(0.00000000038052), 14],
+            '1 millisecond is equal to 0.000000000031710 years'   => [$ms, new Year(0.000000000031710), 15],
         ];
     }
 }

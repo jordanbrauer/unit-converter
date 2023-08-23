@@ -56,7 +56,7 @@ class SquareMillimetreSpec extends TestCase
             '1 square millimetre is equal to 0.000000000001 square kilometres' => [$mm2, new SquareKilometre(0.000000000001), 12],
             '1 square millimetre is equal to 0.0000107640 square foot'         => [$mm2, new SquareFoot(0.000010764), 9],
             '1 square millimetre is equal to 0.0000000001 hectare'             => [$mm2, new Hectare(0.0000000001), 10],
-            '1 square millimetre is equal to 0.000000000247110 acre'           => [$mm2, new Acre(0.000000000247110), 15],
+            '1 square millimetre is equal to 0.00000000024711 acre'            => [$mm2, new Acre(0.00000000024711), 14],
         ];
     }
 }

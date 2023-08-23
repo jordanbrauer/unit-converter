@@ -50,7 +50,7 @@ class PascalSpec extends TestCase
         yield from [
             '1 pascal is equal to 1 pascal'                                => [$pa, new Pascal(1.0), 0],
             '1 pascal is equal to 0.00750064 torr'                         => [$pa, new Torr(0.00750064), 8],
-            '1 pascal is equal to 0.00000986920 atmosphere'                => [$pa, new Atmosphere(0.00000986920), 11],
+            '1 pascal is equal to 0.0000098692 atmosphere'                 => [$pa, new Atmosphere(0.0000098692), 10],
             '1 pascal is equal to 0.01 millibar'                           => [$pa, new Millibar(0.01), 2],
             '1 pascal is equal to 0.001 kilopascal'                        => [$pa, new Kilopascal(0.001), 3],
             '1 pascal is equal to 0.000145038 pound-force per square inch' => [$pa, new PoundForcePerSquareInch(0.000145038), 9],
