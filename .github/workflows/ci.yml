@@ -102,4 +102,4 @@ jobs:
         run: "composer install --no-interaction --no-progress --no-suggest --ignore-platform-req=php"
 
       - name: Test
-        run: vendor/bin/phpunit
+        run: vendor/bin/pest
