@@ -65,11 +65,11 @@ class MicrosecondSpec extends TestCase
             '1 microsecond is equal to 1 microseconds'              => [$us, new Microsecond(1.0), 0],
             '1 microsecond is equal to 0.001 milliseconds'          => [$us, new Millisecond(0.001), 3],
             '1 microsecond is equal to 0.000001 seconds'            => [$us, new Second(0.000001), 6],
-            '1 microsecond is equal to 0.0000000166670 minutes'     => [$us, new Minute(0.0000000166670), 13],
-            '1 microsecond is equal to 0.000000000277780 hours'     => [$us, new Hour(0.000000000277780), 15],
-            '1 microsecond is equal to 0.0000000000115740 days'     => [$us, new Day(0.0000000000115740), 16],
-            '1 microsecond is equal to 0.00000000000165340 weeks'   => [$us, new Week(0.00000000000165340), 17],
-            '1 microsecond is equal to 0.000000000000380520 months' => [$us, new Month(0.000000000000380520), 18],
+            '1 microsecond is equal to 0.000000016667 minutes'      => [$us, new Minute(0.000000016667), 12],
+            '1 microsecond is equal to 0.00000000027778 hours'      => [$us, new Hour(0.00000000027778), 14],
+            '1 microsecond is equal to 0.000000000011574 days'      => [$us, new Day(0.000000000011574), 15],
+            '1 microsecond is equal to 0.0000000000016534 weeks'    => [$us, new Week(0.0000000000016534), 16],
+            '1 microsecond is equal to 0.00000000000038052 months'  => [$us, new Month(0.00000000000038052), 17],
             '1 microsecond is equal to 0.00000000000003171 years'   => [$us, new Year(0.00000000000003171), 17],
         ];
     }

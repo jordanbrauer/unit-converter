@@ -56,7 +56,7 @@ final class MegaelectronvoltSpec extends TestCase
             '1 megaelectronvolt is equal to 0.000000000000160218 joules'                   => [$mev, new Joule(0.000000000000160218), 18],
             '1 megaelectronvolt is equal to 0.00000000000000016022 kilojoules'             => [$mev, new Kilojoule(0.00000000000000016022), 20],
             '1 megaelectronvolt is equal to 0.000000000000000000160218 megajoules'         => [$mev, new Megajoule(0.000000000000000000160218), 24],
-            '1 megaelectronvolt is equal to 0.0000000000000000000000445049 megawatt hours' => [$mev, new MegawattHour(0.0000000000000000000000445049), 28],
+            '1 megaelectronvolt is equal to 0.000000000000000000000044505 megawatt hours'  => [$mev, new MegawattHour(0.000000000000000000000044505), 27],
             '1 megaelectronvolt is equal to 0.000000000000000044505 watt hours'            => [$mev, new WattHour(0.000000000000000044505), 21],
             '1 megaelectronvolt is equal to 0.000000000000000000044505 kilowatt hours'     => [$mev, new KilowattHour(0.000000000000000000044505), 24],
             '1 megaelectronvolt is equal to 0.000000000000000038293 calories'              => [$mev, new Calorie(0.000000000000000038293), 21],

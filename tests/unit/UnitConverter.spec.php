@@ -54,6 +54,8 @@ use UnitConverter\UnitConverter;
  */
 class UnitConverterSpec extends TestCase
 {
+    public $converter = null;
+
     protected function setUp(): void
     {
         $this->converter = UnitConverter::createBuilder()

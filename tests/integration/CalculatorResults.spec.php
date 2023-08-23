@@ -30,6 +30,10 @@ use UnitConverter\UnitConverter;
  */
 class CalculatorResultsSpec extends TestCase
 {
+    public $binaryConverter = null;
+
+    public $simpleConverter = null;
+
     protected function setUp(): void
     {
         $registry = new UnitRegistry([

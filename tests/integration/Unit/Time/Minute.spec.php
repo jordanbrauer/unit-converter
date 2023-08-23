@@ -26,7 +26,6 @@ use UnitConverter\Unit\Time\Nanosecond;
 use UnitConverter\Unit\Time\Second;
 use UnitConverter\Unit\Time\Week;
 use UnitConverter\Unit\Time\Year;
-use UnitConverter\UnitConverter;
 
 /**
  * Ensure that a minute is infact, a minute.
@@ -60,7 +59,7 @@ class MinuteSpec extends TestCase
             '1 minute is equal to 0.000694444 days'           => [$m, new Day(0.000694444), 9],
             '1 minute is equal to 0.000099206 weeks'          => [$m, new Week(0.000099206), 9],
             '1 minute is equal to 0.000022831 months'         => [$m, new Month(0.000022831), 9],
-            '1 minute is equal to 0.00000190260 years'        => [$m, new Year(0.00000190260), 11],
+            '1 minute is equal to 0.0000019026 years'         => [$m, new Year(0.0000019026), 10],
         ];
     }
 }

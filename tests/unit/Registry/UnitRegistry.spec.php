@@ -38,6 +38,8 @@ use UnitConverter\Unit\UnitInterface;
  */
 class UnitRegistrySpec extends TestCase
 {
+    public $registry = null;
+
     protected function setUp(): void
     {
         $this->registry = new UnitRegistry([

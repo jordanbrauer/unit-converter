@@ -25,6 +25,8 @@ use UnitConverter\Calculator\BinaryCalculator;
  */
 class BinaryCalculatorSpec extends TestCase
 {
+    public $calculator = null;
+
     protected function setUp(): void
     {
         $this->calculator = new BinaryCalculator();

@@ -56,7 +56,7 @@ class SquareCentimetreSpec extends TestCase
             '1 square centimetre is equal to 0.0000000001 square kilometres' => [$cm2, new SquareKilometre(0.0000000001), 10],
             '1 square centimetre is equal to 0.00107639 square feet'         => [$cm2, new SquareFoot(0.00107639), 8],
             '1 square centimetre is equal to 0.00000001 hectare'             => [$cm2, new Hectare(0.00000001), 8],
-            '1 square centimetre is equal to 0.0000000247110 acre'           => [$cm2, new Acre(0.0000000247110), 13],
+            '1 square centimetre is equal to 0.000000024711 acre'            => [$cm2, new Acre(0.000000024711), 12],
         ];
     }
 }

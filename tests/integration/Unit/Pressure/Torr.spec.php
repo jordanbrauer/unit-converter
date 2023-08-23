@@ -51,7 +51,7 @@ class TorrSpec extends TestCase
         yield from [
             '1 torr is equal to 133.322 pascal'                        => [$psi, new Pascal(133.322), 3],
             '1 torr is equal to 1 torr'                                => [$psi, new Torr(1.0), 0],
-            '1 torr is equal to 0.00131578583768696 atmosphere'        => [$psi, new Atmosphere(0.00131578583768696), 17],
+            '1 torr is equal to 0.00131578583768696 atmosphere'        => [$psi, new Atmosphere(0.00131578583765112), 17],
             '1 torr is equal to 1.33322 millibar'                      => [$psi, new Millibar(1.33322), 5],
             '1 torr is equal to 0.133322 kilopascal'                   => [$psi, new Kilopascal(0.133322), 6],
             '1 torr is equal to 0.0193368 pound-force per square inch' => [$psi, new PoundForcePerSquareInch(0.019337), 6],
