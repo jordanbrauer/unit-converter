@@ -10,9 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.3 || ^8.0",
-        "ext-bcmath": "*",
-        "ext-intl": "*"
+        "php": "^7.3 || ^8.0"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "2.20.0",
@@ -38,5 +36,9 @@
             "pestphp/pest-plugin": true
         }
     },
-    "version": "0.9.0"
+    "version": "0.9.0",
+    "suggest": {
+        "ext-bcmath": "Needed to enable usage of BinaryCalculator",
+        "ext-intl": "Needed to support spellout() feature of UnitConverter"
+    }
 }
