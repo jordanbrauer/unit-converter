@@ -77,13 +77,29 @@ abstract class AbstractUnit implements UnitInterface
     protected $value;
 
     /**
+     * The variant (or "flavour") of the current unit instance. This determines
+     * it's amount of units and is meant to be used for
+     *
+     * @var string
+     */
+    protected $variant;
+
+    /**
+     * A cached version of the unit instance's registry key.
+     *
+     * @var string
+     */
+    private $cachedRegistryKey;
+
+    /**
      * Public constructor function for units of measurement.
      *
      * @param int|float|string $value The amount of units to be reprsented by the final object as.
      */
-    public function __construct($value = 1)
+    public function __construct($value = 1, ?string $variant = null)
     {
         $this->value = $value;
+        $this->variant = $variant;
         $this->formulae = [
             self::RESERVED_FORMULA => UnitConversionFormula::class,
         ];
@@ -175,7 +191,12 @@ abstract class AbstractUnit implements UnitInterface
 
     public function getRegistryKey(): ?string
     {
-        return $this->unitOf.'.'.$this->symbol;
+        return $this->cachedRegistryKey
+            ?? $this->cachedRegistryKey = implode('.', array_filter([
+                $this->unitOf,
+                $this->symbol,
+                $this->variant,
+            ]));
     }
 
     public function getScientificSymbol(): ?string
